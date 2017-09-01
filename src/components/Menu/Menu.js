@@ -29,6 +29,5 @@ class Menu extends Component {
 }
 
 export default connect(props => ({
-  menuFetch: `/entity/menu/${props.type}/tree?_format=json`,
+  menuFetch: `${props.source}/entity/menu/${props.type}/tree?_format=json`,
 }))(Menu);
-// export default Menu;

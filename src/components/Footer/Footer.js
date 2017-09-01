@@ -41,7 +41,7 @@ class Footer extends Component {
     return (
       <footer style={styles} role="contentinfo">
         <div className="region region-footer cr-footer">
-          <Menu type="footer"/>
+          <Menu type="footer" source={this.props.source}/>
         </div>
         <div style={styles.footer__copyright}>
           <p style={styles.p}>{this.copy}</p>

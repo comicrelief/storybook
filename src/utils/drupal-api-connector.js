@@ -1,7 +1,6 @@
 import {connect} from 'react-refetch'
 import urlJoin from 'url-join'
 
-const baseUrl = 'http://pr-292-ip25kiy-3g6y4v7pqt6nk.eu.platform.sh/';
 const cache = new Map();
 
 export default connect.defaults({
@@ -12,9 +11,7 @@ export default connect.defaults({
       redirect: mapping.redirect,
       body: mapping.body
     };
-
-
-    return new Request(urlJoin(baseUrl, mapping.url), options);
+    return new Request(mapping.url, options);
   },
 
   fetch: function (input, init) {
