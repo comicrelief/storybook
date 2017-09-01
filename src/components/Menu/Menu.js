@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import connect from '../../api-connector';
+// import connect from '../../api-connector';
 import MenuLink from "./MenuLink/MenuLink";
 import './menu.scss';
 
@@ -28,6 +28,7 @@ class Menu extends Component {
 
 }
 
-export default connect(props => ({
-  menuFetch: `/entity/menu/${props.type}/tree?_format=json`,
-}))(Menu);
+// export default connect(props => ({
+//   menuFetch: `/entity/menu/${props.type}/tree?_format=json`,
+// }))(Menu);
+export default Menu;
