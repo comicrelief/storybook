@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Menu from "./Menu/Menu";
 import './footer.scss'
 
 const styles ={
@@ -30,17 +31,17 @@ const styles ={
 
 class Footer extends Component {
 
-  // constructor() {
-  //   super();
-  //   this.copy = 'Comic Relief 2017. Comic Relief, registered charity 326568 (England/Wales); SC039730 (Scotland)';
-  // }
+  constructor() {
+    super();
+    this.copy = 'Comic Relief 2017. Comic Relief, registered charity 326568 (England/Wales); SC039730 (Scotland)';
+  }
 
   render() {
 
     return (
       <footer style={styles} role="contentinfo">
         <div className="region region-footer cr-footer">
-          nav
+          <Menu />
         </div>
         <div style={styles.footer__copyright}>
           <p style={styles.p}>{this.copy}</p>
