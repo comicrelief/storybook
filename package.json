@@ -5,8 +5,10 @@
   "dependencies": {
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
+    "react-refetch": "^1.0.0",
     "react-router-dom": "^4.2.2",
-    "react-scripts": "1.0.12"
+    "react-scripts": "1.0.12",
+    "url-join": "^2.0.2"
   },
   "scripts": {
     "start": "react-scripts start",
