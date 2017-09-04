@@ -15,11 +15,13 @@ class Menu extends Component {
   render() {
     if (this.props.menuFetch.fulfilled) {
       return (
-        <ul className="menu sm main-nav__items menu--level-0" id={this.props.type + '-menu'}>
-          {this.props.menuFetch.value.map((item,key) => {
-            return <MenuLink item={item} key={key}/>;
-          })}
-        </ul>
+        <nav role="navigation" className="menu--footer">
+          <ul className="menu" id={this.props.type + '-menu'}>
+            {this.props.menuFetch.value.map((item,key) => {
+              return <MenuLink item={item} key={key}/>;
+            })}
+          </ul>
+        </nav>
       )
     }
 
