@@ -3,10 +3,14 @@
   "description": "React components to build the Comic Relief front-end experience",
   "version": "0.0.1",
   "dependencies": {
+    "@comicrelief/pattern-lab": "^5.10.7",
+    "node-sass": "^4.5.3",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-refetch": "^1.0.0",
     "react-scripts": "1.0.12",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.18.2",
     "url-join": "^2.0.2"
   },
   "scripts": {
