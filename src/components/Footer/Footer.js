@@ -3,23 +3,6 @@ import Menu from "../Menu/Menu";
 import './footer.scss'
 
 const styles ={
-  width: "100vw",
-  backgroundColor: "#2B2D2E",
-  fontFamily: "Roboto",
-  p: {
-    fontSize: 15,
-    fontWeight: "400",
-    color: "#ffffff",
-    marginBottom: "1.5vh",
-  },
-  footer__copyright: {
-    backgroundColor: "#484848",
-    fontFamily: "Roboto",
-    width: "100%",
-    border: "none",
-    marginBottom: "1vh",
-    borderRadius: "3px",
-  },
   footer__branding: {
     height: "20%",
     width: "100px",
@@ -43,7 +26,7 @@ class Footer extends Component {
         <div className="region region-footer cr-footer">
           <Menu type="footer" source={this.props.source}/>
         </div>
-        <div style={styles.footer__copyright}>
+        <div className="footer__copyright">
           <p style={styles.p}>{this.copy}</p>
         </div>
         <div style={styles.footer__branding}>
