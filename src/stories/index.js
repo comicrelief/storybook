@@ -19,7 +19,7 @@ storiesOf('Button', module)
 
 storiesOf('Footer', module)
 	.addDecorator(withKnobs)
-  .add('Red Nose Day', 
+  .add('Comic Relief', 
   	withInfo('doc string about my component')(() => {
   		const copy = text('Copy', 'copyright 2017');
   		const source = 'http://pr-292-ip25kiy-3g6y4v7pqt6nk.eu.platform.sh/';
