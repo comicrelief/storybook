@@ -1,0 +1,23 @@
+/* Small breakpoint */
+$screen-sm: 0px;
+$screen-sm-min: $screen-sm;
+$screen-sm-max: 739px;
+
+/* Medium breakpoint */
+$screen-md: 740px;
+$screen-md-min: $screen-md;
+$screen-md-max: 1023px;
+
+$screen-md-only: $screen-md $screen-md-max;
+
+/* Large breakpoint */
+$screen-lg: 1024px;
+$screen-lg-min: $screen-lg;
+
+@import "~@comicrelief/pattern-lab/sass/base/core/_base-breakpoints.scss";
+@import "~@comicrelief/pattern-lab/sass/base/core/_base-1-mixins.scss";
+@import "~@comicrelief/pattern-lab/sass/base/variables/_colours.scss";
+@import "~@comicrelief/pattern-lab/sass/base/variables/_typography.scss";
+
+@import "~@comicrelief/pattern-lab/sass/base/components/footer/_footer.scss";
+@import "~@comicrelief/pattern-lab/sass/base/components/navigation/_footer-nav.scss";
