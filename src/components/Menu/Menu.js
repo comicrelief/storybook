@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import connect from '../../utils/drupal-api-connector';
-import MenuLink from "./MenuLink/MenuLink";
+import MenuLink from './MenuLink/MenuLink';
 import './menu.scss';
 
 /**
