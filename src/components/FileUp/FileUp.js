@@ -10,6 +10,7 @@ class FileUp extends Component {
       files: [],
     };
     this.handleImageReset = this.handleImageReset.bind(this);
+    this.onDrop = this.onDrop.bind(this);
   }
 
   onDrop(files) {
@@ -64,7 +65,7 @@ class FileUp extends Component {
               className="dropzone"
               multiple
               accept="image/*"
-              onDrop={this.onDrop.bind(this)}
+              onDrop={this.onDrop}
             >
               <p className="font--centre">Drop image here or <br />click to upload <br /></p>
               <p className="cross">&#43;</p>
