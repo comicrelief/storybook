@@ -13,9 +13,10 @@ class FileUp extends Component {
 
     onDrop(files) {
         console.log(files.length);
-        if (files.length > this.props.maxFiles) {
+        let max = this.props.maxFiles;
+        if (files.length > max) {
             this.setState({
-                error: `You can only upload max 7 files`
+                error: `You can only upload max ` + max + ` files`
             });
         } else {
             this.setState({
