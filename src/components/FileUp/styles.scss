@@ -17,12 +17,12 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: "GT-Walsheim-Regular";
+    font-family: "GT-Walsheim-Regular", helvetica,arial,sans-serif;
     -webkit-font-smoothing: antialiased;
 }
 strong,
 b {
-    font-family: 'GT-Walsheim-Bold';
+    font-family: 'GT-Walsheim-Bold', helvetica,arial,sans-serif;
 }
 
 .bg--dark-blue {
@@ -63,7 +63,7 @@ p {
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 2px;
-    font-family: 'GT-Walsheim-Bold';
+    font-family: 'GT-Walsheim-Bold', helvetica,arial,sans-serif;
     img {
         border: 4px solid grey;
     }
@@ -91,7 +91,7 @@ p {
     flex-direction: column;
     transition: 2s all;
     cursor: pointer;
-    font-family: 'GT-Walsheim-Bold';
+    font-family: 'GT-Walsheim-Bold', helvetica,arial,sans-serif;
 }
 .cross {
     color: grey;
@@ -134,10 +134,10 @@ img {
 }
 .fuga__img-uploaded img,
 .fuga__thank-you img {
-    max-height: 190px;
-    -o-object-fit: contain;
-    object-fit: contain;
-    max-width: 300px;
+    height: 100px;
+    -o-object-fit: cover;
+    object-fit: cover;
+    width: 100px;
 }
 .fuga__thank-you {
     border: solid 5px #fbef51;
@@ -156,7 +156,7 @@ img {
     text-transform: uppercase;
     color: #fbef51;
     margin: 20px 0;
-    font-family: 'GT-Walsheim-Bold';
+    font-family: 'GT-Walsheim-Bold', helvetica,arial,sans-serif;
 }
 
 .link {
@@ -164,7 +164,7 @@ img {
     font-size: 14px;
     color: #000000;
     border-bottom: 3px solid grey;
-    font-family: 'GT-Walsheim-Bold';
+    font-family: 'GT-Walsheim-Bold', helvetica,arial,sans-serif;
 }
 .link:hover {
     border-bottom: 3px solid #fbef51;
