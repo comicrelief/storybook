@@ -1,4 +1,4 @@
-# Comic Relief Storybook [![NPM version][npm-image]][npm-url]
+# Comic Relief Storybook [![NPM version][npm-image]][npm-url] [![Build Status](https://travis-ci.org/comicrelief/storybook.svg)](https://travis-ci.org/comicrelief/storybook)
 > React components to build the Comic Relief front-end experience
 
 ### Installation
