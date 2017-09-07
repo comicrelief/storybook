@@ -12,7 +12,6 @@ class FileUp extends Component {
     }
 
     onDrop(files) {
-        console.log(files.length);
         let max = this.props.maxFiles;
         if (files.length > max) {
             this.setState({
@@ -20,7 +19,8 @@ class FileUp extends Component {
             });
         } else {
             this.setState({
-                files
+                files,
+                error: ''
             });
         }
     }
