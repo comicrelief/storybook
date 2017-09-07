@@ -1,0 +1,11 @@
+language: node_js
+
+node_js:
+  - 'stable'
+
+env:
+  global:
+    - SLS_DEBUG=true
+
+script:
+    - eslint .

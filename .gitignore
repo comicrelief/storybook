@@ -1,5 +1,8 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
+# PHPStorm / WebStorm ignore
+.idea
+
 # dependencies
 /node_modules
 
