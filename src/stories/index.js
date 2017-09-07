@@ -10,6 +10,7 @@ import { withKnobs, text, boolean, number } from '@storybook/addon-knobs';
 import { withInfo } from '@storybook/addon-info';
 
 import Footer from '../components/Footer/Footer';
+import FileUp from '../components/FileUp/FileUp';
 
 storiesOf('Welcome', module).add('to Storybook', () => <Welcome showApp={linkTo('Button')} />);
 
@@ -25,4 +26,12 @@ storiesOf('Footer', module)
   		const source = 'http://pr-292-ip25kiy-3g6y4v7pqt6nk.eu.platform.sh/';
   		return (<Footer copy={copy} source={source}/>);
   	})
-  )
+  );
+
+storiesOf('File Upload', module)
+    .addDecorator(withKnobs)
+    .add('Single',
+        withInfo('Single file upload')(() => {
+            return (<FileUp/>);
+        })
+    );
