@@ -7,14 +7,13 @@ class FileUp extends Component {
     constructor() {
         super();
         this.state = {
-            files: [],
-            maxFiles: 5
+            files: []
         }
     }
 
     onDrop(files) {
         console.log(files.length);
-        if (files.length > this.state.maxFiles) {
+        if (files.length > this.props.maxFiles) {
             this.setState({
                 error: `You can only upload max 7 files`
             });
@@ -43,7 +42,7 @@ class FileUp extends Component {
             <section>
                 <div className="dropzone__wrapper">
                     <p className="font--centre">Upload designs as separate files.<br/>
-                    Maximum {this.state.maxFiles} designs per school<br/>
+                    Maximum {this.props.maxFiles} designs per school<br/>
                     File types accepted: JPG, PNG and PDF.</p>
                     {this.state.files.length > 0 ?
                         <div className="fuga__img-uploaded">
@@ -55,7 +54,7 @@ class FileUp extends Component {
                             )}
                         </div>
                         : null}
-                    {this.state.files.length < this.state.maxFiles ?
+                    {this.state.files.length < this.props.maxFiles ?
                     <Dropzone
                         className="dropzone"
                         multiple={true}

@@ -31,7 +31,8 @@ storiesOf('Footer', module)
 storiesOf('File Upload', module)
     .addDecorator(withKnobs)
     .add('Single',
-        withInfo('Single file upload')(() => {
-            return (<FileUp/>);
+        withInfo('File upload')(() => {
+            const maxFiles = number('Max Files', 5);
+            return (<FileUp maxFiles={maxFiles}/>);
         })
     );
