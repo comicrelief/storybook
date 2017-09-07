@@ -13,16 +13,23 @@ class FileUp extends Component {
     }
 
     onDrop(files) {
-        this.setState({
-            files
-        });
+        console.log(files.length);
+        if (files.length > this.state.maxFiles) {
+            this.setState({
+                error: `You can only upload max 7 files`
+            });
+        } else {
+            this.setState({
+                files
+            });
+        }
     }
 
     handleImageReset(e) {
         e.preventDefault();
 
-        var array = this.state.files;
-        var index = array.indexOf(e.target.value)
+        let array = this.state.files;
+        let index = array.indexOf(e.target.value);
         array.splice(index, 1);
 
         this.setState({
@@ -66,6 +73,6 @@ class FileUp extends Component {
             </section>
         );
     }
-};
+}
 
 export default FileUp;
