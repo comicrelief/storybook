@@ -15,17 +15,32 @@ class FileUp extends Component {
 
   onDrop(files) {
     const max = this.props.maxFiles;
-    files = [...this.state.files, ...files];
+    const filesCombined = [... this.state.files, ...files];
 
     if (files.length > max) {
       this.setState({
         error: `You can only upload max ${max} files`,
       });
     } else {
-      this.setState({
-        files,
-        error: '',
+      let dupe = false;
+      files.forEach((file1) => {
+        this.state.files.forEach((file2) => {
+          if (file1.name === file2.name) {
+            dupe = true;
+          }
+        });
       });
+
+      if (dupe) {
+        this.setState({
+          error: 'You cannot upload the same file twice. Please try again',
+        });
+      } else {
+        this.setState({
+          files: filesCombined,
+          error: '',
+        });
+      }
     }
   }
 
