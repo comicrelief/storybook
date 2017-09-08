@@ -16,7 +16,6 @@ class FileUp extends Component {
   }
 
   onDrop(files, rejected) {
-    console.log(rejected);
     const max = this.props.maxFiles;
     const filesCombined = [...this.state.files, ...files];
 
@@ -97,10 +96,10 @@ class FileUp extends Component {
             : null}
           {this.state.rejected.length > 0 ?
             <div>
-              <p>One or more files were rejected</p>
+              <p>Rejected file(s), wrong types</p>
               <ul>
                 {
-                  this.state.rejected.map(f => <li key={f.name}>{f.name} - {f.size} bytes</li>)
+                  this.state.rejected.map(f => <li key={f.name}>{f.name}</li>)
                 }
               </ul>
             </div>
