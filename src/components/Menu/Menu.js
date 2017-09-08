@@ -7,7 +7,6 @@ import './menu.scss';
  * Menu class
  */
 class Menu extends Component {
-
   /**
    * render
    * @return {XML}
@@ -16,18 +15,15 @@ class Menu extends Component {
     if (this.props.menuFetch.fulfilled) {
       return (
         <nav role="navigation" className="menu--footer">
-          <ul className="menu" id={this.props.type + '-menu'}>
-            {this.props.menuFetch.value.map((item,key) => {
-              return <MenuLink item={item} key={key}/>;
-            })}
+          <ul className="menu" id={`${this.props.type}-menu`}>
+            {this.props.menuFetch.value.map((item, key) => <MenuLink item={item} key={key} />)}
           </ul>
         </nav>
-      )
+      );
     }
 
-    return <div/>;
+    return <div />;
   }
-
 }
 
 export default connect(props => ({
