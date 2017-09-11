@@ -82,7 +82,7 @@ class FileUp extends Component {
             </div>
             : null}
           {this.state.files.length < this.props.maxFiles ?
-            <div>
+            <label><span className="visuallyhidden">click to upload</span>
               <Dropzone
                 className="dropzone"
                 multiple
@@ -92,7 +92,7 @@ class FileUp extends Component {
                 <p className="font--centre">Drop image here or <br />click to upload <br /></p>
                 <p className="cross">&#43;</p>
               </Dropzone>
-            </div>
+            </label>
             : null}
           {this.state.rejected.length > 0 ?
             <div>
