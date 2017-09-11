@@ -81,19 +81,6 @@ class FileUp extends Component {
               )}
             </div>
             : null}
-          {this.state.files.length < this.props.maxFiles ?
-            <label><span className="visuallyhidden">click to upload</span>
-              <Dropzone
-                className="dropzone"
-                multiple
-                accept="image/*, application/pdf"
-                onDrop={this.onDrop}
-              >
-                <p className="font--centre">Drop image here or <br />click to upload <br /></p>
-                <p className="cross">&#43;</p>
-              </Dropzone>
-            </label>
-            : null}
           {this.state.rejected.length > 0 ?
             <div>
               <p>Rejected file(s), wrong types</p>
@@ -106,6 +93,19 @@ class FileUp extends Component {
             : null}
           {this.state.error ?
             <p className="font--small font--centre error">{this.state.error}</p>
+            : null}
+          {this.state.files.length < this.props.maxFiles ?
+            <label><span className="visuallyhidden">click to upload</span>
+              <Dropzone
+                className="dropzone"
+                multiple
+                accept="image/*, application/pdf"
+                onDrop={this.onDrop}
+              >
+                <p className="font--centre">Drop image here or <br />click to upload <br /></p>
+                <p className="cross">&#43;</p>
+              </Dropzone>
+            </label>
             : null}
         </div>
       </section>
