@@ -1,22 +1,23 @@
 import React from 'react';
-
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
-
-import { Button, Welcome } from '@storybook/react/demo';
-
 import { withKnobs, text, boolean, number } from '@storybook/addon-knobs';
 import { withInfo } from '@storybook/addon-info';
-
 import Footer from '../components/Footer/Footer';
 import SchoolsLookUp from '../components/SchoolsLookUp/SchoolsLookUp';
 
-storiesOf('Welcome', module).add('to Storybook', () => <Welcome showApp={linkTo('Button')} />);
+storiesOf('Welcome', module).add('to Storybook', () => <h1>Welcome to CR Storybook</h1>);
 
-storiesOf('Button', module)
-  .add('with text', () => <Button onClick={action('clicked')}>Hello Button</Button>)
-  .add('with some emoji', () => <Button onClick={action('clicked')}>😀 😎 👍 💯</Button>);
+storiesOf('SchoolsLookUp', module)
+  .addDecorator(withKnobs)
+  .add('Schools Look Up',
+    withInfo('A schools address look up field')(() => {
+      const min = number('MinLenght', 3)
+      const endpoint = text('Endpoint', 'https://bilw38ca93.execute-api.eu-west-1.amazonaws.com/production/schools/lookup?query=');
+      return (<SchoolsLookUp data={endpoint} min={min} />);
+    }),
+  );
 
 storiesOf('Footer', module)
   .addDecorator(withKnobs)
@@ -32,15 +33,5 @@ storiesOf('Footer', module)
       const copy = text('Copy', 'copyright 2018');
       const source = 'http://pr-23-avxieja-wf5gj4v6kiu2o.eu.platform.sh';
       return (<Footer copy={copy} source={source}/>);
-    }),
-  );
-
-storiesOf('SchoolsLookUp', module)
-  .addDecorator(withKnobs)
-  .add('Schools Look Up',
-    withInfo('A schools address look up field')(() => {
-      const min = number('MinLenght', 3)
-      const endpoint = text('Endpoint', 'https://bilw38ca93.execute-api.eu-west-1.amazonaws.com/production/schools/lookup?query=');
-      return (<SchoolsLookUp data={endpoint} min={min} />);
     }),
   );
