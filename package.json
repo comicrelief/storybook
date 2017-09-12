@@ -4,8 +4,10 @@
   "version": "0.0.2",
   "dependencies": {
     "@comicrelief/pattern-lab": "^5.10.7",
+    "axios": "^0.16.2",
     "node-sass": "^4.5.3",
     "react": "^15.6.1",
+    "react-bootstrap-typeahead": "^2.0.0-alpha.3",
     "react-dom": "^15.6.1",
     "react-refetch": "^1.0.0",
     "react-scripts": "1.0.12",
