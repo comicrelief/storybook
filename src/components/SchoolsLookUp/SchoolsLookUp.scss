@@ -1,18 +1,30 @@
+.schoolsLookUp {
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: #dfdfdf;
+}
 .schoolDetails {
     text-align: left;
 }
 .schoolDetails ul {
     list-style: none;
 }
-.schoolsLookUp {
-    margin-top: 20px;
-    font-size: 20px;
+.schoolsLookUpForm {
+    margin-bottom: 20px;
+    border: 1px solid #dfdfdf;
+    padding: 5px;
+}
+.lookupTrue {
+    color: #adadad;
 }
 /* Override input module default styles */
 
 label {
     margin-top: 16px;
     display: block;
+}
+input {
+    border: 1px solid #dfdfdf;
 }
 input.rbt-input-main,
 input.rbt-input-hint {
