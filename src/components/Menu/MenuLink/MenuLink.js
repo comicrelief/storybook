@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import SubMenuLink from './MenuLink';
+import PropTypes from 'prop-types';
 
 /**
  * MenuLink class
  */
 class MenuLink extends Component {
-
   /**
    * render
    * @return {XML}
@@ -13,7 +12,6 @@ class MenuLink extends Component {
   render() {
     const item = this.props.item;
 
-    console.log(item.children);
     return (
 
       <li className="menu-item">
@@ -22,10 +20,12 @@ class MenuLink extends Component {
           <a href={item.link.url}>{item.link.title}</a>}
       </li>
 
-    )
-
+    );
   }
-
 }
+
+MenuLink.propTypes = {
+  item: PropTypes.object.isRequired,
+};
 
 export default MenuLink;

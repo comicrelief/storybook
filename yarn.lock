@@ -3,8 +3,8 @@
 
 
 "@comicrelief/pattern-lab@^5.10.7":
-  version "5.12.2"
-  resolved "https://registry.yarnpkg.com/@comicrelief/pattern-lab/-/pattern-lab-5.12.2.tgz#3ac65b4bb9e57fef8dcfa5f1f9bf43e53d455a60"
+  version "5.12.3"
+  resolved "https://registry.yarnpkg.com/@comicrelief/pattern-lab/-/pattern-lab-5.12.3.tgz#a7d179de12abbc40b2471b7ea5279d4f0304ae93"
   dependencies:
     autoprefixer "^7.1.1"
     browserslist "^2.1.4"
