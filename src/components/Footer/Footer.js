@@ -14,11 +14,18 @@ const styles = {
 };
 
 class Footer extends Component {
+  /**
+   * Footer constructor.
+   */
   constructor() {
     super();
     this.copy = 'Comic Relief 2017. Comic Relief, registered charity 326568 (England/Wales); SC039730 (Scotland)';
   }
 
+  /**
+   * Render footer component.
+   * @return {XML}
+   */
   render() {
     return (
       <footer style={styles} role="contentinfo">

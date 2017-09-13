@@ -1,9 +1,9 @@
 
 {
-  "name": "Footer",
+  "name": "MenuLink",
   "version": "0.0.0",
   "private": true,
-  "main": "./Footer.js",
+  "main": "./MenuLink.js",
   "dependencies": {
     "react": "^15.6.1",
     "prop-types": "^15.5.10"

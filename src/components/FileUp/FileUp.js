@@ -6,6 +6,9 @@ import PdfImage from './Images/pdficon.png';
 import newId from '../../utils/newid';
 
 class FileUp extends Component {
+  /**
+   * FileUp constructor.
+   */
   constructor() {
     super();
     this.state = {
@@ -16,10 +19,18 @@ class FileUp extends Component {
     this.onDrop = this.onDrop.bind(this);
   }
 
+  /**
+   * On component mount.
+   */
   componentWillMount() {
     this.dropZoneId = newId('dropzone-');
   }
 
+  /**
+   * On file drop.
+   * @param files
+   * @param rejected
+   */
   onDrop(files, rejected) {
     const max = this.props.maxFiles;
     const filesCombined = [...this.state.files, ...files];
@@ -52,6 +63,10 @@ class FileUp extends Component {
     }
   }
 
+  /**
+   * Image reset handler.
+   * @param e
+   */
   handleImageReset(e) {
     e.preventDefault();
 
@@ -64,6 +79,10 @@ class FileUp extends Component {
     });
   }
 
+  /**
+   * Component render.
+   * @return {XML}
+   */
   render() {
     return (
       <section>
