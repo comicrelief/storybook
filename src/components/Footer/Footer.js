@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Menu from '../Menu/Menu';
 import './footer.scss';
 
@@ -28,7 +29,7 @@ class Footer extends Component {
           <p style={styles.p}>{this.copy}</p>
         </div>
         <div style={styles.footer__branding}>
-          <a title="Comic Relief" href="http://www.comicrelief.com/" rel="home" target="_blank">
+          <a title="Comic Relief" href="http://www.comicrelief.com/" rel="noopener noreferrer" target="_blank">
             <img src="http://www.comicrelief.com/themes/custom/comicrelief/logo.svg" alt="Comic Relief logo" />
           </a>
         </div>
@@ -36,5 +37,9 @@ class Footer extends Component {
     );
   }
 }
+
+Footer.propTypes = {
+  source: PropTypes.string.isRequired,
+};
 
 export default Footer;
