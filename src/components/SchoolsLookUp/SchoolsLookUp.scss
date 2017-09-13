@@ -1,0 +1,52 @@
+.schoolsLookUp {
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: #dfdfdf;
+}
+.schoolDetails {
+    text-align: left;
+}
+.schoolDetails ul {
+    list-style: none;
+}
+.schoolsLookUpForm {
+    margin-bottom: 20px;
+    border: 1px solid #dfdfdf;
+    padding: 5px;
+}
+.lookupTrue {
+    color: #adadad;
+}
+/* Override input module default styles */
+
+label {
+    margin-top: 16px;
+    display: block;
+}
+input {
+    border: 1px solid #dfdfdf;
+}
+input.rbt-input-main,
+input.rbt-input-hint {
+    font-size: 16px;
+    color: black;
+}
+input.rbt-input-hint {
+    color: rgba(255, 255, 255, 0.5)!important;
+}
+.dropdown-menu {
+    padding: 0;
+    list-style: none;
+}
+.dropdown-menu li {
+    padding: 5px 0;
+    text-align: left;
+}
+.dropdown-item {
+    padding-bottom: 5px;
+    text-decoration: none;
+    color: black;
+}
+.dropdown-item:hover {
+    text-decoration: underline;
+}
