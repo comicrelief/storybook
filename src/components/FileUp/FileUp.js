@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Dropzone from 'react-dropzone';
 import './styles.scss';
 import PdfImage from './Images/pdficon.png';
+import newId from '../../utils/newid';
 
 class FileUp extends Component {
   constructor() {
@@ -13,6 +14,10 @@ class FileUp extends Component {
     };
     this.handleImageReset = this.handleImageReset.bind(this);
     this.onDrop = this.onDrop.bind(this);
+  }
+
+  componentWillMount() {
+    this.dropZoneId = newId('dropzone-');
   }
 
   onDrop(files, rejected) {
@@ -95,8 +100,9 @@ class FileUp extends Component {
             <p className="font--small font--centre error">{this.state.error}</p>
             : null}
           {this.state.files.length < this.props.maxFiles ?
-            <label><span className="visuallyhidden">click to upload</span>
+            <label htmlFor={this.dropZoneId}><span className="visuallyhidden">click to upload</span>
               <Dropzone
+                id={this.dropZoneId}
                 className="dropzone"
                 multiple
                 accept="image/*, application/pdf"
