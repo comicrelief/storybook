@@ -18,6 +18,7 @@ class SchoolsLookUp extends Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   /**
