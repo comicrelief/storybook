@@ -47,7 +47,8 @@ storiesOf('File Upload', module)
   .add('Single',
     withInfo('File upload')(() => {
       const maxFiles = number('Max Files', 5);
-      const story = <FileUp maxFiles={maxFiles} />;
+      const maxSize = number('Max Size', 2000000);
+      const story = <FileUp maxFiles={maxFiles} maxSize={maxSize} />;
 
       specs(() => describe('File Upload', () => {
         it('Should have a label and "click to upload" in it', () => {

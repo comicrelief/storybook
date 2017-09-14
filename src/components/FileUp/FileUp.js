@@ -10,6 +10,7 @@ class FileUp extends Component {
     this.state = {
       files: [],
       rejected: [],
+      bigFile: false,
     };
     this.handleImageReset = this.handleImageReset.bind(this);
     this.onDrop = this.onDrop.bind(this);
@@ -18,10 +19,14 @@ class FileUp extends Component {
   onDrop(files, rejected) {
     const max = this.props.maxFiles;
     const filesCombined = [...this.state.files, ...files];
-
+    console.log(rejected.length);
     if (files.length > max) {
       this.setState({
         error: `You can only upload max ${max} files`,
+      });
+    } else if (rejected.length > 0) {
+      this.setState({
+        error: 'Your file(s) are too big or wrong type. Please try again',
       });
     } else {
       let dupe = false;
@@ -64,7 +69,7 @@ class FileUp extends Component {
       <section>
         <div className="dropzone__wrapper">
           <p className="font--centre">Upload designs as separate files.<br />
-            Maximum {this.props.maxFiles} designs per school<br />
+            Max file size per file: {this.props.maxSize/1000000}MB<br />
             File types accepted: JPG, PNG and PDF.</p>
           {this.state.files.length > 0 ?
             <div className="fuga__img-uploaded">
@@ -81,16 +86,6 @@ class FileUp extends Component {
               )}
             </div>
             : null}
-          {this.state.rejected.length > 0 ?
-            <div>
-              <p>Rejected file(s), wrong types</p>
-              <ul>
-                {
-                  this.state.rejected.map(f => <li key={f.name}>{f.name}</li>)
-                }
-              </ul>
-            </div>
-            : null}
           {this.state.error ?
             <p className="font--small font--centre error">{this.state.error}</p>
             : null}
@@ -98,12 +93,13 @@ class FileUp extends Component {
             <label><span className="visuallyhidden">click to upload</span>
               <Dropzone
                 className="dropzone"
+                maxSize={this.props.maxSize}
                 multiple
                 accept="image/*, application/pdf"
                 onDrop={this.onDrop}
               >
-                <p className="font--centre">Drop image here or <br />click to upload <br /></p>
-                <p className="cross">&#43;</p>
+                <p>Drop image/s here <br />or click to upload <br /> Max. {this.props.maxFiles} designs per school</p>
+                <p className="cross">+</p>
               </Dropzone>
             </label>
             : null}
