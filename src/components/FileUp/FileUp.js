@@ -120,7 +120,7 @@ class FileUp extends Component {
                 className="dropzone"
                 maxSize={this.props.maxSize}
                 multiple
-                accept="image/*, application/pdf"
+                accept={this.props.types}
                 onDrop={this.onDrop}
               >
                 <p>Drop image/s here <br />or click to upload <br /> <b className="font--small">Max. {this.props.maxFiles} designs per school</b></p>
