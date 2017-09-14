@@ -18,6 +18,7 @@ class SchoolsLookUp extends Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   /**
@@ -34,7 +35,6 @@ class SchoolsLookUp extends Component {
    * @param query
    */
   handleSearch(query) {
-    console.log(this);
     if (!query) {
       return;
     }
@@ -66,7 +66,7 @@ class SchoolsLookUp extends Component {
     return (
       <div key={option.id}>
         <span>{option.name}, </span>
-        <span>{option.postcode}</span>
+        <span>{option.post_code}</span>
       </div>
     );
   }
@@ -88,7 +88,7 @@ class SchoolsLookUp extends Component {
                 onSearch={this.handleSearch}
                 onChange={this.handleChange}
                 className="schoolsLookUpForm"
-                labelKey={option => `${option.name} ${option.postcode}`}
+                labelKey={option => `${option.name} ${option.post_code}`}
                 placeholder="Search"
                 renderMenuItemChildren={this.renderMenuItemChildren}
                 options={this.state.options}
@@ -103,29 +103,29 @@ class SchoolsLookUp extends Component {
                     <input value={school.name} type="text" id="establishmentName" /><br />
                   </label>
 
-                  <label htmlFor="addressLine1">
-                    Address line 1
-                    <input value={school.addressLine1} type="text" id="addressLine1" /><br />
+                  <label htmlFor="address_1">
+                    Address
+                    <input value={school.address_1} type="text" id="address_1" /><br />
                   </label>
 
-                  <label htmlFor="addressLine2">
-                    Address line 2
-                    <input value={school.addressLine2} type="text" id="addressLine2" /><br />
-                  </label>
-
-                  <label htmlFor="addressLine3">
-                    Address line 3
-                    <input value={school.addressLine3} type="text" id="addressLine3" /><br />
+                  <label htmlFor="town">
+                    Town
+                    <input value={school.town} type="text" id="town" /><br />
                   </label>
 
                   <label htmlFor="townCity">
-                    Town/City
+                    County
                     <input value={school.county} type="text" id="townCity" /><br />
                   </label>
 
-                  <label htmlFor="postcode">
+                  <label htmlFor="post_code">
                     Postcode
-                    <input value={school.postcode} type="text" id="postcode" /><br />
+                    <input value={school.post_code} type="text" id="post_code" /><br />
+                  </label>
+
+                  <label htmlFor="country">
+                    Country
+                    <input value={school.country} type="text" id="country" /><br />
                   </label>
 
                 </div>
@@ -140,29 +140,29 @@ class SchoolsLookUp extends Component {
               <input type="text" id="establishmentName" /><br />
             </label>
 
-            <label htmlFor="addressLine1">
-              Address line 1
-              <input type="text" id="addressLine1" /><br />
+            <label htmlFor="address_1">
+              Address
+              <input type="text" id="address_1" /><br />
             </label>
 
-            <label htmlFor="addressLine2">
-              Address line 2
-              <input type="text" id="addressLine2" /><br />
-            </label>
-
-            <label htmlFor="addressLine3">
-              Address line 3
-              <input type="text" id="addressLine3" /><br />
+            <label htmlFor="town">
+              Town
+              <input type="text" id="town" /><br />
             </label>
 
             <label htmlFor="townCity">
-              Town/City
+              County
               <input type="text" id="townCity" /><br />
             </label>
 
-            <label htmlFor="postcode">
+            <label htmlFor="post_code">
               Postcode
-              <input type="text" id="postcode" /><br />
+              <input type="text" id="post_code" /><br />
+            </label>
+
+            <label htmlFor="country">
+              Country
+              <input type="text" id="country" /><br />
             </label>
           </div>
         }
