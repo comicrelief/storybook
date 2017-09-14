@@ -10,7 +10,7 @@
     list-style: none;
 }
 .schoolsLookUpForm {
-    margin-bottom: 20px;
+    margin: 5px 0 10px;
     border: 1px solid #dfdfdf;
     padding: 5px;
 }
@@ -25,6 +25,9 @@ label {
 }
 input {
     border: 1px solid #dfdfdf;
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
 }
 input.rbt-input-main,
 input.rbt-input-hint {
