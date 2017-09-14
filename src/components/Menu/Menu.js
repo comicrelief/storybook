@@ -14,7 +14,7 @@ class Menu extends Component {
   render() {
     if (this.props.menuFetch.fulfilled) {
       return (
-        <nav role="navigation" className="menu--footer">
+        <nav className="menu--footer">
           <ul className="menu" id={`${this.props.type}-menu`}>
             {this.props.menuFetch.value.map((item, key) => <MenuLink item={item} key={key} />)}
           </ul>

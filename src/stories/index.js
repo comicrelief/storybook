@@ -1,7 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-import { linkTo } from '@storybook/addon-links';
 import { specs, describe, it } from 'storybook-addon-specifications';
 
 import { mount } from 'enzyme';
@@ -19,7 +17,7 @@ storiesOf('SchoolsLookUp', module)
   .addDecorator(withKnobs)
   .add('Schools Look Up',
     withInfo('A schools address look up field')(() => {
-      const min = number('MinLenght', 3)
+      const min = number('Min Length', 3);
       const endpoint = text('Endpoint', 'https://bilw38ca93.execute-api.eu-west-1.amazonaws.com/production/schools/lookup?query=');
       return (<SchoolsLookUp data={endpoint} min={min} />);
     }),
@@ -29,10 +27,10 @@ storiesOf('Footer', module)
   .addDecorator(withKnobs)
   .add('Comic Relief',
     withInfo('doc string about my component')(() => {
-  		const copy = text('Copy', 'copyright 2017');
-  		const source = 'http://pr-292-ip25kiy-3g6y4v7pqt6nk.eu.platform.sh';
-  		return (<Footer copy={copy} source={source}/>);
-  	}),
+      const copy = text('Copy', 'copyright 2017');
+      const source = 'http://pr-292-ip25kiy-3g6y4v7pqt6nk.eu.platform.sh';
+      return (<Footer copy={copy} source={source} />);
+    }),
   )
   .add('Sport Relief',
     withInfo('doc string about my component')(() => {
