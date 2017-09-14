@@ -47,7 +47,7 @@ storiesOf('File Upload', module)
       const maxFiles = number('Max Files', 5);
       const maxSize = number('Max Size', 2000000);
       const types = text('Types', 'image/*, application/pdf');
-      const story = <FileUp maxFiles={maxFiles} maxSize={maxSize} types={types}/>;
+      const story = <FileUp maxFiles={maxFiles} maxSize={maxSize} types={types} />;
 
       specs(() => describe('File Upload', () => {
         it('Should have a label and "click to upload" in it', () => {
