@@ -111,15 +111,12 @@ p {
   text-align: left;
   padding: 10px;
   background: #f7f7f7;
-}
-img {
-    height: auto;
-}
-.fuga__img-uploaded img {
+  img {
     height: 100px;
     -o-object-fit: cover;
     object-fit: cover;
     width: 100px;
+  }
 }
 .link {
     text-decoration: none;
