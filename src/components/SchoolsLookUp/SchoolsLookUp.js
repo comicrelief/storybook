@@ -35,7 +35,6 @@ class SchoolsLookUp extends Component {
    * @param query
    */
   handleSearch(query) {
-    console.log(this);
     if (!query) {
       return;
     }
