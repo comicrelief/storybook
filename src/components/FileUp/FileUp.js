@@ -138,4 +138,6 @@ FileUp.propTypes = {
   maxFiles: PropTypes.number.isRequired,
 };
 
+export { default as S3FileUploadService } from './src/service/S3FileUploadService';
+
 export default FileUp;
