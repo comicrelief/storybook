@@ -56,21 +56,6 @@ p {
 .font--centre {
     text-align: center;
 }
-
-.preview {
-    display: inline-block;
-    margin: 5px 7px;
-    color: black;
-    text-align: center;
-    font-family: 'GT-Walsheim-Regular', helvetica,arial,sans-serif;
-    img {
-        border: 2px solid #e0e0e0;
-    }
-}
-.preview span {
-    display: block;
-    padding: 5px;
-}
 .dropzone__wrapper {
     margin: 40px auto;
     justify-content: center;
@@ -93,76 +78,53 @@ p {
     cursor: pointer;
     font-family: 'GT-Walsheim-Regular', helvetica,arial,sans-serif;
 }
-.cross {
-    color: #dadada;
-    font-size: 100px;
-    margin: 10px 0 18px;
-    text-align: right;
-}
-//.error {
-//    margin-bottom: 0;
-//}
-.bg--dark-blue .dropzone p {
-    color: #fbef51;
-    font-size: 20px;
-    /*text-transform: uppercase;*/
-}
 .dropzone--active {
-    border-style: solid;
+  border-style: solid;
 }
-
-.upload-button {
-    position: relative;
-    width: 100px;
-    margin: auto;
+.cross {
+  color: #dadada;
+  font-size: 100px;
+  margin: 10px 0 18px;
+  text-align: right;
+}
+.preview {
+  display: inline-block;
+  margin: 5px 7px;
+  color: black;
+  text-align: center;
+  font-family: 'GT-Walsheim-Regular', helvetica,arial,sans-serif;
+  img {
+    border: 2px solid #e0e0e0;
+  }
+}
+.preview span {
+  display: block;
+  padding: 5px;
+}
+.error {
+  color: #fb1919;
+}
+.file-up__img-uploaded {
+  width: 100%;
+  max-width: 472px;
+  margin: 0 auto;
+  text-align: left;
+  padding: 10px;
+  background: #f7f7f7;
 }
 img {
     height: auto;
 }
-
-.fuga__img-uploaded {
-    width: 100%;
-    max-width: 472px;
-    margin: 0 auto;
-    text-align: left;
-    padding: 10px;
-    background: #f7f7f7;
-}
-//@media (min-width: 420px) {
-//    .fuga__img-uploaded {
-//        width: 360px;
-//    }
-//}
-.fuga__img-uploaded img,
-.fuga__thank-you img {
+.fuga__img-uploaded img {
     height: 100px;
     -o-object-fit: cover;
     object-fit: cover;
     width: 100px;
 }
-.fuga__thank-you {
-    border: solid 5px #fbef51;
-    padding: 10px;
-    width: 270px;
-    margin: 40px auto;
-    text-align: center;
-}
-@media (min-width: 420px) {
-    .fuga__thank-you {
-        width: 330px;
-        padding: 20px;
-    }
-}
-.fuga__thank-you h3 {
-    text-transform: uppercase;
-    color: #fbef51;
-    margin: 20px 0;
-    font-family: 'GT-Walsheim-Bold', helvetica,arial,sans-serif;
-}
-
 .link {
     text-decoration: none;
     font-size: 14px;
+    padding: 0 4px;
     color: #000000;
     border-bottom: 3px solid grey;
     font-family: 'GT-Walsheim-Bold', helvetica,arial,sans-serif;

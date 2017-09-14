@@ -72,7 +72,7 @@ class FileUp extends Component {
             Max file size per file: {this.props.maxSize/1000000}MB<br />
             File types accepted: JPG, PNG and PDF.</p>
           {this.state.files.length > 0 ?
-            <div className="fuga__img-uploaded">
+            <div className="file-up__img-uploaded">
               {this.state.files.map(file =>
                 (<span key={file.name} className="preview">
                   {(file.type === 'application/pdf') ?
@@ -87,7 +87,7 @@ class FileUp extends Component {
             </div>
             : null}
           {this.state.error ?
-            <p className="font--small font--centre error">{this.state.error}</p>
+            <p className="font--centre error">{this.state.error}</p>
             : null}
           {this.state.files.length < this.props.maxFiles ?
             <label><span className="visuallyhidden">click to upload</span>
@@ -98,7 +98,7 @@ class FileUp extends Component {
                 accept="image/*, application/pdf"
                 onDrop={this.onDrop}
               >
-                <p>Drop image/s here <br />or click to upload <br /> Max. {this.props.maxFiles} designs per school</p>
+                <p>Drop image/s here <br />or click to upload <br /> <b className="font--small">Max. {this.props.maxFiles} designs per school</b></p>
                 <p className="cross">+</p>
               </Dropzone>
             </label>
