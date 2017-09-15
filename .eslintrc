@@ -1,7 +1,19 @@
 {
   "extends": "airbnb",
   "rules": {
-    "react/jsx-filename": "off",
-    "jsx-a11y/href-no-hash": "off"
+    "react/prefer-stateless-function": "off",
+    "react/jsx-filename-extension": "off",
+    "jsx-a11y/href-no-hash": "off",
+    "max-len": "off",
+    "no-console": "off",
+    "class-methods-use-this": "off",
+    "arrow-body-style": "off",
+    "react/forbid-prop-types": "off",
+    "react/prop-types": "off",
+    "react/no-array-index-key": "off",
+    "space-infix-ops": "off"
+  },
+  "env": {
+    "browser": true
   }
 }
