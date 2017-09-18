@@ -58,6 +58,7 @@ class SchoolsLookUp extends Component {
   handleChange(data) {
     this.setState({
       schools: data,
+      lookup: true,
     });
   }
 
