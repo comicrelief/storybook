@@ -38,11 +38,11 @@ class FileUp extends Component {
     console.log(rejected.length);
     if (files.length > max) {
       this.setState({
-        error: `You can only upload max ${max} files`,
+        error: `You can only upload max ${max} files.`,
       });
     } else if (rejected.length > 0) {
       this.setState({
-        error: 'Your file(s) are too big or wrong type. Please try again',
+        error: 'Your file(s) are too big or wrong type. Please try again.',
       });
     } else {
       let dupe = false;
@@ -56,7 +56,7 @@ class FileUp extends Component {
 
       if (dupe) {
         this.setState({
-          error: 'You cannot upload the same file twice. Please try again',
+          error: 'You cannot upload the same file twice. Please try again.',
         });
       } else {
         this.setState({
@@ -113,8 +113,11 @@ class FileUp extends Component {
           {this.state.error ?
             <p className="font--centre error">{this.state.error}</p>
             : null}
+          {this.state.files.length === this.props.maxFiles ?
+            <p className="font--centre error">You&apos;ve reached your maximum amount of {this.props.maxFiles} files.</p>
+            : null}
           {this.state.files.length < this.props.maxFiles ?
-            <label htmlFor={this.dropZoneId}><span className="visuallyhidden">click to upload</span>
+            <label htmlFor={this.dropZoneId}><span className="labelSpan">Image upload</span>
               <Dropzone
                 id={this.dropZoneId}
                 className="dropzone"
