@@ -27,7 +27,11 @@ class SchoolsLookUp extends Component {
    */
   handleClick(e) {
     e.preventDefault();
-    this.setState({ lookup: false });
+    if (this.state.lookup) {
+      this.setState({ lookup: false });
+    } else {
+      this.setState({ lookup: true });
+    }
   }
 
   /**
@@ -78,28 +82,28 @@ class SchoolsLookUp extends Component {
   render() {
     return (
       <div className="SchoolsLookUp">
+        <label htmlFor="schoolsLookUp">{"Enter your school's name or postcode"}
+          <AsyncTypeahead
+            type="text"
+            minLength={this.props.min}
+            bsSize="large"
+            onSearch={this.handleSearch}
+            onChange={this.handleChange}
+            className="schoolsLookUpForm"
+            labelKey={option => `${option.name} ${option.post_code}`}
+            placeholder="Search"
+            renderMenuItemChildren={this.renderMenuItemChildren}
+            options={this.state.options}
+          />
+        </label>
+        <a href="#" className="lookupTrue" onClick={this.handleClick}>Or enter address manually</a>
         {this.state.lookup ?
           <div>
-            <label htmlFor="schoolsLookUp">{"Enter your school's name or postcode"}
-              <AsyncTypeahead
-                type="text"
-                minLength={this.props.min}
-                bsSize="large"
-                onSearch={this.handleSearch}
-                onChange={this.handleChange}
-                className="schoolsLookUpForm"
-                labelKey={option => `${option.name} ${option.post_code}`}
-                placeholder="Search"
-                renderMenuItemChildren={this.renderMenuItemChildren}
-                options={this.state.options}
-              />
-            </label>
-            <a href="#" className="lookupTrue" onClick={this.handleClick}>Or enter address manually</a>
             {this.state.schools.map((school) => {
               return (
                 <div className="schoolDetails">
                   <label htmlFor="establishmentName">
-                    Establishment name
+                    School name
                     <input value={school.name} type="text" id="establishmentName" /><br />
                   </label>
 
@@ -136,7 +140,7 @@ class SchoolsLookUp extends Component {
           :
           <div className="schoolDetails">
             <label htmlFor="establishmentName">
-              Establishment name
+              School name
               <input type="text" id="establishmentName" /><br />
             </label>
 
