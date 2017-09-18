@@ -114,7 +114,7 @@ class FileUp extends Component {
             <p className="font--centre error">{this.state.error}</p>
             : null}
           {this.state.files.length === this.props.maxFiles ?
-            <p className="font--centre error">You've reached your maximum amount of {this.props.maxFiles} files.</p>
+            <p className="font--centre error">You&apos;ve reached your maximum amount of {this.props.maxFiles} files.</p>
             : null}
           {this.state.files.length < this.props.maxFiles ?
             <label htmlFor={this.dropZoneId}><span className="labelSpan">Image upload</span>
