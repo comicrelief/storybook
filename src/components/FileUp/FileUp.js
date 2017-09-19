@@ -16,7 +16,6 @@ class FileUp extends Component {
       rejected: [],
       bigFile: false,
     };
-    this.handleImageReset = this.handleImageReset.bind(this);
     this.onDrop = this.onDrop.bind(this);
   }
 
@@ -69,19 +68,19 @@ class FileUp extends Component {
   }
 
   /**
-   * Image reset handler.
+   * Image delete handler.
    * @param e
    */
-  handleImageReset(e) {
+
+  removeFile(file, e) {
     e.preventDefault();
-
-    const array = this.state.files;
-    const index = array.indexOf(e.target.value);
-    array.splice(index, 1);
-
-    this.setState({
-      files: array,
-    });
+    const newState = this.state.files;
+    if (newState.indexOf(file) > -1) {
+      newState.splice(newState.indexOf(file), 1);
+      this.setState({
+        files: newState,
+      });
+    }
   }
 
   /**
@@ -104,7 +103,7 @@ class FileUp extends Component {
                   <p className="font--small font--centre"><a
                     className="link"
                     href="#"
-                    onClick={this.handleImageReset}
+                    onClick={this.removeFile.bind(this, file)}
                   >Remove</a></p>
                 </span>),
               )}

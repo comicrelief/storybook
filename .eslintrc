@@ -11,7 +11,8 @@
     "react/forbid-prop-types": "off",
     "react/prop-types": "off",
     "react/no-array-index-key": "off",
-    "space-infix-ops": "off"
+    "space-infix-ops": "off",
+    "react/jsx-no-bind": "off"
   },
   "env": {
     "browser": true
