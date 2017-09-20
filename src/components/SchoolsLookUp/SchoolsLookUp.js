@@ -32,6 +32,7 @@ class SchoolsLookUp extends Component {
     } else {
       this.setState({ lookup: true });
     }
+    this.props.onChange();
   }
 
   /**
@@ -60,7 +61,6 @@ class SchoolsLookUp extends Component {
       schools: data,
       lookup: true,
     });
-    this.props.onChange();
   }
 
   /**

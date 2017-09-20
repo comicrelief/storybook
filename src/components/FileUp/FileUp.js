@@ -40,9 +40,15 @@ class FileUp extends Component {
         error: `You can only upload max ${max} files.`,
       });
     } else if (rejected.length > 0) {
-      this.setState({
-        error: 'Your file(s) are too big or wrong type. Please try again.',
-      });
+      if (rejected[0].size > this.props.maxSize) {
+        this.setState({
+          error: `File/s exceed maximum size. Maximum size for each file is ${this.props.maxSize/1000000}MB`,
+        });
+      } else {
+        this.setState({
+          error: 'File type not accepted. Please upload JPG, PNG or PDF',
+        });
+      }
     } else {
       let dupe = false;
       files.forEach((file1) => {
@@ -93,9 +99,9 @@ class FileUp extends Component {
     return (
       <section>
         <div className="dropzone__wrapper">
-          <p className="font--centre">Upload designs as separate files.<br />
+          <p className="font--centre">Upload designs as separate files<br />
             Max file size per file: {this.props.maxSize/1000000}MB<br />
-            File types accepted: JPG, PNG and PDF.</p>
+            File types accepted: JPG, PNG and PDF</p>
           {this.state.files.length > 0 ?
             <div className="file-up__img-uploaded">
               {this.state.files.map(file =>
