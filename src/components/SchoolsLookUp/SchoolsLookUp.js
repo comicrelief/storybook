@@ -60,6 +60,7 @@ class SchoolsLookUp extends Component {
       schools: data,
       lookup: true,
     });
+    this.props.onChange();
   }
 
   /**

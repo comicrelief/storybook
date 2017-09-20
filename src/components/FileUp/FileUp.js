@@ -65,6 +65,7 @@ class FileUp extends Component {
         });
       }
     }
+    this.props.onChange();
   }
 
   /**
@@ -81,6 +82,7 @@ class FileUp extends Component {
         files: newState,
       });
     }
+    this.props.onChange();
   }
 
   /**
