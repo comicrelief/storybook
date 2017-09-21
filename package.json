@@ -1,7 +1,7 @@
 {
   "name": "@comicrelief/storybook",
   "description": "React components to build the Comic Relief front-end experience",
-  "version": "0.0.10",
+  "version": "0.0.0-development",
   "dependencies": {
     "@comicrelief/pattern-lab": "^5.10.7",
     "axios": "^0.16.2",
@@ -33,14 +33,16 @@
   "scripts": {
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "devDependencies": {
     "eslint": "^4.6.1",
     "eslint-config-airbnb": "^15.1.0",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
-    "eslint-plugin-react": "^7.3.0"
+    "eslint-plugin-react": "^7.3.0",
+    "semantic-release": "^8.0.0"
   },
   "repository": {
     "type": "git",

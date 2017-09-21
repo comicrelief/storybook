@@ -1,11 +1,33 @@
 language: node_js
 
+cache:
+  directories:
+    - node_modules
+
+notifications:
+  email: false
+
 node_js:
-  - "6"
+  - '6'
 
 env:
   global:
     - SLS_DEBUG=true
 
+before_script:
+  - npm prune
+
 script:
-    - eslint .
+  - eslint .
+
+after_success:
+  - npm run semantic-release
+
+branches:
+  only:
+    # todo remove this
+    - 6_semver
+
+
+
+
