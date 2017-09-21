@@ -19,6 +19,7 @@ class SchoolsLookUp extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.handleManual = this.handleManual.bind(this);
   }
 
   /**
@@ -32,7 +33,6 @@ class SchoolsLookUp extends Component {
     } else {
       this.setState({ lookup: true });
     }
-    this.props.onChange();
   }
 
   /**
@@ -61,6 +61,14 @@ class SchoolsLookUp extends Component {
       schools: data,
       lookup: true,
     });
+    this.props.onChange();
+  }
+
+  /**
+   * Handle change event.
+   * @param data
+   */
+  handleManual() {
     this.props.onChange();
   }
 
@@ -109,32 +117,26 @@ class SchoolsLookUp extends Component {
                     School name
                     <input value={school.name} type="text" id="establishmentName" required /><br />
                   </label>
-
                   <label htmlFor="address_1">
                     Address
                     <input value={school.address_1} type="text" id="address_1" required /><br />
                   </label>
-
                   <label htmlFor="town">
                     Town
                     <input value={school.town} type="text" id="town" /><br />
                   </label>
-
                   <label htmlFor="townCity">
                     County
                     <input value={school.county} type="text" id="townCity" /><br />
                   </label>
-
                   <label htmlFor="post_code">
                     Postcode
                     <input value={school.post_code} type="text" id="post_code" required /><br />
                   </label>
-
                   <label htmlFor="country">
                     Country
                     <input value={school.country} type="text" id="country" /><br />
                   </label>
-
                 </div>
               );
             })
@@ -143,30 +145,25 @@ class SchoolsLookUp extends Component {
           :
           <div className="schoolDetails">
             <label htmlFor="establishmentName">
-              School name
-              <input type="text" id="establishmentName" required /><br />
+              School name<span className="required">*</span>
+              <input onChange={this.handleManual} type="text" id="establishmentName" required /><br />
             </label>
-
             <label htmlFor="address_1">
-              Address
-              <input type="text" id="address_1" required /><br />
+              Address<span className="required">*</span>
+              <input onChange={this.handleManual} type="text" id="address_1" required /><br />
             </label>
-
             <label htmlFor="town">
               Town
               <input type="text" id="town" /><br />
             </label>
-
             <label htmlFor="townCity">
               County
               <input type="text" id="townCity" /><br />
             </label>
-
             <label htmlFor="post_code">
-              Postcode
-              <input type="text" id="post_code" required /><br />
+              Postcode<span className="required">*</span>
+              <input onChange={this.handleManual} type="text" id="post_code" required /><br />
             </label>
-
             <label htmlFor="country">
               Country
               <input type="text" id="country" /><br />
