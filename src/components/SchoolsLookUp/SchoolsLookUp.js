@@ -143,13 +143,13 @@ class SchoolsLookUp extends Component {
           :
           <div className="schoolDetails">
             <label htmlFor="establishmentName">
-              School name
-              <input type="text" id="establishmentName" required /><br />
+              School name<span className="required">*</span>
+              <input onChange={this.handleChange} type="text" id="establishmentName" required /><br />
             </label>
 
             <label htmlFor="address_1">
-              Address
-              <input type="text" id="address_1" required /><br />
+              Address<span className="required">*</span>
+              <input onChange={this.handleChange} type="text" id="address_1" required /><br />
             </label>
 
             <label htmlFor="town">
@@ -163,8 +163,8 @@ class SchoolsLookUp extends Component {
             </label>
 
             <label htmlFor="post_code">
-              Postcode
-              <input type="text" id="post_code" required /><br />
+              Postcode<span className="required">*</span>
+              <input onChange={this.handleChange} type="text" id="post_code" required /><br />
             </label>
 
             <label htmlFor="country">
