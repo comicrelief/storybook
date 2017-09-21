@@ -31,3 +31,43 @@ To build storybook components locally within an app, please use `npm link`. [Lea
 
 [npm-image]: https://badge.fury.io/js/%40comicrelief%2Fstorybook.svg
 [npm-url]: https://www.npmjs.com/package/@comicrelief/storybook
+
+### Semantic Release Process
+
+Git commit messages are used to automatically publish a new version of npm package. To achieve this, **every commit message** should have a **type** and a **message** in the format described below.
+
+Travis CI will run a job automatically after PR is merged and analyze all commit messages since last npm release. Then semantic-release plugin will calculate new version according to this result.
+
+To avoid commit loops, version numbers are not committed back to `package.json`. Versions are listed on [GitHub releases](https://github.com/comicrelief/storybook/releases) and used in the modified package.json [published to npm](https://www.npmjs.com/package/@comicrelief/storybook).
+
+Commit messages are expected to be in this format:
+```
+<type>(<scope>): <subject>
+<BLANK LINE>
+<body>
+<BLANK LINE>
+<footer>
+```
+Minimally, only `type` and `subject` is required.
+
+#### Bugfix / patch
+When there are no breaking changes or no new features. When we are fixing bugs or styles.
+```
+fix: A bug fix
+```
+
+#### Minor / Feature
+When there is a new feature / functionality is added to the library
+```
+feat: A new feature
+```
+
+#### Major / breaking change
+When there is a breaking change, we need to extend our commit message and add `BREAKING CHANGE: A 
+description of the change` to its body. This message can be added to any type of commit. 
+Example:
+```
+feat: A new feature
+
+BREAKING CHANGE: A description of the change
+```
