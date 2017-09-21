@@ -61,6 +61,7 @@ class SchoolsLookUp extends Component {
       schools: data,
       lookup: true,
     });
+    this.props.onChange();
   }
 
   /**
@@ -106,12 +107,12 @@ class SchoolsLookUp extends Component {
                 <div className="schoolDetails">
                   <label htmlFor="establishmentName">
                     School name
-                    <input value={school.name} type="text" id="establishmentName" /><br />
+                    <input value={school.name} type="text" id="establishmentName" required /><br />
                   </label>
 
                   <label htmlFor="address_1">
                     Address
-                    <input value={school.address_1} type="text" id="address_1" /><br />
+                    <input value={school.address_1} type="text" id="address_1" required /><br />
                   </label>
 
                   <label htmlFor="town">
@@ -126,7 +127,7 @@ class SchoolsLookUp extends Component {
 
                   <label htmlFor="post_code">
                     Postcode
-                    <input value={school.post_code} type="text" id="post_code" /><br />
+                    <input value={school.post_code} type="text" id="post_code" required /><br />
                   </label>
 
                   <label htmlFor="country">
@@ -143,12 +144,12 @@ class SchoolsLookUp extends Component {
           <div className="schoolDetails">
             <label htmlFor="establishmentName">
               School name
-              <input type="text" id="establishmentName" /><br />
+              <input type="text" id="establishmentName" required /><br />
             </label>
 
             <label htmlFor="address_1">
               Address
-              <input type="text" id="address_1" /><br />
+              <input type="text" id="address_1" required /><br />
             </label>
 
             <label htmlFor="town">
@@ -163,7 +164,7 @@ class SchoolsLookUp extends Component {
 
             <label htmlFor="post_code">
               Postcode
-              <input type="text" id="post_code" /><br />
+              <input type="text" id="post_code" required /><br />
             </label>
 
             <label htmlFor="country">
