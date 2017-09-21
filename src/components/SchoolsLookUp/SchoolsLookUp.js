@@ -19,6 +19,7 @@ class SchoolsLookUp extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.handleManual = this.handleManual.bind(this);
   }
 
   /**
@@ -32,7 +33,6 @@ class SchoolsLookUp extends Component {
     } else {
       this.setState({ lookup: true });
     }
-    this.props.onChange();
   }
 
   /**
@@ -61,6 +61,14 @@ class SchoolsLookUp extends Component {
       schools: data,
       lookup: true,
     });
+    this.props.onChange();
+  }
+
+  /**
+   * Handle change event.
+   * @param data
+   */
+  handleManual() {
     this.props.onChange();
   }
 
@@ -138,11 +146,11 @@ class SchoolsLookUp extends Component {
           <div className="schoolDetails">
             <label htmlFor="establishmentName">
               School name<span className="required">*</span>
-              <input onChange={this.handleChange} type="text" id="establishmentName" required /><br />
+              <input onChange={this.handleManual} type="text" id="establishmentName" required /><br />
             </label>
             <label htmlFor="address_1">
               Address<span className="required">*</span>
-              <input onChange={this.handleChange} type="text" id="address_1" required /><br />
+              <input onChange={this.handleManual} type="text" id="address_1" required /><br />
             </label>
             <label htmlFor="town">
               Town
@@ -154,7 +162,7 @@ class SchoolsLookUp extends Component {
             </label>
             <label htmlFor="post_code">
               Postcode<span className="required">*</span>
-              <input onChange={this.handleChange} type="text" id="post_code" required /><br />
+              <input onChange={this.handleManual} type="text" id="post_code" required /><br />
             </label>
             <label htmlFor="country">
               Country
