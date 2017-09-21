@@ -22,12 +22,3 @@ script:
 
 after_success:
   - npm run semantic-release
-
-branches:
-  only:
-    # todo remove this
-    - 6_semver
-
-
-
-
