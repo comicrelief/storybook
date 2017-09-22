@@ -127,11 +127,11 @@ class SchoolsLookUp extends Component {
               return (
                 <div className="schoolDetails">
                   <label htmlFor="establishmentName">
-                    School name
+                    School name<span className="required">*</span>
                     <input value={school.name} type="text" id="establishmentName" required readOnly /><br />
                   </label>
                   <label htmlFor="address_1">
-                    Address
+                    Address<span className="required">*</span>
                     <input value={school.address_1} type="text" id="address_1" required readOnly /><br />
                   </label>
                   <label htmlFor="town">
@@ -143,7 +143,7 @@ class SchoolsLookUp extends Component {
                     <input value={school.county} type="text" id="townCity" readOnly /><br />
                   </label>
                   <label htmlFor="post_code">
-                    Postcode
+                    Postcode<span className="required">*</span>
                     <input value={school.post_code} type="text" id="post_code" required readOnly /><br />
                   </label>
                   <label htmlFor="country">
