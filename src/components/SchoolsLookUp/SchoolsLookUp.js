@@ -14,6 +14,12 @@ class SchoolsLookUp extends Component {
     this.state = {
       options: [],
       schools: [],
+      establishmentName: '',
+      address_1: '',
+      town: '',
+      townCity: '',
+      post_code: '',
+      country: '',
       lookup: true,
     };
     this.handleChange = this.handleChange.bind(this);
@@ -66,9 +72,16 @@ class SchoolsLookUp extends Component {
 
   /**
    * Handle change event.
-   * @param data
+   * @param event
    */
-  handleManual() {
+  handleManual(event) {
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
+
+    this.setState({
+      [name]: value,
+    });
     this.props.onChange();
   }
 
@@ -114,28 +127,28 @@ class SchoolsLookUp extends Component {
               return (
                 <div className="schoolDetails">
                   <label htmlFor="establishmentName">
-                    School name
-                    <input value={school.name} type="text" id="establishmentName" required /><br />
+                    School name<span className="required">*</span>
+                    <input value={school.name} type="text" id="establishmentName" required readOnly /><br />
                   </label>
                   <label htmlFor="address_1">
-                    Address
-                    <input value={school.address_1} type="text" id="address_1" required /><br />
+                    Address<span className="required">*</span>
+                    <input value={school.address_1} type="text" id="address_1" required readOnly /><br />
                   </label>
                   <label htmlFor="town">
                     Town
-                    <input value={school.town} type="text" id="town" /><br />
+                    <input value={school.town} type="text" id="town" readOnly /><br />
                   </label>
                   <label htmlFor="townCity">
                     County
-                    <input value={school.county} type="text" id="townCity" /><br />
+                    <input value={school.county} type="text" id="townCity" readOnly /><br />
                   </label>
                   <label htmlFor="post_code">
-                    Postcode
-                    <input value={school.post_code} type="text" id="post_code" required /><br />
+                    Postcode<span className="required">*</span>
+                    <input value={school.post_code} type="text" id="post_code" required readOnly /><br />
                   </label>
                   <label htmlFor="country">
                     Country
-                    <input value={school.country} type="text" id="country" /><br />
+                    <input value={school.country} type="text" id="country" readOnly /><br />
                   </label>
                 </div>
               );
@@ -146,27 +159,27 @@ class SchoolsLookUp extends Component {
           <div className="schoolDetails">
             <label htmlFor="establishmentName">
               School name<span className="required">*</span>
-              <input onChange={this.handleManual} type="text" id="establishmentName" required /><br />
+              <input value={this.state.establishmentName} onChange={this.handleManual} type="text" id="establishmentName" name="establishmentName" required /><br />
             </label>
             <label htmlFor="address_1">
               Address<span className="required">*</span>
-              <input onChange={this.handleManual} type="text" id="address_1" required /><br />
+              <input value={this.state.address_1} onChange={this.handleManual} type="text" id="address_1" name="address_1" required /><br />
             </label>
             <label htmlFor="town">
               Town
-              <input type="text" id="town" /><br />
+              <input value={this.state.town} onChange={this.handleManual} type="text" id="town" name="town" /><br />
             </label>
             <label htmlFor="townCity">
               County
-              <input type="text" id="townCity" /><br />
+              <input value={this.state.townCity} onChange={this.handleManual} type="text" id="townCity" name="townCity" /><br />
             </label>
             <label htmlFor="post_code">
               Postcode<span className="required">*</span>
-              <input onChange={this.handleManual} type="text" id="post_code" required /><br />
+              <input value={this.state.post_code} onChange={this.handleManual} type="text" id="post_code" name="post_code" required /><br />
             </label>
             <label htmlFor="country">
               Country
-              <input type="text" id="country" /><br />
+              <input value={this.state.country} onChange={this.handleManual} type="text" id="country" name="country" /><br />
             </label>
           </div>
         }
