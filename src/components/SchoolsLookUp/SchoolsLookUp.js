@@ -39,6 +39,7 @@ class SchoolsLookUp extends Component {
     } else {
       this.setState({ lookup: true });
     }
+    this.props.onChange();
   }
 
   /**
@@ -56,6 +57,7 @@ class SchoolsLookUp extends Component {
       .catch((error) => {
         console.log('error fetching', error);
       });
+    this.props.onChange();
   }
 
   /**
