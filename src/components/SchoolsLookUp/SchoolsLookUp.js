@@ -39,6 +39,7 @@ class SchoolsLookUp extends Component {
     } else {
       this.setState({ lookup: true });
     }
+    this.props.onChange();
   }
 
   /**
