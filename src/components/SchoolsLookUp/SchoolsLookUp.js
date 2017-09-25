@@ -57,6 +57,7 @@ class SchoolsLookUp extends Component {
       .catch((error) => {
         console.log('error fetching', error);
       });
+    this.props.onChange();
   }
 
   /**
