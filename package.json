@@ -3,7 +3,7 @@
   "description": "React components to build the Comic Relief front-end experience",
   "version": "0.0.0-see.readme.for.releases",
   "dependencies": {
-    "@comicrelief/pattern-lab": "^5.10.7",
+    "@comicrelief/pattern-lab": "7",
     "@storybook/addon-actions": "^3.2.6",
     "@storybook/addon-info": "^3.2.9",
     "@storybook/addon-knobs": "^3.2.8",
@@ -34,9 +34,12 @@
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "commit": "git-cz"
   },
   "devDependencies": {
+    "commitizen": "^2.9.6",
+    "cz-conventional-changelog": "^2.0.0",
     "eslint": "^4.6.1",
     "eslint-config-airbnb": "^15.1.0",
     "eslint-plugin-import": "^2.7.0",
@@ -55,5 +58,10 @@
     "rednoseday",
     "sportrelief"
   ],
-  "homepage": "https://github.com/comicrelief/storybook#readme"
+  "homepage": "https://github.com/comicrelief/storybook#readme",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }
