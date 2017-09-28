@@ -35,7 +35,7 @@ class FileUp extends Component {
     const max = this.props.maxFiles;
     const filesCombined = [...this.state.files, ...files];
     console.log(rejected.length);
-    if (files.length > max) {
+    if (filesCombined.length > max) {
       this.setState({
         error: `You can only upload max ${max} files.`,
       });
