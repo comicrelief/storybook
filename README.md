@@ -4,13 +4,13 @@
 ### Installation
 
 ```shell
-npm install @comicrelief/storybook --save
+yarn add @comicrelief/storybook
 ```
 
 ### Develop components with storybook
 
 ```shell
-npm run storybook
+yarn storybook
 ```
 
 Open http://localhost:6006/
@@ -71,3 +71,16 @@ feat: A new feature
 
 BREAKING CHANGE: A description of the change
 ```
+
+### Automating commit message format
+Commitizen library is added as npm dev dependency and it can be used to generate commit messages by 
+answering a few questions and skipping the ones which are not relavent.
+Example workflow:
+- Make code changes in your feature branch
+- Run **`git add .`** to add changed files and get ready to commit
+- Run **`yarn commit`**
+ 
+This will start an interactive process to build commit message. Simply answer all questions or
+press `Enter` to skip.
+ 
+ - Repeat and follow rest of the GitHub workflow
