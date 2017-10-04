@@ -11,8 +11,6 @@ class MenuLink extends Component {
    */
   render() {
     const item = this.props.item;
-
-
     const url = item.link.url.indexOf('http') === -1 ? this.props.baseUrl + item.link.url : item.link.url;
 
     return (
