@@ -13,10 +13,11 @@ class Menu extends Component {
    */
   render() {
     if (this.props.menuFetch.fulfilled) {
+      const source = this.props.source;
       return (
         <nav className="menu--footer">
           <ul className="menu" id={`${this.props.type}-menu`}>
-            {this.props.menuFetch.value.map((item, key) => <MenuLink item={item} key={key} />)}
+            {this.props.menuFetch.value.map((item, key) => <MenuLink baseUrl={source} item={item} key={key} />)}
           </ul>
         </nav>
       );
