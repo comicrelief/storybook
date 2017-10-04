@@ -18,7 +18,7 @@ class MenuLink extends Component {
       <li className="menu-item">
         {(item.link.url.indexOf('http') !== -1) ?
           <a href={item.link.url} target="_blank">{item.link.title}</a> :
-          <a href={ url }>{item.link.title}</a>}
+          <a href={url}>{item.link.title}</a>}
       </li>
 
     );
