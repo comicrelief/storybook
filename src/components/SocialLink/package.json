@@ -1,0 +1,11 @@
+
+{
+  "name": "SocialLink",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./SocialLink.js",
+  "dependencies": {
+    "prop-types": "^15.5.10",
+    "react": "^15.6.1"
+  }
+}

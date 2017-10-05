@@ -23,6 +23,7 @@
     "react-dropzone": "^4.1.1",
     "react-refetch": "^1.0.0",
     "react-scripts": "1.0.12",
+    "react-social-icons": "^2.7.0",
     "react-test-renderer": "^15.6.1",
     "sass-loader": "^6.0.6",
     "storybook-addon-specifications": "^2.1.1",
