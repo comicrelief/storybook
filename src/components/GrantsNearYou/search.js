@@ -70,7 +70,7 @@ export default class Search extends Component {
                  placeholder="Postcode Search (e.g. SE17TP)"
                  value={this.state.inputField}
                  onKeyUp={this.handleChange} />
-          <label for="range">Range (km)</label>
+          <label htmlFor="range">Range (km)</label>
           <input type="number"
                  name="range"
                  min="1"

@@ -28,12 +28,12 @@ class GrantsNearYou extends Component {
    */
   _search(searchTerm, range)
   {
-    let query = this.postcodeAPI + '/postcodes/' + searchTerm;
-    console.log("this.postcodeAPI:", this.postcodeAPI );
+    let query = this.props.postcodeAPI + '/postcodes/' + searchTerm;
+    console.log("this.postcodeAPI:", this.props.postcodeAPI );
     fetch(`${query}`)
       .then( r => r.json() )
       .then(json => {
-        let query = searchTerm.length >= 1 ? (SEARCH + '?latitude=' + json.result.latitude + '&longitude=' + json.result.longitude) + '&range=' + range + 'km' : SEARCH;
+        let query = searchTerm.length >= 1 ? (this.props.searchURL + '?latitude=' + json.result.latitude + '&longitude=' + json.result.longitude) + '&range=' + range + 'km' : this.props.searchURL;
         return fetch(`${query}`)
           .then( r => r.json() )
           .then( json => {
@@ -50,7 +50,7 @@ class GrantsNearYou extends Component {
    * @param data
    */
   searchHandler(data, range)
-  { console.log("******** searchHandler *********");
+  {
     this._search(data, range)
   }
 
