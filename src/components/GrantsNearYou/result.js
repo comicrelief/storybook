@@ -1,3 +1,5 @@
+import React, { Component } from 'react';
+
 import Currency from 'react-currency-formatter';
 
 function convertUnicode(input) {

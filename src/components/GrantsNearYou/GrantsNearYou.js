@@ -27,9 +27,11 @@ class GrantsNearYou extends Component {
    * @private
    */
   _search(searchTerm, range)
-  {
+  { 
+    // DEBUGGING!
+    //let searchTerm = "N227DB";
+
     let query = this.props.postcodeAPI + '/postcodes/' + searchTerm;
-    console.log("this.postcodeAPI:", this.props.postcodeAPI );
     fetch(`${query}`)
       .then( r => r.json() )
       .then(json => {
@@ -78,15 +80,15 @@ class GrantsNearYou extends Component {
 
         <Header />
 
-        <p>{this.props.results}</p>
-        <p>{this.props.pagination}</p>
-
-        {/*
         <div className="paging-information">
-          <p>{this.pagination.total} results - Page {this.pagination.page} of {this.pagination.pages}</p>
-        </div> */}
+          <p>{this.state.pagination.total} results - Page {this.state.pagination.page} of {this.state.pagination.pages}</p>
+        </div>
 
         <Search searchHandler={this.searchHandler} />
+
+        { this.state.results.map( result => (
+          <Result result={result.data} />
+        )) }
 
       </div>
     );

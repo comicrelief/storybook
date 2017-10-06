@@ -63,7 +63,6 @@ storiesOf('File Upload', module)
   );
 
 storiesOf('GrantsNearYou', module)
-  .addDecorator(withKnobs)
   .add('GrantsNearYou',
     withInfo('doc string about my component')(() => {
       const SEARCH = 'https://1kfs7evxca.execute-api.eu-west-1.amazonaws.com/beta/grants-geo';
