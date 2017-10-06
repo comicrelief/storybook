@@ -45,9 +45,6 @@ export default class Search extends Component {
     const name = e.target.name;
     const value = e.target.value;
 
-    console.log("****** handleChange name:", this);
-    console.log("****** handleChange value:", this);
-
     this.setState({
       [name]: value
     });
