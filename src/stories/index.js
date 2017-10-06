@@ -10,6 +10,8 @@ import { withInfo } from '@storybook/addon-info';
 import Footer from '../components/Footer/Footer';
 import SchoolsLookUp from '../components/SchoolsLookUp/SchoolsLookUp';
 import FileUp from '../components/FileUp/FileUp';
+import GrantsNearYou from '../components/GrantsNearYou/GrantsNearYou';
+
 
 storiesOf('Welcome', module).add('to Storybook', () => <h1>Welcome to CR Storybook</h1>);
 
@@ -57,5 +59,15 @@ storiesOf('File Upload', module)
       }));
 
       return story;
+    }),
+  );
+
+storiesOf('GrantsNearYou', module)
+  .addDecorator(withKnobs)
+  .add('GrantsNearYou',
+    withInfo('doc string about my component')(() => {
+      const SEARCH = 'https://1kfs7evxca.execute-api.eu-west-1.amazonaws.com/beta/grants-geo';
+      const POSTCODE_API = 'https://api.postcodes.io';
+      return (<GrantsNearYou searchURL={SEARCH} postcodeAPI={POSTCODE_API} />);
     }),
   );
