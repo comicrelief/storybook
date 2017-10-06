@@ -22,11 +22,11 @@ export const Result = ({result}) => (
           <div className="single-msg__image">
 
             <picture>
-              <source srcset="/assets/no_image.jpg"
+              <source srcSet="/assets/no_image.jpg"
                       media="all and (min-width: 1024px)" type="image/jpeg"/>
-              <source srcset="/assets/no_image.jpg"
+              <source srcSet="/assets/no_image.jpg"
                       media="all and (min-width: 740px)" type="image/jpeg"/>
-              <source srcset="/assets/no_image.jpg"
+              <source srcSet="/assets/no_image.jpg"
                       media="(min-width: 0px)" type="image/jpeg"/>
               <img src="/assets/no_image.jpg"
                    typeof="foaf:Image"/>

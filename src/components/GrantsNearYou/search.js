@@ -41,8 +41,12 @@ export default class Search extends Component {
    */
   handleChange(e)
   {
+
     const name = e.target.name;
     const value = e.target.value;
+
+    console.log("****** handleChange name:", this);
+    console.log("****** handleChange value:", this);
 
     this.setState({
       [name]: value
@@ -69,7 +73,7 @@ export default class Search extends Component {
                  name="inputField"
                  placeholder="Postcode Search (e.g. SE17TP)"
                  value={this.state.inputField}
-                 onKeyUp={this.handleChange} />
+                 onChange={this.handleChange} />
           <label htmlFor="range">Range (km)</label>
           <input type="number"
                  name="range"

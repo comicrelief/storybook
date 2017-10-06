@@ -28,8 +28,6 @@ class GrantsNearYou extends Component {
    */
   _search(searchTerm, range)
   { 
-    // DEBUGGING!
-    //let searchTerm = "N227DB";
 
     let query = this.props.postcodeAPI + '/postcodes/' + searchTerm;
     fetch(`${query}`)
@@ -72,8 +70,7 @@ class GrantsNearYou extends Component {
    * @returns {XML}
    */
   render(props) {
-
-
+  
     return (
 
       <div className="funded-projects">
