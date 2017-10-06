@@ -83,10 +83,8 @@ class GrantsNearYou extends Component {
 
         <Search searchHandler={this.searchHandler} />
 
-        { this.state.results.map( result => (
-          <Result result={result.data} />
-        )) }
-
+        { this.state.results.map((result,i) => (
+          <Result key={i} result={result.data} /> ))}
       </div>
     );
   }
