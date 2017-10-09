@@ -4,10 +4,9 @@ import PropTypes from 'prop-types';
 import './GrantsNearYou.scss';
 import { Result } from './result';
 import Search from './search';
-import Header from "./header";
+import Header from './header';
 
 class GrantsNearYou extends Component {
-
   /**
    * GrantsNearYou constructor.
    * @param props
@@ -20,26 +19,30 @@ class GrantsNearYou extends Component {
     };
     this.searchHandler = this.searchHandler.bind(this);
   }
+  /**
+   *
+   */
+  componentDidMount() {
+    this.search('', 5);
+  }
 
   /**
    * @param searchTerm
    * @param range
    * @private
    */
-  _search(searchTerm, range)
-  { 
-
-    let query = this.props.postcodeAPI + '/postcodes/' + searchTerm;
+  search(searchTerm, range) {
+    const query = `${this.props.postcodeAPI}/postcodes/${searchTerm}`;
     fetch(`${query}`)
-      .then( r => r.json() )
-      .then(json => {
-        let query = searchTerm.length >= 1 ? (this.props.searchURL + '?latitude=' + json.result.latitude + '&longitude=' + json.result.longitude) + '&range=' + range + 'km' : this.props.searchURL;
-        return fetch(`${query}`)
-          .then( r => r.json() )
-          .then( json => {
+      .then(r => r.json())
+      .then((json) => {
+        const query2 = searchTerm.length >= 1 ? `${this.props.searchURL}?latitude=${json.result.latitude}&longitude=${json.result.longitude}&range=${range}km` : this.props.searchURL;
+        return fetch(`${query2}`)
+          .then(r => r.json())
+          .then((json) => {
             this.setState({
               pagination: json && json.data && json.data.pagination || [],
-              results: json && json.data && json.data.grants || []
+              results: json && json.data && json.data.grants || [],
             });
           });
       });
@@ -48,29 +51,16 @@ class GrantsNearYou extends Component {
   /**
    *
    * @param data
+   * @param range
    */
-  searchHandler(data, range)
-  {
-    this._search(data, range)
+  searchHandler(data, range) {
+    this.search(data, range);
   }
-
   /**
    *
-   */
-  componentDidMount()
-  {
-    this._search('', 5);
-  }
-
-  /**
-   *
-   * @param props
-   * @param results
-   * @param pagination
    * @returns {XML}
    */
-  render(props) {
-  
+  render() {
     return (
 
       <div className="funded-projects">
@@ -83,8 +73,8 @@ class GrantsNearYou extends Component {
 
         <Search searchHandler={this.searchHandler} />
 
-        { this.state.results.map((result,i) => (
-          <Result key={i} result={result.data} /> ))}
+        { this.state.results.map((result, i) => (
+          <Result key={i} result={result.data} />))}
       </div>
     );
   }

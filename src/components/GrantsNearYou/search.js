@@ -2,12 +2,10 @@ import React, { Component } from 'react';
 
 
 export default class Search extends Component {
-
   /**
    *
    */
-  constructor()
-  {
+  constructor() {
     super();
     this.handleChange = this.handleChange.bind(this);
     this.submitHandler = this.submitHandler.bind(this);
@@ -22,8 +20,7 @@ export default class Search extends Component {
    *
    * @param evt
    */
-  submitHandler(evt)
-  {
+  submitHandler(evt) {
     evt.preventDefault();
     // pass the input field value to the event handler passed
     // as a prop by the parent (App)
@@ -39,20 +36,18 @@ export default class Search extends Component {
    *
    * @param event
    */
-  handleChange(e)
-  {
-
+  handleChange(e) {
     const name = e.target.name;
     const value = e.target.value;
 
     this.setState({
-      [name]: value
+      [name]: value,
     });
 
-    let self = this;
+    const self = this;
     clearTimeout(self.state.searchTimeout);
 
-    self.state.searchTimeout = setTimeout(function () {
+    self.state.searchTimeout = setTimeout(() => {
       self.props.searchHandler(self.state.inputField, self.state.range);
     }, 500);
   }
@@ -61,23 +56,26 @@ export default class Search extends Component {
    *
    * @returns {XML}
    */
-  render()
-  {
+  render() {
     return (
       <div className="search-container">
         <form onSubmit={this.submitHandler}>
-          <input type="text"
-                 name="inputField"
-                 placeholder="Postcode Search (e.g. SE17TP)"
-                 value={this.state.inputField}
-                 onChange={this.handleChange} />
+          <input
+            type="text"
+            name="inputField"
+            placeholder="Postcode Search (e.g. SE17TP)"
+            value={this.state.inputField}
+            onChange={this.handleChange}
+          />
           <label htmlFor="range">Range (km)</label>
-          <input type="number"
-                 name="range"
-                 min="1"
-                 max="100"
-                 value={this.state.range}
-                 onChange={this.handleChange} />
+          <input
+            type="number"
+            name="range"
+            min="1"
+            max="100"
+            value={this.state.range}
+            onChange={this.handleChange}
+          />
         </form>
       </div>
     );
