@@ -26,7 +26,7 @@ storiesOf('SchoolsLookUp', module)
 storiesOf('Footer', module)
   .addDecorator(withKnobs)
   .add('Comic Relief',
-    withInfo('doc string about my component')(() => {
+    withInfo('comicrelief.com footer')(() => {
       const copy = text('Copy', 'copyright 2017');
       const source = 'https://www.comicrelief.com';
       const campaign = 'comicrelief';
@@ -34,7 +34,7 @@ storiesOf('Footer', module)
     }),
   )
   .add('Sport Relief',
-    withInfo('doc string about my component')(() => {
+    withInfo('sportrelief.com footer')(() => {
       const copy = text('Copy', 'copyright 2018');
       const source = 'https://www.sportrelief.com';
       const campaign = 'sportrelief';
