@@ -27,16 +27,18 @@ storiesOf('Footer', module)
   .addDecorator(withKnobs)
   .add('Comic Relief',
     withInfo('comicrelief.com footer')(() => {
-      const copy = text('Copy', 'Copyright 2017');
+      const copy = text('Copy', 'copyright 2017');
       const source = 'https://www.comicrelief.com';
-      return (<Footer copy={copy} source={source} />);
+      const campaign = 'comicrelief';
+      return (<Footer copy={copy} source={source} campaign={campaign} />);
     }),
   )
   .add('Sport Relief',
     withInfo('sportrelief.com footer')(() => {
-      const copy = text('Copy', 'Copyright 2018');
-      const source = 'http://www.sportrelief.com';
-      return (<Footer copy={copy} source={source} />);
+      const copy = text('Copy', 'copyright 2018');
+      const source = 'https://www.sportrelief.com';
+      const campaign = 'sportrelief';
+      return (<Footer copy={copy} source={source} campaign={campaign} />);
     }),
   );
 

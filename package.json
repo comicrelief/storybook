@@ -3,7 +3,7 @@
   "description": "React components to build the Comic Relief front-end experience",
   "version": "0.0.0-see.readme.for.releases",
   "dependencies": {
-    "@comicrelief/pattern-lab": "7",
+    "@comicrelief/pattern-lab": "^7.4.2",
     "@storybook/addon-actions": "^3.2.6",
     "@storybook/addon-info": "^3.2.9",
     "@storybook/addon-knobs": "^3.2.8",
@@ -23,6 +23,7 @@
     "react-dropzone": "^4.1.1",
     "react-refetch": "^1.0.0",
     "react-scripts": "1.0.12",
+    "react-svg": "^2.1.22",
     "react-test-renderer": "^15.6.1",
     "sass-loader": "^6.0.6",
     "storybook-addon-specifications": "^2.1.1",
@@ -35,12 +36,14 @@
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "eslint": "eslint .",
+    "eslint-fix": "eslint --fix ."
   },
   "devDependencies": {
     "commitizen": "^2.9.6",
     "cz-conventional-changelog": "^2.0.0",
-    "eslint": "^4.6.1",
+    "eslint": "^4.8.0",
     "eslint-config-airbnb": "^15.1.0",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
