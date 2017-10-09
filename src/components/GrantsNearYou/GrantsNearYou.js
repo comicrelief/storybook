@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { AsyncTypeahead } from 'react-bootstrap-typeahead';
+// import { AsyncTypeahead } from 'react-bootstrap-typeahead';
 import PropTypes from 'prop-types';
 import './GrantsNearYou.scss';
 import { Result } from './result';
@@ -39,10 +39,10 @@ class GrantsNearYou extends Component {
         const query2 = searchTerm.length >= 1 ? `${this.props.searchURL}?latitude=${json.result.latitude}&longitude=${json.result.longitude}&range=${range}km` : this.props.searchURL;
         return fetch(`${query2}`)
           .then(r => r.json())
-          .then((json) => {
+          .then((json2) => {
             this.setState({
-              pagination: json && json.data && json.data.pagination || [],
-              results: json && json.data && json.data.grants || [],
+              pagination: (json2 && json2.data && json2.data.pagination) || [],
+              results: (json2 && json2.data && json2.data.grants) || [],
             });
           });
       });

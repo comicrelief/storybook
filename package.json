@@ -19,6 +19,7 @@
     "react": "^15.6.1",
     "react-addons-test-utils": "^15.6.0",
     "react-bootstrap-typeahead": "^2.0.0-alpha.3",
+    "react-currency-formatter": "^0.1.1",
     "react-dom": "^15.6.1",
     "react-dropzone": "^4.1.1",
     "react-refetch": "^1.0.0",
@@ -28,8 +29,7 @@
     "storybook-addon-specifications": "^2.1.1",
     "style-loader": "^0.18.2",
     "url-join": "^2.0.2",
-    "url-loader": "^0.5.9",
-    "react-currency-formatter": "^0.1.1"
+    "url-loader": "^0.5.9"
   },
   "scripts": {
     "eject": "react-scripts eject",
