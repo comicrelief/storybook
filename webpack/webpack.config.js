@@ -16,7 +16,6 @@ const configuration = {
     filename: 'index.js',
     libraryTarget: 'commonjs2', // our Output should be an exportable module!
   },
-  devtool: 'source-map',
   module: {
     rules: [
       {
@@ -75,6 +74,12 @@ const configuration = {
 
   plugins: [
     new webpack.optimize.ModuleConcatenationPlugin(),
+    // Compresses javascript files
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false,
+      },
+    }),
     // clears the output folder
     new CleanPlugin([path.relative(rootFolder, outputPath)],
       { root: rootFolder}),
