@@ -2,9 +2,9 @@
 # yarn lockfile v1
 
 
-"@comicrelief/pattern-lab@^7.4.0":
-  version "7.4.0"
-  resolved "https://registry.yarnpkg.com/@comicrelief/pattern-lab/-/pattern-lab-7.4.0.tgz#aa9cc5731851e1a01d41d2923467ee25d195decb"
+"@comicrelief/pattern-lab@^7.4.1":
+  version "7.4.1"
+  resolved "https://registry.yarnpkg.com/@comicrelief/pattern-lab/-/pattern-lab-7.4.1.tgz#2e7d0134e66802aa770953e638239f83c9af12fd"
   dependencies:
     autoprefixer "^7.1.1"
     browserslist "^2.1.4"
