@@ -67,15 +67,17 @@ export default class Search extends Component {
             value={this.state.inputField}
             onChange={this.handleChange}
           />
-          <label htmlFor="range">Range (km)</label>
-          <input
-            type="number"
-            name="range"
-            min="1"
-            max="100"
-            value={this.state.range}
-            onChange={this.handleChange}
-          />
+          <label htmlFor="range">Range (km)
+            <input
+              type="number"
+              name="range"
+              id="range"
+              min="1"
+              max="100"
+              value={this.state.range}
+              onChange={this.handleChange}
+            />
+          </label>
         </form>
       </div>
     );

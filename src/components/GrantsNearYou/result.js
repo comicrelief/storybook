@@ -40,7 +40,7 @@ export const Result = ({ result }) => (
               <img
                 src="/assets/no_image.jpg"
                 typeof="foaf:Image"
-                alt="Grants fallback image"
+                alt="Grants fallback"
               />
             </picture>
 
