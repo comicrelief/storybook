@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import Currency from 'react-currency-formatter';
 
@@ -40,6 +40,7 @@ export const Result = ({ result }) => (
               <img
                 src="/assets/no_image.jpg"
                 typeof="foaf:Image"
+                alt="Grants fallback image"
               />
             </picture>
 
@@ -75,3 +76,5 @@ export const Result = ({ result }) => (
 
   </div>
 );
+
+export { Result as default };
