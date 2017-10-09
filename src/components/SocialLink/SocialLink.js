@@ -9,27 +9,26 @@ import SvgInsta from '@comicrelief/pattern-lab/sass/base/components/svg/instagra
  * SocialLink class
  */
 class SocialLink extends Component {
-
   render() {
-    const campaign = this.props.campaign
+    const campaign = this.props.campaign;
     const socialLinks = [{
-        network: 'facebook',
-        name: 'fb',
-        url: 'http://www.facebook.com/'+ campaign,
-      }, {
-        network: 'twitter',
-        name: 'twitter',
-        url: 'http://twitter.com/' + campaign,    
-      }, {
-        network: 'youtube',
-        name: 'youtube',
-        url: 'https://www.youtube.com/channel/UCdF5u0ggeSETozc8fsprjcw', 
-      }, {
+      network: 'facebook',
+      name: 'fb',
+      url: `http://www.facebook.com/${campaign}`,
+    }, {
+      network: 'twitter',
+      name: 'twitter',
+      url: `http://twitter.com/${campaign}`,
+    }, {
+      network: 'youtube',
+      name: 'youtube',
+      url: 'https://www.youtube.com/channel/UCdF5u0ggeSETozc8fsprjcw',
+    }, {
       network: 'instagram',
-        name: 'instagram',
-        url: 'https://www.instagram.com/' + campaign, 
-      },
-    ]
+      name: 'instagram',
+      url: `https://www.instagram.com/${campaign}`,
+    },
+    ];
 
     return (
       <div className="footer__social-links">
@@ -39,19 +38,19 @@ class SocialLink extends Component {
           className="visually-hidden"
         />
         <ul>
-        { socialLinks.map(socialLink => (
-          <li key={socialLink.network}>
-            <a href={socialLink.url} title={socialLink.network} target="_blank" className={`icon__${socialLink.name}`}>
-              { socialLink.network !== 'instagram' ? 
-                <svg className="icon">
-                  <use xlinkHref={`#icon-${socialLink.network}`}></use> 
-                </svg>:
-                <img src={SvgInsta} />
-              }
-            </a>
-          </li>
-          )
-        )}
+          { socialLinks.map(socialLink => (
+            <li key={socialLink.network}>
+              <a href={socialLink.url} title={socialLink.network} target="_blank" className={`icon__${socialLink.name}`}>
+                { socialLink.network !== 'instagram' ?
+                  <svg className="icon">
+                    <use xlinkHref={`#icon-${socialLink.network}`} />
+                  </svg>:
+                  <img src={SvgInsta} alt={socialLink.network} />
+                }
+              </a>
+            </li>
+          ),
+          )}
         </ul>
       </div>
     );
@@ -59,7 +58,7 @@ class SocialLink extends Component {
 }
 
 SocialLink.propTypes = {
-  campaign: PropTypes.string,
+  campaign: PropTypes.string.isRequired,
 };
 
 export default SocialLink;
