@@ -1,0 +1,13 @@
+
+{
+  "name": "SocialLink",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./SocialLink.js",
+  "dependencies": {
+    "prop-types": "^15.5.10",
+    "react": "^15.6.1",
+    "react-svg": "^2.1.22",
+    "@comicrelief/pattern-lab": "^7.4.1"
+  }
+}
