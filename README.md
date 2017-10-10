@@ -1,19 +1,14 @@
 # Comic Relief Storybook [![NPM version][npm-image]][npm-url] [![Build Status](https://travis-ci.org/comicrelief/storybook.svg)](https://travis-ci.org/comicrelief/storybook)
 > React components to build the Comic Relief front-end experience
 
+## To run CR Storybook locally
+
 ### Installation
 
-```shell
-yarn add @comicrelief/storybook
-```
-
-### Develop components with storybook
-
-```shell
-yarn storybook
-```
-
-Open http://localhost:6006/
+* Clone this repository
+* `npm install`
+* `npm run storybook`
+* Visit http://localhost:6006/
 
 Then import your component(s) into stories/index.js and render them like so:
 
@@ -33,6 +28,18 @@ Then import your component(s) into components/index.js and rebuild dist files vi
 
 [npm-image]: https://badge.fury.io/js/%40comicrelief%2Fstorybook.svg
 [npm-url]: https://www.npmjs.com/package/@comicrelief/storybook
+
+## Getting Started as dependencies in your project
+### Install dependencies
+Ensure packages are installed with correct version numbers by running:
+  ```
+  npm install @comicrelief/storybook --save
+  ```
+
+### Include component
+```js
+import { Footer, FileUp } from '@comicrelief/storybook';
+```
 
 ### Semantic Release Process
 
