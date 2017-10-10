@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 // import { AsyncTypeahead } from 'react-bootstrap-typeahead';
 import PropTypes from 'prop-types';
+import { geolocated } from 'react-geolocated';
 import './GrantsNearYou.scss';
 import { Result } from './result';
 import Search from './search';
@@ -14,8 +15,10 @@ class GrantsNearYou extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      pagination: [],
       results: [],
+      pagination: [],
+      long: null,
+      lat: null,
     };
     this.searchHandler = this.searchHandler.bind(this);
   }
@@ -36,6 +39,13 @@ class GrantsNearYou extends Component {
     fetch(`${query}`)
       .then(r => r.json())
       .then((json) => {
+
+        // Store the co-ordinates that PostcodeAPI returns in our state
+        this.setState({
+          long: (json && json.result && json.result.longitude) || null,
+          lat: (json && json.result && json.result.latitude) || null,
+        });
+
         const query2 = searchTerm.length >= 1 ? `${this.props.searchURL}?latitude=${json.result.latitude}&longitude=${json.result.longitude}&range=${range}km` : this.props.searchURL;
         return fetch(`${query2}`)
           .then(r => r.json())
@@ -49,11 +59,13 @@ class GrantsNearYou extends Component {
   }
 
   /**
-   *
    * @param data
    * @param range
    */
   searchHandler(data, range) {
+
+    console.log("data input:", data);
+
     this.search(data, range);
   }
   /**
@@ -64,7 +76,6 @@ class GrantsNearYou extends Component {
     return (
 
       <div className="funded-projects">
-
         <Header />
 
         <div className="paging-information">
@@ -85,4 +96,9 @@ GrantsNearYou.propTypes = {
   searchURL: PropTypes.string.isRequired,
 };
 
-export default GrantsNearYou;
+export default geolocated({
+  positionOptions: {
+    enableHighAccuracy: true,
+  },
+  userDecisionTimeout: 5000,
+})(GrantsNearYou);

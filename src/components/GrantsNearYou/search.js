@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-
 export default class Search extends Component {
   /**
    *
@@ -17,7 +16,6 @@ export default class Search extends Component {
   }
 
   /**
-   *
    * @param evt
    */
   submitHandler(evt) {
@@ -36,9 +34,9 @@ export default class Search extends Component {
    *
    * @param event
    */
-  handleChange(e) {
-    const name = e.target.name;
-    const value = e.target.value;
+  handleChange(event) {
+    const name = event.target.name;
+    const value = event.target.value;
 
     this.setState({
       [name]: value,
