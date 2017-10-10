@@ -6,6 +6,7 @@ import './GrantsNearYou.scss';
 import { Result } from './result';
 import Search from './search';
 import Header from './header';
+import Geolocation from './geolocation';
 
 class GrantsNearYou extends Component {
   /**
@@ -17,8 +18,8 @@ class GrantsNearYou extends Component {
     this.state = {
       results: [],
       pagination: [],
-      long: null,
-      lat: null,
+      longitude: null,
+      latitude: null,
     };
     this.searchHandler = this.searchHandler.bind(this);
   }
@@ -35,6 +36,7 @@ class GrantsNearYou extends Component {
    * @private
    */
   search(searchTerm, range) {
+
     const query = `${this.props.postcodeAPI}/postcodes/${searchTerm}`;
     fetch(`${query}`)
       .then(r => r.json())
@@ -42,8 +44,8 @@ class GrantsNearYou extends Component {
 
         // Store the co-ordinates that PostcodeAPI returns in our state
         this.setState({
-          long: (json && json.result && json.result.longitude) || null,
-          lat: (json && json.result && json.result.latitude) || null,
+          longitude: (json && json.result && json.result.longitude) || null,
+          latitude: (json && json.result && json.result.latitude) || null,
         });
 
         const query2 = searchTerm.length >= 1 ? `${this.props.searchURL}?latitude=${json.result.latitude}&longitude=${json.result.longitude}&range=${range}km` : this.props.searchURL;
@@ -63,21 +65,27 @@ class GrantsNearYou extends Component {
    * @param range
    */
   searchHandler(data, range) {
-
-    console.log("data input:", data);
-
     this.search(data, range);
   }
+
+  handleLocation(latitude,longitude){
+    console.log("latitude", latitude);
+    console.log("longitude", longitude);
+  }
+
   /**
    *
    * @returns {XML}
    */
   render() {
+
     return (
 
       <div className="funded-projects">
         <Header />
 
+        <Geolocation handleLocation={this.handleLocation}/>
+      
         <div className="paging-information">
           <p>{this.state.pagination.total} results - Page {this.state.pagination.page} of {this.state.pagination.pages}</p>
         </div>
@@ -96,9 +104,4 @@ GrantsNearYou.propTypes = {
   searchURL: PropTypes.string.isRequired,
 };
 
-export default geolocated({
-  positionOptions: {
-    enableHighAccuracy: true,
-  },
-  userDecisionTimeout: 5000,
-})(GrantsNearYou);
+export default GrantsNearYou;
