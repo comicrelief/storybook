@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import Menu from '../Menu/Menu'
-import SocialLink from '../SocialLink/SocialLink'
-import './footer.scss'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import Menu from '../Menu/Menu';
+import SocialLink from '../SocialLink/SocialLink';
+import './footer.scss';
 
 const styles = {
   footer__branding: {
@@ -12,15 +12,15 @@ const styles = {
     marginLeft: 'auto',
     marginRight: 'auto',
   },
-}
+};
 
 class Footer extends Component {
   /**
    * Footer constructor.
    */
   constructor () {
-    super()
-    this.copy = 'Comic Relief 2017. Comic Relief, registered charity 326568 (England/Wales); SC039730 (Scotland)'
+    super();
+    this.copy = 'Comic Relief 2017. Comic Relief, registered charity 326568 (England/Wales); SC039730 (Scotland)';
   }
 
   /**
@@ -43,13 +43,13 @@ class Footer extends Component {
           </a>
         </div>
       </footer>
-    )
+    );
   }
 }
 
 Footer.propTypes = {
   source: PropTypes.string.isRequired,
   campaign: PropTypes.string,
-}
+};
 
-export default Footer
+export default Footer;

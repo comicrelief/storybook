@@ -8,7 +8,6 @@
     }],
     "no-console": [0],
     "func-names": [0],
-    "semi": ["error", "never"],
     "no-extra-semi": [2],
     "space-before-function-paren": [2, "always"],
     "no-else-return": [0],

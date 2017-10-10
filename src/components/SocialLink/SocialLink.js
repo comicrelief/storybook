@@ -1,16 +1,16 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import ReactSVG from 'react-svg'
-import SvgSprite from '@comicrelief/pattern-lab/sass/base/components/svg/spritesheet.svg'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import ReactSVG from 'react-svg';
+import SvgSprite from '@comicrelief/pattern-lab/sass/base/components/svg/spritesheet.svg';
 /* svg with gradient background */
-import SvgInsta from '@comicrelief/pattern-lab/sass/base/components/svg/instagram.svg'
+import SvgInsta from '@comicrelief/pattern-lab/sass/base/components/svg/instagram.svg';
 
 /**
  * SocialLink class
  */
 class SocialLink extends Component {
   render () {
-    const campaign = this.props.campaign
+    const campaign = this.props.campaign;
     const socialLinks = [{
       network: 'facebook',
       name: 'fb',
@@ -28,7 +28,7 @@ class SocialLink extends Component {
       name: 'instagram',
       url: `https://www.instagram.com/${campaign}`,
     },
-    ]
+    ];
 
     return (
       <div className="footer__social-links">
@@ -58,12 +58,12 @@ class SocialLink extends Component {
           )}
         </ul>
       </div>
-    )
+    );
   }
 }
 
 SocialLink.propTypes = {
   campaign: PropTypes.string.isRequired,
-}
+};
 
-export default SocialLink
+export default SocialLink;

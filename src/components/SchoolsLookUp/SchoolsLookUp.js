@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
-import axios from 'axios'
-import PropTypes from 'prop-types'
-import { AsyncTypeahead } from 'react-bootstrap-typeahead'
-import './SchoolsLookUp.scss'
+import React, { Component } from 'react';
+import axios from 'axios';
+import PropTypes from 'prop-types';
+import { AsyncTypeahead } from 'react-bootstrap-typeahead';
+import './SchoolsLookUp.scss';
 
 class SchoolsLookUp extends Component {
   /**
@@ -16,7 +16,7 @@ class SchoolsLookUp extends Component {
         <span>{option.name}, </span>
         <span>{option.post_code}</span>
       </div>
-    )
+    );
   }
 
   /**
@@ -24,7 +24,7 @@ class SchoolsLookUp extends Component {
    * @param props
    */
   constructor (props) {
-    super(props)
+    super(props);
     this.state = {
       options: [],
       schools: [],
@@ -35,11 +35,11 @@ class SchoolsLookUp extends Component {
       post_code: '',
       country: '',
       lookup: true,
-    }
-    this.handleChange = this.handleChange.bind(this)
-    this.handleSearch = this.handleSearch.bind(this)
-    this.handleClick = this.handleClick.bind(this)
-    this.handleManual = this.handleManual.bind(this)
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+    this.handleManual = this.handleManual.bind(this);
   }
 
   /**
@@ -47,13 +47,13 @@ class SchoolsLookUp extends Component {
    * @param e
    */
   handleClick (e) {
-    e.preventDefault()
+    e.preventDefault();
     if (this.state.lookup) {
-      this.setState({ lookup: false })
+      this.setState({ lookup: false });
     } else {
-      this.setState({ lookup: true })
+      this.setState({ lookup: true });
     }
-    this.props.onChange()
+    this.props.onChange();
   }
 
   /**
@@ -62,16 +62,16 @@ class SchoolsLookUp extends Component {
    */
   handleSearch (query) {
     if (!query) {
-      return
+      return;
     }
     axios.get(this.props.data + query)
       .then((response) => {
-        this.setState({ options: response.data.data.schools })
+        this.setState({ options: response.data.data.schools });
       })
       .catch((error) => {
-        console.log('error fetching', error)
-      })
-    this.props.onChange()
+        console.log('error fetching', error);
+      });
+    this.props.onChange();
   }
 
   /**
@@ -82,8 +82,8 @@ class SchoolsLookUp extends Component {
     this.setState({
       schools: data,
       lookup: true,
-    })
-    this.props.onChange()
+    });
+    this.props.onChange();
   }
 
   /**
@@ -91,14 +91,14 @@ class SchoolsLookUp extends Component {
    * @param event
    */
   handleManual (event) {
-    const target = event.target
-    const value = target.value
-    const name = target.name
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
 
     this.setState({
       [name]: value,
-    })
-    this.props.onChange()
+    });
+    this.props.onChange();
   }
 
   /**
@@ -220,7 +220,7 @@ class SchoolsLookUp extends Component {
           </div>
         }
       </div>
-    )
+    );
   }
 }
 
@@ -228,6 +228,6 @@ SchoolsLookUp.propTypes = {
   data: PropTypes.string.isRequired,
   min: PropTypes.number.isRequired,
   onChange: PropTypes.func,
-}
+};
 
-export default SchoolsLookUp
+export default SchoolsLookUp;

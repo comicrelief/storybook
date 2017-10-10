@@ -1,29 +1,29 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import Dropzone from 'react-dropzone'
-import './styles.scss'
-import PdfImage from './Images/pdficon.png'
-import newId from '../../utils/newid'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import Dropzone from 'react-dropzone';
+import './styles.scss';
+import PdfImage from './Images/pdficon.png';
+import newId from '../../utils/newid';
 
 class FileUp extends Component {
   /**
    * FileUp constructor.
    */
   constructor () {
-    super()
+    super();
     this.state = {
       files: [],
       rejected: [],
       bigFile: false,
-    }
-    this.onDrop = this.onDrop.bind(this)
+    };
+    this.onDrop = this.onDrop.bind(this);
   }
 
   /**
    * On component mount.
    */
   componentWillMount () {
-    this.dropZoneId = newId('dropzone-')
+    this.dropZoneId = newId('dropzone-');
   }
 
   /**
@@ -32,46 +32,46 @@ class FileUp extends Component {
    * @param rejected
    */
   onDrop (files, rejected) {
-    const max = this.props.maxFiles
-    const filesCombined = [...this.state.files, ...files]
-    console.log(rejected.length)
+    const max = this.props.maxFiles;
+    const filesCombined = [...this.state.files, ...files];
+    console.log(rejected.length);
     if (filesCombined.length > max) {
       this.setState({
         error: `You can only upload max ${max} files.`,
-      })
+      });
     } else if (rejected.length > 0) {
       if (rejected[0].size > this.props.maxSize) {
         this.setState({
           error: `File/s exceed maximum size. Maximum size for each file is ${this.props.maxSize/1000000}MB`,
-        })
+        });
       } else {
         this.setState({
           error: 'File type not accepted. Please upload JPG, PNG or PDF',
-        })
+        });
       }
     } else {
-      let dupe = false
+      let dupe = false;
       files.forEach((file1) => {
         this.state.files.forEach((file2) => {
           if (file1.name === file2.name) {
-            dupe = true
+            dupe = true;
           }
-        })
-      })
+        });
+      });
 
       if (dupe) {
         this.setState({
           error: 'You cannot upload the same file twice. Please try again.',
-        })
+        });
       } else {
         this.setState({
           rejected,
           files: filesCombined,
           error: '',
-        })
+        });
       }
     }
-    this.props.onChange()
+    this.props.onChange();
   }
 
   /**
@@ -80,15 +80,15 @@ class FileUp extends Component {
    */
 
   removeFile (file, e) {
-    e.preventDefault()
-    const newState = this.state.files
+    e.preventDefault();
+    const newState = this.state.files;
     if (newState.indexOf(file) > -1) {
-      newState.splice(newState.indexOf(file), 1)
+      newState.splice(newState.indexOf(file), 1);
       this.setState({
         files: newState,
-      })
+      });
     }
-    this.props.onChange()
+    this.props.onChange();
   }
 
   /**
@@ -151,7 +151,7 @@ class FileUp extends Component {
             : null}
         </div>
       </section>
-    )
+    );
   }
 }
 
@@ -160,8 +160,8 @@ FileUp.propTypes = {
   maxSize: PropTypes.number,
   onChange: PropTypes.func,
   types: PropTypes.arrayOf(PropTypes.string),
-}
+};
 
-export { default as S3FileUploadService } from './src/service/S3FileUploadService'
+export { default as S3FileUploadService } from './src/service/S3FileUploadService';
 
-export default FileUp
+export default FileUp;
