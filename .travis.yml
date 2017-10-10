@@ -18,7 +18,7 @@ before_script:
   - npm prune
 
 script:
-  - eslint .
+  - yarn eslint
 
 after_success:
-  - npm run semantic-release
+  - yarn semantic-release
