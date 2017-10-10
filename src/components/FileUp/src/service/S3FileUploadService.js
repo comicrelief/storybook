@@ -7,7 +7,7 @@ class S3FileUploadService {
    * @param file
    * @return {Promise}
    */
-  static generateSignedUrl (signedUrlEndpoint, file) {
+  static generateSignedUrl(signedUrlEndpoint, file) {
     return new Promise((resolve, reject) => {
       axios.post(signedUrlEndpoint, {
         name: file.name,
@@ -26,7 +26,7 @@ class S3FileUploadService {
    * @param file
    * @return {Promise}
    */
-  uploadFile (signedUrlEndpoint, file) {
+  uploadFile(signedUrlEndpoint, file) {
     return new Promise((resolve, reject) => {
       let fileData;
       this.generateSignedUrl(signedUrlEndpoint, file).then((fileUploadData) => {

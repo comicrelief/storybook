@@ -3,7 +3,7 @@ import { connect } from 'react-refetch';
 const cache = new Map();
 
 export default connect.defaults({
-  buildRequest (mapping) {
+  buildRequest(mapping) {
     const options = {
       method: mapping.method,
       cache: 'force-cache',
@@ -13,7 +13,7 @@ export default connect.defaults({
     return new Request(mapping.url, options);
   },
 
-  fetch (input, init) {
+  fetch(input, init) {
     const req = new Request(input, init);
     const now = new Date().getTime();
     const inAMinute = 60000 + now;

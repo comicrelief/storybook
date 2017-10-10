@@ -9,7 +9,7 @@ import SvgInsta from '@comicrelief/pattern-lab/sass/base/components/svg/instagra
  * SocialLink class
  */
 class SocialLink extends Component {
-  render () {
+  render() {
     const campaign = this.props.campaign;
     const socialLinks = [{
       network: 'facebook',
@@ -49,13 +49,15 @@ class SocialLink extends Component {
                 { socialLink.network !== 'instagram' ?
                   <svg className="icon">
                     <use xlinkHref={`#icon-${socialLink.network}`} />
-                  </svg>:
+                  </svg> :
                   <img src={SvgInsta} alt={socialLink.network} />
                 }
               </a>
             </li>
           ),
           )}
+
+
         </ul>
       </div>
     );

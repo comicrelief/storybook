@@ -12,7 +12,7 @@ class Menu extends Component {
    * render
    * @return {XML}
    */
-  render () {
+  render() {
     if (this.props.menuFetch.fulfilled) {
       const source = this.props.source;
       return (
@@ -29,9 +29,9 @@ class Menu extends Component {
 }
 
 Menu.propTypes = {
-  menuFetch: PropTypes.object,
-  source: PropTypes.string,
-  type: PropTypes.string,
+  menuFetch: PropTypes.object.isRequired,
+  source: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
 };
 
 export default connect(props => ({

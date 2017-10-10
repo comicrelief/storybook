@@ -9,7 +9,7 @@ class FileUp extends Component {
   /**
    * FileUp constructor.
    */
-  constructor () {
+  constructor() {
     super();
     this.state = {
       files: [],
@@ -22,7 +22,7 @@ class FileUp extends Component {
   /**
    * On component mount.
    */
-  componentWillMount () {
+  componentWillMount() {
     this.dropZoneId = newId('dropzone-');
   }
 
@@ -31,7 +31,7 @@ class FileUp extends Component {
    * @param files
    * @param rejected
    */
-  onDrop (files, rejected) {
+  onDrop(files, rejected) {
     const max = this.props.maxFiles;
     const filesCombined = [...this.state.files, ...files];
     console.log(rejected.length);
@@ -42,7 +42,7 @@ class FileUp extends Component {
     } else if (rejected.length > 0) {
       if (rejected[0].size > this.props.maxSize) {
         this.setState({
-          error: `File/s exceed maximum size. Maximum size for each file is ${this.props.maxSize/1000000}MB`,
+          error: `File/s exceed maximum size. Maximum size for each file is ${this.props.maxSize / 1000000}MB`,
         });
       } else {
         this.setState({
@@ -79,7 +79,7 @@ class FileUp extends Component {
    * @param e
    */
 
-  removeFile (file, e) {
+  removeFile(file, e) {
     e.preventDefault();
     const newState = this.state.files;
     if (newState.indexOf(file) > -1) {
@@ -95,12 +95,12 @@ class FileUp extends Component {
    * Component render.
    * @return {XML}
    */
-  render () {
+  render() {
     return (
       <section>
         <div className="dropzone__wrapper">
           <p className="font--centre">Upload designs as separate files<br />
-            Max file size per file: {this.props.maxSize/1000000}MB<br />
+            Max file size per file: {this.props.maxSize / 1000000}MB<br />
             File types accepted: JPG, PNG and PDF</p>
           {this.state.files.length > 0 ?
             <div className="file-up__img-uploaded">
@@ -157,9 +157,9 @@ class FileUp extends Component {
 
 FileUp.propTypes = {
   maxFiles: PropTypes.number.isRequired,
-  maxSize: PropTypes.number,
-  onChange: PropTypes.func,
-  types: PropTypes.arrayOf(PropTypes.string),
+  maxSize: PropTypes.number.isRequired,
+  onChange: PropTypes.func.isRequired,
+  types: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export { default as S3FileUploadService } from './src/service/S3FileUploadService';

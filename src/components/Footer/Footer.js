@@ -18,7 +18,7 @@ class Footer extends Component {
   /**
    * Footer constructor.
    */
-  constructor () {
+  constructor() {
     super();
     this.copy = 'Comic Relief 2017. Comic Relief, registered charity 326568 (England/Wales); SC039730 (Scotland)';
   }
@@ -27,7 +27,7 @@ class Footer extends Component {
    * Render footer component.
    * @return {XML}
    */
-  render () {
+  render() {
     return (
       <footer style={styles} role="contentinfo">
         <SocialLink campaign={this.props.campaign} />
@@ -49,7 +49,7 @@ class Footer extends Component {
 
 Footer.propTypes = {
   source: PropTypes.string.isRequired,
-  campaign: PropTypes.string,
+  campaign: PropTypes.string.isRequired,
 };
 
 export default Footer;

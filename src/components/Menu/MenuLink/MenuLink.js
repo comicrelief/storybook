@@ -9,7 +9,7 @@ class MenuLink extends Component {
    * render
    * @return {XML}
    */
-  render () {
+  render() {
     const item = this.props.item;
 
     return (

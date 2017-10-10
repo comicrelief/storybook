@@ -10,7 +10,7 @@ class SchoolsLookUp extends Component {
    * @param option
    * @return {XML}
    */
-  static renderMenuItemChildren (option) {
+  static renderMenuItemChildren(option) {
     return (
       <div key={option.id}>
         <span>{option.name}, </span>
@@ -23,7 +23,7 @@ class SchoolsLookUp extends Component {
    * SchoolsLookUp constructor.
    * @param props
    */
-  constructor (props) {
+  constructor(props) {
     super(props);
     this.state = {
       options: [],
@@ -46,7 +46,7 @@ class SchoolsLookUp extends Component {
    * Handle click event.
    * @param e
    */
-  handleClick (e) {
+  handleClick(e) {
     e.preventDefault();
     if (this.state.lookup) {
       this.setState({ lookup: false });
@@ -60,7 +60,7 @@ class SchoolsLookUp extends Component {
    * Handle search event.
    * @param query
    */
-  handleSearch (query) {
+  handleSearch(query) {
     if (!query) {
       return;
     }
@@ -78,7 +78,7 @@ class SchoolsLookUp extends Component {
    * Handle change event.
    * @param data
    */
-  handleChange (data) {
+  handleChange(data) {
     this.setState({
       schools: data,
       lookup: true,
@@ -90,7 +90,7 @@ class SchoolsLookUp extends Component {
    * Handle change event.
    * @param event
    */
-  handleManual (event) {
+  handleManual(event) {
     const target = event.target;
     const value = target.value;
     const name = target.name;
@@ -105,7 +105,7 @@ class SchoolsLookUp extends Component {
    * Render Component.
    * @return {XML}
    */
-  render () {
+  render() {
     return (
       <div className="SchoolsLookUp">
         <label htmlFor="schoolsLookUp">{"Enter your school's name or postcode"}
@@ -227,7 +227,7 @@ class SchoolsLookUp extends Component {
 SchoolsLookUp.propTypes = {
   data: PropTypes.string.isRequired,
   min: PropTypes.number.isRequired,
-  onChange: PropTypes.func,
+  onChange: PropTypes.func.isRequired,
 };
 
 export default SchoolsLookUp;

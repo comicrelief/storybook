@@ -1,37 +1,18 @@
 {
   "extends": "eslint-config-airbnb",
   "rules": {
-    "indent": [2, 2, {"SwitchCase": 1}],
-    "max-len": ["error", 120],
-    "react/forbid-prop-types": [2, {
-      "forbid": ["array", "any"]
-    }],
-    "no-console": [0],
-    "func-names": [0],
-    "no-extra-semi": [2],
-    "space-before-function-paren": [2, "always"],
-    "no-else-return": [0],
-    "space-infix-ops": [0],
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-    "react/jsx-indent": [2, 2],
-    "react/prefer-es6-class": [0],
-    "react/prefer-stateless-function": [0],
-    "react/require-default-props": [0], // Todo review this? https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/require-default-props.md
-    "import/no-unresolved": [0],
-    "global-require": [0],
-    "no-underscore-dangle": [0],
-    "no-nested-ternary": [0],
-    "import/prefer-default-export": [0],
-    "no-unneeded-ternary": [0],
-    "no-restricted-syntax": ["error", "LabeledStatement", "WithStatement"],
-    "react/no-did-mount-set-state": [0],
-    "react/jsx-no-bind": [1, {"allowBind": true, "allowArrowFunctions": true}],
-    "import/no-extraneous-dependencies": ["error", {"devDependencies": true}]
-  },
-  "parserOptions":{
-    "ecmaFeatures": {
-      "experimentalObjectRestSpread": true
-    }
+    "react/prefer-stateless-function": "off",
+    "react/jsx-filename-extension": "off",
+    "jsx-a11y/href-no-hash": "off",
+    "max-len": "off",
+    "no-console": "off",
+    "class-methods-use-this": "off",
+    "arrow-body-style": "off",
+    "react/forbid-prop-types": "off",
+    "react/prop-types": "off",
+    "react/no-array-index-key": "off",
+    "space-infix-ops": "off",
+    "react/jsx-no-bind": "off"
   },
   "env": {
     "browser": true
