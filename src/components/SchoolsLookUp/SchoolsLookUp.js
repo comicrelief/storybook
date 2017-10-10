@@ -6,6 +6,20 @@ import './SchoolsLookUp.scss';
 
 class SchoolsLookUp extends Component {
   /**
+   * Render menu item children.
+   * @param option
+   * @return {XML}
+   */
+  static renderMenuItemChildren(option) {
+    return (
+      <div key={option.id}>
+        <span>{option.name}, </span>
+        <span>{option.post_code}</span>
+      </div>
+    );
+  }
+
+  /**
    * SchoolsLookUp constructor.
    * @param props
    */
@@ -88,20 +102,6 @@ class SchoolsLookUp extends Component {
   }
 
   /**
-   * Render menu item children.
-   * @param option
-   * @return {XML}
-   */
-  renderMenuItemChildren(option) {
-    return (
-      <div key={option.id}>
-        <span>{option.name}, </span>
-        <span>{option.post_code}</span>
-      </div>
-    );
-  }
-
-  /**
    * Render Component.
    * @return {XML}
    */
@@ -122,50 +122,65 @@ class SchoolsLookUp extends Component {
             options={this.state.options}
           />
         </label>
-        <a href="#" className="lookupTrue" onClick={this.handleClick}>Or enter address manually</a>
+        <button className="lookupTrue" onClick={this.handleClick}>
+          Or enter address manually
+        </button>
         {this.state.lookup ?
           <div>
-            {this.state.schools.map((school) => {
-              return (
-                <div className="schoolDetails">
-                  <label htmlFor="establishmentName">
+            {this.state.schools.map(school => (
+              <div className="schoolDetails">
+                <label htmlFor="establishmentName">
                     School name<span className="required">*</span>
-                    <input value={school.name} type="text" id="establishmentName" required readOnly /><br />
-                  </label>
-                  <label htmlFor="address_1">
+                  <input value={school.name} type="text" id="establishmentName" required readOnly /><br />
+                </label>
+                <label htmlFor="address_1">
                     Address<span className="required">*</span>
-                    <input value={school.address_1} type="text" id="address_1" required readOnly /><br />
-                  </label>
-                  <label htmlFor="town">
+                  <input value={school.address_1} type="text" id="address_1" required readOnly /><br />
+                </label>
+                <label htmlFor="town">
                     Town
-                    <input value={school.town} type="text" id="town" readOnly /><br />
-                  </label>
-                  <label htmlFor="townCity">
+                  <input value={school.town} type="text" id="town" readOnly /><br />
+                </label>
+                <label htmlFor="townCity">
                     County
-                    <input value={school.county} type="text" id="townCity" readOnly /><br />
-                  </label>
-                  <label htmlFor="post_code">
+                  <input value={school.county} type="text" id="townCity" readOnly /><br />
+                </label>
+                <label htmlFor="post_code">
                     Postcode<span className="required">*</span>
-                    <input value={school.post_code} type="text" id="post_code" required readOnly /><br />
-                  </label>
-                  <label htmlFor="country">
+                  <input value={school.post_code} type="text" id="post_code" required readOnly /><br />
+                </label>
+                <label htmlFor="country">
                     Country
-                    <input value={school.country} type="text" id="country" readOnly /><br />
-                  </label>
-                </div>
-              );
-            })
+                  <input value={school.country} type="text" id="country" readOnly /><br />
+                </label>
+              </div>
+            ))
             }
           </div>
           :
           <div className="schoolDetails">
             <label htmlFor="establishmentName">
               School name<span className="required">*</span>
-              <input value={this.state.establishmentName} onChange={this.handleManual} type="text" id="establishmentName" name="establishmentName" required /><br />
+              <input
+                value={this.state.establishmentName}
+                onChange={this.handleManual}
+                type="text"
+                id="establishmentName"
+                name="establishmentName"
+                required
+              /><br />
             </label>
             <label htmlFor="address_1">
               Address<span className="required">*</span>
-              <input value={this.state.address_1} onChange={this.handleManual} type="text" id="address_1" name="address_1" required /><br />
+              <input
+                value={this.state.address_1}
+                onChange={this.handleManual}
+                type="text"
+                id="address_1"
+                name="address_1"
+                required
+              />
+              <br />
             </label>
             <label htmlFor="town">
               Town
@@ -173,15 +188,34 @@ class SchoolsLookUp extends Component {
             </label>
             <label htmlFor="townCity">
               County
-              <input value={this.state.townCity} onChange={this.handleManual} type="text" id="townCity" name="townCity" /><br />
+              <input
+                value={this.state.townCity}
+                onChange={this.handleManual}
+                type="text"
+                id="townCity"
+                name="townCity"
+              /><br />
             </label>
             <label htmlFor="post_code">
               Postcode<span className="required">*</span>
-              <input value={this.state.post_code} onChange={this.handleManual} type="text" id="post_code" name="post_code" required /><br />
+              <input
+                value={this.state.post_code}
+                onChange={this.handleManual}
+                type="text"
+                id="post_code"
+                name="post_code"
+                required
+              /><br />
             </label>
             <label htmlFor="country">
               Country
-              <input value={this.state.country} onChange={this.handleManual} type="text" id="country" name="country" /><br />
+              <input
+                value={this.state.country}
+                onChange={this.handleManual}
+                type="text"
+                id="country"
+                name="country"
+              /><br />
             </label>
           </div>
         }
@@ -193,6 +227,7 @@ class SchoolsLookUp extends Component {
 SchoolsLookUp.propTypes = {
   data: PropTypes.string.isRequired,
   min: PropTypes.number.isRequired,
+  onChange: PropTypes.func.isRequired,
 };
 
 export default SchoolsLookUp;

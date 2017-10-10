@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import connect from '../../utils/drupal-api-connector';
 import MenuLink from './MenuLink/MenuLink';
 import './menu.scss';
@@ -17,7 +18,7 @@ class Menu extends Component {
       return (
         <nav className="menu--footer">
           <ul className="menu" id={`${this.props.type}-menu`}>
-            {this.props.menuFetch.value.map((item, key) => <MenuLink baseUrl={source} item={item} key={key} />)}
+            {this.props.menuFetch.value.map(item => <MenuLink baseUrl={source} item={item} key={item.link.title} />)}
           </ul>
         </nav>
       );
@@ -26,6 +27,12 @@ class Menu extends Component {
     return <div />;
   }
 }
+
+Menu.propTypes = {
+  menuFetch: PropTypes.object.isRequired,
+  source: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+};
 
 export default connect(props => ({
   menuFetch: `${props.source}/entity/menu/${props.type}/tree?_format=json`,

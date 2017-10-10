@@ -42,7 +42,7 @@ class FileUp extends Component {
     } else if (rejected.length > 0) {
       if (rejected[0].size > this.props.maxSize) {
         this.setState({
-          error: `File/s exceed maximum size. Maximum size for each file is ${this.props.maxSize/1000000}MB`,
+          error: `File/s exceed maximum size. Maximum size for each file is ${this.props.maxSize / 1000000}MB`,
         });
       } else {
         this.setState({
@@ -100,7 +100,7 @@ class FileUp extends Component {
       <section>
         <div className="dropzone__wrapper">
           <p className="font--centre">Upload designs as separate files<br />
-            Max file size per file: {this.props.maxSize/1000000}MB<br />
+            Max file size per file: {this.props.maxSize / 1000000}MB<br />
             File types accepted: JPG, PNG and PDF</p>
           {this.state.files.length > 0 ?
             <div className="file-up__img-uploaded">
@@ -108,11 +108,14 @@ class FileUp extends Component {
                 (<span key={file.name} className="preview">
                   {(file.type === 'application/pdf') ?
                     <img src={PdfImage} alt="" /> : <img src={file.preview} alt="" />}
-                  <p className="font--small font--centre"><a
-                    className="link"
-                    href="#"
-                    onClick={this.removeFile.bind(this, file)}
-                  >Remove</a></p>
+                  <p className="font--small font--centre">
+                    <button
+                      className="link"
+                      onClick={this.removeFile.bind(this, file)}
+                    >
+                    Remove
+                    </button>
+                  </p>
                 </span>),
               )}
             </div>
@@ -121,7 +124,9 @@ class FileUp extends Component {
             <p className="font--centre error">{this.state.error}</p>
             : null}
           {this.state.files.length === this.props.maxFiles ?
-            <p className="font--centre error">You&apos;ve reached your maximum amount of {this.props.maxFiles} files.</p>
+            <p className="font--centre error">
+              You&apos;ve reached your maximum amount of {this.props.maxFiles} files.
+            </p>
             : null}
           {this.state.files.length < this.props.maxFiles ?
             <label htmlFor={this.dropZoneId}><span className="labelSpan">Image upload</span>
@@ -133,7 +138,13 @@ class FileUp extends Component {
                 accept={this.props.types}
                 onDrop={this.onDrop}
               >
-                <p>Drop image/s here <br />or click to upload <br /> <b className="font--small">Max. {this.props.maxFiles} designs per school</b></p>
+                <p>
+                  Drop image/s here <br />
+                  or click to upload <br />
+                  <b className="font--small">
+                    Max. {this.props.maxFiles} designs per school
+                  </b>
+                </p>
                 <p className="cross">+</p>
               </Dropzone>
             </label>
@@ -146,6 +157,9 @@ class FileUp extends Component {
 
 FileUp.propTypes = {
   maxFiles: PropTypes.number.isRequired,
+  maxSize: PropTypes.number.isRequired,
+  onChange: PropTypes.func.isRequired,
+  types: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export { default as S3FileUploadService } from './src/service/S3FileUploadService';

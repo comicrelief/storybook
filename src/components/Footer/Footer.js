@@ -49,6 +49,7 @@ class Footer extends Component {
 
 Footer.propTypes = {
   source: PropTypes.string.isRequired,
+  campaign: PropTypes.string.isRequired,
 };
 
 export default Footer;

@@ -18,7 +18,10 @@ storiesOf('SchoolsLookUp', module)
   .add('Schools Look Up',
     withInfo('A schools address look up field')(() => {
       const min = number('Min Length', 3);
-      const endpoint = text('Endpoint', 'https://bilw38ca93.execute-api.eu-west-1.amazonaws.com/production/schools/lookup?query=');
+      const endpoint = text(
+        'Endpoint',
+        'https://bilw38ca93.execute-api.eu-west-1.amazonaws.com/production/schools/lookup?query=',
+      );
       return (<SchoolsLookUp data={endpoint} min={min} />);
     }),
   );

@@ -40,17 +40,24 @@ class SocialLink extends Component {
         <ul>
           { socialLinks.map(socialLink => (
             <li key={socialLink.network}>
-              <a href={socialLink.url} title={socialLink.network} target="_blank" className={`icon__${socialLink.name}`}>
+              <a
+                href={socialLink.url}
+                title={socialLink.network}
+                target="_blank"
+                className={`icon__${socialLink.name}`}
+              >
                 { socialLink.network !== 'instagram' ?
                   <svg className="icon">
                     <use xlinkHref={`#icon-${socialLink.network}`} />
-                  </svg>:
+                  </svg> :
                   <img src={SvgInsta} alt={socialLink.network} />
                 }
               </a>
             </li>
           ),
           )}
+
+
         </ul>
       </div>
     );
