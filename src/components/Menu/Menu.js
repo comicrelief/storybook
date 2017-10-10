@@ -18,7 +18,7 @@ class Menu extends Component {
       return (
         <nav className="menu--footer">
           <ul className="menu" id={`${this.props.type}-menu`}>
-            {this.props.menuFetch.value.map(item => <MenuLink baseUrl={source} item={item} key={item} />)}
+            {this.props.menuFetch.value.map(item => <MenuLink baseUrl={source} item={item} key={item.link.title} />)}
           </ul>
         </nav>
       );
