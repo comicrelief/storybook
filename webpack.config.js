@@ -1,11 +1,11 @@
 // base webpack config file
-import path from 'path'
-import webpack from 'webpack'
-import CleanPlugin from 'clean-webpack-plugin'
+const path = require('path')
+const webpack = require('webpack')
+const CleanPlugin = require('clean-webpack-plugin')
 
 // project folder
-const rootFolder = path.resolve(__dirname, '..')
-const outputPath = path.resolve(rootFolder, 'dist')
+const rootFolder = path.resolve(__dirname, '.')
+const outputPath = path.resolve(rootFolder, 'build')
 
 const configuration = {
   // resolve all relative paths from the project root folder
@@ -82,12 +82,12 @@ const configuration = {
     }),
     // clears the output folder
     new CleanPlugin([path.relative(rootFolder, outputPath)],
-      { root: rootFolder}),
-    ],
+      { root: rootFolder }),
+  ],
 
   externals: {
-    'react': 'commonjs react' // use the React dependency of our parent project instead of using our own React.
-  }
+    react: 'commonjs react', // use the React dependency of our parent project instead of using our own React.
+  },
 }
 
 module.exports = configuration

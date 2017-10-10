@@ -6,8 +6,8 @@
   	"stage-0",
   ],
   "plugins": [
-    "transform-es2015-destructuring", // support destructuring
-    "transform-object-rest-spread", // support spread
+    "transform-es2015-destructuring",
+    "transform-object-rest-spread",
     "transform-react-jsx",
   ]
 }
