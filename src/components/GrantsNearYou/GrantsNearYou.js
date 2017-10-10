@@ -22,6 +22,7 @@ class GrantsNearYou extends Component {
       latitude: null,
     };
     this.searchHandler = this.searchHandler.bind(this);
+    this.handleLocation = this.handleLocation.bind(this);
   }
   /**
    *
@@ -36,12 +37,10 @@ class GrantsNearYou extends Component {
    * @private
    */
   search(searchTerm, range) {
-
     const query = `${this.props.postcodeAPI}/postcodes/${searchTerm}`;
     fetch(`${query}`)
       .then(r => r.json())
       .then((json) => {
-
         // Store the co-ordinates that PostcodeAPI returns in our state
         this.setState({
           longitude: (json && json.result && json.result.longitude) || null,
@@ -68,9 +67,13 @@ class GrantsNearYou extends Component {
     this.search(data, range);
   }
 
-  handleLocation(latitude,longitude){
-    console.log("latitude", latitude);
-    console.log("longitude", longitude);
+  handleLocation(latIn, longIn) {
+    console.log('handleLocation');
+
+    this.setState({
+      latitude: latIn,
+      longitude: longIn,
+    });
   }
 
   /**
@@ -78,24 +81,21 @@ class GrantsNearYou extends Component {
    * @returns {XML}
    */
   render() {
+    return (<div className="funded-projects">
+      <Header />
 
-    return (
+      <Geolocation handleLocation={this.handleLocation} />
 
-      <div className="funded-projects">
-        <Header />
-
-        <Geolocation handleLocation={this.handleLocation}/>
-      
-        <div className="paging-information">
-          <p>{this.state.pagination.total} results - Page {this.state.pagination.page} of {this.state.pagination.pages}</p>
-        </div>
-
-        <Search searchHandler={this.searchHandler} />
-
-        { this.state.results.map((result, i) => (
-          <Result key={i} result={result.data} />))}
+      <div className="paging-information">
+        <p>{this.state.pagination.total} results - Page {this.state.pagination.page}
+            of {this.state.pagination.pages}</p>
       </div>
-    );
+
+      <Search searchHandler={this.searchHandler} />
+
+      {this.state.results.map((result, i) => (
+        <Result key={i} result={result.data} />))}
+    </div>);
   }
 }
 
