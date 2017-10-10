@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from 'axios'
 
 class S3FileUploadService {
   /**
@@ -7,17 +7,17 @@ class S3FileUploadService {
    * @param file
    * @return {Promise}
    */
-  generateSignedUrl(signedUrlEndpoint, file) {
+  static generateSignedUrl (signedUrlEndpoint, file) {
     return new Promise((resolve, reject) => {
       axios.post(signedUrlEndpoint, {
         name: file.name,
         type: file.type,
       }).then((response) => {
-        resolve(response.data.data);
+        resolve(response.data.data)
       }).catch((error) => {
-        reject(error);
-      });
-    });
+        reject(error)
+      })
+    })
   }
 
   /**
@@ -26,19 +26,19 @@ class S3FileUploadService {
    * @param file
    * @return {Promise}
    */
-  uploadFile(signedUrlEndpoint, file) {
+  uploadFile (signedUrlEndpoint, file) {
     return new Promise((resolve, reject) => {
-      let fileData;
+      let fileData
       this.generateSignedUrl(signedUrlEndpoint, file).then((fileUploadData) => {
-        fileData = fileUploadData;
-        return axios.put(fileData.upload_url, file);
+        fileData = fileUploadData
+        return axios.put(fileData.upload_url, file)
       }).then(() => {
-        resolve(fileData.file_url);
+        resolve(fileData.file_url)
       }).catch((error) => {
-        reject(error);
-      });
-    });
+        reject(error)
+      })
+    })
   }
 }
 
-export default S3FileUploadService;
+export default S3FileUploadService
