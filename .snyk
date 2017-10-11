@@ -1,0 +1,37 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.7.1
+# ignores vulnerabilities until expiry date; change duration by modifying expiry date
+ignore:
+  'npm:mime:20170907':
+    - '@storybook/react > url-loader > mime':
+        reason: None given
+        expires: '2017-11-10T06:55:51.802Z'
+    - react-scripts > url-loader > mime:
+        reason: None given
+        expires: '2017-11-10T06:55:51.802Z'
+  'npm:tunnel-agent:20170305':
+    - '@comicrelief/pattern-lab > grunt-contrib-imagemin > imagemin-gifsicle > gifsicle > bin-build > download > caw > tunnel-agent':
+        reason: None given
+        expires: '2017-11-10T06:55:51.802Z'
+    - '@comicrelief/pattern-lab > grunt-contrib-imagemin > imagemin-jpegtran > jpegtran-bin > bin-build > download > caw > tunnel-agent':
+        reason: None given
+        expires: '2017-11-10T06:55:51.802Z'
+    - '@comicrelief/pattern-lab > grunt-contrib-imagemin > imagemin-optipng > optipng-bin > bin-build > download > caw > tunnel-agent':
+        reason: None given
+        expires: '2017-11-10T06:55:51.802Z'
+    - '@comicrelief/pattern-lab > grunt-contrib-imagemin > imagemin-gifsicle > gifsicle > bin-wrapper > download > caw > tunnel-agent':
+        reason: None given
+        expires: '2017-11-10T06:55:51.802Z'
+    - '@comicrelief/pattern-lab > grunt-contrib-imagemin > imagemin-jpegtran > jpegtran-bin > bin-wrapper > download > caw > tunnel-agent':
+        reason: None given
+        expires: '2017-11-10T06:55:51.802Z'
+    - '@comicrelief/pattern-lab > grunt-contrib-imagemin > imagemin-optipng > optipng-bin > bin-wrapper > download > caw > tunnel-agent':
+        reason: None given
+        expires: '2017-11-10T06:55:51.802Z'
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  'npm:marked:20170112':
+    - '@storybook/addon-info > marksy > marked':
+        patched: '2017-10-11T06:55:51.805Z'
+    - '@comicrelief/pattern-lab > grunt-kss > kss > marked':
+        patched: '2017-10-11T06:55:51.805Z'
