@@ -14,7 +14,7 @@
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "storybook": "start-storybook -p 9009 -s public",
     "snyk-protect": "snyk protect",
-    "prepublish": "npm run snyk-protect"
+    "prepublish": "yarn snyk-protect"
   },
   "dependencies": {
     "@comicrelief/pattern-lab": "7",
