@@ -4,12 +4,13 @@ import { geolocated } from 'react-geolocated';
 
 class Geolocation extends React.Component {
   /**
-   *
+   * @param prevProps
+   * @param prevState
    */
-  componentDidUpdate() {
-    // Trigger the GrantsNearYou function *only* when the component is ready
-    if (this.props.coords) {
-      this.props.handleLocation(this.props.coords.longitude, this.props.coords.latitude);
+  componentDidUpdate(prevProps, prevState) {
+    // Triggered *only* when the component is ready and coords have changed
+    if (this.props.coords && (this.props.coords !== prevProps.coords) ) {
+      this.props.handleLocation(this.props.coords);
     }
   }
 
@@ -22,7 +23,7 @@ class Geolocation extends React.Component {
         { !this.props.isGeolocationAvailable ? <p>Geolocation not available</p>
           : !this.props.isGeolocationEnabled ? <p>Geolocation not enabled</p>
             : !this.props.coords ? <p>Finding your location...</p>
-              : <div className="long-lat">
+              : <div className="success-message">
                 <p>Longitude: {this.props.coords.longitude}</p>
                 <p>Latitude: {this.props.coords.latitude}</p>
               </div> }
