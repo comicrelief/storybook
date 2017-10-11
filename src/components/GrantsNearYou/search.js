@@ -42,23 +42,26 @@ export default class Search extends Component {
   geoPostcode(postcode){
     
     this.setState({['inputField']: postcode});
+
+    this.handleChange(null, 'inputField', postcode);
     
-    const self = this;
-    clearTimeout(self.state.searchTimeout);
-
-    self.state.searchTimeout = setTimeout(() => {
-      self.props.searchHandler(self.state.inputField, self.state.range);
-    }, 500);
-
   }
 
   /**
    *
    * @param event
    */
-  handleChange(event) {
-    const name = event.target.name;
-    const value = event.target.value;
+  handleChange(event, nameIn, valueIn) {
+
+    let name, value;
+
+    if (event) {
+       name = event.target.name;
+       value = event.target.value; 
+    } else {
+      name = nameIn;
+      value = valueIn;
+    }
 
     console.log("name", name);
     console.log("value", value);
