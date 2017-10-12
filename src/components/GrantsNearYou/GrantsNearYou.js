@@ -125,7 +125,7 @@ class GrantsNearYou extends Component {
 
       {this.state.searching ? 
         <div className="geo-info">
-          <p>Finding projects near you...</p>
+          <p>Finding nearby projects...</p>
           <span className="geo-info--spinner" />
           </div> : null }
 
