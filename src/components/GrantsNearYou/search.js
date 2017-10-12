@@ -63,9 +63,6 @@ export default class Search extends Component {
       value = valueIn;
     }
 
-    console.log("name", name);
-    console.log("value", value);
-
     this.setState({
       [name]: value,
     });

@@ -1,5 +1,4 @@
 import React from 'react';
-
 import Currency from 'react-currency-formatter';
 
 function convertUnicode(input) {
@@ -59,8 +58,12 @@ export const Result = ({ result }) => (
                   <strong>Grant ID:</strong> {result.grants_project_id} <br />
                   <strong>Start Date:</strong> {result.start_date} <br />
                   <strong>Country:</strong> {result.country_name} <i>Lat: {result.lat}, Lng: {result.lng}</i><br />
-                  <strong>Amount</strong>
-                  <Currency quantity={parseInt(result.amount_awarded, 10)} currency="GBP" pattern=" !##,### " />
+                  <strong>Amount:</strong>
+                  <strong>£{result.amount_awarded, 10}</strong>
+                  
+                  {/*
+                  Need to sort this out
+                  <Currency quantity={parseInt(result.amount_awarded, 10)} currency="GBP" pattern=" !##,### " />*/}
                 </p>
               </div>
 

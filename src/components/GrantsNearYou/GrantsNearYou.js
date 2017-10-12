@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Currency from 'react-currency-formatter';
+
 // import { AsyncTypeahead } from 'react-bootstrap-typeahead';
 import PropTypes from 'prop-types';
 import { geolocated } from 'react-geolocated';
@@ -129,9 +131,11 @@ class GrantsNearYou extends Component {
           <span className="geo-info--spinner" />
           </div> : null }
 
-      {this.state.results.map((result, i) => (
-        <Result key={i} result={result.data} />))}
-    </div>);
+      {this.state.results.map((result, i) => ( <Result key={i} result={result.data} /> ))}
+
+    
+    </div>
+    );
   }
 }
 
