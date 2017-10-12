@@ -19,8 +19,9 @@ class GrantsNearYou extends Component {
       results: [],
       pagination: [],
       coordinates: [],
-      currentSearchTerm: "default",
       useGeolocation: false,
+      searching: false,
+
     };
     this.searchHandler = this.searchHandler.bind(this);
     this.handleLocation = this.handleLocation.bind(this);
@@ -32,7 +33,7 @@ class GrantsNearYou extends Component {
   componentDidMount() {
     
     // Don't search on load for now
-    this.search('', 5);
+    //this.search('', 5);
   }
 
 
@@ -43,12 +44,11 @@ class GrantsNearYou extends Component {
    */
   search(searchTerm, range) {
 
-    // Use the orignal postcode
     this.setState({
-      currentSearchTerm: searchTerm,
+      searching: true,
     });
 
-    const query = `${this.props.postcodeAPI}/postcodes/${this.state.currentSearchTerm}`;
+    const query = `${this.props.postcodeAPI}/postcodes/${searchTerm}`;
     fetch(`${query}`)
       .then(r => r.json())
       .then((json) => {
@@ -58,13 +58,14 @@ class GrantsNearYou extends Component {
           latitude: (json && json.result && json.result.latitude) || null,
         });
 
-        const query2 = this.state.currentSearchTerm.length >= 1 ? `${this.props.searchURL}?latitude=${json.result.latitude}&longitude=${json.result.longitude}&range=${range}km` : this.props.searchURL;
+        const query2 = searchTerm.length >= 1 ? `${this.props.searchURL}?latitude=${json.result.latitude}&longitude=${json.result.longitude}&range=${range}km` : this.props.searchURL;
         return fetch(`${query2}`)
           .then(r => r.json())
           .then((json2) => {
             this.setState({
               pagination: (json2 && json2.data && json2.data.pagination) || [],
               results: (json2 && json2.data && json2.data.grants) || [],
+              searching: false,
             });
           });
       });
@@ -87,16 +88,14 @@ class GrantsNearYou extends Component {
       coordinates: coordsIn,
     });
 
-    console.log(coordsIn);
-
     // Create query PostcodeAPI query to return nearest postcode to this geolocation
     const query = `${this.props.postcodeAPI}/postcodes?lon=${coordsIn.longitude}&lat=${coordsIn.latitude}`;
       fetch(`${query}`)
         .then(r => r.json())
         .then((json) => {
+
           // Update to use the nearest postcode to this geolocation
-          var posto = json.result[0].postcode;
-          this.refs.search.geoPostcode(posto);
+          this.refs.search.geoPostcode( json.result[0].postcode );
         });
   }
 
@@ -108,20 +107,6 @@ class GrantsNearYou extends Component {
   }
 
   /**
-   * @param prevState
-   */
-  componentDidUpdate(prevProps, prevState) {
-    
-    // Only attempt to use the values once the components have updated
-    if (this.state.coordinates !== prevState.coordinates) {
-      console.log("prevState changes");
-      //this.search(data, range);
-
-      // Use our search function, passing in the geolocated lat and long as parameters
-    }
-  }
-
-  /**
    *
    * @returns {XML}
    */
@@ -129,15 +114,20 @@ class GrantsNearYou extends Component {
     return (<div className="funded-projects">
       <Header />
 
-      {this.state.useGeolocation ? 
-        <Geolocation handleLocation={this.handleLocation} ref="geo"/> : null }
-
       <div className="paging-information">
         <p>{this.state.pagination.total} results - Page {this.state.pagination.page}
             of {this.state.pagination.pages}</p>
       </div>
 
       <Search searchHandler={this.searchHandler} geoLocateAllow={this.geoLocateAllow} ref="search"/>
+
+      {this.state.useGeolocation ?  <Geolocation handleLocation={this.handleLocation} ref="geo"/> : null }
+
+      {this.state.searching ? 
+        <div className="geo-info">
+          <p>Finding projects near you...</p>
+          <span className="geo-info--spinner" />
+          </div> : null }
 
       {this.state.results.map((result, i) => (
         <Result key={i} result={result.data} />))}

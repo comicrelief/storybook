@@ -19,14 +19,13 @@ class Geolocation extends React.Component {
    */
   render() {
     return (
-      <div className="geo-information">
+      <div className="geo-info">
         { !this.props.isGeolocationAvailable ? <p>Geolocation not available</p>
           : !this.props.isGeolocationEnabled ? <p>Geolocation not enabled</p>
-            : !this.props.coords ? <p>Finding your location...</p>
-              : <div className="success-message">
-                <p>Longitude: {this.props.coords.longitude}</p>
-                <p>Latitude: {this.props.coords.latitude}</p>
-              </div> }
+            : !this.props.coords ? <div className="geo-info--finding">
+              <p>Finding your location...</p>
+              <span className="geo-info--spinner" /></div>
+              : null }
       </div>
     );
   }
