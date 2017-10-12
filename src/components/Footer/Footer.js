@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Menu from '../Menu/Menu';
+import SocialLink from '../SocialLink/SocialLink';
 import './footer.scss';
 
 const styles = {
@@ -29,6 +30,7 @@ class Footer extends Component {
   render() {
     return (
       <footer style={styles} role="contentinfo">
+        <SocialLink campaign={this.props.campaign} />
         <div className="region region-footer cr-footer">
           <Menu type="footer" source={this.props.source} />
         </div>
@@ -47,6 +49,7 @@ class Footer extends Component {
 
 Footer.propTypes = {
   source: PropTypes.string.isRequired,
+  campaign: PropTypes.string.isRequired,
 };
 
 export default Footer;
