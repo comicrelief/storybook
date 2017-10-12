@@ -3,14 +3,12 @@ import { connect } from 'react-refetch';
 const cache = new Map();
 
 export default connect.defaults({
-  buildRequest(mapping) {
-    const options = {
-      method: mapping.method,
+  Request: (input, options) => {
+    const optionsWithCashingEnabled = {
+      ...options,
       cache: 'force-cache',
-      redirect: mapping.redirect,
-      body: mapping.body,
     };
-    return new Request(mapping.url, options);
+    return new Request(input, optionsWithCashingEnabled);
   },
 
   fetch(input, init) {
