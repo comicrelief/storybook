@@ -4,11 +4,11 @@ const cache = new Map();
 
 export default connect.defaults({
   Request: (input, options) => {
-    const optionsWithCashingEnabled = {
+    const optionsWithCachingEnabled = {
       ...options,
       cache: 'force-cache',
     };
-    return new Request(input, optionsWithCashingEnabled);
+    return new Request(input, optionsWithCachingEnabled);
   },
 
   fetch(input, init) {
