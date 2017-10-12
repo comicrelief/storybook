@@ -34,7 +34,6 @@ class SocialLink extends Component {
       <div className="footer__social-links">
         <ReactSVG
           path={SvgSprite}
-          callback={svg => console.log(svg)}
           className="visually-hidden"
         />
         <ul>
