@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-// import Currency from 'react-currency-formatter';
-// import { AsyncTypeahead } from 'react-bootstrap-typeahead';
-// import { geolocated } from 'react-geolocated';
 import PropTypes from 'prop-types';
 import './GrantsNearYou.scss';
 import { Result } from './result';
