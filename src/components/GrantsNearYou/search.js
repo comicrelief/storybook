@@ -46,8 +46,9 @@ export default class Search extends Component {
   }
 
   /**
-   *
    * @param event
+   * @param nameIn
+   * @param valueIn
    */
   handleChange(event, nameIn, valueIn) {
     let name;
