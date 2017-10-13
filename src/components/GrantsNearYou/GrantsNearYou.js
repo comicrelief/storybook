@@ -90,7 +90,7 @@ class GrantsNearYou extends Component {
       .then(r => r.json())
       .then((json) => {
         // Update to use the nearest postcode to this geolocation
-        this.refs.search.geoPostcode(json.result[0].postcode);
+        this.searchRef.geoPostcode(json.result[0].postcode);
       });
   }
 
@@ -113,9 +113,9 @@ class GrantsNearYou extends Component {
             of {this.state.pagination.pages}</p>
       </div>
 
-      <Search searchHandler={this.searchHandler} geoLocateAllow={this.geoLocateAllow} ref="search" />
+      <Search searchHandler={this.searchHandler} geoLocateAllow={this.geoLocateAllow} ref={(el) => { this.searchRef = el; }} />
 
-      {this.state.useGeolocation ? <Geolocation handleLocation={this.handleLocation} ref="geo" /> : null }
+      {this.state.useGeolocation ? <Geolocation handleLocation={this.handleLocation} ref={(el) => { this.geoRef = el; }} /> : null }
 
       {this.state.searching ?
         <div className="geo-info">

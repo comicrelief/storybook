@@ -1,6 +1,5 @@
 import React from 'react';
-import Currency from 'react-currency-formatter';
-
+// import Currency from 'react-currency-formatter';
 function convertUnicode(input) {
   return input.replace(/\\u(\w\w\w\w)/g, (a, b) => {
     const charcode = parseInt(b, 16);

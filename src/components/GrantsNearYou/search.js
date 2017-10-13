@@ -50,8 +50,8 @@ export default class Search extends Component {
    * @param event
    */
   handleChange(event, nameIn, valueIn) {
-    let name,
-      value;
+    let name;
+    let value;
 
     if (event) {
       name = event.target.name;
