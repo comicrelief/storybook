@@ -21,7 +21,7 @@
     "react": "15",
     "react-addons-test-utils": "15",
     "react-bootstrap-typeahead": "2.0.0-alpha.3",
-    "react-currency-formatter": "1.0.0",
+    "react-currency-formatter": "0.1.1",
     "react-dom": "15",
     "react-dropzone": "4",
     "react-geolocated": "^2.0.0",
