@@ -59,11 +59,11 @@ export const Result = ({ result }) => (
                   <strong>Start Date:</strong> {result.start_date} <br />
                   <strong>Country:</strong> {result.country_name} <i>Lat: {result.lat}, Lng: {result.lng}</i><br />
                   <strong>Amount:</strong> £{result.amount_awarded}
-    
+
                   {/*
                   Need to sort this out
-                  <Currency quantity={parseInt(result.amount_awarded, 10)} currency="GBP" pattern=" !##,### " />*/}
-          
+                  <Currency quantity={parseInt(result.amount_awarded, 10)} currency="GBP" pattern=" !##,### " /> */}
+
 
                 </p>
               </div>

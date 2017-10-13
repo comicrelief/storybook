@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import Currency from 'react-currency-formatter';
-
+// import Currency from 'react-currency-formatter';
 // import { AsyncTypeahead } from 'react-bootstrap-typeahead';
+// import { geolocated } from 'react-geolocated';
 import PropTypes from 'prop-types';
-import { geolocated } from 'react-geolocated';
 import './GrantsNearYou.scss';
 import { Result } from './result';
 import Search from './search';
@@ -33,11 +32,8 @@ class GrantsNearYou extends Component {
    *
    */
   componentDidMount() {
-    
-    // Don't search on load for now
-    //this.search('', 5);
+    this.search('', 5);
   }
-
 
   /**
    * @param searchTerm
@@ -45,11 +41,9 @@ class GrantsNearYou extends Component {
    * @private
    */
   search(searchTerm, range) {
-
     this.setState({
       searching: true,
     });
-
     const query = `${this.props.postcodeAPI}/postcodes/${searchTerm}`;
     fetch(`${query}`)
       .then(r => r.json())
@@ -92,24 +86,22 @@ class GrantsNearYou extends Component {
 
     // Create query PostcodeAPI query to return nearest postcode to this geolocation
     const query = `${this.props.postcodeAPI}/postcodes?lon=${coordsIn.longitude}&lat=${coordsIn.latitude}`;
-      fetch(`${query}`)
-        .then(r => r.json())
-        .then((json) => {
-
-          // Update to use the nearest postcode to this geolocation
-          this.refs.search.geoPostcode( json.result[0].postcode );
-        });
+    fetch(`${query}`)
+      .then(r => r.json())
+      .then((json) => {
+        // Update to use the nearest postcode to this geolocation
+        this.refs.search.geoPostcode(json.result[0].postcode);
+      });
   }
 
-  geoLocateAllow(boolean){
+  geoLocateAllow(boolean) {
     // Passed from the search component
-     this.setState({
+    this.setState({
       useGeolocation: boolean,
     });
   }
 
   /**
-   *
    * @returns {XML}
    */
   render() {
@@ -121,19 +113,19 @@ class GrantsNearYou extends Component {
             of {this.state.pagination.pages}</p>
       </div>
 
-      <Search searchHandler={this.searchHandler} geoLocateAllow={this.geoLocateAllow} ref="search"/>
+      <Search searchHandler={this.searchHandler} geoLocateAllow={this.geoLocateAllow} ref="search" />
 
-      {this.state.useGeolocation ?  <Geolocation handleLocation={this.handleLocation} ref="geo"/> : null }
+      {this.state.useGeolocation ? <Geolocation handleLocation={this.handleLocation} ref="geo" /> : null }
 
-      {this.state.searching ? 
+      {this.state.searching ?
         <div className="geo-info">
           <p>Finding nearby projects...</p>
           <span className="geo-info--spinner" />
-          </div> : null }
+        </div> : null }
 
-      {this.state.results.map((result, i) => ( <Result key={i} result={result.data} /> ))}
+      {this.state.results.map((result, i) => (<Result key={i} result={result.data} />))}
 
-    
+
     </div>
     );
   }

@@ -7,7 +7,7 @@ class Geolocation extends React.Component {
    * @param prevProps
    * @param prevState
    */
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate(prevProps) {
     // Triggered *only* when the component is ready and coords have changed
     if (this.props.coords && (this.props.coords !== prevProps.coords)) {
       this.props.handleLocation(this.props.coords);

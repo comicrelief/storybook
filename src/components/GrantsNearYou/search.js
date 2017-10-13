@@ -39,12 +39,10 @@ export default class Search extends Component {
     this.props.geoLocateAllow(true);
   }
 
-  geoPostcode(postcode){
-    
-    this.setState({['inputField']: postcode});
+  geoPostcode(postcode) {
+    this.setState({ inputField: postcode });
 
     this.handleChange(null, 'inputField', postcode);
-    
   }
 
   /**
@@ -52,12 +50,12 @@ export default class Search extends Component {
    * @param event
    */
   handleChange(event, nameIn, valueIn) {
-
-    let name, value;
+    let name,
+      value;
 
     if (event) {
-       name = event.target.name;
-       value = event.target.value; 
+      name = event.target.name;
+      value = event.target.value;
     } else {
       name = nameIn;
       value = valueIn;
@@ -88,7 +86,8 @@ export default class Search extends Component {
             name="inputField"
             placeholder="Postcode Search (e.g. SE17TP)"
             value={this.state.inputField}
-            onChange={this.handleChange} />
+            onChange={this.handleChange}
+          />
           <label htmlFor="range">Range (km)
             <input
               type="number"
@@ -97,10 +96,13 @@ export default class Search extends Component {
               min="1"
               max="100"
               value={this.state.range}
-              onChange={this.handleChange} />
+              onChange={this.handleChange}
+            />
           </label>
-          <button type="button"
-            onClick={this.handleGeoAllow}>
+          <button
+            type="button"
+            onClick={this.handleGeoAllow}
+          >
             Use My Location
           </button>
         </form>
