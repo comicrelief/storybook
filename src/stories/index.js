@@ -45,6 +45,14 @@ storiesOf('Footer', module)
       const campaign = 'sportrelief';
       return (<Footer copy={copy} source={source} campaign={campaign} />);
     }),
+  )
+  .add('Red Nose Day',
+    withInfo('rednoseday.com footer')(() => {
+      const copy = text('Copy', 'copyright 2018');
+      const source = 'https://www.comicrelief.com'; // fallback to comicrelief.com
+      const campaign = 'rednoseday';
+      return (<Footer copy={copy} source={source} campaign={campaign} />);
+    }),
   );
 
 storiesOf('File Upload', module)

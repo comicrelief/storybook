@@ -14,7 +14,7 @@ class SocialLink extends Component {
     const socialLinks = [{
       network: 'facebook',
       name: 'fb',
-      url: `http://www.facebook.com/${campaign}`,
+      url: `http://www.facebook.com/${campaign === 'rednoseday' ? `official${campaign}`: campaign}`,
     }, {
       network: 'twitter',
       name: 'twitter',
@@ -55,8 +55,6 @@ class SocialLink extends Component {
             </li>
           ),
           )}
-
-
         </ul>
       </div>
     );
