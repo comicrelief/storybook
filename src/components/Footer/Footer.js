@@ -38,8 +38,8 @@ class Footer extends Component {
           <p style={styles.p}>{this.copy}</p>
         </div>
         <div style={styles.footer__branding}>
-          <a title="Comic Relief" href="http://www.comicrelief.com/" rel="noopener noreferrer" target="_blank">
-            <img src="http://www.comicrelief.com/themes/custom/comicrelief/logo.svg" alt="Comic Relief logo" />
+          <a title="Comic Relief" href="https://www.comicrelief.com/" rel="noopener noreferrer" target="_blank">
+            <img src="https://www.comicrelief.com/themes/custom/comicrelief/logo.svg" alt="Comic Relief logo" />
           </a>
         </div>
       </footer>
