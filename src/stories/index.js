@@ -24,7 +24,42 @@ storiesOf('SchoolsLookUp', module)
         'Endpoint',
         'https://bilw38ca93.execute-api.eu-west-1.amazonaws.com/production/schools/lookup?query=',
       );
-      return (<SchoolsLookUp data={endpoint} min={min} />);
+      const establishmentNameValue = text(
+        'Establishment name value',
+        'xyz school',
+      );
+      const address1Value = text(
+        'Address value',
+        'ab street',
+      );
+      const townValue = text(
+        'Town value',
+        'dummy town',
+      );
+      const countyValue = text(
+        'County name value',
+        'dummy county',
+      );
+      const postCodeValue = text(
+        'Postcode value',
+        'AB01 0A',
+      );
+      const countryValue = text(
+        'Country value',
+        'UK',
+      );
+      return (<SchoolsLookUp
+        data={endpoint}
+        min={min}
+        onChange={() => {}}
+        establishmentIdValue={123}
+        establishmentNameValue={establishmentNameValue}
+        address1Value={address1Value}
+        townValue={townValue}
+        countyValue={countyValue}
+        postCodeValue={postCodeValue}
+        countryValue={countryValue}
+      />);
     }),
   );
 

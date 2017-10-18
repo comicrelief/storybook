@@ -8,7 +8,7 @@
 * Clone this repository
 * `npm install`
 * `npm run storybook`
-* Visit http://localhost:6006/
+* Visit http://localhost:9009/
 
 Then import your component(s) into stories/index.js and render them like so:
 
