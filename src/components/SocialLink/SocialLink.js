@@ -14,11 +14,11 @@ class SocialLink extends Component {
     const socialLinks = [{
       network: 'facebook',
       name: 'fb',
-      url: `http://www.facebook.com/${campaign === 'rednoseday' ? `official${campaign}`: campaign}`,
+      url: `https://www.facebook.com/${campaign === 'rednoseday' ? `official${campaign}`: campaign}`,
     }, {
       network: 'twitter',
       name: 'twitter',
-      url: `http://twitter.com/${campaign}`,
+      url: `https://twitter.com/${campaign}`,
     }, {
       network: 'youtube',
       name: 'youtube',
