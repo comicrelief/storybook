@@ -3,5 +3,8 @@
 /.storybook/
 
 *.md
+*.js
+*.yml
 
 .babelrc
+.eslintrc
