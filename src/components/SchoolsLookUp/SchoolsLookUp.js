@@ -90,10 +90,10 @@ class SchoolsLookUp extends Component {
       establishmentIdIdentifier,
       establishmentNameIdentifier,
       address1Identifier,
+      address2Identifier,
+      address3Identifier,
       townIdentifier,
-      countyIdentifier,
-      postCodeIdentifier,
-      countryIdentifier,
+      postcodeIdentifier,
       onChange,
     } = this.props;
     const selectedEstablishment = data[0];
@@ -102,10 +102,10 @@ class SchoolsLookUp extends Component {
       [establishmentIdIdentifier]: selectedEstablishment.id,
       [establishmentNameIdentifier]: selectedEstablishment.name,
       [address1Identifier]: selectedEstablishment.address_1,
+      [address2Identifier]: selectedEstablishment.address_2,
+      [address3Identifier]: selectedEstablishment.address_3,
       [townIdentifier]: selectedEstablishment.town,
-      [countyIdentifier]: selectedEstablishment.county,
-      [postCodeIdentifier]: selectedEstablishment.post_code,
-      [countryIdentifier]: selectedEstablishment.country,
+      [postcodeIdentifier]: selectedEstablishment.post_code,
     };
     Object.keys(mappedData).forEach((identifier) => {
       onChange(identifier, { target: { value: mappedData[identifier] } });
@@ -149,10 +149,11 @@ class SchoolsLookUp extends Component {
    * @param {string} identifier
    * @param {string} value
    * @param {string} errorMessage
+   * @param {boolean} required
    * @param {boolean} readOnly
    * @return {XML}
    */
-  renderSingleInput(labelText, identifier, value, errorMessage, readOnly) {
+  renderSingleInput(labelText, identifier, value, errorMessage, required, readOnly) {
     // avoid rendering read only with empty value
     if (readOnly === true && !value) {
       return null;
@@ -161,7 +162,7 @@ class SchoolsLookUp extends Component {
       <div className={`${readOnly === false && errorMessage ? 'validation__wrapper': ''}`}>
         {readOnly === false ?
           <div>
-            <label htmlFor={identifier} className="required">{labelText}</label>
+            <label htmlFor={identifier} className={`${required === true ? 'required' : ''}`}>{labelText}</label>
             <input
               id={identifier}
               name={identifier}
@@ -169,7 +170,7 @@ class SchoolsLookUp extends Component {
               type="text"
               onChange={event => this.handleManual(identifier, event)}
               onBlur={event => this.handleBlur(identifier, event)}
-              required
+              required={required}
             />
             {errorMessage ?
               <div className="validation__message">
@@ -194,27 +195,69 @@ class SchoolsLookUp extends Component {
    */
   renderEstablishmentDetails(establishmentDetails, readOnly) {
     const {
-      establishmentNameLabelText, establishmentNameIdentifier, establishmentNameErrorMessage,
-      address1LabelText, address1Identifier, address1ErrorMessage,
-      townLabelText, townIdentifier, townErrorMessage,
-      countyLabelText, countyIdentifier, countyErrorMessage,
-      postCodeLabelText, postCodeIdentifier, postCodeErrorMessage,
-      countryLabelText, countryIdentifier, countryErrorMessage,
+      establishmentNameLabelText, establishmentNameIdentifier, establishmentNameErrorMessage, establishmentNameRequired,
+      address1LabelText, address1Identifier, address1ErrorMessage, address1Required,
+      address2LabelText, address2Identifier, address2ErrorMessage, address2Required,
+      address3LabelText, address3Identifier, address3ErrorMessage, address3Required,
+      townLabelText, townIdentifier, townErrorMessage, townRequired,
+      postcodeRequired, postcodeLabelText, postcodeIdentifier, postcodeErrorMessage,
     } = this.props;
 
     return (
       <div className="schoolDetails">
-        {this.renderSingleInput(establishmentNameLabelText, establishmentNameIdentifier, establishmentDetails[establishmentNameIdentifier], establishmentNameErrorMessage, readOnly)}
+        {this.renderSingleInput(
+          establishmentNameLabelText,
+          establishmentNameIdentifier,
+          establishmentDetails[establishmentNameIdentifier],
+          establishmentNameErrorMessage,
+          establishmentNameRequired,
+          readOnly,
+        )}
 
-        {this.renderSingleInput(address1LabelText, address1Identifier, establishmentDetails[address1Identifier], address1ErrorMessage, readOnly)}
+        {this.renderSingleInput(
+          address1LabelText,
+          address1Identifier,
+          establishmentDetails[address1Identifier],
+          address1ErrorMessage,
+          address1Required,
+          readOnly,
+        )}
 
-        {this.renderSingleInput(townLabelText, townIdentifier, establishmentDetails[townIdentifier], townErrorMessage, readOnly)}
+        {this.renderSingleInput(
+          address2LabelText,
+          address2Identifier,
+          establishmentDetails[address2Identifier],
+          address2ErrorMessage,
+          address2Required,
+          readOnly,
+        )}
 
-        {this.renderSingleInput(countyLabelText, countyIdentifier, establishmentDetails[countyIdentifier], countyErrorMessage, readOnly)}
+        {this.renderSingleInput(
+          address3LabelText,
+          address3Identifier,
+          establishmentDetails[address3Identifier],
+          address3ErrorMessage,
+          address3Required,
+          readOnly,
+        )}
 
-        {this.renderSingleInput(postCodeLabelText, postCodeIdentifier, establishmentDetails[postCodeIdentifier], postCodeErrorMessage, readOnly)}
+        {this.renderSingleInput(
+          townLabelText,
+          townIdentifier,
+          establishmentDetails[townIdentifier],
+          townErrorMessage,
+          townRequired,
+          readOnly,
+        )}
 
-        {this.renderSingleInput(countryLabelText, countryIdentifier, establishmentDetails[countryIdentifier], countryErrorMessage, readOnly)}
+        {this.renderSingleInput(
+          postcodeLabelText,
+          postcodeIdentifier,
+          establishmentDetails[postcodeIdentifier],
+          postcodeErrorMessage,
+          postcodeRequired,
+          readOnly,
+        )}
       </div>
     );
   }
@@ -225,25 +268,26 @@ class SchoolsLookUp extends Component {
    */
   render() {
     const {
-      establishmentNameValue, address1Value, townValue, countyValue, postCodeValue, countryValue,
-      establishmentNameIdentifier, address1Identifier, townIdentifier, countyIdentifier,
-      postCodeIdentifier, countryIdentifier, min, selectedEstablishment,
+      establishmentNameValue, address1Value, address2Value, address3Value, townValue, postcodeValue,
+      establishmentNameIdentifier, address1Identifier, address2Identifier, address3Identifier,
+      townIdentifier, postcodeIdentifier, min, selectedEstablishment,
     } = this.props;
     const { lookup, options } = this.state;
+    const orEnterManuallyCopy = 'Or enter details manually';
 
     return (
       <div className="SchoolsLookUp">
-        <label htmlFor="schoolsLookUp">{"Enter your school's name or postcode"}</label>
+        <label htmlFor="schoolsLookUp">{'Enter the name or postcode of your school'}</label>
         {lookup === HIDE_LOOKUP ?
           <div>
             {this.renderEstablishmentDetails(
               {
                 [establishmentNameIdentifier]: selectedEstablishment.name,
                 [address1Identifier]: selectedEstablishment.address_1,
+                [address2Identifier]: selectedEstablishment.address_2,
+                [address3Identifier]: selectedEstablishment.address_3,
                 [townIdentifier]: selectedEstablishment.town,
-                [countyIdentifier]: selectedEstablishment.county,
-                [postCodeIdentifier]: selectedEstablishment.post_code,
-                [countryIdentifier]: selectedEstablishment.country,
+                [postcodeIdentifier]: selectedEstablishment.post_code,
               },
               true,
             )}
@@ -266,21 +310,21 @@ class SchoolsLookUp extends Component {
         }
         {lookup === SHOW_EDCO_LOOKUP ?
           <button className="btn" onClick={this.handleLookup.bind(this, SHOW_MANUAL_LOOKUP)}>
-            Or enter address manually
+            {orEnterManuallyCopy}
           </button>:
           null
         }
         {lookup === SHOW_MANUAL_LOOKUP ?
           <div>
-            <p>Or enter address manually</p>
+            <p>{orEnterManuallyCopy}</p>
             {this.renderEstablishmentDetails(
               {
                 [establishmentNameIdentifier]: establishmentNameValue,
                 [address1Identifier]: address1Value,
+                [address2Identifier]: address2Value,
+                [address3Identifier]: address3Value,
                 [townIdentifier]: townValue,
-                [countyIdentifier]: countyValue,
-                [postCodeIdentifier]: postCodeValue,
-                [countryIdentifier]: countryValue,
+                [postcodeIdentifier]: postcodeValue,
               },
               false,
             )}
@@ -299,21 +343,27 @@ SchoolsLookUp.defaultProps = {
   establishmentNameLabelText: 'Establishment name',
   establishmentNameIdentifier: 'establishmentName',
   establishmentNameErrorMessage: '',
-  address1LabelText: 'Address',
+  establishmentNameRequired: true,
+  address1LabelText: 'Address line 1',
   address1Identifier: 'address1',
   address1ErrorMessage: '',
+  address1Required: true,
+  address2LabelText: 'Address line 2',
+  address2Identifier: 'address2',
+  address2ErrorMessage: '',
+  address2Required: false,
+  address3LabelText: 'Address line 3',
+  address3Identifier: 'address3',
+  address3ErrorMessage: '',
+  address3Required: false,
   townLabelText: 'Town',
   townIdentifier: 'town',
   townErrorMessage: '',
-  countyLabelText: 'County',
-  countyIdentifier: 'county',
-  countyErrorMessage: '',
-  postCodeLabelText: 'Postcode',
-  postCodeIdentifier: 'postCode',
-  postCodeErrorMessage: '',
-  countryLabelText: 'Country',
-  countryIdentifier: 'country',
-  countryErrorMessage: '',
+  townRequired: true,
+  postcodeLabelText: 'Postcode',
+  postcodeIdentifier: 'postcode',
+  postcodeErrorMessage: '',
+  postcodeRequired: true,
   validateField: () => {},
 };
 
@@ -327,31 +377,37 @@ SchoolsLookUp.propTypes = {
   ]).isRequired,
   establishmentNameValue: PropTypes.string.isRequired,
   address1Value: PropTypes.string.isRequired,
+  address2Value: PropTypes.string.isRequired,
+  address3Value: PropTypes.string.isRequired,
   townValue: PropTypes.string.isRequired,
-  countyValue: PropTypes.string.isRequired,
-  postCodeValue: PropTypes.string.isRequired,
-  countryValue: PropTypes.string.isRequired,
+  postcodeValue: PropTypes.string.isRequired,
   selectedEstablishmentIdentifier: PropTypes.string,
   selectedEstablishment: PropTypes.object,
   establishmentIdIdentifier: PropTypes.string,
   establishmentNameLabelText: PropTypes.string,
+  establishmentNameRequired: PropTypes.bool,
   establishmentNameIdentifier: PropTypes.string,
   establishmentNameErrorMessage: PropTypes.string,
   address1LabelText: PropTypes.string,
+  address1Required: PropTypes.bool,
   address1Identifier: PropTypes.string,
   address1ErrorMessage: PropTypes.string,
+  address2LabelText: PropTypes.string,
+  address2Required: PropTypes.bool,
+  address2Identifier: PropTypes.string,
+  address2ErrorMessage: PropTypes.string,
+  address3LabelText: PropTypes.string,
+  address3Required: PropTypes.bool,
+  address3Identifier: PropTypes.string,
+  address3ErrorMessage: PropTypes.string,
   townLabelText: PropTypes.string,
+  townRequired: PropTypes.bool,
   townIdentifier: PropTypes.string,
   townErrorMessage: PropTypes.string,
-  countyLabelText: PropTypes.string,
-  countyIdentifier: PropTypes.string,
-  countyErrorMessage: PropTypes.string,
-  postCodeLabelText: PropTypes.string,
-  postCodeIdentifier: PropTypes.string,
-  postCodeErrorMessage: PropTypes.string,
-  countryLabelText: PropTypes.string,
-  countryIdentifier: PropTypes.string,
-  countryErrorMessage: PropTypes.string,
+  postcodeLabelText: PropTypes.string,
+  postcodeRequired: PropTypes.bool,
+  postcodeIdentifier: PropTypes.string,
+  postcodeErrorMessage: PropTypes.string,
   validateField: PropTypes.func,
 };
 

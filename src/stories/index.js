@@ -29,24 +29,24 @@ storiesOf('SchoolsLookUp', module)
         'xyz school',
       );
       const address1Value = text(
-        'Address value',
+        'Address line 1 value',
         'ab street',
+      );
+      const address2Value = text(
+        'Address line 2 value',
+        'cd street',
+      );
+      const address3Value = text(
+        'Address line 3 value',
+        '',
       );
       const townValue = text(
         'Town value',
         'dummy town',
       );
-      const countyValue = text(
-        'County name value',
-        'dummy county',
-      );
-      const postCodeValue = text(
+      const postcodeValue = text(
         'Postcode value',
         'AB01 0A',
-      );
-      const countryValue = text(
-        'Country value',
-        'UK',
       );
       return (<SchoolsLookUp
         data={endpoint}
@@ -55,10 +55,10 @@ storiesOf('SchoolsLookUp', module)
         establishmentIdValue={123}
         establishmentNameValue={establishmentNameValue}
         address1Value={address1Value}
+        address2Value={address2Value}
+        address3Value={address3Value}
         townValue={townValue}
-        countyValue={countyValue}
-        postCodeValue={postCodeValue}
-        countryValue={countryValue}
+        postcodeValue={postcodeValue}
       />);
     }),
   );
