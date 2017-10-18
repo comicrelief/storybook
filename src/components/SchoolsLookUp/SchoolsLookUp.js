@@ -4,6 +4,10 @@ import PropTypes from 'prop-types';
 import { AsyncTypeahead } from 'react-bootstrap-typeahead';
 import './SchoolsLookUp.scss';
 
+const SHOW_EDCO_LOOKUP = 'SHOW_EDCO_LOOKUP';
+const SHOW_MANUAL_LOOKUP = 'SHOW_MANUAL_LOOKUP';
+const HIDE_LOOKUP = 'HIDE_LOOKUP';
+
 class SchoolsLookUp extends Component {
   /**
    * Render menu item children.
@@ -21,43 +25,46 @@ class SchoolsLookUp extends Component {
 
   /**
    * SchoolsLookUp constructor.
-   * @param props
+   * @param {object} props
    */
   constructor(props) {
     super(props);
+    const { selectedEstablishment, establishmentNameValue } = props;
+    let lookup;
+    if (selectedEstablishment && selectedEstablishment.id) {
+      lookup = HIDE_LOOKUP;
+    } else if (establishmentNameValue) {
+      lookup = SHOW_MANUAL_LOOKUP;
+    } else {
+      lookup = SHOW_EDCO_LOOKUP;
+    }
     this.state = {
       options: [],
-      schools: [],
-      establishmentName: '',
-      address_1: '',
-      town: '',
-      townCity: '',
-      post_code: '',
-      country: '',
-      lookup: true,
+      lookup,
     };
+    this.renderMenuItemChildren = SchoolsLookUp.renderMenuItemChildren;
     this.handleChange = this.handleChange.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
-    this.handleManualEntryClick = this.handleManualEntryClick.bind(this);
+    this.handleLookup = this.handleLookup.bind(this);
     this.handleManual = this.handleManual.bind(this);
     this.handleBlur = this.handleBlur.bind(this);
     this.renderSingleInput = this.renderSingleInput.bind(this);
-    this.renderSchoolDetails = this.renderSchoolDetails.bind(this);
+    this.renderEstablishmentDetails = this.renderEstablishmentDetails.bind(this);
   }
 
   /**
    * Handle click event.
-   * @param e
+   * @param {string} lookup
+   * @param {object} event
    */
-  handleManualEntryClick(e) {
-    e.preventDefault();
-    this.setState({ lookup: !this.state.lookup });
-    this.props.onChange();
+  handleLookup(lookup, event) {
+    event.preventDefault();
+    this.setState({ lookup });
   }
 
   /**
    * Handle search event.
-   * @param query
+   * @param {string} query
    */
   handleSearch(query) {
     if (!query) {
@@ -65,9 +72,9 @@ class SchoolsLookUp extends Component {
     }
     axios.get(this.props.data + query)
       .then((response) => {
-        this.setState({ options: response.data.data.schools });
+        const options = response.data.data.schools;
+        this.setState({ options });
       });
-    this.props.onChange();
   }
 
   /**
@@ -75,38 +82,64 @@ class SchoolsLookUp extends Component {
    * @param data
    */
   handleChange(data) {
-    this.setState({
-      schools: data,
-      lookup: true,
+    if (!data || !data[0]) {
+      return;
+    }
+    const {
+      selectedEstablishmentIdentifier,
+      establishmentIdIdentifier,
+      establishmentNameIdentifier,
+      address1Identifier,
+      townIdentifier,
+      countyIdentifier,
+      postCodeIdentifier,
+      countryIdentifier,
+      onChange,
+    } = this.props;
+    const selectedEstablishment = data[0];
+    onChange(selectedEstablishmentIdentifier, { target: { value: selectedEstablishment } });
+    const mappedData = {
+      [establishmentIdIdentifier]: selectedEstablishment.id,
+      [establishmentNameIdentifier]: selectedEstablishment.name,
+      [address1Identifier]: selectedEstablishment.address_1,
+      [townIdentifier]: selectedEstablishment.town,
+      [countyIdentifier]: selectedEstablishment.county,
+      [postCodeIdentifier]: selectedEstablishment.post_code,
+      [countryIdentifier]: selectedEstablishment.country,
+    };
+    Object.keys(mappedData).forEach((identifier) => {
+      onChange(identifier, { target: { value: mappedData[identifier] } });
     });
-    this.props.onChange('address', { target: { value: data } });
+    // display selection and reset fetched schools
+    this.setState({ lookup: HIDE_LOOKUP, options: [] });
   }
 
   /**
    * Handle change event.
-   * @param event
+   * @param {object} event
+   * @param {string} identifier
    */
-  handleManual(event) {
-    const target = event.target;
-    const value = target.value;
-    const name = target.name;
-
-    this.setState({
-      [name]: value,
-    });
-    this.props.onChange(name, event);
+  handleManual(identifier, event) {
+    const { onChange, establishmentIdIdentifier,
+      establishmentIdValue, selectedEstablishmentIdentifier } = this.props;
+    // reset selected school on manual entry
+    if (establishmentIdValue) {
+      onChange(establishmentIdIdentifier, { target: { value: '' } });
+      onChange(selectedEstablishmentIdentifier, { target: { value: {} } });
+    }
+    onChange(identifier, event);
   }
 
   /**
    * Handle blur event.
-   * @param id
+   * @param {string} identifier
    */
-  handleBlur(id) {
+  handleBlur(identifier) {
     const {
       validateField,
     } = this.props;
     if (validateField) {
-      validateField(id);
+      validateField(identifier);
     }
   }
 
@@ -120,45 +153,46 @@ class SchoolsLookUp extends Component {
    * @return {XML}
    */
   renderSingleInput(labelText, identifier, value, errorMessage, readOnly) {
-    const inputProps = {
-      value,
-      type: 'text',
-      id: identifier,
-      name: identifier,
-      required: true,
-      className: '',
-    };
-    if (readOnly === true) {
-      inputProps.readOnly = true;
-    } else {
-      inputProps.onChange = this.handleManual.bind(this, identifier);
-      inputProps.onBlur = this.handleBlur.bind(this, identifier);
-      inputProps.className = `${inputProps.className} validation__wrapper`;
+    // avoid rendering read only with empty value
+    if (readOnly === true && !value) {
+      return null;
     }
     return (
-      <label htmlFor={identifier}>
-        {labelText}<span className="required">*</span>
-        <input {...inputProps} />
-        {readOnly === false && errorMessage ?
-          <div className="validation__message">
-            <span>
-              {errorMessage}
-            </span>
+      <div className={`${readOnly === false && errorMessage ? 'validation__wrapper': ''}`}>
+        {readOnly === false ?
+          <div>
+            <label htmlFor={identifier} className="required">{labelText}</label>
+            <input
+              id={identifier}
+              name={identifier}
+              value={value}
+              type="text"
+              onChange={event => this.handleManual(identifier, event)}
+              onBlur={event => this.handleBlur(identifier, event)}
+              required
+            />
+            {errorMessage ?
+              <div className="validation__message">
+                <span>
+                  {errorMessage}
+                </span>
+              </div>:
+              null
+            }
           </div>:
-          null
+          <p>{labelText}: {value}</p>
         }
-        <br />
-      </label>
+      </div>
     );
   }
 
   /**
-   * Render school details inputs whether read only or not
-   * @param  {object} schoolDetails
+   * Render establishment details inputs whether read only or not
+   * @param  {object} establishmentDetails
    * @param  {boolean} readOnly
    * @return {XML}
    */
-  renderSchoolDetails(schoolDetails, readOnly) {
+  renderEstablishmentDetails(establishmentDetails, readOnly) {
     const {
       establishmentNameLabelText, establishmentNameIdentifier, establishmentNameErrorMessage,
       address1LabelText, address1Identifier, address1ErrorMessage,
@@ -170,17 +204,17 @@ class SchoolsLookUp extends Component {
 
     return (
       <div className="schoolDetails">
-        {this.renderSingleInput(establishmentNameLabelText, establishmentNameIdentifier, schoolDetails.establishmentName, establishmentNameErrorMessage, readOnly)}
+        {this.renderSingleInput(establishmentNameLabelText, establishmentNameIdentifier, establishmentDetails[establishmentNameIdentifier], establishmentNameErrorMessage, readOnly)}
 
-        {this.renderSingleInput(address1LabelText, address1Identifier, schoolDetails.address1, address1ErrorMessage, readOnly)}
+        {this.renderSingleInput(address1LabelText, address1Identifier, establishmentDetails[address1Identifier], address1ErrorMessage, readOnly)}
 
-        {this.renderSingleInput(townLabelText, townIdentifier, schoolDetails.town, townErrorMessage, readOnly)}
+        {this.renderSingleInput(townLabelText, townIdentifier, establishmentDetails[townIdentifier], townErrorMessage, readOnly)}
 
-        {this.renderSingleInput(countyLabelText, countyIdentifier, schoolDetails.county, countyErrorMessage, readOnly)}
+        {this.renderSingleInput(countyLabelText, countyIdentifier, establishmentDetails[countyIdentifier], countyErrorMessage, readOnly)}
 
-        {this.renderSingleInput(postCodeLabelText, postCodeIdentifier, schoolDetails.postCode, postCodeErrorMessage, readOnly)}
+        {this.renderSingleInput(postCodeLabelText, postCodeIdentifier, establishmentDetails[postCodeIdentifier], postCodeErrorMessage, readOnly)}
 
-        {this.renderSingleInput(countryLabelText, countryIdentifier, schoolDetails.country, countryErrorMessage, readOnly)}
+        {this.renderSingleInput(countryLabelText, countryIdentifier, establishmentDetails[countryIdentifier], countryErrorMessage, readOnly)}
       </div>
     );
   }
@@ -191,21 +225,35 @@ class SchoolsLookUp extends Component {
    */
   render() {
     const {
-      establishmentName,
-      address_1,
-      town,
-      townCity,
-      post_code,
-      country,
-    } = this.state;
-
+      establishmentNameValue, address1Value, townValue, countyValue, postCodeValue, countryValue,
+      establishmentNameIdentifier, address1Identifier, townIdentifier, countyIdentifier,
+      postCodeIdentifier, countryIdentifier, min, selectedEstablishment,
+    } = this.props;
+    const { lookup, options } = this.state;
 
     return (
       <div className="SchoolsLookUp">
-        <label htmlFor="schoolsLookUp">{"Enter your school's name or postcode"}
+        <label htmlFor="schoolsLookUp">{"Enter your school's name or postcode"}</label>
+        {lookup === HIDE_LOOKUP ?
+          <div>
+            {this.renderEstablishmentDetails(
+              {
+                [establishmentNameIdentifier]: selectedEstablishment.name,
+                [address1Identifier]: selectedEstablishment.address_1,
+                [townIdentifier]: selectedEstablishment.town,
+                [countyIdentifier]: selectedEstablishment.county,
+                [postCodeIdentifier]: selectedEstablishment.post_code,
+                [countryIdentifier]: selectedEstablishment.country,
+              },
+              true,
+            )}
+            <button className="btn" onClick={this.handleLookup.bind(this, SHOW_EDCO_LOOKUP)}>
+              Edit
+            </button>
+          </div>:
           <AsyncTypeahead
             type="text"
-            minLength={this.props.min}
+            minLength={min}
             bsSize="large"
             onSearch={this.handleSearch}
             onChange={this.handleChange}
@@ -213,41 +261,31 @@ class SchoolsLookUp extends Component {
             labelKey={option => `${option.name} ${option.post_code}`}
             placeholder="Search"
             renderMenuItemChildren={this.renderMenuItemChildren}
-            options={this.state.options}
+            options={options}
           />
-        </label>
-        <button className="lookupTrue" onClick={this.handleManualEntryClick}>
-          Or enter address manually
-        </button>
-        {this.state.lookup ?
+        }
+        {lookup === SHOW_EDCO_LOOKUP ?
+          <button className="btn" onClick={this.handleLookup.bind(this, SHOW_MANUAL_LOOKUP)}>
+            Or enter address manually
+          </button>:
+          null
+        }
+        {lookup === SHOW_MANUAL_LOOKUP ?
           <div>
-            {this.state.schools.map(school => (
-              this.renderSchoolDetails(
-                {
-                  establishmentName: school.name,
-                  address1: school.address_1,
-                  town: school.town,
-                  county: school.county,
-                  postCode: school.post_code,
-                  country: school.country,
-                },
-                true,
-              )
-            ))
-            }
-          </div>
-          :
-          this.renderSchoolDetails(
-            {
-              establishmentName,
-              address1: address_1,
-              town,
-              county: townCity,
-              postCode: post_code,
-              country,
-            },
-            false,
-          )
+            <p>Or enter address manually</p>
+            {this.renderEstablishmentDetails(
+              {
+                [establishmentNameIdentifier]: establishmentNameValue,
+                [address1Identifier]: address1Value,
+                [townIdentifier]: townValue,
+                [countyIdentifier]: countyValue,
+                [postCodeIdentifier]: postCodeValue,
+                [countryIdentifier]: countryValue,
+              },
+              false,
+            )}
+          </div>:
+          null
         }
       </div>
     );
@@ -255,20 +293,23 @@ class SchoolsLookUp extends Component {
 }
 
 SchoolsLookUp.defaultProps = {
-  establishmentNameLabelText: 'School name',
+  selectedEstablishmentIdentifier: 'selectedEstablishment',
+  selectedEstablishment: {},
+  establishmentIdIdentifier: 'establishmentId',
+  establishmentNameLabelText: 'Establishment name',
   establishmentNameIdentifier: 'establishmentName',
   establishmentNameErrorMessage: '',
   address1LabelText: 'Address',
-  address1Identifier: 'address_1',
+  address1Identifier: 'address1',
   address1ErrorMessage: '',
   townLabelText: 'Town',
   townIdentifier: 'town',
   townErrorMessage: '',
   countyLabelText: 'County',
-  countyIdentifier: 'townCity',
+  countyIdentifier: 'county',
   countyErrorMessage: '',
   postCodeLabelText: 'Postcode',
-  postCodeIdentifier: 'post_code',
+  postCodeIdentifier: 'postCode',
   postCodeErrorMessage: '',
   countryLabelText: 'Country',
   countryIdentifier: 'country',
@@ -280,6 +321,19 @@ SchoolsLookUp.propTypes = {
   data: PropTypes.string.isRequired,
   min: PropTypes.number.isRequired,
   onChange: PropTypes.func.isRequired,
+  establishmentIdValue: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]).isRequired,
+  establishmentNameValue: PropTypes.string.isRequired,
+  address1Value: PropTypes.string.isRequired,
+  townValue: PropTypes.string.isRequired,
+  countyValue: PropTypes.string.isRequired,
+  postCodeValue: PropTypes.string.isRequired,
+  countryValue: PropTypes.string.isRequired,
+  selectedEstablishmentIdentifier: PropTypes.string,
+  selectedEstablishment: PropTypes.object,
+  establishmentIdIdentifier: PropTypes.string,
   establishmentNameLabelText: PropTypes.string,
   establishmentNameIdentifier: PropTypes.string,
   establishmentNameErrorMessage: PropTypes.string,
