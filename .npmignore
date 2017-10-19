@@ -2,7 +2,6 @@
 /.storybook/
 
 *.md
-*.js
 *.yml
 
 .babelrc
