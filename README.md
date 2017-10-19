@@ -8,7 +8,7 @@
 * Clone this repository
 * `npm install`
 * `npm run storybook`
-* Visit http://localhost:6006/
+* Visit http://localhost:9009/
 
 Then import your component(s) into stories/index.js and render them like so:
 
@@ -30,6 +30,7 @@ Then import your component(s) into components/index.js and rebuild build files v
 [npm-url]: https://www.npmjs.com/package/@comicrelief/storybook
 
 ## Getting Started as dependencies in your project
+
 ### Install dependencies
 Ensure packages are installed with correct version numbers by running:
   ```
