@@ -30,6 +30,7 @@ Then import your component(s) into components/index.js and rebuild build files v
 [npm-url]: https://www.npmjs.com/package/@comicrelief/storybook
 
 ## Getting Started as dependencies in your project
+
 ### Install dependencies
 Ensure packages are installed with correct version numbers by running:
   ```
