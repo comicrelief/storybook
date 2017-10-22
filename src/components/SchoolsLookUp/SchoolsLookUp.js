@@ -33,7 +33,7 @@ class SchoolsLookUp extends Component {
     let lookup;
     if (selectedEstablishment && selectedEstablishment.id) {
       lookup = HIDE_LOOKUP;
-    } else if (establishmentNameValue) {
+    } else if (establishmentNameValue || this.hasError(props)) {
       lookup = SHOW_MANUAL_LOOKUP;
     } else {
       lookup = SHOW_EDCO_LOOKUP;
@@ -42,6 +42,7 @@ class SchoolsLookUp extends Component {
       options: [],
       lookup,
     };
+
     this.renderMenuItemChildren = SchoolsLookUp.renderMenuItemChildren;
     this.handleChange = this.handleChange.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
@@ -53,12 +54,36 @@ class SchoolsLookUp extends Component {
   }
 
   /**
+   * Component lifecycle event triggered whenever props change
+   * @param {object} props
+   */
+  componentWillReceiveProps(nextProps) {
+    if (this.hasError(nextProps)) {
+      this.handleLookup(SHOW_MANUAL_LOOKUP);
+    }
+  }
+
+  /**
+   * Check whether any field has error or all are valid
+   * @param {object} props
+   * @return {boolean}
+   */
+  hasError(props) {
+    const { establishmentNameErrorMessage, address1ErrorMessage, address2ErrorMessage,
+      address3ErrorMessage, townErrorMessage, postcodeErrorMessage } = props;
+    return establishmentNameErrorMessage || address1ErrorMessage || address2ErrorMessage ||
+      address3ErrorMessage || townErrorMessage || postcodeErrorMessage;
+  }
+
+  /**
    * Handle click event.
    * @param {string} lookup
    * @param {object} event
    */
   handleLookup(lookup, event) {
-    event.preventDefault();
+    if (event) {
+      event.preventDefault();
+    }
     this.setState({ lookup });
   }
 
@@ -291,7 +316,7 @@ class SchoolsLookUp extends Component {
               },
               true,
             )}
-            <button className="btn" onClick={this.handleLookup.bind(this, SHOW_EDCO_LOOKUP)}>
+            <button className="btn" onClick={this.handleLookup.bind(this, SHOW_MANUAL_LOOKUP)}>
               Edit
             </button>
           </div>:
