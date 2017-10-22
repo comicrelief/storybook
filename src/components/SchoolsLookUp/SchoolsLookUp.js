@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
+import Icon from 'react-fontawesome';
 import { AsyncTypeahead, Menu, MenuItem } from 'react-bootstrap-typeahead';
 import './SchoolsLookUp.scss';
 
@@ -17,33 +18,12 @@ class SchoolsLookUp extends Component {
   static renderMenuItemChildren(option) {
     return (
       <div key={option.id}>
-        <span>{option.name}, </span>
-        <span>{option.post_code}</span>
+        <span>{option.name}</span>
+        {option.post_code ?
+          <span>, {option.post_code}</span>:
+          null
+        }
       </div>
-    );
-  }
-
-  /**
-   * Render whole menu
-   * Render default option and search results
-   * @param  {object} results
-   * @param  {object} menuProps
-   * @return {XML}
-   */
-  static renderMenu(results, menuProps) {
-    const menuItems = [
-      <span className="schoolDefaultOption">Please select...</span>,
-      results.map((result, index) => (
-        <MenuItem option={result} position={index}>
-          {SchoolsLookUp.renderMenuItemChildren(result)}
-        </MenuItem>
-      )),
-    ];
-
-    return (
-      <Menu {...menuProps}>
-        {menuItems}
-      </Menu>
     );
   }
 
@@ -64,15 +44,17 @@ class SchoolsLookUp extends Component {
     }
     this.state = {
       options: [],
+      query: '',
+      isSearching: false,
       lookup,
     };
 
-    this.renderMenu = SchoolsLookUp.renderMenu;
     this.handleChange = this.handleChange.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
     this.handleLookup = this.handleLookup.bind(this);
     this.handleManual = this.handleManual.bind(this);
     this.handleBlur = this.handleBlur.bind(this);
+    this.renderMenu = this.renderMenu.bind(this);
     this.renderSingleInput = this.renderSingleInput.bind(this);
     this.renderEstablishmentDetails = this.renderEstablishmentDetails.bind(this);
   }
@@ -119,10 +101,11 @@ class SchoolsLookUp extends Component {
     if (!query) {
       return;
     }
+    this.setState({ isSearching: true });
     axios.get(this.props.data + query)
       .then((response) => {
         const options = response.data.data.schools;
-        this.setState({ options });
+        this.setState({ query, options, isSearching: false });
       });
   }
 
@@ -131,7 +114,7 @@ class SchoolsLookUp extends Component {
    * @param data
    */
   handleChange(data) {
-    if (!data || !data[0]) {
+    if (!data || !data[0] || data[0].id === 0) {
       return;
     }
     const {
@@ -312,6 +295,45 @@ class SchoolsLookUp extends Component {
   }
 
   /**
+   * Render whole menu
+   * Render default option and search results
+   * Render nothing in case searching is still in progress
+   * @param  {object} results
+   * @param  {object} menuProps
+   * @return {XML}
+   */
+  renderMenu(results, menuProps) {
+    // do not show results until search is complete
+    if (menuProps.emptyLabel === 'Searching...' || this.state.isSearching === true ||
+        (results.length === 0 && this.state.query &&
+        this.state.query.toUpperCase() !== menuProps.text.toUpperCase())
+    ) {
+      return <div />;
+    }
+
+    // if there are search results, add default option
+    if (results.length > 0) {
+      results.unshift(
+        {
+          name: 'Please select a school from the list below',
+          id: 0,
+        },
+      );
+    }
+    return (
+      <Menu {...menuProps}>
+        {
+          results.map((result, index) => (
+            <MenuItem key={index} option={result} position={index}>
+              {SchoolsLookUp.renderMenuItemChildren(result)}
+            </MenuItem>
+          ))
+        }
+      </Menu>
+    );
+  }
+
+  /**
    * Render Component.
    * @return {XML}
    */
@@ -321,7 +343,7 @@ class SchoolsLookUp extends Component {
       establishmentNameIdentifier, address1Identifier, address2Identifier, address3Identifier,
       townIdentifier, postcodeIdentifier, min, selectedEstablishment,
     } = this.props;
-    const { lookup, options } = this.state;
+    const { lookup, options, isSearching } = this.state;
     const orEnterManuallyCopy = 'Or enter details manually';
 
     return (
@@ -344,18 +366,26 @@ class SchoolsLookUp extends Component {
               Edit
             </button>
           </div>:
-          <AsyncTypeahead
-            type="text"
-            minLength={min}
-            bsSize="large"
-            onSearch={this.handleSearch}
-            onChange={this.handleChange}
-            className="schoolsLookUpForm"
-            labelKey={option => `${option.name} ${option.post_code}`}
-            placeholder="Search"
-            renderMenu={this.renderMenu}
-            options={options}
-          />
+          <div>
+            {/* Disable cashing as it ignores a lot of results */}
+            <AsyncTypeahead
+              type="text"
+              minLength={min}
+              bsSize="large"
+              onSearch={this.handleSearch}
+              onChange={this.handleChange}
+              className="schoolsLookUpForm"
+              labelKey={option => `${option.id !== 0 ? `${option.name} ${option.post_code}` : ''}`}
+              placeholder="Search"
+              renderMenu={this.renderMenu}
+              options={options}
+              useCache={false}
+            />
+            {isSearching ?
+              <Icon name="spinner" spin />:
+              null
+            }
+          </div>
         }
         {lookup === SHOW_EDCO_LOOKUP ?
           <button className="btn" onClick={this.handleLookup.bind(this, SHOW_MANUAL_LOOKUP)}>
