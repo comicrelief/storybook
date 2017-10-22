@@ -8222,6 +8222,12 @@ react-error-overlay@^2.0.2:
     settle-promise "1.0.0"
     source-map "0.5.6"
 
+react-fontawesome@1:
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/react-fontawesome/-/react-fontawesome-1.6.1.tgz#eddce17e7dc731aa09fd4a186688a61793a16c5c"
+  dependencies:
+    prop-types "^15.5.6"
+
 react-geolocated@2:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/react-geolocated/-/react-geolocated-2.1.0.tgz#c65dd9b79c42d2740d50d6110e6c0fb2db3fb051"

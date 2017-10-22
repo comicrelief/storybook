@@ -5,9 +5,10 @@
   "private": true,
   "main": "./SchoolsLookUp.js",
   "dependencies": {
-    "react": "15",
     "axios": "0",
+    "prop-types": "15",
+    "react": "15",
     "react-bootstrap-typeahead": "^2.0.0-alpha.4",
-    "prop-types": "15"
+    "react-fontawesome": "1"
   }
 }
