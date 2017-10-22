@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
-import { AsyncTypeahead } from 'react-bootstrap-typeahead';
+import { AsyncTypeahead, Menu, MenuItem } from 'react-bootstrap-typeahead';
 import './SchoolsLookUp.scss';
 
 const SHOW_EDCO_LOOKUP = 'SHOW_EDCO_LOOKUP';
@@ -20,6 +20,30 @@ class SchoolsLookUp extends Component {
         <span>{option.name}, </span>
         <span>{option.post_code}</span>
       </div>
+    );
+  }
+
+  /**
+   * Render whole menu
+   * Render default option and search results
+   * @param  {object} results
+   * @param  {object} menuProps
+   * @return {XML}
+   */
+  static renderMenu(results, menuProps) {
+    const menuItems = [
+      <span className="schoolDefaultOption">Please select...</span>,
+      results.map((result, index) => (
+        <MenuItem option={result} position={index}>
+          {SchoolsLookUp.renderMenuItemChildren(result)}
+        </MenuItem>
+      )),
+    ];
+
+    return (
+      <Menu {...menuProps}>
+        {menuItems}
+      </Menu>
     );
   }
 
@@ -43,7 +67,7 @@ class SchoolsLookUp extends Component {
       lookup,
     };
 
-    this.renderMenuItemChildren = SchoolsLookUp.renderMenuItemChildren;
+    this.renderMenu = SchoolsLookUp.renderMenu;
     this.handleChange = this.handleChange.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
     this.handleLookup = this.handleLookup.bind(this);
@@ -329,7 +353,7 @@ class SchoolsLookUp extends Component {
             className="schoolsLookUpForm"
             labelKey={option => `${option.name} ${option.post_code}`}
             placeholder="Search"
-            renderMenuItemChildren={this.renderMenuItemChildren}
+            renderMenu={this.renderMenu}
             options={options}
           />
         }
