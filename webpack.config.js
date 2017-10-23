@@ -74,7 +74,15 @@ const configuration = {
 
   plugins: [
     new webpack.optimize.ModuleConcatenationPlugin(),
-    // Compresses javascript files
+    new webpack.DefinePlugin({
+      'process.env': {
+        // Useful to reduce the size of client-side libraries, e.g. react
+        NODE_ENV: JSON.stringify('production'), // 'development' to see non-minified React errors
+      },
+      _development_: false,
+      _production_: true,
+      _development_tools_: false, // enable/disable redux-devtools
+    }),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false,
