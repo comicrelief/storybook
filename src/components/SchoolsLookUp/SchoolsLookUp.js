@@ -342,7 +342,7 @@ class SchoolsLookUp extends Component {
     const {
       establishmentNameValue, address1Value, address2Value, address3Value, townValue, postcodeValue,
       establishmentNameIdentifier, address1Identifier, address2Identifier, address3Identifier,
-      townIdentifier, postcodeIdentifier, min, selectedEstablishment,
+      townIdentifier, postcodeIdentifier, min, selectedEstablishment, disabled,
     } = this.props;
     const { lookup, options, isSearching } = this.state;
     const orEnterManuallyCopy = 'Or enter details manually';
@@ -381,6 +381,7 @@ class SchoolsLookUp extends Component {
               renderMenu={this.renderMenu}
               options={options}
               useCache={false}
+              disabled={disabled}
             />
             {isSearching ?
               <Icon name="spinner" spin />:
@@ -444,6 +445,7 @@ SchoolsLookUp.defaultProps = {
   postcodeIdentifier: 'postcode',
   postcodeErrorMessage: '',
   postcodeRequired: true,
+  disabled: false,
   validateField: () => {},
 };
 
@@ -489,6 +491,7 @@ SchoolsLookUp.propTypes = {
   postcodeIdentifier: PropTypes.string,
   postcodeErrorMessage: PropTypes.string,
   validateField: PropTypes.func,
+  disabled: PropTypes.bool,
 };
 
 export default SchoolsLookUp;
