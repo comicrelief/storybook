@@ -77,8 +77,9 @@ class SchoolsLookUp extends Component {
   hasError(props) {
     const { establishmentNameErrorMessage, address1ErrorMessage, address2ErrorMessage,
       address3ErrorMessage, townErrorMessage, postcodeErrorMessage } = props;
-    return establishmentNameErrorMessage || address1ErrorMessage || address2ErrorMessage ||
+    const hasError = establishmentNameErrorMessage || address1ErrorMessage || address2ErrorMessage ||
       address3ErrorMessage || townErrorMessage || postcodeErrorMessage;
+    return Boolean(hasError);
   }
 
   /**
