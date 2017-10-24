@@ -17,6 +17,7 @@
     "react-currency-formatter": "0",
     "react-dom": "15",
     "react-dropzone": "4",
+    "react-fontawesome": "1",
     "react-geolocated": "2",
     "react-refetch": "1",
     "react-scripts": "1",
