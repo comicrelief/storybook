@@ -94,7 +94,7 @@ const configuration = {
   ],
 
   externals: {
-    react: 'commonjs react', // use the React dependency of our parent project instead of using our own React.
+    react: 'commonjs react', // use the React dependency of our parent project instead of using our own React
   },
 }
 
