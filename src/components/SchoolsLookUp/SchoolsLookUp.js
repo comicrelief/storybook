@@ -200,13 +200,13 @@ class SchoolsLookUp extends Component {
               id={identifier}
               name={identifier}
               value={value}
-              type='text'
+              type="text"
               onChange={event => this.handleManual(identifier, event)}
               onBlur={event => this.handleBlur(identifier, event)}
               required={required}
             />
             {errorMessage ?
-              <div className='validation__message'>
+              <div className="validation__message">
                 <span>
                   {errorMessage}
                 </span>
@@ -237,7 +237,7 @@ class SchoolsLookUp extends Component {
     } = this.props;
 
     return (
-      <div className='schoolDetails'>
+      <div className="schoolDetails">
         {this.renderSingleInput(
           establishmentNameLabelText,
           establishmentNameIdentifier,
@@ -348,74 +348,72 @@ class SchoolsLookUp extends Component {
     const orEnterManuallyCopy = 'Or enter details manually';
 
     return (
-      <div className='SchoolsLookUp'>
-        <div className=''>
-          <p className='schoolsLookUp-title'>
-            <label htmlFor='schoolsLookUp'>{'Enter the name or postcode of your school'}</label>
-          </p>  
-          {lookup === HIDE_LOOKUP ?
-            <div>
-              {this.renderEstablishmentDetails(
-                {
-                  [establishmentNameIdentifier]: selectedEstablishment.name,
-                  [address1Identifier]: selectedEstablishment.address_1,
-                  [address2Identifier]: selectedEstablishment.address_2,
-                  [address3Identifier]: selectedEstablishment.address_3,
-                  [townIdentifier]: selectedEstablishment.town,
-                  [postcodeIdentifier]: selectedEstablishment.post_code,
-                },
-                true,
-              )}
-              <button className='btn' onClick={this.handleLookup.bind(this, SHOW_MANUAL_LOOKUP)}>
-                Edit
-              </button>
-            </div>:
-            <div className='schoolsLookUp-search'>
-              {/* Disable cashing as it ignores a lot of results */}
-              <AsyncTypeahead
-                type='text'
-                minLength={min}
-                bsSize='large'
-                onSearch={this.handleSearch}
-                onChange={this.handleChange}
-                className='schoolsLookUpForm'
-                labelKey={option => `${option.id !== 0 ? `${option.name} ${option.post_code}` : ''}`}
-                placeholder='Search'
-                renderMenu={this.renderMenu}
-                options={options}
-                useCache={false}
-                disabled={disabled}
-              />
-              {isSearching ?
-                <Icon name='spinner' spin />:
-                null
-              }
-            </div>
-          }
-          {lookup === SHOW_EDCO_LOOKUP ?
-            <button className='SchoolsLookUp-maunal-btn' onClick={this.handleLookup.bind(this, SHOW_MANUAL_LOOKUP)}>
-              {orEnterManuallyCopy}
-            </button>:
-            null
-          }
-          {lookup === SHOW_MANUAL_LOOKUP ?
-            <div className='SchoolsLookUp-maunal'>
-              <p>{orEnterManuallyCopy}</p>
-              {this.renderEstablishmentDetails(
-                {
-                  [establishmentNameIdentifier]: establishmentNameValue,
-                  [address1Identifier]: address1Value,
-                  [address2Identifier]: address2Value,
-                  [address3Identifier]: address3Value,
-                  [townIdentifier]: townValue,
-                  [postcodeIdentifier]: postcodeValue,
-                },
-                false,
-              )}
-            </div>:
-            null
-          }
-        </div>
+      <div className="SchoolsLookUp">
+        <p className="schoolsLookUp-title">
+          <label htmlFor="schoolsLookUp">{'Enter the name or postcode of your school'}</label>
+        </p>
+        {lookup === HIDE_LOOKUP ?
+          <div>
+            {this.renderEstablishmentDetails(
+              {
+                [establishmentNameIdentifier]: selectedEstablishment.name,
+                [address1Identifier]: selectedEstablishment.address_1,
+                [address2Identifier]: selectedEstablishment.address_2,
+                [address3Identifier]: selectedEstablishment.address_3,
+                [townIdentifier]: selectedEstablishment.town,
+                [postcodeIdentifier]: selectedEstablishment.post_code,
+              },
+              true,
+            )}
+            <button className="SchoolsLookUp-link" onClick={this.handleLookup.bind(this, SHOW_MANUAL_LOOKUP)}>
+              Edit
+            </button>
+          </div>:
+          <div className="schoolsLookUp-search">
+            {/* Disable cashing as it ignores a lot of results */}
+            <AsyncTypeahead
+              type="text"
+              minLength={min}
+              bsSize="large"
+              onSearch={this.handleSearch}
+              onChange={this.handleChange}
+              className="schoolsLookUpForm"
+              labelKey={option => `${option.id !== 0 ? `${option.name} ${option.post_code}` : ''}`}
+              placeholder="Search"
+              renderMenu={this.renderMenu}
+              options={options}
+              useCache={false}
+              disabled={disabled}
+            />
+            {isSearching ?
+              <Icon name="spinner" spin />:
+              null
+            }
+          </div>
+        }
+        {lookup === SHOW_EDCO_LOOKUP ?
+          <button className="SchoolsLookUp-link" onClick={this.handleLookup.bind(this, SHOW_MANUAL_LOOKUP)}>
+            {orEnterManuallyCopy}
+          </button>:
+          null
+        }
+        {lookup === SHOW_MANUAL_LOOKUP ?
+          <div className="SchoolsLookUp-maunal">
+            <p>{orEnterManuallyCopy}</p>
+            {this.renderEstablishmentDetails(
+              {
+                [establishmentNameIdentifier]: establishmentNameValue,
+                [address1Identifier]: address1Value,
+                [address2Identifier]: address2Value,
+                [address3Identifier]: address3Value,
+                [townIdentifier]: townValue,
+                [postcodeIdentifier]: postcodeValue,
+              },
+              false,
+            )}
+          </div>:
+          null
+        }
       </div>
     );
   }
