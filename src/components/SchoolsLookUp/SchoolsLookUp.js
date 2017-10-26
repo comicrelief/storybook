@@ -349,7 +349,9 @@ class SchoolsLookUp extends Component {
 
     return (
       <div className="SchoolsLookUp">
-        <label htmlFor="schoolsLookUp">{'Enter the name or postcode of your school'}</label>
+        <p className="schoolsLookUp-title">
+          <label htmlFor="schoolsLookUp">{'Enter the name or postcode of your school'}</label>
+        </p>
         {lookup === HIDE_LOOKUP ?
           <div>
             {this.renderEstablishmentDetails(
@@ -363,11 +365,11 @@ class SchoolsLookUp extends Component {
               },
               true,
             )}
-            <button className="btn" onClick={this.handleLookup.bind(this, SHOW_MANUAL_LOOKUP)}>
+            <button className="SchoolsLookUp-link" onClick={this.handleLookup.bind(this, SHOW_MANUAL_LOOKUP)}>
               Edit
             </button>
           </div>:
-          <div>
+          <div className="schoolsLookUp-search">
             {/* Disable cashing as it ignores a lot of results */}
             <AsyncTypeahead
               type="text"
@@ -390,13 +392,13 @@ class SchoolsLookUp extends Component {
           </div>
         }
         {lookup === SHOW_EDCO_LOOKUP ?
-          <button className="btn" onClick={this.handleLookup.bind(this, SHOW_MANUAL_LOOKUP)}>
+          <button className="SchoolsLookUp-link" onClick={this.handleLookup.bind(this, SHOW_MANUAL_LOOKUP)}>
             {orEnterManuallyCopy}
           </button>:
           null
         }
         {lookup === SHOW_MANUAL_LOOKUP ?
-          <div>
+          <div className="SchoolsLookUp-maunal">
             <p>{orEnterManuallyCopy}</p>
             {this.renderEstablishmentDetails(
               {
