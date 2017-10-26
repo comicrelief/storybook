@@ -46,6 +46,7 @@ class SchoolsLookUp extends Component {
       options: [],
       query: '',
       isSearching: false,
+      isDefaultOptionHighlighted: true,
       lookup,
     };
 
@@ -54,6 +55,8 @@ class SchoolsLookUp extends Component {
     this.handleLookup = this.handleLookup.bind(this);
     this.handleManual = this.handleManual.bind(this);
     this.handleBlur = this.handleBlur.bind(this);
+    this.handleDefaultOptionHoverOff = this.handleDefaultOptionHoverOff.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
     this.renderMenu = this.renderMenu.bind(this);
     this.renderSingleInput = this.renderSingleInput.bind(this);
     this.renderEstablishmentDetails = this.renderEstablishmentDetails.bind(this);
@@ -144,7 +147,7 @@ class SchoolsLookUp extends Component {
       onChange(identifier, { target: { value: mappedData[identifier] } });
     });
     // display selection and reset fetched schools
-    this.setState({ lookup: HIDE_LOOKUP, options: [] });
+    this.setState({ lookup: HIDE_LOOKUP, options: [], isDefaultOptionHighlighted: false });
   }
 
   /**
@@ -174,6 +177,20 @@ class SchoolsLookUp extends Component {
     if (validateField) {
       validateField(identifier);
     }
+  }
+
+  /**
+   * Handle changing text value inside search box
+   */
+  handleInputChange() {
+    this.setState({ isDefaultOptionHighlighted: true });
+  }
+
+  /**
+   * Handle hovering off default option
+   */
+  handleDefaultOptionHoverOff() {
+    this.setState({ isDefaultOptionHighlighted: false });
   }
 
   /**
@@ -304,30 +321,27 @@ class SchoolsLookUp extends Component {
    * @return {XML}
    */
   renderMenu(results, menuProps) {
+    const { isSearching, isDefaultOptionHighlighted, query } = this.state;
     // do not show results until search is complete
-    if (menuProps.emptyLabel === 'Searching...' || this.state.isSearching === true ||
-        (results.length === 0 && this.state.query &&
-        this.state.query.toUpperCase() !== menuProps.text.toUpperCase())
+    if (menuProps.emptyLabel === 'Searching...' || isSearching === true ||
+        (results.length === 0 && query && query.toUpperCase() !== menuProps.text.toUpperCase())
     ) {
       return <div />;
     }
 
-    // if there are search results, add default option
-    if (results.length > 0) {
-      results.unshift(
-        {
-          name: 'Please select a school from the list below',
-          id: 0,
-        },
-      );
-    }
+    const MenuHeader = props => <li {...props} className={isDefaultOptionHighlighted ? 'default-selection' : ''} />;
     return (
       <Menu {...menuProps}>
+        <MenuHeader key="defaultSelection" onMouseLeave={this.handleDefaultOptionHoverOff}>
+          Please select a school from the list below
+        </MenuHeader>
         {
           results.map((result, index) => (
-            <MenuItem key={index} option={result} position={index}>
-              {SchoolsLookUp.renderMenuItemChildren(result)}
-            </MenuItem>
+            <div key={index} onMouseEnter={this.handleDefaultOptionHoverOff}>
+              <MenuItem option={result} position={index}>
+                {SchoolsLookUp.renderMenuItemChildren(result)}
+              </MenuItem>
+            </div>
           ))
         }
       </Menu>
@@ -377,6 +391,7 @@ class SchoolsLookUp extends Component {
               bsSize="large"
               onSearch={this.handleSearch}
               onChange={this.handleChange}
+              onInputChange={this.handleInputChange}
               className="schoolsLookUpForm"
               labelKey={option => `${option.id !== 0 ? `${option.name} ${option.post_code}` : ''}`}
               placeholder="Search"
