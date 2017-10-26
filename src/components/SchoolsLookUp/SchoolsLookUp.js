@@ -181,7 +181,6 @@ class SchoolsLookUp extends Component {
 
   /**
    * Handle changing text value inside search box
-   * @param {string} identifier
    */
   handleInputChange() {
     this.setState({ isDefaultOptionHighlighted: true });
@@ -189,7 +188,6 @@ class SchoolsLookUp extends Component {
 
   /**
    * Handle hovering off default option
-   * @param {string} identifier
    */
   handleDefaultOptionHoverOff() {
     this.setState({ isDefaultOptionHighlighted: false });
@@ -339,8 +337,8 @@ class SchoolsLookUp extends Component {
         </MenuHeader>
         {
           results.map((result, index) => (
-            <div onMouseEnter={this.handleDefaultOptionHoverOff}>
-              <MenuItem key={index} option={result} position={index}>
+            <div key={index} onMouseEnter={this.handleDefaultOptionHoverOff}>
+              <MenuItem option={result} position={index}>
                 {SchoolsLookUp.renderMenuItemChildren(result)}
               </MenuItem>
             </div>
