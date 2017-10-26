@@ -312,23 +312,25 @@ class SchoolsLookUp extends Component {
       return <div />;
     }
 
-    // if there are search results, add default option
-    if (results.length > 0) {
-      results.unshift(
-        {
-          name: 'Please select a school from the list below',
-          id: 0,
-        },
-      );
-    }
+    const MenuHeader = props => <li {...props} className="default-selection" />;
     return (
       <Menu {...menuProps}>
+        <MenuHeader key="defaultSelection">
+          Please select a school from the list below
+        </MenuHeader>
         {
-          results.map((result, index) => (
-            <MenuItem key={index} option={result} position={index}>
-              {SchoolsLookUp.renderMenuItemChildren(result)}
-            </MenuItem>
-          ))
+          results.map((result, index) => {
+            const menuItemProps = {
+              position: index,
+              key: index,
+              option: result,
+            };
+            return (
+              <MenuItem {...menuItemProps}>
+                {SchoolsLookUp.renderMenuItemChildren(result)}
+              </MenuItem>
+            );
+          })
         }
       </Menu>
     );
