@@ -152,8 +152,8 @@ class SchoolsLookUp extends Component {
 
   /**
    * Handle change event.
-   * @param {object} event
    * @param {string} identifier
+   * @param {object} event
    */
   handleManual(identifier, event) {
     const { onChange, establishmentIdIdentifier,
@@ -181,9 +181,10 @@ class SchoolsLookUp extends Component {
 
   /**
    * Handle changing text value inside search box
+   * @param {string} query
    */
-  handleInputChange() {
-    this.setState({ isDefaultOptionHighlighted: true });
+  handleInputChange(query) {
+    this.setState({ query, isDefaultOptionHighlighted: true });
   }
 
   /**
@@ -328,7 +329,6 @@ class SchoolsLookUp extends Component {
     ) {
       return <div />;
     }
-
     const MenuHeader = props => <li {...props} className={isDefaultOptionHighlighted ? 'default-selection' : ''} />;
     return (
       <Menu {...menuProps}>
@@ -399,6 +399,7 @@ class SchoolsLookUp extends Component {
               options={options}
               useCache={false}
               disabled={disabled}
+              filterBy={() => true}
             />
             {isSearching ?
               <Icon name="spinner" spin />:
