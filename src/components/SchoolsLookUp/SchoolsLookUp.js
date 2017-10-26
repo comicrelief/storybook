@@ -319,13 +319,11 @@ class SchoolsLookUp extends Component {
           Please select a school from the list below
         </MenuHeader>
         {
-          results.map((result, index) => {
-            return (
-              <MenuItem key={index} option={result} position={index}>
-                {SchoolsLookUp.renderMenuItemChildren(result)}
-              </MenuItem>
-            );
-          })
+          results.map((result, index) => (
+            <MenuItem key={index} option={result} position={index}>
+              {SchoolsLookUp.renderMenuItemChildren(result)}
+            </MenuItem>
+          ))
         }
       </Menu>
     );
