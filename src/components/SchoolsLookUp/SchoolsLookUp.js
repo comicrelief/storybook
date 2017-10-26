@@ -320,13 +320,8 @@ class SchoolsLookUp extends Component {
         </MenuHeader>
         {
           results.map((result, index) => {
-            const menuItemProps = {
-              position: index,
-              key: index,
-              option: result,
-            };
             return (
-              <MenuItem {...menuItemProps}>
+              <MenuItem key={index} option={result} position={index}>
                 {SchoolsLookUp.renderMenuItemChildren(result)}
               </MenuItem>
             );
