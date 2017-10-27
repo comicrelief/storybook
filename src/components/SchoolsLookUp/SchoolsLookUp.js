@@ -333,7 +333,11 @@ class SchoolsLookUp extends Component {
     return (
       <Menu {...menuProps}>
         <MenuHeader key="defaultSelection" onMouseLeave={this.handleDefaultOptionHoverOff}>
-          Please select a school from the list below
+          {
+            results.length > 0
+              ? 'Please select a school from the list below'
+              : "Sorry, that postcode isn't in our database of schools and nurseries. Please manually fill in the address below."
+          }
         </MenuHeader>
         {
           results.map((result, index) => (
@@ -384,7 +388,7 @@ class SchoolsLookUp extends Component {
             </button>
           </div>:
           <div className="schoolsLookUp-search">
-            {/* Disable cashing as it ignores a lot of results */}
+            {/* Disable caching as it ignores a lot of results */}
             <AsyncTypeahead
               type="text"
               minLength={min}
