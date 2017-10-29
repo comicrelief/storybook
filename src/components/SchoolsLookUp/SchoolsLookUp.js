@@ -332,21 +332,22 @@ class SchoolsLookUp extends Component {
     const MenuHeader = props => <li {...props} className={isDefaultOptionHighlighted ? 'default-selection' : ''} />;
     return (
       <Menu {...menuProps}>
-        <MenuHeader key="defaultSelection" onMouseLeave={this.handleDefaultOptionHoverOff}>
-          {
-            results.length > 0
-              ? 'Please select a school from the list below'
-              : "Sorry, that postcode isn't in our database of schools and nurseries. Please manually fill in the address below."
-          }
-        </MenuHeader>
-        {
-          results.map((result, index) => (
-            <div key={index} onMouseEnter={this.handleDefaultOptionHoverOff}>
-              <MenuItem option={result} position={index}>
-                {SchoolsLookUp.renderMenuItemChildren(result)}
-              </MenuItem>
-            </div>
-          ))
+        {results.length > 0 ?
+          <div>
+            <MenuHeader key="defaultSelection" onMouseLeave={this.handleDefaultOptionHoverOff}>
+              Please select a school from the list below
+            </MenuHeader>
+            {
+              results.map((result, index) => (
+                <div key={index} onMouseEnter={this.handleDefaultOptionHoverOff}>
+                  <MenuItem option={result} position={index}>
+                    {SchoolsLookUp.renderMenuItemChildren(result)}
+                  </MenuItem>
+                </div>
+              ))
+            }
+          </div>:
+          null
         }
       </Menu>
     );
@@ -393,6 +394,7 @@ class SchoolsLookUp extends Component {
               type="text"
               minLength={min}
               bsSize="large"
+              emptyLabel="Sorry, that postcode isn't in our database of schools and nurseries. Please manually fill in the address below."
               onSearch={this.handleSearch}
               onChange={this.handleChange}
               onInputChange={this.handleInputChange}
