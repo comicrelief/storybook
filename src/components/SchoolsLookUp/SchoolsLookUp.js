@@ -400,7 +400,7 @@ class SchoolsLookUp extends Component {
               onInputChange={this.handleInputChange}
               className="schoolsLookUpForm"
               labelKey={option => `${option.id !== 0 ? `${option.name} ${option.post_code}` : ''}`}
-              placeholder="Search"
+              placeholder="Type to start search (this may take a few seconds)"
               renderMenu={this.renderMenu}
               options={options}
               useCache={false}
