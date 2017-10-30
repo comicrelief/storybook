@@ -32,7 +32,7 @@ class Footer extends Component {
       <footer style={styles} role="contentinfo">
         <SocialLink campaign={this.props.campaign} />
         <div className="region region-footer cr-footer">
-          <Menu type="footer" source={this.props.source} />
+          <Menu type="footer" campaign={this.props.campaign} />
         </div>
         <div className="footer__copyright">
           <p style={styles.p}>{this.copy}</p>
@@ -48,7 +48,6 @@ class Footer extends Component {
 }
 
 Footer.propTypes = {
-  source: PropTypes.string.isRequired,
   campaign: PropTypes.string.isRequired,
 };
 
