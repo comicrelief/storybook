@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
-import { AsyncTypeahead } from 'react-bootstrap-typeahead';
+import Icon from 'react-fontawesome';
+import { AsyncTypeahead, Menu, MenuItem } from 'react-bootstrap-typeahead';
 import './SchoolsLookUp.scss';
 
 const SHOW_EDCO_LOOKUP = 'SHOW_EDCO_LOOKUP';
@@ -17,8 +18,11 @@ class SchoolsLookUp extends Component {
   static renderMenuItemChildren(option) {
     return (
       <div key={option.id}>
-        <span>{option.name}, </span>
-        <span>{option.post_code}</span>
+        <span>{option.name}</span>
+        {option.post_code ?
+          <span>, {option.post_code}</span>:
+          null
+        }
       </div>
     );
   }
@@ -33,23 +37,52 @@ class SchoolsLookUp extends Component {
     let lookup;
     if (selectedEstablishment && selectedEstablishment.id) {
       lookup = HIDE_LOOKUP;
-    } else if (establishmentNameValue) {
+    } else if (establishmentNameValue || this.hasError(props)) {
       lookup = SHOW_MANUAL_LOOKUP;
     } else {
       lookup = SHOW_EDCO_LOOKUP;
     }
     this.state = {
       options: [],
+      query: '',
+      isSearching: false,
+      isDefaultOptionHighlighted: true,
       lookup,
     };
-    this.renderMenuItemChildren = SchoolsLookUp.renderMenuItemChildren;
+
     this.handleChange = this.handleChange.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
     this.handleLookup = this.handleLookup.bind(this);
     this.handleManual = this.handleManual.bind(this);
     this.handleBlur = this.handleBlur.bind(this);
+    this.handleDefaultOptionHoverOff = this.handleDefaultOptionHoverOff.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.renderMenu = this.renderMenu.bind(this);
     this.renderSingleInput = this.renderSingleInput.bind(this);
     this.renderEstablishmentDetails = this.renderEstablishmentDetails.bind(this);
+  }
+
+  /**
+   * Component lifecycle event triggered whenever props change
+   * @param {object} props
+   */
+  componentWillReceiveProps(nextProps) {
+    if (this.hasError(nextProps)) {
+      this.handleLookup(SHOW_MANUAL_LOOKUP);
+    }
+  }
+
+  /**
+   * Check whether any field has error or all are valid
+   * @param {object} props
+   * @return {boolean}
+   */
+  hasError(props) {
+    const { establishmentNameErrorMessage, address1ErrorMessage, address2ErrorMessage,
+      address3ErrorMessage, townErrorMessage, postcodeErrorMessage } = props;
+    const hasError = establishmentNameErrorMessage || address1ErrorMessage || address2ErrorMessage ||
+      address3ErrorMessage || townErrorMessage || postcodeErrorMessage;
+    return Boolean(hasError);
   }
 
   /**
@@ -58,7 +91,9 @@ class SchoolsLookUp extends Component {
    * @param {object} event
    */
   handleLookup(lookup, event) {
-    event.preventDefault();
+    if (event) {
+      event.preventDefault();
+    }
     this.setState({ lookup });
   }
 
@@ -70,10 +105,11 @@ class SchoolsLookUp extends Component {
     if (!query) {
       return;
     }
+    this.setState({ isSearching: true });
     axios.get(this.props.data + query)
       .then((response) => {
         const options = response.data.data.schools;
-        this.setState({ options });
+        this.setState({ query, options, isSearching: false });
       });
   }
 
@@ -82,7 +118,7 @@ class SchoolsLookUp extends Component {
    * @param data
    */
   handleChange(data) {
-    if (!data || !data[0]) {
+    if (!data || !data[0] || data[0].id === 0) {
       return;
     }
     const {
@@ -111,13 +147,13 @@ class SchoolsLookUp extends Component {
       onChange(identifier, { target: { value: mappedData[identifier] } });
     });
     // display selection and reset fetched schools
-    this.setState({ lookup: HIDE_LOOKUP, options: [] });
+    this.setState({ lookup: HIDE_LOOKUP, options: [], isDefaultOptionHighlighted: false });
   }
 
   /**
    * Handle change event.
-   * @param {object} event
    * @param {string} identifier
+   * @param {object} event
    */
   handleManual(identifier, event) {
     const { onChange, establishmentIdIdentifier,
@@ -141,6 +177,21 @@ class SchoolsLookUp extends Component {
     if (validateField) {
       validateField(identifier);
     }
+  }
+
+  /**
+   * Handle changing text value inside search box
+   * @param {string} query
+   */
+  handleInputChange(query) {
+    this.setState({ query, isDefaultOptionHighlighted: true });
+  }
+
+  /**
+   * Handle hovering off default option
+   */
+  handleDefaultOptionHoverOff() {
+    this.setState({ isDefaultOptionHighlighted: false });
   }
 
   /**
@@ -263,6 +314,46 @@ class SchoolsLookUp extends Component {
   }
 
   /**
+   * Render whole menu
+   * Render default option and search results
+   * Render nothing in case searching is still in progress
+   * @param  {object} results
+   * @param  {object} menuProps
+   * @return {XML}
+   */
+  renderMenu(results, menuProps) {
+    const { isSearching, isDefaultOptionHighlighted, query } = this.state;
+    // do not show results until search is complete
+    if (menuProps.emptyLabel === 'Searching...' || isSearching === true ||
+        (results.length === 0 && query && query.toUpperCase() !== menuProps.text.toUpperCase())
+    ) {
+      return <div />;
+    }
+    const MenuHeader = props => <li {...props} className={isDefaultOptionHighlighted ? 'default-selection' : ''} />;
+    return (
+      <Menu {...menuProps}>
+        {results.length > 0 ?
+          <div>
+            <MenuHeader key="defaultSelection" onMouseLeave={this.handleDefaultOptionHoverOff}>
+              Please select a school from the list below
+            </MenuHeader>
+            {
+              results.map((result, index) => (
+                <div key={index} onMouseEnter={this.handleDefaultOptionHoverOff}>
+                  <MenuItem option={result} position={index}>
+                    {SchoolsLookUp.renderMenuItemChildren(result)}
+                  </MenuItem>
+                </div>
+              ))
+            }
+          </div>:
+          null
+        }
+      </Menu>
+    );
+  }
+
+  /**
    * Render Component.
    * @return {XML}
    */
@@ -270,14 +361,16 @@ class SchoolsLookUp extends Component {
     const {
       establishmentNameValue, address1Value, address2Value, address3Value, townValue, postcodeValue,
       establishmentNameIdentifier, address1Identifier, address2Identifier, address3Identifier,
-      townIdentifier, postcodeIdentifier, min, selectedEstablishment,
+      townIdentifier, postcodeIdentifier, min, selectedEstablishment, disabled,
     } = this.props;
-    const { lookup, options } = this.state;
+    const { lookup, options, isSearching } = this.state;
     const orEnterManuallyCopy = 'Or enter details manually';
 
     return (
       <div className="SchoolsLookUp">
-        <label htmlFor="schoolsLookUp">{'Enter the name or postcode of your school'}</label>
+        <p className="schoolsLookUp-title">
+          <label htmlFor="schoolsLookUp">{'Enter the name or postcode of your school'}</label>
+        </p>
         {lookup === HIDE_LOOKUP ?
           <div>
             {this.renderEstablishmentDetails(
@@ -291,31 +384,43 @@ class SchoolsLookUp extends Component {
               },
               true,
             )}
-            <button className="btn" onClick={this.handleLookup.bind(this, SHOW_EDCO_LOOKUP)}>
+            <button className="SchoolsLookUp-link" onClick={this.handleLookup.bind(this, SHOW_MANUAL_LOOKUP)}>
               Edit
             </button>
           </div>:
-          <AsyncTypeahead
-            type="text"
-            minLength={min}
-            bsSize="large"
-            onSearch={this.handleSearch}
-            onChange={this.handleChange}
-            className="schoolsLookUpForm"
-            labelKey={option => `${option.name} ${option.post_code}`}
-            placeholder="Search"
-            renderMenuItemChildren={this.renderMenuItemChildren}
-            options={options}
-          />
+          <div className="schoolsLookUp-search">
+            {/* Disable caching as it ignores a lot of results */}
+            <AsyncTypeahead
+              type="text"
+              minLength={min}
+              bsSize="large"
+              emptyLabel="Sorry, that postcode isn't in our database of schools and nurseries. Please manually fill in the address below."
+              onSearch={this.handleSearch}
+              onChange={this.handleChange}
+              onInputChange={this.handleInputChange}
+              className="schoolsLookUpForm"
+              labelKey={option => `${option.id !== 0 ? `${option.name} ${option.post_code}` : ''}`}
+              placeholder="Type to start search (this may take a few seconds)"
+              renderMenu={this.renderMenu}
+              options={options}
+              useCache={false}
+              disabled={disabled}
+              filterBy={() => true}
+            />
+            {isSearching ?
+              <Icon name="spinner" spin />:
+              null
+            }
+          </div>
         }
         {lookup === SHOW_EDCO_LOOKUP ?
-          <button className="btn" onClick={this.handleLookup.bind(this, SHOW_MANUAL_LOOKUP)}>
+          <button className="SchoolsLookUp-link" onClick={this.handleLookup.bind(this, SHOW_MANUAL_LOOKUP)}>
             {orEnterManuallyCopy}
           </button>:
           null
         }
         {lookup === SHOW_MANUAL_LOOKUP ?
-          <div>
+          <div className="SchoolsLookUp-maunal">
             <p>{orEnterManuallyCopy}</p>
             {this.renderEstablishmentDetails(
               {
@@ -364,6 +469,7 @@ SchoolsLookUp.defaultProps = {
   postcodeIdentifier: 'postcode',
   postcodeErrorMessage: '',
   postcodeRequired: true,
+  disabled: false,
   validateField: () => {},
 };
 
@@ -409,6 +515,7 @@ SchoolsLookUp.propTypes = {
   postcodeIdentifier: PropTypes.string,
   postcodeErrorMessage: PropTypes.string,
   validateField: PropTypes.func,
+  disabled: PropTypes.bool,
 };
 
 export default SchoolsLookUp;

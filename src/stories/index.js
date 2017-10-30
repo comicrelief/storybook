@@ -26,15 +26,15 @@ storiesOf('SchoolsLookUp', module)
       );
       const establishmentNameValue = text(
         'Establishment name value',
-        'xyz school',
+        '',
       );
       const address1Value = text(
         'Address line 1 value',
-        'ab street',
+        '',
       );
       const address2Value = text(
         'Address line 2 value',
-        'cd street',
+        '',
       );
       const address3Value = text(
         'Address line 3 value',
@@ -42,11 +42,11 @@ storiesOf('SchoolsLookUp', module)
       );
       const townValue = text(
         'Town value',
-        'dummy town',
+        '',
       );
       const postcodeValue = text(
         'Postcode value',
-        'AB01 0A',
+        '',
       );
       return (<SchoolsLookUp
         data={endpoint}
