@@ -12,15 +12,16 @@ class Menu extends Component {
    * componentDidMount
    */
   componentDidMount() {
-    if (typeof this.props.campaign !== 'undefined' && typeof this.props.type !== 'undefined') {
-      switch (this.props.campaign) {
+    const { campaign, type, fetchLinks } = this.props;
+    if (typeof campaign !== 'undefined' && typeof type !== 'undefined') {
+      switch (campaign) {
         case 'sportrelief':
           this.source = 'https://www.sportrelief.com';
           break;
         default:
           this.source = 'https://www.comicrelief.com';
       }
-      this.props.fetchLinks(this.source, this.props.type);
+      fetchLinks(this.source, type);
     }
   }
 
@@ -29,12 +30,13 @@ class Menu extends Component {
    * @return {XML}
    */
   render() {
-    if (this.props.menuFetch && this.props.menuFetch.fulfilled) {
+    const { menuFetch, type } = this.props;
+    if (menuFetch && menuFetch.fulfilled) {
       const source = this.source;
       return (
         <nav className="menu--footer">
-          <ul className="menu" id={`${this.props.type}-menu`}>
-            {this.props.menuFetch.value.map(item => <MenuLink baseUrl={source} item={item} key={item.link.title} />)}
+          <ul className="menu" id={`${type}-menu`}>
+            {menuFetch.value.map(item => <MenuLink baseUrl={source} item={item} key={item.link.title} />)}
           </ul>
         </nav>
       );
