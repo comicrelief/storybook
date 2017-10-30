@@ -8,7 +8,6 @@ import './menu.scss';
  * Menu class
  */
 class Menu extends Component {
-
   /**
    * componentDidMount
    */
