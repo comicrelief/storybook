@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { storiesOf } from '@storybook/react';
 import { specs, describe, it } from 'storybook-addon-specifications';
 
@@ -12,53 +12,69 @@ import SchoolsLookUp from '../components/SchoolsLookUp/SchoolsLookUp';
 import FileUp from '../components/FileUp/FileUp';
 import GrantsNearYou from '../components/GrantsNearYou/GrantsNearYou';
 
+class Container extends Component {
+  constructor (props) {
+    super(props);
+    this.state = props;
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange (data) {
+    this.setState({
+      value: data.value
+    }, () => {
+      this.props.action('data changed')(data);
+    });
+  }
+
+  render () {
+    const self = this;
+    const children = React.Children.map(this.props.children, (child) => {
+      return React.cloneElement(child, {
+        ...this.state
+      });
+    });
+
+    return (
+      <div className={this.props.className}>
+        {children}
+      </div>
+    );
+  }
+}
 
 storiesOf('Welcome', module).add('to Storybook', () => <h1>Welcome to CR Storybook</h1>);
 
 storiesOf('SchoolsLookUp', module)
-  .addDecorator(withKnobs)
-  .add('Schools Look Up',
-    withInfo('A schools address look up field')(() => {
-      const min = number('Min Length', 3);
-      const endpoint = text(
+  .addDecorator((story) => {
+    const schoolsLookUpProps = {
+      min: number('Min Length', 3),
+      endpoint: text(
         'Endpoint',
         'https://bilw38ca93.execute-api.eu-west-1.amazonaws.com/production/schools/lookup?query=',
-      );
-      const establishmentNameValue = text(
-        'Establishment name value',
-        '',
-      );
-      const address1Value = text(
-        'Address line 1 value',
-        '',
-      );
-      const address2Value = text(
-        'Address line 2 value',
-        '',
-      );
-      const address3Value = text(
-        'Address line 3 value',
-        '',
-      );
-      const townValue = text(
-        'Town value',
-        '',
-      );
-      const postcodeValue = text(
-        'Postcode value',
-        '',
-      );
+      ),
+      establishmentIdIdentifier: 'establishmentIdValue',
+      establishmentIdValue: '',
+      establishmentNameIdentifier: 'establishmentNameValue',
+      establishmentNameValue: '',
+      address1Identifier: 'address1Value',
+      address1Value: '',
+      address2Identifier: 'address2Value',
+      address2Value: '',
+      address3Identifier: 'address3Value',
+      address3Value: '',
+      townIdentifier: 'townValue',
+      townValue: '',
+      postcodeIdentifier: 'postcodeValue',
+      postcodeValue: '',
+    }
+    return (<Container {...schoolsLookUpProps} onChange={(identifier, event) => { console.log('this.state', this.state); this.state[identifier] = event.target.value }}>{story()}</Container>)
+  })
+  .add('Schools Look Up',
+    withInfo('A schools address look up field')(() => {
+      
       return (<SchoolsLookUp
-        data={endpoint}
-        min={min}
-        onChange={() => {}}
-        establishmentIdValue={123}
-        establishmentNameValue={establishmentNameValue}
-        address1Value={address1Value}
-        address2Value={address2Value}
-        address3Value={address3Value}
-        townValue={townValue}
-        postcodeValue={postcodeValue}
+        
       />);
     }),
   );
