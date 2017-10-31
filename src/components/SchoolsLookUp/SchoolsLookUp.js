@@ -369,7 +369,7 @@ class SchoolsLookUp extends Component {
     return (
       <div className="SchoolsLookUp">
         <p className="schoolsLookUp-title">
-          <label htmlFor="schoolsLookUp">{'Enter the name or postcode of your school'}</label>
+          <label htmlFor="schoolsLookUp">{'Enter the name or postcode of your school or nursery'}</label>
         </p>
         {lookup === HIDE_LOOKUP ?
           <div>
@@ -400,7 +400,7 @@ class SchoolsLookUp extends Component {
               onInputChange={this.handleInputChange}
               className="schoolsLookUpForm"
               labelKey={option => `${option.id !== 0 ? `${option.name} ${option.post_code}` : ''}`}
-              placeholder="Type to start search (this may take a few seconds)"
+              placeholder="Type to start search"
               renderMenu={this.renderMenu}
               options={options}
               useCache={false}
