@@ -30,7 +30,7 @@ let townValue = '';
 let postcodeValue = '';
 storiesOf('SchoolsLookUp', module)
   .addDecorator(withKnobs)
-  .add('A schools address look up field with nothing selected',
+  .add('nothing is selected',
     () => {
       // empty data as fields is loaded initially will display search field and non of the manual fields
       selectedEstablishment = {};
@@ -50,7 +50,7 @@ storiesOf('SchoolsLookUp', module)
       />);
     }
   )
-  .add('A schools address look up field with manually entered school',
+  .add('manually entered school',
     () => {
       // we are relying on selectedEstablishment prop to decide
       // whether school is selected from lookup or entered manually
@@ -75,7 +75,7 @@ storiesOf('SchoolsLookUp', module)
       />);
     }
   )
-  .add('A schools address look up field with selected school',
+  .add('EDCO selected school',
     () => {
       // we are relying on selectedEstablishment prop to decide
       // whether school is selected from lookup or entered manually
