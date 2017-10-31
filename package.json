@@ -38,7 +38,7 @@
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "storybook": "start-storybook -p 9009 -s public",
     "snyk-protect": "snyk protect",
-    "prepublish": "npm run snyk-protect; yarn build && yarn snyk-protect"
+    "prepublish": "npm run snyk-protect; yarn build"
   },
   "devDependencies": {
     "@storybook/addon-actions": "3",
