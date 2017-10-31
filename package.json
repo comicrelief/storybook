@@ -22,7 +22,6 @@
     "react-refetch": "1",
     "react-scripts": "1",
     "react-svg": "2",
-    "react-test-renderer": "15",
     "storybook-addon-specifications": "2",
     "url-join": "2"
   },
@@ -37,13 +36,15 @@
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "storybook": "start-storybook -p 9009 -s public",
     "snyk-protect": "snyk protect",
-    "prepublish": "yarn build && yarn snyk-protect"
+    "prepublish": "yarn build && yarn snyk-protect",
+    "test": "jest --config .jestrc --bail"
   },
   "devDependencies": {
     "@storybook/addon-actions": "3",
     "@storybook/addon-links": "3",
     "babel-cli": "6",
     "babel-core": "6",
+    "babel-jest": "21",
     "babel-loader": "7",
     "babel-plugin-transform-es2015-destructuring": "6",
     "babel-plugin-transform-object-rest-spread": "6",
@@ -60,9 +61,11 @@
     "eslint-plugin-jsx-a11y": "5",
     "eslint-plugin-react": "7",
     "file-loader": "0",
+    "jest": "21",
     "node-sass": "4",
     "postcss-loader": "2",
     "react-addons-test-utils": "15",
+    "react-test-renderer": "15",
     "resolve-url-loader": "2",
     "sass-loader": "6",
     "semantic-release": "6",
