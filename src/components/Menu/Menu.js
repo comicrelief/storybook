@@ -9,16 +9,34 @@ import './menu.scss';
  */
 class Menu extends Component {
   /**
+   * componentDidMount
+   */
+  componentDidMount() {
+    const { campaign, type, fetchLinks } = this.props;
+    if (typeof campaign !== 'undefined' && typeof type !== 'undefined') {
+      switch (campaign) {
+        case 'sportrelief':
+          this.source = 'https://www.sportrelief.com';
+          break;
+        default:
+          this.source = 'https://www.comicrelief.com';
+      }
+      fetchLinks(this.source, type);
+    }
+  }
+
+  /**
    * render
    * @return {XML}
    */
   render() {
-    if (this.props.menuFetch.fulfilled) {
-      const source = this.props.source;
+    const { menuFetch, type } = this.props;
+    if (menuFetch && menuFetch.fulfilled) {
+      const source = this.source;
       return (
         <nav className="menu--footer">
-          <ul className="menu" id={`${this.props.type}-menu`}>
-            {this.props.menuFetch.value.map(item => <MenuLink baseUrl={source} item={item} key={item.link.title} />)}
+          <ul className="menu" id={`${type}-menu`}>
+            {menuFetch.value.map(item => <MenuLink baseUrl={source} item={item} key={item.link.title} />)}
           </ul>
         </nav>
       );
@@ -29,11 +47,13 @@ class Menu extends Component {
 }
 
 Menu.propTypes = {
-  menuFetch: PropTypes.object.isRequired,
-  source: PropTypes.string.isRequired,
+  campaign: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
 };
 
-export default connect(props => ({
-  menuFetch: `${props.source}/entity/menu/${props.type}/tree?_format=json`,
+export default connect(() => ({
+  fetchLinks: (source, type) => ({
+    menuFetch: `${source}/entity/menu/${type}/tree?_format=json`,
+  }),
 }))(Menu);
+
