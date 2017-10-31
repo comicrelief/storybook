@@ -37,7 +37,7 @@
     "storybook": "start-storybook -p 9009 -s public",
     "snyk-protect": "snyk protect",
     "prepublish": "yarn build && yarn snyk-protect",
-    "test": "jest --config .jestrc --bail"
+    "test": "jest --coverage --bail"
   },
   "devDependencies": {
     "@storybook/addon-actions": "3",
