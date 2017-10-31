@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { specs, describe, it } from 'storybook-addon-specifications';
 
@@ -12,91 +12,128 @@ import SchoolsLookUp from '../components/SchoolsLookUp/SchoolsLookUp';
 import FileUp from '../components/FileUp/FileUp';
 import GrantsNearYou from '../components/GrantsNearYou/GrantsNearYou';
 
-class Container extends Component {
-  constructor (props) {
-    super(props);
-    this.state = props;
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  handleChange (data) {
-    this.setState({
-      value: data.value
-    }, () => {
-      this.props.action('data changed')(data);
-    });
-  }
-
-  render () {
-    const self = this;
-    const children = React.Children.map(this.props.children, (child) => {
-      return React.cloneElement(child, {
-        ...this.state
-      });
-    });
-
-    return (
-      <div className={this.props.className}>
-        {children}
-      </div>
-    );
-  }
-}
 
 storiesOf('Welcome', module).add('to Storybook', () => <h1>Welcome to CR Storybook</h1>);
 
+const min = number('Min Length', 3);
+const endpoint = text(
+  'Endpoint',
+  'https://bilw38ca93.execute-api.eu-west-1.amazonaws.com/production/schools/lookup?query=',
+);
+let selectedEstablishment = {};
+let establishmentIdValue = '';
+let establishmentNameValue = '';
+let address1Value = '';
+let address2Value = '';
+let address3Value = '';
+let townValue = '';
+let postcodeValue = '';
 storiesOf('SchoolsLookUp', module)
-  .addDecorator((story) => {
-    const schoolsLookUpProps = {
-      min: number('Min Length', 3),
-      endpoint: text(
-        'Endpoint',
-        'https://bilw38ca93.execute-api.eu-west-1.amazonaws.com/production/schools/lookup?query=',
-      ),
-      establishmentIdIdentifier: 'establishmentIdValue',
-      establishmentIdValue: '',
-      establishmentNameIdentifier: 'establishmentNameValue',
-      establishmentNameValue: '',
-      address1Identifier: 'address1Value',
-      address1Value: '',
-      address2Identifier: 'address2Value',
-      address2Value: '',
-      address3Identifier: 'address3Value',
-      address3Value: '',
-      townIdentifier: 'townValue',
-      townValue: '',
-      postcodeIdentifier: 'postcodeValue',
-      postcodeValue: '',
-    }
-    return (<Container {...schoolsLookUpProps} onChange={(identifier, event) => { console.log('this.state', this.state); this.state[identifier] = event.target.value }}>{story()}</Container>)
-  })
-  .add('Schools Look Up',
-    withInfo('A schools address look up field')(() => {
-      
+  .addDecorator(withKnobs)
+  .add('A schools address look up field with nothing selected',
+    () => {
+      // empty data as fields is loaded initially will display search field and non of the manual fields
+      selectedEstablishment = {};
+      establishmentNameValue = '';
       return (<SchoolsLookUp
-        
+        data={endpoint}
+        min={min}
+        onChange={() => {}}
+        selectedEstablishment={selectedEstablishment}
+        establishmentIdValue={establishmentIdValue}
+        establishmentNameValue={establishmentNameValue}
+        address1Value={address1Value}
+        address2Value={address2Value}
+        address3Value={address3Value}
+        townValue={townValue}
+        postcodeValue={postcodeValue}
       />);
-    }),
+    }
+  )
+  .add('A schools address look up field with manually entered school',
+    () => {
+      // we are relying on selectedEstablishment prop to decide
+      // whether school is selected from lookup or entered manually
+      // here as it is just an empty object while other props are not empty
+      // manual fields will be displayed
+      selectedEstablishment = {};
+      establishmentNameValue = 'School xyz';
+      address1Value = 'dummy address line 1';
+      townValue = 'dummy town';
+      postcodeValue = 'dummy postcode';
+      return (<SchoolsLookUp
+        data={endpoint}
+        min={min}
+        onChange={() => {}}
+        establishmentIdValue={establishmentIdValue}
+        establishmentNameValue={establishmentNameValue}
+        address1Value={address1Value}
+        address2Value={address2Value}
+        address3Value={address3Value}
+        townValue={townValue}
+        postcodeValue={postcodeValue}
+      />);
+    }
+  )
+  .add('A schools address look up field with selected school',
+    () => {
+      // we are relying on selectedEstablishment prop to decide
+      // whether school is selected from lookup or entered manually
+      // here as selectedEstablishment is a non-empty object
+      // selected school data is displayed as non-editable
+      selectedEstablishment = {
+        id: 123,
+        name: 'School xyz',
+        address_1: 'dummy address line 1',
+        town: 'dummy town',
+        post_code: 'dummy postcode',
+      };
+      establishmentIdValue = 123;
+      establishmentNameValue = 'School xyz';
+      address1Value = 'dummy address line 1';
+      townValue = 'dummy town';
+      postcodeValue = 'dummy postcode';
+      return (<SchoolsLookUp
+        data={endpoint}
+        min={min}
+        onChange={() => {}}
+        selectedEstablishment={selectedEstablishment}
+        establishmentIdValue={establishmentIdValue}
+        establishmentIdValue={establishmentIdValue}
+        establishmentNameValue={establishmentNameValue}
+        address1Value={address1Value}
+        address2Value={address2Value}
+        address3Value={address3Value}
+        townValue={townValue}
+        postcodeValue={postcodeValue}
+      />);
+    }
   );
 
 storiesOf('Footer', module)
   .addDecorator(withKnobs)
   .add('Comic Relief',
     withInfo('comicrelief.com footer')(() => {
+      const copy = text('Copy', 'copyright 2017');
+      const source = 'https://www.comicrelief.com';
       const campaign = 'comicrelief';
-      return (<Footer campaign={campaign} />);
+      return (<Footer copy={copy} source={source} campaign={campaign} />);
     }),
   )
   .add('Sport Relief',
     withInfo('sportrelief.com footer')(() => {
+      const copy = text('Copy', 'copyright 2018');
+      const source = 'https://www.sportrelief.com';
       const campaign = 'sportrelief';
-      return (<Footer campaign={campaign} />);
+      return (<Footer copy={copy} source={source} campaign={campaign} />);
     }),
   )
   .add('Red Nose Day',
     withInfo('rednoseday.com footer')(() => {
+      const copy = text('Copy', 'copyright 2018');
+      const source = 'https://www.comicrelief.com'; // fallback to comicrelief.com
       const campaign = 'rednoseday';
-      return (<Footer campaign={campaign} />);
+      return (<Footer copy={copy} source={source} campaign={campaign} />);
     }),
   );
 
