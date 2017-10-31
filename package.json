@@ -42,6 +42,7 @@
   "devDependencies": {
     "@storybook/addon-actions": "3",
     "@storybook/addon-links": "3",
+    "@storybook/addon-storyshots": "3",
     "babel-cli": "6",
     "babel-core": "6",
     "babel-jest": "21",
