@@ -8,7 +8,7 @@ import expect from 'expect';
 import { withKnobs, text, number } from '@storybook/addon-knobs';
 import { withInfo } from '@storybook/addon-info';
 import Footer from '../components/Footer/Footer';
-import SchoolsLookUp from '../components/SchoolsLookUp/SchoolsLookUp';
+import SchoolsLookUpContainer from '../components/SchoolsLookUp/SchoolsLookUpContainer';
 import FileUp from '../components/FileUp/FileUp';
 import GrantsNearYou from '../components/GrantsNearYou/GrantsNearYou';
 
@@ -20,12 +20,12 @@ const endpoint = text(
   'Endpoint',
   'https://bilw38ca93.execute-api.eu-west-1.amazonaws.com/production/schools/lookup?query=',
 );
+const address2Value = '';
+const address3Value = '';
 let selectedEstablishment = {};
 let establishmentIdValue = '';
 let establishmentNameValue = '';
 let address1Value = '';
-let address2Value = '';
-let address3Value = '';
 let townValue = '';
 let postcodeValue = '';
 storiesOf('SchoolsLookUp', module)
@@ -35,10 +35,9 @@ storiesOf('SchoolsLookUp', module)
       // empty data as fields is loaded initially will display search field and non of the manual fields
       selectedEstablishment = {};
       establishmentNameValue = '';
-      return (<SchoolsLookUp
+      return (<SchoolsLookUpContainer
         data={endpoint}
         min={min}
-        onChange={() => {}}
         selectedEstablishment={selectedEstablishment}
         establishmentIdValue={establishmentIdValue}
         establishmentNameValue={establishmentNameValue}
@@ -48,7 +47,7 @@ storiesOf('SchoolsLookUp', module)
         townValue={townValue}
         postcodeValue={postcodeValue}
       />);
-    }
+    },
   )
   .add('manually entered school',
     () => {
@@ -61,10 +60,9 @@ storiesOf('SchoolsLookUp', module)
       address1Value = 'dummy address line 1';
       townValue = 'dummy town';
       postcodeValue = 'dummy postcode';
-      return (<SchoolsLookUp
+      return (<SchoolsLookUpContainer
         data={endpoint}
         min={min}
-        onChange={() => {}}
         establishmentIdValue={establishmentIdValue}
         establishmentNameValue={establishmentNameValue}
         address1Value={address1Value}
@@ -73,7 +71,7 @@ storiesOf('SchoolsLookUp', module)
         townValue={townValue}
         postcodeValue={postcodeValue}
       />);
-    }
+    },
   )
   .add('EDCO selected school',
     () => {
@@ -93,12 +91,10 @@ storiesOf('SchoolsLookUp', module)
       address1Value = 'dummy address line 1';
       townValue = 'dummy town';
       postcodeValue = 'dummy postcode';
-      return (<SchoolsLookUp
+      return (<SchoolsLookUpContainer
         data={endpoint}
         min={min}
-        onChange={() => {}}
         selectedEstablishment={selectedEstablishment}
-        establishmentIdValue={establishmentIdValue}
         establishmentIdValue={establishmentIdValue}
         establishmentNameValue={establishmentNameValue}
         address1Value={address1Value}
@@ -107,7 +103,7 @@ storiesOf('SchoolsLookUp', module)
         townValue={townValue}
         postcodeValue={postcodeValue}
       />);
-    }
+    },
   );
 
 storiesOf('Footer', module)
