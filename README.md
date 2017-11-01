@@ -36,7 +36,7 @@ For assertions we use [Expect](https://github.com/mjackson/expect).
 In order to run unit tests
 
 * ```yarn test```
-* For interactive mode : ```yarn test-int``` You may need it to update snapshots after intentional layout changes
+* For update mode : ```yarn test-update``` You may need it to update snapshots after intentional layout changes
 
 ## Getting Started as dependencies in your project
 

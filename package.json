@@ -38,7 +38,7 @@
     "snyk-protect": "snyk protect",
     "prepublish": "yarn build && yarn snyk-protect",
     "test": "jest --coverage --bail",
-    "test-int": "jest -i"
+    "test-update": "jest -u"
   },
   "devDependencies": {
     "@storybook/addon-actions": "3",
