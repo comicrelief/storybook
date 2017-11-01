@@ -556,9 +556,3 @@ exports[`Storyshots SchoolsLookUp nothing is selected 1`] = `
   </button>
 </div>
 `;
-
-exports[`Storyshots Welcome to Storybook 1`] = `
-<h1>
-  Welcome to CR Storybook
-</h1>
-`;

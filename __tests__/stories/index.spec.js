@@ -9,5 +9,7 @@ jest.mock('react-dom', () => ({
   }),
 }),
 );
-
-initStoryshots();
+// test SchoolsLookUp layout at it's lifecycle different states
+initStoryshots({
+  storyKindRegex: /^SchoolsLookUp$/,
+});
