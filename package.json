@@ -38,7 +38,7 @@
     "snyk-protect": "snyk protect",
     "prepublish": "yarn build && yarn snyk-protect",
     "test": "jest --coverage --bail",
-    "test-int": "jest -i" //interactive testing needed to update snapshots after intentional layout changes
+    "test-int": "jest -i"
   },
   "devDependencies": {
     "@storybook/addon-actions": "3",
