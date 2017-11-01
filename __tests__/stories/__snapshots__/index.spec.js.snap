@@ -64,6 +64,360 @@ exports[`Storyshots SchoolsLookUp EDCO selected school 1`] = `
 </div>
 `;
 
+exports[`Storyshots SchoolsLookUp manual fields errors 1`] = `
+<div
+  className="SchoolsLookUp"
+>
+  <p
+    className="schoolsLookUp-title"
+  >
+    <label
+      htmlFor="schoolsLookUp"
+    >
+      Enter the name or postcode of your school or nursery
+    </label>
+  </p>
+  <div
+    className="schoolsLookUp-search"
+  >
+    <div
+      className="rbt open form-control input-lg form-control-lg schoolsLookUpForm"
+      disabled={false}
+      onClick={[Function]}
+      onFocus={[Function]}
+      style={
+        Object {
+          "position": "relative",
+        }
+      }
+      tabIndex={-1}
+    >
+      <div
+        className="rbt-input"
+      >
+        <div
+          style={
+            Object {
+              "display": "inline-block",
+              "position": "relative",
+            }
+          }
+        >
+          <div
+            className={undefined}
+            style={
+              Object {
+                "display": "inline-block",
+                "position": "relative",
+                "zIndex": 1,
+              }
+            }
+          >
+            <style
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "input#undefined::-ms-clear {display: none;}",
+                }
+              }
+            />
+            <input
+              autoComplete="off"
+              className="rbt-input-main"
+              disabled={false}
+              id={undefined}
+              multiple={false}
+              name={undefined}
+              onBlur={[Function]}
+              onChange={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              placeholder="Type to start search"
+              style={
+                Object {
+                  "backgroundColor": "transparent",
+                  "border": 0,
+                  "boxShadow": "none",
+                  "boxSizing": "content-box",
+                  "cursor": "inherit",
+                  "outline": "none",
+                  "padding": 0,
+                  "width": "1px",
+                }
+              }
+              type="text"
+              value=""
+            />
+            <div
+              style={
+                Object {
+                  "height": 0,
+                  "left": 0,
+                  "overflow": "scroll",
+                  "position": "absolute",
+                  "top": 0,
+                  "visibility": "hidden",
+                  "whiteSpace": "pre",
+                }
+              }
+            >
+              
+            </div>
+            <div
+              style={
+                Object {
+                  "height": 0,
+                  "left": 0,
+                  "overflow": "scroll",
+                  "position": "absolute",
+                  "top": 0,
+                  "visibility": "hidden",
+                  "whiteSpace": "pre",
+                }
+              }
+            >
+              Type to start search
+            </div>
+          </div>
+          <div
+            className={undefined}
+            style={
+              Object {
+                "bottom": 0,
+                "display": "block",
+                "position": "absolute",
+                "top": 0,
+                "zIndex": 0,
+              }
+            }
+          >
+            <style
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "input#undefined::-ms-clear {display: none;}",
+                }
+              }
+            />
+            <input
+              className="rbt-input-hint"
+              id={undefined}
+              style={
+                Object {
+                  "backgroundColor": "transparent",
+                  "border": 0,
+                  "boxShadow": "none",
+                  "boxSizing": "content-box",
+                  "color": "rgba(0, 0, 0, 0.35)",
+                  "cursor": "inherit",
+                  "outline": "none",
+                  "padding": 0,
+                  "width": "1px",
+                }
+              }
+              tabIndex={-1}
+              value=""
+            />
+            <div
+              style={
+                Object {
+                  "height": 0,
+                  "left": 0,
+                  "overflow": "scroll",
+                  "position": "absolute",
+                  "top": 0,
+                  "visibility": "hidden",
+                  "whiteSpace": "pre",
+                }
+              }
+            >
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="SchoolsLookUp-maunal"
+  >
+    <p>
+      Or enter details manually
+    </p>
+    <div
+      className="schoolDetails"
+    >
+      <div
+        className="validation__wrapper"
+      >
+        <div>
+          <label
+            className="required"
+            htmlFor="establishmentNameValue"
+          >
+            Establishment name
+          </label>
+          <input
+            id="establishmentNameValue"
+            name="establishmentNameValue"
+            onBlur={[Function]}
+            onChange={[Function]}
+            required={true}
+            type="text"
+            value=""
+          />
+          <div
+            className="validation__message"
+          >
+            <span>
+              establishmentName error message
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        className="validation__wrapper"
+      >
+        <div>
+          <label
+            className="required"
+            htmlFor="address1Value"
+          >
+            Address line 1
+          </label>
+          <input
+            id="address1Value"
+            name="address1Value"
+            onBlur={[Function]}
+            onChange={[Function]}
+            required={true}
+            type="text"
+            value=""
+          />
+          <div
+            className="validation__message"
+          >
+            <span>
+              address1 error message
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        className="validation__wrapper"
+      >
+        <div>
+          <label
+            className=""
+            htmlFor="address2Value"
+          >
+            Address line 2
+          </label>
+          <input
+            id="address2Value"
+            name="address2Value"
+            onBlur={[Function]}
+            onChange={[Function]}
+            required={false}
+            type="text"
+            value=""
+          />
+          <div
+            className="validation__message"
+          >
+            <span>
+              address2 error message
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        className="validation__wrapper"
+      >
+        <div>
+          <label
+            className=""
+            htmlFor="address3Value"
+          >
+            Address line 3
+          </label>
+          <input
+            id="address3Value"
+            name="address3Value"
+            onBlur={[Function]}
+            onChange={[Function]}
+            required={false}
+            type="text"
+            value=""
+          />
+          <div
+            className="validation__message"
+          >
+            <span>
+              address3 error message
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        className="validation__wrapper"
+      >
+        <div>
+          <label
+            className="required"
+            htmlFor="townValue"
+          >
+            Town
+          </label>
+          <input
+            id="townValue"
+            name="townValue"
+            onBlur={[Function]}
+            onChange={[Function]}
+            required={true}
+            type="text"
+            value=""
+          />
+          <div
+            className="validation__message"
+          >
+            <span>
+              town error message
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        className="validation__wrapper"
+      >
+        <div>
+          <label
+            className="required"
+            htmlFor="postcodeValue"
+          >
+            Postcode
+          </label>
+          <input
+            id="postcodeValue"
+            name="postcodeValue"
+            onBlur={[Function]}
+            onChange={[Function]}
+            required={true}
+            type="text"
+            value=""
+          />
+          <div
+            className="validation__message"
+          >
+            <span>
+              postcode error message
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Storyshots SchoolsLookUp manually entered school 1`] = `
 <div
   className="SchoolsLookUp"

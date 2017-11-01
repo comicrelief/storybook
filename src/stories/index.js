@@ -49,6 +49,31 @@ storiesOf('SchoolsLookUp', module)
       />);
     },
   )
+  .add('manual fields errors',
+    () => {
+      // empty data as fields is loaded initially will display search field and non of the manual fields
+      selectedEstablishment = {};
+      establishmentNameValue = '';
+      return (<SchoolsLookUpContainer
+        data={endpoint}
+        min={min}
+        selectedEstablishment={selectedEstablishment}
+        establishmentIdValue={establishmentIdValue}
+        establishmentNameValue={establishmentNameValue}
+        address1Value={address1Value}
+        address2Value={address2Value}
+        address3Value={address3Value}
+        townValue={townValue}
+        postcodeValue={postcodeValue}
+        establishmentNameErrorMessage='establishmentName error message'
+        address1ErrorMessage='address1 error message'
+        address2ErrorMessage='address2 error message'
+        address3ErrorMessage='address3 error message'
+        townErrorMessage='town error message'
+        postcodeErrorMessage='postcode error message'
+      />);
+    },
+  )
   .add('manually entered school',
     () => {
       // we are relying on selectedEstablishment prop to decide
