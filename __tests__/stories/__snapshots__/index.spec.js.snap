@@ -56,6 +56,7 @@ exports[`Storyshots SchoolsLookUp EDCO selected school 1`] = `
     </div>
     <button
       className="SchoolsLookUp-link"
+      name="edit"
       onClick={[Function]}
     >
       Edit
@@ -904,6 +905,7 @@ exports[`Storyshots SchoolsLookUp nothing is selected 1`] = `
   </div>
   <button
     className="SchoolsLookUp-link"
+    name="enterManually"
     onClick={[Function]}
   >
     Or enter details manually

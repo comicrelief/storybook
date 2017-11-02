@@ -65,12 +65,12 @@ storiesOf('SchoolsLookUp', module)
         address3Value={address3Value}
         townValue={townValue}
         postcodeValue={postcodeValue}
-        establishmentNameErrorMessage='establishmentName error message'
-        address1ErrorMessage='address1 error message'
-        address2ErrorMessage='address2 error message'
-        address3ErrorMessage='address3 error message'
-        townErrorMessage='town error message'
-        postcodeErrorMessage='postcode error message'
+        establishmentNameErrorMessage="establishmentName error message"
+        address1ErrorMessage="address1 error message"
+        address2ErrorMessage="address2 error message"
+        address3ErrorMessage="address3 error message"
+        townErrorMessage="town error message"
+        postcodeErrorMessage="postcode error message"
       />);
     },
   )
