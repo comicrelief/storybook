@@ -384,7 +384,7 @@ class SchoolsLookUp extends Component {
               },
               true,
             )}
-            <button className="SchoolsLookUp-link" onClick={this.handleLookup.bind(this, SHOW_MANUAL_LOOKUP)}>
+            <button name="edit" className="SchoolsLookUp-link" onClick={this.handleLookup.bind(this, SHOW_MANUAL_LOOKUP)}>
               Edit
             </button>
           </div>:
@@ -414,7 +414,7 @@ class SchoolsLookUp extends Component {
           </div>
         }
         {lookup === SHOW_EDCO_LOOKUP ?
-          <button className="SchoolsLookUp-link" onClick={this.handleLookup.bind(this, SHOW_MANUAL_LOOKUP)}>
+          <button name="enterManually" className="SchoolsLookUp-link" onClick={this.handleLookup.bind(this, SHOW_MANUAL_LOOKUP)}>
             {orEnterManuallyCopy}
           </button>:
           null

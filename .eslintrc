@@ -15,6 +15,7 @@
     "react/jsx-no-bind": "off"
   },
   "env": {
-    "browser": true
+    "browser": true,
+    "jest": true
   }
 }

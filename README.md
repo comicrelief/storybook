@@ -10,6 +10,8 @@
 * `npm run storybook`
 * Visit http://localhost:9009/
 
+### Development
+
 Then import your component(s) into stories/index.js and render them like so:
 
 ```js
@@ -22,14 +24,28 @@ storiesOf("Some component name", module)
   ));
 ```
 
+### Unit testing
+
+Our target is to cover:
+* interaction with component via user actions mainly
+  * We use [Jest](https://facebook.github.io/jest/), as testing framework and [Enzyme](https://github.com/airbnb/enzyme) a testing utility which makes it easy to assert, manipulate, and traverse React Components' output.
+For assertions we use [Expect](https://github.com/mjackson/expect).
+* component layout at it's lifecycle different states
+  * This can be achieved via [Storybook storyshots](https://github.com/storybooks/storybook/tree/master/addons/storyshots) and [Jest snapshots](https://facebook.github.io/jest/docs/en/snapshot-testing.html)
+
+In order to run unit tests
+
+* ```yarn test```
+* For update mode : ```yarn test-update``` You may need it to update snapshots after intentional layout changes
+
+## Getting Started as dependencies in your project
+
 To build storybook components locally within an app, please use `npm link`. [Learn how to do this here](https://github.com/lonelyplanet/backpack-ui/wiki/Developing-components-for-new-apps)
 
 Then import your component(s) into components/index.js and rebuild build files via `yarn build`
 
 [npm-image]: https://badge.fury.io/js/%40comicrelief%2Fstorybook.svg
 [npm-url]: https://www.npmjs.com/package/@comicrelief/storybook
-
-## Getting Started as dependencies in your project
 
 ### Install dependencies
 Ensure packages are installed with correct version numbers by running:
