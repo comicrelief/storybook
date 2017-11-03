@@ -1,5 +1,5 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.7.1
+version: v1.8.0
 # ignores vulnerabilities until expiry date; change duration by modifying expiry date
 ignore:
   'npm:mime:20170907':
@@ -35,3 +35,6 @@ patch:
         patched: '2017-10-11T06:55:51.805Z'
     - '@comicrelief/pattern-lab > grunt-kss > kss > marked':
         patched: '2017-10-11T06:55:51.805Z'
+  'npm:marked:20170907':
+    - '@storybook/addon-info > marksy > marked':
+        patched: '2017-10-31T09:33:31.011Z'

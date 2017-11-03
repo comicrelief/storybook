@@ -22,6 +22,7 @@
     "react-refetch": "1",
     "react-scripts": "1",
     "react-svg": "2",
+    "snyk": "1",
     "storybook-addon-specifications": "2",
     "url-join": "2"
   },
@@ -36,7 +37,7 @@
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "storybook": "start-storybook -p 9009 -s public",
     "snyk-protect": "snyk protect",
-    "prepublish": "yarn build && yarn snyk-protect",
+    "prepublish": "npm run snyk-protect; yarn build",
     "test": "jest --coverage --bail",
     "test-update": "jest -u"
   },
@@ -72,7 +73,6 @@
     "sass-loader": "6",
     "semantic-release": "6",
     "sinon": "3",
-    "snyk": "1",
     "style-loader": "0",
     "url-loader": "0",
     "webpack": "3"
