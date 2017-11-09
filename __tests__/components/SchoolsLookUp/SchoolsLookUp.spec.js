@@ -130,14 +130,10 @@ test('search and recieve empty results', () => {
     expect(component.find('[name="spinner"]').exists()).toBe(false);
     // assert no results are recieved
     expect(component.state('options')).toEqual([]);
-
-    // render menu list where no results found message is expected to be displayed
-    const instance = component.setState({ query: 'testquery' }).instance();
-    const emptyLabel = "Sorry, that postcode isn't in our database of schools and nurseries. Please manually fill in the address below.";
-    const menu = render(instance.renderMenu([], { emptyLabel, text: 'testquery' }));
+    const emptyLabel = "Sorry, we can't find this. Please check your school or postcode is correct and manually add the address below.";
 
     // assert no results message is displayed
-    expect(menu.text()).toEqual(emptyLabel);
+    expect(component.text()).toContain(emptyLabel);
   });
 });
 
