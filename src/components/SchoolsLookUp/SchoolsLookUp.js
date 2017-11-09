@@ -322,10 +322,9 @@ class SchoolsLookUp extends Component {
    * @return {XML}
    */
   renderMenu(results, menuProps) {
-    const { isSearching, isDefaultOptionHighlighted, query } = this.state;
+    const { isSearching, isDefaultOptionHighlighted } = this.state;
     // do not show results until search is complete
-    if (menuProps.emptyLabel === 'Searching...' || isSearching === true ||
-        (results.length === 0 && query && query.toUpperCase() !== menuProps.text.toUpperCase())
+    if (menuProps.emptyLabel === 'Searching...' || isSearching === true || results.length === 0
     ) {
       return <div />;
     }
@@ -363,7 +362,7 @@ class SchoolsLookUp extends Component {
       establishmentNameIdentifier, address1Identifier, address2Identifier, address3Identifier,
       townIdentifier, postcodeIdentifier, min, selectedEstablishment, disabled,
     } = this.props;
-    const { lookup, options, isSearching } = this.state;
+    const { lookup, options, isSearching, query } = this.state;
     const orEnterManuallyCopy = 'Or enter details manually';
 
     return (
@@ -394,7 +393,7 @@ class SchoolsLookUp extends Component {
               type="text"
               minLength={min}
               bsSize="large"
-              emptyLabel="Sorry, that postcode isn't in our database of schools and nurseries. Please manually fill in the address below."
+              emptyLabel=""
               onSearch={this.handleSearch}
               onChange={this.handleChange}
               onInputChange={this.handleInputChange}
@@ -409,6 +408,12 @@ class SchoolsLookUp extends Component {
             />
             {isSearching ?
               <Icon name="spinner" spin />:
+              null
+            }
+            {!isSearching && query.length > min && options.length === 0 ?
+              <p className="font--red">
+                {"Sorry, we can't find this. Please check your school or postcode is correct and manually add the address below."}
+              </p>:
               null
             }
           </div>
