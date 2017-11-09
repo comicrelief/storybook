@@ -147,7 +147,7 @@ class SchoolsLookUp extends Component {
       onChange(identifier, { target: { value: mappedData[identifier] } });
     });
     // display selection and reset fetched schools
-    this.setState({ lookup: HIDE_LOOKUP, options: [], isDefaultOptionHighlighted: false });
+    this.setState({ lookup: HIDE_LOOKUP, isDefaultOptionHighlighted: false });
   }
 
   /**
