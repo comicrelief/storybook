@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React from 'react';
-import { shallow, render } from 'enzyme';
+import { shallow } from 'enzyme';
 import sinon from 'sinon';
 import SchoolsLookUp from '../../../src/components/SchoolsLookUp/SchoolsLookUp';
 
