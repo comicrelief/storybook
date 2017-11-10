@@ -130,7 +130,7 @@ test('search and recieve empty results', () => {
     expect(component.find('[name="spinner"]').exists()).toBe(false);
     // assert no results are recieved
     expect(component.state('options')).toEqual([]);
-    const emptyLabel = "Sorry, we can't find this. Please check your school or postcode is correct and manually add the address below.";
+    const emptyLabel = "Sorry, we can't find this. If the school or postcode you entered is correct then please add the address manually below.";
 
     // assert no results message is displayed
     expect(component.text()).toContain(emptyLabel);

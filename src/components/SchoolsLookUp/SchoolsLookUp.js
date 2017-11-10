@@ -412,7 +412,7 @@ class SchoolsLookUp extends Component {
             }
             {!isSearching && query.length > min && options.length === 0 ?
               <p className="font--red">
-                {"Sorry, we can't find this. Please check your school or postcode is correct and manually add the address below."}
+                {"Sorry, we can't find this. If the school or postcode you entered is correct then please add the address manually below."}
               </p>:
               null
             }
