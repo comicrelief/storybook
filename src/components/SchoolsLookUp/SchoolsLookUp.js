@@ -232,7 +232,7 @@ class SchoolsLookUp extends Component {
               null
             }
           </div>:
-          <p>{labelText}: {value}</p>
+          <p>{value}</p>
         }
       </div>
     );

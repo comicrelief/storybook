@@ -21,8 +21,6 @@ exports[`Storyshots SchoolsLookUp EDCO selected school 1`] = `
         className=""
       >
         <p>
-          Establishment name
-          : 
           School xyz
         </p>
       </div>
@@ -30,8 +28,6 @@ exports[`Storyshots SchoolsLookUp EDCO selected school 1`] = `
         className=""
       >
         <p>
-          Address line 1
-          : 
           dummy address line 1
         </p>
       </div>
@@ -39,8 +35,6 @@ exports[`Storyshots SchoolsLookUp EDCO selected school 1`] = `
         className=""
       >
         <p>
-          Town
-          : 
           dummy town
         </p>
       </div>
@@ -48,8 +42,6 @@ exports[`Storyshots SchoolsLookUp EDCO selected school 1`] = `
         className=""
       >
         <p>
-          Postcode
-          : 
           dummy postcode
         </p>
       </div>
