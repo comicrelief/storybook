@@ -1,7 +1,7 @@
 # SchoolsLookUp
 > A component responsible for handling Edco lookup
 
-![data flow](/../../../docs/school%20lookup%20data%20flow.png?raw=true "Data Flow")
+![data flow](./../../../docs/school%20lookup%20data%20flow.png?raw=true "Data Flow")
 ### Why don't we save data directly inside SchoolsLookUp ?
 * Data at that case is selected school or manually entered one
 * We are already saving school details outside the component, so it felt redundant to save the details inside the component at the same time.
@@ -20,7 +20,7 @@
 * A validation trigger is inserted into the component to be executed whenever a change occurs
 * Error messages are passed to the component to be displayed
 
-![container](/../../../docs/school%20lookup%20container.png?raw=true "Container")
+![container](./../../../docs/school%20lookup%20container.png?raw=true "Container")
 ### Why do we need SchoolsLookUpContainer ?
 * SchoolsLookUp needed to be re-rendered in order to notice new values passed via props
 * Storybook loaded the component once, and ignores whatever changes occur later
