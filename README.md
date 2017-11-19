@@ -28,8 +28,9 @@ storiesOf("Some component name", module)
 
 Our target is to cover:
 * interaction with component via user actions mainly
-  * We use [Jest](https://facebook.github.io/jest/), as testing framework and [Enzyme](https://github.com/airbnb/enzyme) a testing utility which makes it easy to assert, manipulate, and traverse React Components' output.
-For assertions we use [Expect](https://github.com/mjackson/expect).
+  * We use [Jest](https://facebook.github.io/jest/), A testing framework with it's own assertions.
+  * We use [Enzyme](https://github.com/airbnb/enzyme), A testing utility which makes it easy to render, manipulate, and traverse React Components' output.
+  * We use [Sinon](https://github.com/sinonjs/sinon/) to mock api calls and spy on methods expected to be triggered.
 * component layout at it's lifecycle different states
   * This can be achieved via [Storybook storyshots](https://github.com/storybooks/storybook/tree/master/addons/storyshots) and [Jest snapshots](https://facebook.github.io/jest/docs/en/snapshot-testing.html)
 
