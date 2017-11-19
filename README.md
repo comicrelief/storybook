@@ -57,6 +57,7 @@ Ensure packages are installed with correct version numbers by running:
 ```js
 import { Footer, FileUp } from '@comicrelief/storybook';
 ```
+You may check a specific component's documentation inside it's directory -if exists- for more info.
 
 ### Semantic Release Process
 
