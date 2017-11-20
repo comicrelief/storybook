@@ -28,9 +28,9 @@ storiesOf("Some component name", module)
 
 Our target is to cover:
 * interaction with component via user actions mainly
-  * We use [Jest](https://facebook.github.io/jest/), A testing framework with it's own assertions.
-  * We use [Enzyme](https://github.com/airbnb/enzyme), A testing utility which makes it easy to render, manipulate, and traverse React Components' output.
-  * We use [Sinon](https://github.com/sinonjs/sinon/) to mock api calls and spy on methods expected to be triggered.
+  * We use [Jest](https://facebook.github.io/jest/), a testing framework with its own assertions.
+  * We use [Enzyme](https://github.com/airbnb/enzyme), a testing utility which makes it easy to render, manipulate, and traverse React Components' output.
+  * We use [Sinon](https://github.com/sinonjs/sinon/) to mock API calls and spy on methods expected to be triggered.
 * component layout at it's lifecycle different states
   * This can be achieved via [Storybook storyshots](https://github.com/storybooks/storybook/tree/master/addons/storyshots) and [Jest snapshots](https://facebook.github.io/jest/docs/en/snapshot-testing.html)
 
@@ -58,7 +58,8 @@ Ensure packages are installed with correct version numbers by running:
 ```js
 import { Footer, FileUp } from '@comicrelief/storybook';
 ```
-You may check a specific component's documentation inside it's directory -if exists- for more info.
+
+In some cases there is documentation for a specific component in a `README.md` inside its own directory.
 
 ### Semantic Release Process
 
