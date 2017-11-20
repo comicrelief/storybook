@@ -4,6 +4,8 @@ import connect from '../../utils/drupal-api-connector';
 import MenuLink from './MenuLink/MenuLink';
 import './menu.scss';
 
+const cachedEndpointsUrl = 'https://cached-endpoints.spa.comicrelief.com/';
+
 /**
  * Menu class
  */
@@ -21,7 +23,17 @@ class Menu extends Component {
         default:
           this.source = 'https://www.comicrelief.com';
       }
-      fetchLinks(this.source, type);
+      fetchLinks(this.source, type, '');
+    }
+  }
+
+  /**
+   * componentDidUpdate
+   */
+  componentDidUpdate() {
+    const { menuFetch, type, campaign, fetchLinks } = this.props;
+    if (menuFetch && menuFetch.rejected && typeof campaign !== 'undefined' && typeof type !== 'undefined') {
+      fetchLinks(`${cachedEndpointsUrl}${campaign}`, type, '.json');
     }
   }
 
@@ -31,6 +43,7 @@ class Menu extends Component {
    */
   render() {
     const { menuFetch, type } = this.props;
+
     if (menuFetch && menuFetch.fulfilled) {
       const source = this.source;
       return (
@@ -52,8 +65,8 @@ Menu.propTypes = {
 };
 
 export default connect(() => ({
-  fetchLinks: (source, type) => ({
-    menuFetch: `${source}/entity/menu/${type}/tree?_format=json`,
+  fetchLinks: (source, type, fileType) => ({
+    menuFetch: `${source}/entity/menu/${type}/tree${fileType}?_format=json`,
   }),
 }))(Menu);
 
