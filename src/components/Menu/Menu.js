@@ -10,7 +10,6 @@ const cachedEndpointsUrl = 'https://cached-endpoints.spa.comicrelief.com/';
  * Menu class
  */
 class Menu extends Component {
-
   /**
    * componentDidMount
    */
