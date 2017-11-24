@@ -38,3 +38,5 @@ patch:
   'npm:marked:20170907':
     - '@storybook/addon-info > marksy > marked':
         patched: '2017-10-31T09:33:31.011Z'
+    - '@storybook/react > markdown-loader > marked':
+        patched: '2017-11-24T09:05:52.373Z'
