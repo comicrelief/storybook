@@ -23,7 +23,7 @@
     "react-scripts": "1",
     "react-svg": "2",
     "react-test-renderer": "15",
-    "snyk": "^1.49.5",
+    "snyk": "1",
     "storybook-addon-specifications": "2",
     "url-join": "2"
   },
