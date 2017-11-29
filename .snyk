@@ -35,6 +35,8 @@ patch:
         patched: '2017-10-11T06:55:51.805Z'
     - '@comicrelief/pattern-lab > grunt-kss > kss > marked':
         patched: '2017-10-11T06:55:51.805Z'
+    - '@storybook/react > markdown-loader > marked':
+        patched: '2017-11-29T17:34:19.269Z'
   'npm:marked:20170907':
     - '@storybook/addon-info > marksy > marked':
         patched: '2017-10-31T09:33:31.011Z'
