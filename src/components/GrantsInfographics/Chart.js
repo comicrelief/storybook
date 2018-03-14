@@ -1,9 +1,9 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import {RadialChart} from 'react-vis'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { RadialChart } from 'react-vis';
 
 const Chart = ({
-  chartData, innerRadius
+  chartData, innerRadius,
 }) => {
   return (
     <RadialChart
@@ -14,16 +14,15 @@ const Chart = ({
       data={chartData}
       width={250}
       height={250}
-      showLabels={true}
-      colorType='literal'
-      >
-    </RadialChart>
-  )
-}
+      showLabels
+      colorType="literal"
+    />
+  );
+};
 
 Chart.propTypes = {
-  chartData: PropTypes.array,
-  innerRadius: PropTypes.string,
-}
+  chartData: PropTypes.array.isRequired,
+  innerRadius: PropTypes.string.isRequired,
+};
 
-export default Chart
+export default Chart;

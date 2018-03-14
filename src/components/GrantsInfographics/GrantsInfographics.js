@@ -1,13 +1,13 @@
-import React, { Component } from 'react'
-import Chart from './Chart'
-import Bar from './Bar'
-import RandomColor from 'randomcolor'
-import './scss/index.scss'
-import './scss/react-vis.scss'
+import React, { Component } from 'react';
+import RandomColor from 'randomcolor';
+import Chart from './Chart';
+import Bar from './Bar';
+import './scss/index.scss';
+import './scss/react-vis.scss';
 
 class GrantsInfograpics extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       issue: [],
       location: [],
@@ -16,52 +16,46 @@ class GrantsInfograpics extends Component {
       barData: [],
       chartData1: [],
       chartData2: [],
-    }
-  }
-
-  sum(data){
-    const processed = data.reduce((a, b) => a + b, 0)
-    return processed
+    };
   }
 
   componentDidMount() {
     fetch(this.props.grantsAPI)
-      .then(response => {
-        if (response.ok) {
-          return response.json()
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('something went wrong');
         }
-        else {
-          throw new Error ('something went wrong')
-        }
+        return response.json();
       })
-      .then(response => {
+      .then((response) => {
         const grantData = response.data.facets;
-        const awardedTotal = this.sum(grantData.issue.map(a => a.total_awarded))
-        const projectTotal = this.sum(grantData.issue.map(a => a.count))
-        let barData = [], chartData1 = [], chartData2 = []
+        const awardedTotal = this.sum(grantData.issue.map(a => a.total_awarded));
+        const projectTotal = this.sum(grantData.issue.map(a => a.count));
+        const barData = [];
+        const chartData1 = [];
+        const chartData2 = [];
 
-        grantData.issue.map(data => {
-          barData.push({ x: data.key, y: data.count})
-          return barData
-        })
+        grantData.issue.map((data) => {
+          barData.push({ x: data.key, y: data.count });
+          return barData;
+        });
 
-        grantData.country_name.filter((r)=> {return r.key === 'UNITED KINGDOM'}).map(data =>{
-
-          const projects = Math.trunc((data.count/projectTotal*100))
-          const awarded = Math.trunc(data.total_awarded/awardedTotal*100)
+        grantData.country_name.filter((r) => { return r.key === 'UNITED KINGDOM'; }).map((data) => {
+          const projects = Math.trunc((data.count/projectTotal)*100);
+          const awarded = Math.trunc((data.total_awarded/awardedTotal)*100);
 
           chartData1.push(
-            { theta: projects/10, color: RandomColor({hue: 'blue',luminosity: 'light'}), label: 'United Kingdom', subLabel: projects + '%'},
-            { theta: 10 - projects/10, color: RandomColor({hue: 'purple',luminosity: 'light'}), label: 'International', subLabel: 100 - projects + '%'}
-          )
+            { theta: projects/10, color: RandomColor({ hue: 'blue', luminosity: 'light' }), label: 'United Kingdom', subLabel: `${projects}%` },
+            { theta: 10 - (projects/10), color: RandomColor({ hue: 'purple', luminosity: 'light' }), label: 'International', subLabel: `${(100 - projects)}%` },
+          );
 
           chartData2.push(
-            { theta: awarded/10, color: RandomColor({hue: 'red',luminosity: 'light'}), label: 'United Kingdom', subLabel: awarded + '%'},
-            { theta: 10 - awarded/10, color: RandomColor({hue: 'orange',luminosity: 'light'}), label: 'International', subLabel: 100 - awarded + '%'}
-          )
+            { theta: awarded/10, color: RandomColor({ hue: 'red', luminosity: 'light' }), label: 'United Kingdom', subLabel: `${awarded}%` },
+            { theta: 10 - (awarded/10), color: RandomColor({ hue: 'orange', luminosity: 'light' }), label: 'International', subLabel: `${(100 - awarded)}%` },
+          );
 
-          return { chartData1, chartData2 }
-        })
+          return { chartData1, chartData2 };
+        });
 
         this.setState({
           issue: grantData.issue,
@@ -71,12 +65,18 @@ class GrantsInfograpics extends Component {
           barData: barData,
           chartData1: chartData1,
           chartData2: chartData2,
-        })
-      }
-  )}
+        });
+      },
+      );
+  }
+
+  sum(data) {
+    const processed = data.reduce((a, b) => a + b, 0);
+    return processed;
+  }
 
   render() {
-    const { issue, location, barData, awarded, projects, chartData1, chartData2 } = this.state
+    const { issue, location, barData, awarded, projects, chartData1, chartData2 } = this.state;
 
     return (
       <main>
@@ -85,12 +85,12 @@ class GrantsInfograpics extends Component {
         </div>
         <div className="grid facts-1">
           <h2>
-            Awarded<br/><span>{Math.trunc(awarded/1000000)}</span>+ millions
+            Awarded<br /><span>{Math.trunc(awarded/1000000)}</span>+ millions
           </h2>
         </div>
         <div className="grid facts-2">
           <h2>
-            <span>{projects}</span><br/>active projects
+            <span>{projects}</span><br />active projects
           </h2>
         </div>
         <div className="grid facts-3">
@@ -104,21 +104,20 @@ class GrantsInfograpics extends Component {
           </h2>
         </div>
         <div className="grid bar">
-          <Bar barData={barData}/>
+          <Bar barData={barData} />
         </div>
         <div className="grid chart-1">
-          <Chart chartData={chartData1}/>
+          <Chart chartData={chartData1} />
           <p>Percentage of active projects</p>
         </div>
         <div className="grid chart-2">
-          <Chart chartData={chartData2} innerRadius='80'/>
+          <Chart chartData={chartData2} innerRadius="80" />
           <p>Percentage of amount awarded</p>
         </div>
-        <div className="grid footer">
-        </div>
+        <div className="grid footer" />
       </main>
-    )
+    );
   }
 }
 
-export default GrantsInfograpics
+export default GrantsInfograpics;
