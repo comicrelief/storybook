@@ -1,0 +1,11 @@
+{
+  "name": "GrantsInfographics",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./GrantsInfographics.js",
+  "dependencies": {
+    "react": "^16.2.0",
+    "react-vis": "^1.9.1",
+    "randomcolor": "^0.5.3"
+  }
+}

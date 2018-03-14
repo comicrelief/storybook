@@ -23,6 +23,7 @@
     "react-scripts": "1",
     "react-svg": "2",
     "react-test-renderer": "15",
+    "react-vis": "^1.9.1",
     "snyk": "^1.52.0",
     "storybook-addon-specifications": "2",
     "url-join": "2"
@@ -68,6 +69,7 @@
     "jest": "21",
     "node-sass": "4",
     "postcss-loader": "2",
+    "randomcolor": "^0.5.3",
     "react-addons-test-utils": "15",
     "resolve-url-loader": "2",
     "sass-loader": "6",

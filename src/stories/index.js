@@ -11,7 +11,7 @@ import Footer from '../components/Footer/Footer';
 import SchoolsLookUpContainer from '../components/SchoolsLookUp/SchoolsLookUpContainer';
 import FileUp from '../components/FileUp/FileUp';
 import GrantsNearYou from '../components/GrantsNearYou/GrantsNearYou';
-
+import GrantsInfographics from '../components/GrantsInfographics/GrantsInfographics';
 
 storiesOf('Welcome', module).add('to Storybook', () => <h1>Welcome to CR Storybook</h1>);
 
@@ -178,11 +178,19 @@ storiesOf('File Upload', module)
     }),
   );
 
-storiesOf('GrantsNearYou', module)
+storiesOf('Grants Near You', module)
   .add('GrantsNearYou',
     withInfo('doc string about my component')(() => {
       const SEARCH = 'https://1kfs7evxca.execute-api.eu-west-1.amazonaws.com/beta/grants-geo';
       const POSTCODE_API = 'https://api.postcodes.io';
       return (<GrantsNearYou searchURL={SEARCH} postcodeAPI={POSTCODE_API} />);
+    }),
+  );
+
+storiesOf('Grants Infographics', module)
+  .add('data visualisation',
+    withInfo('data visualisation with React-Vis from Grant API')(() => {
+      const GRANTS_API = 'https://1kfs7evxca.execute-api.eu-west-1.amazonaws.com/beta/grants';
+      return (<GrantsInfographics grantsAPI={GRANTS_API}/>);
     }),
   );
