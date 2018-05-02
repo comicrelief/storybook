@@ -20,9 +20,8 @@ class Footer extends Component {
    */
   constructor() {
     super();
-    this.copy = 'Comic Relief 2017. Comic Relief, registered charity 326568 (England/Wales); SC039730 (Scotland)';
+    this.copy = `Comic Relief ${new Date().getFullYear()}. Comic Relief, registered charity 326568 (England/Wales); SC039730 (Scotland)`;
   }
-
   /**
    * Render footer component.
    * @return {XML}
