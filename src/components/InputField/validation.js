@@ -64,11 +64,11 @@ function getMessage(input, fieldProps, value) {
         const min = fieldProps.min;
         const max = fieldProps.max;
         if ((!min && max) && (input === 'empty' || value > max)) {
-          message = input === 'empty' ? 'Please fill in a value below ' + max : 'This fields only accepts a number below ' + max;
+          message = input === 'empty' ? `Please fill in a value below ${max}` : `This fields only accepts a number below ${max}`;
         } else if ((min && !max) && (input === 'empty' || value < min)) {
-          message = input === 'empty' ? 'Please fill in a value above' + min : 'This fields only accepts a number above ' + min;
+          message = input === 'empty' ? `Please fill in a value above ${min}` : `This fields only accepts a number above ${min}`;
         } else if ((min && max) && (input === 'empty' || (value < min || value > max))) {
-          message = input === 'empty' ? 'Please fill in a value between ' + min + ' and ' + max : '\'This fields only accepts a number between ' + min + ' and ' + max;
+          message = input === 'empty' ? `Please fill in a value between ${min} and ${max}` : `This fields only accepts a number between ${min} and ${max}`;
         } else {
           message = 'Please enter a number';
         }
@@ -95,19 +95,20 @@ function getMessage(input, fieldProps, value) {
  * returns validation object containing whether the field is valid and an error message
  */
 export default function fieldValidation(props, validation) {
+  const updatedValidation = validation;
   const type = props.field.getAttribute('type');
   const value = type === 'checkbox' ? props.field.checked : props.field.value;
   const emptyField = isEmpty(value, props.fieldProps.required, type);
   if (emptyField === true) {
-    validation.valid = false;
-    validation.message = getMessage('empty', props.fieldProps);
+    updatedValidation.valid = false;
+    updatedValidation.message = getMessage('empty', props.fieldProps);
   } else if (emptyField === false) {
     const validInput = isValidInput(type, props.fieldProps, value);
-    validation.valid = validInput !== false;
-    validation.message = validInput === false ? getMessage('invalid', props.fieldProps, value) : '';
+    updatedValidation.valid = validInput !== false;
+    updatedValidation.message = validInput === false ? getMessage('invalid', props.fieldProps, value) : '';
   } else {
-    validation.valid = true;
-    validation.message = '';
+    updatedValidation.valid = true;
+    updatedValidation.message = '';
   }
   return validation;
 }
