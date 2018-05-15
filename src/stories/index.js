@@ -8,6 +8,7 @@ import expect from 'expect';
 import { withKnobs, text, number } from '@storybook/addon-knobs';
 import { withInfo } from '@storybook/addon-info';
 import Footer from '../components/Footer/Footer';
+import InputField from '../components/InputField/InputField';
 import SchoolsLookUpContainer from '../components/SchoolsLookUp/SchoolsLookUpContainer';
 import FileUp from '../components/FileUp/FileUp';
 import GrantsNearYou from '../components/GrantsNearYou/GrantsNearYou';
@@ -157,7 +158,72 @@ storiesOf('Footer', module)
       return (<Footer copy={copy} source={source} campaign={campaign} />);
     }),
   );
+storiesOf('Input Field', module)
+  .addDecorator(withKnobs)
+  .add('Text Field',
+    withInfo('Text input')(() => {
+      const textField = {
+        id: 'textfield',
+        type: 'text',
+        name: 'text field',
+        label: 'Text field',
+        required: true,
+      };
+      return (<InputField field={textField} />);
+    }),
+  )
+  .add('Number Field',
+    withInfo('Number input')(() => {
+      const numberField = {
+        id: 'numberfield',
+        type: 'number',
+        name: 'number field',
+        label: 'Number field',
+        required: true,
+        min: 1,
+        max: 5000,
+      };
+      return (<InputField field={numberField} />);
+    }),
+  )
+  .add('Checkbox',
+    withInfo('Checkbox')(() => {
+      const checkbox = {
+        id: 'checkbox',
+        type: 'checkbox',
+        name: 'checkbox field',
+        label: 'Checkbox',
+        required: true,
 
+      };
+      return (<InputField field={checkbox} />);
+    }),
+  )
+  .add('Email Field',
+    withInfo('Email field')(() => {
+      const email = {
+        id: 'email',
+        type: 'email',
+        name: 'email field',
+        label: 'Email field',
+        required: true,
+
+      };
+      return (<InputField field={email} />);
+    }),
+  )
+  .add('Telephone Field',
+    withInfo('Telephone field')(() => {
+      const tel = {
+        id: 'telephone',
+        type: 'tel',
+        name: 'telephone field',
+        label: 'Telephone field',
+        required: true,
+      };
+      return (<InputField field={tel} />);
+    }),
+  );
 storiesOf('File Upload', module)
   .addDecorator(withKnobs)
   .add('Single',

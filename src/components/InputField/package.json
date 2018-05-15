@@ -1,0 +1,10 @@
+{
+  "name": "InputField",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./InputField.js",
+  "dependencies": {
+    "react": "^15.6.1",
+    "prop-types": "^15.5.10"
+  }
+}
