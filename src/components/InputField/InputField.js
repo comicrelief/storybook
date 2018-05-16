@@ -54,6 +54,7 @@ class InputField extends Component {
           placeholder={this.props.field.placeholder && this.props.field.placeholder}
           min={this.props.field.min && this.props.field.min}
           max={this.props.field.max && this.props.field.max}
+          aria-describedby={`field-label--${this.props.field.id} field-error--${this.props.field.id}`}
           onBlur={this.props.field.type !== 'checkbox' ? this.validateField : undefined}
           onChange={this.props.field.required && this.props.field.type === 'checkbox' ? this.validateField : undefined}
         />
@@ -65,6 +66,8 @@ class InputField extends Component {
         <div
           id={`field-error--${this.props.field.id}`}
           className={`form__field-error-container form__field-error-container--${this.props.field.type}`}
+          aria-live="assertive"
+          role="status"
         >
           <span className="form-error">
             {this.state.message}

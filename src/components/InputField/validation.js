@@ -64,11 +64,11 @@ function getMessage(input, fieldProps, value) {
         const min = fieldProps.min;
         const max = fieldProps.max;
         if ((!min && max) && (input === 'empty' || value > max)) {
-          message = input === 'empty' ? `Please fill in a value below ${max}` : `This fields only accepts a number below ${max}`;
+          message = input === 'empty' ? `Please fill in a value below ${max}` : `This field only accepts a number below ${max}`;
         } else if ((min && !max) && (input === 'empty' || value < min)) {
-          message = input === 'empty' ? `Please fill in a value above ${min}` : `This fields only accepts a number above ${min}`;
+          message = input === 'empty' ? `Please fill in a value above ${min}` : `This field only accepts a number above ${min}`;
         } else if ((min && max) && (input === 'empty' || (value < min || value > max))) {
-          message = input === 'empty' ? `Please fill in a value between ${min} and ${max}` : `This fields only accepts a number between ${min} and ${max}`;
+          message = input === 'empty' ? `Please fill in a value between ${min} and ${max}` : `This field only accepts a number between ${min} and ${max}`;
         } else {
           message = 'Please enter a number';
         }
