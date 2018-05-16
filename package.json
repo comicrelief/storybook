@@ -8,6 +8,7 @@
     "@storybook/addon-knobs": "3",
     "@storybook/react": "3",
     "axios": "0",
+    "babel-polyfill": "^6.26.0",
     "enzyme": "2",
     "expect": "21",
     "prop-types": "15",
