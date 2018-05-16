@@ -5,7 +5,7 @@ import { specs, describe, it } from 'storybook-addon-specifications';
 import { mount } from 'enzyme';
 import expect from 'expect';
 
-import { withKnobs, text, number } from '@storybook/addon-knobs';
+import { withKnobs, text, number, object } from '@storybook/addon-knobs';
 import { withInfo } from '@storybook/addon-info';
 import Footer from '../components/Footer/Footer';
 import InputField from '../components/InputField/InputField';
@@ -162,65 +162,64 @@ storiesOf('Input Field', module)
   .addDecorator(withKnobs)
   .add('Text Field',
     withInfo('Text input')(() => {
-      const textField = {
+      const textField = object('field', {
         id: 'textfield',
         type: 'text',
-        name: 'text field',
-        label: 'Text field',
+        name: '[name of field]',
+        label: 'Text field label',
         required: true,
-      };
+      });
       return (<InputField field={textField} />);
     }),
   )
   .add('Number Field',
     withInfo('Number input')(() => {
-      const numberField = {
+      const numberField = object('field', {
         id: 'numberfield',
         type: 'number',
-        name: 'number field',
-        label: 'Number field',
+        name: '[name of field]',
+        label: 'Number field label',
         required: true,
         min: 1,
         max: 5000,
-      };
+      });
       return (<InputField field={numberField} />);
     }),
   )
   .add('Checkbox',
     withInfo('Checkbox')(() => {
-      const checkbox = {
+      const checkbox = object('field', {
         id: 'checkbox',
         type: 'checkbox',
-        name: 'checkbox field',
-        label: 'Checkbox',
+        name: '[name of field]',
+        label: 'Checkbox label',
         required: true,
 
-      };
+      });
       return (<InputField field={checkbox} />);
     }),
   )
   .add('Email Field',
     withInfo('Email field')(() => {
-      const email = {
+      const email = object('field', {
         id: 'email',
         type: 'email',
-        name: 'email field',
-        label: 'Email field',
+        name: '[name of field]',
+        label: 'Email field label',
         required: true,
-
-      };
+      });
       return (<InputField field={email} />);
     }),
   )
   .add('Telephone Field',
     withInfo('Telephone field')(() => {
-      const tel = {
+      const tel = object('field', {
         id: 'telephone',
         type: 'tel',
-        name: 'telephone field',
-        label: 'Telephone field',
+        name: '[name of field]',
+        label: 'Telephone field label',
         required: true,
-      };
+      });
       return (<InputField field={tel} />);
     }),
   );
