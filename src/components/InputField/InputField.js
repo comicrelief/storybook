@@ -38,10 +38,10 @@ class InputField extends Component {
       <div id={`field-wrapper--${this.props.field.id}`} className={`form__fieldset form__field-wrapper form__field-wrapper--${this.props.field.type} ${this.props.field.extraClass ? this.props.field.extraClass : ''}`}>
         <label id={`field-label--${this.props.field.id}`} htmlFor={`field-input--${this.props.field.id}`} className={`form__field-label${this.props.field.required ? ' required' : ''}`}>
           {this.props.field.label}
+          {!this.props.field.required &&
+          <span>&nbsp;(Optional)&nbsp;</span>
+          }
         </label>
-        {!this.props.field.required &&
-        <span>&nbsp;(Optional)&nbsp;</span>
-        }
         {this.props.field.helpText !== undefined &&
         <span className="form-help-text">{this.props.field.helpText}</span>
         }
