@@ -26,7 +26,7 @@ class InputField extends Component {
   validateField(e) {
     const props = {
       field: e.target,
-      fieldProps: this.props.field,
+      fieldProps: this.props,
     };
     let validation = this.state;
     // helper function will return an updated validation object
@@ -35,37 +35,37 @@ class InputField extends Component {
   }
   render() {
     return (
-      <div id={`field-wrapper--${this.props.field.id}`} className={`form__fieldset form__field-wrapper form__field-wrapper--${this.props.field.type} ${this.props.field.extraClass ? this.props.field.extraClass : ''}`}>
-        <label id={`field-label--${this.props.field.id}`} htmlFor={`field-input--${this.props.field.id}`} className={`form__field-label${this.props.field.required ? ' required' : ''}`}>
-          {this.props.field.label}
-          {!this.props.field.required &&
+      <div id={`field-wrapper--${this.props.id}`} className={`form__fieldset form__field-wrapper form__field-wrapper--${this.props.type} ${this.props.extraClass ? this.props.extraClass : ''}`}>
+        <label id={`field-label--${this.props.id}`} htmlFor={`field-input--${this.props.id}`} className={`form__field-label${this.props.required ? ' required' : ''}`}>
+          {this.props.label}
+          {!this.props.required &&
           <span>&nbsp;(Optional)&nbsp;</span>
           }
         </label>
-        {this.props.field.helpText !== undefined &&
-        <p className="form-help-text">{this.props.field.helpText}</p>
+        {this.props.helpText !== undefined &&
+        <p className="form-help-text">{this.props.helpText}</p>
         }
         <input
           ref={this.inputField}
-          type={this.props.field.type}
-          id={`field-input--${this.props.field.id}`}
-          className={`form__field form__field--${this.props.field.type} ${this.state.valid ? '' : 'error'} ${this.props.field.extraClass ? this.props.field.extraClass : ''} `}
-          required={this.props.field.required && this.props.field.required}
-          placeholder={this.props.field.placeholder && this.props.field.placeholder}
-          min={this.props.field.min && this.props.field.min}
-          max={this.props.field.max && this.props.field.max}
-          aria-describedby={`field-label--${this.props.field.id} field-error--${this.props.field.id}`}
-          onBlur={this.props.field.type !== 'checkbox' ? this.validateField : undefined}
-          onChange={this.props.field.required && this.props.field.type === 'checkbox' ? this.validateField : undefined}
+          type={this.props.type}
+          id={`field-input--${this.props.id}`}
+          className={`form__field form__field--${this.props.type} ${this.state.valid ? '' : 'error'} ${this.props.extraClass ? this.props.extraClass : ''} `}
+          required={this.props.required && this.props.required}
+          placeholder={this.props.placeholder && this.props.placeholder}
+          min={this.props.min && this.props.min}
+          max={this.props.max && this.props.max}
+          aria-describedby={`field-label--${this.props.id} field-error--${this.props.id}`}
+          onBlur={this.props.type !== 'checkbox' ? this.validateField : undefined}
+          onChange={this.props.required && this.props.type === 'checkbox' ? this.validateField : undefined}
         />
-        {this.props.field.type === 'checkbox' &&
+        {this.props.type === 'checkbox' &&
         // span for checkbox styling
         <span />
         }
         {this.state.valid === false &&
         <div
-          id={`field-error--${this.props.field.id}`}
-          className={`form__field-error-container form__field-error-container--${this.props.field.type}`}
+          id={`field-error--${this.props.id}`}
+          className={`form__field-error-container form__field-error-container--${this.props.type}`}
           aria-live="assertive"
           role="status"
         >
@@ -81,22 +81,20 @@ class InputField extends Component {
 
 
 InputField.propTypes = {
-  field: propTypes.shape({
-    id: propTypes.string.isRequired,
-    type: propTypes.string.isRequired,
-    name: propTypes.string.isRequired,
-    label: propTypes.string.isRequired,
-    required: propTypes.bool.isRequired,
-    pattern: propTypes.string,
-    placeholder: propTypes.string,
-    min: propTypes.number,
-    max: propTypes.number,
-    checked: propTypes.bool,
-    extraClass: propTypes.string,
-    helpText: propTypes.string,
-    emptyFieldErrorText: propTypes.string,
-    invalidErrorText: propTypes.string,
-  }).isRequired,
+  id: propTypes.string.isRequired,
+  type: propTypes.string.isRequired,
+  name: propTypes.string.isRequired,
+  label: propTypes.string.isRequired,
+  required: propTypes.bool.isRequired,
+  pattern: propTypes.string,
+  placeholder: propTypes.string,
+  min: propTypes.number,
+  max: propTypes.number,
+  checked: propTypes.bool,
+  extraClass: propTypes.string,
+  helpText: propTypes.string,
+  emptyFieldErrorText: propTypes.string,
+  invalidErrorText: propTypes.string,
 };
 
 export default InputField;
