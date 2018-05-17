@@ -5,9 +5,10 @@ import { specs, describe, it } from 'storybook-addon-specifications';
 import { mount } from 'enzyme';
 import expect from 'expect';
 
-import { withKnobs, text, number } from '@storybook/addon-knobs';
+import { withKnobs, text, number, object } from '@storybook/addon-knobs';
 import { withInfo } from '@storybook/addon-info';
 import Footer from '../components/Footer/Footer';
+import InputField from '../components/InputField/InputField';
 import SchoolsLookUpContainer from '../components/SchoolsLookUp/SchoolsLookUpContainer';
 import FileUp from '../components/FileUp/FileUp';
 import GrantsNearYou from '../components/GrantsNearYou/GrantsNearYou';
@@ -157,7 +158,71 @@ storiesOf('Footer', module)
       return (<Footer copy={copy} source={source} campaign={campaign} />);
     }),
   );
+storiesOf('Input Field', module)
+  .addDecorator(withKnobs)
+  .add('Text Field',
+    withInfo('Text input')(() => {
+      const textField = object('field', {
+        id: 'textfield',
+        type: 'text',
+        name: '[name of field]',
+        label: 'Text field label',
+        required: true,
+      });
+      return (<InputField field={textField} />);
+    }),
+  )
+  .add('Number Field',
+    withInfo('Number input')(() => {
+      const numberField = object('field', {
+        id: 'numberfield',
+        type: 'number',
+        name: '[name of field]',
+        label: 'Number field label',
+        required: true,
+        min: 1,
+        max: 5000,
+      });
+      return (<InputField field={numberField} />);
+    }),
+  )
+  .add('Checkbox',
+    withInfo('Checkbox')(() => {
+      const checkbox = object('field', {
+        id: 'checkbox',
+        type: 'checkbox',
+        name: '[name of field]',
+        label: 'Checkbox label',
+        required: true,
 
+      });
+      return (<InputField field={checkbox} />);
+    }),
+  )
+  .add('Email Field',
+    withInfo('Email field')(() => {
+      const email = object('field', {
+        id: 'email',
+        type: 'email',
+        name: '[name of field]',
+        label: 'Email field label',
+        required: true,
+      });
+      return (<InputField field={email} />);
+    }),
+  )
+  .add('Telephone Field',
+    withInfo('Telephone field')(() => {
+      const tel = object('field', {
+        id: 'telephone',
+        type: 'tel',
+        name: '[name of field]',
+        label: 'Telephone field label',
+        required: true,
+      });
+      return (<InputField field={tel} />);
+    }),
+  );
 storiesOf('File Upload', module)
   .addDecorator(withKnobs)
   .add('Single',
