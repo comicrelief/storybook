@@ -43,7 +43,7 @@ class InputField extends Component {
           }
         </label>
         {this.props.field.helpText !== undefined &&
-        <span className="form-help-text">{this.props.field.helpText}</span>
+        <p className="form-help-text">{this.props.field.helpText}</p>
         }
         <input
           ref={this.inputField}

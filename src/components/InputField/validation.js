@@ -58,6 +58,7 @@ function getMessage(input, fieldProps, value) {
   if (message === undefined) {
     // Default error messages are based on the type of input field
     // and whether the input is empty or invalid
+    const fieldName = fieldProps.label.toLowerCase();
     switch (fieldProps.type) {
       case 'number': {
         // Number field's error message contains min and max value messages if they're set
@@ -76,14 +77,14 @@ function getMessage(input, fieldProps, value) {
       }
       case 'tel':
       case 'email':
-        message = input === 'empty' ? `Please fill in your ${fieldProps.name}` : `Please fill in a valid ${fieldProps.name}`;
+        message = input === 'empty' ? `Please fill in your ${fieldName}` : `Please fill in a valid ${fieldName}`;
         break;
       case 'checkbox':
-        message = `Please check the ${fieldProps.name} checkbox`;
+        message = `Please check the ${fieldName} checkbox`;
         break;
       case 'text':
       default:
-        message = input === 'empty' ? `Please fill in your ${fieldProps.name}` : 'This field only accepts alphanumeric characters';
+        message = input === 'empty' ? `Please fill in your ${fieldName}` : 'This field only accepts alphanumeric characters';
         break;
     }
   }

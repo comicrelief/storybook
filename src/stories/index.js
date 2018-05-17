@@ -165,8 +165,8 @@ storiesOf('Input Field', module)
       const textField = object('field', {
         id: 'textfield',
         type: 'text',
-        name: '[name of field]',
-        label: 'Text field label',
+        name: 'textfield',
+        label: 'Text field',
         required: true,
       });
       return (<InputField field={textField} />);
@@ -177,11 +177,10 @@ storiesOf('Input Field', module)
       const numberField = object('field', {
         id: 'numberfield',
         type: 'number',
-        name: '[name of field]',
-        label: 'Number field label',
+        name: 'numberfield',
+        label: 'Number field',
         required: true,
         min: 1,
-        max: 5000,
       });
       return (<InputField field={numberField} />);
     }),
@@ -191,8 +190,8 @@ storiesOf('Input Field', module)
       const checkbox = object('field', {
         id: 'checkbox',
         type: 'checkbox',
-        name: '[name of field]',
-        label: 'Checkbox label',
+        name: 'checkbox',
+        label: 'Checkbox',
         required: true,
 
       });
@@ -204,8 +203,8 @@ storiesOf('Input Field', module)
       const email = object('field', {
         id: 'email',
         type: 'email',
-        name: '[name of field]',
-        label: 'Email field label',
+        name: 'email',
+        label: 'Email field',
         required: true,
       });
       return (<InputField field={email} />);
@@ -216,9 +215,42 @@ storiesOf('Input Field', module)
       const tel = object('field', {
         id: 'telephone',
         type: 'tel',
-        name: '[name of field]',
-        label: 'Telephone field label',
+        name: 'telephone',
+        label: 'Telephone field',
         required: true,
+      });
+      return (<InputField field={tel} />);
+    }),
+  )
+  .add('Optional text Field with only required props',
+    withInfo('Text field with all ')(() => {
+      const tel = object('field', {
+        id: 'optional-text-required-options',
+        type: 'text',
+        name: 'text',
+        label: 'Optional text field with only required props',
+        required: false,
+      });
+      return (<InputField field={tel} />);
+    }),
+  )
+  .add('Number Field with all props possible',
+    withInfo('Text field with all ')(() => {
+      const tel = object('field', {
+        id: 'number-all-props',
+        type: 'number',
+        name: 'number',
+        label: 'Number Field with all props possible',
+        required: true,
+        pattern: '^((?!13)[0-9]*)$',
+        placeholder: 2,
+        min: 2,
+        max: 20,
+        checked: false,
+        extraClass: 'extra',
+        helpText: '13 is not allowed',
+        emptyFieldErrorText: 'Aren\'t you forgetting something?',
+        invalidErrorText: 'Only numbers between 2 and 20 but not 13 please',
       });
       return (<InputField field={tel} />);
     }),
