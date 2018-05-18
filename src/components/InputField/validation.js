@@ -2,7 +2,7 @@ const defaultValidationPatterns = {
   tel: '^[0-9 ]+$',
   number: '^[0-9]+$',
   email: '^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}$',
-  text: '^[A-Za-z0-9]+$',
+  text: '^[A-Za-z0-9_.\'/&-]+$',
 };
 
 function isEmpty(value, required, type) {
@@ -84,7 +84,7 @@ function getMessage(input, props, type, value) {
         break;
       case 'text':
       default:
-        message = input === 'empty' ? `Please fill in your ${fieldName}` : 'This field only accepts alphanumeric characters';
+        message = input === 'empty' ? `Please fill in your ${fieldName}` : 'This field only accepts alphanumeric characters and \' . - & _ ';
         break;
     }
   }
