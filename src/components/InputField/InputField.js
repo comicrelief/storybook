@@ -26,7 +26,13 @@ class InputField extends Component {
   validateField(e) {
     const props = {
       field: e.target,
-      fieldProps: this.props,
+      label: this.props.label,
+      required: this.props.required,
+      min: this.props.min,
+      max: this.props.max,
+      pattern: this.props.pattern,
+      emptyError: this.props.emptyFieldErrorText,
+      invalidError: this.props.invalidErrorText,
     };
     let validation = this.state;
     // helper function will return an updated validation object
@@ -92,7 +98,7 @@ InputField.defaultProps = {
   helpText: '',
   emptyFieldErrorText: '',
   invalidErrorText: '',
-}
+};
 
 
 InputField.propTypes = {
