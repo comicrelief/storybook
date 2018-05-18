@@ -5,7 +5,7 @@ import { specs, describe, it } from 'storybook-addon-specifications';
 import { mount } from 'enzyme';
 import expect from 'expect';
 
-import { withKnobs, text, number, object } from '@storybook/addon-knobs';
+import { withKnobs, text, number, boolean } from '@storybook/addon-knobs';
 import { withInfo } from '@storybook/addon-info';
 import Footer from '../components/Footer/Footer';
 import InputField from '../components/InputField/InputField';
@@ -16,7 +16,7 @@ import GrantsInfographics from '../components/GrantsInfographics/GrantsInfograph
 
 storiesOf('Welcome', module).add('to Storybook', () => <h1>Welcome to CR Storybook</h1>);
 
-const min = number('Min Length', 3);
+let min = number('Min Length', 3);
 const endpoint = text(
   'Endpoint',
   'https://bilw38ca93.execute-api.eu-west-1.amazonaws.com/production/schools/lookup?query=',
@@ -158,69 +158,109 @@ storiesOf('Footer', module)
       return (<Footer copy={copy} source={source} campaign={campaign} />);
     }),
   );
+
+let id = '';
+let type = '';
+let name = '';
+let label = '';
+let required = false;
+let defaultChecked = false;
 storiesOf('Input Field', module)
   .addDecorator(withKnobs)
   .add('Text Field',
     withInfo('Text input')(() => {
-      const textField = object('field', {
-        id: 'textfield',
-        type: 'text',
-        name: '[name of field]',
-        label: 'Text field label',
-        required: true,
-      });
-      return (<InputField field={textField} />);
+      id = text('id', 'textfield');
+      type = text('type', 'text');
+      name = text('name', 'textfield');
+      label = text('label', 'Text field');
+      required = boolean('required', true);
+      return (<InputField id={id} type={type} name={name} label={label} required={required} />);
     }),
   )
   .add('Number Field',
     withInfo('Number input')(() => {
-      const numberField = object('field', {
-        id: 'numberfield',
-        type: 'number',
-        name: '[name of field]',
-        label: 'Number field label',
-        required: true,
-        min: 1,
-        max: 5000,
-      });
-      return (<InputField field={numberField} />);
+      id = text('id', 'numberfield');
+      type = text('type', 'number');
+      name = text('name', 'numberfield');
+      label = text('label', 'Number field');
+      required = boolean('required', true);
+      min = number('min', 1);
+      return (<InputField id={id} type={type} name={name} label={label} required={required} min={min} />);
     }),
   )
   .add('Checkbox',
     withInfo('Checkbox')(() => {
-      const checkbox = object('field', {
-        id: 'checkbox',
-        type: 'checkbox',
-        name: '[name of field]',
-        label: 'Checkbox label',
-        required: true,
-
-      });
-      return (<InputField field={checkbox} />);
+      id = text('id', 'checkbox');
+      type = text('type', 'checkbox');
+      name = text('name', 'checkbox');
+      label = text('label', 'Checkbox');
+      required = boolean('required', true);
+      defaultChecked = boolean('defaultChecked', true);
+      return (<InputField id={id} type={type} name={name} label={label} required={required} defaultChecked={defaultChecked} />);
     }),
   )
   .add('Email Field',
     withInfo('Email field')(() => {
-      const email = object('field', {
-        id: 'email',
-        type: 'email',
-        name: '[name of field]',
-        label: 'Email field label',
-        required: true,
-      });
-      return (<InputField field={email} />);
+      id = text('id', 'email');
+      type = text('type', 'email');
+      name = text('name', 'email');
+      label = text('label', 'Email field');
+      required = boolean('required', true);
+      return (<InputField id={id} type={type} name={name} label={label} required={required} />);
     }),
   )
   .add('Telephone Field',
     withInfo('Telephone field')(() => {
-      const tel = object('field', {
-        id: 'telephone',
-        type: 'tel',
-        name: '[name of field]',
-        label: 'Telephone field label',
-        required: true,
-      });
-      return (<InputField field={tel} />);
+      id = text('id', 'telephone');
+      type = text('type', 'tel');
+      name = text('name', 'telephone');
+      label = text('label', 'Telephone field');
+      required = boolean('required', true);
+      return (<InputField id={id} type={type} name={name} label={label} required={required} />);
+    }),
+  )
+  .add('Optional text Field with only required props',
+    withInfo('Text field with all ')(() => {
+      id= text('id', 'optional-text-required-options');
+      type = text('type', 'text');
+      name = text('name', 'textfield');
+      label = text('label', 'Optional text field with only required props');
+      required = boolean('required', false);
+      return (<InputField id={id} type={type} name={name} label={label} required={required} />);
+    }),
+  )
+  .add('Number Field with all props possible',
+    withInfo('Text field with all ')(() => {
+      id = text('id', 'number-all-props');
+      type = text('type', 'number');
+      name = text('name', 'numberfield');
+      label = text('label', 'Number Field with all props possible');
+      required = boolean('required', true);
+      const pattern = text('pattern', '^((?!13)[0-9]*)$');
+      const placeholder = text('placeholder', '2');
+      min = number('min', 2);
+      const max = number('max', 20);
+      defaultChecked = boolean('checked', false);
+      const extraClass = text('extraClass', 'extra');
+      const helpText = text('helpText', '13 is not allowed');
+      const emptyFieldErrorText = text('emptyFieldErrorText', 'Aren\'t you forgetting something?');
+      const invalidErrorText = text('invalidErrorText', 'Only numbers between 2 and 20 but not 13 please');
+      return (<InputField
+        id={id}
+        type={type}
+        name={name}
+        label={label}
+        required={required}
+        pattern={pattern}
+        placeholder={placeholder}
+        min={min}
+        max={max}
+        defaultChecked={defaultChecked}
+        extraClass={extraClass}
+        helpText={helpText}
+        emptyFieldErrorText={emptyFieldErrorText}
+        invalidErrorText={invalidErrorText}
+      />);
     }),
   );
 storiesOf('File Upload', module)

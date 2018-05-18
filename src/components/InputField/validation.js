@@ -2,7 +2,7 @@ const defaultValidationPatterns = {
   tel: '^[0-9 ]+$',
   number: '^[0-9]+$',
   email: '^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}$',
-  text: '^[A-Za-z0-9]+$',
+  text: '^[A-Za-z0-9_.\'/&-]+$',
 };
 
 function isEmpty(value, required, type) {
@@ -15,17 +15,17 @@ function isEmpty(value, required, type) {
   return empty;
 }
 
-function isValidInput(type, fieldProps, value) {
+function isValidInput(type, props, value) {
   let valid;
   // use pattern override if it's defined, otherwise use default pattern above
-  const patternOverride = fieldProps.pattern;
-  const pattern = patternOverride !== undefined ?
+  const patternOverride = props.pattern;
+  const pattern = patternOverride ?
     new RegExp(patternOverride) : new RegExp(defaultValidationPatterns[type]);
   if (type === 'number') {
     // Number fields need to not only pass the regex test,
     // but also pass min and max values allowed if they're set.
-    const min = fieldProps.min;
-    const max = fieldProps.max;
+    const min = props.min;
+    const max = props.max;
     const valueIsNumber = pattern.test(value);
     if (valueIsNumber === true) {
       // Value passes regex test.
@@ -51,18 +51,19 @@ function isValidInput(type, fieldProps, value) {
   return valid;
 }
 
-function getMessage(input, fieldProps, value) {
+function getMessage(input, props, type, value) {
   // Input can be empty or invalid.
   // Use error message override if available otherwise use default empty/invalid message
-  let message = input === 'empty' ? fieldProps.emptyFieldErrorText : fieldProps.invalidErrorText;
-  if (message === undefined) {
+  let message = input === 'empty' ? props.emptyError : props.invalidError;
+  if (!message) {
     // Default error messages are based on the type of input field
     // and whether the input is empty or invalid
-    switch (fieldProps.type) {
+    const fieldName = props.label.toLowerCase();
+    switch (type) {
       case 'number': {
         // Number field's error message contains min and max value messages if they're set
-        const min = fieldProps.min;
-        const max = fieldProps.max;
+        const min = props.min;
+        const max = props.max;
         if ((!min && max) && (input === 'empty' || value > max)) {
           message = input === 'empty' ? `Please fill in a value below ${max}` : `This field only accepts a number below ${max}`;
         } else if ((min && !max) && (input === 'empty' || value < min)) {
@@ -76,14 +77,14 @@ function getMessage(input, fieldProps, value) {
       }
       case 'tel':
       case 'email':
-        message = input === 'empty' ? `Please fill in your ${fieldProps.name}` : `Please fill in a valid ${fieldProps.name}`;
+        message = input === 'empty' ? `Please fill in your ${fieldName}` : `Please fill in a valid ${fieldName}`;
         break;
       case 'checkbox':
-        message = `Please check the ${fieldProps.name} checkbox`;
+        message = `Please check the ${fieldName} checkbox`;
         break;
       case 'text':
       default:
-        message = input === 'empty' ? `Please fill in your ${fieldProps.name}` : 'This field only accepts alphanumeric characters';
+        message = input === 'empty' ? `Please fill in your ${fieldName}` : 'This field only accepts alphanumeric characters and \' . - & _ ';
         break;
     }
   }
@@ -98,14 +99,14 @@ export default function fieldValidation(props, validation) {
   const updatedValidation = validation;
   const type = props.field.getAttribute('type');
   const value = type === 'checkbox' ? props.field.checked : props.field.value;
-  const emptyField = isEmpty(value, props.fieldProps.required, type);
+  const emptyField = isEmpty(value, props.required, type);
   if (emptyField === true) {
     updatedValidation.valid = false;
-    updatedValidation.message = getMessage('empty', props.fieldProps);
+    updatedValidation.message = getMessage('empty', props);
   } else if (emptyField === false) {
-    const validInput = isValidInput(type, props.fieldProps, value);
+    const validInput = isValidInput(type, props, value);
     updatedValidation.valid = validInput !== false;
-    updatedValidation.message = validInput === false ? getMessage('invalid', props.fieldProps, value) : '';
+    updatedValidation.message = validInput === false ? getMessage('invalid', props, type, value) : '';
   } else {
     updatedValidation.valid = true;
     updatedValidation.message = '';
