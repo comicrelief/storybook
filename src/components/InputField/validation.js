@@ -19,7 +19,7 @@ function isValidInput(type, fieldProps, value) {
   let valid;
   // use pattern override if it's defined, otherwise use default pattern above
   const patternOverride = fieldProps.pattern;
-  const pattern = patternOverride !== undefined ?
+  const pattern = patternOverride ?
     new RegExp(patternOverride) : new RegExp(defaultValidationPatterns[type]);
   if (type === 'number') {
     // Number fields need to not only pass the regex test,
@@ -55,7 +55,7 @@ function getMessage(input, fieldProps, value) {
   // Input can be empty or invalid.
   // Use error message override if available otherwise use default empty/invalid message
   let message = input === 'empty' ? fieldProps.emptyFieldErrorText : fieldProps.invalidErrorText;
-  if (message === undefined) {
+  if (!message) {
     // Default error messages are based on the type of input field
     // and whether the input is empty or invalid
     const fieldName = fieldProps.label.toLowerCase();
