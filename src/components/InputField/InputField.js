@@ -61,8 +61,8 @@ class InputField extends Component {
           placeholder={this.props.placeholder && this.props.placeholder}
           min={this.props.min && this.props.min}
           max={this.props.max && this.props.max}
+          defaultChecked={this.props.defaultChecked && this.props.defaultChecked}
           pattern={this.props.pattern && this.props.pattern}
-          checked={this.props.checked && this.props.checked}
           aria-describedby={`field-label--${this.props.id} field-error--${this.props.id}`}
           onBlur={this.props.type !== 'checkbox' ? this.validateField : undefined}
           onChange={this.props.required && this.props.type === 'checkbox' ? this.validateField : undefined}
@@ -93,7 +93,7 @@ InputField.defaultProps = {
   placeholder: '',
   min: null,
   max: null,
-  checked: null,
+  defaultChecked: null,
   extraClass: '',
   helpText: '',
   emptyFieldErrorText: '',
@@ -111,7 +111,7 @@ InputField.propTypes = {
   placeholder: propTypes.string,
   min: propTypes.number,
   max: propTypes.number,
-  checked: propTypes.bool,
+  defaultChecked: propTypes.bool,
   extraClass: propTypes.string,
   helpText: propTypes.string,
   emptyFieldErrorText: propTypes.string,

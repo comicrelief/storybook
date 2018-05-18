@@ -164,6 +164,7 @@ let type = '';
 let name = '';
 let label = '';
 let required = false;
+let defaultChecked = false;
 storiesOf('Input Field', module)
   .addDecorator(withKnobs)
   .add('Text Field',
@@ -194,7 +195,8 @@ storiesOf('Input Field', module)
       name = text('name', 'checkbox');
       label = text('label', 'Checkbox');
       required = boolean('required', true);
-      return (<InputField id={id} type={type} name={name} label={label} required={required} />);
+      defaultChecked = boolean('defaultChecked', true);
+      return (<InputField id={id} type={type} name={name} label={label} required={required} defaultChecked={defaultChecked} />);
     }),
   )
   .add('Email Field',
@@ -238,7 +240,7 @@ storiesOf('Input Field', module)
       const placeholder = text('placeholder', '2');
       min = number('min', 2);
       const max = number('max', 20);
-      const checked = boolean('checked', false);
+      defaultChecked = boolean('checked', false);
       const extraClass = text('extraClass', 'extra');
       const helpText = text('helpText', '13 is not allowed');
       const emptyFieldErrorText = text('emptyFieldErrorText', 'Aren\'t you forgetting something?');
@@ -253,7 +255,7 @@ storiesOf('Input Field', module)
         placeholder={placeholder}
         min={min}
         max={max}
-        checked={checked}
+        defaultChecked={defaultChecked}
         extraClass={extraClass}
         helpText={helpText}
         emptyFieldErrorText={emptyFieldErrorText}
