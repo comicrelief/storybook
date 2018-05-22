@@ -32,8 +32,8 @@ class InputField extends Component {
     }
   }
   /**
-   * Calls helper function to validate the input field.
-   * Sets the the state for the validation and validation message.
+   * Calls helper function to validate the input field
+   * Sets the the state for the validation and validation message
    */
   validateField(e) {
     const props = {
@@ -78,6 +78,7 @@ class InputField extends Component {
           aria-describedby={`field-label--${this.props.id} field-error--${this.props.id}`}
           onBlur={this.props.type !== 'checkbox' ? this.validateField : undefined}
           onChange={e => this.onChangeHandler(this.props.inputHandler, e)}
+
         />
         {this.props.type === 'checkbox' &&
         // span for checkbox styling
