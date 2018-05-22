@@ -31,6 +31,7 @@ class InputField extends Component {
       inputHandler();
     }
   }
+  
   /**
    * Calls helper function to validate the input field
    * Sets the the state for the validation and validation message
