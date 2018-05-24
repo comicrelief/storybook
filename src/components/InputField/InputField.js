@@ -23,7 +23,7 @@ class InputField extends Component {
    * Calls validateField method if field is a checkbox.
    * Calls inputHandler callback.
    */
-  onChangeHandler = (e) => {
+  onChangeHandler(e) {
     if (e.target.required && e.target.type === 'checkbox') {
       this.validateField(e);
     }
