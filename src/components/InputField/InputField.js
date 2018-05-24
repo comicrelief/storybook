@@ -23,7 +23,7 @@ class InputField extends Component {
    * Calls validateField method if field is a checkbox.
    * Calls inputHandler callback.
    */
-  onChangeHandler(e) {
+  onChangeHandler = (e) => {
     if (e.target.required && e.target.type === 'checkbox') {
       this.validateField(e);
     }
@@ -48,6 +48,14 @@ class InputField extends Component {
     validation = fieldValidation(props, validation);
     this.setState(validation);
   }
+
+  // Handles the props of the valid data to be push up to the parent component
+  handleInputChange = () => {
+    if (typeof this.props.isValid === 'function') {
+      this.props.isValid(this.state.valid);
+    }
+  }
+
   render() {
     return (
       <div id={`field-wrapper--${this.props.id}`} className={`form__fieldset form__field-wrapper form__field-wrapper--${this.props.type} ${this.props.extraClass ? this.props.extraClass : ''}`}>
@@ -74,7 +82,7 @@ class InputField extends Component {
           pattern={this.props.pattern && this.props.pattern}
           aria-describedby={`field-label--${this.props.id} field-error--${this.props.id}`}
           onBlur={this.props.type !== 'checkbox' ? this.validateField : undefined}
-          onChange={this.props.type !== 'checkbox' ? e => this.props.inputHandler(this.state.valid, e) : e => this.onChangeHandler(e)}
+          onChange={this.props.type !== 'checkbox' ? this.handleInputChange : e => this.onChangeHandler(e)}
         />
         {this.props.type === 'checkbox' &&
         // span for checkbox styling
@@ -127,7 +135,7 @@ InputField.propTypes = {
   emptyFieldErrorText: propTypes.string,
   invalidErrorText: propTypes.string,
   inputHandler: propTypes.func,
-
+  isValid: propTypes.func,
 };
 
 export default InputField;
