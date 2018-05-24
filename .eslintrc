@@ -13,7 +13,9 @@
     "react/no-array-index-key": "off",
     "space-infix-ops": "off",
     "react/jsx-no-bind": "off",
-    "object-shorthand": "off"
+    "object-shorthand": "off",
+    "import/no-named-as-default": 0,
+    "import/no-named-as-default-member" : 0
   },
   "env": {
     "browser": true,
