@@ -115,7 +115,7 @@ InputField.defaultProps = {
   helpText: '',
   emptyFieldErrorText: '',
   invalidErrorText: '',
-  inputHandler: () => {},
+  isValid: () => {},
 };
 
 
@@ -134,7 +134,6 @@ InputField.propTypes = {
   helpText: propTypes.string,
   emptyFieldErrorText: propTypes.string,
   invalidErrorText: propTypes.string,
-  inputHandler: propTypes.func,
   isValid: propTypes.func,
 };
 
