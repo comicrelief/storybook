@@ -50,12 +50,13 @@ class InputField extends Component {
   }
 
   /** Handles the callback isValid state to parent component.  */
-  handleInputChange() {
+  handleInputChange(e, callback) {
     if (typeof this.props.isValid === 'function') {
-      this.props.isValid(validateField(e));
+      this.props.isValid(e, callback);
     }
   }
   render() {
+    console.log(this.props.isValid);
     return (
       <div id={`field-wrapper--${this.props.id}`} className={`form__fieldset form__field-wrapper form__field-wrapper--${this.props.type} ${this.props.extraClass ? this.props.extraClass : ''}`}>
         <label id={`field-label--${this.props.id}`} htmlFor={`field-input--${this.props.id}`} className={`form__field-label${this.props.required ? ' required' : ''}`}>
@@ -81,7 +82,7 @@ class InputField extends Component {
           pattern={this.props.pattern && this.props.pattern}
           aria-describedby={`field-label--${this.props.id} field-error--${this.props.id}`}
           onBlur={this.props.type !== 'checkbox' ? this.validateField : undefined}
-          onChange={this.props.type !== 'checkbox' ? () => this.handleInputChange() : e => this.onChangeHandler(e)}
+          onChange={this.props.type !== 'checkbox' ? e => this.handleInputChange(e, this.validateField) : e => this.onChangeHandler(e)}
         />
         {this.props.type === 'checkbox' &&
         // span for checkbox styling
