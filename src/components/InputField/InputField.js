@@ -49,7 +49,7 @@ class InputField extends Component {
     this.setState(validation);
   }
 
-  /** Handles the validate state and send back as props to parent.  */
+  /** Handles the callback isValid state to parent component.  */
   handleInputChange() {
     if (typeof this.props.isValid === 'function') {
       this.props.isValid(this.state.valid);
