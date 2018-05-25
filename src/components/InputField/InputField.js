@@ -50,7 +50,7 @@ class InputField extends Component {
   }
 
   // Handles the props of the valid data to be push up to the parent component.
-  handleInputChange() {
+  handleInputChange = () => {
     if (typeof this.props.isValid === 'function') {
       this.props.isValid(this.state.valid);
     }
@@ -82,7 +82,7 @@ class InputField extends Component {
           pattern={this.props.pattern && this.props.pattern}
           aria-describedby={`field-label--${this.props.id} field-error--${this.props.id}`}
           onBlur={this.props.type !== 'checkbox' ? this.validateField : undefined}
-          onChange={this.props.type !== 'checkbox' ? () => this.handleInputChange() : e => this.onChangeHandler(e)}
+          onChange={this.props.type !== 'checkbox' ? this.handleInputChange : e => this.onChangeHandler(e)}
         />
         {this.props.type === 'checkbox' &&
         // span for checkbox styling
