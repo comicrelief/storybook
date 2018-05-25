@@ -52,7 +52,7 @@ class InputField extends Component {
   // Handles the props of the valid data to be push up to the parent component
   handleInputChange() {
     if (typeof this.props.isValid === 'function') {
-      this.props.isValid(this.state.valid);
+      isValid(this.state.valid);
     }
   }
 
@@ -105,6 +105,7 @@ class InputField extends Component {
   }
 }
 
+
 InputField.defaultProps = {
   pattern: '',
   placeholder: '',
@@ -115,7 +116,6 @@ InputField.defaultProps = {
   helpText: '',
   emptyFieldErrorText: '',
   invalidErrorText: '',
-  isValid: () => {},
 };
 
 
@@ -134,7 +134,6 @@ InputField.propTypes = {
   helpText: propTypes.string,
   emptyFieldErrorText: propTypes.string,
   invalidErrorText: propTypes.string,
-  isValid: propTypes.func,
 };
 
 export default InputField;
