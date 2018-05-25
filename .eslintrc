@@ -1,4 +1,5 @@
 {
+  "parser": "babel-eslint",
   "extends": "eslint-config-airbnb",
   "rules": {
     "react/prefer-stateless-function": "off",
@@ -13,7 +14,7 @@
     "react/no-array-index-key": "off",
     "space-infix-ops": "off",
     "react/jsx-no-bind": "off",
-    "object-shorthand": "off"
+    "object-shorthand": "off",
   },
   "env": {
     "browser": true,
