@@ -45,13 +45,21 @@ class GrantsInfograpics extends Component {
           const awarded = Math.trunc((data.total_awarded/awardedTotal)*100);
 
           chartData1.push(
-            { theta: projects/10, color: RandomColor({ hue: 'blue', luminosity: 'light' }), label: 'United Kingdom', subLabel: `${projects}%` },
-            { theta: 10 - (projects/10), color: RandomColor({ hue: 'purple', luminosity: 'light' }), label: 'International', subLabel: `${(100 - projects)}%` },
+            {
+              theta: projects/10, color: RandomColor({ hue: 'blue', luminosity: 'light' }), label: 'United Kingdom', subLabel: `${projects}%`,
+            },
+            {
+              theta: 10 - (projects/10), color: RandomColor({ hue: 'purple', luminosity: 'light' }), label: 'International', subLabel: `${(100 - projects)}%`,
+            },
           );
 
           chartData2.push(
-            { theta: awarded/10, color: RandomColor({ hue: 'red', luminosity: 'light' }), label: 'United Kingdom', subLabel: `${awarded}%` },
-            { theta: 10 - (awarded/10), color: RandomColor({ hue: 'orange', luminosity: 'light' }), label: 'International', subLabel: `${(100 - awarded)}%` },
+            {
+              theta: awarded/10, color: RandomColor({ hue: 'red', luminosity: 'light' }), label: 'United Kingdom', subLabel: `${awarded}%`,
+            },
+            {
+              theta: 10 - (awarded/10), color: RandomColor({ hue: 'orange', luminosity: 'light' }), label: 'International', subLabel: `${(100 - awarded)}%`,
+            },
           );
 
           return { chartData1, chartData2 };
@@ -66,8 +74,7 @@ class GrantsInfograpics extends Component {
           chartData1: chartData1,
           chartData2: chartData2,
         });
-      },
-      );
+      });
   }
 
   sum(data) {
@@ -76,7 +83,9 @@ class GrantsInfograpics extends Component {
   }
 
   render() {
-    const { issue, location, barData, awarded, projects, chartData1, chartData2 } = this.state;
+    const {
+      issue, location, barData, awarded, projects, chartData1, chartData2,
+    } = this.state;
 
     return (
       <main>

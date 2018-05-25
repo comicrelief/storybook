@@ -78,8 +78,10 @@ class SchoolsLookUp extends Component {
    * @return {boolean}
    */
   hasError(props) {
-    const { establishmentNameErrorMessage, address1ErrorMessage, address2ErrorMessage,
-      address3ErrorMessage, townErrorMessage, postcodeErrorMessage } = props;
+    const {
+      establishmentNameErrorMessage, address1ErrorMessage, address2ErrorMessage,
+      address3ErrorMessage, townErrorMessage, postcodeErrorMessage,
+    } = props;
     const hasError = establishmentNameErrorMessage || address1ErrorMessage || address2ErrorMessage ||
       address3ErrorMessage || townErrorMessage || postcodeErrorMessage;
     return Boolean(hasError);
@@ -156,8 +158,10 @@ class SchoolsLookUp extends Component {
    * @param {object} event
    */
   handleManual(identifier, event) {
-    const { onChange, establishmentIdIdentifier,
-      establishmentIdValue, selectedEstablishmentIdentifier } = this.props;
+    const {
+      onChange, establishmentIdIdentifier,
+      establishmentIdValue, selectedEstablishmentIdentifier,
+    } = this.props;
     // reset selected school on manual entry
     if (establishmentIdValue) {
       onChange(establishmentIdIdentifier, { target: { value: '' } });
@@ -362,13 +366,15 @@ class SchoolsLookUp extends Component {
       establishmentNameIdentifier, address1Identifier, address2Identifier, address3Identifier,
       townIdentifier, postcodeIdentifier, min, selectedEstablishment, disabled,
     } = this.props;
-    const { lookup, options, isSearching, query } = this.state;
+    const {
+      lookup, options, isSearching, query,
+    } = this.state;
     const orEnterManuallyCopy = 'Or enter details manually';
 
     return (
       <div className="SchoolsLookUp">
         <p className="schoolsLookUp-title">
-          <label htmlFor="schoolsLookUp">{'Enter the name or postcode of your school or nursery'}</label>
+          <label htmlFor="schoolsLookUp">Enter the name or postcode of your school or nursery</label>
         </p>
         {lookup === HIDE_LOOKUP ?
           <div>

@@ -107,7 +107,8 @@ class GrantsNearYou extends Component {
 
       <div className="paging-information">
         <p>{this.state.pagination.total} results - Page {this.state.pagination.page}
-            of {this.state.pagination.pages}</p>
+            of {this.state.pagination.pages}
+        </p>
       </div>
 
       <Search searchHandler={this.searchHandler} geoLocateAllow={this.geoLocateAllow} ref={(el) => { this.searchRef = el; }} />

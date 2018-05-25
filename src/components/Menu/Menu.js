@@ -31,7 +31,9 @@ class Menu extends Component {
    * componentDidUpdate
    */
   componentDidUpdate() {
-    const { menuFetch, type, campaign, fetchLinks } = this.props;
+    const {
+      menuFetch, type, campaign, fetchLinks,
+    } = this.props;
     if (menuFetch && menuFetch.rejected && typeof campaign !== 'undefined' && typeof type !== 'undefined') {
       fetchLinks(`${cachedEndpointsUrl}${campaign}`, type, '.json');
     }
