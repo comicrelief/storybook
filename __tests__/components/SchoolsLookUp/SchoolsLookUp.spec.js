@@ -48,20 +48,18 @@ test('search and recieve non-empty results', () => {
   // mock all get requests to return mocked promise above
   sandbox.stub(axios, 'get').callsFake(() => promise);
 
-  const component = shallow(
-    <SchoolsLookUp
-      data="/lookup?query="
-      min={0}
-      onChange={() => {}}
-      establishmentIdValue=""
-      establishmentNameValue=""
-      address1Value=""
-      address2Value=""
-      address3Value=""
-      townValue=""
-      postcodeValue=""
-    />,
-  );
+  const component = shallow(<SchoolsLookUp
+    data="/lookup?query="
+    min={0}
+    onChange={() => {}}
+    establishmentIdValue=""
+    establishmentNameValue=""
+    address1Value=""
+    address2Value=""
+    address3Value=""
+    townValue=""
+    postcodeValue=""
+  />);
 
   // assert spinner is not displayed
   expect(component.find('[name="spinner"]').exists()).toBe(false);
@@ -101,20 +99,18 @@ test('search and recieve empty results', () => {
   const promise = Promise.resolve(mockData);
   sandbox.stub(axios, 'get').callsFake(() => promise);
 
-  const component = shallow(
-    <SchoolsLookUp
-      data="/lookup?query="
-      min={0}
-      onChange={() => {}}
-      establishmentIdValue=""
-      establishmentNameValue=""
-      address1Value=""
-      address2Value=""
-      address3Value=""
-      townValue=""
-      postcodeValue=""
-    />,
-  );
+  const component = shallow(<SchoolsLookUp
+    data="/lookup?query="
+    min={0}
+    onChange={() => {}}
+    establishmentIdValue=""
+    establishmentNameValue=""
+    address1Value=""
+    address2Value=""
+    address3Value=""
+    townValue=""
+    postcodeValue=""
+  />);
 
   // assert spinner is not displayed
   expect(component.find('[name="spinner"]').exists()).toBe(false);
@@ -138,20 +134,18 @@ test('search and recieve empty results', () => {
 });
 
 test('clicking "enter manually" should display manual fields', () => {
-  const component = shallow(
-    <SchoolsLookUp
-      data=""
-      min={2}
-      onChange={() => {}}
-      establishmentIdValue=""
-      establishmentNameValue=""
-      address1Value=""
-      address2Value=""
-      address3Value=""
-      townValue=""
-      postcodeValue=""
-    />,
-  );
+  const component = shallow(<SchoolsLookUp
+    data=""
+    min={2}
+    onChange={() => {}}
+    establishmentIdValue=""
+    establishmentNameValue=""
+    address1Value=""
+    address2Value=""
+    address3Value=""
+    townValue=""
+    postcodeValue=""
+  />);
   // assert fields are not displayed before 'on enter manually' is clicked
   expect(component.find('#establishmentName').exists()).toBe(false);
   expect(component.find('#address1').exists()).toBe(false);
@@ -172,27 +166,25 @@ test('clicking "enter manually" should display manual fields', () => {
 });
 
 test('clicking "edit" should display search field and manual fields', () => {
-  const component = shallow(
-    <SchoolsLookUp
-      data=""
-      min={2}
-      onChange={() => {}}
-      selectedEstablishment={{
+  const component = shallow(<SchoolsLookUp
+    data=""
+    min={2}
+    onChange={() => {}}
+    selectedEstablishment={{
         id: 123,
         name: 'School xyz',
         address_1: 'dummy address line 1',
         town: 'dummy town',
         post_code: 'dummy postcode',
       }}
-      establishmentIdValue={123}
-      establishmentNameValue="School xyz"
-      address1Value="dummy address line 1"
-      address2Value=""
-      address3Value=""
-      townValue="dummy town"
-      postcodeValue="dummy postcode"
-    />,
-  );
+    establishmentIdValue={123}
+    establishmentNameValue="School xyz"
+    address1Value="dummy address line 1"
+    address2Value=""
+    address3Value=""
+    townValue="dummy town"
+    postcodeValue="dummy postcode"
+  />);
   // assert fields are not displayed before 'edit' is clicked
   expect(component.find('.schoolsLookUp-search').exists()).toBe(false);
   expect(component.find('#establishmentName').exists()).toBe(false);
@@ -222,35 +214,33 @@ test('clicking "edit" should display search field and manual fields', () => {
 
 test('inserting manually should clear selected school', () => {
   const onChange = sinon.spy();
-  const component = shallow(
-    <SchoolsLookUp
-      data=""
-      min={2}
-      onChange={onChange}
-      selectedEstablishment={{
+  const component = shallow(<SchoolsLookUp
+    data=""
+    min={2}
+    onChange={onChange}
+    selectedEstablishment={{
         id: 123,
         name: 'School xyz',
         address_1: 'dummy address line 1',
         town: 'dummy town',
         post_code: 'dummy postcode',
       }}
-      selectedEstablishmentIdentifier="selectedSchool"
-      establishmentIdValue={123}
-      establishmentIdIdentifier="schoolId"
-      establishmentNameValue="School xyz"
-      establishmentNameIdentifier="schoolName"
-      address1Value="dummy address line 1"
-      address1Identifier="schoolAddress1"
-      address2Value=""
-      address2Identifier="schoolAddress2"
-      address3Value=""
-      address3Identifier="schoolAddress3"
-      townValue="dummy town"
-      townIdentifier="schoolTown"
-      postcodeValue="dummy postcode"
-      postcodeIdentifier="schoolPostcode"
-    />,
-  );
+    selectedEstablishmentIdentifier="selectedSchool"
+    establishmentIdValue={123}
+    establishmentIdIdentifier="schoolId"
+    establishmentNameValue="School xyz"
+    establishmentNameIdentifier="schoolName"
+    address1Value="dummy address line 1"
+    address1Identifier="schoolAddress1"
+    address2Value=""
+    address2Identifier="schoolAddress2"
+    address3Value=""
+    address3Identifier="schoolAddress3"
+    townValue="dummy town"
+    townIdentifier="schoolTown"
+    postcodeValue="dummy postcode"
+    postcodeIdentifier="schoolPostcode"
+  />);
 
   component.find('button[name="edit"]').simulate('click');
 
@@ -283,22 +273,20 @@ test('inserting manually should clear selected school', () => {
 
 test('validation should be triggered on blur', () => {
   const validateField = sinon.spy();
-  const component = shallow(
-    <SchoolsLookUp
-      data=""
-      min={2}
-      onChange={() => {}}
-      validateField={validateField}
-      selectedEstablishment={{}}
-      establishmentIdValue=""
-      establishmentNameValue="School xyz"
-      address1Value="dummy address line 1"
-      address2Value=""
-      address3Value=""
-      townValue="dummy town"
-      postcodeValue="dummy postcode"
-    />,
-  );
+  const component = shallow(<SchoolsLookUp
+    data=""
+    min={2}
+    onChange={() => {}}
+    validateField={validateField}
+    selectedEstablishment={{}}
+    establishmentIdValue=""
+    establishmentNameValue="School xyz"
+    address1Value="dummy address line 1"
+    address2Value=""
+    address3Value=""
+    townValue="dummy town"
+    postcodeValue="dummy postcode"
+  />);
 
   // trigger blur on all fields and assert all fields are validated
   component.find('#establishmentName').simulate('blur');

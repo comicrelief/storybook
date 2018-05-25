@@ -9,5 +9,4 @@ jest.mock('react-dom', () => ({
   findDOMNode: () => ({
     getContext: jest.fn(),
   }),
-}),
-);
+}));

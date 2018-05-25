@@ -7,7 +7,7 @@ const Chart = ({
 }) => {
   return (
     <RadialChart
-      className={'donut-chart-example'}
+      className="donut-chart-example"
       innerRadius={innerRadius}
       radius={120}
       getAngle={d => d.theta}

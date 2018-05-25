@@ -28,7 +28,8 @@ class Geolocation extends React.Component {
 
         {(!this.props.coords && this.props.isGeolocationEnabled && this.props.isGeolocationAvailable) ? <div className="geo-info--finding">
           <p>Finding your location...</p>
-          <span className="geo-info--spinner" /></div> : null}
+          <span className="geo-info--spinner" />
+        </div> : null}
       </div>);
   }
 }

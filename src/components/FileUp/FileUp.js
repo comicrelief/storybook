@@ -101,7 +101,8 @@ class FileUp extends Component {
         <div className="dropzone__wrapper">
           <p className="font--centre">Upload designs as separate files<br />
             Max file size per file: {this.props.maxSize / 1000000}MB<br />
-            File types accepted: JPG, PNG and PDF</p>
+            File types accepted: JPG, PNG and PDF
+          </p>
           {this.state.files.length > 0 ?
             <div className="file-up__img-uploaded">
               {this.state.files.map(file =>
@@ -116,8 +117,7 @@ class FileUp extends Component {
                     Remove
                     </button>
                   </p>
-                </span>),
-              )}
+                </span>))}
             </div>
             : null}
           {this.state.error ?

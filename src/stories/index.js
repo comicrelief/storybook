@@ -31,7 +31,8 @@ let townValue = '';
 let postcodeValue = '';
 storiesOf('SchoolsLookUp', module)
   .addDecorator(withKnobs)
-  .add('nothing is selected',
+  .add(
+    'nothing is selected',
     () => {
       // empty data as fields is loaded initially will display search field and non of the manual fields
       selectedEstablishment = {};
@@ -50,7 +51,8 @@ storiesOf('SchoolsLookUp', module)
       />);
     },
   )
-  .add('manual fields errors',
+  .add(
+    'manual fields errors',
     () => {
       // empty data as fields is loaded initially will display search field and non of the manual fields
       selectedEstablishment = {};
@@ -75,7 +77,8 @@ storiesOf('SchoolsLookUp', module)
       />);
     },
   )
-  .add('manually entered school',
+  .add(
+    'manually entered school',
     () => {
       // we are relying on selectedEstablishment prop to decide
       // whether school is selected from lookup or entered manually
@@ -99,7 +102,8 @@ storiesOf('SchoolsLookUp', module)
       />);
     },
   )
-  .add('EDCO selected school',
+  .add(
+    'EDCO selected school',
     () => {
       // we are relying on selectedEstablishment prop to decide
       // whether school is selected from lookup or entered manually
@@ -134,7 +138,8 @@ storiesOf('SchoolsLookUp', module)
 
 storiesOf('Footer', module)
   .addDecorator(withKnobs)
-  .add('Comic Relief',
+  .add(
+    'Comic Relief',
     withInfo('comicrelief.com footer')(() => {
       const copy = text('Copy', 'copyright 2017');
       const source = 'https://www.comicrelief.com';
@@ -142,7 +147,8 @@ storiesOf('Footer', module)
       return (<Footer copy={copy} source={source} campaign={campaign} />);
     }),
   )
-  .add('Sport Relief',
+  .add(
+    'Sport Relief',
     withInfo('sportrelief.com footer')(() => {
       const copy = text('Copy', 'copyright 2018');
       const source = 'https://www.sportrelief.com';
@@ -150,7 +156,8 @@ storiesOf('Footer', module)
       return (<Footer copy={copy} source={source} campaign={campaign} />);
     }),
   )
-  .add('Red Nose Day',
+  .add(
+    'Red Nose Day',
     withInfo('rednoseday.com footer')(() => {
       const copy = text('Copy', 'copyright 2018');
       const source = 'https://www.comicrelief.com'; // fallback to comicrelief.com
@@ -167,7 +174,8 @@ let required = false;
 let defaultChecked = false;
 storiesOf('Input Field', module)
   .addDecorator(withKnobs)
-  .add('Text Field',
+  .add(
+    'Text Field',
     withInfo('Text input')(() => {
       id = text('id', 'textfield');
       type = text('type', 'text');
@@ -177,7 +185,8 @@ storiesOf('Input Field', module)
       return (<InputField id={id} type={type} name={name} label={label} required={required} />);
     }),
   )
-  .add('Number Field',
+  .add(
+    'Number Field',
     withInfo('Number input')(() => {
       id = text('id', 'numberfield');
       type = text('type', 'number');
@@ -188,7 +197,8 @@ storiesOf('Input Field', module)
       return (<InputField id={id} type={type} name={name} label={label} required={required} min={min} />);
     }),
   )
-  .add('Checkbox',
+  .add(
+    'Checkbox',
     withInfo('Checkbox')(() => {
       id = text('id', 'checkbox');
       type = text('type', 'checkbox');
@@ -199,7 +209,8 @@ storiesOf('Input Field', module)
       return (<InputField id={id} type={type} name={name} label={label} required={required} defaultChecked={defaultChecked} />);
     }),
   )
-  .add('Email Field',
+  .add(
+    'Email Field',
     withInfo('Email field')(() => {
       id = text('id', 'email');
       type = text('type', 'email');
@@ -209,7 +220,8 @@ storiesOf('Input Field', module)
       return (<InputField id={id} type={type} name={name} label={label} required={required} />);
     }),
   )
-  .add('Telephone Field',
+  .add(
+    'Telephone Field',
     withInfo('Telephone field')(() => {
       id = text('id', 'telephone');
       type = text('type', 'tel');
@@ -219,7 +231,8 @@ storiesOf('Input Field', module)
       return (<InputField id={id} type={type} name={name} label={label} required={required} />);
     }),
   )
-  .add('Optional text Field with only required props',
+  .add(
+    'Optional text Field with only required props',
     withInfo('Text field with all ')(() => {
       id= text('id', 'optional-text-required-options');
       type = text('type', 'text');
@@ -229,7 +242,8 @@ storiesOf('Input Field', module)
       return (<InputField id={id} type={type} name={name} label={label} required={required} />);
     }),
   )
-  .add('Number Field with all props possible',
+  .add(
+    'Number Field with all props possible',
     withInfo('Text field with all ')(() => {
       id = text('id', 'number-all-props');
       type = text('type', 'number');
@@ -265,7 +279,8 @@ storiesOf('Input Field', module)
   );
 storiesOf('File Upload', module)
   .addDecorator(withKnobs)
-  .add('Single',
+  .add(
+    'Single',
     withInfo('File upload')(() => {
       const maxFiles = number('Max Files', 5);
       const maxSize = number('Max Size', 2000000);
@@ -284,7 +299,8 @@ storiesOf('File Upload', module)
   );
 
 storiesOf('Grants Near You', module)
-  .add('GrantsNearYou',
+  .add(
+    'GrantsNearYou',
     withInfo('doc string about my component')(() => {
       const SEARCH = 'https://1kfs7evxca.execute-api.eu-west-1.amazonaws.com/beta/grants-geo';
       const POSTCODE_API = 'https://api.postcodes.io';
@@ -293,7 +309,8 @@ storiesOf('Grants Near You', module)
   );
 
 storiesOf('Grants Infographics', module)
-  .add('data visualisation',
+  .add(
+    'data visualisation',
     withInfo('data visualisation with React-Vis from Grant API')(() => {
       const GRANTS_API = 'https://1kfs7evxca.execute-api.eu-west-1.amazonaws.com/beta/grants';
       return (<GrantsInfographics grantsAPI={GRANTS_API} />);

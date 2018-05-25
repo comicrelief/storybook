@@ -53,8 +53,7 @@ class SocialLink extends Component {
                 }
               </a>
             </li>
-          ),
-          )}
+          ))}
         </ul>
       </div>
     );
