@@ -19,6 +19,11 @@ class InputField extends Component {
     };
   }
 
+  componentDidMount() {
+    // focus text input upon mounting component
+    this.formInput.focus();
+  }
+
   /**
    * Calls helper function to validate the input field
    * Sets the the state for the validation and validation message
@@ -67,7 +72,7 @@ class InputField extends Component {
         <p className="form-help-text">{this.props.helpText}</p>
         }
         <input
-          ref={this.inputField}
+          ref={(el) => { this.formInput = el; }}
           type={this.props.type}
           id={`field-input--${this.props.id}`}
           name={this.props.name && this.props.name}
