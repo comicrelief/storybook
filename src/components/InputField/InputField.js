@@ -80,6 +80,7 @@ class InputField extends Component {
           pattern={this.props.pattern && this.props.pattern}
           aria-describedby={`field-label--${this.props.id} field-error--${this.props.id}`}
           onBlur={this.props.type !== 'checkbox' ? this.validateField : undefined}
+          onFocus={this.validateField}
           onChange={e => this.handleInputChange(e, this.validateField)}
         />
         {this.props.type === 'checkbox' &&
