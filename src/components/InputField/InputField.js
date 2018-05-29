@@ -20,19 +20,6 @@ class InputField extends Component {
   }
 
   /**
-   * Calls validateField method if field is a checkbox.
-   * Calls inputHandler callback.
-   * Handles the callback isValid state to parent component.
-   */
-  handleInputChange(e, callback) {
-    if (e.target.required && e.target.type === 'checkbox') {
-      this.validateField(e);
-    }
-    if (typeof this.props.isValid === 'function') {
-      this.props.isValid(e.target.value, callback);
-    }
-  }
-  /**
    * Calls helper function to validate the input field
    * Sets the the state for the validation and validation message
    */
@@ -52,6 +39,21 @@ class InputField extends Component {
     validation = fieldValidation(props, validation);
     this.setState(validation);
   }
+
+  /**
+   * Calls validateField method if field is a checkbox.
+   * Calls inputHandler callback.
+   * Handles the callback isValid state to parent component.
+   */
+  handleInputChange(e, callback) {
+    if (e.target.required && e.target.type === 'checkbox') {
+      this.validateField(e);
+    }
+    if (typeof this.props.isValid === 'function') {
+      this.props.isValid(e.target.value, callback);
+    }
+  }
+
   render() {
     return (
       <div id={`field-wrapper--${this.props.id}`} className={`form__fieldset form__field-wrapper form__field-wrapper--${this.props.type} ${this.props.extraClass ? this.props.extraClass : ''}`}>
