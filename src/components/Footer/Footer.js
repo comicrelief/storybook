@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Menu from '../Menu/Menu';
+/* import Menu from '../Menu/Menu'; */
 import SocialLink from '../SocialLink/SocialLink';
 import './footer.scss';
 
@@ -31,7 +31,7 @@ class Footer extends Component {
       <footer style={styles} role="contentinfo">
         <SocialLink campaign={this.props.campaign} />
         <div className="region region-footer cr-footer">
-          <Menu type="footer" campaign={this.props.campaign} />
+          {/* <Menu type="footer" campaign={this.props.campaign} /> */}
         </div>
         <div className="footer__copyright">
           <p style={styles.p}>{this.copy}</p>
