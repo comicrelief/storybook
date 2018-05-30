@@ -37,6 +37,8 @@ class InputField extends Component {
     // helper function will return an updated validation object
     validation = fieldValidation(props, validation);
     this.setState(validation);
+
+    return validation;
   }
 
   /**
@@ -53,7 +55,7 @@ class InputField extends Component {
 
   handleInputValidation(e) {
     if (typeof this.props.isValid === 'function') {
-      this.props.isValid(this.validateField(e));
+      this.props.isValid(this.validateField(e), this.props.name);
     }
   }
 
