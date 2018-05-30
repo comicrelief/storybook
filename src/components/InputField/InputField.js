@@ -17,6 +17,12 @@ class InputField extends Component {
       valid: null,
       message: '',
     };
+    this.inputForm = null;
+  }
+
+  componentDidMount() {
+    // Call function on Child dom element
+    this.inputForm.focus();
   }
   /**
    * Calls helper function to validate the input field
@@ -44,13 +50,18 @@ class InputField extends Component {
    * Calls inputHandler callback.
    * Handles the callback isValid state to parent component.
    */
-  handleInputChange(e, callback) {
+  handleInputChange(e) {
     if (e.target.required && e.target.type === 'checkbox') {
       this.validateField(e);
     }
+    this.handleInputValidation(e);
+  }
+
+  handleInputValidation(e) {
     if (typeof this.props.isValid === 'function') {
-      this.props.isValid(e.target.value, callback);
+      this.props.isValid(this.validateField(e));
     }
+    this.props.inputHandler(e);
   }
 
   render() {
@@ -79,8 +90,7 @@ class InputField extends Component {
           pattern={this.props.pattern && this.props.pattern}
           aria-describedby={`field-label--${this.props.id} field-error--${this.props.id}`}
           onBlur={this.props.type !== 'checkbox' ? this.validateField : undefined}
-          onFocus={this.validateField}
-          onChange={e => this.handleInputChange(e, this.validateField)}
+          onChange={e => this.handleInputChange(e)}
         />
         {this.props.type === 'checkbox' &&
         // span for checkbox styling
@@ -115,6 +125,7 @@ InputField.defaultProps = {
   invalidErrorText: '',
   isValid: () => {},
   inputFormRef: () => {},
+  inputHandler: () => {},
 };
 
 
@@ -135,6 +146,7 @@ InputField.propTypes = {
   invalidErrorText: propTypes.string,
   isValid: propTypes.func,
   inputFormRef: propTypes.func,
+  inputHandler: propTypes.func,
 };
 
 export default InputField;
