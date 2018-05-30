@@ -17,12 +17,6 @@ class InputField extends Component {
       valid: null,
       message: '',
     };
-    this.inputForm = null;
-  }
-
-  componentDidMount() {
-    // Call function on Child dom element
-    this.inputForm.focus();
   }
   /**
    * Calls helper function to validate the input field
@@ -60,9 +54,6 @@ class InputField extends Component {
   handleInputValidation(e) {
     if (typeof this.props.isValid === 'function') {
       this.props.isValid(this.validateField(e));
-    }
-    if (typeof this.props.inputHandler === 'function') {
-      this.props.inputHandler(e);
     }
   }
 
@@ -126,8 +117,6 @@ InputField.defaultProps = {
   emptyFieldErrorText: '',
   invalidErrorText: '',
   isValid: () => {},
-  inputFormRef: () => {},
-  inputHandler: () => {},
 };
 
 
@@ -147,8 +136,6 @@ InputField.propTypes = {
   emptyFieldErrorText: propTypes.string,
   invalidErrorText: propTypes.string,
   isValid: propTypes.func,
-  inputFormRef: propTypes.func,
-  inputHandler: propTypes.func,
 };
 
 export default InputField;
