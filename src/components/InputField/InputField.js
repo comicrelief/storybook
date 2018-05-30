@@ -61,7 +61,9 @@ class InputField extends Component {
     if (typeof this.props.isValid === 'function') {
       this.props.isValid(this.validateField(e));
     }
-    this.props.inputHandler(e);
+    if (typeof this.props.inputHandler === 'function') {
+      this.props.inputHandler(e);
+    }
   }
 
   render() {
