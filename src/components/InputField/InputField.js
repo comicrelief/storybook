@@ -119,6 +119,7 @@ InputField.defaultProps = {
   emptyFieldErrorText: '',
   invalidErrorText: '',
   isValid: () => {},
+  inValidMessage: null,
 };
 
 
@@ -138,7 +139,7 @@ InputField.propTypes = {
   emptyFieldErrorText: propTypes.string,
   invalidErrorText: propTypes.string,
   isValid: propTypes.func,
-  inValidMessage: propTypes.bool.isRequired,
+  inValidMessage: propTypes.bool,
 };
 
 export default InputField;
