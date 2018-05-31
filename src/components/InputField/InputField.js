@@ -84,24 +84,24 @@ class InputField extends Component {
           defaultChecked={this.props.defaultChecked && this.props.defaultChecked}
           pattern={this.props.pattern && this.props.pattern}
           aria-describedby={`field-label--${this.props.id} field-error--${this.props.id}`}
-          onBlur={this.props.type !== 'checkbox' ? this.validateField || this.props.validationMessage === false : undefined}
+          onBlur={this.props.type !== 'checkbox' ? this.validateField || this.props.inValidMessage === false : undefined}
           onChange={e => this.handleInputChange(e)}
         />
         {this.props.type === 'checkbox' &&
         // span for checkbox styling
         <span />
         }
-        {this.state.valid === false || this.props.validationMessage === false &&
-        <div
-          id={`field-error--${this.props.id}`}
-          className={`form__field-error-container form__field-error-container--${this.props.type}`}
-          aria-live="assertive"
-          role="status"
-        >
-          <span className="form-error">
-            {this.state.message}
-          </span>
-        </div>
+        {this.state.valid === false || this.props.inValidMessage === false ?
+          <div
+            id={`field-error--${this.props.id}`}
+            className={`form__field-error-container form__field-error-container--${this.props.type}`}
+            aria-live="assertive"
+            role="status"
+          >
+            <span className="form-error">
+              {this.state.message}
+            </span>
+          </div>: ''
         }
       </div>
     );
@@ -138,7 +138,7 @@ InputField.propTypes = {
   emptyFieldErrorText: propTypes.string,
   invalidErrorText: propTypes.string,
   isValid: propTypes.func,
-  validationMessage : propTypes.func.isRequired,
+  inValidMessage: propTypes.func.isRequired,                                  
 };
 
 export default InputField;
