@@ -84,7 +84,7 @@ class InputField extends Component {
           defaultChecked={this.props.defaultChecked && this.props.defaultChecked}
           pattern={this.props.pattern && this.props.pattern}
           aria-describedby={`field-label--${this.props.id} field-error--${this.props.id}`}
-          onBlur={this.props.type !== 'checkbox' ? this.validateField || this.props.inValidMessage === false : undefined}
+          onBlur={this.props.type !== 'checkbox' ? this.validateField : undefined}
           onChange={e => this.handleInputChange(e)}
         />
         {this.props.type === 'checkbox' &&
