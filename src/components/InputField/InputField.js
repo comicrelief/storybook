@@ -55,7 +55,7 @@ class InputField extends Component {
 
   handleInputValidation(e) {
     if (typeof this.props.isValid === 'function') {
-      this.props.isValid(this.validateField(e), this.props.name);
+      this.props.isValid(this.validateField(e), this.props.name, e.target.value);
     }
   }
 
@@ -91,17 +91,17 @@ class InputField extends Component {
         // span for checkbox styling
         <span />
         }
-        {this.state.valid === false &&
-        <div
-          id={`field-error--${this.props.id}`}
-          className={`form__field-error-container form__field-error-container--${this.props.type}`}
-          aria-live="assertive"
-          role="status"
-        >
-          <span className="form-error">
-            {this.state.message}
-          </span>
-        </div>
+        {(this.state.valid === false || this.props.inValidMessage === false) &&
+          <div
+            id={`field-error--${this.props.id}`}
+            className={`form__field-error-container form__field-error-container--${this.props.type}`}
+            aria-live="assertive"
+            role="status"
+          >
+            <span className="form-error">
+              {this.state.message}
+            </span>
+          </div>
         }
       </div>
     );
@@ -119,6 +119,8 @@ InputField.defaultProps = {
   emptyFieldErrorText: '',
   invalidErrorText: '',
   isValid: () => {},
+  inValidMessage: null,
+  inputFormRef: () => {},
 };
 
 
@@ -138,6 +140,8 @@ InputField.propTypes = {
   emptyFieldErrorText: propTypes.string,
   invalidErrorText: propTypes.string,
   isValid: propTypes.func,
+  inValidMessage: propTypes.bool,
+  inputFormRef: propTypes.func,
 };
 
 export default InputField;
