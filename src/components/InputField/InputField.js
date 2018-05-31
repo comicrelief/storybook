@@ -86,6 +86,7 @@ class InputField extends Component {
           aria-describedby={`field-label--${this.props.id} field-error--${this.props.id}`}
           onBlur={this.props.type !== 'checkbox' ? this.validateField || this.props.inValidMessage === false : undefined}
           onChange={e => this.handleInputChange(e)}
+          autoFocus
         />
         {this.props.type === 'checkbox' &&
         // span for checkbox styling
