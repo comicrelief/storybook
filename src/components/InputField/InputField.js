@@ -138,7 +138,7 @@ InputField.propTypes = {
   emptyFieldErrorText: propTypes.string,
   invalidErrorText: propTypes.string,
   isValid: propTypes.func,
-  inValidMessage: propTypes.bool.isRequired,                                
+  inValidMessage: propTypes.bool.isRequired,
 };
 
 export default InputField;
