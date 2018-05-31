@@ -55,7 +55,7 @@ class InputField extends Component {
 
   handleInputValidation(e) {
     if (typeof this.props.isValid === 'function') {
-      this.props.isValid(this.validateField(e), this.props.name);
+      this.props.isValid(this.validateField(e), this.props.name, e.target.value);
     }
   }
 
@@ -86,7 +86,6 @@ class InputField extends Component {
           aria-describedby={`field-label--${this.props.id} field-error--${this.props.id}`}
           onBlur={this.props.type !== 'checkbox' ? this.validateField || this.props.inValidMessage === false : undefined}
           onChange={e => this.handleInputChange(e)}
-          autoFocus
         />
         {this.props.type === 'checkbox' &&
         // span for checkbox styling
@@ -121,6 +120,7 @@ InputField.defaultProps = {
   invalidErrorText: '',
   isValid: () => {},
   inValidMessage: null,
+  inputFormRef: () => {},
 };
 
 
@@ -141,6 +141,7 @@ InputField.propTypes = {
   invalidErrorText: propTypes.string,
   isValid: propTypes.func,
   inValidMessage: propTypes.bool,
+  inputFormRef: propTypes.func,
 };
 
 export default InputField;
