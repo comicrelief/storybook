@@ -59,9 +59,20 @@ class InputField extends Component {
     }
   }
 
+  handleOnBlur(e) {
+    if (e.target.type !== 'checkbox') {
+      this.validateField(e);
+      if (typeof this.props.onBlurSubmit === 'function') {
+        this.props.onBlurSubmit(this.validateField(e), this.props.name);
+      }
+    }
+  }
+
   render() {
+    const errorClassName = this.state.valid === false || !this.props.inValidMessage ? 'form__field-error-wrapper' : '';
+    const optionClassName = this.props.extraClass ? this.props.extraClass : '';
     return (
-      <div id={`field-wrapper--${this.props.id}`} className={`form__fieldset form__field-wrapper form__field-wrapper--${this.props.type} ${this.props.extraClass ? this.props.extraClass : ''}`}>
+      <div id={`field-wrapper--${this.props.id}`} className={`form__fieldset form__field-wrapper form__field-wrapper--${this.props.type} ${errorClassName} ${optionClassName}`}>
         <label id={`field-label--${this.props.id}`} htmlFor={`field-input--${this.props.id}`} className={`form__field-label${this.props.required ? ' required' : ''}`}>
           {this.props.label}
           {!this.props.required &&
@@ -76,7 +87,7 @@ class InputField extends Component {
           type={this.props.type}
           id={`field-input--${this.props.id}`}
           name={this.props.name && this.props.name}
-          className={`form__field form__field--${this.props.type} ${this.state.valid ? '' : 'error'} ${this.props.extraClass ? this.props.extraClass : ''} `}
+          className={`form__field form__field--${this.props.type} ${this.state.valid ? '' : 'error'} ${optionClassName} `}
           required={this.props.required && this.props.required}
           placeholder={this.props.placeholder && this.props.placeholder}
           min={this.props.min && this.props.min}
@@ -84,7 +95,7 @@ class InputField extends Component {
           defaultChecked={this.props.defaultChecked && this.props.defaultChecked}
           pattern={this.props.pattern && this.props.pattern}
           aria-describedby={`field-label--${this.props.id} field-error--${this.props.id}`}
-          onBlur={this.props.type !== 'checkbox' ? this.validateField : undefined}
+          onBlur={e => this.handleOnBlur(e)}
           onChange={e => this.handleInputChange(e)}
         />
         {this.props.type === 'checkbox' &&
@@ -121,6 +132,7 @@ InputField.defaultProps = {
   isValid: () => {},
   inValidMessage: null,
   inputFormRef: () => {},
+  onBlurSubmit: () => {},
 };
 
 
@@ -142,6 +154,7 @@ InputField.propTypes = {
   isValid: propTypes.func,
   inValidMessage: propTypes.bool,
   inputFormRef: propTypes.func,
+  onBlurSubmit: propTypes.func,
 };
 
 export default InputField;
