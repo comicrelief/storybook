@@ -16,7 +16,6 @@ class InputField extends Component {
     this.state = {
       valid: null,
       message: '',
-      value: '',
     };
   }
   /**
