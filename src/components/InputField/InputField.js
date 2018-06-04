@@ -16,6 +16,7 @@ class InputField extends Component {
     this.state = {
       valid: null,
       message: '',
+      value: '',
     };
   }
   /**
@@ -60,11 +61,8 @@ class InputField extends Component {
   }
 
   handleOnBlur(e) {
-    if (e.target.type !== 'checkbox') {
+    if (e.target.type !== 'checkbox' || this.props.formSubmit === true) {
       this.validateField(e);
-      if (typeof this.props.onBlurSubmit === 'function') {
-        this.props.onBlurSubmit(this.validateField(e), this.props.name);
-      }
     }
   }
 
@@ -83,7 +81,6 @@ class InputField extends Component {
         <p className="form-help-text">{this.props.helpText}</p>
         }
         <input
-          ref={this.props.inputFormRef}
           type={this.props.type}
           id={`field-input--${this.props.id}`}
           name={this.props.name && this.props.name}
@@ -96,6 +93,7 @@ class InputField extends Component {
           pattern={this.props.pattern && this.props.pattern}
           aria-describedby={`field-label--${this.props.id} field-error--${this.props.id}`}
           onBlur={e => this.handleOnBlur(e)}
+          onFocus={this.props.formSubmit}
           onChange={e => this.handleInputChange(e)}
         />
         {this.props.type === 'checkbox' &&
@@ -131,8 +129,7 @@ InputField.defaultProps = {
   invalidErrorText: '',
   isValid: () => {},
   inValidMessage: null,
-  inputFormRef: () => {},
-  onBlurSubmit: () => {},
+  formSubmit: null,
 };
 
 
@@ -153,8 +150,7 @@ InputField.propTypes = {
   invalidErrorText: propTypes.string,
   isValid: propTypes.func,
   inValidMessage: propTypes.bool,
-  inputFormRef: propTypes.func,
-  onBlurSubmit: propTypes.func,
+  formSubmit: propTypes.bool,
 };
 
 export default InputField;
