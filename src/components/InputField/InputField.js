@@ -47,7 +47,7 @@ class InputField extends Component {
    * Handles the callback isValid state to parent component.
    */
   handleInputChange(e) {
-    if (e.target.required && e.target.type === 'checkbox') {
+    if ((e.target.required && e.target.type === 'checkbox')|| (this.props.showErrorMessage === true)) {
       this.validateField(e);
     }
     this.handleInputValidation(e);
@@ -66,9 +66,8 @@ class InputField extends Component {
   }
   render() {
     const errorClassName = this.state.valid === false || this.props.showErrorMessage === true ? 'form__field-error-wrapper' : '';
-    const optionClassName = this.props.extraClass ? this.props.extraClass : '';
     return (
-      <div id={`field-wrapper--${this.props.id}`} className={`form__fieldset form__field-wrapper form__field-wrapper--${this.props.type} ${errorClassName} ${optionClassName}`}>
+      <div id={`field-wrapper--${this.props.id}`} className={`form__fieldset form__field-wrapper form__field-wrapper--${this.props.type} ${errorClassName} ${this.props.extraClass ? this.props.extraClass : ''} `}>
         <label id={`field-label--${this.props.id}`} htmlFor={`field-input--${this.props.id}`} className={`form__field-label${this.props.required ? ' required' : ''}`}>
           {this.props.label}
           {!this.props.required &&
@@ -82,7 +81,7 @@ class InputField extends Component {
           type={this.props.type}
           id={`field-input--${this.props.id}`}
           name={this.props.name && this.props.name}
-          className={`form__field form__field--${this.props.type} ${this.state.valid ? '' : 'error'} ${optionClassName} `}
+          className={`form__field form__field--${this.props.type} ${this.state.valid ? '' : 'error'} ${this.props.extraClass ? this.props.extraClass : ''} `}
           required={this.props.required && this.props.required}
           placeholder={this.props.placeholder && this.props.placeholder}
           min={this.props.min && this.props.min}
@@ -126,6 +125,7 @@ InputField.defaultProps = {
   invalidErrorText: '',
   isValid: () => {},
   showErrorMessage: null,
+  formSubmitHandler: () => {},
 };
 
 
@@ -146,6 +146,7 @@ InputField.propTypes = {
   invalidErrorText: propTypes.string,
   isValid: propTypes.func,
   showErrorMessage: propTypes.bool,
+  formSubmitHandler: propTypes.func,
 };
 
 export default InputField;
