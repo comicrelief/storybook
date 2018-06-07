@@ -47,7 +47,7 @@ class InputField extends Component {
    * Handles the callback isValid state to parent component.
    */
   handleInputChange(e) {
-    if ((e.target.required && e.target.type === 'checkbox')|| (this.props.showErrorMessage === true)) {
+    if ((e.target.required && e.target.type === 'checkbox')) {
       this.validateField(e);
     }
     this.handleInputValidation(e);
@@ -90,6 +90,7 @@ class InputField extends Component {
           aria-describedby={`field-label--${this.props.id} field-error--${this.props.id}`}
           onBlur={e => this.handleOnBlur(e)}
           onChange={e => this.handleInputChange(e)}
+          ref={this.props.inputRef}
         />
         {this.props.type === 'checkbox' &&
         // span for checkbox styling
