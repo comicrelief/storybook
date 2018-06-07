@@ -47,7 +47,7 @@ class InputField extends Component {
    * Handles the callback isValid state to parent component.
    */
   handleInputChange(e) {
-    if ((e.target.required && e.target.type === 'checkbox')|| (this.props.showErrorMessage === true)) {
+    if ((e.target.required && e.target.type === 'checkbox')) {
       this.validateField(e);
     }
     this.handleInputValidation(e);
@@ -65,9 +65,8 @@ class InputField extends Component {
     }
   }
   render() {
-    const errorClassName = this.state.valid === false || this.props.showErrorMessage === true ? 'form__field-error-wrapper' : '';
     return (
-      <div id={`field-wrapper--${this.props.id}`} className={`form__fieldset form__field-wrapper form__field-wrapper--${this.props.type} ${errorClassName} ${this.props.extraClass ? this.props.extraClass : ''} `}>
+      <div id={`field-wrapper--${this.props.id}`} className={`form__fieldset form__field-wrapper form__field-wrapper--${this.props.type} ${this.props.extraClass ? this.props.extraClass : ''} `}>
         <label id={`field-label--${this.props.id}`} htmlFor={`field-input--${this.props.id}`} className={`form__field-label${this.props.required ? ' required' : ''}`}>
           {this.props.label}
           {!this.props.required &&
@@ -91,6 +90,7 @@ class InputField extends Component {
           aria-describedby={`field-label--${this.props.id} field-error--${this.props.id}`}
           onBlur={e => this.handleOnBlur(e)}
           onChange={e => this.handleInputChange(e)}
+          ref={this.props.inputRef}
         />
         {this.props.type === 'checkbox' &&
         // span for checkbox styling
