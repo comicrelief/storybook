@@ -97,7 +97,7 @@ function getMessage(input, props, type, value) {
  */
 export default function fieldValidation(props, validation) {
   const updatedValidation = validation;
-  const type = props.field.getAttribute('type');
+  const type = props.field.type;
   const value = type === 'checkbox' ? props.field.checked : props.field.value;
   const emptyField = isEmpty(value, props.required, type);
   if (emptyField === true) {
