@@ -11,13 +11,14 @@ import fieldValidation from './validation';
 class InputField extends Component {
   constructor() {
     super();
-    // this.inputField = React.createRef();
-    this.validateField = this.validateField.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleOnBlur = this.handleOnBlur.bind(this);
     this.state = {
       valid: null,
       message: '',
     };
   }
+
   /**
    * Calls helper function to validate the input field
    * Sets the the state for the validation and validation message
@@ -25,6 +26,7 @@ class InputField extends Component {
   validateField(e) {
     const props = {
       field: e.target,
+      value: e.target.value,
       label: this.props.label,
       required: this.props.required,
       min: this.props.min,
@@ -67,7 +69,7 @@ class InputField extends Component {
   render() {
     return (
       <div id={`field-wrapper--${this.props.id}`} className={`form__fieldset form__field-wrapper form__field-wrapper--${this.props.type} ${this.props.extraClass ? this.props.extraClass : ''} `}>
-        <label id={`field-label--${this.props.id}`} htmlFor={`field-input--${this.props.id}`} className={`form__field-label${this.props.required ? ' required' : ''}`}>
+        <label id={`field-label--${this.props.id}`} htmlFor={`field-input--${this.props.id}`} className={`form__field-label${this.props.required ? ' required' : ''} ${this.state.valid === false ? 'error' : ''}`}>
           {this.props.label}
           {!this.props.required &&
           <span>&nbsp;(Optional)&nbsp;</span>
@@ -80,7 +82,7 @@ class InputField extends Component {
           type={this.props.type}
           id={`field-input--${this.props.id}`}
           name={this.props.name && this.props.name}
-          className={`form__field form__field--${this.props.type} ${this.state.valid ? '' : 'error'} ${this.props.extraClass ? this.props.extraClass : ''} `}
+          className={`form__field form__field--${this.props.type} ${this.props.extraClass ? this.props.extraClass : ''} `}
           required={this.props.required && this.props.required}
           placeholder={this.props.placeholder && this.props.placeholder}
           min={this.props.min && this.props.min}
@@ -89,14 +91,14 @@ class InputField extends Component {
           pattern={this.props.pattern && this.props.pattern}
           aria-describedby={`field-label--${this.props.id} field-error--${this.props.id}`}
           onBlur={e => this.handleOnBlur(e)}
-          onChange={e => this.handleInputChange(e)}
+          onChange={e => this.handleInputChange(e, this.props.handleFormSubmit)}
           ref={this.props.inputRef}
         />
         {this.props.type === 'checkbox' &&
         // span for checkbox styling
         <span />
         }
-        {this.state.valid === false || this.props.showErrorMessage === true ?
+        {this.state.valid === false &&
           <div
             id={`field-error--${this.props.id}`}
             className={`form__field-error-container form__field-error-container--${this.props.type}`}
@@ -104,9 +106,9 @@ class InputField extends Component {
             role="status"
           >
             <span className="form-error">
-              {(this.props.showErrorMessage === true || this.state.valid === false) && this.state.message}
+              {this.state.message}
             </span>
-          </div> : ''
+          </div>
         }
       </div>
     );
@@ -124,7 +126,7 @@ InputField.defaultProps = {
   emptyFieldErrorText: '',
   invalidErrorText: '',
   isValid: () => {},
-  showErrorMessage: null,
+  handleFormSubmit: () => {},
 };
 
 
@@ -144,7 +146,7 @@ InputField.propTypes = {
   emptyFieldErrorText: propTypes.string,
   invalidErrorText: propTypes.string,
   isValid: propTypes.func,
-  showErrorMessage: propTypes.bool,
+  handleFormSubmit: propTypes.func,
 };
 
 export default InputField;
