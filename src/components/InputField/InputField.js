@@ -55,7 +55,6 @@ class InputField extends Component {
 
   /**
    * Calls validateField method if field is a checkbox.
-   * Calls inputHandler callback.
    * Handles the callback isValid state to parent component.
    */
   handleInputChange(e) {
