@@ -33,10 +33,9 @@ class InputField extends Component {
    * Calls helper function to validate the input field
    * Sets the the state for the validation and validation message
    */
-  validateField(e) {
+  validateField(e, field) {
     const props = {
-      field: e.target,
-      value: e.target.value,
+      field: (e !== null) ? e : field,
       label: this.props.label,
       required: this.props.required,
       min: this.props.min,
