@@ -23,7 +23,7 @@ class InputField extends Component {
   }
 
   componentDidUpdate() {
-    if (this.props.showErrorMessage === true) {
+    if (this.props.showErrorMessage === true && this.state.message === '' && this.state.valid === null) {
       this.validateField(null, this.inputRef);
     }
   }
@@ -33,10 +33,9 @@ class InputField extends Component {
    * Calls helper function to validate the input field
    * Sets the the state for the validation and validation message
    */
-  validateField(e) {
+  validateField(e, field) {
     const props = {
-      field: e.target,
-      value: e.target.value,
+      field: (e !== null) ? e.target : field,
       label: this.props.label,
       required: this.props.required,
       min: this.props.min,
@@ -76,8 +75,9 @@ class InputField extends Component {
     }
   }
   render() {
+    const errorClassName = this.props.showErrorMessage === true ? 'form__field-error-wrapper' : '';
     return (
-      <div id={`field-wrapper--${this.props.id}`} className={`form__fieldset form__field-wrapper form__field-wrapper--${this.props.type} ${this.props.extraClass ? this.props.extraClass : ''} `}>
+      <div id={`field-wrapper--${this.props.id}`} className={`form__fieldset form__field-wrapper form__field-wrapper--${this.props.type} ${errorClassName} ${this.props.extraClass ? this.props.extraClass : ''} `}>
         <label id={`field-label--${this.props.id}`} htmlFor={`field-input--${this.props.id}`} className={`form__field-label${this.props.required ? ' required' : ''} ${this.state.valid === false ? 'error' : ''}`}>
           {this.props.label}
           {!this.props.required &&
@@ -107,7 +107,7 @@ class InputField extends Component {
         // span for checkbox styling
         <span />
         }
-        {(this.state.valid === false || this.props.showErrorMessage === true) &&
+        {(this.state.valid === false || (this.props.showErrorMessage === true && this.state.message !== '')) &&
           <div
             id={`field-error--${this.props.id}`}
             className={`form__field-error-container form__field-error-container--${this.props.type}`}
