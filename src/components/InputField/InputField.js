@@ -136,6 +136,7 @@ InputField.defaultProps = {
   emptyFieldErrorText: '',
   invalidErrorText: '',
   isValid: () => {},
+  showErrorMessage: null,
 };
 
 
