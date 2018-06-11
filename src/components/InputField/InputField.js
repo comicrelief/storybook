@@ -108,7 +108,7 @@ class InputField extends Component {
         // span for checkbox styling
         <span />
         }
-        {this.state.valid === false || this.props.showErrorMessage === true ?
+        {(this.state.valid === false || this.props.showErrorMessage === true) &&
           <div
             id={`field-error--${this.props.id}`}
             className={`form__field-error-container form__field-error-container--${this.props.type}`}
