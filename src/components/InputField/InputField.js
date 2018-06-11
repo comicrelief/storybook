@@ -136,7 +136,6 @@ InputField.defaultProps = {
   emptyFieldErrorText: '',
   invalidErrorText: '',
   isValid: () => {},
-  handleFormSubmit: () => {},
 };
 
 
@@ -156,7 +155,6 @@ InputField.propTypes = {
   emptyFieldErrorText: propTypes.string,
   invalidErrorText: propTypes.string,
   isValid: propTypes.func,
-  handleFormSubmit: propTypes.func,
   showErrorMessage: propTypes.bool,
 };
 
