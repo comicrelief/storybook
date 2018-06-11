@@ -17,7 +17,17 @@ class InputField extends Component {
       valid: null,
       message: '',
     };
+    this.setRef = (element) => {
+      this.inputRef = element;
+    };
   }
+
+  componentDidUpdate() {
+    if (this.props.showErrorMessage === true) {
+      this.validateField(null, this.inputRef);
+    }
+  }
+
 
   /**
    * Calls helper function to validate the input field
@@ -91,14 +101,14 @@ class InputField extends Component {
           pattern={this.props.pattern && this.props.pattern}
           aria-describedby={`field-label--${this.props.id} field-error--${this.props.id}`}
           onBlur={e => this.handleOnBlur(e)}
-          onChange={e => this.handleInputChange(e, this.props.handleFormSubmit)}
-          ref={this.props.inputRef}
+          onChange={e => this.handleInputChange(e)}
+          ref={this.setRef}
         />
         {this.props.type === 'checkbox' &&
         // span for checkbox styling
         <span />
         }
-        {this.state.valid === false &&
+        {(this.state.valid === false || this.props.showErrorMessage === true) &&
           <div
             id={`field-error--${this.props.id}`}
             className={`form__field-error-container form__field-error-container--${this.props.type}`}
@@ -126,7 +136,7 @@ InputField.defaultProps = {
   emptyFieldErrorText: '',
   invalidErrorText: '',
   isValid: () => {},
-  handleFormSubmit: () => {},
+  showErrorMessage: null,
 };
 
 
@@ -146,7 +156,7 @@ InputField.propTypes = {
   emptyFieldErrorText: propTypes.string,
   invalidErrorText: propTypes.string,
   isValid: propTypes.func,
-  handleFormSubmit: propTypes.func,
+  showErrorMessage: propTypes.bool,
 };
 
 export default InputField;
