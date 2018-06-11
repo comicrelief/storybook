@@ -35,7 +35,7 @@ class InputField extends Component {
    */
   validateField(e, field) {
     const props = {
-      field: (e !== null) ? e : field,
+      field: (e !== null) ? e.target : field,
       label: this.props.label,
       required: this.props.required,
       min: this.props.min,
