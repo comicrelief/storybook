@@ -5,10 +5,11 @@ import { specs, describe, it } from 'storybook-addon-specifications';
 import { mount } from 'enzyme';
 import expect from 'expect';
 
-import { withKnobs, text, number, boolean } from '@storybook/addon-knobs';
+import { withKnobs, text, number, boolean, array } from '@storybook/addon-knobs';
 import { withInfo } from '@storybook/addon-info';
 import Footer from '../components/Footer/Footer';
 import InputField from '../components/InputField/InputField';
+import SelectField from '../components/SelectField/SelectField';
 import SchoolsLookUpContainer from '../components/SchoolsLookUp/SchoolsLookUpContainer';
 import FileUp from '../components/FileUp/FileUp';
 import GrantsNearYou from '../components/GrantsNearYou/GrantsNearYou';
@@ -263,6 +264,26 @@ storiesOf('Input Field', module)
       />);
     }),
   );
+const optionsArray = [
+  { label: 'Please select', value: 'PLEase Select' },
+  { label: 'item 1', value: 'itemone' },
+  { label: '----------', disabled: true },
+  { label: 'item 2', value: 'itemtwo', selected: true },
+  { label: 'item 3', value: 'itemthree' },
+];
+storiesOf('Select Field', module)
+  .addDecorator(withKnobs)
+  .add('Select Field',
+    withInfo('Required')(() => {
+      id = text('id', 'selectField');
+      name = text('name', 'selectfield');
+      label = text('label', 'Select field');
+      required = boolean('required', true);
+      const options = array(optionsArray);
+      return (<SelectField id={id} name={name} label={label} required={required} options={optionsArray} />);
+    }),
+  );
+
 storiesOf('File Upload', module)
   .addDecorator(withKnobs)
   .add('Single',
@@ -270,7 +291,7 @@ storiesOf('File Upload', module)
       const maxFiles = number('Max Files', 5);
       const maxSize = number('Max Size', 2000000);
       const types = text('Types', 'image/*, application/pdf');
-      const story = <FileUp maxFiles={maxFiles} maxSize={maxSize} types={types} />;
+      const story = <FileUp maxFiles={maxFiles} maxSize={maxSize} types={types} onChange={() => {}} />;
 
       specs(() => describe('File Upload', () => {
         it('Should have a label and "click to upload" in it', () => {
