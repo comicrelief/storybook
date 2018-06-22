@@ -76,8 +76,9 @@ class InputField extends Component {
   }
   render() {
     const errorClassName = this.props.showErrorMessage === true ? 'form__field-error-wrapper' : '';
+    const showBackgroundClassName = this.props.setBackgroundColor && this.props.type === 'checkbox' ? 'form__field-wrapper--background' : '';
     return (
-      <div id={`field-wrapper--${this.props.id}`} className={`form__fieldset form__field--wrapper form__field-wrapper--${this.props.type} ${errorClassName} ${this.props.extraClass ? this.props.extraClass : ''} `}>
+      <div id={`field-wrapper--${this.props.id}`} className={`form__fieldset form__field--wrapper form__field-wrapper--${this.props.type} ${errorClassName} ${showBackgroundClassName} ${this.props.extraClass ? this.props.extraClass : ''} `}>
         <label id={`field-label--${this.props.id}`} htmlFor={`field-input--${this.props.id}`} className={`form__field-label${this.props.required ? ' required' : ''} ${this.state.valid === false ? 'error' : ''}`}>
           {this.props.label}
           {!this.props.required &&
@@ -136,8 +137,8 @@ InputField.defaultProps = {
   invalidErrorText: '',
   isValid: () => {},
   showErrorMessage: null,
+  setBackgroundColor: null,
 };
-
 
 InputField.propTypes = {
   id: propTypes.string.isRequired,
@@ -156,6 +157,7 @@ InputField.propTypes = {
   invalidErrorText: propTypes.string,
   isValid: propTypes.func,
   showErrorMessage: propTypes.bool,
+  setBackgroundColor: propTypes.bool,
 };
 
 export default InputField;
