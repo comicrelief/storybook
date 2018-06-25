@@ -78,7 +78,7 @@ class SelectField extends Component {
     this.props.options.map(item =>
       options.push(<option
         key={item.label}
-        value={item.value}
+        value={item.value !== undefined ? item.value : ''}
         disabled={item.disabled}
       >{item.label}</option>));
     return options;
@@ -89,15 +89,14 @@ class SelectField extends Component {
    * @param e
    */
   validateField(e) {
-    let value = e ? e.target.value : this.inputRef.value;
-    value = value && value.toLowerCase();
-    if (this.props.required === true && (!value || value === 'please select')) {
+    const value = e !== undefined ? e.target.value : this.inputRef.value;
+    if (this.props.required === true && value === '') {
       this.setState({
         valid: false,
         message: 'This field is required',
         value,
       });
-    } else if (this.props.required === true && (value || value !== 'please select')) {
+    } else if (this.props.required === true && value) {
       this.setState({
         valid: true,
         message: '',
@@ -165,7 +164,7 @@ SelectField.propTypes = {
   label: propTypes.string.isRequired,
   required: propTypes.bool.isRequired,
   options: propTypes.arrayOf(propTypes.shape({
-    label: propTypes.string,
+    label: propTypes.string.isRequired,
     value: propTypes.string,
     selected: propTypes.bool,
     disabled: propTypes.bool,

@@ -265,7 +265,7 @@ storiesOf('Input Field', module)
     }),
   );
 const optionsArray = [
-  { label: 'Please select', value: 'PLEase Select' },
+  { label: 'Please select' },
   { label: 'item 1', value: 'itemone' },
   { label: '----------', disabled: true },
   { label: 'item 2', value: 'itemtwo', selected: true },
