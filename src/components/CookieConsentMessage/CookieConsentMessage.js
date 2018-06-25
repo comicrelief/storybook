@@ -3,21 +3,20 @@ import CookieConsent from 'react-cookie-consent';
 
 
 class CookieConsentMessage extends Component {
-
   render() {
     const option = {
-      buttonClass: "btn btn--white-ghost",
-      containerClass: "cookie-consent cc_container",
-      linkClass: "cc_more_info link link--grey inline",
-      buttonText: "Accept",
-      cookieName: "cookie-consent",
-      contentClass: "cc_message",
-      position: "top"
-    }
+      buttonClass: 'btn btn--white-ghost',
+      containerClass: 'cookie-consent cc_container',
+      linkClass: 'cc_more_info link link--grey inline',
+      buttonText: 'Accept',
+      cookieName: 'cookie-consent',
+      contentClass: 'cc_message',
+      position: 'top',
+    };
 
     return (
       <CookieConsent
-        disableStyles={true}
+        disableStyles
         location={option.position}
         buttonText={option.buttonText}
         cookieName={option.cookieName}
@@ -36,4 +35,3 @@ class CookieConsentMessage extends Component {
 
 export default CookieConsentMessage;
 
- 
