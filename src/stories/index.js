@@ -279,7 +279,6 @@ storiesOf('Select Field', module)
       name = text('name', 'selectfield');
       label = text('label', 'Select field');
       required = boolean('required', true);
-      const options = array(optionsArray);
       return (<SelectField id={id} name={name} label={label} required={required} options={optionsArray} />);
     }),
   );
