@@ -1,7 +1,12 @@
 import { configure } from '@storybook/react';
 
+function requireAll(requireContext) {
+  return requireContext.keys().map(requireContext);
+}
+
 function loadStories() {
-  require('../src/stories');
+  requireAll(require.context('../src/components/', true, /_story\.jsx?$/));
 }
 
 configure(loadStories, module);
+
