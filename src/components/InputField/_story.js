@@ -5,12 +5,12 @@ import { withKnobs, text, number, boolean } from '@storybook/addon-knobs';
 import { withInfo } from '@storybook/addon-info';
 import InputField from './InputField';
 
-let id = '';
-let type = '';
-let name = '';
-let label = '';
-let required = false;
-let defaultChecked = false;
+let id;
+let type;
+let name;
+let label;
+let required;
+let defaultChecked;
 let min;
 
 storiesOf('Input Field', module)

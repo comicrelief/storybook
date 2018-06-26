@@ -17,10 +17,10 @@ storiesOf('Select Field', module)
   .addDecorator(withKnobs)
   .add('Select Field',
     withInfo('Required')(() => {
-      id = text('id', 'selectField');
-      name = text('name', 'selectfield');
-      label = text('label', 'Select field');
-      required = boolean('required', true);
+      const id = text('id', 'selectField');
+      const name = text('name', 'selectfield');
+      const label = text('label', 'Select field');
+      const required = boolean('required', true);
       return (<SelectField id={id} name={name} label={label} required={required} options={optionsArray} />);
     }),
   );
