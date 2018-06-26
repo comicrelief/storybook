@@ -104,6 +104,7 @@ class InputField extends Component {
           onBlur={e => this.handleOnBlur(e)}
           onChange={e => this.handleInputChange(e)}
           ref={this.setRef}
+          value={this.props.value && this.props.value}
         />
         {this.props.type === 'checkbox' &&
         // span for checkbox styling
@@ -127,6 +128,7 @@ class InputField extends Component {
 }
 
 InputField.defaultProps = {
+  value: null,
   pattern: '',
   placeholder: '',
   min: null,
@@ -147,6 +149,7 @@ InputField.propTypes = {
   name: propTypes.string.isRequired,
   label: propTypes.string.isRequired,
   required: propTypes.bool.isRequired,
+  value: propTypes.string,
   pattern: propTypes.string,
   placeholder: propTypes.string,
   min: propTypes.number,

@@ -77,10 +77,19 @@ class SelectField extends Component {
     this.props.options.map(item =>
       options.push(<option
         key={item.label}
-        value={item.value !== undefined ? item.value : ''}
+        value={item.value !== undefined ? this.checkValueType(item.value) : ''}
         disabled={item.disabled}
       >{item.label}</option>));
     return options;
+  }
+
+  /**
+   * If value is an object, json stringify it
+   * @param value
+   * @returns {*}
+   */
+  checkValueType(value) {
+    return typeof value === 'object' ? JSON.stringify(value) : value;
   }
 
   /**
@@ -171,7 +180,9 @@ SelectField.propTypes = {
   required: propTypes.bool.isRequired,
   options: propTypes.arrayOf(propTypes.shape({
     label: propTypes.string.isRequired,
-    value: propTypes.string,
+    value: propTypes.oneOfType([
+      propTypes.string,
+      propTypes.object]),
     selected: propTypes.bool,
     disabled: propTypes.bool,
   }).isRequired).isRequired,
