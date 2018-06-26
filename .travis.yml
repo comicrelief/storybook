@@ -14,9 +14,6 @@ env:
   global:
     - SLS_DEBUG=true
 
-before_script:
-  - npm prune
-
 script:
   - yarn eslint
   - yarn test
