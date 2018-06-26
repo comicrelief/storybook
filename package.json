@@ -42,8 +42,8 @@
     "storybook": "start-storybook -p 9009 -s public",
     "snyk-protect": "snyk protect",
     "prepublish": "npm run snyk-protect; yarn build",
-    "test": "jest --coverage --bail",
-    "test-update": "jest -u"
+    "test": "./node_modules/.bin/jest --coverage --bail",
+    "test-update": "./node_modules/.bin/jest -u"
   },
   "devDependencies": {
     "@storybook/addon-actions": "3",
