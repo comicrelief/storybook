@@ -1,0 +1,162 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300");
+@import url("https://fonts.googleapis.com/css?family=Comfortaa:300,700");
+@import url("https://fonts.googleapis.com/css?family=Bungee+Shade");
+
+$comfortaa: 'Comfortaa', sans-serif;
+$open-sans: 'Open Sans', sans-serif;
+$bungee-shade: 'Bungee Shade', cursive;
+
+h1, h2, a, p {
+  color: #ffffff;
+}
+h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  margin: 0;
+  font-family: $comfortaa;
+}
+h2 {
+  font-size: 2.0rem;
+  display: inline-block;
+  font-weight: 300;
+  line-height: 1;
+  padding: 0;
+  margin: 0;
+}
+p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #424242;
+}
+.left {
+  float: left;
+}
+.clear {
+clear: both;
+}
+.center {
+  text-align: center;
+}
+
+/*
+ * Layout
+ */
+main {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: minmax(1fr, 600px);
+}
+.grid {
+  color: #fff;
+  padding: .85rem 1rem;
+  text-align: center;
+  grid-column: span 4;
+}
+.grid span,
+.number {
+  font-family: $bungee-shade;
+  font-size: 3.5rem;
+}
+.intro {
+  text-align: left !important;
+}
+.bar {
+  display: none;
+}
+@media (min-width: 600px) {
+  main {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .bar {
+    grid-row: span 2;
+    display: block;
+  }
+  .chart-1,
+  .chart-2 {
+    grid-column: span 2;
+  }
+}
+@media (min-width: 768px) {
+  .facts-1,
+  .facts-2,
+  .facts-3,
+  .facts-4 {
+    grid-column: span 1;
+  }
+}
+@media (min-width: 1024px) {
+  .bar,
+  .chart-1,
+  .chart-2 {
+    grid-column: span 3;
+  }
+  .intro {
+    grid-row: span 6;
+    grid-column: span 1;
+  }
+  .facts-4 {
+    grid-column: span 3;
+  }
+}
+@media (min-width: 1200px) {
+  .bar {
+    grid-column: span 2;
+  }
+  .chart-1,
+  .chart-2 {
+    grid-column: span 1;
+  }
+  .intro {
+    grid-row: span 4;
+  }
+}
+@media (min-width: 1500px) {
+  .bar {
+    grid-row: span 1;
+    grid-column: span 1;
+  }
+}
+
+.grid:nth-of-type(1) {
+  background: #247BA0;
+}
+
+.grid:nth-of-type(2) {
+  background: #3C6E71;
+}
+
+.grid:nth-of-type(3) {
+  background: #238077;
+}
+
+.grid:nth-of-type(4) {
+  background: #284B63;
+}
+
+.grid:nth-of-type(5) {
+  background: #7798AB;
+}
+
+.grid:nth-of-type(6) {
+  background: #FFFFFF;
+}
+
+.grid:nth-of-type(7) {
+  background: #FFFFFF;
+}
+
+.grid:nth-of-type(8) {
+  background: #FFFFFF;
+}
+
+.grid:nth-of-type(9) {
+  background: #284b63;
+}
+
+.grid:nth-of-type(10) {
+  background: #3f8a52;
+}
+
+.grid:nth-of-type(11) {
+  background: #69971a;
+}
