@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import CookieConsent from 'react-cookie-consent';
+import './CookieConsent.scss';
 
 
 class CookieConsentMessage extends Component {
