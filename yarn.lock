@@ -8839,9 +8839,9 @@ react-color@^2.14.0:
     reactcss "^1.2.0"
     tinycolor2 "^1.4.1"
 
-react-cookie-consent@^1.4.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/react-cookie-consent/-/react-cookie-consent-1.4.0.tgz#f7e485261aecd7dac8a5741ee285af8f52664fbf"
+react-cookie-consent@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/react-cookie-consent/-/react-cookie-consent-1.5.0.tgz#386c91ebf43aadc109d6c8f15fae9b8e3569bb7d"
   dependencies:
     js-cookie "^2.2.0"
     react "^16.4.0"
