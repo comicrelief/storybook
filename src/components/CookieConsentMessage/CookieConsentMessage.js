@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import CookieConsent from 'react-cookie-consent';
+import './CookieConsent.scss';
 
 
 class CookieConsentMessage extends Component {
@@ -23,6 +24,7 @@ class CookieConsentMessage extends Component {
         containerClasses={option.containerClass}
         buttonClasses={option.buttonClass}
         contentClasses={option.contentClass}
+        style={ {position: "relative"} }
       >
         We use cookies. We’ve recently updated our privacy policy to give you more detail about how we use your personal information.{' '}
         <a href="https://www.comicrelief.com/privacy-notice" className={option.linkClass} target="_blank" rel="noopener noreferrer">
