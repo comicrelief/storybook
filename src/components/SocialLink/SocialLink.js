@@ -42,6 +42,7 @@ class SocialLink extends Component {
               <a
                 href={socialLink.url}
                 title={socialLink.network}
+                rel="noopener noreferrer"
                 target="_blank"
                 className={`icon__${socialLink.name}`}
               >
