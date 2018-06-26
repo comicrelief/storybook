@@ -11,4 +11,3 @@ storiesOf('Grants Infographics', module)
       return (<GrantsInfographics grantsAPI={GRANTS_API} />);
     }),
   );
-
