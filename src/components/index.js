@@ -5,6 +5,7 @@ import SelectField from './SelectField/SelectField';
 import SchoolsLookUp from './SchoolsLookUp/SchoolsLookUp';
 import GrantsNearYou from './GrantsNearYou/GrantsNearYou';
 import GrantsInfographics from './GrantsInfographics/GrantsInfographics';
+import CookieConsentMessage from './CookieConsentMessage/CookieConsentMessage';
 
 export {
   Footer,
@@ -14,4 +15,5 @@ export {
   FileUp,
   GrantsNearYou,
   GrantsInfographics,
+  CookieConsentMessage,
 };

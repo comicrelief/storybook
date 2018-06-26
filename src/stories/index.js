@@ -14,6 +14,7 @@ import SchoolsLookUpContainer from '../components/SchoolsLookUp/SchoolsLookUpCon
 import FileUp from '../components/FileUp/FileUp';
 import GrantsNearYou from '../components/GrantsNearYou/GrantsNearYou';
 import GrantsInfographics from '../components/GrantsInfographics/GrantsInfographics';
+import CookieConsentMessage from '../components/CookieConsentMessage/CookieConsentMessage';
 
 storiesOf('Welcome', module).add('to Storybook', () => <h1>Welcome to CR Storybook</h1>);
 
@@ -317,5 +318,13 @@ storiesOf('Grants Infographics', module)
     withInfo('data visualisation with React-Vis from Grant API')(() => {
       const GRANTS_API = 'https://1kfs7evxca.execute-api.eu-west-1.amazonaws.com/beta/grants';
       return (<GrantsInfographics grantsAPI={GRANTS_API} />);
+    }),
+  );
+
+
+storiesOf('Cookie Consent Message', module)
+  .add('CookieConsentMessage',
+    withInfo('Cookie Consent')(() => {
+      return (<CookieConsentMessage />);
     }),
   );

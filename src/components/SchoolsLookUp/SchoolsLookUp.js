@@ -11,23 +11,6 @@ const HIDE_LOOKUP = 'HIDE_LOOKUP';
 
 class SchoolsLookUp extends Component {
   /**
-   * Render menu item children.
-   * @param option
-   * @return {XML}
-   */
-  static renderMenuItemChildren(option) {
-    return (
-      <div key={option.id}>
-        <span>{option.name}</span>
-        {option.post_code ?
-          <span>, {option.post_code}</span>:
-          null
-        }
-      </div>
-    );
-  }
-
-  /**
    * SchoolsLookUp constructor.
    * @param {object} props
    */
@@ -192,6 +175,23 @@ class SchoolsLookUp extends Component {
    */
   handleDefaultOptionHoverOff() {
     this.setState({ isDefaultOptionHighlighted: false });
+  }
+
+  /**
+   * Render menu item children.
+   * @param option
+   * @return {XML}
+   */
+  static renderMenuItemChildren(option) {
+    return (
+      <div key={option.id}>
+        <span>{option.name}</span>
+        {option.post_code ?
+          <span>, {option.post_code}</span>:
+          null
+        }
+      </div>
+    );
   }
 
   /**
