@@ -1,11 +1,14 @@
-
 {
   "name": "Footer",
   "version": "0.0.0",
   "private": true,
   "main": "./Footer.js",
   "dependencies": {
-    "react": "^15.6.1",
-    "prop-types": "^15.5.10"
+    "prop-types": "^15.5.10",
+    "react": "^15.6.1"
+  },
+  "devDependencies": {
+    "@storybook/addon-info": "^3.4.8",
+    "@storybook/addon-knobs": "^3.4.8"
   }
 }
