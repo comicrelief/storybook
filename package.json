@@ -10,7 +10,7 @@
     "axios": "0",
     "babel-polyfill": "^6.26.0",
     "enzyme": "2",
-    "expect": "21",
+    "expect": "23.0.0",
     "prop-types": "15",
     "radium": "0",
     "react": "15",
