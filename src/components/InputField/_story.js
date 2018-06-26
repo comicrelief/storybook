@@ -11,6 +11,7 @@ let name = '';
 let label = '';
 let required = false;
 let defaultChecked = false;
+let min;
 
 storiesOf('Input Field', module)
   .addDecorator(withKnobs)
