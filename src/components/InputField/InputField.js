@@ -28,7 +28,6 @@ class InputField extends Component {
     }
   }
 
-
   /**
    * Calls helper function to validate the input field
    * Sets the the state for the validation and validation message
@@ -74,6 +73,18 @@ class InputField extends Component {
       this.validateField(e);
     }
   }
+
+  /**
+   * Callback to handle the button click.
+   */
+  btnClickHandler() {
+    if (typeof this.props.buttonClick === 'function') {
+      this.props.buttonClick()
+        .then((result) => {
+          console.log('result', result);
+        });
+    }
+  }
   render() {
     const errorClassName = this.props.showErrorMessage === true ? 'form__field-error-wrapper' : '';
     const showBackgroundClassName = this.props.setBackgroundColor === true && this.props.type === 'checkbox' ? 'form__field-wrapper--background' : '';
@@ -106,6 +117,19 @@ class InputField extends Component {
           ref={this.setRef}
           value={this.props.value && this.props.value}
         />
+        {this.props.inlineButton === true &&
+        <div className="form__btn">
+          <input
+            type="button"
+            id={`${this.props.id}_button`}
+            className={`form__btn--${this.props.id}`}
+            value={this.props.buttonValue}
+            onClick={e => this.btnClickHandler(e)}
+          />
+        </div>
+
+
+        }
         {this.props.type === 'checkbox' &&
         // span for checkbox styling
         <span />
@@ -128,17 +152,20 @@ class InputField extends Component {
 }
 
 InputField.defaultProps = {
-  value: null,
+  value: undefined,
   pattern: '',
   placeholder: '',
   min: null,
   max: null,
+  inlineButton: false,
+  buttonValue: '',
+  buttonClick: null,
   defaultChecked: null,
   extraClass: '',
   helpText: '',
   emptyFieldErrorText: '',
   invalidErrorText: '',
-  isValid: () => {},
+  isValid: null,
   showErrorMessage: null,
   setBackgroundColor: null,
 };
@@ -154,6 +181,9 @@ InputField.propTypes = {
   placeholder: propTypes.string,
   min: propTypes.number,
   max: propTypes.number,
+  inlineButton: propTypes.bool,
+  buttonValue: propTypes.string,
+  buttonClick: propTypes.func,
   defaultChecked: propTypes.bool,
   extraClass: propTypes.string,
   helpText: propTypes.string,
