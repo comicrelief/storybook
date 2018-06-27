@@ -27,10 +27,6 @@ $image-path: "images/";
   font-family: $body-font;
   max-height: 100px;
 
-  @include breakpoint($screen-md) {
-    max-height:85px;
-  }
-
   .cc_more_info {
     display: inline-block;
   }
