@@ -160,7 +160,7 @@ class PostcodeLookup extends Component {
           showErrorMessage={false}
           isValid={(valid, value) => { this.updateAddress(value); }}
         />
-        <a role="button" href="" className="link">Or enter your address manually</a>
+        <button className="link">Or enter your address manually</button>
         <div className="form__field--address">
           <InputField id="address1" type="text" name="address1" label="Address line 1" required value={this.state.form.address1} />
           <InputField id="address2" type="text" name="address2" label="Address line 2" required={false} />
