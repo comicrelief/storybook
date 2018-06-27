@@ -24,6 +24,9 @@ class PostcodeLookup extends Component {
         town: '',
       },
     };
+    this.setRef = (element) => {
+      this.countrySelectRef = element;
+    };
     this.addressLookup = this.addressLookup.bind(this);
   }
 
@@ -111,6 +114,8 @@ class PostcodeLookup extends Component {
             town: address.posttown,
           },
         });
+        // change the country back to GB
+        this.countrySelectRef.selectRef.selectedIndex = 0;
       }
     }
   }
@@ -166,7 +171,7 @@ class PostcodeLookup extends Component {
           <InputField id="address2" type="text" name="address2" label="Address line 2" required={false} />
           <InputField id="address3" type="text" name="address3" label="Address line 3" required={false} />
           <InputField id="town" type="text" name="town" label="Town/City" required value={this.state.form.town} />
-          <SelectField id="country" name="country" label="Country" required options={this.state.countryDropdownList} />
+          <SelectField ref={this.setRef} id="country" name="country" label="Country" required options={this.state.countryDropdownList} />
         </div>
       </div>
 

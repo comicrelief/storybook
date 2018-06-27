@@ -13,7 +13,7 @@ class SelectField extends Component {
       showErrorMessage: this.props.showErrorMessage,
     };
     this.setRef = (element) => {
-      this.inputRef = element;
+      this.selectRef = element;
     };
     this.validateField = this.validateField.bind(this);
     this.onChangeHandler = this.onChangeHandler.bind(this);
@@ -97,7 +97,7 @@ class SelectField extends Component {
    * @param e
    */
   validateField(e) {
-    const value = e !== undefined ? e.target.value : this.inputRef.value;
+    const value = e !== undefined ? e.target.value : this.selectRef.value;
     if (this.props.required === true && value === '') {
       this.setState({
         valid: false,
