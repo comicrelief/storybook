@@ -23,17 +23,15 @@ class PostcodeLookup extends Component {
         address1: '',
         town: '',
       },
+      showAddressSelect: false,
+      showAddressDetails: false,
       validation: {},
     };
-    this.setAddressSelectRef = (element) => {
-      this.addressSelectRef = element;
-    };
+
     this.setCountrySelectRef = (element) => {
       this.countrySelectRef = element;
     };
-    this.setAddressDetailRef = (element) => {
-      this.addressDetailRef = element;
-    };
+
     this.addressLookup = this.addressLookup.bind(this);
     this.showAddressFields = this.showAddressFields.bind(this);
   }
@@ -69,17 +67,16 @@ class PostcodeLookup extends Component {
 
   /**
    * Creates object for address select field options.
-   * Updates state with new address object
-   * Shows the address select field
+   * Updates state with new address object and shows address select field
    */
   createAddressDropdownList() {
     const addresses = [{ label: 'Please select', value: null }];
     this.state.addressLookupData.map(item =>
       addresses.push({ label: item.Line1, value: item }));
-    this.setState({ addressDropdownList: addresses });
-    // show address select field
-    const addressSelect = this.addressSelectRef.selectRef;
-    addressSelect.parentElement.classList.remove('visually-hidden');
+    this.setState({
+      addressDropdownList: addresses,
+      showAddressSelect: true,
+    });
   }
 
   /**
@@ -136,7 +133,9 @@ class PostcodeLookup extends Component {
   }
 
   showAddressFields() {
-    this.addressDetailRef.classList.remove('visually-hidden');
+    this.setState({
+      showAddressDetails: true,
+    });
   }
 
   // /**
@@ -176,27 +175,34 @@ class PostcodeLookup extends Component {
           buttonClick={() => { return this.addressLookup().then(() => this.state.postcodeValidationMessage); }}
         />
         <SelectField
-          ref={this.setAddressSelectRef}
           id="addressSelect"
           name="addressSelect"
           label="Select your address"
           required={false}
           options={this.state.addressDropdownList}
-          extraClass="visually-hidden"
+          extraClass={`${this.state.showAddressSelect === false ? 'visually-hidden' : ''}`}
           showErrorMessage={false}
           isValid={(valid, name, value) => { this.updateAddress(value); }}
         />
         <button className="link" onClick={this.showAddressFields}>Or enter your address manually</button>
-        <div id="address-detail" className="form__fieldset form__field--address-detail visually-hidden" ref={this.setAddressDetailRef} >
+        <div
+          id="address-detail"
+          className={`form__fieldset form__field--address-detail ${this.state.showAddressDetails === false ? 'visually-hidden' : ''}`}
+        >
           <InputField id="address1" type="text" name="address1" label="Address line 1" required value={this.state.form.address1} />
           <InputField id="address2" type="text" name="address2" label="Address line 2" required={false} />
           <InputField id="address3" type="text" name="address3" label="Address line 3" required={false} />
           <InputField id="town" type="text" name="town" label="Town/City" required value={this.state.form.town} />
-          <SelectField ref={this.setCountrySelectRef} id="country" name="country" label="Country" required options={this.state.countryDropdownList} />
+          <SelectField
+            ref={this.setCountrySelectRef}
+            id="country"
+            name="country"
+            label="Country"
+            required
+            options={this.state.countryDropdownList}
+          />
         </div>
       </div>
-
-
     );
   }
 }
