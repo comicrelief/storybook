@@ -64,7 +64,7 @@ class SelectField extends Component {
    */
   sendStateToParent() {
     if (typeof this.props.isValid === 'function') {
-      this.props.isValid(this.state, this.state.value, this.props.name);
+      this.props.isValid(this.state, this.props.name, this.state.value);
     }
   }
 

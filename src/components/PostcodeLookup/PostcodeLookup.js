@@ -23,6 +23,7 @@ class PostcodeLookup extends Component {
         address1: '',
         town: '',
       },
+      validation: {},
     };
     this.setAddressSelectRef = (element) => {
       this.addressSelectRef = element;
@@ -183,7 +184,7 @@ class PostcodeLookup extends Component {
           options={this.state.addressDropdownList}
           extraClass="visually-hidden"
           showErrorMessage={false}
-          isValid={(valid, value) => { this.updateAddress(value); }}
+          isValid={(valid, name, value) => { this.updateAddress(value); }}
         />
         <button className="link" onClick={this.showAddressFields}>Or enter your address manually</button>
         <div id="address-detail" className="form__fieldset form__field--address-detail visually-hidden" ref={this.setAddressDetailRef} >
@@ -202,6 +203,7 @@ class PostcodeLookup extends Component {
 
 PostcodeLookup.propTypes = {
   burre: propTypes.string.isRequired,
+
 };
 
 export default PostcodeLookup;
