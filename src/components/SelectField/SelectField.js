@@ -9,7 +9,7 @@ class SelectField extends Component {
     this.state = {
       valid: null,
       message: '',
-      value: this.getSelectedOption(),
+      value: '',
       showErrorMessage: this.props.showErrorMessage,
     };
     this.setRef = (element) => {
@@ -19,6 +19,12 @@ class SelectField extends Component {
     this.onChangeHandler = this.onChangeHandler.bind(this);
   }
 
+  componentWillMount() {
+
+    this.setState({
+      value: this.getSelectedOption(),
+    });
+  }
   /**
    * Validate initial state
    * (will trigger an update through the validateField function)
@@ -52,6 +58,7 @@ class SelectField extends Component {
    * Returns the value or undefined
    */
   getSelectedOption() {
+    console.log('getselectedoption', this.props.id);
     let selected = this.props.options.find(item => item.selected === true);
     if (selected !== undefined) {
       selected = selected.value;

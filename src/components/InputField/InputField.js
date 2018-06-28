@@ -11,18 +11,40 @@ import fieldValidation from './validation';
 class InputField extends Component {
   constructor() {
     super();
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.handleOnBlur = this.handleOnBlur.bind(this);
+    // this.handleInputChange = this.handleInputChange.bind(this);
+    // this.handleOnBlur = this.handleOnBlur.bind(this);
     this.state = {
       valid: null,
       message: '',
+      value: '',
+      showErrorMessage: null,
+      hasReceivedValue: false,
     };
     this.setRef = (element) => {
       this.inputRef = element;
     };
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.value !== undefined && this.props.value === undefined && this.props.value !== nextProps.value) {
+      console.log('willreceiveprops and infinite loop');
+      // this.handleInputValidation();
+      this.setState({
+        hasReceivedValue: true,
+      });
+    }
+  }
+  // shouldComponentUpdate(nextProps) {
+  //   const update = nextProps.value !== undefined && this.props.value === undefined && this.props.value !== nextProps.value;
+  //   return !update;
+  // }
+
+
   componentDidUpdate() {
+    if (this.state.hasReceivedValue === true) {
+      const event = new Event('change');
+      this.inputRef.dispatchEvent(event);
+    }
     if (this.props.showErrorMessage === true && this.state.message === '' && this.state.valid === null) {
       this.validateField(null, this.inputRef);
     }
@@ -32,9 +54,10 @@ class InputField extends Component {
    * Calls helper function to validate the input field
    * Sets the the state for the validation and validation message
    */
-  validateField(e, field) {
+  validateField(field) {
     const props = {
-      field: (e !== null) ? e.target : field,
+      field: field,
+      type: this.props.type,
       label: this.props.label,
       required: this.props.required,
       min: this.props.min,
@@ -52,25 +75,15 @@ class InputField extends Component {
   }
 
   /**
-   * Calls validateField method if field is a checkbox.
+   * Calls validateField method.
    * Handles the callback isValid state to parent component.
    */
-  handleInputChange(e) {
-    if ((e.target.required && e.target.type === 'checkbox')) {
-      this.validateField(e);
-    }
-    this.handleInputValidation(e);
-  }
 
   handleInputValidation(e) {
+    const field = (e !== undefined && e !== null) ? e.target : this.inputRef;
+    const validation = this.validateField(field);
     if (typeof this.props.isValid === 'function') {
-      this.props.isValid(this.validateField(e), this.props.name, e.target.value);
-    }
-  }
-
-  handleOnBlur(e) {
-    if (e.target.type !== 'checkbox') {
-      this.validateField(e);
+      this.props.isValid(validation, this.props.name, field.value);
     }
   }
 
@@ -115,8 +128,8 @@ class InputField extends Component {
           defaultChecked={this.props.defaultChecked && this.props.defaultChecked}
           pattern={this.props.pattern && this.props.pattern}
           aria-describedby={`field-label--${this.props.id} field-error--${this.props.id}`}
-          onBlur={e => this.handleOnBlur(e)}
-          onChange={e => this.handleInputChange(e)}
+          onBlur={e => this.handleInputValidation(e)}
+          onChange={e => this.handleInputValidation(e)}
           ref={this.setRef}
           value={this.props.value && this.props.value}
         />

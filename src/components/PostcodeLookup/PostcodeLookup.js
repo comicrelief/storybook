@@ -19,15 +19,23 @@ class PostcodeLookup extends Component {
       addressLookupData: false,
       postcodeValidationMessage: false,
       form: {
-        postcode: '',
-        address1: '',
-        town: '',
+        postcode: undefined,
+        address1: undefined,
+        town: undefined,
+        country: undefined,
+        address2: undefined,
+        address3: undefined,
       },
       showAddressSelect: false,
       showAddressDetails: false,
       validation: {},
     };
-
+    this.setAddressSelectRef = (element) => {
+      this.addressSelectRef = element;
+    };
+    this.setAddressDetailRef = (element) => {
+      this.addressDetailRef = element;
+    };
     this.setCountrySelectRef = (element) => {
       this.countrySelectRef = element;
     };
@@ -38,6 +46,25 @@ class PostcodeLookup extends Component {
 
   componentWillMount() {
     this.createCountryDropdownList();
+  }
+
+  setValidity(name, valid) {
+    if (this.state.form[name] === undefined || this.state.form[name] !== valid.value) {
+      this.setState((prevState) => {
+        return (prevState.form[name] === '' || prevState.form[name] !== valid.value) &&
+          {
+            form: {
+              ...this.state.form,
+              [name]: valid.value,
+            },
+            validation: {
+              ...this.state.validation,
+              [name]: { ...valid },
+            },
+          };
+      });
+    }
+    console.log('valid', name, valid, this.state.form[name]);
   }
 
   /**
@@ -75,8 +102,10 @@ class PostcodeLookup extends Component {
       addresses.push({ label: item.Line1, value: item }));
     this.setState({
       addressDropdownList: addresses,
-      showAddressSelect: true,
     });
+    // show address select field
+    const addressSelect = this.addressSelectRef.selectRef;
+    addressSelect.parentElement.classList.remove('visually-hidden');
   }
 
   /**
@@ -91,7 +120,13 @@ class PostcodeLookup extends Component {
     Object.keys(countries).map(key =>
       dropDownList.push({ label: countries[key], value: key }),
     );
-    this.setState({ countryDropdownList: dropDownList });
+    this.setState({
+      countryDropdownList: dropDownList,
+      form: {
+        ...this.state.form,
+        country: 'GB',
+      },
+    });
   }
 
   /**
@@ -122,6 +157,7 @@ class PostcodeLookup extends Component {
             ...this.state.form,
             address1: address.Line1,
             town: address.posttown,
+            country: 'GB',
           },
         });
 
@@ -133,9 +169,15 @@ class PostcodeLookup extends Component {
   }
 
   showAddressFields() {
-    this.setState({
-      showAddressDetails: true,
-    });
+    // this.setState({
+    //   showAddressDetails: true,
+    // });
+    this.addressDetailRef.classList.remove('visually-hidden');
+  }
+
+
+  sendStateToParent() {
+    // call callback
   }
 
   // /**
@@ -159,6 +201,7 @@ class PostcodeLookup extends Component {
     console.log(this.props.burre);
     return (
       <div className="form__row form__row--billing-detail form__row--address-lookup">
+        <InputField id="check" type="checkbox" name="name" label="checkbox" required />
         <InputField
           id="postcode"
           type="text"
@@ -171,10 +214,11 @@ class PostcodeLookup extends Component {
           buttonValue="FIND ADDRESS"
           emptyFieldErrorText="Please enter your postcode"
           invalidErrorText="Please enter a valid postcode"
-          isValid={(valid, name, value) => { this.updatePostcode(value); }}
+          isValid={(valid, name, value) => { this.updatePostcode(value); this.setValidity(name, valid); }}
           buttonClick={() => { return this.addressLookup().then(() => this.state.postcodeValidationMessage); }}
         />
         <SelectField
+          ref={this.setAddressSelectRef}
           id="addressSelect"
           name="addressSelect"
           label="Select your address"
@@ -186,13 +230,44 @@ class PostcodeLookup extends Component {
         />
         <button className="link" onClick={this.showAddressFields}>Or enter your address manually</button>
         <div
+          ref={this.setAddressDetailRef}
           id="address-detail"
           className={`form__fieldset form__field--address-detail ${this.state.showAddressDetails === false ? 'visually-hidden' : ''}`}
         >
-          <InputField id="address1" type="text" name="address1" label="Address line 1" required value={this.state.form.address1} />
-          <InputField id="address2" type="text" name="address2" label="Address line 2" required={false} />
-          <InputField id="address3" type="text" name="address3" label="Address line 3" required={false} />
-          <InputField id="town" type="text" name="town" label="Town/City" required value={this.state.form.town} />
+          <InputField
+            id="address1"
+            type="text"
+            name="address1"
+            label="Address line 1"
+            required
+            value={this.state.form.address1}
+            isValid={(valid, name) => { this.setValidity(name, valid); }}
+          />
+          <InputField
+            id="address2"
+            type="text"
+            name="address2"
+            label="Address line 2"
+            required={false}
+            isValid={(valid, name) => { this.setValidity(name, valid); }}
+          />
+          <InputField
+            id="address3"
+            type="text"
+            name="address3"
+            label="Address line 3"
+            required={false}
+            isValid={(valid, name) => { this.setValidity(name, valid); }}
+          />
+          <InputField
+            id="town"
+            type="text"
+            name="town"
+            label="Town/City"
+            required
+            value={this.state.form.town}
+            isValid={(valid, name) => { this.setValidity(name, valid); }}
+          />
           <SelectField
             ref={this.setCountrySelectRef}
             id="country"
@@ -200,6 +275,7 @@ class PostcodeLookup extends Component {
             label="Country"
             required
             options={this.state.countryDropdownList}
+            isValid={(valid, name) => { this.setValidity(name, valid); }}
           />
         </div>
       </div>
