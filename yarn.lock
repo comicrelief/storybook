@@ -17,8 +17,8 @@
     js-tokens "^3.0.0"
 
 "@comicrelief/pattern-lab@*":
-  version "7.44.2"
-  resolved "https://registry.yarnpkg.com/@comicrelief/pattern-lab/-/pattern-lab-7.44.2.tgz#95c0fdc8321b16eb568023c982cf4062bfb30b72"
+  version "7.46.2"
+  resolved "https://registry.yarnpkg.com/@comicrelief/pattern-lab/-/pattern-lab-7.46.2.tgz#fee959eb242476e8cf3821acae8ee9c26de6ab41"
   dependencies:
     susy "^2.2.12"
 
@@ -1914,8 +1914,8 @@ batch@0.6.1:
   resolved "https://registry.yarnpkg.com/batch/-/batch-0.6.1.tgz#dc34314f4e679318093fc760272525f94bf25c16"
 
 bcrypt-pbkdf@^1.0.0:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/bcrypt-pbkdf/-/bcrypt-pbkdf-1.0.1.tgz#63bc5dcb61331b92bc05fd528953c33462a06f8d"
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/bcrypt-pbkdf/-/bcrypt-pbkdf-1.0.2.tgz#a4301d389b6a43f9b67ff3ca11a3f6637e360e9e"
   dependencies:
     tweetnacl "^0.14.3"
 
@@ -2278,12 +2278,12 @@ caniuse-api@^1.5.2:
     lodash.uniq "^4.5.0"
 
 caniuse-db@^1.0.30000529, caniuse-db@^1.0.30000634, caniuse-db@^1.0.30000639:
-  version "1.0.30000859"
-  resolved "https://registry.yarnpkg.com/caniuse-db/-/caniuse-db-1.0.30000859.tgz#6e813a1757f19a93cb3675f6b5037aca80bea062"
+  version "1.0.30000861"
+  resolved "https://registry.yarnpkg.com/caniuse-db/-/caniuse-db-1.0.30000861.tgz#6f27840a130c10c0b1e00fab7729c1faf8f4ccd3"
 
 caniuse-lite@^1.0.30000748, caniuse-lite@^1.0.30000792, caniuse-lite@^1.0.30000805, caniuse-lite@^1.0.30000844:
-  version "1.0.30000859"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000859.tgz#da974adc5348fffe94724877a7ef8cb5d6d3d777"
+  version "1.0.30000861"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000861.tgz#a32bb9607c34e4639b497ff37de746fc8a160410"
 
 capture-exit@^1.2.0:
   version "1.2.0"
@@ -2596,9 +2596,13 @@ combined-stream@1.0.6, combined-stream@^1.0.5, combined-stream@~1.0.5:
   dependencies:
     delayed-stream "~1.0.0"
 
-commander@2.15.x, commander@^2.11.0, commander@^2.15.0, commander@^2.9.0, commander@~2.15.0:
+commander@2.15.x, commander@~2.15.0:
   version "2.15.1"
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.15.1.tgz#df46e867d0fc2aec66a34662b406a9ccafff5b0f"
+
+commander@^2.11.0, commander@^2.15.0, commander@^2.9.0:
+  version "2.16.0"
+  resolved "https://registry.yarnpkg.com/commander/-/commander-2.16.0.tgz#f16390593996ceb4f3eeb020b31d78528f7f8a50"
 
 commander@~2.13.0:
   version "2.13.0"
@@ -3017,8 +3021,8 @@ csso@~2.3.1:
     source-map "^0.5.3"
 
 cssom@0.3.x, "cssom@>= 0.3.2 < 0.4.0":
-  version "0.3.2"
-  resolved "https://registry.yarnpkg.com/cssom/-/cssom-0.3.2.tgz#b8036170c79f07a90ff2f16e22284027a243848b"
+  version "0.3.3"
+  resolved "https://registry.yarnpkg.com/cssom/-/cssom-0.3.3.tgz#7b344769915759c2c9e3eb8c26f7fd533dbea252"
 
 "cssstyle@>= 0.2.37 < 0.3.0":
   version "0.2.37"
@@ -4235,8 +4239,8 @@ fast-levenshtein@~2.0.4:
   resolved "https://registry.yarnpkg.com/fast-levenshtein/-/fast-levenshtein-2.0.6.tgz#3d8a5c66883a16a30ca8643e851f19baa7797917"
 
 fast-memoize@^2.2.7:
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/fast-memoize/-/fast-memoize-2.4.0.tgz#2f79eca41c41112b0b70cf53ac3940e206574648"
+  version "2.5.1"
+  resolved "https://registry.yarnpkg.com/fast-memoize/-/fast-memoize-2.5.1.tgz#c3519241e80552ce395e1a32dcdde8d1fd680f5d"
 
 fast-safe-stringify@^2.0.4:
   version "2.0.4"
@@ -5110,6 +5114,10 @@ hoek@2.x.x:
   version "2.16.3"
   resolved "https://registry.yarnpkg.com/hoek/-/hoek-2.16.3.tgz#20bb7403d3cea398e91dc4710a8ff1b8274a25ed"
 
+hoek@4.2.1:
+  version "4.2.1"
+  resolved "https://registry.yarnpkg.com/hoek/-/hoek-4.2.1.tgz#9634502aa12c445dd5a7c5734b572bb8738aacbb"
+
 hoist-non-react-statics@1.x.x, hoist-non-react-statics@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-1.2.0.tgz#aa448cf0986d55cc40773b17174b7dd066cb7cfb"
@@ -5718,12 +5726,6 @@ is-number@^4.0.0:
 is-obj@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/is-obj/-/is-obj-1.0.1.tgz#3e4729ac1f5fde025cd7d83a896dab9f4f67db0f"
-
-is-odd@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/is-odd/-/is-odd-2.0.0.tgz#7646624671fd7ea558ccd9a2795182f2958f1b24"
-  dependencies:
-    is-number "^4.0.0"
 
 is-path-cwd@^1.0.0:
   version "1.0.0"
@@ -6968,8 +6970,8 @@ lodash@~1.3.1:
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-1.3.1.tgz#a4663b53686b895ff074e2ba504dfb76a8e2b770"
 
 logform@^1.9.0:
-  version "1.9.0"
-  resolved "https://registry.yarnpkg.com/logform/-/logform-1.9.0.tgz#7e02f7d6b7f70dcc8ae56fcd2d060f9547afbac2"
+  version "1.9.1"
+  resolved "https://registry.yarnpkg.com/logform/-/logform-1.9.1.tgz#58b29d7b11c332456d7a217e17b48a13ad69d60a"
   dependencies:
     colors "^1.2.1"
     fast-safe-stringify "^2.0.4"
@@ -7347,15 +7349,14 @@ nan@^2.10.0, nan@^2.9.2:
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.10.0.tgz#96d0cd610ebd58d4b4de9cc0c6828cda99c7548f"
 
 nanomatch@^1.2.9:
-  version "1.2.9"
-  resolved "https://registry.yarnpkg.com/nanomatch/-/nanomatch-1.2.9.tgz#879f7150cb2dab7a471259066c104eee6e0fa7c2"
+  version "1.2.13"
+  resolved "https://registry.yarnpkg.com/nanomatch/-/nanomatch-1.2.13.tgz#b87a8aa4fc0de8fe6be88895b38983ff265bd119"
   dependencies:
     arr-diff "^4.0.0"
     array-unique "^0.3.2"
     define-property "^2.0.2"
     extend-shallow "^3.0.2"
     fragment-cache "^0.2.1"
-    is-odd "^2.0.0"
     is-windows "^1.0.2"
     kind-of "^6.0.2"
     object.pick "^1.3.0"
@@ -9035,7 +9036,7 @@ react-is@^16.3.2:
   version "16.4.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.4.1.tgz#d624c4650d2c65dbd52c72622bbf389435d9776e"
 
-react-lifecycles-compat@^3.0.0:
+react-lifecycles-compat@^3.0.0, react-lifecycles-compat@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
 
@@ -9164,12 +9165,13 @@ react-textarea-autosize@^5.2.1:
     prop-types "^15.6.0"
 
 react-transition-group@^2.0.0:
-  version "2.3.1"
-  resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-2.3.1.tgz#31d611b33e143a5e0f2d94c348e026a0f3b474b6"
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-2.4.0.tgz#1d9391fabfd82e016f26fabd1eec329dbd922b5a"
   dependencies:
     dom-helpers "^3.3.1"
     loose-envify "^1.3.1"
-    prop-types "^15.6.1"
+    prop-types "^15.6.2"
+    react-lifecycles-compat "^3.0.4"
 
 react-treebeard@^2.1.0:
   version "2.1.0"
@@ -9183,8 +9185,8 @@ react-treebeard@^2.1.0:
     velocity-react "^1.3.1"
 
 react-vis@^1.9.1:
-  version "1.9.4"
-  resolved "https://registry.yarnpkg.com/react-vis/-/react-vis-1.9.4.tgz#367934fb8fc9bc53026e5d29a3ff810d97f72b03"
+  version "1.10.0"
+  resolved "https://registry.yarnpkg.com/react-vis/-/react-vis-1.10.0.tgz#e6e268d14745d7207bfe4533a0e94451dbb6e4b1"
   dependencies:
     d3-array "^1.2.0"
     d3-collection "^1.0.3"
@@ -9200,6 +9202,7 @@ react-vis@^1.9.1:
     d3-voronoi "^1.1.2"
     deep-equal "^1.0.1"
     global "^4.3.1"
+    hoek "4.2.1"
     prop-types "^15.5.8"
     react-motion "^0.5.2"
 
@@ -10208,14 +10211,15 @@ snyk-config@2.1.0:
     debug "^3.1.0"
     nconf "^0.10.0"
 
-snyk-docker-plugin@1.9.0:
-  version "1.9.0"
-  resolved "https://registry.yarnpkg.com/snyk-docker-plugin/-/snyk-docker-plugin-1.9.0.tgz#7940fb03b07e2f2ce0f6cdafd4fec7585f0dedbc"
+snyk-docker-plugin@1.10.3:
+  version "1.10.3"
+  resolved "https://registry.yarnpkg.com/snyk-docker-plugin/-/snyk-docker-plugin-1.10.3.tgz#2ac2f05ab821e122a5e1851240d3c021bbb8223f"
   dependencies:
     debug "^3.1.0"
     fs-extra "^5.0.0"
     pkginfo "^0.4.1"
     request "^2.87.0"
+    temp-dir "^1.0.0"
 
 snyk-go-plugin@1.5.1:
   version "1.5.1"
@@ -10328,8 +10332,8 @@ snyk-try-require@1.3.1, snyk-try-require@^1.1.1:
     then-fs "^2.0.0"
 
 snyk@^1.52.0:
-  version "1.85.0"
-  resolved "https://registry.yarnpkg.com/snyk/-/snyk-1.85.0.tgz#dbe5b4bc3dee4c3d4c313b8e4d6e9a2275b1ac3b"
+  version "1.88.0"
+  resolved "https://registry.yarnpkg.com/snyk/-/snyk-1.88.0.tgz#10d171427de94f6474d64fdc524d6f87c0ab069e"
   dependencies:
     abbrev "^1.1.1"
     ansi-escapes "^3.1.0"
@@ -10347,7 +10351,7 @@ snyk@^1.52.0:
     recursive-readdir "^2.2.2"
     semver "^5.5.0"
     snyk-config "2.1.0"
-    snyk-docker-plugin "1.9.0"
+    snyk-docker-plugin "1.10.3"
     snyk-go-plugin "1.5.1"
     snyk-gradle-plugin "1.3.0"
     snyk-module "1.8.2"
@@ -11364,8 +11368,8 @@ uuid@^2.0.2:
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-2.0.3.tgz#67e2e863797215530dff318e5bf9dcebfd47b21a"
 
 uuid@^3.0.0, uuid@^3.0.1, uuid@^3.1.0, uuid@^3.2.1:
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.3.0.tgz#b237147804881d7b86f40a7ff8f590f15c37de32"
+  version "3.3.2"
+  resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.3.2.tgz#1b4af4955eb3077c501c23872fc6513811587131"
 
 v8flags@^2.1.1:
   version "2.1.1"
