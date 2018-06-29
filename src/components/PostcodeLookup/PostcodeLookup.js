@@ -44,6 +44,8 @@ class PostcodeLookup extends Component {
     this.showAddressFields = this.showAddressFields.bind(this);
   }
 
+  // TODO: Add shouldComponentUpdate() to prevent children form unnecessarily re-rendering (if that actually works)
+
   componentWillMount() {
     this.createCountryDropdownList();
   }
