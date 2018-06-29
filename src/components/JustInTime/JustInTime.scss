@@ -1,0 +1,13 @@
+@import "~@comicrelief/pattern-lab/sass/base/variables/grid";
+@import "~@comicrelief/pattern-lab/sass/base/variables/colours";
+@import "~@comicrelief/pattern-lab/sass/base/variables/typography";
+/* Pattern Lab Comic Relief theme variables */
+@import "~@comicrelief/pattern-lab/sass/themes/cr/2017/variables/mixins";
+
+@import "~@comicrelief/pattern-lab/sass/base/components/just-in-time-block/_just-in-time";
+
+.form__row--just-in-time-block {
+  .close-link {
+    display: inline
+  }
+}
