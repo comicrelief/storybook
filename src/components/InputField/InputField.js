@@ -13,41 +13,68 @@ class InputField extends Component {
     super();
     // this.handleInputChange = this.handleInputChange.bind(this);
     // this.handleOnBlur = this.handleOnBlur.bind(this);
+    this.validateField = this.validateField.bind(this);
     this.state = {
-      valid: null,
-      message: '',
+      valid: '',
       value: '',
+      message: '',
       showErrorMessage: null,
-      hasReceivedValue: false,
     };
     this.setRef = (element) => {
       this.inputRef = element;
     };
   }
 
+  /**
+   * If component receives different value from parent update state
+   * @param nextProps
+   */
   componentWillReceiveProps(nextProps) {
-    if (nextProps.value !== undefined && this.props.value === undefined && this.props.value !== nextProps.value) {
-      console.log('willreceiveprops and infinite loop');
-      // this.handleInputValidation();
-      this.setState({
-        hasReceivedValue: true,
-      });
+    if (typeof nextProps.value === 'function') {
+      const item = this.getValue();
+      if (item !== undefined && item.value) {
+        this.setState((prevState) => {
+          let newState;
+          if (item.value !== prevState.value) {
+            newState = {
+              value: item.value,
+              message: item.message,
+              valid: item.valid,
+            };
+          }
+          return newState;
+        });
+      }
     }
   }
-  // shouldComponentUpdate(nextProps) {
-  //   const update = nextProps.value !== undefined && this.props.value === undefined && this.props.value !== nextProps.value;
-  //   return !update;
-  // }
 
-
-  componentDidUpdate() {
-    if (this.state.hasReceivedValue === true) {
-      const event = new Event('change');
-      this.inputRef.dispatchEvent(event);
+  /**
+   * If value from parent and value is different handle validation
+   * (inputvalidation will send state back to parent, onchange should work again)
+   * @param prevProps
+   * @param prevState
+   */
+  componentDidUpdate(prevProps, prevState) {
+    if (this.props.type !== 'checkbox' && typeof this.props.value === 'function' &&
+    this.state.value !== prevState.value) {
+      console.log('DID UPDATE inside -- currentState:', this.state.value, 'prevState:', prevState.value);
+      this.handleInputValidation();
     }
     if (this.props.showErrorMessage === true && this.state.message === '' && this.state.valid === null) {
       this.validateField(null, this.inputRef);
     }
+  }
+
+  /**
+   * Get value and its validity from parent
+   * @return {*}
+   */
+  getValue() {
+    let value;
+    if (this.props.value(this.props.id) !== undefined) {
+      value = this.props.value(this.props.id);
+    }
+    return value;
   }
 
   /**
@@ -69,8 +96,12 @@ class InputField extends Component {
     let validation = this.state;
     // helper function will return an updated validation object
     validation = fieldValidation(props, validation);
-    this.setState(validation);
-
+    this.setState({
+      value: validation.value,
+      message: validation.message,
+      valid: validation.valid,
+      showErrorMessage: validation.showErrorMessage,
+    });
     return validation;
   }
 
@@ -78,12 +109,13 @@ class InputField extends Component {
    * Calls validateField method.
    * Handles the callback isValid state to parent component.
    */
-
   handleInputValidation(e) {
+    console.log('INPUTVALIDATION');
     const field = (e !== undefined && e !== null) ? e.target : this.inputRef;
     const validation = this.validateField(field);
+
     if (typeof this.props.isValid === 'function') {
-      this.props.isValid(validation, this.props.name, field.value);
+      this.props.isValid(validation, this.props.name, validation.value);
     }
   }
 
@@ -131,7 +163,7 @@ class InputField extends Component {
           onBlur={e => this.handleInputValidation(e)}
           onChange={e => this.handleInputValidation(e)}
           ref={this.setRef}
-          value={this.props.value && this.props.value}
+          value={this.state.value}
         />
         {this.props.inlineButton === true &&
         <div className="form__btn">
@@ -168,7 +200,7 @@ class InputField extends Component {
 }
 
 InputField.defaultProps = {
-  value: undefined,
+  value: null,
   pattern: '',
   placeholder: '',
   min: null,
@@ -192,7 +224,7 @@ InputField.propTypes = {
   name: propTypes.string.isRequired,
   label: propTypes.string.isRequired,
   required: propTypes.bool.isRequired,
-  value: propTypes.string,
+  value: propTypes.func,
   pattern: propTypes.string,
   placeholder: propTypes.string,
   min: propTypes.number,
@@ -208,6 +240,7 @@ InputField.propTypes = {
   isValid: propTypes.func,
   showErrorMessage: propTypes.bool,
   setBackgroundColor: propTypes.bool,
+
 };
 
 export default InputField;

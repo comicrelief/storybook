@@ -20,7 +20,6 @@ class SelectField extends Component {
   }
 
   componentWillMount() {
-
     this.setState({
       value: this.getSelectedOption(),
     });
@@ -58,7 +57,6 @@ class SelectField extends Component {
    * Returns the value or undefined
    */
   getSelectedOption() {
-    console.log('getselectedoption', this.props.id);
     let selected = this.props.options.find(item => item.selected === true);
     if (selected !== undefined) {
       selected = selected.value;
