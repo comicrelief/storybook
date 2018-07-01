@@ -7,6 +7,7 @@ import SchoolsLookUp from './SchoolsLookUp/SchoolsLookUp';
 import GrantsNearYou from './GrantsNearYou/GrantsNearYou';
 import GrantsInfographics from './GrantsInfographics/GrantsInfographics';
 import CookieConsentMessage from './CookieConsentMessage/CookieConsentMessage';
+import JustInTime from './JustInTime/JustInTime';
 
 export {
   Footer,
@@ -18,4 +19,5 @@ export {
   GrantsNearYou,
   GrantsInfographics,
   CookieConsentMessage,
+  JustInTime,
 };
