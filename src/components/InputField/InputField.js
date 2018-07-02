@@ -79,46 +79,53 @@ class InputField extends Component {
     const showBackgroundClassName = this.props.setBackgroundColor === true && this.props.type === 'checkbox' ? 'form__field-wrapper--background' : '';
     const extraClassName = this.props.extraClass !== '' ? this.props.extraClass : '';
     return (
-      <div id={`field-wrapper--${this.props.id}`} className={`form__fieldset form__field--wrapper form__field-wrapper--${this.props.type} ${errorClassName} ${showBackgroundClassName} ${extraClassName} `}>
-        <label id={`field-label--${this.props.id}`} htmlFor={`field-input--${this.props.id}`} className={`form__field-label${this.props.required ? ' required' : ''} ${this.state.valid === false ? 'error' : ''}`}>
-          {this.props.label}
-          {!this.props.required &&
-          <span>&nbsp;(Optional)&nbsp;</span>
+      <div id={`field-wrapper--${this.props.id}`}>
+        <div className={`form__fieldset form__field--wrapper form__field-wrapper--${this.props.type} ${errorClassName} ${showBackgroundClassName} ${extraClassName} `}>
+          <label id={`field-label--${this.props.id}`} htmlFor={`field-input--${this.props.id}`} className={`form__field-label${this.props.required ? ' required' : ''} ${this.state.valid === false ? 'error' : ''}`}>
+            {this.props.label}
+            {!this.props.required &&
+            <span>&nbsp;(Optional)&nbsp;</span>
+            }
+          </label>
+          {this.props.helpText &&
+          <p className="form-help-text">{this.props.helpText}</p>
           }
-        </label>
-        {this.props.helpText &&
-        <p className="form-help-text">{this.props.helpText}</p>
-        }
-        <input
-          type={this.props.type}
-          id={`field-input--${this.props.id}`}
-          name={this.props.name && this.props.name}
-          className={`form__field form__field--${this.props.type} ${extraClassName} `}
-          required={this.props.required && this.props.required}
-          placeholder={this.props.placeholder && this.props.placeholder}
-          min={this.props.min && this.props.min}
-          max={this.props.max && this.props.max}
-          defaultChecked={this.props.defaultChecked && this.props.defaultChecked}
-          pattern={this.props.pattern && this.props.pattern}
-          aria-describedby={`field-label--${this.props.id} field-error--${this.props.id}`}
-          onBlur={e => this.handleOnBlur(e)}
-          onChange={e => this.handleInputChange(e)}
-          ref={this.setRef}
-        />
-        {this.props.type === 'checkbox' &&
-        // span for checkbox styling
-        <span />
-        }
-        {(this.state.valid === false || (this.props.showErrorMessage === true && this.state.message !== '')) &&
-          <div
-            id={`field-error--${this.props.id}`}
-            className={`form__field-error-container form__field-error-container--${this.props.type}`}
-            aria-live="assertive"
-            role="status"
-          >
-            <span className="form-error">
-              {this.state.message}
-            </span>
+          <input
+            type={this.props.type}
+            id={`field-input--${this.props.id}`}
+            name={this.props.name && this.props.name}
+            className={`form__field form__field--${this.props.type} ${extraClassName} `}
+            required={this.props.required && this.props.required}
+            placeholder={this.props.placeholder && this.props.placeholder}
+            min={this.props.min && this.props.min}
+            max={this.props.max && this.props.max}
+            defaultChecked={this.props.defaultChecked && this.props.defaultChecked}
+            pattern={this.props.pattern && this.props.pattern}
+            aria-describedby={`field-label--${this.props.id} field-error--${this.props.id}`}
+            onBlur={e => this.handleOnBlur(e)}
+            onChange={e => this.handleInputChange(e)}
+            ref={this.setRef}
+          />
+          {this.props.type === 'checkbox' &&
+          // span for checkbox styling
+          <span />
+          }
+          {(this.state.valid === false || (this.props.showErrorMessage === true && this.state.message !== '')) &&
+            <div
+              id={`field-error--${this.props.id}`}
+              className={`form__field-error-container form__field-error-container--${this.props.type}`}
+              aria-live="assertive"
+              role="status"
+            >
+              <span className="form-error">
+                {this.state.message}
+              </span>
+            </div>
+          }
+        </div>
+        {this.props.additionalText !== null &&
+          <div className="form__fieldset form__field--wrapper  form__field-additional-text">
+            <div dangerouslySetInnerHTML={{ __html: this.props.additionalText }} />
           </div>
         }
       </div>
@@ -139,6 +146,7 @@ InputField.defaultProps = {
   isValid: () => {},
   showErrorMessage: null,
   setBackgroundColor: null,
+  additionalText: null,
 };
 
 InputField.propTypes = {
@@ -159,6 +167,7 @@ InputField.propTypes = {
   isValid: propTypes.func,
   showErrorMessage: propTypes.bool,
   setBackgroundColor: propTypes.bool,
+  additionalText: propTypes.string,
 };
 
 export default InputField;
