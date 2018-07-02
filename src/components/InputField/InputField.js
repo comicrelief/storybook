@@ -1,5 +1,4 @@
 /* eslint-env browser */
-/* eslint-disable react/no-danger */
 import React, { Component } from 'react';
 import propTypes from 'prop-types';
 import fieldValidation from './validation';
@@ -126,6 +125,7 @@ class InputField extends Component {
         </div>
         {this.props.additionalText !== null &&
           <div className="form__fieldset form__field--wrapper  form__field-additional-text">
+            { /* eslint-disable react/no-danger */ }
             <div dangerouslySetInnerHTML={{ __html: this.props.additionalText }} />
           </div>
         }
