@@ -224,10 +224,11 @@ class PostcodeLookup extends Component {
    * @return {*}
    */
   addressValue(id) {
-    const value = this.state.validation;
+    let value = this.state.validation;
     if (value[id] !== undefined) {
-      return value[id];
+      value = value[id];
     }
+    return value;
   }
 
   sendStateToParent() {

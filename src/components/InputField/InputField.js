@@ -53,10 +53,6 @@ class InputField extends Component {
    * @param prevState
    */
   componentDidUpdate() {
-    // if (this.props.type !== 'checkbox' && typeof this.props.value === 'function' &&
-    // this.state.value !== prevState.value) {
-    //   // this.handleInputValidation();
-    // }
     if (this.props.showErrorMessage === true && this.state.message === '' && this.state.valid === null) {
       this.validateField(null, this.inputRef);
     }
