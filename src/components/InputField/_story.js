@@ -5,13 +5,14 @@ import { withKnobs, text, number, boolean } from '@storybook/addon-knobs';
 import { withInfo } from '@storybook/addon-info';
 import InputField from './InputField';
 
-let id;
-let type;
-let name;
-let label;
-let required;
-let defaultChecked;
-let min;
+let id = '';
+let type = '';
+let name = '';
+let label = '';
+let required = false;
+let defaultChecked = false;
+let min = null;
+let additionalText = null;
 
 storiesOf('Input Field', module)
   .addDecorator(withKnobs)
@@ -77,6 +78,17 @@ storiesOf('Input Field', module)
       return (<InputField id={id} type={type} name={name} label={label} required={required} />);
     }),
   )
+  .add('Checbox with additional text',
+    withInfo('additonal Text ')(() => {
+      id = text('id', 'checkbox');
+      type = text('type', 'checkbox');
+      name = text('name', 'checkbox');
+      label = text('label', 'Checkbox');
+      required = boolean('required', true);
+      additionalText = '* By ticking I state I am a UK taxpayer making a personal donation and understand that if I pay less Income Tax and/or Capital Gains Tax than the amount of Gift Aid claimed on all my donations, it is my responsibility to pay any difference. <a href="https://www.comicrelief.com/frequently-asked-questions" class="link inline" target="_blank">Find out more</a>';
+      return (<InputField id={id} type={type} name={name} label={label} required={required} additionalText={additionalText} />);
+    }),
+  )
   .add('Number Field with all props possible',
     withInfo('Text field with all ')(() => {
       id = text('id', 'number-all-props');
@@ -93,6 +105,7 @@ storiesOf('Input Field', module)
       const helpText = text('helpText', '13 is not allowed');
       const emptyFieldErrorText = text('emptyFieldErrorText', 'Aren\'t you forgetting something?');
       const invalidErrorText = text('invalidErrorText', 'Only numbers between 2 and 20 but not 13 please');
+      additionalText = 'Some extra text explaining what this is for.'
       return (<InputField
         id={id}
         type={type}
@@ -108,6 +121,7 @@ storiesOf('Input Field', module)
         helpText={helpText}
         emptyFieldErrorText={emptyFieldErrorText}
         invalidErrorText={invalidErrorText}
+        additionalText={additionalText}
       />);
     }),
   );
