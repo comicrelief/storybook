@@ -36,6 +36,7 @@ class InputField extends Component {
         this.setState((prevState) => {
           let newState;
           if (item.value !== prevState.value) {
+            console.log('willreceiveprops', item.value);
             newState = {
               value: item.value,
               message: item.message,
@@ -57,8 +58,8 @@ class InputField extends Component {
   componentDidUpdate(prevProps, prevState) {
     if (this.props.type !== 'checkbox' && typeof this.props.value === 'function' &&
     this.state.value !== prevState.value) {
-      console.log('DID UPDATE inside -- currentState:', this.state.value, 'prevState:', prevState.value);
-      this.handleInputValidation();
+      // console.log('DID UPDATE inside -- currentState:', this.state.value, 'prevState:', prevState.value);
+      // this.handleInputValidation();
     }
     if (this.props.showErrorMessage === true && this.state.message === '' && this.state.valid === null) {
       this.validateField(null, this.inputRef);
@@ -110,7 +111,7 @@ class InputField extends Component {
    * Handles the callback isValid state to parent component.
    */
   handleInputValidation(e) {
-    console.log('INPUTVALIDATION');
+    // console.log('INPUTVALIDATION');
     const field = (e !== undefined && e !== null) ? e.target : this.inputRef;
     const validation = this.validateField(field);
 
@@ -154,7 +155,7 @@ class InputField extends Component {
             id={`field-input--${this.props.id}`}
             name={this.props.name && this.props.name}
             className={`form__field form__field--${this.props.type} ${extraClassName} `}
-            required={this.props.required && this.props.required}
+            required={this.props.required}
             placeholder={this.props.placeholder && this.props.placeholder}
             min={this.props.min && this.props.min}
             max={this.props.max && this.props.max}
@@ -208,6 +209,7 @@ class InputField extends Component {
 InputField.defaultProps = {
   value: null,
   pattern: '',
+  required: false,
   placeholder: '',
   min: null,
   max: null,
@@ -230,7 +232,7 @@ InputField.propTypes = {
   type: propTypes.string.isRequired,
   name: propTypes.string.isRequired,
   label: propTypes.string.isRequired,
-  required: propTypes.bool.isRequired,
+  required: propTypes.bool,
   value: propTypes.func,
   pattern: propTypes.string,
   placeholder: propTypes.string,

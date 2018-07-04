@@ -18,6 +18,7 @@ class PostcodeLookup extends Component {
       countryDropdownList: [],
       addressLookupData: false,
       postcodeValidationMessage: false,
+      previousAddress: '',
       form: {
         postcode: undefined,
         address1: undefined,
@@ -153,14 +154,59 @@ class PostcodeLookup extends Component {
    * Changes country select field back to GB
    * @param value
    */
+  // updateAddress(value) {
+  //   if (value.length >= 1) {
+  //     const address = JSON.parse(value);
+  //     if (this.state.form.address1 === undefined || this.state.form.address1 !== address.Line1) {
+  //       this.setState({
+  //         form: {
+  //           ...this.state.form,
+  //           address1: address.Line1,
+  //         },
+  //         validation: {
+  //           ...this.state.validation,
+  //           address1: {
+  //             valid: true,
+  //             value: address.Line1,
+  //             message: '',
+  //           },
+  //         },
+  //       });
+  //     }
+  //     if (this.state.form.address2 === undefined || this.state.form.address2 !== address.Line2) {
+  //       this.setState({
+  //         form: {
+  //           ...this.state.form,
+  //           address2: address.Line2,
+  //         },
+  //         validation: {
+  //           ...this.state.validation,
+  //           address2: {
+  //             valid: true,
+  //             value: address.Line2,
+  //             message: '',
+  //           },
+  //         },
+  //       });
+  //     }
+  //     this.showAddressFields();
+  //     // change the country back to GB
+  //     this.countrySelectRef.selectRef.selectedIndex = 0;
+  //   }
+  // }
+
   updateAddress(value) {
     if (value.length >= 1) {
       const address = JSON.parse(value);
-      if (this.state.form.address1 === undefined || this.state.form.address1 !== address.Line1) {
+      console.log('ADDRESS=', address, 'line', address.Line2);
+      console.log('state form address1', this.state.form.address1, 'api address line 1', address.Line1);
+      if (this.state.previousAddress === undefined || this.state.previousAddress !== address.Line1) {
         this.setState({
+          previousAddress: address.Line1,
           form: {
             ...this.state.form,
             address1: address.Line1,
+            address2: '',
             town: address.posttown,
             country: 'GB',
           },
@@ -169,6 +215,11 @@ class PostcodeLookup extends Component {
             address1: {
               valid: true,
               value: address.Line1,
+              message: '',
+            },
+            address2: {
+              valid: true,
+              value: address.Line2 !== undefined ? address.Line2 : '',
               message: '',
             },
             town: {
@@ -186,10 +237,11 @@ class PostcodeLookup extends Component {
 
         this.showAddressFields();
         // change the country back to GB
-        this.countrySelectRef.selectRef.selectedIndex = 0;
+        // this.countrySelectRef.selectRef.selectedIndex = 0;
       }
     }
   }
+
 
   showAddressFields() {
     this.addressDetailRef.classList.remove('visually-hidden');
@@ -204,8 +256,10 @@ class PostcodeLookup extends Component {
    */
   addressValue(id) {
     const value = this.state.validation;
-    console.log('addressValue = ', value[id]);
-    return value[id];
+    if (value[id] !== undefined) {
+      // console.log('addressValue = ', value[id]);
+      return value[id];
+    }
   }
 
   sendStateToParent() {
@@ -281,7 +335,7 @@ class PostcodeLookup extends Component {
             type="text"
             name="address2"
             label="Address line 2"
-            required={false}
+            value={id => this.addressValue(id)}
             isValid={(valid, name) => { this.setValidity(name, valid); }}
           />
           <InputField
