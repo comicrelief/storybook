@@ -11,8 +11,6 @@ import fieldValidation from './validation';
 class InputField extends Component {
   constructor() {
     super();
-    // this.handleInputChange = this.handleInputChange.bind(this);
-    // this.handleOnBlur = this.handleOnBlur.bind(this);
     this.validateField = this.validateField.bind(this);
     this.state = {
       valid: '',
@@ -32,11 +30,10 @@ class InputField extends Component {
   componentWillReceiveProps(nextProps) {
     if (typeof nextProps.value === 'function') {
       const item = this.getValue();
-      if (item !== undefined && item.value) {
+      if (item !== undefined) {
         this.setState((prevState) => {
           let newState;
           if (item.value !== prevState.value) {
-            console.log('willreceiveprops', item.value);
             newState = {
               value: item.value,
               message: item.message,
@@ -55,12 +52,11 @@ class InputField extends Component {
    * @param prevProps
    * @param prevState
    */
-  componentDidUpdate(prevProps, prevState) {
-    if (this.props.type !== 'checkbox' && typeof this.props.value === 'function' &&
-    this.state.value !== prevState.value) {
-      // console.log('DID UPDATE inside -- currentState:', this.state.value, 'prevState:', prevState.value);
-      // this.handleInputValidation();
-    }
+  componentDidUpdate() {
+    // if (this.props.type !== 'checkbox' && typeof this.props.value === 'function' &&
+    // this.state.value !== prevState.value) {
+    //   // this.handleInputValidation();
+    // }
     if (this.props.showErrorMessage === true && this.state.message === '' && this.state.valid === null) {
       this.validateField(null, this.inputRef);
     }
@@ -111,7 +107,6 @@ class InputField extends Component {
    * Handles the callback isValid state to parent component.
    */
   handleInputValidation(e) {
-    // console.log('INPUTVALIDATION');
     const field = (e !== undefined && e !== null) ? e.target : this.inputRef;
     const validation = this.validateField(field);
 
