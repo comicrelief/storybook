@@ -122,10 +122,12 @@ class InputField extends Component {
     if (typeof this.props.buttonClick === 'function') {
       this.props.buttonClick()
         .then((result) => {
-          this.setState({
-            valid: false,
-            message: result,
-          });
+          if (result) {
+            this.setState({
+              valid: false,
+              message: result,
+            });
+          }
         });
     }
   }
