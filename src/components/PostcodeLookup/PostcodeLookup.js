@@ -271,7 +271,14 @@ class PostcodeLookup extends Component {
           invalidErrorText="Please enter a valid postcode"
           value={id => this.addressValue(id)}
           isValid={(valid, name, value) => { this.updatePostcode(value); this.setValidity(name, valid); }}
-          buttonClick={() => { return this.addressLookup().then(() => this.state.postcodeValidationMessage); }}
+          buttonClick={() => {
+            return this.addressLookup().then(() => {
+              return this.state.postcodeValidationMessage !== false ?
+                { message: this.state.postcodeValidationMessage,
+                  valid: false,
+                } : '';
+            });
+          }}
           showErrorMessage={false}
         />
         <SelectField

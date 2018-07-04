@@ -112,7 +112,9 @@ class InputField extends Component {
   }
 
   /**
-   * Callback to handle the button click.
+   * Calls callback to handle the button click.
+   * If there's a result from the parent (e.g. validation info from API) set the state with this new validation info
+   * Expects callback to be a promise
    */
   btnClickHandler() {
     if (typeof this.props.buttonClick === 'function') {
@@ -120,8 +122,8 @@ class InputField extends Component {
         .then((result) => {
           if (result) {
             this.setState({
-              valid: false,
-              message: result,
+              valid: result.valid,
+              message: result.message,
             });
           }
         });

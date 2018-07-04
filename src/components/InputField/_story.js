@@ -74,10 +74,31 @@ storiesOf('Input Field', module)
       type = text('type', 'text');
       name = text('name', 'textfield');
       label = text('label', 'Optional text field with only required props');
-      required = boolean('required', false);
       return (<InputField id={id} type={type} name={name} label={label} required={required} />);
     }),
   )
+  .add('Text Field with inline button',
+    withInfo('Text field with all ')(() => {
+      id= text('id', 'textfield-with-button');
+      type = text('type', 'text');
+      name = text('name', 'textfieldBtn');
+      label = text('label', 'Text field with inline button');
+      const buttonValue=text('buttonValue', 'CLICK ME');
+      return (<InputField
+        id={id}
+        type={type}
+        name={name}
+        label={label}
+        required={required}
+        inlineButton
+        buttonValue={buttonValue}
+        buttonClick={() => Promise.resolve({valid: true, message: 'result of your click'}).then(alert('check the state!'))}
+        isValid={(valid, name, value) => console.log('valid = ' , valid, ' name = ', name, ' value = ', value) }
+        additionalText='Button click will set the state of the child with validation and message info from parent. Use cases: API calls returning messages e.g. postcode lookup and email sign up'
+      />);
+    }),
+  )
+
   .add('Checbox with additional text',
     withInfo('additonal Text ')(() => {
       id = text('id', 'checkbox');
