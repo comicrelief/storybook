@@ -19,8 +19,6 @@ class PostcodeLookup extends Component {
       addressLookupData: false,
       postcodeValidationMessage: false,
       previousAddress: '',
-      showAddressSelect: false,
-      showAddressDetails: false,
       validation: {
         postcode: {
           valid: null,
