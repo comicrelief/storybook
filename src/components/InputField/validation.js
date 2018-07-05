@@ -97,19 +97,23 @@ function getMessage(input, props, type, value) {
  */
 export default function fieldValidation(props, validation) {
   const updatedValidation = validation;
-  const type = props.field.type;
+  const type = props.type;
   const value = type === 'checkbox' ? props.field.checked : props.field.value;
   const emptyField = isEmpty(value, props.required, type);
+  updatedValidation.value = value;
   if (emptyField === true) {
     updatedValidation.valid = false;
     updatedValidation.message = getMessage('empty', props);
+    updatedValidation.showErrorMessage = true;
   } else if (emptyField === false) {
     const validInput = isValidInput(type, props, value);
     updatedValidation.valid = validInput !== false;
     updatedValidation.message = validInput === false ? getMessage('invalid', props, type, value) : '';
+    updatedValidation.showErrorMessage = validInput !== true;
   } else {
     updatedValidation.valid = true;
     updatedValidation.message = '';
+    updatedValidation.showErrorMessage = false;
   }
   return validation;
 }

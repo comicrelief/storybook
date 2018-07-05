@@ -9,22 +9,40 @@ class SelectField extends Component {
     this.state = {
       valid: null,
       message: '',
-      value: this.getSelectedOption(),
+      value: '',
       showErrorMessage: this.props.showErrorMessage,
     };
     this.setRef = (element) => {
-      this.inputRef = element;
+      this.selectRef = element;
     };
     this.validateField = this.validateField.bind(this);
     this.onChangeHandler = this.onChangeHandler.bind(this);
   }
 
+  componentWillMount() {
+    this.setState({
+      value: this.getSelectedOption(),
+    });
+  }
   /**
    * Validate initial state
    * (will trigger an update through the validateField function)
    */
   componentDidMount() {
     this.validateField();
+  }
+
+  /**
+   * If parent updates the value update state with new value
+   * @param nextProps
+   */
+  componentWillReceiveProps(nextProps) {
+    if (typeof this.props.value === 'function' && this.state.value !== nextProps.value()) {
+      this.setState({
+        ...this.state,
+        value: nextProps.value(),
+      });
+    }
   }
 
   /**
@@ -64,7 +82,7 @@ class SelectField extends Component {
    */
   sendStateToParent() {
     if (typeof this.props.isValid === 'function') {
-      this.props.isValid(this.state, this.state.value, this.props.name);
+      this.props.isValid(this.state, this.props.name, this.state.value);
     }
   }
 
@@ -77,10 +95,19 @@ class SelectField extends Component {
     this.props.options.map(item =>
       options.push(<option
         key={item.label}
-        value={item.value !== undefined ? item.value : ''}
+        value={item.value !== undefined ? this.checkValueType(item.value) : ''}
         disabled={item.disabled}
       >{item.label}</option>));
     return options;
+  }
+
+  /**
+   * If value is an object, json stringify it
+   * @param value
+   * @returns {*}
+   */
+  checkValueType(value) {
+    return typeof value === 'object' ? JSON.stringify(value) : value;
   }
 
   /**
@@ -88,7 +115,7 @@ class SelectField extends Component {
    * @param e
    */
   validateField(e) {
-    const value = e !== undefined ? e.target.value : this.inputRef.value;
+    const value = e !== undefined ? e.target.value : this.selectRef.value;
     if (this.props.required === true && value === '') {
       this.setState({
         valid: false,
@@ -162,6 +189,7 @@ SelectField.defaultProps = {
   extraClass: '',
   isValid: () => {},
   showErrorMessage: false,
+  value: null,
 };
 
 SelectField.propTypes = {
@@ -171,10 +199,13 @@ SelectField.propTypes = {
   required: propTypes.bool.isRequired,
   options: propTypes.arrayOf(propTypes.shape({
     label: propTypes.string.isRequired,
-    value: propTypes.string,
+    value: propTypes.oneOfType([
+      propTypes.string,
+      propTypes.object]),
     selected: propTypes.bool,
     disabled: propTypes.bool,
   }).isRequired).isRequired,
+  value: propTypes.func,
   extraClass: propTypes.string,
   isValid: propTypes.func,
   showErrorMessage: propTypes.bool,
