@@ -16,7 +16,7 @@ class InputField extends Component {
       valid: '',
       value: '',
       message: '',
-      showErrorMessage: null,
+      showErrorMessage: false,
     };
     this.setRef = (element) => {
       this.inputRef = element;
