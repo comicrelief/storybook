@@ -10,6 +10,6 @@ storiesOf('PostcodeLookup', module)
   .addDecorator(withKnobs)
   .add('Postcode lookup',
     withInfo('Required')(() => {
-      return (<PostcodeLookup burre="bla"/>);
+      return (<PostcodeLookup isAddressValid={(validation) => console.log(validation) }/>);
     }),
   );

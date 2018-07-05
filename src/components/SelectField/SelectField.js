@@ -33,6 +33,19 @@ class SelectField extends Component {
   }
 
   /**
+   * If parent updates the value update state with new value
+   * @param nextProps
+   */
+  componentWillReceiveProps(nextProps) {
+    if (typeof this.props.value === 'function' && this.state.value !== nextProps.value()) {
+      this.setState({
+        ...this.state,
+        value: nextProps.value(),
+      });
+    }
+  }
+
+  /**
    * When component has updated send state to parent
    */
   componentDidUpdate() {
@@ -176,6 +189,7 @@ SelectField.defaultProps = {
   extraClass: '',
   isValid: () => {},
   showErrorMessage: false,
+  value: null,
 };
 
 SelectField.propTypes = {
@@ -191,6 +205,7 @@ SelectField.propTypes = {
     selected: propTypes.bool,
     disabled: propTypes.bool,
   }).isRequired).isRequired,
+  value: propTypes.func,
   extraClass: propTypes.string,
   isValid: propTypes.func,
   showErrorMessage: propTypes.bool,

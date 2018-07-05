@@ -19,17 +19,40 @@ class PostcodeLookup extends Component {
       addressLookupData: false,
       postcodeValidationMessage: false,
       previousAddress: '',
-      form: {
-        postcode: undefined,
-        address1: undefined,
-        address2: undefined,
-        address3: undefined,
-        town: undefined,
-        country: undefined,
-      },
       showAddressSelect: false,
       showAddressDetails: false,
-      validation: {},
+      validation: {
+        postcode: {
+          valid: null,
+          message: '',
+          value: '',
+        },
+        address1: {
+          valid: null,
+          message: '',
+          value: '',
+        },
+        address2: {
+          valid: null,
+          message: '',
+          value: '',
+        },
+        address3: {
+          valid: null,
+          message: '',
+          value: '',
+        },
+        town: {
+          valid: null,
+          message: '',
+          value: '',
+        },
+        country: {
+          valid: null,
+          message: '',
+          value: '',
+        },
+      },
     };
     this.setAddressSelectRef = (element) => {
       this.addressSelectRef = element;
@@ -50,17 +73,23 @@ class PostcodeLookup extends Component {
   }
 
   /**
+   * Send validation to Parent
+   */
+  componentDidUpdate() {
+    if (typeof this.props.isAddressValid === 'function') {
+      this.props.isAddressValid(this.state.validation);
+    }
+  }
+
+  /**
    * Update state with value and validity from child
    * @param name
    * @param valid
    */
   setValidity(name, valid) {
-    if (this.state.form[name] === undefined || this.state.form[name] !== valid.value) {
+    if ((this.state.validation[name].value === undefined || this.state.validation[name].value !== valid.value) ||
+      (this.state.validation[name].message !== valid.message)) {
       this.setState({
-        form: {
-          ...this.state.form,
-          [name]: valid.value,
-        },
         validation: {
           ...this.state.validation,
           [name]: {
@@ -78,7 +107,7 @@ class PostcodeLookup extends Component {
    * @return {Promise}
    */
   addressLookup() {
-    return fetch(`https://lookups.sls.comicrelief.com/postcode/lookup?query=${this.state.form.postcode}`, {
+    return fetch(`https://lookups.sls.comicrelief.com/postcode/lookup?query=${this.state.validation.postcode.value}`, {
       method: 'get',
       headers: { 'Content-Type': 'application/json' },
     })
@@ -128,22 +157,13 @@ class PostcodeLookup extends Component {
     );
     this.setState({
       countryDropdownList: dropDownList,
-      form: {
-        ...this.state.form,
-        country: 'GB',
-      },
-    });
-  }
-
-  /**
-   * Updates state with new postcode value
-   * @param value
-   */
-  updatePostcode(value) {
-    this.setState({
-      form: {
-        ...this.state.form,
-        postcode: value,
+      validation: {
+        ...this.state.validation,
+        country: {
+          valid: true,
+          message: '',
+          value: 'GB',
+        },
       },
     });
   }
@@ -160,15 +180,6 @@ class PostcodeLookup extends Component {
       if (address && (this.state.previousAddress === undefined || this.state.previousAddress !== address.Line1)) {
         this.setState({
           previousAddress: address.Line1,
-          form: {
-            ...this.state.form,
-            postcode: address.postcode,
-            address1: address.Line1,
-            address2: !address.Line2 ? '' : address.Line2,
-            address3: !address.Line3 ? '' : address.Line3,
-            town: address.posttown,
-            country: 'GB',
-          },
           validation: {
             ...this.state.validation,
             postcode: {
@@ -203,7 +214,6 @@ class PostcodeLookup extends Component {
             },
           },
         });
-
         this.showAddressFields();
         // change the country back to GB
         this.countrySelectRef.selectRef.selectedIndex = 0;
@@ -211,12 +221,10 @@ class PostcodeLookup extends Component {
     }
   }
 
-
   showAddressFields() {
     this.addressDetailRef.classList.remove('visually-hidden');
   }
 
-  // Todo: fix address1
   /**
    * Gets validation info from state and returns it to child
    * Everything works fine for the Town field, but not for Address1 :/
@@ -230,33 +238,21 @@ class PostcodeLookup extends Component {
     }
     return value;
   }
-
-  sendStateToParent() {
-    // component needs prop for callback function to deal with this
+  returnPostcodeValidation() {
+    return this.state.postcodeValidationMessage !== false ? {
+      message: this.state.postcodeValidationMessage,
+      valid: false,
+      showErrorMessage: true,
+    } : '';
   }
-
-  // /**
-  //  * Update the parent state with required variables
-  //  */
-  // updateParentState() {
-  //   // Update the parent state with form values
-  //   this.props.parentStateUpdate(this.state.form);
-  //
-  //   // Update the validation status of the component to the parent
-  //   this.props.validationUpdate(this.state.validation.address1 === true &&
-  //     this.state.validation.postcode === true &&
-  //     this.state.validation.town);
-  // }
 
   /**
    * AddressLookup render
    * @return {*}
    */
   render() {
-    console.log(this.props.burre);
     return (
       <div className="form__row form__row--billing-detail form__row--address-lookup">
-        <InputField id="check" type="checkbox" name="name" label="checkbox" required />
         <InputField
           id="postcode"
           type="text"
@@ -270,15 +266,8 @@ class PostcodeLookup extends Component {
           emptyFieldErrorText="Please enter your postcode"
           invalidErrorText="Please enter a valid postcode"
           value={id => this.addressValue(id)}
-          isValid={(valid, name, value) => { this.updatePostcode(value); this.setValidity(name, valid); }}
-          buttonClick={() => {
-            return this.addressLookup().then(() => {
-              return this.state.postcodeValidationMessage !== false ?
-                { message: this.state.postcodeValidationMessage,
-                  valid: false,
-                } : '';
-            });
-          }}
+          isValid={(valid, name) => { this.setValidity(name, valid); }}
+          buttonClick={() => { return this.addressLookup().then(() => this.returnPostcodeValidation()); }}
           showErrorMessage={false}
         />
         <SelectField
@@ -339,6 +328,7 @@ class PostcodeLookup extends Component {
             label="Country"
             required
             options={this.state.countryDropdownList}
+            value={() => this.state.validation.country.value}
             isValid={(valid, name) => { this.setValidity(name, valid); }}
           />
         </div>
@@ -347,10 +337,12 @@ class PostcodeLookup extends Component {
   }
 }
 
-// TODO update props
-PostcodeLookup.propTypes = {
-  burre: propTypes.string.isRequired,
 
+PostcodeLookup.defaultProps = {
+  isAddressValid: null,
+};
+PostcodeLookup.propTypes = {
+  isAddressValid: propTypes.func,
 };
 
 export default PostcodeLookup;

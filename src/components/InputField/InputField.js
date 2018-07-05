@@ -47,12 +47,15 @@ class InputField extends Component {
   }
 
   /**
-   * If value from parent and value is different handle validation
-   * (inputvalidation will send state back to parent, onchange should work again)
+   * If value from parent and value is different send state to parent
    * @param prevProps
    * @param prevState
    */
   componentDidUpdate() {
+    if (this.props.type !== 'checkbox' && typeof this.props.value === 'function' && typeof this.props.isValid === 'function') {
+      this.props.isValid(this.state, this.props.name, this.state.value);
+    }
+
     if (this.props.showErrorMessage === true && this.state.message === '' && this.state.valid === null) {
       this.validateField(null, this.inputRef);
     }
@@ -122,8 +125,10 @@ class InputField extends Component {
         .then((result) => {
           if (result) {
             this.setState({
+              ...this.state,
               valid: result.valid,
               message: result.message,
+              showErrorMessage: result.showErrorMessage,
             });
           }
         });
