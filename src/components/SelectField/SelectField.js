@@ -1,7 +1,7 @@
 /* eslint-env browser */
 import React, { Component } from 'react';
 import propTypes from 'prop-types';
-import './SelectField.scss'
+import './SelectField.scss';
 
 
 class SelectField extends Component {
