@@ -255,7 +255,7 @@ class PostcodeLookup extends Component {
           id="postcode"
           type="text"
           name="postcode"
-          label="Enter your postcode"
+          label={this.props.label}
           required
           placeholder="SE1 7TP"
           pattern="[A-Za-z]{1,2}[0-9Rr][0-9A-Za-z]?( |)[0-9][ABD-HJLNP-UW-Zabd-hjlnp-uw-z]{2}"
@@ -338,9 +338,11 @@ class PostcodeLookup extends Component {
 
 PostcodeLookup.defaultProps = {
   isAddressValid: null,
+  label: 'Postcode',
 };
 PostcodeLookup.propTypes = {
   isAddressValid: propTypes.func,
+  label: propTypes.string,
 };
 
 export default PostcodeLookup;

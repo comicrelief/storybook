@@ -150,34 +150,36 @@ class InputField extends Component {
           {this.props.helpText &&
           <p className="form-help-text">{this.props.helpText}</p>
           }
-          <input
-            type={this.props.type}
-            id={`field-input--${this.props.id}`}
-            name={this.props.name && this.props.name}
-            className={`form__field form__field--${this.props.type} ${extraClassName} `}
-            required={this.props.required}
-            placeholder={this.props.placeholder && this.props.placeholder}
-            min={this.props.min && this.props.min}
-            max={this.props.max && this.props.max}
-            defaultChecked={this.props.defaultChecked && this.props.defaultChecked}
-            pattern={this.props.pattern && this.props.pattern}
-            aria-describedby={`field-label--${this.props.id} field-error--${this.props.id}`}
-            onBlur={e => this.handleInputValidation(e)}
-            onChange={e => this.handleInputValidation(e)}
-            ref={this.setRef}
-            value={this.state.value}
-          />
-          {this.props.inlineButton === true &&
-          <div className="form__btn">
+          <div className={`form__field--${this.props.id}`} >
             <input
-              type="button"
-              id={`${this.props.id}_button`}
-              className={`form__btn--${this.props.id}`}
-              value={this.props.buttonValue}
-              onClick={e => this.btnClickHandler(e)}
+              type={this.props.type}
+              id={`field-input--${this.props.id}`}
+              name={this.props.name && this.props.name}
+              className={`form__field form__field--${this.props.type} ${extraClassName} `}
+              required={this.props.required}
+              placeholder={this.props.placeholder && this.props.placeholder}
+              min={this.props.min && this.props.min}
+              max={this.props.max && this.props.max}
+              defaultChecked={this.props.defaultChecked && this.props.defaultChecked}
+              pattern={this.props.pattern && this.props.pattern}
+              aria-describedby={`field-label--${this.props.id} field-error--${this.props.id}`}
+              onBlur={e => this.handleInputValidation(e)}
+              onChange={e => this.handleInputValidation(e)}
+              ref={this.setRef}
+              value={this.state.value}
             />
+            {this.props.inlineButton === true &&
+            <div className="form__btn">
+              <input
+                type="button"
+                id={`${this.props.id}_button`}
+                className={`form__btn--${this.props.id}`}
+                value={this.props.buttonValue}
+                onClick={e => this.btnClickHandler(e)}
+              />
+            </div>
+            }
           </div>
-          }
           {this.props.type === 'checkbox' &&
           // span for checkbox styling
           <span />
