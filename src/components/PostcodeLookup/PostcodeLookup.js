@@ -219,7 +219,8 @@ class PostcodeLookup extends Component {
     }
   }
 
-  showAddressFields() {
+  showAddressFields(e) {
+    e.preventDefault();
     this.addressDetailRef.classList.remove('visually-hidden');
   }
 
@@ -279,7 +280,7 @@ class PostcodeLookup extends Component {
           showErrorMessage={false}
           isValid={(valid, name, value) => { this.updateAddress(value); }}
         />
-        <button className="link" onClick={this.showAddressFields}>Or enter your address manually</button>
+        <a href="" role="button" className="link" onClick={e => this.showAddressFields(e)}>Or enter your address manually</a>
         <div
           ref={this.setAddressDetailRef}
           id="address-detail"
