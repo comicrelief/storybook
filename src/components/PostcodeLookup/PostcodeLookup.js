@@ -5,6 +5,7 @@ import propTypes from 'prop-types';
 import SelectField from '../SelectField/SelectField';
 import InputField from '../InputField/InputField';
 import countries from './countries.json';
+import './PostcodeLookup.scss';
 
 
 class PostcodeLookup extends Component {
