@@ -52,7 +52,7 @@ class InputField extends Component {
    * @param prevState
    */
   componentDidUpdate() {
-    if (this.props.type !== 'checkbox' && typeof this.props.value === 'function' && typeof this.props.isValid === 'function') {
+    if (this.props.type !== 'checkbox' && typeof this.props.isValid === 'function') {
       this.props.isValid(this.state, this.props.name, this.state.value);
     }
 
@@ -155,7 +155,7 @@ class InputField extends Component {
               type={this.props.type}
               id={`field-input--${this.props.id}`}
               name={this.props.name && this.props.name}
-              className={`form__field form__field--${this.props.type} ${extraClassName} `}
+              className={`form__field form__field--${this.props.type} `}
               required={this.props.required}
               placeholder={this.props.placeholder && this.props.placeholder}
               min={this.props.min && this.props.min}
