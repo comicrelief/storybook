@@ -221,7 +221,10 @@ class PostcodeLookup extends Component {
   }
 
   showAddressFields(e) {
-    e.preventDefault();
+    if (e !== undefined) {
+      e.preventDefault();
+    }
+
     this.addressDetailRef.classList.remove('visually-hidden');
   }
 
