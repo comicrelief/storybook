@@ -187,11 +187,11 @@ class InputField extends Component {
               />
             </div>
             }
+            {this.props.type === 'checkbox' &&
+            // span for checkbox styling
+            <span />
+            }
           </div>
-          {this.props.type === 'checkbox' &&
-          // span for checkbox styling
-          <span />
-          }
           {(this.state.valid === false || (this.props.showErrorMessage === true && this.state.message !== '')) &&
             <div
               id={`field-error--${this.props.id}`}
