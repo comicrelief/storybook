@@ -18,6 +18,7 @@ class PostcodeLookup extends Component {
       countryDropdownList: [],
       addressLookupData: false,
       postcodeValidationMessage: false,
+      showErrorMessages: false,
       previousAddress: '',
       validation: {
         postcode: {
@@ -68,6 +69,19 @@ class PostcodeLookup extends Component {
 
   componentWillMount() {
     this.createCountryDropdownList();
+  }
+
+  /**
+   * If parent wants to show error messages, update errorMessages state
+   * @param nextProps
+   */
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.showErrorMessages && nextProps.showErrorMessages !== this.state.showErrorMessages) {
+      this.setState({
+        ...this.state,
+        showErrorMessages: nextProps.showErrorMessages,
+      });
+    }
   }
 
   /**
@@ -271,7 +285,7 @@ class PostcodeLookup extends Component {
           value={id => this.addressValue(id)}
           isValid={(valid, name) => { this.setValidity(name, valid); }}
           buttonClick={() => { return this.addressLookup().then(() => this.returnPostcodeValidation()); }}
-          showErrorMessage={false}
+          showErrorMessage={this.state.showErrorMessages}
         />
         <SelectField
           ref={this.setAddressSelectRef}
@@ -281,7 +295,7 @@ class PostcodeLookup extends Component {
           required={false}
           options={this.state.addressDropdownList}
           extraClass="visually-hidden"
-          showErrorMessage={false}
+          showErrorMessage={this.state.showErrorMessages}
           isValid={(valid, name, value) => { this.updateAddress(value); }}
         />
         <a href="" role="button" className="link" onClick={e => this.showAddressFields(e)}>Or enter your address manually</a>
@@ -297,6 +311,7 @@ class PostcodeLookup extends Component {
             label="Address line 1"
             required
             value={id => this.addressValue(id)}
+            showErrorMessage={this.state.showErrorMessages}
             isValid={(valid, name) => { this.setValidity(name, valid); }}
           />
           <InputField
@@ -322,6 +337,7 @@ class PostcodeLookup extends Component {
             label="Town/City"
             required
             value={id => this.addressValue(id)}
+            showErrorMessage={this.state.showErrorMessages}
             isValid={(valid, name) => { this.setValidity(name, valid); }}
           />
           <SelectField
@@ -332,6 +348,7 @@ class PostcodeLookup extends Component {
             required
             options={this.state.countryDropdownList}
             value={() => this.state.validation.country.value}
+            showErrorMessage={this.state.showErrorMessages}
             isValid={(valid, name) => { this.setValidity(name, valid); }}
           />
         </div>
@@ -344,10 +361,12 @@ class PostcodeLookup extends Component {
 PostcodeLookup.defaultProps = {
   isAddressValid: null,
   label: 'Postcode',
+  showErrorMessages: false,
 };
 PostcodeLookup.propTypes = {
   isAddressValid: propTypes.func,
   label: propTypes.string,
+  showErrorMessages: propTypes.bool,
 };
 
 export default PostcodeLookup;

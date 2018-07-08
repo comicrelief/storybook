@@ -24,7 +24,7 @@ class InputField extends Component {
   }
 
   /**
-   * If component receives different value from parent update state
+   * If component receives different props from parent, update state
    * @param nextProps
    */
   componentWillReceiveProps(nextProps) {
@@ -44,18 +44,26 @@ class InputField extends Component {
         });
       }
     }
+    if (nextProps.showErrorMessage !== this.state.showErrorMessage) {
+      this.setState({
+        ...this.state,
+        showErrorMessage: nextProps.showErrorMessage,
+      });
+    }
   }
 
   /**
-   * If value from parent and value is different send state to parent
-   * @param prevProps
-   * @param prevState
+   * If value from parent and value is different send state to parent.
+   * Validate field if parent wants to show error messages
    */
   componentDidUpdate() {
     if (this.props.type !== 'checkbox' && typeof this.props.isValid === 'function') {
       this.props.isValid(this.state, this.props.name, this.state.value);
     }
-
+    if (this.state.showErrorMessage === true && this.state.message === '') {
+      this.handleInputValidation();
+    }
+    // keeping this to not break certain environments
     if (this.props.showErrorMessage === true && this.state.message === '' && this.state.valid === null) {
       this.validateField(null, this.inputRef);
     }
