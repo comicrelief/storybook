@@ -152,7 +152,7 @@ class PostcodeLookup extends Component {
     });
     // show address select field
     const addressSelect = this.addressSelectRef.selectRef;
-    addressSelect.parentElement.classList.remove('visually-hidden');
+    this.removeClassName(addressSelect.parentElement, 'visually-hidden');
   }
 
   /**
@@ -237,8 +237,21 @@ class PostcodeLookup extends Component {
     if (e !== undefined) {
       e.preventDefault();
     }
+    this.removeClassName(this.addressDetailRef, 'visually-hidden');
+  }
 
-    this.addressDetailRef.classList.remove('visually-hidden');
+  /**
+   * Removes class name from element
+   * Works in IE9
+   * @param element
+   * @param className
+   */
+  removeClassName(ref, className) {
+    const element = ref;
+    const classes = element.getAttribute('class').split(' ');
+    const i = classes.indexOf(className);
+    classes.splice(i, 1);
+    element.className = classes;
   }
 
   /**
@@ -298,7 +311,9 @@ class PostcodeLookup extends Component {
           showErrorMessage={this.state.showErrorMessages}
           isValid={(valid, name, value) => { this.updateAddress(value); }}
         />
-        <a href="" role="button" className="link" onClick={e => this.showAddressFields(e)}>Or enter your address manually</a>
+        <div className="form__field--wrapper">
+          <a href="" role="button" className="link" onClick={e => this.showAddressFields(e)}>Or enter your address manually</a>
+        </div>
         <div
           ref={this.setAddressDetailRef}
           id="address-detail"
