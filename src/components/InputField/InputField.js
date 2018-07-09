@@ -24,7 +24,7 @@ class InputField extends Component {
   }
 
   /**
-   * If component receives different value from parent update state
+   * If component receives different props from parent, update state
    * @param nextProps
    */
   componentWillReceiveProps(nextProps) {
@@ -44,18 +44,26 @@ class InputField extends Component {
         });
       }
     }
+    if (nextProps.showErrorMessage !== this.state.showErrorMessage) {
+      this.setState({
+        ...this.state,
+        showErrorMessage: nextProps.showErrorMessage,
+      });
+    }
   }
 
   /**
-   * If value from parent and value is different send state to parent
-   * @param prevProps
-   * @param prevState
+   * If value from parent and value is different send state to parent.
+   * Validate field if parent wants to show error messages
    */
   componentDidUpdate() {
-    if (this.props.type !== 'checkbox' && typeof this.props.value === 'function' && typeof this.props.isValid === 'function') {
+    if (this.props.type !== 'checkbox' && typeof this.props.isValid === 'function') {
       this.props.isValid(this.state, this.props.name, this.state.value);
     }
-
+    if (this.state.showErrorMessage === true && this.state.message === '') {
+      this.handleInputValidation();
+    }
+    // keeping this to not break certain environments
     if (this.props.showErrorMessage === true && this.state.message === '' && this.state.valid === null) {
       this.validateField(null, this.inputRef);
     }
@@ -150,38 +158,40 @@ class InputField extends Component {
           {this.props.helpText &&
           <p className="form-help-text">{this.props.helpText}</p>
           }
-          <input
-            type={this.props.type}
-            id={`field-input--${this.props.id}`}
-            name={this.props.name && this.props.name}
-            className={`form__field form__field--${this.props.type} ${extraClassName} `}
-            required={this.props.required}
-            placeholder={this.props.placeholder && this.props.placeholder}
-            min={this.props.min && this.props.min}
-            max={this.props.max && this.props.max}
-            defaultChecked={this.props.defaultChecked && this.props.defaultChecked}
-            pattern={this.props.pattern && this.props.pattern}
-            aria-describedby={`field-label--${this.props.id} field-error--${this.props.id}`}
-            onBlur={e => this.handleInputValidation(e)}
-            onChange={e => this.handleInputValidation(e)}
-            ref={this.setRef}
-            value={this.state.value}
-          />
-          {this.props.inlineButton === true &&
-          <div className="form__btn">
+          <div className={`form__field--${this.props.id}`} >
             <input
-              type="button"
-              id={`${this.props.id}_button`}
-              className={`form__btn--${this.props.id}`}
-              value={this.props.buttonValue}
-              onClick={e => this.btnClickHandler(e)}
+              type={this.props.type}
+              id={`field-input--${this.props.id}`}
+              name={this.props.name && this.props.name}
+              className={`form__field form__field--${this.props.type} `}
+              required={this.props.required}
+              placeholder={this.props.placeholder && this.props.placeholder}
+              min={this.props.min && this.props.min}
+              max={this.props.max && this.props.max}
+              defaultChecked={this.props.defaultChecked && this.props.defaultChecked}
+              pattern={this.props.pattern && this.props.pattern}
+              aria-describedby={`field-label--${this.props.id} field-error--${this.props.id}`}
+              onBlur={e => this.handleInputValidation(e)}
+              onChange={e => this.handleInputValidation(e)}
+              ref={this.setRef}
+              value={this.state.value}
             />
+            {this.props.inlineButton === true &&
+            <div className="form__btn">
+              <input
+                type="button"
+                id={`${this.props.id}_button`}
+                className={`form__btn--${this.props.id}`}
+                value={this.props.buttonValue}
+                onClick={e => this.btnClickHandler(e)}
+              />
+            </div>
+            }
+            {this.props.type === 'checkbox' &&
+            // span for checkbox styling
+            <span />
+            }
           </div>
-          }
-          {this.props.type === 'checkbox' &&
-          // span for checkbox styling
-          <span />
-          }
           {(this.state.valid === false || (this.props.showErrorMessage === true && this.state.message !== '')) &&
             <div
               id={`field-error--${this.props.id}`}

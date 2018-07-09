@@ -18,6 +18,7 @@ class PostcodeLookup extends Component {
       countryDropdownList: [],
       addressLookupData: false,
       postcodeValidationMessage: false,
+      showErrorMessages: false,
       previousAddress: '',
       validation: {
         postcode: {
@@ -68,6 +69,19 @@ class PostcodeLookup extends Component {
 
   componentWillMount() {
     this.createCountryDropdownList();
+  }
+
+  /**
+   * If parent wants to show error messages, update errorMessages state
+   * @param nextProps
+   */
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.showErrorMessages && nextProps.showErrorMessages !== this.state.showErrorMessages) {
+      this.setState({
+        ...this.state,
+        showErrorMessages: nextProps.showErrorMessages,
+      });
+    }
   }
 
   /**
@@ -138,7 +152,7 @@ class PostcodeLookup extends Component {
     });
     // show address select field
     const addressSelect = this.addressSelectRef.selectRef;
-    addressSelect.parentElement.classList.remove('visually-hidden');
+    this.removeClassName(addressSelect.parentElement, 'visually-hidden');
   }
 
   /**
@@ -219,8 +233,25 @@ class PostcodeLookup extends Component {
     }
   }
 
-  showAddressFields() {
-    this.addressDetailRef.classList.remove('visually-hidden');
+  showAddressFields(e) {
+    if (e !== undefined) {
+      e.preventDefault();
+    }
+    this.removeClassName(this.addressDetailRef, 'visually-hidden');
+  }
+
+  /**
+   * Removes class name from element
+   * Works in IE9
+   * @param element
+   * @param className
+   */
+  removeClassName(ref, className) {
+    const element = ref;
+    const classes = element.getAttribute('class').split(' ');
+    const i = classes.indexOf(className);
+    classes.splice(i, 1);
+    element.className = classes;
   }
 
   /**
@@ -255,10 +286,11 @@ class PostcodeLookup extends Component {
           id="postcode"
           type="text"
           name="postcode"
-          label="Enter your postcode"
+          label={this.props.label}
           required
           placeholder="SE1 7TP"
           pattern="[A-Za-z]{1,2}[0-9Rr][0-9A-Za-z]?( |)[0-9][ABD-HJLNP-UW-Zabd-hjlnp-uw-z]{2}"
+          extraClass="search-box"
           inlineButton
           buttonValue="FIND ADDRESS"
           emptyFieldErrorText="Please enter your postcode"
@@ -266,7 +298,7 @@ class PostcodeLookup extends Component {
           value={id => this.addressValue(id)}
           isValid={(valid, name) => { this.setValidity(name, valid); }}
           buttonClick={() => { return this.addressLookup().then(() => this.returnPostcodeValidation()); }}
-          showErrorMessage={false}
+          showErrorMessage={this.state.showErrorMessages}
         />
         <SelectField
           ref={this.setAddressSelectRef}
@@ -276,10 +308,12 @@ class PostcodeLookup extends Component {
           required={false}
           options={this.state.addressDropdownList}
           extraClass="visually-hidden"
-          showErrorMessage={false}
+          showErrorMessage={this.state.showErrorMessages}
           isValid={(valid, name, value) => { this.updateAddress(value); }}
         />
-        <button className="link" onClick={this.showAddressFields}>Or enter your address manually</button>
+        <div className="form__field--wrapper">
+          <a href="" role="button" className="link" onClick={e => this.showAddressFields(e)}>Or enter your address manually</a>
+        </div>
         <div
           ref={this.setAddressDetailRef}
           id="address-detail"
@@ -292,6 +326,7 @@ class PostcodeLookup extends Component {
             label="Address line 1"
             required
             value={id => this.addressValue(id)}
+            showErrorMessage={this.state.showErrorMessages}
             isValid={(valid, name) => { this.setValidity(name, valid); }}
           />
           <InputField
@@ -317,6 +352,7 @@ class PostcodeLookup extends Component {
             label="Town/City"
             required
             value={id => this.addressValue(id)}
+            showErrorMessage={this.state.showErrorMessages}
             isValid={(valid, name) => { this.setValidity(name, valid); }}
           />
           <SelectField
@@ -327,6 +363,7 @@ class PostcodeLookup extends Component {
             required
             options={this.state.countryDropdownList}
             value={() => this.state.validation.country.value}
+            showErrorMessage={this.state.showErrorMessages}
             isValid={(valid, name) => { this.setValidity(name, valid); }}
           />
         </div>
@@ -338,9 +375,13 @@ class PostcodeLookup extends Component {
 
 PostcodeLookup.defaultProps = {
   isAddressValid: null,
+  label: 'Postcode',
+  showErrorMessages: false,
 };
 PostcodeLookup.propTypes = {
   isAddressValid: propTypes.func,
+  label: propTypes.string,
+  showErrorMessages: propTypes.bool,
 };
 
 export default PostcodeLookup;
