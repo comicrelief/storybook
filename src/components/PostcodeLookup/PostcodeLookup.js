@@ -20,6 +20,7 @@ class PostcodeLookup extends Component {
       postcodeValidationMessage: false,
       showErrorMessages: false,
       previousAddress: '',
+      addressSelectClass: 'visually-hidden',
       validation: {
         postcode: {
           valid: null,
@@ -149,10 +150,8 @@ class PostcodeLookup extends Component {
       addresses.push({ label: item.Line1, value: item }));
     this.setState({
       addressDropdownList: addresses,
+      addressSelectClass: '',
     });
-    // show address select field
-    const addressSelect = this.addressSelectRef.selectRef;
-    this.removeClassName(addressSelect.parentElement, 'visually-hidden');
   }
 
   /**
@@ -307,7 +306,7 @@ class PostcodeLookup extends Component {
           label="Select your address"
           required={false}
           options={this.state.addressDropdownList}
-          extraClass="visually-hidden"
+          extraClass={this.state.addressSelectClass}
           showErrorMessage={this.state.showErrorMessages}
           isValid={(valid, name, value) => { this.updateAddress(value); }}
         />
