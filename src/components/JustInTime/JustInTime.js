@@ -36,7 +36,7 @@ class JustInTime extends Component {
             href={`#${toggleState}-public`}
             aria-expanded={this.state.isOpen}
             className={`link toggle-link ${toggleState}-link`}
-            aria-label={`click to ${toggleState}`}
+            aria-label="Click to open for more information on why we are asking for this information"
             onClick={e => this.handleToggle(e)}
           >
             {this.props.linkText}
