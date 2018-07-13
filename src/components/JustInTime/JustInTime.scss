@@ -7,7 +7,14 @@
 @import "~@comicrelief/pattern-lab/sass/base/components/just-in-time-block/_just-in-time";
 
 .form__row--just-in-time-block {
+  font-family:$font-bold;
+
+  .toggle-link {
+    font-family:$font-bold;
+
+  }
   .close-link {
     display: inline
   }
+
 }
