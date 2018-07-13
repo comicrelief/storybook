@@ -33,12 +33,12 @@ class PostcodeLookup extends Component {
           value: '',
         },
         address2: {
-          valid: null,
+          valid: true,
           message: '',
           value: '',
         },
         address3: {
-          valid: null,
+          valid: true,
           message: '',
           value: '',
         },
