@@ -87,6 +87,9 @@ class PostcodeLookup extends Component {
         ...this.state,
         showErrorMessages: nextProps.showErrorMessages,
       });
+      if (nextProps.showErrorMessages === true) {
+        this.removeClassName(this.addressDetailRef, 'visually-hidden');
+      }
     }
   }
 
