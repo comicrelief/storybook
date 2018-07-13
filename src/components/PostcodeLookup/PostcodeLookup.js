@@ -59,14 +59,16 @@ class PostcodeLookup extends Component {
     };
     const refs = [];
     this.setRefs = (element) => {
-      if (element.inputRef) {
-        refs.push(element.inputRef);
+      if (element) {
+        if (element.inputRef) {
+          refs.push(element.inputRef);
+        }
+        if (element.selectRef) {
+          refs.push(element.selectRef);
+          this[element.props.id] = element.selectRef;
+        }
+        this.fieldRefs = refs;
       }
-      if (element.selectRef) {
-        refs.push(element.selectRef);
-        this[element.props.id] = element.selectRef;
-      }
-      this.fieldRefs = refs;
     };
 
     this.addressLookup = this.addressLookup.bind(this);
