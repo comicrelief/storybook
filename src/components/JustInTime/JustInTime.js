@@ -7,27 +7,20 @@ class JustInTime extends Component {
   constructor() {
     super();
     this.state = {
-      isOpen: null,
+      isOpen: false,
     };
   }
 
   handleToggle(e) {
     e.preventDefault();
-    const isClicked = this.state.isOpen;
 
-    if (!isClicked) {
-      this.setState({
-        isOpen: true,
-      });
-    } else {
-      this.setState({
-        isOpen: false,
-      });
-    }
+    this.setState({
+      isOpen: this.state.isOpen === false,
+    });
   }
 
   render() {
-    const toggleState = this.state.isOpen === null || this.state.isOpen === true ? 'show' : 'close';
+    const toggleState = this.state.isOpen === true ? 'close' : 'show';
     const openToggleContent = this.state.isOpen === true ? 'show' : 'close';
     return (
       <div className="form__row form__row--just-in-time-block">
@@ -36,7 +29,7 @@ class JustInTime extends Component {
             href={`#${toggleState}-public`}
             aria-expanded={this.state.isOpen}
             className={`link toggle-link ${toggleState}-link`}
-            aria-label="Click to open for more information on why we are asking for this information"
+            aria-label={this.state.isOpen === true ? 'Click to close' : 'Click to open for more information on why we are asking for this information'}
             onClick={e => this.handleToggle(e)}
           >
             {this.props.linkText}
