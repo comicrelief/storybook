@@ -11,6 +11,10 @@ class JustInTime extends Component {
     };
   }
 
+  /**
+   * Handle the show and hide of content with a toggle action.
+   * @param {*} e
+   */
   handleToggle(e) {
     e.preventDefault();
 
