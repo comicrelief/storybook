@@ -33,12 +33,12 @@ class PostcodeLookup extends Component {
           value: '',
         },
         address2: {
-          valid: null,
+          valid: true,
           message: '',
           value: '',
         },
         address3: {
-          valid: null,
+          valid: true,
           message: '',
           value: '',
         },
@@ -54,14 +54,21 @@ class PostcodeLookup extends Component {
         },
       },
     };
-    this.setAddressSelectRef = (element) => {
-      this.addressSelectRef = element;
-    };
     this.setAddressDetailRef = (element) => {
       this.addressDetailRef = element;
     };
-    this.setCountrySelectRef = (element) => {
-      this.countrySelectRef = element;
+    const refs = [];
+    this.setRefs = (element) => {
+      if (element) {
+        if (element.inputRef) {
+          refs.push(element.inputRef);
+        }
+        if (element.selectRef) {
+          refs.push(element.selectRef);
+          this[element.props.id] = element.selectRef;
+        }
+        this.fieldRefs = refs;
+      }
     };
 
     this.addressLookup = this.addressLookup.bind(this);
@@ -82,6 +89,9 @@ class PostcodeLookup extends Component {
         ...this.state,
         showErrorMessages: nextProps.showErrorMessages,
       });
+      if (nextProps.showErrorMessages === true) {
+        this.removeClassName(this.addressDetailRef, 'visually-hidden');
+      }
     }
   }
 
@@ -103,6 +113,8 @@ class PostcodeLookup extends Component {
     if ((this.state.validation[name].value === undefined || this.state.validation[name].value !== valid.value) ||
       (this.state.validation[name].message !== valid.message)) {
       this.setState({
+        ...this.state,
+        fieldRefs: this.fieldRefs,
         validation: {
           ...this.state.validation,
           [name]: {
@@ -227,7 +239,7 @@ class PostcodeLookup extends Component {
         });
         this.showAddressFields();
         // change the country back to GB
-        this.countrySelectRef.selectRef.selectedIndex = 0;
+        this.country.selectedIndex = 0;
       }
     }
   }
@@ -282,6 +294,7 @@ class PostcodeLookup extends Component {
     return (
       <div className="form__row form__row--billing-detail form__row--address-lookup">
         <InputField
+          ref={this.setRefs}
           id="postcode"
           type="text"
           name="postcode"
@@ -300,7 +313,7 @@ class PostcodeLookup extends Component {
           showErrorMessage={this.state.showErrorMessages}
         />
         <SelectField
-          ref={this.setAddressSelectRef}
+          ref={this.setRefs}
           id="addressSelect"
           name="addressSelect"
           label="Select your address"
@@ -319,6 +332,7 @@ class PostcodeLookup extends Component {
           className="form__fieldset form__field--address-detail visually-hidden"
         >
           <InputField
+            ref={this.setRefs}
             id="address1"
             type="text"
             name="address1"
@@ -329,6 +343,7 @@ class PostcodeLookup extends Component {
             isValid={(valid, name) => { this.setValidity(name, valid); }}
           />
           <InputField
+            ref={this.setRefs}
             id="address2"
             type="text"
             name="address2"
@@ -337,6 +352,7 @@ class PostcodeLookup extends Component {
             isValid={(valid, name) => { this.setValidity(name, valid); }}
           />
           <InputField
+            ref={this.setRefs}
             id="address3"
             type="text"
             name="address3"
@@ -345,6 +361,7 @@ class PostcodeLookup extends Component {
             isValid={(valid, name) => { this.setValidity(name, valid); }}
           />
           <InputField
+            ref={this.setRefs}
             id="town"
             type="text"
             name="town"
@@ -355,7 +372,7 @@ class PostcodeLookup extends Component {
             isValid={(valid, name) => { this.setValidity(name, valid); }}
           />
           <SelectField
-            ref={this.setCountrySelectRef}
+            ref={this.setRefs}
             id="country"
             name="country"
             label="Country"
