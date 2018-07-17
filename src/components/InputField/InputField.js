@@ -151,7 +151,7 @@ class InputField extends Component {
         <div className={`form__fieldset form__field--wrapper form__field-wrapper--${this.props.type} ${errorClassName} ${showBackgroundClassName} ${extraClassName} `}>
           <label id={`field-label--${this.props.id}`} htmlFor={`field-input--${this.props.id}`} className={`form__field-label${this.props.required ? ' required' : ''} ${this.state.valid === false ? 'error' : ''}`}>
             {this.props.label}
-            {!this.props.required &&
+            {(!this.props.required || !this.props.type !== 'checkbox') &&
             <span>&nbsp;(Optional)&nbsp;</span>
             }
           </label>
