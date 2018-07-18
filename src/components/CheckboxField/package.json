@@ -1,0 +1,10 @@
+{
+    "name": "checkbox-field",
+    "version": "0.0.0",
+    "private": true,
+    "main": "./CheckboxField.js",
+    "dependencies": {
+      "react": "^16.3.1",
+      "prop-types": "^15.6.1"
+    }
+  }
