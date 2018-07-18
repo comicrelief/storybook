@@ -25,7 +25,7 @@ class CheckboxField extends Component {
           <label
             id={`field-label--${id}`}
             htmlFor={`field-input--${id}`}
-            className={`form__field-label${this.props.required ? ' required' : ''}`}
+            className={`form__field-label${required ? ' required' : ''}`}
           >
             {label}
           </label>
