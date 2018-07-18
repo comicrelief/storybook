@@ -86,7 +86,7 @@ CheckboxField.defaultProps = {
   checked: null,
   errorMessage: null,
   value: '',
-  handleCheckboxChange: null,
+  handleCheckboxChange: () => {},
 };
 
 CheckboxField.propTypes = {
