@@ -101,7 +101,7 @@ CheckboxField.propTypes = {
   errorMessage: propTypes.string,
   setBackgroundColor: propTypes.bool,
   additionalText: propTypes.string,
-  checked: propTypes.string,
+  checked: propTypes.bool,
   handleCheckboxChange: propTypes.func,
 };
 
