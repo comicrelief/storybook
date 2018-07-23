@@ -1,4 +1,5 @@
 import { configure } from '@storybook/react';
+import 'babel-polyfill';
 
 function requireAll(requireContext) {
   return requireContext.keys().map(requireContext);
