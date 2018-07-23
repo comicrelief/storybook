@@ -85,7 +85,7 @@ CheckboxField.defaultProps = {
   additionalText: null,
   checked: null,
   errorMessage: null,
-  value: '',
+  value: null,
   handleCheckboxChange: () => {},
 };
 
@@ -94,7 +94,7 @@ CheckboxField.propTypes = {
   type: propTypes.string.isRequired,
   name: propTypes.string.isRequired,
   label: propTypes.string.isRequired,
-  value: propTypes.string,
+  value: propTypes.number,
   required: propTypes.bool,
   helpText: propTypes.string,
   showErrorMessage: propTypes.bool,
