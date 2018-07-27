@@ -14,6 +14,7 @@ class PostcodeLookup extends Component {
   constructor() {
     super();
     this.state = {
+      form: {},
       addressDropdownList: [],
       countryDropdownList: [],
       addressLookupData: false,
@@ -77,6 +78,11 @@ class PostcodeLookup extends Component {
 
   componentWillMount() {
     this.createCountryDropdownList();
+    this.setInputValue();
+  }
+
+  componentDidMount() {
+    this.setValidValue();
   }
 
   /**
@@ -124,6 +130,59 @@ class PostcodeLookup extends Component {
           },
         },
       });
+    }
+  }
+
+  /**
+   * Sets and store the input value entered for multi-step form
+   */
+  setInputValue() {
+    const form = this.props.form;
+    if (form !== null) {
+      this.setState({
+        form: {
+          ...form,
+          postcode: typeof form.postcode === 'undefined' ? '' : form.postcode,
+          address1: typeof form.address1 === 'undefined' ? '' : form.address1,
+          address2: typeof form.address2 === 'undefined' ? '' : form.address2,
+          address3: typeof form.address3 === 'undefined' ? '' : form.address3,
+          town: typeof form.town === 'undefined' ? '' : form.town,
+        },
+      });
+    }
+  }
+
+  /**
+   *  Re-set the valid state and value of validation object
+   *  from parent object in a multi-step form.
+   */
+  setValidValue() {
+    const validation = this.state.validation;
+    const form = this.props.form;
+    if (form !== null) {
+      if (form.postcode !== '' && form.address1 !== '' && form.town !== '') {
+        this.showAddressFields();
+        this.setState({
+          validation: {
+            ...validation,
+            postcode: {
+              valid: form.postcode !== '' ? true : null,
+              value: form.postcode,
+              message: '',
+            },
+            address1: {
+              valid: form.address1 !== '' ? true : null,
+              value: form.address1,
+              message: '',
+            },
+            town: {
+              valid: form.town !== '' ? true : null,
+              value: form.town,
+              message: '',
+            },
+          },
+        });
+      }
     }
   }
 
@@ -291,23 +350,41 @@ class PostcodeLookup extends Component {
    * @return {*}
    */
   render() {
+    const postCodeField = {
+      id: 'postcode',
+      type: 'text',
+      placeholder: 'SE1 7TP',
+      buttonText: 'FIND ADDRESS',
+      pattern: '[A-Za-z]{1,2}[0-9Rr][0-9A-Za-z]?( |)[0-9][ABD-HJLNP-UW-Zabd-hjlnp-uw-z]{2}',
+      invalidErrorText: 'Please enter a valid postcode',
+      emptyFieldErrorText: 'Please enter your postcode',
+      extraClass: 'search-box',
+    };
+
+    const addressOuptutFields = [
+      { id: 'address1', type: 'text', label: 'Address line 1', required: true },
+      { id: 'address2', type: 'text', label: 'Address line 2', required: false },
+      { id: 'address3', type: 'text', label: 'Address line 3', required: false },
+      { id: 'town', type: 'text', label: 'Town/City', required: true },
+    ];
     return (
       <div className="form__row form__row--billing-detail form__row--address-lookup">
         <InputField
           ref={this.setRefs}
-          id="postcode"
-          type="text"
-          name="postcode"
+          id={postCodeField.id}
+          type={postCodeField.type}
+          name={postCodeField.id}
           label={this.props.label}
           required
-          placeholder="SE1 7TP"
-          pattern="[A-Za-z]{1,2}[0-9Rr][0-9A-Za-z]?( |)[0-9][ABD-HJLNP-UW-Zabd-hjlnp-uw-z]{2}"
-          extraClass="search-box"
+          placeholder={postCodeField.placeholder}
+          pattern={postCodeField.pattern}
+          extraClass={postCodeField.extraClass}
           inlineButton
-          buttonValue="FIND ADDRESS"
-          emptyFieldErrorText="Please enter your postcode"
-          invalidErrorText="Please enter a valid postcode"
+          buttonValue={postCodeField.buttonText}
+          emptyFieldErrorText={postCodeField.emptyFieldErrorText}
+          invalidErrorText={postCodeField.invalidErrorText}
           value={id => this.addressValue(id)}
+          fieldValue={this.state.form[postCodeField.id]}
           isValid={(valid, name) => { this.setValidity(name, valid); }}
           buttonClick={() => { return this.addressLookup().then(() => this.returnPostcodeValidation()); }}
           showErrorMessage={this.state.showErrorMessages}
@@ -331,46 +408,23 @@ class PostcodeLookup extends Component {
           id="address-detail"
           className="form__fieldset form__field--address-detail visually-hidden"
         >
-          <InputField
-            ref={this.setRefs}
-            id="address1"
-            type="text"
-            name="address1"
-            label="Address line 1"
-            required
-            value={id => this.addressValue(id)}
-            showErrorMessage={this.state.showErrorMessages}
-            isValid={(valid, name) => { this.setValidity(name, valid); }}
-          />
-          <InputField
-            ref={this.setRefs}
-            id="address2"
-            type="text"
-            name="address2"
-            label="Address line 2"
-            value={id => this.addressValue(id)}
-            isValid={(valid, name) => { this.setValidity(name, valid); }}
-          />
-          <InputField
-            ref={this.setRefs}
-            id="address3"
-            type="text"
-            name="address3"
-            label="Address line 3"
-            required={false}
-            isValid={(valid, name) => { this.setValidity(name, valid); }}
-          />
-          <InputField
-            ref={this.setRefs}
-            id="town"
-            type="text"
-            name="town"
-            label="Town/City"
-            required
-            value={id => this.addressValue(id)}
-            showErrorMessage={this.state.showErrorMessages}
-            isValid={(valid, name) => { this.setValidity(name, valid); }}
-          />
+          {
+            addressOuptutFields.map(item => (
+              <InputField
+                key={item.id}
+                ref={this.setRefs}
+                id={item.id}
+                type={item.type}
+                name={item.id}
+                label={item.label}
+                required={item.required}
+                value={id => this.addressValue(id)}
+                showErrorMessage={this.state.showErrorMessages}
+                isValid={(valid, name) => { this.setValidity(name, valid); }}
+                fieldValue={this.state.form[item.id]}
+              />
+            ))
+          }
           <SelectField
             ref={this.setRefs}
             id="country"
@@ -393,8 +447,14 @@ PostcodeLookup.defaultProps = {
   isAddressValid: null,
   label: 'Postcode',
   showErrorMessages: false,
+  form: null,
 };
 PostcodeLookup.propTypes = {
+  form: propTypes.oneOfType([
+    propTypes.string,
+    propTypes.number,
+    propTypes.object,
+  ]),
   isAddressValid: propTypes.func,
   label: propTypes.string,
   showErrorMessages: propTypes.bool,
