@@ -24,6 +24,13 @@ class InputField extends Component {
   }
 
   /**
+   * Return and renders the give input value from the parent component.
+   */
+  componentDidMount() {
+    this.setInputValue();
+  }
+
+  /**
    * If component receives different props from parent, update state
    * @param nextProps
    */
@@ -67,6 +74,16 @@ class InputField extends Component {
     if (this.props.showErrorMessage === true && this.state.message === '' && this.state.valid === null) {
       this.validateField(null, this.inputRef);
     }
+  }
+
+  /**
+   * This sets and stores the input value that has passed down from the parent component
+   */
+  setInputValue() {
+    this.setState({
+      ...this.state,
+      value: this.props.fieldValue,
+    });
   }
 
   /**
@@ -235,6 +252,7 @@ InputField.defaultProps = {
   showErrorMessage: null,
   setBackgroundColor: null,
   additionalText: null,
+  fieldValue: '',
 };
 
 InputField.propTypes = {
@@ -260,6 +278,7 @@ InputField.propTypes = {
   showErrorMessage: propTypes.bool,
   setBackgroundColor: propTypes.bool,
   additionalText: propTypes.string,
+  fieldValue: propTypes.string,
 };
 
 export default InputField;
