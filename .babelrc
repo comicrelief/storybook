@@ -9,5 +9,9 @@
     "transform-es2015-destructuring",
     "transform-object-rest-spread",
     "transform-react-jsx",
+    ["transform-runtime", {
+      "polyfill": false,
+      "regenerator": true
+    }]
   ]
 }
