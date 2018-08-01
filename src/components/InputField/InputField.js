@@ -163,6 +163,8 @@ class InputField extends Component {
     const errorClassName = this.props.showErrorMessage === true ? 'form__field-error-wrapper' : '';
     const showBackgroundClassName = this.props.setBackgroundColor === true && this.props.type === 'checkbox' ? 'form__field-wrapper--background' : '';
     const extraClassName = this.props.extraClass !== '' ? this.props.extraClass : '';
+    const error = this.props.showErrorMessage === true && this.state.message !== '' ? 'form__field--error-outline' : '';
+
     return (
       <div id={`field-wrapper--${this.props.id}`}>
         <div className={`form__fieldset form__field--wrapper form__field-wrapper--${this.props.type} ${errorClassName} ${showBackgroundClassName} ${extraClassName} `}>
@@ -180,7 +182,7 @@ class InputField extends Component {
               type={this.props.type}
               id={`field-input--${this.props.id}`}
               name={this.props.name && this.props.name}
-              className={`form__field form__field--${this.props.type} `}
+              className={`form__field form__field--${this.props.type} ${error}`}
               required={this.props.required}
               placeholder={this.props.placeholder && this.props.placeholder}
               min={this.props.min && this.props.min}

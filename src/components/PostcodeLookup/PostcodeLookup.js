@@ -175,6 +175,16 @@ class PostcodeLookup extends Component {
               value: form.address1,
               message: '',
             },
+            address2: {
+              valid: true,
+              value: form.address2,
+              message: '',
+            },
+            address3: {
+              valid: true,
+              value: form.address3,
+              message: '',
+            },
             town: {
               valid: form.town !== '' ? true : null,
               value: form.town,
