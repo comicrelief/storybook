@@ -17,7 +17,7 @@
     "react-bootstrap-typeahead": "2.0.0-alpha.3",
     "react-cookie-consent": "^1.5.0",
     "react-currency-formatter": "0",
-    "react-dom": "15",
+    "react-dom": "16.0.1",
     "react-dropzone": "4",
     "react-fontawesome": "1",
     "react-geolocated": "2",
