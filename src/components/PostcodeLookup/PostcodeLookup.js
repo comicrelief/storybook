@@ -270,7 +270,7 @@ class PostcodeLookup extends Component {
    */
   updateAddress(value) {
     if (value.length >= 1) {
-      if(this.state.showErrorMessages === true) {
+      if (this.state.showErrorMessages === true) {
         this.setState({
           showErrorMessages: false,
         });
