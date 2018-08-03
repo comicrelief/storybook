@@ -270,6 +270,11 @@ class PostcodeLookup extends Component {
    */
   updateAddress(value) {
     if (value.length >= 1) {
+      if(this.state.showErrorMessages === true) {
+        this.setState({
+          showErrorMessages: false,
+        });
+      }
       const address = JSON.parse(value);
       if (address && (this.state.previousAddress === undefined || this.state.previousAddress !== address.Line1)) {
         this.setState({
