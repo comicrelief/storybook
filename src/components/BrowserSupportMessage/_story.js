@@ -7,6 +7,11 @@ import BrowserSupportMessage from './BrowserSupportMessage';
 storiesOf('Browser Support', module)
   .add('BrowserSupportMessage',
     withInfo('Browser Support')(() => {
-      return (<BrowserSupportMessage />);
+      return (
+        <div>
+            <p>Browser support message for IE9</p>
+            <BrowserSupportMessage />
+        </div>
+        );
     }),
   );
