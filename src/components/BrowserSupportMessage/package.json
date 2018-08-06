@@ -1,0 +1,10 @@
+{
+  "name": "browser-support-message",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./Footer.js",
+  "dependencies": {
+    "react": "1^15.6.1",
+    "react-cookie-consent": "^1.4.0"
+  }
+}
