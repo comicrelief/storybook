@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { detect } from 'detect-browser';
+import browser from 'browser-detect';
 
 class BrowserSupportMessage extends Component {
   constructor() {
@@ -17,10 +17,10 @@ class BrowserSupportMessage extends Component {
    * Checks if browser is IE and version 9 and changes the state.
    */
   browserSupportMessage() {
-    const browser = detect();
-
-    if (browser) {
-      if (browser.name === 'ie' && browser.version.match('9')) {
+    const detectBrowser = browser();
+    //console.log(result, result.version, result.name);
+    if (detectBrowser) {
+      if (detectBrowser.name === 'ie' && detectBrowser.version.match('9')) {
         this.setState({
           showBrowserNotification: true,
         });
