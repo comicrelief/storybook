@@ -175,6 +175,16 @@ class PostcodeLookup extends Component {
               value: form.address1,
               message: '',
             },
+            address2: {
+              valid: true,
+              value: form.address2,
+              message: '',
+            },
+            address3: {
+              valid: true,
+              value: form.address3,
+              message: '',
+            },
             town: {
               valid: form.town !== '' ? true : null,
               value: form.town,
@@ -218,12 +228,14 @@ class PostcodeLookup extends Component {
   createAddressDropdownList() {
     const addresses = [{ label: 'Please select', value: null }];
     this.state.addressLookupData.map(item =>
-      addresses.push({ label: item.Line1, value: item }));
+      addresses.push({ label: typeof item.Line2 === 'undefined' ? item.Line1 : `${item.Line1}, ${item.Line2}`,
+        value: item }));
     this.setState({
       addressDropdownList: addresses,
       addressSelectClass: '',
     });
   }
+
 
   /**
    * Creates object for country select field options from json file.
@@ -258,6 +270,11 @@ class PostcodeLookup extends Component {
    */
   updateAddress(value) {
     if (value.length >= 1) {
+      if (this.state.showErrorMessages === true) {
+        this.setState({
+          showErrorMessages: false,
+        });
+      }
       const address = JSON.parse(value);
       if (address && (this.state.previousAddress === undefined || this.state.previousAddress !== address.Line1)) {
         this.setState({
