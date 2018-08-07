@@ -1,0 +1,10 @@
+{
+  "name": "browser-support-message",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./Footer.js",
+  "dependencies": {
+    "react": "1^15.6.1",
+    "browser-detect": "^0.2.28"
+  }
+}
