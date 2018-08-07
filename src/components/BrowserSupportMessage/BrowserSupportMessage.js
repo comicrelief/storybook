@@ -18,7 +18,6 @@ class BrowserSupportMessage extends Component {
    */
   browserSupportMessage() {
     const detectBrowser = browser();
-    //console.log(result, result.version, result.name);
     if (detectBrowser) {
       if (detectBrowser.name === 'ie' && detectBrowser.version.match('9')) {
         this.setState({
