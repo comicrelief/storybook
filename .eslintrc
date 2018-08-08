@@ -15,6 +15,12 @@
     "react/jsx-no-bind": "off",
     "object-shorthand": "off"
   },
+  "globals": {
+    // Custom global variables' names
+    "mount": true,
+    "render": true,
+    "shallow": true,
+  },
   "env": {
     "browser": true,
     "jest": true

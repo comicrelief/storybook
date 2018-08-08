@@ -1,0 +1,633 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SchoolsLookup Storyshots SchoolsLookUp EDCO selected school 1`] = `
+<div
+  className="SchoolsLookUp"
+>
+  <p
+    className="schoolsLookUp-title"
+  >
+    <label
+      htmlFor="schoolsLookUp"
+    >
+      Enter the name or postcode of your school or nursery
+    </label>
+  </p>
+  <div>
+    <div
+      className="schoolDetails"
+    >
+      <div
+        className=""
+      >
+        <p>
+          School xyz
+        </p>
+      </div>
+      <div
+        className=""
+      >
+        <p>
+          dummy address line 1
+        </p>
+      </div>
+      <div
+        className=""
+      >
+        <p>
+          dummy town
+        </p>
+      </div>
+      <div
+        className=""
+      >
+        <p>
+          dummy postcode
+        </p>
+      </div>
+    </div>
+    <button
+      className="SchoolsLookUp-link"
+      name="edit"
+      onClick={[Function]}
+    >
+      Edit
+    </button>
+  </div>
+</div>
+`;
+
+exports[`SchoolsLookup Storyshots SchoolsLookUp manual fields errors 1`] = `
+<div
+  className="SchoolsLookUp"
+>
+  <p
+    className="schoolsLookUp-title"
+  >
+    <label
+      htmlFor="schoolsLookUp"
+    >
+      Enter the name or postcode of your school or nursery
+    </label>
+  </p>
+  <div
+    className="schoolsLookUp-search"
+  >
+    <div
+      className="rbt clearfix open schoolsLookUpForm"
+      style={
+        Object {
+          "position": "relative",
+        }
+      }
+      tabIndex={-1}
+    >
+      <div
+        className="rbt-input-hint-container"
+        style={
+          Object {
+            "position": "relative",
+          }
+        }
+      >
+        <input
+          aria-activedescendant=""
+          aria-autocomplete="both"
+          aria-expanded={false}
+          aria-haspopup="listbox"
+          aria-owns="rbt-menu-3lllllllllm"
+          autoComplete="nope"
+          className="rbt-input-main form-control rbt-input  input-lg form-control-lg"
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          placeholder="Type to start search"
+          role="combobox"
+          type="text"
+          value=""
+        />
+        <input
+          aria-hidden={true}
+          className="rbt-input-hint"
+          style={
+            Object {
+              "backgroundColor": "transparent",
+              "borderColor": "transparent",
+              "boxShadow": "none",
+              "color": "rgba(0, 0, 0, 0.35)",
+              "left": 0,
+              "pointerEvents": "none",
+              "position": "absolute",
+              "top": 0,
+            }
+          }
+          tabIndex={-1}
+          value=""
+        />
+      </div>
+      <div
+        aria-atomic={true}
+        aria-live="polite"
+        className="sr-only rbt-sr-status"
+        role="status"
+      >
+        0 selections
+      </div>
+    </div>
+  </div>
+  <div
+    className="SchoolsLookUp-maunal"
+  >
+    <p>
+      Or enter details manually
+    </p>
+    <div
+      className="schoolDetails"
+    >
+      <div
+        className="validation__wrapper"
+      >
+        <div>
+          <label
+            className="required"
+            htmlFor="establishmentNameValue"
+          >
+            Establishment name
+          </label>
+          <input
+            id="establishmentNameValue"
+            name="establishmentNameValue"
+            onBlur={[Function]}
+            onChange={[Function]}
+            required={true}
+            type="text"
+            value=""
+          />
+          <div
+            className="validation__message"
+          >
+            <span>
+              establishmentName error message
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        className="validation__wrapper"
+      >
+        <div>
+          <label
+            className="required"
+            htmlFor="address1Value"
+          >
+            Address line 1
+          </label>
+          <input
+            id="address1Value"
+            name="address1Value"
+            onBlur={[Function]}
+            onChange={[Function]}
+            required={true}
+            type="text"
+            value=""
+          />
+          <div
+            className="validation__message"
+          >
+            <span>
+              address1 error message
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        className="validation__wrapper"
+      >
+        <div>
+          <label
+            className=""
+            htmlFor="address2Value"
+          >
+            Address line 2
+          </label>
+          <input
+            id="address2Value"
+            name="address2Value"
+            onBlur={[Function]}
+            onChange={[Function]}
+            required={false}
+            type="text"
+            value=""
+          />
+          <div
+            className="validation__message"
+          >
+            <span>
+              address2 error message
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        className="validation__wrapper"
+      >
+        <div>
+          <label
+            className=""
+            htmlFor="address3Value"
+          >
+            Address line 3
+          </label>
+          <input
+            id="address3Value"
+            name="address3Value"
+            onBlur={[Function]}
+            onChange={[Function]}
+            required={false}
+            type="text"
+            value=""
+          />
+          <div
+            className="validation__message"
+          >
+            <span>
+              address3 error message
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        className="validation__wrapper"
+      >
+        <div>
+          <label
+            className="required"
+            htmlFor="townValue"
+          >
+            Town
+          </label>
+          <input
+            id="townValue"
+            name="townValue"
+            onBlur={[Function]}
+            onChange={[Function]}
+            required={true}
+            type="text"
+            value=""
+          />
+          <div
+            className="validation__message"
+          >
+            <span>
+              town error message
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        className="validation__wrapper"
+      >
+        <div>
+          <label
+            className="required"
+            htmlFor="postcodeValue"
+          >
+            Postcode
+          </label>
+          <input
+            id="postcodeValue"
+            name="postcodeValue"
+            onBlur={[Function]}
+            onChange={[Function]}
+            required={true}
+            type="text"
+            value=""
+          />
+          <div
+            className="validation__message"
+          >
+            <span>
+              postcode error message
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SchoolsLookup Storyshots SchoolsLookUp manually entered school 1`] = `
+<div
+  className="SchoolsLookUp"
+>
+  <p
+    className="schoolsLookUp-title"
+  >
+    <label
+      htmlFor="schoolsLookUp"
+    >
+      Enter the name or postcode of your school or nursery
+    </label>
+  </p>
+  <div
+    className="schoolsLookUp-search"
+  >
+    <div
+      className="rbt clearfix open schoolsLookUpForm"
+      style={
+        Object {
+          "position": "relative",
+        }
+      }
+      tabIndex={-1}
+    >
+      <div
+        className="rbt-input-hint-container"
+        style={
+          Object {
+            "position": "relative",
+          }
+        }
+      >
+        <input
+          aria-activedescendant=""
+          aria-autocomplete="both"
+          aria-expanded={false}
+          aria-haspopup="listbox"
+          aria-owns="rbt-menu-3lllllllllm"
+          autoComplete="nope"
+          className="rbt-input-main form-control rbt-input  input-lg form-control-lg"
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          placeholder="Type to start search"
+          role="combobox"
+          type="text"
+          value=""
+        />
+        <input
+          aria-hidden={true}
+          className="rbt-input-hint"
+          style={
+            Object {
+              "backgroundColor": "transparent",
+              "borderColor": "transparent",
+              "boxShadow": "none",
+              "color": "rgba(0, 0, 0, 0.35)",
+              "left": 0,
+              "pointerEvents": "none",
+              "position": "absolute",
+              "top": 0,
+            }
+          }
+          tabIndex={-1}
+          value=""
+        />
+      </div>
+      <div
+        aria-atomic={true}
+        aria-live="polite"
+        className="sr-only rbt-sr-status"
+        role="status"
+      >
+        0 selections
+      </div>
+    </div>
+  </div>
+  <div
+    className="SchoolsLookUp-maunal"
+  >
+    <p>
+      Or enter details manually
+    </p>
+    <div
+      className="schoolDetails"
+    >
+      <div
+        className=""
+      >
+        <div>
+          <label
+            className="required"
+            htmlFor="establishmentNameValue"
+          >
+            Establishment name
+          </label>
+          <input
+            id="establishmentNameValue"
+            name="establishmentNameValue"
+            onBlur={[Function]}
+            onChange={[Function]}
+            required={true}
+            type="text"
+            value="School xyz"
+          />
+        </div>
+      </div>
+      <div
+        className=""
+      >
+        <div>
+          <label
+            className="required"
+            htmlFor="address1Value"
+          >
+            Address line 1
+          </label>
+          <input
+            id="address1Value"
+            name="address1Value"
+            onBlur={[Function]}
+            onChange={[Function]}
+            required={true}
+            type="text"
+            value="dummy address line 1"
+          />
+        </div>
+      </div>
+      <div
+        className=""
+      >
+        <div>
+          <label
+            className=""
+            htmlFor="address2Value"
+          >
+            Address line 2
+          </label>
+          <input
+            id="address2Value"
+            name="address2Value"
+            onBlur={[Function]}
+            onChange={[Function]}
+            required={false}
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <div
+        className=""
+      >
+        <div>
+          <label
+            className=""
+            htmlFor="address3Value"
+          >
+            Address line 3
+          </label>
+          <input
+            id="address3Value"
+            name="address3Value"
+            onBlur={[Function]}
+            onChange={[Function]}
+            required={false}
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <div
+        className=""
+      >
+        <div>
+          <label
+            className="required"
+            htmlFor="townValue"
+          >
+            Town
+          </label>
+          <input
+            id="townValue"
+            name="townValue"
+            onBlur={[Function]}
+            onChange={[Function]}
+            required={true}
+            type="text"
+            value="dummy town"
+          />
+        </div>
+      </div>
+      <div
+        className=""
+      >
+        <div>
+          <label
+            className="required"
+            htmlFor="postcodeValue"
+          >
+            Postcode
+          </label>
+          <input
+            id="postcodeValue"
+            name="postcodeValue"
+            onBlur={[Function]}
+            onChange={[Function]}
+            required={true}
+            type="text"
+            value="dummy postcode"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SchoolsLookup Storyshots SchoolsLookUp nothing is selected 1`] = `
+<div
+  className="SchoolsLookUp"
+>
+  <p
+    className="schoolsLookUp-title"
+  >
+    <label
+      htmlFor="schoolsLookUp"
+    >
+      Enter the name or postcode of your school or nursery
+    </label>
+  </p>
+  <div
+    className="schoolsLookUp-search"
+  >
+    <div
+      className="rbt clearfix open schoolsLookUpForm"
+      style={
+        Object {
+          "position": "relative",
+        }
+      }
+      tabIndex={-1}
+    >
+      <div
+        className="rbt-input-hint-container"
+        style={
+          Object {
+            "position": "relative",
+          }
+        }
+      >
+        <input
+          aria-activedescendant=""
+          aria-autocomplete="both"
+          aria-expanded={false}
+          aria-haspopup="listbox"
+          aria-owns="rbt-menu-3lllllllllm"
+          autoComplete="nope"
+          className="rbt-input-main form-control rbt-input  input-lg form-control-lg"
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          placeholder="Type to start search"
+          role="combobox"
+          type="text"
+          value=""
+        />
+        <input
+          aria-hidden={true}
+          className="rbt-input-hint"
+          style={
+            Object {
+              "backgroundColor": "transparent",
+              "borderColor": "transparent",
+              "boxShadow": "none",
+              "color": "rgba(0, 0, 0, 0.35)",
+              "left": 0,
+              "pointerEvents": "none",
+              "position": "absolute",
+              "top": 0,
+            }
+          }
+          tabIndex={-1}
+          value=""
+        />
+      </div>
+      <div
+        aria-atomic={true}
+        aria-live="polite"
+        className="sr-only rbt-sr-status"
+        role="status"
+      >
+        0 selections
+      </div>
+    </div>
+  </div>
+  <button
+    className="SchoolsLookUp-link"
+    name="enterManually"
+    onClick={[Function]}
+  >
+    Or enter details manually
+  </button>
+</div>
+`;

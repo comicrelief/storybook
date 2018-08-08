@@ -1,13 +1,12 @@
 import axios from 'axios';
 import React from 'react';
-import { shallow } from 'enzyme';
 import sinon from 'sinon';
 import SchoolsLookUp from '../../../src/components/SchoolsLookUp/SchoolsLookUp';
 
 let sandbox;
 
 beforeAll(() => {
-  sandbox = sinon.sandbox.create();
+  sandbox = sinon.createSandbox();
 });
 
 afterEach(() => {
@@ -74,15 +73,16 @@ test('search and recieve non-empty results', () => {
   expect(component.find('[name="spinner"]').exists()).toBe(true);
 
   return promise.then(() => {
-    // assert spinner is displayed
-    expect(component.find('[name="spinner"]').exists()).toBe(false);
     const schools = mockData.data.data.schools;
     // assert results are recieved
     expect(component.state('options')).toEqual(schools);
+
     // render MenuHeader where default option is expected
     const instance = component.setState({ query: 'testquery' }).instance();
     const menuHeader = shallow(instance.renderMenu(schools, { text: 'test' })).find('MenuHeader').html();
 
+    // assert spinner is not displayed
+    expect(component.find('[name="spinner"]').exists()).toBe(false);
     // assert default option is displayed
     expect(menuHeader).toContain('Please select a school from the list below');
     // assert default option is highlighted
@@ -126,14 +126,14 @@ test('search and recieve empty results', () => {
   expect(component.find('[name="spinner"]').exists()).toBe(true);
 
   return promise.then(() => {
-    // assert spinner is displayed
-    expect(component.find('[name="spinner"]').exists()).toBe(false);
     // assert no results are recieved
     expect(component.state('options')).toEqual([]);
     const emptyLabel = "Sorry, we can't find this. If the school or postcode you entered is correct then please add the address manually below.";
-
+    const text = component.setState({ query: 'testquery' }).text();
     // assert no results message is displayed
-    expect(component.text()).toContain(emptyLabel);
+    expect(text).toContain(emptyLabel);
+    // assert spinner is displayed
+    expect(component.find('[name="spinner"]').exists()).toBe(false);
   });
 });
 
