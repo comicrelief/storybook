@@ -12,7 +12,7 @@
     "prop-types": "15",
     "radium": "0",
     "react": "^16.4.2",
-    "react-bootstrap-typeahead": "3",
+    "react-bootstrap-typeahead": "2.0.0-alpha.3",
     "react-cookie-consent": "^1.5.0",
     "react-currency-formatter": "^1.1.0",
     "react-dom": "^16.4.2",
