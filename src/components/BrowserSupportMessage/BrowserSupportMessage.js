@@ -18,7 +18,7 @@ class BrowserSupportMessage extends Component {
     const isBrowser = browser();
 
     if (isBrowser) {
-      if (isBrowser.name === 'ie' && isBrowser.version.match('11')) {
+      if (isBrowser.name === 'ie' && isBrowser.version.match('9')) {
         this.setState({
           showBrowserNotification: true,
         });
