@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import browser from 'browser-detect';
+import './BrowserSupport.scss';
 
 class BrowserSupportMessage extends Component {
   constructor() {
@@ -17,7 +18,7 @@ class BrowserSupportMessage extends Component {
     const isBrowser = browser();
 
     if (isBrowser) {
-      if (isBrowser.name === 'ie' && isBrowser.version.match('9')) {
+      if (isBrowser.name === 'ie' && isBrowser.version.match('11')) {
         this.setState({
           showBrowserNotification: true,
         });
