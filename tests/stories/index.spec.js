@@ -10,10 +10,14 @@ describe('SchoolsLookup', () => {
   // Snapshots set all refs to null
   // So any ref needs to be mocked manually
   const createNodeMock = (el) => {
-    if (el.type === 'input') {
-      return document.createElement('input');
+    switch (el.type) {
+      case 'input':
+      case 'div':
+        return document.createElement(el.type);
+
+      default:
+        return null;
     }
-    return null;
   };
 
   // test SchoolsLookUp layout at it's lifecycle different states
