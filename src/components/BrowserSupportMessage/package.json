@@ -1,0 +1,11 @@
+{
+    "name": "browser-support-message",
+    "version": "0.0.0",
+    "private": true,
+    "main": "./BrowserSupportMessage.js",
+    "dependencies": {
+        "prop-types": "^15.5.10",
+        "react": "^15.6.1",    
+        "browser-detect": "^0.2.28"
+    }
+  }
