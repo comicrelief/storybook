@@ -35,7 +35,7 @@
     "eject": "react-scripts eject",
     "eslint": "./node_modules/.bin/eslint src tests --ext .js --ext .jsx --ignore-path .eslintignore --cache",
     "eslint-fix": "yarn eslint --fix",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "semantic-release": "semantic-release",
     "storybook": "start-storybook -p 9009 -s public",
     "snyk-protect": "./node_modules/.bin/snyk protect",
     "prepublish": "./node_modules/.bin/snyk protect; yarn build",
