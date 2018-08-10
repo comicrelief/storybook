@@ -51,9 +51,10 @@ class InputField extends Component {
         });
       }
     }
-    if (nextProps.showErrorMessage !== this.state.showErrorMessage) {
+    if (nextProps.invalidErrorText !== this.props.invalidErrorText || nextProps.showErrorMessage !== this.state.showErrorMessage) {
       this.setState({
         ...this.state,
+        message: nextProps.invalidErrorText,
         showErrorMessage: nextProps.showErrorMessage,
       });
     }
