@@ -40,7 +40,7 @@ class CheckboxField extends Component {
             <input
               className={`form__field form__field--${type} `}
               type={type}
-              id={id}
+              id={`field-input--${id}`}
               name={name}
               required={required}
               aria-describedby={`field-label--${id} field-error--${id}`}
