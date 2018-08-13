@@ -51,19 +51,37 @@ class InputField extends Component {
         });
       }
     }
-    if (nextProps.invalidErrorText !== this.props.invalidErrorText || nextProps.showErrorMessage !== this.state.showErrorMessage) {
-      this.setState({
-        ...this.state,
-        message: nextProps.invalidErrorText,
-        showErrorMessage: nextProps.showErrorMessage,
+    if (nextProps.invalidErrorText !== this.state.invalidErrorText || nextProps.showErrorMessage !== this.state.showErrorMessage) {
+      this.setState(() => {
+        let newState;
+        if (nextProps.invalidErrorText !== '') {
+          newState = {
+            ...this.state,
+            message: nextProps.invalidErrorText,
+            showErrorMessage: nextProps.showErrorMessage,
+          };
+        } else {
+          newState = {
+            ...this.state,
+            showErrorMessage: nextProps.showErrorMessage,
+          };
+        }
+        return newState;
       });
     }
-    if (nextProps.showErrorMessage === this.props.invalidErrorText && nextProps.showErrorMessage !== this.state.showErrorMessage) {
-      this.setState({
-        ...this.state,
-        showErrorMessage: nextProps.showErrorMessage,
-      });
+  }
+
+  /**
+   * Prevent update showErrorMessage override to false from validation when showErrorMessage should be true according to nextProps
+   * @param nextProps
+   * @param nextState
+   * @return {boolean}
+   */
+  shouldComponentUpdate(nextProps, nextState) {
+    if (nextProps.showErrorMessage === true && nextState.showErrorMessage === false) {
+      return false;
     }
+    return true;
   }
 
   /**
