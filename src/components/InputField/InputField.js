@@ -35,9 +35,12 @@ class InputField extends Component {
    * @param nextProps
    */
   componentWillReceiveProps(nextProps) {
+    // Update state if parent provides a new value
+    let isValueFromParent = false;
     if (typeof nextProps.value === 'function') {
       const item = this.getValue();
       if (item !== undefined) {
+        isValueFromParent = true;
         this.setState((prevState) => {
           let newState;
           if (item.value !== prevState.value) {
@@ -51,13 +54,38 @@ class InputField extends Component {
         });
       }
     }
-    if (nextProps.invalidErrorText !== this.props.invalidErrorText || nextProps.showErrorMessage !== this.state.showErrorMessage) {
-      this.setState({
-        ...this.state,
-        message: nextProps.invalidErrorText,
-        showErrorMessage: nextProps.showErrorMessage,
+    // Update state if there's no new value coming from the parent, but the parent has updated the invalidErrorText or showErrorMesssage
+    if (isValueFromParent === false && (nextProps.invalidErrorText !== this.state.invalidErrorText || nextProps.showErrorMessage !== this.state.showErrorMessage)) {
+      this.setState(() => {
+        let newState;
+        if (nextProps.invalidErrorText !== '') {
+          newState = {
+            ...this.state,
+            message: nextProps.invalidErrorText,
+            showErrorMessage: nextProps.showErrorMessage,
+          };
+        } else {
+          newState = {
+            ...this.state,
+            showErrorMessage: nextProps.showErrorMessage,
+          };
+        }
+        return newState;
       });
     }
+  }
+
+  /**
+   * Prevent update showErrorMessage override to false from validation when showErrorMessage should be true according to nextProps
+   * @param nextProps
+   * @param nextState
+   * @return {boolean}
+   */
+  shouldComponentUpdate(nextProps, nextState) {
+    if (nextProps.showErrorMessage === true && nextState.showErrorMessage === false) {
+      return false;
+    }
+    return true;
   }
 
   /**
