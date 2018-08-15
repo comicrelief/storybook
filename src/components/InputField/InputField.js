@@ -35,9 +35,11 @@ class InputField extends Component {
    * @param nextProps
    */
   componentWillReceiveProps(nextProps) {
+    let valueUpdate = false;
     if (typeof nextProps.value === 'function') {
       const item = this.getValue();
       if (item !== undefined) {
+        valueUpdate = true;
         this.setState((prevState) => {
           let newState;
           if (item.value !== prevState.value) {
@@ -51,7 +53,7 @@ class InputField extends Component {
         });
       }
     }
-    if (nextProps.invalidErrorText !== this.state.invalidErrorText || nextProps.showErrorMessage !== this.state.showErrorMessage) {
+    if (valueUpdate === false && (nextProps.invalidErrorText !== this.state.invalidErrorText || nextProps.showErrorMessage !== this.state.showErrorMessage)) {
       this.setState(() => {
         let newState;
         if (nextProps.invalidErrorText !== '') {
