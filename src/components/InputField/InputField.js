@@ -35,11 +35,12 @@ class InputField extends Component {
    * @param nextProps
    */
   componentWillReceiveProps(nextProps) {
-    let valueUpdate = false;
+    // Update state if parent provides a new value
+    let isValueFromParent = false;
     if (typeof nextProps.value === 'function') {
       const item = this.getValue();
       if (item !== undefined) {
-        valueUpdate = true;
+        isValueFromParent = true;
         this.setState((prevState) => {
           let newState;
           if (item.value !== prevState.value) {
@@ -53,7 +54,8 @@ class InputField extends Component {
         });
       }
     }
-    if (valueUpdate === false && (nextProps.invalidErrorText !== this.state.invalidErrorText || nextProps.showErrorMessage !== this.state.showErrorMessage)) {
+    // Update state if there's no new value coming from the parent, but the parent has updated the invalidErrorText or showErrorMesssage
+    if (isValueFromParent === false && (nextProps.invalidErrorText !== this.state.invalidErrorText || nextProps.showErrorMessage !== this.state.showErrorMessage)) {
       this.setState(() => {
         let newState;
         if (nextProps.invalidErrorText !== '') {
