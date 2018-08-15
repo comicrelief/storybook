@@ -1,17 +1,4 @@
-// Visually hidden
-
-@mixin visuallyhidden {
-  position: absolute;
-  margin: -1px;
-  padding: 0;
-  width: 1px;
-  height: 1px;
-  border: 0;
-  overflow: hidden;
-  clip: rect(1px 1px 1px 1px);
-  word-wrap: normal;
-}
-
+@import "~@comicrelief/pattern-lab/sass/base/core";
 @import "~@comicrelief/pattern-lab/sass/base/variables/grid";
 @import "~@comicrelief/pattern-lab/sass/base/variables/colours";
 @import "~@comicrelief/pattern-lab/sass/base/variables/typography";
