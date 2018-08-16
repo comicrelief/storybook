@@ -43,7 +43,7 @@ class CheckboxField extends Component {
               id={`field-input--${id}`}
               name={name}
               required={required}
-              aria-describedby={`field-label--${id} field-error--${id}`}
+              aria-describedby={`field-error--${id}`}
               onChange={handleCheckboxChange}
               checked={checked}
               value={value}
