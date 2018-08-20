@@ -61,6 +61,7 @@ class InputField extends Component {
         if (nextProps.invalidErrorText !== '') {
           newState = {
             ...this.state,
+            valid: false,
             message: nextProps.invalidErrorText,
             showErrorMessage: nextProps.showErrorMessage,
           };
