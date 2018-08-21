@@ -377,12 +377,13 @@ class PostcodeLookup extends Component {
       emptyFieldErrorText: 'Please enter your postcode',
       extraClass: 'search-box',
     };
-
+    const addressPattern = '^[A-Za-z0-9_.\\\'/&-\\\\s]+$';
+    const addressErrorMessage = 'This field only accepts alphanumeric characters and \' . - & _ /';
     const addressOuptutFields = [
-      { id: 'address1', type: 'text', label: 'Address line 1', required: true },
-      { id: 'address2', type: 'text', label: 'Address line 2', required: false },
-      { id: 'address3', type: 'text', label: 'Address line 3', required: false },
-      { id: 'town', type: 'text', label: 'Town/City', required: true },
+      { id: 'address1', type: 'text', label: 'Address line 1', required: true, pattern: addressPattern, invalidErrorText: addressErrorMessage },
+      { id: 'address2', type: 'text', label: 'Address line 2', required: false, pattern: addressPattern, invalidErrorText: addressErrorMessage },
+      { id: 'address3', type: 'text', label: 'Address line 3', required: false, pattern: addressPattern, invalidErrorText: addressErrorMessage },
+      { id: 'town', type: 'text', label: 'Town/City', required: true, pattern: addressPattern, invalidErrorText: addressErrorMessage },
     ];
     return (
       <div className="form__row form__row--billing-detail form__row--address-lookup">
@@ -436,6 +437,8 @@ class PostcodeLookup extends Component {
                 label={item.label}
                 required={item.required}
                 value={id => this.addressValue(id)}
+                pattern={item.pattern}
+                invalidErrorText={item.invalidErrorText}
                 showErrorMessage={this.state.showErrorMessages}
                 isValid={(valid, name) => { this.setValidity(name, valid); }}
                 fieldValue={this.state.form[item.id]}
