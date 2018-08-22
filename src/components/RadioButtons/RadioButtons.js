@@ -57,7 +57,6 @@ class RadioButtons extends Component {
    */
   onChangeHandler(e) {
     const value = e.target.value;
-    console.log('change handler!', e);
     this.setState({
       value,
       showErrorMessage: true,
@@ -93,15 +92,23 @@ class RadioButtons extends Component {
     Object.keys(this.props.options).forEach((i) => {
       const thisKey = shortid.generate();
       options.push(
-        <div className="form__field--wrapper form__radio form__radio--inline" key={`form__field--wrapper-${thisKey}`}>
-          <label className="form__field-label" htmlFor={`radio--${thisKey}`} key={`form__field-label-${thisKey}`}>{this.props.options[i].label}</label>
+        <div
+          className="form__field--wrapper form__radio form__radio--inline"
+          key={`form__field--wrapper-${thisKey}`}
+        >
+          <label
+            className="form__field-label"
+            htmlFor={`radio--${thisKey}`}
+            key={`form__field-label-${thisKey}`}
+          >
+            {this.props.options[i].label}
+          </label>
           <input
             type="radio"
             id={`radio--${thisKey}`}
             name={`radio-group--${thisGroup}`}
             value={this.props.options[i].value}
             key={`radio-button-${thisKey}`}
-            onBlur={this.onChangeHandler}
             onClick={this.onChangeHandler}
           />
           <span>&nbsp;</span>
@@ -128,32 +135,34 @@ class RadioButtons extends Component {
    * @param e
    */
   validateField(e) {
-    /* Check if this was triggered by a user event */
-    const value = e !== undefined;
+    let val = null;
 
-    console.log('event', value);
+    if (e !== undefined) val = (e.target.value ? e.target.value : null);
 
-    if (this.props.required === true && value === '') {
+    if (this.props.required === true && val === '') {
+      // To set on blur or submit?
       console.log('validate A');
       this.setState({
         valid: false,
         message: 'This field is required',
-        value,
+        val,
       });
-    } else if (this.props.required === true && value) {
+    } else if (this.props.required === true && val) {
+      // triggered by user change
       console.log('validate B');
       this.setState({
         valid: true,
         message: '',
-        value,
+        val,
         showErrorMessage: false,
       });
     } else {
+      // initial load
       console.log('validate C');
       this.setState({
         valid: true,
         message: '',
-        value,
+        val,
         showErrorMessage: false,
       });
     }
