@@ -8,6 +8,7 @@ import GrantsNearYou from './GrantsNearYou/GrantsNearYou';
 import GrantsInfographics from './GrantsInfographics/GrantsInfographics';
 import CookieConsentMessage from './CookieConsentMessage/CookieConsentMessage';
 import JustInTime from './JustInTime/JustInTime';
+import RadioButtons from './RadioButtons/RadioButtons';
 
 export {
   Footer,
@@ -20,4 +21,5 @@ export {
   GrantsInfographics,
   CookieConsentMessage,
   JustInTime,
+  RadioButtons,
 };

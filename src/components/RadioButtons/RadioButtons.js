@@ -1,8 +1,9 @@
 /* eslint-env browser */
 import React, { Component } from 'react';
 import propTypes from 'prop-types';
+import './RadioButtons.scss';
 
-// const shortid = require('shortid');
+const shortid = require('shortid');
 
 class RadioButtons extends Component {
   constructor(props) {
@@ -30,7 +31,7 @@ class RadioButtons extends Component {
    * (will trigger an update through the validateField function)
    */
   componentDidMount() {
-    this.validateField();
+    // this.validateField();
   }
 
   /**
@@ -63,7 +64,7 @@ class RadioButtons extends Component {
       value,
       showErrorMessage: true,
     });
-    this.validateField(e);
+    // this.validateField(e);
   }
 
   /**
@@ -93,14 +94,19 @@ class RadioButtons extends Component {
    */
   createOptions() {
     const options = [];
-    this.props.options.map(item =>
+    const thisGroup = shortid.generate();
+
+    Object.keys(this.props.options).forEach((i) => {
+      const thisKey = shortid.generate();
       options.push(
-        <div className="form__field--wrapper form__radio form__radio--inline">
-          <label className="form__field-label" htmlFor="radio-2">{item.label}</label>
-          <input type="radio" id="radio-2" name="radio-group" value={item.value} />
+        <div className="form__field--wrapper form__radio form__radio--inline" key={`form__field--wrapper-${thisKey}`}>
+          <label className="form__field-label" htmlFor={`radio-${thisKey}`} key={`form__field-label-${thisKey}`}>{this.props.options[i].label}</label>
+          <input type="radio" id={`radio-${thisKey}`} name={`radio-group--${thisGroup}`} value={this.props.options[i].value} key={`radio-button-${thisKey}`} />
           <span>&nbsp;</span>
         </div>,
-      ));
+      );
+    });
+
     return options;
   }
 
