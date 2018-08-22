@@ -9,6 +9,7 @@ class RadioButtons extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      optionsMarkup: null,
       valid: null,
       message: '',
       value: '',
@@ -21,17 +22,13 @@ class RadioButtons extends Component {
     this.onChangeHandler = this.onChangeHandler.bind(this);
   }
 
-  componentWillMount() {
-    this.setState({
-      value: this.getSelectedOption(),
-    });
-  }
   /**
    * Validate initial state
    * (will trigger an update through the validateField function)
    */
   componentDidMount() {
-    // this.validateField();
+    this.createOptions();
+    this.validateField();
   }
 
   /**
@@ -60,17 +57,14 @@ class RadioButtons extends Component {
    */
   onChangeHandler(e) {
     const value = e.target.value;
+    console.log('change handler!', e);
     this.setState({
       value,
       showErrorMessage: true,
     });
-    // this.validateField(e);
+    this.validateField(e);
   }
 
-  /**
-   * Get the default option, marked as selected from the props.options array
-   * Returns the value or undefined
-   */
   getSelectedOption() {
     let selected = this.props.options.find(item => item.selected === true);
     if (selected !== undefined) {
@@ -100,14 +94,24 @@ class RadioButtons extends Component {
       const thisKey = shortid.generate();
       options.push(
         <div className="form__field--wrapper form__radio form__radio--inline" key={`form__field--wrapper-${thisKey}`}>
-          <label className="form__field-label" htmlFor={`radio-${thisKey}`} key={`form__field-label-${thisKey}`}>{this.props.options[i].label}</label>
-          <input type="radio" id={`radio-${thisKey}`} name={`radio-group--${thisGroup}`} value={this.props.options[i].value} key={`radio-button-${thisKey}`} />
+          <label className="form__field-label" htmlFor={`radio--${thisKey}`} key={`form__field-label-${thisKey}`}>{this.props.options[i].label}</label>
+          <input
+            type="radio"
+            id={`radio--${thisKey}`}
+            name={`radio-group--${thisGroup}`}
+            value={this.props.options[i].value}
+            key={`radio-button-${thisKey}`}
+            onBlur={this.onChangeHandler}
+            onClick={this.onChangeHandler}
+          />
           <span>&nbsp;</span>
         </div>,
       );
     });
 
-    return options;
+    this.setState({
+      optionsMarkup: options,
+    });
   }
 
   /**
@@ -120,18 +124,24 @@ class RadioButtons extends Component {
   }
 
   /**
-   * Validate the select field and update the state with validation info
+   * Validate the radio button group and update the state with validation info
    * @param e
    */
   validateField(e) {
-    const value = e !== undefined ? e.target.value : this.selectRef.value;
+    /* Check if this was triggered by a user event */
+    const value = e !== undefined;
+
+    console.log('event', value);
+
     if (this.props.required === true && value === '') {
+      console.log('validate A');
       this.setState({
         valid: false,
         message: 'This field is required',
         value,
       });
     } else if (this.props.required === true && value) {
+      console.log('validate B');
       this.setState({
         valid: true,
         message: '',
@@ -139,6 +149,7 @@ class RadioButtons extends Component {
         showErrorMessage: false,
       });
     } else {
+      console.log('validate C');
       this.setState({
         valid: true,
         message: '',
@@ -146,6 +157,10 @@ class RadioButtons extends Component {
         showErrorMessage: false,
       });
     }
+  }
+
+  renderOptions() {
+    return this.state.optionsMarkup;
   }
 
   render() {
@@ -156,9 +171,13 @@ class RadioButtons extends Component {
         id={`field-wrapper--${this.props.id}`}
         className={`form__fieldset form__field--wrapper form__field-wrapper--radio ${errorClass} ${extraClass}`}
       >
-        { this.createOptions() }
 
-        {/*        { (this.state.valid === false && this.state.showErrorMessage === true && this.state.message !== '') &&
+        <p className="form__fieldset--label">{this.props.label}</p>
+
+        { this.renderOptions() }
+
+
+        { (this.state.valid === false && this.state.showErrorMessage === true && this.state.message !== '') &&
         <div
           id={`field-error--${this.props.id}`}
           className="form__field-error-container form__field-error-container--radio"
@@ -169,7 +188,7 @@ class RadioButtons extends Component {
             {this.state.message}
           </span>
         </div>
-        } */}
+        }
       </div>
     );
   }
@@ -185,7 +204,7 @@ RadioButtons.defaultProps = {
 RadioButtons.propTypes = {
   id: propTypes.string.isRequired,
   name: propTypes.string.isRequired,
-  // label: propTypes.string.isRequired,
+  label: propTypes.string.isRequired,
   required: propTypes.bool.isRequired,
   options: propTypes.arrayOf(propTypes.shape({
     label: propTypes.string.isRequired,

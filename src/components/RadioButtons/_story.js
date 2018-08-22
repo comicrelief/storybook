@@ -6,9 +6,9 @@ import { withInfo } from '@storybook/addon-info';
 import RadioButtons from './RadioButtons';
 
 const optionsArray = [
-  { label: 'opt1', value: 'opt1' },
-  { label: 'opt2', value: 'opt2' },
-  { label: 'opt3', value: 'opt3' },
+  { label: 'Option 1', value: 'opt1' },
+  { label: 'Option 2', value: 'opt2' },
+  { label: 'Option 3', value: 'opt3' },
 ];
 
 storiesOf('Radio buttons', module)
