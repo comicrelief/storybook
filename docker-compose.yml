@@ -1,0 +1,11 @@
+version: '2'
+services:
+
+  storybook:
+    image: comicrelief/storybook:latest
+    volumes:
+      - .:/usr/src/app
+    working_dir: /usr/src/app
+    command: yarn storybook
+    ports:
+      - "9009:9009"
