@@ -98,7 +98,7 @@ class RadioButtons extends Component {
           <input
             type="radio"
             id={`radio--${thisKey}`}
-            name={`radio-group--${thisGroup}`}
+            name={this.props.id}
             value={this.props.options[i].value}
             key={`radio-button-${thisKey}`}
             onClick={this.onChangeHandler}
@@ -170,14 +170,13 @@ class RadioButtons extends Component {
     const extraClass = this.props.extraClass !== '' ? this.props.extraClass : '';
     return (
       <fieldset
-        id={`field-wrapper--${this.props.id}`}
+        id={this.props.id}
         className={`form__fieldset form__field--wrapper form__field-wrapper--radio ${errorClass} ${extraClass}`}
       >
 
         <legend className="form__fieldset--label">{this.props.label}</legend>
 
         { this.renderOptions() }
-
 
         { (this.state.valid === false && this.state.showErrorMessage === true && this.state.message !== '') &&
         <div
