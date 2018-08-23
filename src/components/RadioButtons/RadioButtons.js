@@ -57,7 +57,6 @@ class RadioButtons extends Component {
    */
   onChangeHandler(e) {
     const value = e.target.value;
-    console.log(e.target);
     this.setState({
       value,
       showErrorMessage: true,
@@ -170,12 +169,12 @@ class RadioButtons extends Component {
     const errorClass = this.state.showErrorMessage === true ? 'form__field-error-wrapper' : '';
     const extraClass = this.props.extraClass !== '' ? this.props.extraClass : '';
     return (
-      <div
+      <fieldset
         id={`field-wrapper--${this.props.id}`}
         className={`form__fieldset form__field--wrapper form__field-wrapper--radio ${errorClass} ${extraClass}`}
       >
 
-        <p className="form__fieldset--label">{this.props.label}</p>
+        <legend className="form__fieldset--label">{this.props.label}</legend>
 
         { this.renderOptions() }
 
@@ -192,7 +191,7 @@ class RadioButtons extends Component {
           </span>
         </div>
         }
-      </div>
+      </fieldset>
     );
   }
 }
