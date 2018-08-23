@@ -57,19 +57,12 @@ class RadioButtons extends Component {
    */
   onChangeHandler(e) {
     const value = e.target.value;
+    console.log(e.target);
     this.setState({
       value,
       showErrorMessage: true,
     });
     this.validateField(e);
-  }
-
-  getSelectedOption() {
-    let selected = this.props.options.find(item => item.selected === true);
-    if (selected !== undefined) {
-      selected = selected.value;
-    }
-    return selected;
   }
 
   /**
@@ -110,6 +103,7 @@ class RadioButtons extends Component {
             value={this.props.options[i].value}
             key={`radio-button-${thisKey}`}
             onClick={this.onChangeHandler}
+            defaultChecked={this.props.options[i].selected}
           />
           <span>&nbsp;</span>
         </div>,
@@ -135,25 +129,25 @@ class RadioButtons extends Component {
    * @param e
    */
   validateField(e) {
-    let val = null;
+    let value = null;
 
-    if (e !== undefined) val = (e.target.value ? e.target.value : null);
+    if (e !== undefined) value = e.target.value;
 
-    if (this.props.required === true && val === '') {
+    if (this.props.required === true && value === '') {
       // To set on blur or submit?
       console.log('validate A');
       this.setState({
         valid: false,
         message: 'This field is required',
-        val,
+        value,
       });
-    } else if (this.props.required === true && val) {
+    } else if (this.props.required === true && value) {
       // triggered by user change
       console.log('validate B');
       this.setState({
         valid: true,
         message: '',
-        val,
+        value,
         showErrorMessage: false,
       });
     } else {
@@ -162,7 +156,7 @@ class RadioButtons extends Component {
       this.setState({
         valid: true,
         message: '',
-        val,
+        value,
         showErrorMessage: false,
       });
     }
