@@ -79,7 +79,6 @@ class RadioButtons extends Component {
    */
   createOptions() {
     const options = [];
-    const thisGroup = shortid.generate();
 
     Object.keys(this.props.options).forEach((i) => {
       const thisKey = shortid.generate();
