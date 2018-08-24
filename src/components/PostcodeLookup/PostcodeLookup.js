@@ -14,7 +14,7 @@ class PostcodeLookup extends Component {
   constructor() {
     super();
     this.state = {
-      form: {},
+      // form: {},
       addressDropdownList: [],
       countryDropdownList: [],
       addressLookupData: false,
@@ -78,12 +78,18 @@ class PostcodeLookup extends Component {
 
   componentWillMount() {
     this.createCountryDropdownList();
-    this.setInputValue();
+    // this.setInputValue();
+    const validation = this.props.form !== null ? this.props.form : this.state.validation;
+    console.log('val', validation);
+    this.setState({
+      ...this.state,
+      validation,
+    });
   }
 
-  componentDidMount() {
-    this.setValidValue();
-  }
+  // componentDidMount() {
+  //   this.setValidValue();
+  // }
 
   /**
    * If parent wants to show error messages, update errorMessages state
@@ -116,6 +122,8 @@ class PostcodeLookup extends Component {
    * @param valid
    */
   setValidity(name, valid) {
+    console.log('setvalidity state= ', this.state, 'name', name, 'valid', valid);
+    console.log('value',name, name.length, 'validationstate', this.state.validation, 'val name', this.state.validation[name]);
     if ((this.state.validation[name].value === undefined || this.state.validation[name].value !== valid.value) ||
       (this.state.validation[name].message !== valid.message)) {
       this.setState({
@@ -133,68 +141,68 @@ class PostcodeLookup extends Component {
     }
   }
 
-  /**
-   * Sets and store the input value entered for multi-step form
-   */
-  setInputValue() {
-    const form = this.props.form;
-    if (form !== null) {
-      this.setState({
-        form: {
-          ...form,
-          postcode: typeof form.postcode === 'undefined' ? '' : form.postcode,
-          address1: typeof form.address1 === 'undefined' ? '' : form.address1,
-          address2: typeof form.address2 === 'undefined' ? '' : form.address2,
-          address3: typeof form.address3 === 'undefined' ? '' : form.address3,
-          town: typeof form.town === 'undefined' ? '' : form.town,
-        },
-      });
-    }
-  }
-
-  /**
-   *  Re-set the valid state and value of validation object
-   *  from parent object in a multi-step form.
-   */
-  setValidValue() {
-    const validation = this.state.validation;
-    const form = this.props.form;
-    if (form !== null) {
-      if (form.postcode !== '' && form.address1 !== '' && form.town !== '') {
-        this.showAddressFields();
-        this.setState({
-          validation: {
-            ...validation,
-            postcode: {
-              valid: form.postcode !== '' ? true : null,
-              value: form.postcode,
-              message: '',
-            },
-            address1: {
-              valid: form.address1 !== '' ? true : null,
-              value: form.address1,
-              message: '',
-            },
-            address2: {
-              valid: true,
-              value: form.address2,
-              message: '',
-            },
-            address3: {
-              valid: true,
-              value: form.address3,
-              message: '',
-            },
-            town: {
-              valid: form.town !== '' ? true : null,
-              value: form.town,
-              message: '',
-            },
-          },
-        });
-      }
-    }
-  }
+  // /**
+  //  * Sets and store the input value entered for multi-step form
+  //  */
+  // setInputValue() {
+  //   const form = this.props.form;
+  //   if (form !== null) {
+  //     this.setState({
+  //       form: {
+  //         ...form,
+  //         postcode: typeof form.postcode === 'undefined' ? '' : form.postcode,
+  //         address1: typeof form.address1 === 'undefined' ? '' : form.address1,
+  //         address2: typeof form.address2 === 'undefined' ? '' : form.address2,
+  //         address3: typeof form.address3 === 'undefined' ? '' : form.address3,
+  //         town: typeof form.town === 'undefined' ? '' : form.town,
+  //       },
+  //     });
+  //   }
+  // }
+  //
+  // /**
+  //  *  Re-set the valid state and value of validation object
+  //  *  from parent object in a multi-step form.
+  //  */
+  // setValidValue() {
+  //   const validation = this.state.validation;
+  //   const form = this.props.form;
+  //   if (form !== null) {
+  //     if (form.postcode !== '' && form.address1 !== '' && form.town !== '') {
+  //       this.showAddressFields();
+  //       this.setState({
+  //         validation: {
+  //           ...validation,
+  //           postcode: {
+  //             valid: form.postcode !== '' ? true : null,
+  //             value: form.postcode,
+  //             message: '',
+  //           },
+  //           address1: {
+  //             valid: form.address1 !== '' ? true : null,
+  //             value: form.address1,
+  //             message: '',
+  //           },
+  //           address2: {
+  //             valid: true,
+  //             value: form.address2,
+  //             message: '',
+  //           },
+  //           address3: {
+  //             valid: true,
+  //             value: form.address3,
+  //             message: '',
+  //           },
+  //           town: {
+  //             valid: form.town !== '' ? true : null,
+  //             value: form.town,
+  //             message: '',
+  //           },
+  //         },
+  //       });
+  //     }
+  //   }
+  // }
 
   /**
    * Fetch addresses from lookup API and update state
@@ -354,6 +362,7 @@ class PostcodeLookup extends Component {
     }
     return value;
   }
+
   returnPostcodeValidation() {
     return this.state.postcodeValidationMessage !== false ? {
       message: this.state.postcodeValidationMessage,
@@ -402,7 +411,7 @@ class PostcodeLookup extends Component {
           emptyFieldErrorText={postCodeField.emptyFieldErrorText}
           invalidErrorText={postCodeField.invalidErrorText}
           value={id => this.addressValue(id)}
-          fieldValue={this.state.form[postCodeField.id]}
+          fieldValue={this.state.validation[postCodeField.id]}
           isValid={(valid, name) => { this.setValidity(name, valid); }}
           buttonClick={() => { return this.addressLookup().then(() => this.returnPostcodeValidation()); }}
           showErrorMessage={this.state.showErrorMessages}
@@ -440,8 +449,8 @@ class PostcodeLookup extends Component {
                 pattern={item.pattern}
                 invalidErrorText={item.invalidErrorText}
                 showErrorMessage={this.state.showErrorMessages}
+                fieldValue={this.state.validation[item.id].value}
                 isValid={(valid, name) => { this.setValidity(name, valid); }}
-                fieldValue={this.state.form[item.id]}
               />
             ))
           }
@@ -470,11 +479,7 @@ PostcodeLookup.defaultProps = {
   form: null,
 };
 PostcodeLookup.propTypes = {
-  form: propTypes.oneOfType([
-    propTypes.string,
-    propTypes.number,
-    propTypes.object,
-  ]),
+  form: propTypes.object,
   isAddressValid: propTypes.func,
   label: propTypes.string,
   showErrorMessages: propTypes.bool,
