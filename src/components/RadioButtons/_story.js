@@ -35,9 +35,9 @@ const name1 = text('name', 'radiobuttons1');
 const name2 = text('name', 'radiobuttons2');
 const name3 = text('name', 'radiobuttons3');
 
-const label1 = text('label', 'Radio Buttons - preselected');
-const label2 = text('label', 'More Radio Buttons - not required');
-const label3 = text('label', 'Yet More Radio Buttons - additional text');
+const label1 = text('label', 'Radio Buttons: preselected');
+const label2 = text('label', 'More Radio Buttons: not required');
+const label3 = text('label', 'Yet More Radio Buttons: w/additional text');
 
 const required = boolean('required', true);
 const notRequired = boolean('required', false);
