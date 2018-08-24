@@ -20,7 +20,9 @@ const optionsArray2 = [
 const optionsArray3 = [
   { label: 'Option 7', value: 'opt7' },
   { label: 'Option 8', value: 'opt8',
-    additionalText: "Here's some additional text with a [link](http://example.com)"
+    additionalText: "Here's some additional text with a [link](http://example.com), " +
+    "and some lorem ipsum: Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. " +
+    "Nulla porttitor accumsan tincidunt. Pellentesque in ipsum id orci porta dapibus."
   },
   { label: 'Option 9', value: 'opt9' },
 ];

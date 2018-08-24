@@ -20,6 +20,7 @@
     "react-dropzone": "4",
     "react-fontawesome": "1",
     "react-geolocated": "2",
+    "react-markdown": "^3.4.1",
     "react-scripts": "1",
     "react-svg": "2",
     "react-vis": "^1.9.1",

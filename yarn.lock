@@ -21,8 +21,8 @@
   resolved "https://registry.yarnpkg.com/@babel/parser/-/parser-7.0.0-beta.53.tgz#1f45eb617bf9463d482b2c04d349d9e4edbf4892"
 
 "@comicrelief/pattern-lab@*":
-  version "7.47.15"
-  resolved "https://registry.yarnpkg.com/@comicrelief/pattern-lab/-/pattern-lab-7.47.15.tgz#2b3e2a947b159413e2d4de14d99ffe0ba254d200"
+  version "7.47.16"
+  resolved "https://registry.yarnpkg.com/@comicrelief/pattern-lab/-/pattern-lab-7.47.16.tgz#73e3d03833ed675fc56dc1b9529a2a8bbfb79607"
   dependencies:
     susy "^2.2.12"
 
