@@ -4,6 +4,7 @@ import propTypes from 'prop-types';
 import './RadioButtons.scss';
 
 const shortid = require('shortid');
+const Markdown = require('react-markdown');
 
 class RadioButtons extends Component {
   constructor(props) {
@@ -64,6 +65,20 @@ class RadioButtons extends Component {
     this.validateField(e);
   }
 
+  /* Helper function to add custom rendered for Markdown links */
+  markdownLinkRenderer(props) {
+    return (props.href.indexOf('/') === 0) ?
+      <a className="link" href={props.href}>{props.children}</a> :
+      <a
+        className="link"
+        href={props.href}
+        target="_blank"
+        rel="nofollow noopener noreferrer"
+      >
+        {props.children}
+      </a>;
+  }
+
   /**
    * Uses isValid callback function sending state, value and field name to parent
    */
@@ -80,6 +95,7 @@ class RadioButtons extends Component {
   createOptions() {
     const options = [];
 
+
     Object.keys(this.props.options).forEach((i) => {
       const thisKey = shortid.generate();
       options.push(
@@ -87,6 +103,7 @@ class RadioButtons extends Component {
           className="form__field--wrapper form__radio form__radio--inline"
           key={`form__field--wrapper-${thisKey}`}
         >
+
           <label
             className="form__field-label"
             htmlFor={`radio--${thisKey}`}
@@ -94,6 +111,7 @@ class RadioButtons extends Component {
           >
             {this.props.options[i].label}
           </label>
+
           <input
             type="radio"
             id={`radio--${thisKey}`}
@@ -104,6 +122,15 @@ class RadioButtons extends Component {
             defaultChecked={this.props.options[i].selected}
           />
           <span>&nbsp;</span>
+
+          {this.props.options[i].additionalText ?
+            <div className="form__fieldset form__field--wrapper form__field-additional-text">
+              <Markdown
+                source={this.props.options[i].additionalText}
+                renderers={{ link: this.markdownLinkRenderer }}
+              />
+            </div> : null }
+
         </div>,
       );
     });
@@ -133,7 +160,6 @@ class RadioButtons extends Component {
 
     if (this.props.required === true && value === '') {
       // To set on blur or submit?
-      console.log('validate A');
       this.setState({
         valid: false,
         message: 'This field is required',

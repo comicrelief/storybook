@@ -19,7 +19,9 @@ const optionsArray2 = [
 
 const optionsArray3 = [
   { label: 'Option 7', value: 'opt7' },
-  { label: 'Option 8', value: 'opt8' },
+  { label: 'Option 8', value: 'opt8',
+    additionalText: "Here's some additional text with a [link](http://example.com)"
+  },
   { label: 'Option 9', value: 'opt9' },
 ];
 
@@ -33,7 +35,7 @@ const name3 = text('name', 'radiobuttons3');
 
 const label1 = text('label', 'Radio Buttons - preselected');
 const label2 = text('label', 'More Radio Buttons - not required');
-const label3 = text('label', 'Yet More Radio Buttons');
+const label3 = text('label', 'Yet More Radio Buttons - additional text');
 
 const required = boolean('required', true);
 const notRequired = boolean('required', false);
@@ -44,9 +46,27 @@ storiesOf('Radio buttons', module)
     withInfo('Required')(() => {
       return (
         <div>
-          <RadioButtons id={id1} name={name1} label={label1} required={required} options={optionsArray1} />
-          <RadioButtons id={id2} name={name2} label={label2} required={notRequired} options={optionsArray2} />
-          <RadioButtons id={id3} name={name3} label={label3} required={required} options={optionsArray3} />
+          <RadioButtons
+            id={id1}
+            name={name1}
+            label={label1}
+            required={required}
+            options={optionsArray1}
+          />
+          <RadioButtons
+            id={id2}
+            name={name2}
+            label={label2}
+            required={notRequired}
+            options={optionsArray2}
+          />
+          <RadioButtons
+            id={id3}
+            name={name3}
+            label={label3}
+            required={required}
+            options={optionsArray3}
+          />
         </div>
       );
     }),
