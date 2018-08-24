@@ -68,9 +68,9 @@ class RadioButtons extends Component {
   /* Helper function to add custom rendered for Markdown links */
   markdownLinkRenderer(props) {
     return (props.href.indexOf('/') === 0) ?
-      <a className="link" href={props.href}>{props.children}</a> :
+      <a className="link inline" href={props.href}>{props.children}</a> :
       <a
-        className="link"
+        className="link inline"
         href={props.href}
         target="_blank"
         rel="nofollow noopener noreferrer"
