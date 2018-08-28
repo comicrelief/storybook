@@ -1,7 +1,7 @@
 const defaultValidationPatterns = {
   tel: new RegExp(/^[0-9 ]{11,}$/),
   number: new RegExp(/^[0-9]+$/),
-  email: new RegExp(/^([A-Za-z0-9_%+-]+\.{0,1})+[A-Za-z0-9_%+-]+@([A-Za-z0-9-]+\.{0,1})+[A-Za-z0-9-]+\.[A-Za-z]{2,3}$/),
+  email: new RegExp(/^([A-Za-z0-9_%+-]+\.?)*[A-Za-z0-9_%+-]+@([A-Za-z0-9-]+\.?)*[A-Za-z0-9-]+\.[A-Za-z]{2,3}$/),
   text: new RegExp(/^[\sA-Za-z0-9_.'&-]+$/),
 };
 
