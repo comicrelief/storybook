@@ -20,7 +20,8 @@ class RadioButtons extends Component {
       this.selectRef = element;
     };
     this.validateField = this.validateField.bind(this);
-    this.onChangeHandler = this.onChangeHandler.bind(this);
+    this.onClickHandler = this.onClickHandler.bind(this);
+    this.onBlurHandler = this.onBlurHandler.bind(this);
   }
 
   /**
@@ -53,10 +54,10 @@ class RadioButtons extends Component {
   }
 
   /**
-   * Handle the onChange and onBlur events
+   * Handle the onClick events
    * @param e
    */
-  onChangeHandler(e) {
+  onClickHandler(e) {
     const value = e.target.value;
     this.setState({
       value,
@@ -64,8 +65,18 @@ class RadioButtons extends Component {
     });
     this.validateField(e);
   }
-
-  /* Helper function to add custom rendered for Markdown links */
+  /**
+   * Handle the onBlur event
+   * @param e
+   */
+  onBlurHandler(e) {
+    if (this.props.required) {
+      this.validateField(e);
+    }
+  }
+  /**
+   * Helper function to add custom rendered for Markdown links
+   */
   markdownLinkRenderer(props) {
     return (props.href.indexOf('/') === 0) ?
       <a className="link" href={props.href}>{props.children}</a> :
@@ -95,7 +106,6 @@ class RadioButtons extends Component {
   createOptions() {
     const options = [];
 
-
     Object.keys(this.props.options).forEach((i) => {
       const thisKey = shortid.generate();
       options.push(
@@ -118,7 +128,7 @@ class RadioButtons extends Component {
             name={this.props.id}
             value={this.props.options[i].value}
             key={`radio-button-${thisKey}`}
-            onClick={this.onChangeHandler}
+            onClick={this.onClickHandler}
             defaultChecked={this.props.options[i].selected}
           />
           <span>&nbsp;</span>
@@ -155,15 +165,20 @@ class RadioButtons extends Component {
    */
   validateField(e) {
     let value = null;
+    let eventType = null;
+    const selectedValue = this.state.value;
 
-    if (e !== undefined) value = e.target.value;
+    if (e !== undefined) {
+      value = e.target.value;
+      eventType = e.type;
+    }
 
-    if (this.props.required === true && value === '') {
-      // To set on blur or submit?
+    if (this.props.required === true && eventType === 'blur' && selectedValue === undefined) {
       this.setState({
         valid: false,
         message: 'This field is required',
         value,
+        showErrorMessage: true,
       });
     } else if (this.props.required === true && value) {
       // triggered by user change
@@ -197,6 +212,7 @@ class RadioButtons extends Component {
       <fieldset
         id={this.props.id}
         className={`form__fieldset form__field--wrapper form__field-wrapper--radio ${errorClass} ${extraClass}`}
+        onBlur={this.onBlurHandler}
       >
 
         <legend className="form__fieldset--label">{this.props.label}</legend>

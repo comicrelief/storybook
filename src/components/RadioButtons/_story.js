@@ -54,6 +54,7 @@ storiesOf('Radio buttons', module)
             label={label1}
             required={required}
             options={optionsArray1}
+            showErrorMessage={required}
           />
           <RadioButtons
             id={id2}
@@ -61,6 +62,7 @@ storiesOf('Radio buttons', module)
             label={label2}
             required={notRequired}
             options={optionsArray2}
+            showErrorMessage={required}
           />
           <RadioButtons
             id={id3}
@@ -68,6 +70,7 @@ storiesOf('Radio buttons', module)
             label={label3}
             required={required}
             options={optionsArray3}
+            showErrorMessage={required}
           />
         </div>
       );
