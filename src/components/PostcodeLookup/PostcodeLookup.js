@@ -14,7 +14,6 @@ class PostcodeLookup extends Component {
   constructor() {
     super();
     this.state = {
-      // form: {},
       addressDropdownList: [],
       countryDropdownList: [],
       addressLookupData: false,
@@ -77,19 +76,21 @@ class PostcodeLookup extends Component {
   }
 
   componentWillMount() {
-    this.createCountryDropdownList();
     this.setInputValue();
+    this.createCountryDropdownList();
   }
 
-  // componentDidMount() {
-  //   this.setInputValue();
-  // }
+  componentDidMount() {
+    this.setInputValue();
+  }
 
   /**
    * If parent wants to show error messages, update errorMessages state
    * @param nextProps
    */
   componentWillReceiveProps(nextProps) {
+    console.log('nextprops postcodelookup', nextProps.form);
+    console.log('state', this.state.validation);
     if (nextProps.showErrorMessages && nextProps.showErrorMessages !== this.state.showErrorMessages) {
       this.setState({
         ...this.state,
@@ -97,6 +98,10 @@ class PostcodeLookup extends Component {
       });
       if (nextProps.showErrorMessages === true) {
         this.removeClassName(this.addressDetailRef, 'visually-hidden');
+        this.setState({
+          ...this.state,
+          showErrorMessages: true,
+        });
       }
     }
   }
@@ -105,6 +110,7 @@ class PostcodeLookup extends Component {
    * Send validation to Parent
    */
   componentDidUpdate() {
+    console.log('postcode lookup did update');
     if (typeof this.props.isAddressValid === 'function') {
       this.props.isAddressValid(this.state.validation);
     }
@@ -127,6 +133,7 @@ class PostcodeLookup extends Component {
             valid: valid.valid,
             value: valid.value,
             message: valid.message,
+            showErrorMessage: valid.showErrorMessage,
           },
         },
       });
