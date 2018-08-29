@@ -48,6 +48,12 @@ class InputField extends Component {
               value: item.value,
               message: item.message,
               valid: item.valid,
+              showErrorMessage: item.showErrorMessage,
+            };
+          } else if (nextProps.showErrorMessage !== prevState.showErrorMessage) {
+            newState = {
+              ...prevState,
+              showErrorMessage: nextProps.showErrorMessage,
             };
           }
           return newState;
@@ -72,12 +78,6 @@ class InputField extends Component {
           };
         }
         return newState;
-      });
-    }
-    if (nextProps.showErrorMessage !== this.state.showErrorMessage) {
-      this.setState({
-        ...this.state,
-        showErrorMessage: nextProps.showErrorMessage,
       });
     }
   }
