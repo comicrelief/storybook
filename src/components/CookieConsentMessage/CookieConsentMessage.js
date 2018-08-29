@@ -13,6 +13,7 @@ class CookieConsentMessage extends Component {
       cookieName: 'cookie-consent',
       contentClass: 'cc_message',
       position: 'top',
+      domainName: 'comicrelief.com',
     };
 
     return (
@@ -24,10 +25,12 @@ class CookieConsentMessage extends Component {
         containerClasses={option.containerClass}
         buttonClasses={option.buttonClass}
         contentClasses={option.contentClass}
+        extraCookieOptions={{ domain: option.domainName }}
       >
         We use cookies. We’ve recently updated our privacy policy to give you more detail about how we use your personal information.{' '}
         <a href="https://www.comicrelief.com/privacy-notice" className={option.linkClass} target="_blank" rel="noopener noreferrer">
           Read our privacy policy here.
+          <span className="visuallyhidden">(opens in a new window)</span>
         </a>
       </CookieConsent>
     );
