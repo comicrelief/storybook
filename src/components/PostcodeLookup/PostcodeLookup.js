@@ -140,6 +140,14 @@ class PostcodeLookup extends Component {
     }
   }
 
+  setInputValue() {
+    const validation = this.props.form !== null ? this.props.form : this.state.validation;
+    this.setState({
+      ...this.state,
+      validation,
+    });
+  }
+
   /**
    * Fetch addresses from lookup API and update state
    * @return {Promise}
@@ -188,12 +196,12 @@ class PostcodeLookup extends Component {
   createCountryDropdownList() {
     const selected = this.props.form !== null && this.props.form.country.value !== 'undefined' && this.props.form.country.value === 'GB';
     const dropDownList = [
-      { label: 'United Kingdom', value: 'GB', selected},
+      { label: 'United Kingdom', value: 'GB', selected },
       { label: '-------------------', disabled: true },
     ];
-    Object.keys(countries).map((key) => {
-      const selected = this.props.form !== null && this.props.form.country.value !== 'undefined' && this.props.form.country.value === key;
-      dropDownList.push({ label: countries[key], value: key, selected});
+    Object.keys(countries).forEach((key) => {
+      const selectedOption = this.props.form !== null && this.props.form.country.value !== 'undefined' && this.props.form.country.value === key;
+      dropDownList.push({ label: countries[key], value: key, selectedOption });
     });
     this.setState({
       countryDropdownList: dropDownList,
@@ -205,14 +213,6 @@ class PostcodeLookup extends Component {
           value: this.props.form !== null && this.props.form.country.value !== 'undefined' ? this.props.form.country.value : 'GB',
         },
       },
-    });
-  }
-
-  setInputValue() {
-    const validation = this.props.form !== null ? this.props.form : this.state.validation;
-    this.setState({
-      ...this.state,
-      validation,
     });
   }
 
