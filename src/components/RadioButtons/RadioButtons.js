@@ -79,9 +79,9 @@ class RadioButtons extends Component {
    */
   markdownLinkRenderer(props) {
     return (props.href.indexOf('/') === 0) ?
-      <a className="link inline" href={props.href}>{props.children}</a> :
+      <a className="link inline additional-text__link" href={props.href}>{props.children}</a> :
       <a
-        className="link inline"
+        className="link inline additional-text__link"
         href={props.href}
         target="_blank"
         rel="nofollow noopener noreferrer"
@@ -134,13 +134,11 @@ class RadioButtons extends Component {
           <span>&nbsp;</span>
 
           {this.props.options[i].additionalText ?
-            <div className="form__fieldset form__field--wrapper form__field-additional-text">
-              <Markdown
-                source={this.props.options[i].additionalText}
-                renderers={{ link: this.markdownLinkRenderer }}
-              />
-            </div> : null }
-
+            <Markdown
+              source={this.props.options[i].additionalText}
+              renderers={{ link: this.markdownLinkRenderer }}
+              className="form__fieldset form__field--wrapper form__field-additional-text"
+            /> : null }
         </div>,
       );
     });
@@ -166,32 +164,41 @@ class RadioButtons extends Component {
   validateField(e) {
     let value = null;
     let eventType = null;
+    let type = null;
+
     const selectedValue = this.state.value;
 
     if (e !== undefined) {
       value = e.target.value;
+      type = e.target.type;
       eventType = e.type;
     }
 
-    if (this.props.required === true && eventType === 'blur' && selectedValue === undefined) {
+    /*
+    console.log('this.props.required true', this.props.required === true);
+    console.log('eventType', eventType === 'blur');
+    console.log('selectedValue', selectedValue === null);
+    console.log('selectedValue IS', selectedValue);
+*/
+
+    if (this.props.required === true && selectedValue === null) {
+      console.log('A');
       this.setState({
         valid: false,
         message: 'This field is required',
-        value,
         showErrorMessage: true,
       });
-    } else if (this.props.required === true && value) {
-      // triggered by user change
-      console.log('validate B');
+    } else if (this.props.required === true && value && eventType === 'click') {
+      console.log('B');
       this.setState({
         valid: true,
         message: '',
         value,
         showErrorMessage: false,
       });
-    } else {
-      // initial load
-      console.log('validate C');
+      /* Check that this isn't just a blur event from a *nonselected* set of radio buttons */
+    } else if (eventType !== 'blur') {
+      console.log('C');
       this.setState({
         valid: true,
         message: '',

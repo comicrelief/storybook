@@ -25,6 +25,10 @@ const optionsArray3 = [
     "Nulla porttitor accumsan tincidunt. Pellentesque in ipsum id orci porta dapibus."
   },
   { label: 'Option 9', value: 'opt9' },
+  { label: 'Option 10', value: 'opt10' },
+  { label: 'Option 11', value: 'opt11' },
+  { label: 'Option 12', value: 'opt12' },
+
 ];
 
 const id1 = text('id', 'radioButtons1');
