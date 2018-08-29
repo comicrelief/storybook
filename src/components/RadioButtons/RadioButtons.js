@@ -24,6 +24,17 @@ class RadioButtons extends Component {
     this.onBlurHandler = this.onBlurHandler.bind(this);
   }
 
+  componentWillMount() {
+    /* Get values from any preselected radiob buttons */
+    const selected = this.props.options.find(item => item.selected === true);
+
+    if (selected !== undefined) {
+      this.setState({
+        value: selected.value,
+      });
+    }
+  }
+
   /**
    * Validate initial state
    * (will trigger an update through the validateField function)
@@ -58,20 +69,25 @@ class RadioButtons extends Component {
    * @param e
    */
   onClickHandler(e) {
+    console.log('onClickHandler');
     const value = e.target.value;
     this.setState({
       value,
       showErrorMessage: true,
     });
-    this.validateField(e);
+    /* Pass new value straight to validate method, to allow pre-state update validation */
+    this.validateField(e, value);
   }
   /**
    * Handle the onBlur event
    * @param e
    */
   onBlurHandler(e) {
+    /* If we're blurring away from a required set of buttons: */
+    console.log('onBlurHandler');
     if (this.props.required) {
-      this.validateField(e);
+      /* Pass in a previous set state to avoid error msg */
+      this.validateField(e, this.state.value);
     }
   }
   /**
@@ -161,48 +177,40 @@ class RadioButtons extends Component {
    * Validate the radio button group and update the state with validation info
    * @param e
    */
-  validateField(e) {
-    let value = null;
+  validateField(e, updatedValue) {
+    /* The current selected value, set to null if empty */
+    const selectedValue = (updatedValue !== '' ? updatedValue : null);
+
     let eventType = null;
-    let type = null;
 
-    const selectedValue = this.state.value;
+    /* If our validate event was called by a user interaction: */
+    if (e !== undefined) eventType = e.type;
+    /* Otherwise, label it as an app-triggered event */
+    else eventType = 'mount';
 
-    if (e !== undefined) {
-      value = e.target.value;
-      type = e.target.type;
-      eventType = e.type;
-    }
-
-    /*
-    console.log('this.props.required true', this.props.required === true);
-    console.log('eventType', eventType === 'blur');
-    console.log('selectedValue', selectedValue === null);
-    console.log('selectedValue IS', selectedValue);
-*/
-
-    if (this.props.required === true && selectedValue === null) {
+    // A: Btn value is required, no current value, but this isn't an initial mount method call
+    if (this.props.required === true && selectedValue === null && eventType !== 'mount') {
       console.log('A');
       this.setState({
         valid: false,
         message: 'This field is required',
         showErrorMessage: true,
       });
-    } else if (this.props.required === true && value && eventType === 'click') {
+    }
+    // B: Else, if it's required by we have a value set already by user or preset
+    else if (this.props.required === true && selectedValue) {
       console.log('B');
       this.setState({
         valid: true,
         message: '',
-        value,
         showErrorMessage: false,
       });
       /* Check that this isn't just a blur event from a *nonselected* set of radio buttons */
     } else if (eventType !== 'blur') {
-      console.log('C');
+      console.log('C: non-required btns, non blur event');
       this.setState({
         valid: true,
         message: '',
-        value,
         showErrorMessage: false,
       });
     }
