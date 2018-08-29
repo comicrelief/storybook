@@ -69,7 +69,6 @@ class RadioButtons extends Component {
    * @param e
    */
   onClickHandler(e) {
-    console.log('onClickHandler');
     const value = e.target.value;
     this.setState({
       value,
@@ -84,7 +83,6 @@ class RadioButtons extends Component {
    */
   onBlurHandler(e) {
     /* If we're blurring away from a required set of buttons: */
-    console.log('onBlurHandler');
     if (this.props.required) {
       /* Pass in a previous set state to avoid error msg */
       this.validateField(e, this.state.value);
@@ -197,6 +195,7 @@ class RadioButtons extends Component {
           showErrorMessage: eventType !== 'mount',
         });
       }
+
       /* B: Else, if it's required & we've a value set by the user or preset */
       else if (selectedValue) {
         console.log('B');
@@ -206,6 +205,14 @@ class RadioButtons extends Component {
           showErrorMessage: false,
         });
       }
+    } else {
+      /* C: For non-required buttons */
+      console.log('C');
+      this.setState({
+        valid: true,
+        message: '',
+        showErrorMessage: false,
+      });
     }
   }
 
