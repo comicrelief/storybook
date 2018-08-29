@@ -41,7 +41,7 @@ class RadioButtons extends Component {
    */
   componentDidMount() {
     this.createOptions();
-    this.validateField();
+    this.validateField(null, this.state.value);
   }
 
   /**
@@ -183,36 +183,29 @@ class RadioButtons extends Component {
 
     let eventType = null;
 
-    /* If our validate event was called by a user interaction: */
-    if (e !== undefined) eventType = e.type;
-    /* Otherwise, label it as an app-triggered event */
+    /* Set a flag for our user or app-triggered event */
+    if (e !== null) eventType = e.type;
     else eventType = 'mount';
 
-    // A: Btn value is required, no current value, but this isn't an initial mount method call
-    if (this.props.required === true && selectedValue === null && eventType !== 'mount') {
-      console.log('A');
-      this.setState({
-        valid: false,
-        message: 'This field is required',
-        showErrorMessage: true,
-      });
-    }
-    // B: Else, if it's required by we have a value set already by user or preset
-    else if (this.props.required === true && selectedValue) {
-      console.log('B');
-      this.setState({
-        valid: true,
-        message: '',
-        showErrorMessage: false,
-      });
-      /* Check that this isn't just a blur event from a *nonselected* set of radio buttons */
-    } else if (eventType !== 'blur') {
-      console.log('C: non-required btns, non blur event');
-      this.setState({
-        valid: true,
-        message: '',
-        showErrorMessage: false,
-      });
+    if (this.props.required === true) {
+      /* A: If our required btn group doesn't have a value, set the show msg status based on the event type */
+      if (selectedValue === null) {
+        console.log('A');
+        this.setState({
+          valid: false,
+          message: 'This field is required',
+          showErrorMessage: eventType !== 'mount',
+        });
+      }
+      /* B: Else, if it's required & we've a value set by the user or preset */
+      else if (selectedValue) {
+        console.log('B');
+        this.setState({
+          valid: true,
+          message: '',
+          showErrorMessage: false,
+        });
+      }
     }
   }
 
