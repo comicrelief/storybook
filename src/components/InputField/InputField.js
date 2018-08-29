@@ -74,6 +74,12 @@ class InputField extends Component {
         return newState;
       });
     }
+    if (nextProps.showErrorMessage !== this.state.showErrorMessage) {
+      this.setState({
+        ...this.state,
+        showErrorMessage: nextProps.showErrorMessage,
+      });
+    }
   }
 
   /**
