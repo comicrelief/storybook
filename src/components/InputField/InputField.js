@@ -300,7 +300,10 @@ InputField.propTypes = {
   label: propTypes.string.isRequired,
   required: propTypes.bool,
   value: propTypes.func,
-  pattern: propTypes.string,
+  pattern: propTypes.oneOfType([
+    propTypes.string,
+    propTypes.instanceOf(RegExp),
+  ]),
   placeholder: propTypes.string,
   min: propTypes.number,
   max: propTypes.number,
