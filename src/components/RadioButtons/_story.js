@@ -20,7 +20,7 @@ const optionsArray2 = [
 const optionsArray3 = [
   { label: 'Option 7', value: 'opt7' },
   { label: 'Option 8', value: 'opt8', selected : true },
-  { label: 'Option 9', value: 'opt9', additional-text },
+  { label: 'Option 9', value: 'opt9' },
 ];
 
 const optionsArray4 = [
