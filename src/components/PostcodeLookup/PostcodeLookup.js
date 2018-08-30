@@ -89,8 +89,6 @@ class PostcodeLookup extends Component {
    * @param nextProps
    */
   componentWillReceiveProps(nextProps) {
-    console.log('nextprops postcodelookup', nextProps.form);
-    console.log('state', this.state.validation);
     if (nextProps.showErrorMessages && nextProps.showErrorMessages !== this.state.showErrorMessages) {
       this.setState({
         ...this.state,
@@ -110,7 +108,6 @@ class PostcodeLookup extends Component {
    * Send validation to Parent
    */
   componentDidUpdate() {
-    console.log('postcode lookup did update');
     if (typeof this.props.isAddressValid === 'function') {
       this.props.isAddressValid(this.state.validation);
     }
