@@ -16,6 +16,9 @@ class RadioButtons extends Component {
       value: '',
       showErrorMessage: this.props.showErrorMessage,
     };
+    this.setRef = (element) => {
+      this.radioButtonRef = element;
+    };
     this.validateField = this.validateField.bind(this);
     this.onClickHandler = this.onClickHandler.bind(this);
     this.onBlurHandler = this.onBlurHandler.bind(this);
@@ -133,7 +136,6 @@ class RadioButtons extends Component {
           >
             {this.props.options[i].label}
           </label>
-
           <input
             type="radio"
             id={`radio--${thisKey}`}
@@ -207,6 +209,7 @@ class RadioButtons extends Component {
         id={this.props.id}
         className={`form__fieldset form__field--wrapper form__field-wrapper--radio ${errorClass} ${extraClass}`}
         onBlur={this.onBlurHandler}
+        ref={this.setRef}
       >
 
         <legend className="form__fieldset--label">{this.props.label}</legend>
