@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import browser from 'browser-detect';
 import propTypes from 'prop-types';
 
 class CheckboxField extends Component {
@@ -18,6 +19,9 @@ class CheckboxField extends Component {
     } = this.props;
 
     const showBackgroundClassName = setBackgroundColor === true ? 'form__field-wrapper--background' : '';
+    const isBrowser = browser();
+    const supportedAriaAttributes = isBrowser.name === 'firefox' && isBrowser.os.match('Windows') ? { role: 'alert', 'aria-relevant': 'all' } : { role: 'status' };
+
 
     return (
       <div id={`field-wrapper--${id}`}>
@@ -55,7 +59,7 @@ class CheckboxField extends Component {
             id={`field-error--${id}`}
             className={`form__field-error-container form__field-error-container--${type}`}
             aria-live="assertive"
-            role="status"
+            {...supportedAriaAttributes}
           >
             <span className="form-error">
               {errorMessage}

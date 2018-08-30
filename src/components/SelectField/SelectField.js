@@ -1,6 +1,7 @@
 /* eslint-env browser */
 import React, { Component } from 'react';
 import propTypes from 'prop-types';
+import browser from 'browser-detect';
 
 
 class SelectField extends Component {
@@ -142,6 +143,9 @@ class SelectField extends Component {
   render() {
     const errorClass = this.state.showErrorMessage === true ? 'form__field-error-wrapper' : '';
     const extraClass = this.props.extraClass !== '' ? this.props.extraClass : '';
+    const isBrowser = browser();
+    const supportedAriaAttributes = isBrowser.name === 'firefox' && isBrowser.os.match('Windows') ? { role: 'alert', 'aria-relevant': 'all' } : { role: 'status' };
+
     return (
       <div
         id={`field-wrapper--${this.props.id}`}
@@ -173,7 +177,7 @@ class SelectField extends Component {
           id={`field-error--${this.props.id}`}
           className="form__field-error-container form__field-error-container--select"
           aria-live="assertive"
-          role="status"
+          {...supportedAriaAttributes}
         >
           <span className="form-error">
             {this.state.message}
