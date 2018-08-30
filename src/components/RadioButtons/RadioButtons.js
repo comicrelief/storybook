@@ -16,9 +16,6 @@ class RadioButtons extends Component {
       value: '',
       showErrorMessage: this.props.showErrorMessage,
     };
-    this.setRef = (element) => {
-      this.selectRef = element;
-    };
     this.validateField = this.validateField.bind(this);
     this.onClickHandler = this.onClickHandler.bind(this);
     this.onBlurHandler = this.onBlurHandler.bind(this);
@@ -41,7 +38,7 @@ class RadioButtons extends Component {
    */
   componentDidMount() {
     this.createOptions();
-    this.validateField(null, this.state.value);
+    this.validateField(this.state.value, 'mount');
   }
 
   /**
@@ -75,17 +72,17 @@ class RadioButtons extends Component {
       showErrorMessage: true,
     });
     /* Pass new value straight to validate method, to allow pre-state update validation */
-    this.validateField(e, value);
+    this.validateField(value, 'click');
   }
   /**
    * Handle the onBlur event
    * @param e
    */
-  onBlurHandler(e) {
+  onBlurHandler() {
     /* If we're blurring away from a required set of buttons: */
     if (this.props.required) {
       /* Pass in a previous set state to avoid error msg */
-      this.validateField(e, this.state.value);
+      this.validateField(this.state.value, 'blur');
     }
   }
   /**
@@ -163,42 +160,24 @@ class RadioButtons extends Component {
   }
 
   /**
-   * If value is an object, json stringify it
-   * @param value
-   * @returns {*}
-   */
-  checkValueType(value) {
-    return typeof value === 'object' ? JSON.stringify(value) : value;
-  }
-
-  /**
    * Validate the radio button group and update the state with validation info
-   * @param e
+   * @param updatedValue
+   * @param eventType string
    */
-  validateField(e, updatedValue) {
+  validateField(updatedValue, eventType) {
     /* The current selected value, set to null if empty */
     const selectedValue = (updatedValue !== '' ? updatedValue : null);
-
-    let eventType = null;
-
-    /* Set a flag for our user or app-triggered event */
-    if (e !== null) eventType = e.type;
-    else eventType = 'mount';
 
     if (this.props.required === true) {
       /* A: If our required btn group doesn't have a value, set the show msg status based on the event type */
       if (selectedValue === null) {
-        console.log('A');
         this.setState({
           valid: false,
           message: 'This field is required',
           showErrorMessage: eventType !== 'mount',
         });
-      }
-
-      /* B: Else, if it's required & we've a value set by the user or preset */
-      else if (selectedValue) {
-        console.log('B');
+      } else if (selectedValue) {
+        /* B: Else, if it's required & we've a value set by the user or preset */
         this.setState({
           valid: true,
           message: '',
@@ -207,7 +186,6 @@ class RadioButtons extends Component {
       }
     } else {
       /* C: For non-required buttons */
-      console.log('C');
       this.setState({
         valid: true,
         message: '',
