@@ -98,6 +98,7 @@ class RadioButtons extends Component {
         rel="nofollow noopener noreferrer"
       >
         {props.children}
+        <span className="visuallyhidden">(opens in a new window)</span>
       </a>;
   }
 
