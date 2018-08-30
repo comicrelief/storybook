@@ -25,7 +25,10 @@ const optionsArray3 = [
 
 const optionsArray4 = [
   { label: 'Option 10', value: 'opt10' },
-  { label: 'Option 11', value: 'opt11', selected : true },
+  { label: 'Option 11', value: 'opt11', selected : true,
+    additionalText: "Here's some additional text with a [link](http://example.com), " +
+  "and some lorem ipsum: Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. " +
+  "Nulla porttitor accumsan tincidunt. Pellentesque in ipsum id orci porta dapibus." },
   { label: 'Option 12', value: 'opt12' },
 ];
 
