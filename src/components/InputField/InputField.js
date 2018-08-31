@@ -49,6 +49,12 @@ class InputField extends Component {
               value: item.value,
               message: item.message,
               valid: item.valid,
+              showErrorMessage: item.showErrorMessage,
+            };
+          } else if (nextProps.showErrorMessage !== prevState.showErrorMessage) {
+            newState = {
+              ...prevState,
+              showErrorMessage: nextProps.showErrorMessage,
             };
           }
           return newState;
@@ -297,7 +303,10 @@ InputField.propTypes = {
   label: propTypes.string.isRequired,
   required: propTypes.bool,
   value: propTypes.func,
-  pattern: propTypes.string,
+  pattern: propTypes.oneOfType([
+    propTypes.string,
+    propTypes.instanceOf(RegExp),
+  ]),
   placeholder: propTypes.string,
   min: propTypes.number,
   max: propTypes.number,
