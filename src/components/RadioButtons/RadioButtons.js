@@ -49,10 +49,13 @@ class RadioButtons extends Component {
    * @param nextProps
    */
   componentWillReceiveProps(nextProps) {
-    if (typeof this.props.value === 'function' && this.state.value !== nextProps.value()) {
+    // Update state if there's no new value coming from the parent, but the parent has updated the invalidErrorText or showErrorMesssage
+
+    if (nextProps.showErrorMessage !== this.state.showErrorMessage) {
       this.setState({
         ...this.state,
-        value: nextProps.value(),
+
+        showErrorMessage: nextProps.showErrorMessage,
       });
     }
   }
@@ -61,7 +64,10 @@ class RadioButtons extends Component {
    * When component has updated send state to parent
    */
   componentDidUpdate() {
-    this.sendStateToParent();
+    /* Uses isValid callback function sending state and id to parent */
+    if (typeof this.props.isValid === 'function') {
+      this.props.isValid(this.state, this.props.id);
+    }
   }
 
   /**
@@ -103,15 +109,6 @@ class RadioButtons extends Component {
         {props.children}
         <span className="visuallyhidden">(opens in a new window)</span>
       </a>;
-  }
-
-  /**
-   * Uses isValid callback function sending state, value and field name to parent
-   */
-  sendStateToParent() {
-    if (typeof this.props.isValid === 'function') {
-      this.props.isValid(this.state, this.props.name, this.state.value);
-    }
   }
 
   /**
@@ -235,7 +232,7 @@ class RadioButtons extends Component {
 
 RadioButtons.defaultProps = {
   extraClass: '',
-  isValid: () => {},
+  isValid: null,
   showErrorMessage: false,
   value: null,
 };
@@ -249,7 +246,7 @@ RadioButtons.propTypes = {
     label: propTypes.string.isRequired,
     value: propTypes.oneOfType([
       propTypes.string,
-      propTypes.object]),
+      propTypes.number]),
     selected: propTypes.bool,
   }).isRequired).isRequired,
   value: propTypes.func,
