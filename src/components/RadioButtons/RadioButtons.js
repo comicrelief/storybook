@@ -49,12 +49,10 @@ class RadioButtons extends Component {
    * @param nextProps
    */
   componentWillReceiveProps(nextProps) {
-    // Update state if there's no new value coming from the parent, but the parent has updated the invalidErrorText or showErrorMesssage
-
-    if (nextProps.showErrorMessage !== this.state.showErrorMessage) {
+    // Update the error msg status if the parent has
+    if (nextProps.showErrorMessage === true) {
       this.setState({
         ...this.state,
-
         showErrorMessage: nextProps.showErrorMessage,
       });
     }
@@ -239,7 +237,6 @@ RadioButtons.defaultProps = {
 
 RadioButtons.propTypes = {
   id: propTypes.string.isRequired,
-  name: propTypes.string.isRequired,
   label: propTypes.string.isRequired,
   required: propTypes.bool.isRequired,
   options: propTypes.arrayOf(propTypes.shape({

@@ -58,7 +58,6 @@ storiesOf('Radio buttons', module)
         <div>
           <RadioButtons
             id={id1}
-            name={name1}
             label={label1}
             required={required}
             options={optionsArray1}
@@ -66,7 +65,6 @@ storiesOf('Radio buttons', module)
           />
           <RadioButtons
             id={id2}
-            name={name2}
             label={label2}
             required={notRequired}
             options={optionsArray2}
@@ -74,7 +72,6 @@ storiesOf('Radio buttons', module)
           />
           <RadioButtons
             id={id3}
-            name={name3}
             label={label3}
             required={required}
             options={optionsArray3}
@@ -82,7 +79,6 @@ storiesOf('Radio buttons', module)
           />
           <RadioButtons
             id={id4}
-            name={name4}
             label={label4}
             required={notRequired}
             options={optionsArray4}
