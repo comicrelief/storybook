@@ -1,6 +1,7 @@
 /* eslint-env browser */
 import React, { Component } from 'react';
 import propTypes from 'prop-types';
+import browser from 'browser-detect';
 import fieldValidation from './validation';
 
 /**
@@ -48,6 +49,12 @@ class InputField extends Component {
               value: item.value,
               message: item.message,
               valid: item.valid,
+              showErrorMessage: item.showErrorMessage,
+            };
+          } else if (nextProps.showErrorMessage !== prevState.showErrorMessage) {
+            newState = {
+              ...prevState,
+              showErrorMessage: nextProps.showErrorMessage,
             };
           }
           return newState;
@@ -194,6 +201,8 @@ class InputField extends Component {
     const showBackgroundClassName = this.props.setBackgroundColor === true && this.props.type === 'checkbox' ? 'form__field-wrapper--background' : '';
     const extraClassName = this.props.extraClass !== '' ? this.props.extraClass : '';
     const error = this.props.showErrorMessage === true && this.state.message !== '' ? 'form__field--error-outline' : '';
+    const isBrowser = browser();
+    const supportedAriaAttributes = isBrowser.name === 'firefox' && isBrowser.os.match('Windows') ? { role: 'alert', 'aria-relevant': 'all' } : { role: 'status' };
 
     return (
       <div id={`field-wrapper--${this.props.id}`}>
@@ -246,7 +255,7 @@ class InputField extends Component {
               id={`field-error--${this.props.id}`}
               className={`form__field-error-container form__field-error-container--${this.props.type}`}
               aria-live="assertive"
-              role="status"
+              {...supportedAriaAttributes}
             >
               <span className="form-error">
                 {this.state.message}
@@ -294,7 +303,10 @@ InputField.propTypes = {
   label: propTypes.string.isRequired,
   required: propTypes.bool,
   value: propTypes.func,
-  pattern: propTypes.string,
+  pattern: propTypes.oneOfType([
+    propTypes.string,
+    propTypes.instanceOf(RegExp),
+  ]),
   placeholder: propTypes.string,
   min: propTypes.number,
   max: propTypes.number,
