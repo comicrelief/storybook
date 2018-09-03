@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import propTypes from 'prop-types';
 
 import MenuLink from './MenuLink/MenuLink';
 import './menu.scss';
@@ -82,8 +82,8 @@ class Menu extends Component {
 }
 
 Menu.propTypes = {
-  campaign: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
+  campaign: propTypes.string.isRequired,
+  type: propTypes.string.isRequired,
 };
 
 export default Menu;
