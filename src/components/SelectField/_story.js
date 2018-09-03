@@ -6,10 +6,10 @@ import { withInfo } from '@storybook/addon-info';
 import SelectField from './SelectField';
 
 const optionsArray = [
-  { label: 'Please select' },
+  { label: 'Please select', selected: true},
   { label: 'item 1', value: 'itemone' },
   { label: '----------', disabled: true },
-  { label: 'item 2', value: 'itemtwo', selected: true },
+  { label: 'item 2', value: 'itemtwo' },
   { label: 'item 3', value: 'itemthree' },
 ];
 
