@@ -204,7 +204,7 @@ class PostcodeLookup extends Component {
           this.props.valuesFromParent.country.value === key;
         dropDownList.push({ label: countries[key], value: key, selected: isOtherCountrySelected });
       });
-      value = this.props.from.country.value;
+      value = this.props.valuesFromParent.country.value;
     } else {
       dropDownList = [
         { label: 'United Kingdom', value: 'GB', selected: true },
