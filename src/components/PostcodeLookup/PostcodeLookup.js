@@ -138,7 +138,7 @@ class PostcodeLookup extends Component {
   }
 
   setInputValue() {
-    const validation = this.props.form !== null ? this.props.form : this.state.validation;
+    const validation = this.props.valuesFromParent !== null ? this.props.valuesFromParent : this.state.validation;
     this.setState({
       ...this.state,
       validation,
@@ -193,14 +193,15 @@ class PostcodeLookup extends Component {
   createCountryDropdownList() {
     let value = 'GB';
     let dropDownList = [];
-    if (this.props.form !== null) {
-      const isGBSelected = this.props.form.country.value === '' || this.props.form.country.value === 'GB';
+    if (this.props.valuesFromParent !== null) {
+      const isGBSelected = this.props.valuesFromParent.country.value === '' || this.props.valuesFromParent.country.value === 'GB';
       dropDownList = [
         { label: 'United Kingdom', value: 'GB', selected: isGBSelected },
         { label: '-------------------', disabled: true },
       ];
       Object.keys(countries).forEach((key) => {
-        const isOtherCountrySelected= this.props.form !== null && this.props.form.country.value && this.props.form.country.value === key;
+        const isOtherCountrySelected= this.props.valuesFromParent !== null && this.props.valuesFromParent.country.value &&
+          this.props.valuesFromParent.country.value === key;
         dropDownList.push({ label: countries[key], value: key, selected: isOtherCountrySelected });
       });
       value = this.props.from.country.value;
@@ -434,10 +435,10 @@ PostcodeLookup.defaultProps = {
   isAddressValid: null,
   label: 'Postcode',
   showErrorMessages: false,
-  form: null,
+  valuesFromParent: null,
 };
 PostcodeLookup.propTypes = {
-  form: propTypes.object,
+  valuesFromParent: propTypes.object,
   isAddressValid: propTypes.func,
   label: propTypes.string,
   showErrorMessages: propTypes.bool,
