@@ -229,7 +229,7 @@ class InputField extends Component {
               max={this.props.max && this.props.max}
               defaultChecked={this.props.defaultChecked && this.props.defaultChecked}
               pattern={this.props.pattern && this.props.pattern}
-              aria-describedby={`field-error-text--${this.props.id} field-error--${this.props.id}`}
+              aria-describedby={`field-label--${this.props.id} field-error--${this.props.id}`}
               onBlur={e => this.handleInputValidation(e)}
               onChange={e => this.handleInputValidation(e)}
               ref={this.setRef}
@@ -258,7 +258,7 @@ class InputField extends Component {
               className={`form__field-error-container form__field-error-container--${this.props.type}`}
               {...supportedAriaAttributes}
             >
-              <span className="form-error" id={`field-error-text--${this.props.id}`}>
+              <span className="form-error" id={`field-label--${this.props.id}`}>
                 {this.state.message}
               </span>
             </div>
