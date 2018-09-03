@@ -191,14 +191,14 @@ class PostcodeLookup extends Component {
    * Updates state with new country object.
    */
   createCountryDropdownList() {
-    const selected = this.props.form !== null && this.props.form.country.value !== 'undefined' && this.props.form.country.value === 'GB';
+    const isSelected = this.props.form !== null && (this.props.form.country.value === '' || this.props.form.country.value === 'GB');
     const dropDownList = [
-      { label: 'United Kingdom', value: 'GB', selected },
+      { label: 'United Kingdom', value: 'GB', selected: isSelected },
       { label: '-------------------', disabled: true },
     ];
     Object.keys(countries).forEach((key) => {
-      const selectedOption = this.props.form !== null && this.props.form.country.value !== 'undefined' && this.props.form.country.value === key;
-      dropDownList.push({ label: countries[key], value: key, selectedOption });
+      const isSelectedOption = this.props.form !== null && this.props.form.country.value && this.props.form.country.value === key;
+      dropDownList.push({ label: countries[key], value: key, selected: isSelectedOption });
     });
     this.setState({
       countryDropdownList: dropDownList,
@@ -207,7 +207,7 @@ class PostcodeLookup extends Component {
         country: {
           valid: true,
           message: '',
-          value: this.props.form !== null && this.props.form.country.value !== 'undefined' ? this.props.form.country.value : 'GB',
+          value: this.props.form !== null && (this.props.form.country.value === '' || this.props.form.country.value === 'GB') ? 'GB' : this.props.form.country.value,
         },
       },
     });
