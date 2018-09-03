@@ -191,15 +191,29 @@ class PostcodeLookup extends Component {
    * Updates state with new country object.
    */
   createCountryDropdownList() {
-    const isSelected = this.props.form !== null && (this.props.form.country.value === '' || this.props.form.country.value === 'GB');
-    const dropDownList = [
-      { label: 'United Kingdom', value: 'GB', selected: isSelected },
-      { label: '-------------------', disabled: true },
-    ];
-    Object.keys(countries).forEach((key) => {
-      const isSelectedOption = this.props.form !== null && this.props.form.country.value && this.props.form.country.value === key;
-      dropDownList.push({ label: countries[key], value: key, selected: isSelectedOption });
-    });
+    let value = 'GB';
+    let dropDownList = [];
+    if (this.props.form !== null) {
+      const isGBSelected = this.props.form.country.value === '' || this.props.form.country.value === 'GB';
+      dropDownList = [
+        { label: 'United Kingdom', value: 'GB', selected: isGBSelected },
+        { label: '-------------------', disabled: true },
+      ];
+      Object.keys(countries).forEach((key) => {
+        const isOtherCountrySelected= this.props.form !== null && this.props.form.country.value && this.props.form.country.value === key;
+        dropDownList.push({ label: countries[key], value: key, selected: isOtherCountrySelected });
+      });
+      value = this.props.from.country.value;
+    } else {
+      dropDownList = [
+        { label: 'United Kingdom', value: 'GB', selected: true },
+        { label: '-------------------', disabled: true },
+      ];
+      Object.keys(countries).forEach((key) => {
+        dropDownList.push({ label: countries[key], value: key });
+      });
+    }
+
     this.setState({
       countryDropdownList: dropDownList,
       validation: {
@@ -207,7 +221,7 @@ class PostcodeLookup extends Component {
         country: {
           valid: true,
           message: '',
-          value: this.props.form !== null && (this.props.form.country.value === '' || this.props.form.country.value === 'GB') ? 'GB' : this.props.form.country.value,
+          value,
         },
       },
     });
