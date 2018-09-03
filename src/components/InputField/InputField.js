@@ -202,7 +202,7 @@ class InputField extends Component {
     const extraClassName = this.props.extraClass !== '' ? this.props.extraClass : '';
     const error = this.props.showErrorMessage === true && this.state.message !== '' ? 'form__field--error-outline' : '';
     const isBrowser = browser();
-    const supportedAriaAttributes = isBrowser.name === 'firefox' && isBrowser.os.match('Windows') ? { role: 'alert', 'aria-relevant': 'additions removals' } : { 'aria-live': 'assertive', role: 'status' };
+    const supportedAriaAttributes = isBrowser.name === 'firefox' && isBrowser.os.match('Windows') ? { 'aria-live': 'assertive' } : { 'aria-live': 'assertive' };
 
     return (
       <div id={`field-wrapper--${this.props.id}`}>
