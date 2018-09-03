@@ -32,6 +32,9 @@ const optionsArray4 = [
   { label: 'Option 12', value: 'opt12' },
 ];
 
+const required = boolean('required', true);
+const notRequired = boolean('required', false);
+
 const id1 = text('id', 'radioButtons1');
 const id2 = text('id', 'radioButtons2');
 const id3 = text('id', 'radioButtons3');
@@ -46,9 +49,6 @@ const label1 = text('label', 'Radio Buttons: required');
 const label2 = text('label', 'Radio Buttons: not required');
 const label3 = text('label', 'Radio Buttons: required, preselected');
 const label4 = text('label', 'Radio Buttons: not required, preselected');
-
-const required = boolean('required', true);
-const notRequired = boolean('required', false);
 
 storiesOf('Radio buttons', module)
   .addDecorator(withKnobs)
