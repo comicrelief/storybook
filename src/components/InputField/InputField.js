@@ -202,7 +202,7 @@ class InputField extends Component {
     const extraClassName = this.props.extraClass !== '' ? this.props.extraClass : '';
     const error = this.props.showErrorMessage === true && this.state.message !== '' ? 'form__field--error-outline' : '';
     const isBrowser = browser();
-    const supportedAriaAttributes = isBrowser.name === 'firefox' && isBrowser.os.match('Windows') ? { 'aria-live': 'assertive' } : { 'aria-live': 'assertive' };
+    const supportedAriaAttributes = isBrowser.name === 'firefox' && isBrowser.os.match('Windows') ? { role: 'alert' } : { 'aria-live': 'assertive', role: 'status' };
 
     return (
       <div id={`field-wrapper--${this.props.id}`}>
@@ -228,11 +228,12 @@ class InputField extends Component {
               max={this.props.max && this.props.max}
               defaultChecked={this.props.defaultChecked && this.props.defaultChecked}
               pattern={this.props.pattern && this.props.pattern}
-              aria-describedby={`field-label--${this.props.id} field-error--${this.props.id}`}
+              aria-describedby={`field-error-text--${this.props.id} field-error--${this.props.id}`}
               onBlur={e => this.handleInputValidation(e)}
               onChange={e => this.handleInputValidation(e)}
               ref={this.setRef}
               value={this.state.value}
+              aria-invalid={(this.state.valid === false || (this.props.showErrorMessage === true && this.state.message !== ''))}
             />
             {this.props.inlineButton === true &&
             <div className="form__btn">
@@ -256,7 +257,7 @@ class InputField extends Component {
               className={`form__field-error-container form__field-error-container--${this.props.type}`}
               {...supportedAriaAttributes}
             >
-              <span className="form-error">
+              <span className="form-error" id={`field-error-text--${this.props.id}`}>
                 {this.state.message}
               </span>
             </div>
