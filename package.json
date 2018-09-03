@@ -20,9 +20,11 @@
     "react-dropzone": "4",
     "react-fontawesome": "1",
     "react-geolocated": "2",
+    "react-markdown": "^3.4.1",
     "react-scripts": "1",
     "react-svg": "2",
     "react-vis": "^1.9.1",
+    "shortid": "^2.2.13",
     "snyk": "^1.52.0",
     "storybook-addon-specifications": "2",
     "url-join": "2"
