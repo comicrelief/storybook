@@ -202,6 +202,7 @@ class InputField extends Component {
     const extraClassName = this.props.extraClass !== '' ? this.props.extraClass : '';
     const error = this.props.showErrorMessage === true && this.state.message !== '' ? 'form__field--error-outline' : '';
     const isBrowser = browser();
+    const isError = this.state.valid === false || (this.props.showErrorMessage === true && this.state.message !== '');
     const supportedAriaAttributes = isBrowser.name === 'firefox' && isBrowser.os.match('Windows') ? { role: 'alert' } : { 'aria-live': 'assertive', role: 'status' };
 
     return (
@@ -233,7 +234,7 @@ class InputField extends Component {
               onChange={e => this.handleInputValidation(e)}
               ref={this.setRef}
               value={this.state.value}
-              aria-invalid={(this.state.valid === false || (this.props.showErrorMessage === true && this.state.message !== ''))}
+              aria-invalid={isError}
             />
             {this.props.inlineButton === true &&
             <div className="form__btn">
@@ -251,7 +252,7 @@ class InputField extends Component {
             <span />
             }
           </div>
-          {(this.state.valid === false || (this.props.showErrorMessage === true && this.state.message !== '')) &&
+          { isError &&
             <div
               id={`field-error--${this.props.id}`}
               className={`form__field-error-container form__field-error-container--${this.props.type}`}
