@@ -13,7 +13,7 @@ class CookieConsentMessage extends Component {
       cookieName: 'cookie-consent',
       contentClass: 'cc_message',
       position: 'top',
-      domainName: '*.comicrelief.com',
+      domainName: '.comicrelief.com',
     };
 
     return (
