@@ -397,7 +397,7 @@ class PostcodeLookup extends Component {
         <div
           ref={this.setAddressDetailRef}
           id="address-detail"
-          className="form__fieldset form__field--address-detail"
+          className="form__field--address-detail"
         >
           {
             this.state.isHidden === false &&
