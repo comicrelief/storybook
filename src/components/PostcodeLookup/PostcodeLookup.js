@@ -20,7 +20,7 @@ class PostcodeLookup extends Component {
       postcodeValidationMessage: false,
       showErrorMessages: false,
       previousAddress: '',
-      addressSelectClass: 'visually-hidden',
+      isAddressSelectHidden: true,
       isHidden: true,
       validation: {
         postcode: {
@@ -96,7 +96,6 @@ class PostcodeLookup extends Component {
         showErrorMessages: nextProps.showErrorMessages,
       });
       if (nextProps.showErrorMessages === true) {
-        // this.removeClassName(this.addressDetailRef, 'visually-hidden');
         this.setState({
           ...this.state,
           showErrorMessages: true,
@@ -183,7 +182,7 @@ class PostcodeLookup extends Component {
         value: item }));
     this.setState({
       addressDropdownList: addresses,
-      addressSelectClass: '',
+      isAddressSelectHidden: false,
     });
   }
 
@@ -379,17 +378,19 @@ class PostcodeLookup extends Component {
           buttonClick={() => { return this.addressLookup().then(() => this.returnPostcodeValidation()); }}
           showErrorMessage={this.state.showErrorMessages}
         />
-        <SelectField
-          ref={this.setRefs}
-          id="addressSelect"
-          name="addressSelect"
-          label="Select your address"
-          required={false}
-          options={this.state.addressDropdownList}
-          extraClass={this.state.addressSelectClass}
-          showErrorMessage={this.state.showErrorMessages}
-          isValid={(valid, name, value) => { this.updateAddress(value); }}
-        />
+        { this.state.isAddressSelectHidden === false &&
+          <SelectField
+            ref={this.setRefs}
+            id="addressSelect"
+            name="addressSelect"
+            label="Select your address"
+            required={false}
+            options={this.state.addressDropdownList}
+            extraClass={this.state.addressSelectClass}
+            showErrorMessage={this.state.showErrorMessages}
+            isValid={(valid, name, value) => { this.updateAddress(value); }}
+          />
+        }
         <div className="form__field--wrapper">
           <a href="/" role="button" className="link" onClick={e => this.showAddressFields(e)}>Or enter your address manually</a>
         </div>
