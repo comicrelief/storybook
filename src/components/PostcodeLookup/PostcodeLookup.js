@@ -21,6 +21,7 @@ class PostcodeLookup extends Component {
       showErrorMessages: false,
       previousAddress: '',
       addressSelectClass: 'visually-hidden',
+      isHidden: true,
       validation: {
         postcode: {
           valid: null,
@@ -95,10 +96,11 @@ class PostcodeLookup extends Component {
         showErrorMessages: nextProps.showErrorMessages,
       });
       if (nextProps.showErrorMessages === true) {
-        this.removeClassName(this.addressDetailRef, 'visually-hidden');
+        // this.removeClassName(this.addressDetailRef, 'visually-hidden');
         this.setState({
           ...this.state,
           showErrorMessages: true,
+          isHidden: false,
         });
       }
     }
@@ -278,10 +280,11 @@ class PostcodeLookup extends Component {
               message: '',
             },
           },
+          isHidden: false,
         });
-        this.showAddressFields();
+        // this.showAddressFields();
         // change the country back to GB
-        this.country.selectedIndex = 0;
+        // this.country.selectedIndex = 0;
       }
     }
   }
@@ -291,6 +294,9 @@ class PostcodeLookup extends Component {
       e.preventDefault();
     }
     this.removeClassName(this.addressDetailRef, 'visually-hidden');
+    this.setState({
+      isHidden: false,
+    });
   }
 
   /**
@@ -334,6 +340,7 @@ class PostcodeLookup extends Component {
    * @return {*}
    */
   render() {
+    console.log(this.state.isHidden);
     const postCodeField = {
       id: 'postcode',
       type: 'text',
@@ -392,38 +399,42 @@ class PostcodeLookup extends Component {
         <div
           ref={this.setAddressDetailRef}
           id="address-detail"
-          className="form__fieldset form__field--address-detail visually-hidden"
+          className="form__fieldset form__field--address-detail"
         >
           {
-            addressOuptutFields.map(item => (
-              <InputField
-                key={item.id}
+            this.state.isHidden === false &&
+            <div>
+              { addressOuptutFields.map(item => (
+                <InputField
+                  key={item.id}
+                  ref={this.setRefs}
+                  id={item.id}
+                  type={item.type}
+                  name={item.id}
+                  label={item.label}
+                  required={item.required}
+                  value={id => this.addressValue(id)}
+                  pattern={item.pattern}
+                  invalidErrorText={item.invalidErrorText}
+                  showErrorMessage={this.state.showErrorMessages}
+                  fieldValue={this.state.validation[item.id].value}
+                  isValid={(valid, name) => { this.setValidity(name, valid); }}
+                />
+              ))
+              }
+              <SelectField
                 ref={this.setRefs}
-                id={item.id}
-                type={item.type}
-                name={item.id}
-                label={item.label}
-                required={item.required}
-                value={id => this.addressValue(id)}
-                pattern={item.pattern}
-                invalidErrorText={item.invalidErrorText}
+                id="country"
+                name="country"
+                label="Country"
+                required
+                options={this.state.countryDropdownList}
+                value={() => this.state.validation.country.value}
                 showErrorMessage={this.state.showErrorMessages}
-                fieldValue={this.state.validation[item.id].value}
                 isValid={(valid, name) => { this.setValidity(name, valid); }}
               />
-            ))
+            </div>
           }
-          <SelectField
-            ref={this.setRefs}
-            id="country"
-            name="country"
-            label="Country"
-            required
-            options={this.state.countryDropdownList}
-            value={() => this.state.validation.country.value}
-            showErrorMessage={this.state.showErrorMessages}
-            isValid={(valid, name) => { this.setValidity(name, valid); }}
-          />
         </div>
       </div>
     );
