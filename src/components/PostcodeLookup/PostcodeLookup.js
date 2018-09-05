@@ -290,10 +290,7 @@ class PostcodeLookup extends Component {
   }
 
   showAddressFields(e) {
-    if (e !== undefined) {
-      e.preventDefault();
-    }
-    this.removeClassName(this.addressDetailRef, 'visually-hidden');
+    e.preventDefault();
     this.setState({
       isHidden: false,
     });
@@ -340,7 +337,7 @@ class PostcodeLookup extends Component {
    * @return {*}
    */
   render() {
-    console.log(this.state.isHidden);
+    // console.log(this.state.isHidden);
     const postCodeField = {
       id: 'postcode',
       type: 'text',
@@ -394,7 +391,7 @@ class PostcodeLookup extends Component {
           isValid={(valid, name, value) => { this.updateAddress(value); }}
         />
         <div className="form__field--wrapper">
-          <a href="" role="button" className="link" onClick={e => this.showAddressFields(e)}>Or enter your address manually</a>
+          <a href="/" role="button" className="link" onClick={e => this.showAddressFields(e)}>Or enter your address manually</a>
         </div>
         <div
           ref={this.setAddressDetailRef}
