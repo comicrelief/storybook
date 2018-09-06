@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import propTypes from 'prop-types';
 import CookieConsent from 'react-cookie-consent';
 import './CookieConsent.scss';
 
@@ -13,7 +14,6 @@ class CookieConsentMessage extends Component {
       cookieName: 'cookie-consent',
       contentClass: 'cc_message',
       position: 'top',
-      domainName: '.comicrelief.com',
     };
 
     return (
@@ -25,7 +25,7 @@ class CookieConsentMessage extends Component {
         containerClasses={option.containerClass}
         buttonClasses={option.buttonClass}
         contentClasses={option.contentClass}
-        extraCookieOptions={{ domain: option.domainName }}
+        extraCookieOptions={{ domain: `.${this.props.domainName}` }}
       >
         We use cookies. We’ve recently updated our privacy policy to give you more detail about how we use your personal information.{' '}
         <a href="https://www.comicrelief.com/privacy-notice" className={option.linkClass} target="_blank" rel="noopener noreferrer">
@@ -36,6 +36,14 @@ class CookieConsentMessage extends Component {
     );
   }
 }
+
+CookieConsentMessage.defaultProps = {
+  domainName: 'comicrelief.com',
+};
+
+CookieConsentMessage.propTypes = {
+  domainName: propTypes.string,
+};
 
 export default CookieConsentMessage;
 
