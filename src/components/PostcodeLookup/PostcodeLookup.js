@@ -20,7 +20,8 @@ class PostcodeLookup extends Component {
       postcodeValidationMessage: false,
       showErrorMessages: false,
       previousAddress: '',
-      addressSelectClass: 'visually-hidden',
+      isAddressSelectHidden: true,
+      isAddressFieldsHidden: true,
       validation: {
         postcode: {
           valid: null,
@@ -95,10 +96,10 @@ class PostcodeLookup extends Component {
         showErrorMessages: nextProps.showErrorMessages,
       });
       if (nextProps.showErrorMessages === true) {
-        this.removeClassName(this.addressDetailRef, 'visually-hidden');
         this.setState({
           ...this.state,
           showErrorMessages: true,
+          isAddressFieldsHidden: false,
         });
       }
     }
@@ -181,7 +182,7 @@ class PostcodeLookup extends Component {
         value: item }));
     this.setState({
       addressDropdownList: addresses,
-      addressSelectClass: '',
+      isAddressSelectHidden: false,
     });
   }
 
@@ -278,19 +279,21 @@ class PostcodeLookup extends Component {
               message: '',
             },
           },
+          isAddressFieldsHidden: false,
         });
-        this.showAddressFields();
         // change the country back to GB
-        this.country.selectedIndex = 0;
+        if (this.country !== undefined) {
+          this.country.selectedIndex = 0;
+        }
       }
     }
   }
 
   showAddressFields(e) {
-    if (e !== undefined) {
-      e.preventDefault();
-    }
-    this.removeClassName(this.addressDetailRef, 'visually-hidden');
+    e.preventDefault();
+    this.setState({
+      isAddressFieldsHidden: false,
+    });
   }
 
   /**
@@ -375,55 +378,61 @@ class PostcodeLookup extends Component {
           buttonClick={() => { return this.addressLookup().then(() => this.returnPostcodeValidation()); }}
           showErrorMessage={this.state.showErrorMessages}
         />
-        <SelectField
-          ref={this.setRefs}
-          id="addressSelect"
-          name="addressSelect"
-          label="Select your address"
-          required={false}
-          options={this.state.addressDropdownList}
-          extraClass={this.state.addressSelectClass}
-          showErrorMessage={this.state.showErrorMessages}
-          isValid={(valid, name, value) => { this.updateAddress(value); }}
-        />
+        { this.state.isAddressSelectHidden === false &&
+          <SelectField
+            ref={this.setRefs}
+            id="addressSelect"
+            name="addressSelect"
+            label="Select your address"
+            required={false}
+            options={this.state.addressDropdownList}
+            extraClass={this.state.addressSelectClass}
+            showErrorMessage={this.state.showErrorMessages}
+            isValid={(valid, name, value) => { this.updateAddress(value); }}
+          />
+        }
         <div className="form__field--wrapper">
-          <a href="" role="button" className="link" onClick={e => this.showAddressFields(e)}>Or enter your address manually</a>
+          <a href="/" role="button" className="link" onClick={e => this.showAddressFields(e)}>Or enter your address manually</a>
         </div>
         <div
           ref={this.setAddressDetailRef}
           id="address-detail"
-          className="form__fieldset form__field--address-detail visually-hidden"
+          className="form__field--address-detail"
         >
           {
-            addressOuptutFields.map(item => (
-              <InputField
-                key={item.id}
+            this.state.isAddressFieldsHidden === false &&
+            <div>
+              { addressOuptutFields.map(item => (
+                <InputField
+                  key={item.id}
+                  ref={this.setRefs}
+                  id={item.id}
+                  type={item.type}
+                  name={item.id}
+                  label={item.label}
+                  required={item.required}
+                  value={id => this.addressValue(id)}
+                  pattern={item.pattern}
+                  invalidErrorText={item.invalidErrorText}
+                  showErrorMessage={this.state.showErrorMessages}
+                  fieldValue={this.state.validation[item.id].value}
+                  isValid={(valid, name) => { this.setValidity(name, valid); }}
+                />
+              ))
+              }
+              <SelectField
                 ref={this.setRefs}
-                id={item.id}
-                type={item.type}
-                name={item.id}
-                label={item.label}
-                required={item.required}
-                value={id => this.addressValue(id)}
-                pattern={item.pattern}
-                invalidErrorText={item.invalidErrorText}
+                id="country"
+                name="country"
+                label="Country"
+                required
+                options={this.state.countryDropdownList}
+                value={() => this.state.validation.country.value}
                 showErrorMessage={this.state.showErrorMessages}
-                fieldValue={this.state.validation[item.id].value}
                 isValid={(valid, name) => { this.setValidity(name, valid); }}
               />
-            ))
+            </div>
           }
-          <SelectField
-            ref={this.setRefs}
-            id="country"
-            name="country"
-            label="Country"
-            required
-            options={this.state.countryDropdownList}
-            value={() => this.state.validation.country.value}
-            showErrorMessage={this.state.showErrorMessages}
-            isValid={(valid, name) => { this.setValidity(name, valid); }}
-          />
         </div>
       </div>
     );
