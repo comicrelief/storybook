@@ -1,6 +1,7 @@
 /* eslint-env browser */
 import React, { Component } from 'react';
 import propTypes from 'prop-types';
+import browser from 'browser-detect';
 import './RadioButtons.scss';
 
 const shortid = require('shortid');
@@ -199,6 +200,10 @@ class RadioButtons extends Component {
   render() {
     const errorClass = this.state.showErrorMessage === true ? 'form__field-error-wrapper' : '';
     const extraClass = this.props.extraClass !== '' ? this.props.extraClass : '';
+    const isBrowser = browser();
+    const supportedAriaAttributes = isBrowser.name === 'firefox' && isBrowser.os.match('Windows') ?
+      { 'aria-live': 'assertive', 'aria-relevant': 'additions removals' } : { 'aria-live': 'assertive', role: 'status' };
+
     return (
       <fieldset
         id={this.props.id}
@@ -215,8 +220,7 @@ class RadioButtons extends Component {
         <div
           id={`field-error--${this.props.id}`}
           className="form__field-error-container form__field-error-container--radio"
-          aria-live="assertive"
-          role="status"
+          {...supportedAriaAttributes}
         >
           <span className="form-error">
             {this.state.message}
