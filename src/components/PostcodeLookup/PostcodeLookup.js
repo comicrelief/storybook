@@ -21,7 +21,7 @@ class PostcodeLookup extends Component {
       showErrorMessages: false,
       previousAddress: '',
       isAddressSelectHidden: true,
-      isHidden: true,
+      isAddressFieldsHidden: true,
       validation: {
         postcode: {
           valid: null,
@@ -99,7 +99,7 @@ class PostcodeLookup extends Component {
         this.setState({
           ...this.state,
           showErrorMessages: true,
-          isHidden: false,
+          isAddressFieldsHidden: false,
         });
       }
     }
@@ -281,9 +281,10 @@ class PostcodeLookup extends Component {
           },
           isHidden: false,
         });
-        // this.showAddressFields();
         // change the country back to GB
-        // this.country.selectedIndex = 0;
+        if (this.country !== undefined) {
+          this.country.selectedIndex = 0;
+        }
       }
     }
   }
@@ -291,7 +292,7 @@ class PostcodeLookup extends Component {
   showAddressFields(e) {
     e.preventDefault();
     this.setState({
-      isHidden: false,
+      isAddressFieldsHidden: false,
     });
   }
 
@@ -400,7 +401,7 @@ class PostcodeLookup extends Component {
           className="form__field--address-detail"
         >
           {
-            this.state.isHidden === false &&
+            this.state.isAddressFieldsHidden === false &&
             <div>
               { addressOuptutFields.map(item => (
                 <InputField
