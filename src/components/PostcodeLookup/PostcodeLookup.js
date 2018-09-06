@@ -279,7 +279,7 @@ class PostcodeLookup extends Component {
               message: '',
             },
           },
-          isHidden: false,
+          isAddressFieldsHidden: false,
         });
         // change the country back to GB
         if (this.country !== undefined) {
