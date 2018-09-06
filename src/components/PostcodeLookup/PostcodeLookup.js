@@ -337,7 +337,6 @@ class PostcodeLookup extends Component {
    * @return {*}
    */
   render() {
-    // console.log(this.state.isHidden);
     const postCodeField = {
       id: 'postcode',
       type: 'text',

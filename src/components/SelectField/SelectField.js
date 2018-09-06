@@ -176,7 +176,6 @@ class SelectField extends Component {
         <div
           id={`field-error--${this.props.id}`}
           className="form__field-error-container form__field-error-container--select"
-          aria-live="assertive"
           {...supportedAriaAttributes}
         >
           <span className="form-error">
