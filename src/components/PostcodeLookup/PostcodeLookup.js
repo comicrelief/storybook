@@ -143,6 +143,7 @@ class PostcodeLookup extends Component {
     this.setState({
       ...this.state,
       validation,
+      isAddressFieldsHidden: this.state.isAddressFieldsHidden = validation.address1.value === '',
     });
   }
 
