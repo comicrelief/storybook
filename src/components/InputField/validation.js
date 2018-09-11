@@ -1,8 +1,8 @@
 const defaultValidationPatterns = {
-  tel: new RegExp(/^[0-9 ]{11,}$/),
-  number: new RegExp(/^[0-9]+$/),
-  email: new RegExp(/^([A-Za-z0-9_%+-]+\.?)*[A-Za-z0-9_%+-]+@([A-Za-z0-9-]+\.?)*[A-Za-z0-9-]+\.[A-Za-z]{2,3}$/),
-  text: new RegExp(/^[\sA-Za-z0-9_.'&-]+$/),
+  tel: /^[0-9 ]{11,}$/,
+  number: /^[0-9]+$/,
+  email: /^([A-Za-z0-9_%+-]+\.?)*[A-Za-z0-9_%+-]+@([A-Za-z0-9-]+\.?)*[A-Za-z0-9-]+\.[A-Za-z]{2,3}$/,
+  text: /^[\sA-Za-z0-9_.'&-]+$/,
 };
 
 function isEmpty(value, required, type) {
@@ -18,9 +18,9 @@ function isEmpty(value, required, type) {
 function isValidInput(type, props, value) {
   let valid;
   // use pattern override if it's defined, otherwise use default pattern above
-  const patternOverride = props.pattern;
-  const pattern = patternOverride ?
-    new RegExp(patternOverride) : new RegExp(defaultValidationPatterns[type]);
+  const patternOverride = typeof props.pattern === 'string' && props.pattern !== '' ? new RegExp(props.pattern) : props.pattern;
+  const pattern = patternOverride || defaultValidationPatterns[type];
+
   if (type === 'number') {
     // Number fields need to not only pass the regex test,
     // but also pass min and max values allowed if they're set.
