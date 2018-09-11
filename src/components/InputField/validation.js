@@ -18,9 +18,9 @@ function isEmpty(value, required, type) {
 function isValidInput(type, props, value) {
   let valid;
   // use pattern override if it's defined, otherwise use default pattern above
-  const patternOverride = props.pattern;
-  const pattern = patternOverride ?
-    new RegExp(patternOverride) : new RegExp(defaultValidationPatterns[type]);
+  const patternOverride = typeof props.pattern === 'string' ? new RegExp(props.pattern) : props.pattern;
+  const pattern = patternOverride || defaultValidationPatterns[type];
+  
   if (type === 'number') {
     // Number fields need to not only pass the regex test,
     // but also pass min and max values allowed if they're set.
