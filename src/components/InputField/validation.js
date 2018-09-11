@@ -18,7 +18,7 @@ function isEmpty(value, required, type) {
 function isValidInput(type, props, value) {
   let valid;
   // use pattern override if it's defined, otherwise use default pattern above
-  const patternOverride = typeof props.pattern === 'string' ? new RegExp(props.pattern) : props.pattern;
+  const patternOverride = typeof props.pattern === 'string' && props.pattern !== '' ? new RegExp(props.pattern) : props.pattern;
   const pattern = patternOverride || defaultValidationPatterns[type];
 
   if (type === 'number') {
