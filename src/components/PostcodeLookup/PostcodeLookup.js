@@ -343,12 +343,12 @@ class PostcodeLookup extends Component {
       type: 'text',
       placeholder: 'SE1 7TP',
       buttonText: 'FIND ADDRESS',
-      pattern: new RegExp(/^[A-Za-z0-9/\s-.]+$/),
+      pattern: /^[A-Za-z0-9/\s-.]+$/,
       invalidErrorText: 'Please enter a valid postcode',
       emptyFieldErrorText: 'Please enter your postcode',
       extraClass: 'search-box',
     };
-    const addressPattern = new RegExp(/^[A-Za-z0-9_.'/&\s-]+$/);
+    const addressPattern = /^[A-Za-z0-9_.'/&\s-]+$/;
     const addressErrorMessage = 'This field only accepts alphanumeric characters and \' . - & _ /';
     const addressOuptutFields = [
       { id: 'address1', type: 'text', label: 'Address line 1', required: true, pattern: addressPattern, invalidErrorText: addressErrorMessage },
