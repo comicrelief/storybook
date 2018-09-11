@@ -20,7 +20,7 @@ function isValidInput(type, props, value) {
   // use pattern override if it's defined, otherwise use default pattern above
   const patternOverride = typeof props.pattern === 'string' ? new RegExp(props.pattern) : props.pattern;
   const pattern = patternOverride || defaultValidationPatterns[type];
-  
+
   if (type === 'number') {
     // Number fields need to not only pass the regex test,
     // but also pass min and max values allowed if they're set.
