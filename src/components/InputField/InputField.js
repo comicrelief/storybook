@@ -114,16 +114,20 @@ class InputField extends Component {
   }
 
   /**
-   * This sets and stores the input value that has passed down from the parent component
+   * This sets and stores the input value, error  message, valid state that has passed down from the 
+   * parent component.
    */
   setInputValue() {
-    this.setState({
-      ...this.state,
-      value: this.props.fieldValue,
-      message: this.props.fieldValue.message,
-      valid: this.props.fieldValue.valid,
-    });
+    if (this.props.fieldValue !== null) {
+      this.setState({
+        ...this.state,
+        value: this.props.fieldValue.value,
+        message: this.props.fieldValue.message,
+        valid: this.props.fieldValue.valid,
+      });
+    }
   }
+
 
   /**
    * Get value and its validity from parent
