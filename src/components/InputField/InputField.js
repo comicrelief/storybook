@@ -114,7 +114,7 @@ class InputField extends Component {
   }
 
   /**
-   * This sets and stores the input value, error  message, valid state that has passed down from the 
+   * This sets and stores the input value, error  message, valid state that has passed down from the
    * parent component.
    */
   setInputValue() {
