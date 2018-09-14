@@ -99,7 +99,6 @@ class PostcodeLookup extends Component {
         this.setState({
           ...this.state,
           showErrorMessages: true,
-          isAddressFieldsHidden: false,
         });
       }
     }
@@ -399,7 +398,13 @@ class PostcodeLookup extends Component {
           ref={this.setAddressDetailRef}
           id="address-detail"
           className="form__field--address-detail"
+          aria-describedby="field-error--detail"
         >
+          { this.state.isAddressFieldsHidden === true && this.state.showErrorMessages === true &&
+          <div id="field-error--address-detail" className="form__field-error-container" ref={this.setRefs} role="alert">
+            <span className="form-error">Please fill in your address</span>
+          </div>
+          }
           {
             this.state.isAddressFieldsHidden === false &&
             <div>
@@ -416,7 +421,7 @@ class PostcodeLookup extends Component {
                   pattern={item.pattern}
                   invalidErrorText={item.invalidErrorText}
                   showErrorMessage={this.state.showErrorMessages}
-                  fieldValue={this.state.validation[item.id].value}
+                  fieldValue={this.props.valuesFromParent}
                   isValid={(valid, name) => { this.setValidity(name, valid); }}
                 />
               ))

@@ -120,6 +120,8 @@ class InputField extends Component {
     this.setState({
       ...this.state,
       value: this.props.fieldValue,
+      message: this.props.fieldValue.message,
+      valid: this.props.fieldValue.valid,
     });
   }
 
@@ -294,7 +296,7 @@ InputField.defaultProps = {
   showErrorMessage: null,
   setBackgroundColor: null,
   additionalText: null,
-  fieldValue: '',
+  fieldValue: null,
 };
 
 InputField.propTypes = {
@@ -323,7 +325,7 @@ InputField.propTypes = {
   showErrorMessage: propTypes.bool,
   setBackgroundColor: propTypes.bool,
   additionalText: propTypes.string,
-  fieldValue: propTypes.string,
+  fieldValue: propTypes.object,
 };
 
 export default InputField;
