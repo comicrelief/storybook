@@ -2,10 +2,10 @@
 /* eslint-env browser */
 import React, { Component } from 'react';
 import propTypes from 'prop-types';
+import browser from 'browser-detect';
 import SelectField from '../SelectField/SelectField';
 import InputField from '../InputField/InputField';
 import countries from './countries.json';
-import browser from 'browser-detect';
 
 class PostcodeLookup extends Component {
   /**
