@@ -118,12 +118,10 @@ class InputField extends Component {
    * parent component.
    */
   setInputValue() {
-    if (this.props.fieldValue !== null) {
+    const { fieldValue } = this.props;
+    if (fieldValue !== null) {
       this.setState({
-        ...this.state,
-        value: this.props.fieldValue.value,
-        message: this.props.fieldValue.message,
-        valid: this.props.fieldValue.valid,
+        ...fieldValue,
       });
     }
   }
