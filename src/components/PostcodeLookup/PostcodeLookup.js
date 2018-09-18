@@ -5,7 +5,7 @@ import propTypes from 'prop-types';
 import SelectField from '../SelectField/SelectField';
 import InputField from '../InputField/InputField';
 import countries from './countries.json';
-
+import browser from 'browser-detect';
 
 class PostcodeLookup extends Component {
   /**
@@ -355,6 +355,9 @@ class PostcodeLookup extends Component {
       { id: 'address3', type: 'text', label: 'Address line 3', required: false, pattern: addressPattern, invalidErrorText: addressErrorMessage },
       { id: 'town', type: 'text', label: 'Town/City', required: true, pattern: addressPattern, invalidErrorText: addressErrorMessage },
     ];
+    const isBrowser = browser();
+    const supportedAriaAttributes = isBrowser.name === 'firefox' && isBrowser.os.match('Windows') ?
+      { 'aria-live': 'assertive', 'aria-relevant': 'additions removals' } : { 'aria-live': 'assertive', role: 'status' };
 
     return (
       <div className="form__row form__row--billing-detail form__row--address-lookup">
@@ -384,24 +387,28 @@ class PostcodeLookup extends Component {
             id="addressSelect"
             name="addressSelect"
             label="Select your address"
-            required={false}
+            required
             options={this.state.addressDropdownList}
             extraClass={this.state.addressSelectClass}
             showErrorMessage={this.state.showErrorMessages}
             isValid={(valid, name, value) => { this.updateAddress(value); }}
           />
         }
+        { this.state.isAddressSelectHidden === false && this.state.showErrorMessages === true &&
+        <div id="field-error--addressSelect" className="form__field-error-container" ref={this.setRefs} role="alert">
+          <span className="form-error">Please select your address</span>
+        </div>
+        }
         <div className="form__field--wrapper">
-          <a href="/" role="button" className="link" onClick={e => this.showAddressFields(e)}>Or enter your address manually</a>
+          <a href="/" role="button" className="link" onClick={e => this.showAddressFields(e)} aria-describedby="field-error--addressDetails">Or enter your address manually</a>
         </div>
         <div
           ref={this.setAddressDetailRef}
           id="address-detail"
           className="form__field--address-detail"
-          aria-describedby="field-error--detail"
         >
-          { this.state.isAddressFieldsHidden === true && this.state.showErrorMessages === true &&
-          <div id="field-error--address-detail" className="form__field-error-container" ref={this.setRefs} role="alert">
+          { this.state.isAddressSelectHidden === true && this.state.isAddressFieldsHidden === true && this.state.showErrorMessages === true &&
+          <div id="field-error--addressDetails" className="form__field-error-container" ref={this.setRefs} {...supportedAriaAttributes}>
             <span className="form-error">Please fill in your address</span>
           </div>
           }
