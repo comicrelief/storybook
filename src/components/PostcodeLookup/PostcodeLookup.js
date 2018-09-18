@@ -373,7 +373,7 @@ class PostcodeLookup extends Component {
           emptyFieldErrorText={postCodeField.emptyFieldErrorText}
           invalidErrorText={postCodeField.invalidErrorText}
           value={id => this.addressValue(id)}
-          fieldValue={this.props.valuesFromParent[postCodeField.id]}
+          fieldValue={this.props.valuesFromParent}
           isValid={(valid, name) => { this.setValidity(name, valid); }}
           buttonClick={() => { return this.addressLookup().then(() => this.returnPostcodeValidation()); }}
           showErrorMessage={this.state.showErrorMessages}
@@ -421,7 +421,7 @@ class PostcodeLookup extends Component {
                   pattern={item.pattern}
                   invalidErrorText={item.invalidErrorText}
                   showErrorMessage={this.state.showErrorMessages}
-                  fieldValue={this.props.valuesFromParent[item.id]}
+                  fieldValue={this.props.valuesFromParent}
                   isValid={(valid, name) => { this.setValidity(name, valid); }}
                 />
               ))
