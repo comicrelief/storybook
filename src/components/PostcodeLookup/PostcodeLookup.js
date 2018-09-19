@@ -395,7 +395,7 @@ class PostcodeLookup extends Component {
           />
         }
         { this.state.isAddressSelectHidden === false && this.props.showErrorMessages === true &&
-        <div id="field-error--addressSelect" className="form__field-error-container" ref={this.setRefs} role="alert">
+        <div id="field-error--addressSelect" className="form__field-error-container" ref={this.setRefs} {...supportedAriaAttributes} >
           <span className="form-error">Please select your address</span>
         </div>
         }
