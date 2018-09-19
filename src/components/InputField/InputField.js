@@ -16,7 +16,7 @@ class InputField extends Component {
     this.state = {
       valid: '',
       value: '',
-      message: this.props.invalidErrorText || '',
+      message: this.props.invalidErrorText,
       showErrorMessage: false,
     };
     this.setRef = (element) => {
@@ -36,7 +36,6 @@ class InputField extends Component {
    * @param nextProps
    */
   componentWillReceiveProps(nextProps) {
-
     // Update state if parent provides a new value
     let isValueFromParent = false;
     if (typeof nextProps.value === 'function') {
@@ -103,7 +102,6 @@ class InputField extends Component {
    * Validate field if parent wants to show error messages
    */
   componentDidUpdate() {
-
     if (this.props.type !== 'checkbox' && typeof this.props.isValid === 'function') {
       this.props.isValid(this.state, this.props.name, this.state.value);
     }
@@ -147,7 +145,6 @@ class InputField extends Component {
    * Sets the the state for the validation and validation message
    */
   validateField(field) {
-
     const props = {
       field: field,
       type: this.props.type,
@@ -270,9 +267,9 @@ class InputField extends Component {
             className={`form__field-error-container form__field-error-container--${this.props.type}`}
             {...supportedAriaAttributes}
           >
-              <span className="form-error">
-                {this.state.message}
-              </span>
+            <span className="form-error">
+              {this.state.message}
+            </span>
           </div>
           }
         </div>
