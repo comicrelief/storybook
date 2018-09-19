@@ -394,7 +394,7 @@ class PostcodeLookup extends Component {
             isValid={(valid, name, value) => { this.updateAddress(value); }}
           />
         }
-        { this.state.isAddressSelectHidden === false && this.props.showErrorMessages === true &&
+        { this.state.isAddressFieldsHidden === true && this.state.isAddressSelectHidden === false && this.props.showErrorMessages === true &&
         <div id="field-error--addressSelect" className="form__field-error-container" ref={this.setRefs} {...supportedAriaAttributes} >
           <span className="form-error">Please select your address</span>
         </div>
