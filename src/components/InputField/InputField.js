@@ -114,14 +114,18 @@ class InputField extends Component {
   }
 
   /**
-   * This sets and stores the input value that has passed down from the parent component
+   * This sets and stores the input value, error  message, valid state that has passed down from the
+   * parent component.
    */
   setInputValue() {
-    this.setState({
-      ...this.state,
-      value: this.props.fieldValue,
-    });
+    const { fieldValue } = this.props;
+    if (fieldValue !== null) {
+      this.setState({
+        ...fieldValue,
+      });
+    }
   }
+
 
   /**
    * Get value and its validity from parent
@@ -294,7 +298,7 @@ InputField.defaultProps = {
   showErrorMessage: null,
   setBackgroundColor: null,
   additionalText: null,
-  fieldValue: '',
+  fieldValue: null,
 };
 
 InputField.propTypes = {
@@ -323,7 +327,7 @@ InputField.propTypes = {
   showErrorMessage: propTypes.bool,
   setBackgroundColor: propTypes.bool,
   additionalText: propTypes.string,
-  fieldValue: propTypes.string,
+  fieldValue: propTypes.object,
 };
 
 export default InputField;

@@ -2,10 +2,10 @@
 /* eslint-env browser */
 import React, { Component } from 'react';
 import propTypes from 'prop-types';
+import browser from 'browser-detect';
 import SelectField from '../SelectField/SelectField';
 import InputField from '../InputField/InputField';
 import countries from './countries.json';
-
 
 class PostcodeLookup extends Component {
   /**
@@ -99,7 +99,6 @@ class PostcodeLookup extends Component {
         this.setState({
           ...this.state,
           showErrorMessages: true,
-          isAddressFieldsHidden: false,
         });
       }
     }
@@ -356,6 +355,9 @@ class PostcodeLookup extends Component {
       { id: 'address3', type: 'text', label: 'Address line 3', required: false, pattern: addressPattern, invalidErrorText: addressErrorMessage },
       { id: 'town', type: 'text', label: 'Town/City', required: true, pattern: addressPattern, invalidErrorText: addressErrorMessage },
     ];
+    const isBrowser = browser();
+    const supportedAriaAttributes = isBrowser.name === 'firefox' && isBrowser.os.match('Windows') ?
+      { 'aria-live': 'assertive', 'aria-relevant': 'additions removals' } : { 'aria-live': 'assertive', role: 'status' };
 
     return (
       <div className="form__row form__row--billing-detail form__row--address-lookup">
@@ -374,7 +376,7 @@ class PostcodeLookup extends Component {
           emptyFieldErrorText={postCodeField.emptyFieldErrorText}
           invalidErrorText={postCodeField.invalidErrorText}
           value={id => this.addressValue(id)}
-          fieldValue={this.state.validation[postCodeField.id].value}
+          fieldValue={this.props.valuesFromParent}
           isValid={(valid, name) => { this.setValidity(name, valid); }}
           buttonClick={() => { return this.addressLookup().then(() => this.returnPostcodeValidation()); }}
           showErrorMessage={this.state.showErrorMessages}
@@ -385,21 +387,31 @@ class PostcodeLookup extends Component {
             id="addressSelect"
             name="addressSelect"
             label="Select your address"
-            required={false}
+            required
             options={this.state.addressDropdownList}
             extraClass={this.state.addressSelectClass}
             showErrorMessage={this.state.showErrorMessages}
             isValid={(valid, name, value) => { this.updateAddress(value); }}
           />
         }
+        { this.state.isAddressSelectHidden === false && this.props.showErrorMessages === true &&
+        <div id="field-error--addressSelect" className="form__field-error-container" ref={this.setRefs} {...supportedAriaAttributes} >
+          <span className="form-error">Please select your address</span>
+        </div>
+        }
         <div className="form__field--wrapper">
-          <a href="/" role="button" className="link" onClick={e => this.showAddressFields(e)}>Or enter your address manually</a>
+          <a href="/" role="button" className="link" onClick={e => this.showAddressFields(e)} aria-describedby="field-error--addressDetails">Or enter your address manually</a>
         </div>
         <div
           ref={this.setAddressDetailRef}
           id="address-detail"
           className="form__field--address-detail"
         >
+          { this.state.isAddressSelectHidden === true && this.state.isAddressFieldsHidden === true && this.props.showErrorMessages === true &&
+          <div id="field-error--addressDetails" className="form__field-error-container" ref={this.setRefs} {...supportedAriaAttributes}>
+            <span className="form-error">Please fill in your address</span>
+          </div>
+          }
           {
             this.state.isAddressFieldsHidden === false &&
             <div>
@@ -416,7 +428,7 @@ class PostcodeLookup extends Component {
                   pattern={item.pattern}
                   invalidErrorText={item.invalidErrorText}
                   showErrorMessage={this.state.showErrorMessages}
-                  fieldValue={this.state.validation[item.id].value}
+                  fieldValue={this.props.valuesFromParent}
                   isValid={(valid, name) => { this.setValidity(name, valid); }}
                 />
               ))
