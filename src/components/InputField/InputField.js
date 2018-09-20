@@ -10,13 +10,13 @@ import fieldValidation from './validation';
  * See propTypes below.
  */
 class InputField extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.validateField = this.validateField.bind(this);
     this.state = {
       valid: '',
       value: '',
-      message: '',
+      message: this.props.invalidErrorText,
       showErrorMessage: false,
     };
     this.setRef = (element) => {
@@ -61,11 +61,12 @@ class InputField extends Component {
         });
       }
     }
+
     // Update state if there's no new value coming from the parent, but the parent has updated the invalidErrorText or showErrorMesssage
     if (isValueFromParent === false && (nextProps.invalidErrorText !== this.state.invalidErrorText || nextProps.showErrorMessage !== this.state.showErrorMessage)) {
       this.setState(() => {
         let newState;
-        if (nextProps.invalidErrorText !== '') {
+        if (nextProps.invalidErrorText !== this.props.invalidErrorText) {
           newState = {
             ...this.state,
             valid: false,
@@ -201,12 +202,16 @@ class InputField extends Component {
     }
   }
   render() {
-    const errorClassName = this.props.showErrorMessage === true ? 'form__field-error-wrapper' : '';
     const showBackgroundClassName = this.props.setBackgroundColor === true && this.props.type === 'checkbox' ? 'form__field-wrapper--background' : '';
     const extraClassName = this.props.extraClass !== '' ? this.props.extraClass : '';
+
+    // Error logic
+    const errorClassName = this.props.showErrorMessage === true ? 'form__field-error-wrapper' : '';
     const error = this.props.showErrorMessage === true && this.state.message !== '' ? 'form__field--error-outline' : '';
-    const isBrowser = browser();
     const hasError = this.state.valid === false || (this.props.showErrorMessage === true && this.state.message !== '');
+
+    const isBrowser = browser();
+
     const supportedAriaAttributes = isBrowser.name === 'firefox' && isBrowser.os.match('Windows') ?
       { 'aria-live': 'assertive', 'aria-relevant': 'additions removals' } : { 'aria-live': 'assertive', role: 'status' };
 
@@ -257,22 +262,22 @@ class InputField extends Component {
             }
           </div>
           { hasError &&
-            <div
-              id={`field-error--${this.props.id}`}
-              className={`form__field-error-container form__field-error-container--${this.props.type}`}
-              {...supportedAriaAttributes}
-            >
-              <span className="form-error">
-                {this.state.message}
-              </span>
-            </div>
+          <div
+            id={`field-error--${this.props.id}`}
+            className={`form__field-error-container form__field-error-container--${this.props.type}`}
+            {...supportedAriaAttributes}
+          >
+            <span className="form-error">
+              {this.state.message}
+            </span>
+          </div>
           }
         </div>
         {this.props.additionalText !== null &&
-          <div className="form__fieldset form__field--wrapper  form__field-additional-text">
-            { /* eslint-disable react/no-danger */ }
-            <div dangerouslySetInnerHTML={{ __html: this.props.additionalText }} />
-          </div>
+        <div className="form__fieldset form__field--wrapper  form__field-additional-text">
+          { /* eslint-disable react/no-danger */ }
+          <div dangerouslySetInnerHTML={{ __html: this.props.additionalText }} />
+        </div>
         }
       </div>
     );
