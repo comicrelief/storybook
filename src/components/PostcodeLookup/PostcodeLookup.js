@@ -22,6 +22,7 @@ class PostcodeLookup extends Component {
       previousAddress: '',
       isAddressSelectHidden: true,
       isAddressFieldsHidden: true,
+      disableFindAddressButton: false,
       validation: {
         postcode: {
           valid: null,
@@ -329,6 +330,7 @@ class PostcodeLookup extends Component {
       message: this.state.postcodeValidationMessage,
       valid: false,
       showErrorMessage: true,
+      disableFindAddressButton: true,
     } : '';
   }
 
