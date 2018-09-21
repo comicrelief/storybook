@@ -218,7 +218,7 @@ class InputField extends Component {
       { 'aria-live': 'assertive', 'aria-relevant': 'additions removals' } : { 'aria-live': 'assertive', role: 'status' };
 
     const disableButton = this.state.valid ? false : this.state.isDisabled;
-    const disableClass = disableButton ? 'disabled' : '';
+    const disableClass = disableButton ? 'button-inactive' : '';
 
     return (
       <div id={`field-wrapper--${this.props.id}`}>
