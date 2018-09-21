@@ -217,7 +217,7 @@ class InputField extends Component {
     const supportedAriaAttributes = isBrowser.name === 'firefox' && isBrowser.os.match('Windows') ?
       { 'aria-live': 'assertive', 'aria-relevant': 'additions removals' } : { 'aria-live': 'assertive', role: 'status' };
 
-    const disableButton = this.state.valid ? false : this.state.isDisabled;
+    const disableButton = this.state.valid === false ? false : this.state.isDisabled;
     const disableClass = disableButton ? 'button-inactive' : '';
 
     return (
