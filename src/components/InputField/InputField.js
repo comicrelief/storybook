@@ -207,13 +207,14 @@ class InputField extends Component {
 
     // Error logic
     const errorClassName = this.props.showErrorMessage === true ? 'form__field-error-wrapper' : '';
-    const error = this.props.showErrorMessage === true && this.state.message !== '' ? 'form__field--error-outline' : '';
     const hasError = this.state.valid === false || (this.props.showErrorMessage === true && this.state.message !== '');
-
+    const error = hasError ? 'form__field--error-outline' : '';
     const isBrowser = browser();
 
     const supportedAriaAttributes = isBrowser.name === 'firefox' && isBrowser.os.match('Windows') ?
       { 'aria-live': 'assertive', 'aria-relevant': 'additions removals' } : { 'aria-live': 'assertive', role: 'status' };
+
+    const disableClass = hasError ? 'button-inactive' : '';
 
     return (
       <div id={`field-wrapper--${this.props.id}`}>
@@ -250,9 +251,10 @@ class InputField extends Component {
               <input
                 type="button"
                 id={`${this.props.id}_button`}
-                className={`form__btn--${this.props.id}`}
+                className={`form__btn--${this.props.id} ${disableClass}`}
                 value={this.props.buttonValue}
                 onClick={e => this.btnClickHandler(e)}
+                disabled={hasError}
               />
             </div>
             }
