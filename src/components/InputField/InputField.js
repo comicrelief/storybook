@@ -207,9 +207,8 @@ class InputField extends Component {
 
     // Error logic
     const errorClassName = this.props.showErrorMessage === true ? 'form__field-error-wrapper' : '';
-    const error = this.props.showErrorMessage === true && this.state.message !== '' ? 'form__field--error-outline' : '';
     const hasError = this.state.valid === false || (this.props.showErrorMessage === true && this.state.message !== '');
-
+    const error = hasError ? 'form__field--error-outline' : '';
     const isBrowser = browser();
 
     const supportedAriaAttributes = isBrowser.name === 'firefox' && isBrowser.os.match('Windows') ?
