@@ -18,7 +18,6 @@ class InputField extends Component {
       value: '',
       message: '',
       showErrorMessage: false,
-      isDisabled: false,
     };
     this.setRef = (element) => {
       this.inputRef = element;
@@ -197,7 +196,6 @@ class InputField extends Component {
               valid: result.valid,
               message: result.message,
               showErrorMessage: result.showErrorMessage,
-              isDisabled: result.disableFindAddressButton,
             });
           }
         });
@@ -217,8 +215,7 @@ class InputField extends Component {
     const supportedAriaAttributes = isBrowser.name === 'firefox' && isBrowser.os.match('Windows') ?
       { 'aria-live': 'assertive', 'aria-relevant': 'additions removals' } : { 'aria-live': 'assertive', role: 'status' };
 
-    const disableButton = this.state.valid === false ? false : this.state.isDisabled;
-    const disableClass = disableButton ? 'button-inactive' : '';
+    const disableClass = hasError ? 'button-inactive' : '';
 
     return (
       <div id={`field-wrapper--${this.props.id}`}>
@@ -258,7 +255,7 @@ class InputField extends Component {
                 className={`form__btn--${this.props.id} ${disableClass}`}
                 value={this.props.buttonValue}
                 onClick={e => this.btnClickHandler(e)}
-                disabled={disableButton}
+                disabled={hasError}
               />
             </div>
             }

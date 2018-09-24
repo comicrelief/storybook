@@ -22,7 +22,6 @@ class PostcodeLookup extends Component {
       previousAddress: '',
       isAddressSelectHidden: true,
       isAddressFieldsHidden: true,
-      disableFindAddressButton: false,
       validation: {
         postcode: {
           valid: null,
@@ -298,20 +297,6 @@ class PostcodeLookup extends Component {
   }
 
   /**
-   * Removes class name from element
-   * Works in IE9
-   * @param element
-   * @param className
-   */
-  removeClassName(ref, className) {
-    const element = ref;
-    const classes = element.getAttribute('class').split(' ');
-    const i = classes.indexOf(className);
-    classes.splice(i, 1);
-    element.className = classes;
-  }
-
-  /**
    * Gets validation info from state and returns it to child
    * Everything works fine for the Town field, but not for Address1 :/
    * @param id
@@ -330,7 +315,6 @@ class PostcodeLookup extends Component {
       message: this.state.postcodeValidationMessage,
       valid: false,
       showErrorMessage: true,
-      disableFindAddressButton: true,
     } : '';
   }
 
