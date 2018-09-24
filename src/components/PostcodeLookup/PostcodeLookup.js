@@ -398,7 +398,7 @@ class PostcodeLookup extends Component {
             <span className="form-error">Please fill in your address</span>
           </div>
           }
-          <div className={ this.state.isAddressFieldsHidden === false ? '' : 'hide' }>
+          <div className={this.state.isAddressFieldsHidden === false ? '' : 'hide'}>
             {addressOuptutFields.map(item => (
               <InputField
                 key={item.id}
