@@ -398,40 +398,37 @@ class PostcodeLookup extends Component {
             <span className="form-error">Please fill in your address</span>
           </div>
           }
-          {
-            this.state.isAddressFieldsHidden === false &&
-            <div>
-              { addressOuptutFields.map(item => (
-                <InputField
-                  key={item.id}
-                  ref={this.setRefs}
-                  id={item.id}
-                  type={item.type}
-                  name={item.id}
-                  label={item.label}
-                  required={item.required}
-                  value={id => this.addressValue(id)}
-                  pattern={item.pattern}
-                  invalidErrorText={item.invalidErrorText}
-                  showErrorMessage={this.state.showErrorMessages}
-                  fieldValue={this.props.valuesFromParent}
-                  isValid={(valid, name) => { this.setValidity(name, valid); }}
-                />
-              ))
-              }
-              <SelectField
+          <div className={ this.state.isAddressFieldsHidden === false ? '' : 'hide' }>
+            {addressOuptutFields.map(item => (
+              <InputField
+                key={item.id}
                 ref={this.setRefs}
-                id="country"
-                name="country"
-                label="Country"
-                required
-                options={this.state.countryDropdownList}
-                value={() => this.state.validation.country.value}
+                id={item.id}
+                type={item.type}
+                name={item.id}
+                label={item.label}
+                required={item.required}
+                value={id => this.addressValue(id)}
+                pattern={item.pattern}
+                invalidErrorText={item.invalidErrorText}
                 showErrorMessage={this.state.showErrorMessages}
+                fieldValue={this.props.valuesFromParent}
                 isValid={(valid, name) => { this.setValidity(name, valid); }}
               />
-            </div>
-          }
+            ))
+            }
+            <SelectField
+              ref={this.setRefs}
+              id="country"
+              name="country"
+              label="Country"
+              required
+              options={this.state.countryDropdownList}
+              value={() => this.state.validation.country.value}
+              showErrorMessage={this.state.showErrorMessages}
+              isValid={(valid, name) => { this.setValidity(name, valid); }}
+            />
+          </div>
         </div>
       </div>
     );
