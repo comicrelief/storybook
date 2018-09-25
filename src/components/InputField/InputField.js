@@ -102,6 +102,7 @@ class InputField extends Component {
    * Validate field if parent wants to show error messages
    */
   componentDidUpdate() {
+    /* I have refacted to usse the validation function but needs a little explaining */
     if (this.props.type !== 'checkbox' && typeof this.props.isValid === 'function') {
       this.props.isValid(this.state, this.props.name, this.state.value);
     }
@@ -244,7 +245,6 @@ class InputField extends Component {
               onBlur={e => this.handleInputValidation(e)}
               onChange={e => this.handleInputValidation(e)}
               ref={this.setRef}
-              value={this.state.value}
             />
             {this.props.inlineButton === true &&
             <div className="form__btn">
