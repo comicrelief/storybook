@@ -5,6 +5,21 @@ import './CookieConsent.scss';
 
 
 class CookieConsentMessage extends Component {
+  constructor(props) {
+    super(props);
+    this.finishedLoading = this.finishedLoading.bind(this);
+  }
+  componentDidMount() {
+    // Bind our custom event to the 'finished loading' event, so we're not trying to
+    // access an element that has yet to be rendered
+    window.addEventListener('load', this.finishedLoading);
+  }
+
+  finishedLoading() {
+    // Explicity add tabindex for NVDA this way, as we can't easily get at the underlying template markup
+    document.querySelector('.cookie-consent.cc_container .btn').tabIndex = 0;
+  }
+
   render() {
     const option = {
       buttonClass: 'btn btn--white-ghost',
@@ -28,7 +43,7 @@ class CookieConsentMessage extends Component {
         extraCookieOptions={{ domain: `.${this.props.domainName}.com` }}
       >
         We use cookies. We’ve recently updated our privacy policy to give you more detail about how we use your personal information.{' '}
-        <a href="https://www.comicrelief.com/privacy-notice" className={option.linkClass} target="_blank" rel="noopener noreferrer">
+        <a href="https://www.comicrelief.com/privacy-notice" className={option.linkClass} target="_blank" rel="noopener noreferrer" tabIndex="0">
           Read our privacy policy here.
           <span className="visuallyhidden">(opens in a new window)</span>
         </a>
