@@ -18,8 +18,10 @@ class CookieConsentMessage extends Component {
   finishedLoading() {
     // Explicity add tabindex for NVDA this way, as we can't easily get at the underlying template markup
     setTimeout(() => {
-      document.querySelector('.cookie-consent.cc_container .btn').tabIndex = 0;
-    }, 2000);
+      if (document.querySelector('.cookie-consent.cc_container .btn') !== null) {
+        document.querySelector('.cookie-consent.cc_container .btn').tabIndex = 0;
+      }
+    }, 2500);
   }
 
   render() {
