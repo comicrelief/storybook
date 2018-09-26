@@ -12,12 +12,14 @@ class CookieConsentMessage extends Component {
   componentDidMount() {
     // Bind our custom event to the 'finished loading' event, so we're not trying to
     // access an element that has yet to be rendered
-    window.addEventListener('load', this.finishedLoading);
+    window.addEventListener('DOMContentLoaded', this.finishedLoading);
   }
 
   finishedLoading() {
     // Explicity add tabindex for NVDA this way, as we can't easily get at the underlying template markup
-    document.querySelector('.cookie-consent.cc_container .btn').tabIndex = 0;
+    setTimeout(() => {
+      document.querySelector('.cookie-consent.cc_container .btn').tabIndex = 0;
+    }, 2000);
   }
 
   render() {
