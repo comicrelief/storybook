@@ -345,8 +345,11 @@ class PostcodeLookup extends Component {
     const supportedAriaAttributes = isBrowser.name === 'firefox' && isBrowser.os.match('Windows') ?
       { 'aria-live': 'assertive', 'aria-relevant': 'additions removals' } : { 'aria-live': 'assertive', role: 'status' };
 
+    const hasError = this.state.valid === false || (this.props.showErrorMessage === true && this.state.message !== '');
+    const hasErrorClass = hasError ? 'form__field--erroring' : '';
+
     return (
-      <div className="form__row form__row--billing-detail form__row--address-lookup">
+      <div className={`form__row form__row--billing-detail form__row--address-lookup ${hasErrorClass}`} >
         <InputField
           ref={this.setRefs}
           id={postCodeField.id}
