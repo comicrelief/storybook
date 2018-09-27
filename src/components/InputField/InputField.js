@@ -74,19 +74,6 @@ class InputField extends Component {
   }
 
   /**
-   * Prevent update showErrorMessage override to false from validation when showErrorMessage should be true according to nextProps
-   * @param nextProps
-   * @param nextState
-   * @return {boolean}
-   */
-  shouldComponentUpdate(nextProps, nextState) {
-    if (nextProps.showErrorMessage === true && nextState.showErrorMessage === false) {
-      return false;
-    }
-    return true;
-  }
-
-  /**
    * If value from parent and value is different send state to parent.
    * Validate field if parent wants to show error messages
    */
