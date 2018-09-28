@@ -62,12 +62,16 @@ class InputField extends Component {
       }
     }
 
-    // Update state if there's no new value coming from the parent, but the parent has updated the invalidErrorText or showErrorMesssage
-    if (isValueFromParent === false && (nextProps.invalidErrorText !== this.state.invalidErrorText || nextProps.showErrorMessage !== this.state.showErrorMessage)) {
+    // Update state if there's no new value coming from the parent,
+    // but the parent has updated the invalidErrorText or showErrorMesssage
+    if (isValueFromParent === false &&
+      (nextProps.invalidErrorText !== this.state.invalidErrorText
+        || nextProps.showErrorMessage !== this.state.showErrorMessage)) {
       const stateObject = nextProps.fieldValue !== null ? nextProps.fieldValue : this.state;
+
       this.setState({
         ...stateObject,
-        message: nextProps.invalidErrorText !== '' ? nextProps.invalidErrorText : stateObject.message,
+        message: nextProps.invalidErrorText !== this.props.invalidErrorText ? nextProps.invalidErrorText : stateObject.message,
         showErrorMessage: nextProps.showErrorMessage,
       });
     }
