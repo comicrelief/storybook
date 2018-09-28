@@ -146,10 +146,14 @@ class SelectField extends Component {
     const isBrowser = browser();
     const supportedAriaAttributes = isBrowser.name === 'firefox' && isBrowser.os.match('Windows') ? { 'aria-live': 'assertive', 'aria-relevant': 'additions removals' } : { 'aria-live': 'assertive', role: 'status' };
 
+    // Erroring logic
+    const hasError = this.state.valid === false || (this.props.showErrorMessage === true && this.state.message !== '');
+    const hasErrorClass = hasError ? 'form__field--erroring' : '';
+
     return (
       <div
         id={`field-wrapper--${this.props.id}`}
-        className={`form__fieldset form__field--wrapper form__field-wrapper--select ${errorClass} ${extraClass}`}
+        className={`form__fieldset form__field--wrapper form__field-wrapper--select ${errorClass} ${extraClass} ${hasErrorClass}`}
       >
         <label
           id={`field-label--${this.props.id}`}

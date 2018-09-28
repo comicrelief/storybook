@@ -184,6 +184,7 @@ class InputField extends Component {
     // Error logic
     const errorClassName = this.props.showErrorMessage === true ? 'form__field-error-wrapper' : '';
     const hasError = this.state.valid === false || (this.props.showErrorMessage === true && this.state.message !== '');
+    const hasErrorClass = hasError ? 'form__field--erroring' : '';
     const error = hasError ? 'form__field--error-outline' : '';
     const isBrowser = browser();
 
@@ -194,7 +195,7 @@ class InputField extends Component {
 
     return (
       <div id={`field-wrapper--${this.props.id}`}>
-        <div className={`form__fieldset form__field--wrapper form__field-wrapper--${this.props.type} ${errorClassName} ${showBackgroundClassName} ${extraClassName} `}>
+        <div className={`form__fieldset form__field--wrapper form__field-wrapper--${this.props.type} ${errorClassName} ${showBackgroundClassName} ${extraClassName} ${hasErrorClass}`}>
           <label
             id={`field-label--${this.props.id}`}
             htmlFor={`field-input--${this.props.id}`}

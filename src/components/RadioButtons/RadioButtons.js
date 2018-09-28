@@ -200,6 +200,8 @@ class RadioButtons extends Component {
   render() {
     const errorClass = this.state.showErrorMessage === true ? 'form__field-error-wrapper' : '';
     const extraClass = this.props.extraClass !== '' ? this.props.extraClass : '';
+    const hasError = this.state.valid === false || (this.props.showErrorMessage === true && this.state.message !== '');
+    const hasErrorClass = hasError ? 'form__field--erroring' : '';
     const isBrowser = browser();
     const supportedAriaAttributes = isBrowser.name === 'firefox' && isBrowser.os.match('Windows') ?
       { 'aria-live': 'assertive', 'aria-relevant': 'additions removals' } : { 'aria-live': 'assertive', role: 'status' };
@@ -207,7 +209,7 @@ class RadioButtons extends Component {
     return (
       <fieldset
         id={this.props.id}
-        className={`form__fieldset form__field--wrapper form__field-wrapper--radio ${errorClass} ${extraClass}`}
+        className={`form__fieldset form__field--wrapper form__field-wrapper--radio ${errorClass} ${extraClass} ${hasErrorClass}`}
         onBlur={this.onBlurHandler}
         ref={this.setRef}
       >
