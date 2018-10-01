@@ -119,38 +119,36 @@ class RadioButtons extends Component {
 
     Object.keys(this.props.options).forEach((i) => {
       const thisKey = shortid.generate();
-      options.push(
-        <div
-          className="form__field--wrapper form__radio form__radio--inline"
-          key={`form__field--wrapper-${thisKey}`}
+      options.push(<div
+        className="form__field--wrapper form__radio form__radio--inline"
+        key={`form__field--wrapper-${thisKey}`}
+      >
+
+        <label
+          className="form__field-label"
+          htmlFor={`radio--${thisKey}`}
+          key={`form__field-label-${thisKey}`}
         >
+          {this.props.options[i].label}
+        </label>
+        <input
+          type="radio"
+          id={`radio--${thisKey}`}
+          name={this.props.id}
+          value={this.props.options[i].value}
+          key={`radio-button-${thisKey}`}
+          onClick={this.onClickHandler}
+          defaultChecked={this.props.options[i].selected}
+        />
+        <span>&nbsp;</span>
 
-          <label
-            className="form__field-label"
-            htmlFor={`radio--${thisKey}`}
-            key={`form__field-label-${thisKey}`}
-          >
-            {this.props.options[i].label}
-          </label>
-          <input
-            type="radio"
-            id={`radio--${thisKey}`}
-            name={this.props.id}
-            value={this.props.options[i].value}
-            key={`radio-button-${thisKey}`}
-            onClick={this.onClickHandler}
-            defaultChecked={this.props.options[i].selected}
-          />
-          <span>&nbsp;</span>
-
-          {this.props.options[i].additionalText ?
-            <Markdown
-              source={this.props.options[i].additionalText}
-              renderers={{ link: this.markdownLinkRenderer }}
-              className="form__fieldset form__field--wrapper form__field-additional-text"
-            /> : null }
-        </div>,
-      );
+        {this.props.options[i].additionalText ?
+          <Markdown
+            source={this.props.options[i].additionalText}
+            renderers={{ link: this.markdownLinkRenderer }}
+            className="form__fieldset form__field--wrapper form__field-additional-text"
+          /> : null }
+      </div>);
     });
 
     this.setState({
@@ -200,7 +198,7 @@ class RadioButtons extends Component {
   render() {
     const errorClass = this.state.showErrorMessage === true ? 'form__field-error-wrapper' : '';
     const extraClass = this.props.extraClass !== '' ? this.props.extraClass : '';
-    const hasError = this.state.valid === false || (this.props.showErrorMessage === true && this.state.message !== '');
+    const hasError = this.props.showErrorMessage === true && this.state.message !== '' && this.state.valid === false;
     const hasErrorClass = hasError ? 'form__field--erroring' : '';
     const isBrowser = browser();
     const supportedAriaAttributes = isBrowser.name === 'firefox' && isBrowser.os.match('Windows') ?
