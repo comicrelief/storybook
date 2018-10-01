@@ -335,7 +335,7 @@ class PostcodeLookup extends Component {
     };
     const addressPattern = /^[A-Za-z0-9_.'/&\s-]+$/;
     const addressErrorMessage = 'This field only accepts alphanumeric characters and \' . - & _ /';
-    const addressOuptutFields = [
+    const addressOutputFields = [
       { id: 'address1', type: 'text', label: 'Address line 1', required: true, pattern: addressPattern, invalidErrorText: addressErrorMessage },
       { id: 'address2', type: 'text', label: 'Address line 2', required: false, pattern: addressPattern, invalidErrorText: addressErrorMessage },
       { id: 'address3', type: 'text', label: 'Address line 3', required: false, pattern: addressPattern, invalidErrorText: addressErrorMessage },
@@ -346,7 +346,9 @@ class PostcodeLookup extends Component {
       { 'aria-live': 'assertive', 'aria-relevant': 'additions removals' } : { 'aria-live': 'assertive', role: 'status' };
 
     const hasError = this.state.valid === false || (this.props.showErrorMessage === true && this.state.message !== '');
-    const hasErrorClass = hasError ? 'form__field--erroring' : '';
+    const hasErrorTwo = this.state.isAddressSelectHidden === true && this.state.isAddressFieldsHidden === true && this.props.showErrorMessages === true;
+
+    const hasErrorClass = hasError || hasErrorTwo ? 'form__field--erroring' : '';
 
     return (
       <div className={`form__row form__row--billing-detail form__row--address-lookup ${hasErrorClass}`} >
@@ -371,17 +373,17 @@ class PostcodeLookup extends Component {
           showErrorMessage={this.state.showErrorMessages}
         />
         { this.state.isAddressSelectHidden === false &&
-          <SelectField
-            ref={this.setRefs}
-            id="addressSelect"
-            name="addressSelect"
-            label="Select your address"
-            required
-            options={this.state.addressDropdownList}
-            extraClass={this.state.addressSelectClass}
-            showErrorMessage={this.state.showErrorMessages}
-            isValid={(valid, name, value) => { this.updateAddress(value); }}
-          />
+        <SelectField
+          ref={this.setRefs}
+          id="addressSelect"
+          name="addressSelect"
+          label="Select your address"
+          required
+          options={this.state.addressDropdownList}
+          extraClass={this.state.addressSelectClass}
+          showErrorMessage={this.state.showErrorMessages}
+          isValid={(valid, name, value) => { this.updateAddress(value); }}
+        />
         }
         { this.state.isAddressFieldsHidden === true && this.state.isAddressSelectHidden === false && this.props.showErrorMessages === true &&
         <div id="field-error--addressSelect" className="form__field-error-container" ref={this.setRefs} {...supportedAriaAttributes} >
@@ -402,7 +404,7 @@ class PostcodeLookup extends Component {
           </div>
           }
           <div className={this.state.isAddressFieldsHidden === false ? '' : 'hide'}>
-            {addressOuptutFields.map(item => (
+            {addressOutputFields.map(item => (
               <InputField
                 key={item.id}
                 ref={this.setRefs}
