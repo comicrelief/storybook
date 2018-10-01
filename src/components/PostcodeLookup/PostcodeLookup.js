@@ -347,7 +347,8 @@ class PostcodeLookup extends Component {
 
     const hasError = this.state.valid === false || (this.props.showErrorMessage === true && this.state.message !== '');
     const hasErrorTwo = this.state.isAddressSelectHidden === true && this.state.isAddressFieldsHidden === true && this.props.showErrorMessages === true;
-    const hasErrorClass = hasError || hasErrorTwo ? 'form__field--erroring' : '';
+    const hasErrorThree = this.state.isAddressFieldsHidden === true && this.state.isAddressSelectHidden === false && this.props.showErrorMessages === true;
+    const hasErrorClass = hasError || hasErrorTwo || hasErrorThree ? 'form__field--erroring' : '';
 
     return (
       <div className={`form__row form__row--billing-detail form__row--address-lookup ${hasErrorClass}`} >
@@ -384,7 +385,7 @@ class PostcodeLookup extends Component {
           isValid={(valid, name, value) => { this.updateAddress(value); }}
         />
         }
-        { this.state.isAddressFieldsHidden === true && this.state.isAddressSelectHidden === false && this.props.showErrorMessages === true &&
+        { hasErrorThree &&
         <div id="field-error--addressSelect" className="form__field-error-container" ref={this.setRefs} {...supportedAriaAttributes} >
           <span className="form-error">Please select your address</span>
         </div>
@@ -397,7 +398,7 @@ class PostcodeLookup extends Component {
           id="address-detail"
           className="form__field--address-detail"
         >
-          { this.state.isAddressSelectHidden === true && this.state.isAddressFieldsHidden === true && this.props.showErrorMessages === true &&
+          { hasErrorTwo &&
           <div id="field-error--addressDetails" className="form__field-error-container" ref={this.setRefs} {...supportedAriaAttributes}>
             <span className="form-error">Please fill in your address</span>
           </div>
