@@ -347,7 +347,6 @@ class PostcodeLookup extends Component {
 
     const hasError = this.state.valid === false || (this.props.showErrorMessage === true && this.state.message !== '');
     const hasErrorTwo = this.state.isAddressSelectHidden === true && this.state.isAddressFieldsHidden === true && this.props.showErrorMessages === true;
-
     const hasErrorClass = hasError || hasErrorTwo ? 'form__field--erroring' : '';
 
     return (
