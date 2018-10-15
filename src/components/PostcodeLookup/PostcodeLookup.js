@@ -177,6 +177,7 @@ class PostcodeLookup extends Component {
    */
   createAddressDropdownList() {
     const addresses = [{ label: 'Please select', value: null }];
+    if(this.state.addressLookupData !== false || this.state.addressLookupData !== null) {
     this.state.addressLookupData.map(item =>
       addresses.push({ label: typeof item.Line2 === 'undefined' ? item.Line1 : `${item.Line1}, ${item.Line2}`,
         value: item }));
