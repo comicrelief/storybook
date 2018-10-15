@@ -177,13 +177,16 @@ class PostcodeLookup extends Component {
    */
   createAddressDropdownList() {
     const addresses = [{ label: 'Please select', value: null }];
-    this.state.addressLookupData.map(item =>
-      addresses.push({ label: typeof item.Line2 === 'undefined' ? item.Line1 : `${item.Line1}, ${item.Line2}`,
-        value: item }));
-    this.setState({
-      addressDropdownList: addresses,
-      isAddressSelectHidden: false,
-    });
+
+    if (this.state.addressLookupData !== undefined || this.state.addressLookupData !== null) {
+      this.state.addressLookupData.map(item =>
+        addresses.push({ label: typeof item.Line2 === 'undefined' ? item.Line1 : `${item.Line1}, ${item.Line2}`,
+          value: item }));
+      this.setState({
+        addressDropdownList: addresses,
+        isAddressSelectHidden: false,
+      });
+    }
   }
 
 
