@@ -80,6 +80,14 @@ class PostcodeLookup extends Component {
   componentWillMount() {
     this.setInputValue();
     this.createCountryDropdownList();
+
+    if (this.props.forceManualInput === true) {
+      this.setState({
+        isAddressSelectHidden: true,
+        isAddressFieldsHidden: false,
+        isAddressButtonHidden: true,
+      });
+    }
   }
 
   componentDidMount() {
