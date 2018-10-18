@@ -144,12 +144,15 @@ class PostcodeLookup extends Component {
     }
   }
 
+  /**
+   * Set the input values
+   */
   setInputValue() {
     const validation = this.props.valuesFromParent !== null ? this.props.valuesFromParent : this.state.validation;
     this.setState({
       ...this.state,
       validation,
-      isAddressFieldsHidden: this.state.isAddressFieldsHidden = validation.address1.value === '',
+      isAddressFieldsHidden: this.state.isAddressFieldsHidden === true && validation.address1.value === '' && this.props.forceManualInput === false,
     });
   }
 
@@ -461,7 +464,6 @@ class PostcodeLookup extends Component {
     );
   }
 }
-
 
 PostcodeLookup.defaultProps = {
   isAddressValid: null,
