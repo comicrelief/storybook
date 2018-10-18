@@ -20,6 +20,7 @@ class PostcodeLookup extends Component {
       postcodeValidationMessage: false,
       showErrorMessages: false,
       previousAddress: '',
+      isAddressButtonHidden: false,
       isAddressSelectHidden: true,
       isAddressFieldsHidden: true,
       validation: {
@@ -90,18 +91,16 @@ class PostcodeLookup extends Component {
    * @param nextProps
    */
   componentWillReceiveProps(nextProps) {
-    if (nextProps.showErrorMessages && nextProps.showErrorMessages !== this.state.showErrorMessages) {
-      this.setState({
-        ...this.state,
-        showErrorMessages: nextProps.showErrorMessages,
-      });
-      if (nextProps.showErrorMessages === true) {
-        this.setState({
-          ...this.state,
-          showErrorMessages: true,
-        });
-      }
+    const state = this.state;
+    state.showErrorMessages = nextProps.showErrorMessages === true;
+
+    if (nextProps.forceManualInput === true) {
+      state.isAddressSelectHidden = true;
+      state.isAddressFieldsHidden = false;
+      state.isAddressButtonHidden = true;
     }
+
+    this.setState(state);
   }
 
   /**
@@ -292,6 +291,10 @@ class PostcodeLookup extends Component {
     }
   }
 
+  /**
+   * Show the address fields
+   * @param e
+   */
   showAddressFields(e) {
     e.preventDefault();
     this.setState({
@@ -313,6 +316,10 @@ class PostcodeLookup extends Component {
     return value;
   }
 
+  /**
+   * Return postcode validation
+   * @return {*}
+   */
   returnPostcodeValidation() {
     return this.state.postcodeValidationMessage !== false ? {
       message: this.state.postcodeValidationMessage,
@@ -353,6 +360,8 @@ class PostcodeLookup extends Component {
     const hasErrorThree = this.state.isAddressFieldsHidden === true && this.state.isAddressSelectHidden === false && this.props.showErrorMessages === true;
     const hasErrorClass = hasError || hasErrorTwo || hasErrorThree ? 'form__field--erroring' : '';
 
+    const addressButtonHidden = this.state.isAddressButtonHidden;
+
     return (
       <div className={`form__row form__row--billing-detail form__row--address-lookup ${hasErrorClass}`} >
         <InputField
@@ -365,7 +374,7 @@ class PostcodeLookup extends Component {
           placeholder={postCodeField.placeholder}
           pattern={postCodeField.pattern}
           extraClass={postCodeField.extraClass}
-          inlineButton
+          inlineButton={addressButtonHidden === false}
           buttonValue={postCodeField.buttonText}
           emptyFieldErrorText={postCodeField.emptyFieldErrorText}
           invalidErrorText={postCodeField.invalidErrorText}
@@ -393,9 +402,11 @@ class PostcodeLookup extends Component {
           <span className="form-error">Please select your address</span>
         </div>
         }
-        <div className="form__field--wrapper">
-          <a href="/" role="button" className="link" onClick={e => this.showAddressFields(e)} aria-describedby="field-error--addressDetails">Or enter your address manually</a>
-        </div>
+        {this.state.isAddressButtonHidden === false &&
+          <div className="form__field--wrapper">
+            <a href="/" role="button" className="link" onClick={e => this.showAddressFields(e)} aria-describedby="field-error--addressDetails">Or enter your address manually</a>
+          </div>
+        }
         <div
           ref={this.setAddressDetailRef}
           id="address-detail"
@@ -449,12 +460,14 @@ PostcodeLookup.defaultProps = {
   label: 'Postcode',
   showErrorMessages: false,
   valuesFromParent: null,
+  forceManualInput: false,
 };
 PostcodeLookup.propTypes = {
   valuesFromParent: propTypes.object,
   isAddressValid: propTypes.func,
   label: propTypes.string,
   showErrorMessages: propTypes.bool,
+  forceManualInput: propTypes.bool,
 };
 
 export default PostcodeLookup;
