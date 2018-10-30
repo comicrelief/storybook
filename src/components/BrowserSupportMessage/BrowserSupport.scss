@@ -1,6 +1,9 @@
 /* Pattern Lab Base theme variables */
 @import "~@comicrelief/pattern-lab/sass/base/variables/grid";
 @import "~@comicrelief/pattern-lab/sass/base/variables/colours";
+@import "~@comicrelief/pattern-lab/sass/base/core/base-breakpoints";
+@import "~@comicrelief/pattern-lab/sass/base/core/base-1-mixins";
+
 /* Pattern Lab Comic Relief theme variables */
 @import "~@comicrelief/pattern-lab/sass/themes/cr/2017/variables/colours";
 @import "~@comicrelief/pattern-lab/sass/themes/cr/2017/variables/typography";
