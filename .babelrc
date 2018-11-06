@@ -1,11 +1,14 @@
 {
   "compact": true,
   "presets": [
-  	"env", 
-  	"react", 
+  	"env",
+  	"react",
   	"stage-0",
   ],
   "plugins": [
+    ["@babel/plugin-proposal-decorators", {
+      "legacy": true,
+    }],
     "transform-es2015-destructuring",
     "transform-object-rest-spread",
     "transform-react-jsx",

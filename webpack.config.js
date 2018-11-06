@@ -83,11 +83,6 @@ const configuration = {
       _production_: true,
       _development_tools_: false, // enable/disable redux-devtools
     }),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false,
-      },
-    }),
     // clears the output folder
     new CleanPlugin([path.relative(rootFolder, outputPath)],
       { root: rootFolder }),
