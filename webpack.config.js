@@ -64,6 +64,10 @@ const configuration = {
           name: 'i/[name]-[hash].[ext]',
         },
       },
+      {
+        test: /.jsx?$/,
+        loader: 'babel-loader',
+      },
     ],
   },
 

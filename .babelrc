@@ -1,16 +1,14 @@
 {
   "compact": true,
   "presets": [
-  	"env", 
-  	"react", 
-  	"stage-0",
+    "@babel/preset-env",
+    "@babel/preset-react"
   ],
   "plugins": [
-    "transform-es2015-destructuring",
+    "@babel/plugin-transform-destructuring",
     "transform-object-rest-spread",
     "transform-react-jsx",
-    ["transform-runtime", {
-      "polyfill": false,
+    ["@babel/plugin-transform-runtime", {
       "regenerator": true
     }]
   ]
