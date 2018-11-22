@@ -37,7 +37,7 @@ class Footer extends Component {
           <p style={styles.p}>{this.copy}</p>
         </div>
         <div className="footer__branding">
-          <a title="Comic Relief" href="http://www.comicrelief.com/" rel="home noopener noreferrer" target="_blank" >
+          <a title="Comic Relief" href="https://www.comicrelief.com/" rel="home noopener noreferrer" target="_blank" >
             <svg className="icon">
               <use xlinkHref="#crlogo2018" />
             </svg>
