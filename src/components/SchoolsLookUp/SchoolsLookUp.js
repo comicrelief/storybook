@@ -405,6 +405,7 @@ class SchoolsLookUp extends Component {
               useCache={false}
               disabled={disabled}
               filterBy={() => true}
+              isLoading={isSearching}
             />
             {isSearching ?
               <Icon name="spinner" spin />:
@@ -460,10 +461,12 @@ SchoolsLookUp.defaultProps = {
   address1Required: true,
   address2LabelText: 'Address line 2',
   address2Identifier: 'address2',
+  address2Value: '',
   address2ErrorMessage: '',
   address2Required: false,
   address3LabelText: 'Address line 3',
   address3Identifier: 'address3',
+  address3Value: '',
   address3ErrorMessage: '',
   address3Required: false,
   townLabelText: 'Town',
@@ -488,8 +491,8 @@ SchoolsLookUp.propTypes = {
   ]).isRequired,
   establishmentNameValue: PropTypes.string.isRequired,
   address1Value: PropTypes.string.isRequired,
-  address2Value: PropTypes.string.isRequired,
-  address3Value: PropTypes.string.isRequired,
+  address2Value: PropTypes.string,
+  address3Value: PropTypes.string,
   townValue: PropTypes.string.isRequired,
   postcodeValue: PropTypes.string.isRequired,
   selectedEstablishmentIdentifier: PropTypes.string,
