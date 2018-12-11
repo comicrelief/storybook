@@ -22,10 +22,12 @@ class CheckboxField extends Component {
     const isBrowser = browser();
     const supportedAriaAttributes = isBrowser.name === 'firefox' && isBrowser.os.match('Windows') ? { role: 'alert', 'aria-relevant': 'all' } : { role: 'status' };
 
+    const hasError = (this.props.showErrorMessage === true && this.props.errorMessage !== '');
+    const hasErrorClass = hasError ? 'form__field--erroring' : '';
 
     return (
       <div id={`field-wrapper--${id}`}>
-        <div className={`form__fieldset form__field--wrapper form__field-wrapper--${type} ${showBackgroundClassName}`}>
+        <div className={`form__fieldset form__field--wrapper form__field-wrapper--${type} ${showBackgroundClassName} ${hasErrorClass}`}>
           <label
             id={`field-label--${id}`}
             htmlFor={`field-input--${id}`}

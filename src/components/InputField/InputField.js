@@ -62,39 +62,19 @@ class InputField extends Component {
       }
     }
 
-    // Update state if there's no new value coming from the parent, but the parent has updated the invalidErrorText or showErrorMesssage
-    if (isValueFromParent === false && (nextProps.invalidErrorText !== this.state.invalidErrorText || nextProps.showErrorMessage !== this.state.showErrorMessage)) {
-      this.setState(() => {
-        let newState;
-        if (nextProps.invalidErrorText !== this.props.invalidErrorText) {
-          newState = {
-            ...this.state,
-            valid: false,
-            message: nextProps.invalidErrorText,
-            showErrorMessage: nextProps.showErrorMessage,
-          };
-        } else {
-          newState = {
-            ...this.state,
-            showErrorMessage: nextProps.showErrorMessage,
-          };
-        }
-        return newState;
+    // Update state if there's no new value coming from the parent,
+    // but the parent has updated the invalidErrorText or showErrorMesssage
+    if (isValueFromParent === false &&
+      (nextProps.invalidErrorText !== this.state.invalidErrorText
+        || nextProps.showErrorMessage !== this.state.showErrorMessage)) {
+      const stateObject = nextProps.fieldValue !== null ? nextProps.fieldValue : this.state;
+
+      this.setState({
+        ...stateObject,
+        message: nextProps.invalidErrorText !== this.props.invalidErrorText ? nextProps.invalidErrorText : stateObject.message,
+        showErrorMessage: nextProps.showErrorMessage,
       });
     }
-  }
-
-  /**
-   * Prevent update showErrorMessage override to false from validation when showErrorMessage should be true according to nextProps
-   * @param nextProps
-   * @param nextState
-   * @return {boolean}
-   */
-  shouldComponentUpdate(nextProps, nextState) {
-    if (nextProps.showErrorMessage === true && nextState.showErrorMessage === false) {
-      return false;
-    }
-    return true;
   }
 
   /**
@@ -208,6 +188,7 @@ class InputField extends Component {
     // Error logic
     const errorClassName = this.props.showErrorMessage === true ? 'form__field-error-wrapper' : '';
     const hasError = this.state.valid === false || (this.props.showErrorMessage === true && this.state.message !== '');
+    const hasErrorClass = hasError ? 'form__field--erroring' : '';
     const error = hasError ? 'form__field--error-outline' : '';
     const isBrowser = browser();
 
@@ -218,8 +199,12 @@ class InputField extends Component {
 
     return (
       <div id={`field-wrapper--${this.props.id}`}>
-        <div className={`form__fieldset form__field--wrapper form__field-wrapper--${this.props.type} ${errorClassName} ${showBackgroundClassName} ${extraClassName} `}>
-          <label id={`field-label--${this.props.id}`} htmlFor={`field-input--${this.props.id}`} className={`form__field-label${this.props.required ? ' required' : ''} ${this.state.valid === false ? 'error' : ''}`}>
+        <div className={`form__fieldset form__field--wrapper form__field-wrapper--${this.props.type} ${errorClassName} ${showBackgroundClassName} ${extraClassName} ${hasErrorClass}`}>
+          <label
+            id={`field-label--${this.props.id}`}
+            htmlFor={`field-input--${this.props.id}`}
+            className={`form__field-label${this.props.required ? ' required' : ''} ${this.state.valid === false ? 'error' : ''}`}
+          >
             {this.props.label}
             {(!this.props.required && this.props.type !== 'checkbox') &&
             <span>&nbsp;(Optional)&nbsp;</span>

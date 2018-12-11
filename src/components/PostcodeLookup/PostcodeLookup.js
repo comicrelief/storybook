@@ -20,6 +20,7 @@ class PostcodeLookup extends Component {
       postcodeValidationMessage: false,
       showErrorMessages: false,
       previousAddress: '',
+      isAddressButtonHidden: false,
       isAddressSelectHidden: true,
       isAddressFieldsHidden: true,
       validation: {
@@ -79,6 +80,14 @@ class PostcodeLookup extends Component {
   componentWillMount() {
     this.setInputValue();
     this.createCountryDropdownList();
+
+    if (this.props.forceManualInput === true) {
+      this.setState({
+        isAddressSelectHidden: true,
+        isAddressFieldsHidden: false,
+        isAddressButtonHidden: true,
+      });
+    }
   }
 
   componentDidMount() {
@@ -90,18 +99,16 @@ class PostcodeLookup extends Component {
    * @param nextProps
    */
   componentWillReceiveProps(nextProps) {
-    if (nextProps.showErrorMessages && nextProps.showErrorMessages !== this.state.showErrorMessages) {
-      this.setState({
-        ...this.state,
-        showErrorMessages: nextProps.showErrorMessages,
-      });
-      if (nextProps.showErrorMessages === true) {
-        this.setState({
-          ...this.state,
-          showErrorMessages: true,
-        });
-      }
+    const state = this.state;
+    state.showErrorMessages = nextProps.showErrorMessages === true;
+
+    if (nextProps.forceManualInput === true) {
+      state.isAddressSelectHidden = true;
+      state.isAddressFieldsHidden = false;
+      state.isAddressButtonHidden = true;
     }
+
+    this.setState(state);
   }
 
   /**
@@ -137,12 +144,15 @@ class PostcodeLookup extends Component {
     }
   }
 
+  /**
+   * Set the input values
+   */
   setInputValue() {
     const validation = this.props.valuesFromParent !== null ? this.props.valuesFromParent : this.state.validation;
     this.setState({
       ...this.state,
       validation,
-      isAddressFieldsHidden: this.state.isAddressFieldsHidden = validation.address1.value === '',
+      isAddressFieldsHidden: this.state.isAddressFieldsHidden === true && validation.address1.value === '' && this.props.forceManualInput === false,
     });
   }
 
@@ -177,13 +187,16 @@ class PostcodeLookup extends Component {
    */
   createAddressDropdownList() {
     const addresses = [{ label: 'Please select', value: null }];
-    this.state.addressLookupData.map(item =>
-      addresses.push({ label: typeof item.Line2 === 'undefined' ? item.Line1 : `${item.Line1}, ${item.Line2}`,
-        value: item }));
-    this.setState({
-      addressDropdownList: addresses,
-      isAddressSelectHidden: false,
-    });
+
+    if (this.state.addressLookupData !== undefined || this.state.addressLookupData !== null) {
+      this.state.addressLookupData.map(item =>
+        addresses.push({ label: typeof item.Line2 === 'undefined' ? item.Line1 : `${item.Line1}, ${item.Line2}`,
+          value: item }));
+      this.setState({
+        addressDropdownList: addresses,
+        isAddressSelectHidden: false,
+      });
+    }
   }
 
 
@@ -289,6 +302,10 @@ class PostcodeLookup extends Component {
     }
   }
 
+  /**
+   * Show the address fields
+   * @param e
+   */
   showAddressFields(e) {
     e.preventDefault();
     this.setState({
@@ -310,6 +327,10 @@ class PostcodeLookup extends Component {
     return value;
   }
 
+  /**
+   * Return postcode validation
+   * @return {*}
+   */
   returnPostcodeValidation() {
     return this.state.postcodeValidationMessage !== false ? {
       message: this.state.postcodeValidationMessage,
@@ -335,7 +356,7 @@ class PostcodeLookup extends Component {
     };
     const addressPattern = /^[A-Za-z0-9_.'/&\s-]+$/;
     const addressErrorMessage = 'This field only accepts alphanumeric characters and \' . - & _ /';
-    const addressOuptutFields = [
+    const addressOutputFields = [
       { id: 'address1', type: 'text', label: 'Address line 1', required: true, pattern: addressPattern, invalidErrorText: addressErrorMessage },
       { id: 'address2', type: 'text', label: 'Address line 2', required: false, pattern: addressPattern, invalidErrorText: addressErrorMessage },
       { id: 'address3', type: 'text', label: 'Address line 3', required: false, pattern: addressPattern, invalidErrorText: addressErrorMessage },
@@ -345,8 +366,15 @@ class PostcodeLookup extends Component {
     const supportedAriaAttributes = isBrowser.name === 'firefox' && isBrowser.os.match('Windows') ?
       { 'aria-live': 'assertive', 'aria-relevant': 'additions removals' } : { 'aria-live': 'assertive', role: 'status' };
 
+    const hasError = this.state.valid === false || (this.props.showErrorMessage === true && this.state.message !== '');
+    const hasErrorTwo = this.state.isAddressSelectHidden === true && this.state.isAddressFieldsHidden === true && this.props.showErrorMessages === true;
+    const hasErrorThree = this.state.isAddressFieldsHidden === true && this.state.isAddressSelectHidden === false && this.props.showErrorMessages === true;
+    const hasErrorClass = hasError || hasErrorTwo || hasErrorThree ? 'form__field--erroring' : '';
+
+    const addressButtonHidden = this.state.isAddressButtonHidden;
+
     return (
-      <div className="form__row form__row--billing-detail form__row--address-lookup">
+      <div className={`form__row form__row--billing-detail form__row--address-lookup ${hasErrorClass}`} >
         <InputField
           ref={this.setRefs}
           id={postCodeField.id}
@@ -357,7 +385,7 @@ class PostcodeLookup extends Component {
           placeholder={postCodeField.placeholder}
           pattern={postCodeField.pattern}
           extraClass={postCodeField.extraClass}
-          inlineButton
+          inlineButton={addressButtonHidden === false}
           buttonValue={postCodeField.buttonText}
           emptyFieldErrorText={postCodeField.emptyFieldErrorText}
           invalidErrorText={postCodeField.invalidErrorText}
@@ -368,38 +396,40 @@ class PostcodeLookup extends Component {
           showErrorMessage={this.state.showErrorMessages}
         />
         { this.state.isAddressSelectHidden === false &&
-          <SelectField
-            ref={this.setRefs}
-            id="addressSelect"
-            name="addressSelect"
-            label="Select your address"
-            required
-            options={this.state.addressDropdownList}
-            extraClass={this.state.addressSelectClass}
-            showErrorMessage={this.state.showErrorMessages}
-            isValid={(valid, name, value) => { this.updateAddress(value); }}
-          />
+        <SelectField
+          ref={this.setRefs}
+          id="addressSelect"
+          name="addressSelect"
+          label="Select your address"
+          required
+          options={this.state.addressDropdownList}
+          extraClass={this.state.addressSelectClass}
+          showErrorMessage={this.state.showErrorMessages}
+          isValid={(valid, name, value) => { this.updateAddress(value); }}
+        />
         }
-        { this.state.isAddressFieldsHidden === true && this.state.isAddressSelectHidden === false && this.props.showErrorMessages === true &&
+        { hasErrorThree &&
         <div id="field-error--addressSelect" className="form__field-error-container" ref={this.setRefs} {...supportedAriaAttributes} >
           <span className="form-error">Please select your address</span>
         </div>
         }
-        <div className="form__field--wrapper">
-          <a href="/" role="button" className="link" onClick={e => this.showAddressFields(e)} aria-describedby="field-error--addressDetails">Or enter your address manually</a>
-        </div>
+        {this.state.isAddressButtonHidden === false &&
+          <div className="form__field--wrapper">
+            <a href="/" role="button" className="link" onClick={e => this.showAddressFields(e)} aria-describedby="field-error--addressDetails">Or enter your address manually</a>
+          </div>
+        }
         <div
           ref={this.setAddressDetailRef}
           id="address-detail"
           className="form__field--address-detail"
         >
-          { this.state.isAddressSelectHidden === true && this.state.isAddressFieldsHidden === true && this.props.showErrorMessages === true &&
+          { hasErrorTwo &&
           <div id="field-error--addressDetails" className="form__field-error-container" ref={this.setRefs} {...supportedAriaAttributes}>
             <span className="form-error">Please fill in your address</span>
           </div>
           }
           <div className={this.state.isAddressFieldsHidden === false ? '' : 'hide'}>
-            {addressOuptutFields.map(item => (
+            {addressOutputFields.map(item => (
               <InputField
                 key={item.id}
                 ref={this.setRefs}
@@ -435,18 +465,19 @@ class PostcodeLookup extends Component {
   }
 }
 
-
 PostcodeLookup.defaultProps = {
   isAddressValid: null,
   label: 'Postcode',
   showErrorMessages: false,
   valuesFromParent: null,
+  forceManualInput: false,
 };
 PostcodeLookup.propTypes = {
   valuesFromParent: propTypes.object,
   isAddressValid: propTypes.func,
   label: propTypes.string,
   showErrorMessages: propTypes.bool,
+  forceManualInput: propTypes.bool,
 };
 
 export default PostcodeLookup;
