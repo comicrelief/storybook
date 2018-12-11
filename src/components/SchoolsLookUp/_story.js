@@ -7,7 +7,7 @@ import SchoolsLookUpContainer from './SchoolsLookUpContainer';
 const min = number('Min Length', 3);
 const endpoint = text(
   'Endpoint',
-  'https://bilw38ca93.execute-api.eu-west-1.amazonaws.com/production/schools/lookup?query=',
+  'https://lookups-staging.sls.comicrelief.com/schools/lookup?query=',
 );
 const address2Value = '';
 const address3Value = '';
