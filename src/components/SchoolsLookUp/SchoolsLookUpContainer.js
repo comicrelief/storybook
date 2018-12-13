@@ -9,8 +9,6 @@ class SchoolsLookUpContainer extends Component {
   constructor(props) {
     super(props);
     this.state = props;
-
-    this.onChange = this.onChange.bind(this);
   }
 
   /**
@@ -29,7 +27,7 @@ class SchoolsLookUpContainer extends Component {
     return (
       <SchoolsLookUp
         {...this.state}
-        onChange={this.onChange}
+        onChange={(identifier, event) => this.onChange(identifier, event)}
         establishmentIdIdentifier="establishmentIdValue"
         establishmentNameIdentifier="establishmentNameValue"
         address1Identifier="address1Value"
