@@ -90,7 +90,7 @@ class InputField extends Component {
     }
     // keeping this to not break certain environments
     if (this.props.showErrorMessage === true && this.state.message === '' && this.state.valid === null) {
-      this.validateField(null, this.inputRef);
+      this.validateField(this.inputRef);
     }
   }
 
