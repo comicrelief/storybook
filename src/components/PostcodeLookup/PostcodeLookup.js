@@ -164,7 +164,12 @@ class PostcodeLookup extends Component {
     return fetch(`https://lookups.sls.comicrelief.com/postcode/lookup?query=${this.state.validation.postcode.value}`, {
       method: 'get',
     })
-      .then(response => response.json())
+      .then((response) => {
+        if (response.status !== 200) {
+          throw Error();
+        }
+        return response.json();
+      })
       .then((response) => {
         if (response.addresses !== null && response.addresses.length >= 1) {
           this.setState({
@@ -177,6 +182,11 @@ class PostcodeLookup extends Component {
             postcodeValidationMessage: response.message,
           });
         }
+      })
+      .catch(() => {
+        this.setState({
+          postcodeValidationMessage: 'Postcode lookup currently unavailable, please enter your address manually',
+        });
       });
   }
   /**
@@ -190,7 +200,6 @@ class PostcodeLookup extends Component {
         if (response.status !== 200) {
           throw Error();
         }
-        console.log(response.status);
         this.setState({
           // isAddressSelectHidden: true,
           isAddressFieldsHidden: true,
@@ -198,7 +207,6 @@ class PostcodeLookup extends Component {
         });
       })
       .catch(() => {
-        console.log('error');
         this.setState({
           isAddressSelectHidden: true,
           isAddressFieldsHidden: false,
