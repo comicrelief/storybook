@@ -205,7 +205,6 @@ class PostcodeLookup extends Component {
    * Updates state with new address object and shows address select field
    */
   createAddressDropdownList(addressData) {
-    console.log(addressData);
     const addresses = [{ label: 'Please select', value: null }];
 
     if (addressData) {
