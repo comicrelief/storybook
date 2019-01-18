@@ -16,7 +16,6 @@ class PostcodeLookup extends Component {
     this.state = {
       addressDropdownList: [],
       countryDropdownList: [],
-      addressLookupData: false,
       postcodeValidationMessage: false,
       showErrorMessages: false,
       previousAddress: '',
@@ -73,20 +72,8 @@ class PostcodeLookup extends Component {
       }
     };
     this.showAddressFields = this.showAddressFields.bind(this);
+    this.plusURL = 'https://lookups.sls.comicrelief.com/postcode/lookup?query=';
   }
-
-  // componentWillMount() {
-  //   this.setInputValue();
-  //   this.createCountryDropdownList();
-  //
-  //   if (this.props.forceManualInput === true) {
-  //     this.setState({
-  //       isAddressSelectHidden: true,
-  //       isAddressFieldsHidden: false,
-  //       isAddressButtonHidden: true,
-  //     });
-  //   }
-  // }
 
   componentDidMount() {
     this.checkPostcodeLookupAvailability();
@@ -161,7 +148,7 @@ class PostcodeLookup extends Component {
    * @return {Promise}
    */
   addressLookup() {
-    return fetch(`https://lookups.sls.comicrelief.com/postcode/lookup?query=${this.state.validation.postcode.value}`, {
+    return fetch(this.plusURL + this.state.validation.postcode.value, {
       method: 'get',
     })
       .then((response) => {
@@ -174,9 +161,8 @@ class PostcodeLookup extends Component {
         if (response.addresses !== null && response.addresses.length >= 1) {
           this.setState({
             postcodeValidationMessage: false,
-            addressLookupData: response.addresses,
           });
-          this.createAddressDropdownList();
+          this.createAddressDropdownList(response.addresses);
         } else {
           this.setState({
             postcodeValidationMessage: response.message,
@@ -193,7 +179,7 @@ class PostcodeLookup extends Component {
    * Check if postcode lookup API is available and update flags in state
    */
   checkPostcodeLookupAvailability() {
-    fetch('https://lookups.sls.comicrelief.com/postcode/lookup', {
+    fetch(this.plusURL, {
       method: 'get',
     })
       .then((response) => {
@@ -201,7 +187,6 @@ class PostcodeLookup extends Component {
           throw Error();
         }
         this.setState({
-          // isAddressSelectHidden: true,
           isAddressFieldsHidden: true,
           isAddressButtonHidden: false,
         });
@@ -219,11 +204,12 @@ class PostcodeLookup extends Component {
    * Creates object for address select field options.
    * Updates state with new address object and shows address select field
    */
-  createAddressDropdownList() {
+  createAddressDropdownList(addressData) {
+    console.log(addressData);
     const addresses = [{ label: 'Please select', value: null }];
 
-    if (this.state.addressLookupData !== undefined || this.state.addressLookupData !== null) {
-      this.state.addressLookupData.map(item =>
+    if (addressData) {
+      addressData.map(item =>
         addresses.push({ label: typeof item.Line2 === 'undefined' ? item.Line1 : `${item.Line1}, ${item.Line2}`,
           value: item }));
       this.setState({
