@@ -20,7 +20,7 @@ class PostcodeLookup extends Component {
       postcodeValidationMessage: false,
       showErrorMessages: false,
       previousAddress: '',
-      isAddressButtonHidden: false,
+      isAddressButtonHidden: true,
       isAddressSelectHidden: true,
       isAddressFieldsHidden: true,
       validation: {
@@ -72,26 +72,26 @@ class PostcodeLookup extends Component {
         this.fieldRefs = refs;
       }
     };
-
-    this.addressLookup = this.addressLookup.bind(this);
     this.showAddressFields = this.showAddressFields.bind(this);
   }
 
-  componentWillMount() {
-    this.setInputValue();
-    this.createCountryDropdownList();
-
-    if (this.props.forceManualInput === true) {
-      this.setState({
-        isAddressSelectHidden: true,
-        isAddressFieldsHidden: false,
-        isAddressButtonHidden: true,
-      });
-    }
-  }
+  // componentWillMount() {
+  //   this.setInputValue();
+  //   this.createCountryDropdownList();
+  //
+  //   if (this.props.forceManualInput === true) {
+  //     this.setState({
+  //       isAddressSelectHidden: true,
+  //       isAddressFieldsHidden: false,
+  //       isAddressButtonHidden: true,
+  //     });
+  //   }
+  // }
 
   componentDidMount() {
+    this.checkPostcodeLookupAvailability();
     this.setInputValue();
+    this.createCountryDropdownList();
   }
 
   /**
@@ -163,7 +163,6 @@ class PostcodeLookup extends Component {
   addressLookup() {
     return fetch(`https://lookups.sls.comicrelief.com/postcode/lookup?query=${this.state.validation.postcode.value}`, {
       method: 'get',
-      headers: { 'Content-Type': 'application/json' },
     })
       .then(response => response.json())
       .then((response) => {
@@ -178,6 +177,33 @@ class PostcodeLookup extends Component {
             postcodeValidationMessage: response.message,
           });
         }
+      });
+  }
+  /**
+   * Check if postcode lookup API is available and update flags in state
+   */
+  checkPostcodeLookupAvailability() {
+    fetch('https://lookups.sls.comicrelief.com/postcode/lookup', {
+      method: 'get',
+    })
+      .then((response) => {
+        if (response.status !== 200) {
+          throw Error();
+        }
+        console.log(response.status);
+        this.setState({
+          // isAddressSelectHidden: true,
+          isAddressFieldsHidden: true,
+          isAddressButtonHidden: false,
+        });
+      })
+      .catch(() => {
+        console.log('error');
+        this.setState({
+          isAddressSelectHidden: true,
+          isAddressFieldsHidden: false,
+          isAddressButtonHidden: true,
+        });
       });
   }
 
