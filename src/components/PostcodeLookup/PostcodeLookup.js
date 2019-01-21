@@ -73,7 +73,6 @@ class PostcodeLookup extends Component {
       }
     };
     this.showAddressFields = this.showAddressFields.bind(this);
-    this.plusURL = 'https://lookups.sls.comicrelief.com/postcode/lookup?query=';
   }
 
   componentWillMount() {
@@ -160,7 +159,7 @@ class PostcodeLookup extends Component {
    * @return {Promise}
    */
   addressLookup() {
-    return fetch(this.plusURL + this.state.validation.postcode.value, {
+    return fetch(this.props.plusURL + this.state.validation.postcode.value, {
       method: 'get',
     })
       .then((response) => {
@@ -479,6 +478,7 @@ PostcodeLookup.defaultProps = {
   showErrorMessages: false,
   valuesFromParent: null,
   forceManualInput: false,
+  plusURL: 'https://lookups.sls.comicrelief.com/postcode/lookup?query=',
 };
 PostcodeLookup.propTypes = {
   valuesFromParent: propTypes.object,
@@ -486,6 +486,7 @@ PostcodeLookup.propTypes = {
   label: propTypes.string,
   showErrorMessages: propTypes.bool,
   forceManualInput: propTypes.bool,
+  plusURL: propTypes.string,
 };
 
 export default PostcodeLookup;
