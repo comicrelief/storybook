@@ -19,7 +19,7 @@ class PostcodeLookup extends Component {
       postcodeValidationMessage: false,
       showErrorMessages: false,
       previousAddress: '',
-      isAddressButtonHidden: true,
+      isAddressButtonHidden: false,
       isAddressSelectHidden: true,
       isAddressFieldsHidden: true,
       validation: {
@@ -72,11 +72,11 @@ class PostcodeLookup extends Component {
       }
     };
     this.showAddressFields = this.showAddressFields.bind(this);
-    this.plusURL = 'https://lookups.sls.comicrelief.com/postcode/lookup?query=';
+    this.plusURL = 'https://lookups.sls.comicrelief.com/postcode/lookups?query=';
   }
 
   componentDidMount() {
-    this.checkPostcodeLookupAvailability();
+    // this.checkPostcodeLookupAvailability();
     this.setInputValue();
     this.createCountryDropdownList();
   }
@@ -172,30 +172,7 @@ class PostcodeLookup extends Component {
       .catch(() => {
         this.setState({
           postcodeValidationMessage: 'Postcode lookup currently unavailable, please enter your address manually',
-        });
-      });
-  }
-  /**
-   * Check if postcode lookup API is available and update flags in state
-   */
-  checkPostcodeLookupAvailability() {
-    fetch(this.plusURL, {
-      method: 'get',
-    })
-      .then((response) => {
-        if (response.status !== 200) {
-          throw Error();
-        }
-        this.setState({
-          isAddressFieldsHidden: true,
-          isAddressButtonHidden: false,
-        });
-      })
-      .catch(() => {
-        this.setState({
-          isAddressSelectHidden: true,
           isAddressFieldsHidden: false,
-          isAddressButtonHidden: true,
         });
       });
   }
