@@ -72,12 +72,16 @@ class PostcodeLookup extends Component {
       }
     };
     this.showAddressFields = this.showAddressFields.bind(this);
-    this.plusURL = 'https://lookups.sls.comicrelief.com/postcode/lookups?query=';
+    this.plusURL = 'https://lookups.sls.comicrelief.com/postcode/lookup?query=';
+  }
+
+  componentWillMount() {
+    this.setInputValue();
+    this.createCountryDropdownList();
   }
 
   componentDidMount() {
     this.setInputValue();
-    this.createCountryDropdownList();
   }
 
   /**
