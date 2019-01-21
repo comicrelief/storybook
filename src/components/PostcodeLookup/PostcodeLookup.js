@@ -7,6 +7,7 @@ import SelectField from '../SelectField/SelectField';
 import InputField from '../InputField/InputField';
 import countries from './countries.json';
 
+
 class PostcodeLookup extends Component {
   /**
    * AddressLookup constructor
