@@ -76,7 +76,6 @@ class PostcodeLookup extends Component {
   }
 
   componentDidMount() {
-    // this.checkPostcodeLookupAvailability();
     this.setInputValue();
     this.createCountryDropdownList();
   }
