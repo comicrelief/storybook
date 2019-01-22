@@ -7,6 +7,7 @@ import SelectField from '../SelectField/SelectField';
 import InputField from '../InputField/InputField';
 import countries from './countries.json';
 
+
 class PostcodeLookup extends Component {
   /**
    * AddressLookup constructor
@@ -16,7 +17,6 @@ class PostcodeLookup extends Component {
     this.state = {
       addressDropdownList: [],
       countryDropdownList: [],
-      addressLookupData: false,
       postcodeValidationMessage: false,
       showErrorMessages: false,
       previousAddress: '',
@@ -72,8 +72,6 @@ class PostcodeLookup extends Component {
         this.fieldRefs = refs;
       }
     };
-
-    this.addressLookup = this.addressLookup.bind(this);
     this.showAddressFields = this.showAddressFields.bind(this);
   }
 
@@ -161,23 +159,32 @@ class PostcodeLookup extends Component {
    * @return {Promise}
    */
   addressLookup() {
-    return fetch(`https://lookups.sls.comicrelief.com/postcode/lookup?query=${this.state.validation.postcode.value}`, {
+    return fetch(this.props.plusURL + this.state.validation.postcode.value, {
       method: 'get',
-      headers: { 'Content-Type': 'application/json' },
     })
-      .then(response => response.json())
+      .then((response) => {
+        if (response.status !== 200) {
+          throw Error();
+        }
+        return response.json();
+      })
       .then((response) => {
         if (response.addresses !== null && response.addresses.length >= 1) {
           this.setState({
             postcodeValidationMessage: false,
-            addressLookupData: response.addresses,
           });
-          this.createAddressDropdownList();
+          this.createAddressDropdownList(response.addresses);
         } else {
           this.setState({
             postcodeValidationMessage: response.message,
           });
         }
+      })
+      .catch(() => {
+        this.setState({
+          postcodeValidationMessage: 'Postcode lookup currently unavailable, please enter your address manually',
+          isAddressFieldsHidden: false,
+        });
       });
   }
 
@@ -185,11 +192,11 @@ class PostcodeLookup extends Component {
    * Creates object for address select field options.
    * Updates state with new address object and shows address select field
    */
-  createAddressDropdownList() {
+  createAddressDropdownList(addressData) {
     const addresses = [{ label: 'Please select', value: null }];
 
-    if (this.state.addressLookupData !== undefined || this.state.addressLookupData !== null) {
-      this.state.addressLookupData.map(item =>
+    if (addressData) {
+      addressData.map(item =>
         addresses.push({ label: typeof item.Line2 === 'undefined' ? item.Line1 : `${item.Line1}, ${item.Line2}`,
           value: item }));
       this.setState({
@@ -471,6 +478,7 @@ PostcodeLookup.defaultProps = {
   showErrorMessages: false,
   valuesFromParent: null,
   forceManualInput: false,
+  plusURL: 'https://lookups.sls.comicrelief.com/postcode/lookup?query=',
 };
 PostcodeLookup.propTypes = {
   valuesFromParent: propTypes.object,
@@ -478,6 +486,7 @@ PostcodeLookup.propTypes = {
   label: propTypes.string,
   showErrorMessages: propTypes.bool,
   forceManualInput: propTypes.bool,
+  plusURL: propTypes.string,
 };
 
 export default PostcodeLookup;
