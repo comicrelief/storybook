@@ -82,6 +82,9 @@
     "url-loader": "0",
     "webpack": "3"
   },
+  "resolutions" : {
+    "**/mem": "4.0.0"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/comicrelief/storybook.git"
