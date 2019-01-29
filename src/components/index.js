@@ -9,7 +9,7 @@ import GrantsInfographics from './GrantsInfographics/GrantsInfographics';
 import CookieConsentMessage from './CookieConsentMessage/CookieConsentMessage';
 import JustInTime from './JustInTime/JustInTime';
 import RadioButtons from './RadioButtons/RadioButtons';
-import MarketingConsent from './MarketingConsent';
+import MarketingConsent from './MarketingConsent/MarketingConsent';
 
 export {
   Footer,
