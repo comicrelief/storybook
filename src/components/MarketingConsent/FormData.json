@@ -6,12 +6,14 @@
         {
           "label":"yes",
           "value": "yes",
-          "name":"emailPermission"
+          "name":"emailPermission",
+          "hideFields": false
         },
         {
           "label":"no",
           "value": "no",
-          "name":"emailPermission"
+          "name":"emailPermission",
+          "hideFields": true
         }
       ],
       "field":[

@@ -18,5 +18,5 @@ storiesOf('MarketingConsent', module)
 
 function getFormFields() {
     return FormData.Questions.map((item) =>
-      <MarketingConsent key={item.id} validateFieldInput={(validation) => { console.log('validation: ', validation) }} itemData={item} /> );
+      <MarketingConsent key={item.id} getCheckboxValue={(text, event) => { console.log('event: ', event, 'text:', text);}} getFieldInputValidation={(validation) => { console.log('validation: ', validation) }} itemData={item} /> );
 }

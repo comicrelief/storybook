@@ -36,6 +36,7 @@ class MarketingPreferences extends Component {
    * @param name
    */
   setInputValidity(valid, name) {
+    console.log('set input validity');
     if ((this.state.validation[name].value === undefined || this.state.validation[name].value !== valid.value) ||
       (this.state.validation[name].message !== valid.message)) {
       this.setState({
@@ -61,7 +62,8 @@ class MarketingPreferences extends Component {
    */
   handleCheckboxToggle(name, event) {
     const item = this.props.itemData;
-    console.log('name', name, 'event', event.target.value);
+    // console.log('showfields=false', event.target.getAttribute('data-show-fields'), event.target);
+    console.log('name:', name, 'event:', event.target.value, 'checked? ', event.target.checked);
     if (event.target.checked) {
       this.setState({
         marketingPermissionType: name,
@@ -71,35 +73,27 @@ class MarketingPreferences extends Component {
       });
     }
 
+
     if (!event.target.checked) {
       this.setState(prevState => ({
         marketingPermissionType: name,
         checkedState: this.state[name] = !prevState.checkedState,
         isHidden: !prevState.isHidden,
         isTicked: !prevState.isTicked,
-        validation: {
-          [name]: {
-            valid: '',
-            value: '',
-            message: '',
-            showErrorMessage: '',
-          },
-        },
       }));
     }
-    this.props.isChecked(event, item.text);
+    this.props.getCheckboxValue(item.text, event.target.value);
 
     this.pushValidityToParent();
   }
 
   pushValidityToParent() {
-    this.props.validateFieldInput(this.state.validation);
+    this.props.getFieldInputValidation(this.state.validation);
   }
 
   render() {
     const item = this.props.itemData;
     const bgStyle = 'form__field--background';
-
     return (
       <div key={item.id} className="form__row form__field--wrapper form__field-wrapper--checkbox">
         <p className="form__fieldset--label" aria-label={`Can we contact you by ${item.text}`}>{item.text}</p>
@@ -121,6 +115,7 @@ class MarketingPreferences extends Component {
                   ariarole="checkbox"
                   aria-label={`field-label--${element.label}`}
                   aria-checked={this.state.isTicked}
+                  // data-show-fields={element.showFields}
                 />
                 <span />
               </div>
@@ -136,7 +131,7 @@ class MarketingPreferences extends Component {
                   type={element.type}
                   id={element.name}
                   name={element.name}
-                  required={this.state.checkedState === 'yes' && element.required === true}
+                  required={element.required}
                   placeholder={element.placeholder}
                   label={element.label}
                   pattern={element.pattern}
@@ -158,14 +153,14 @@ class MarketingPreferences extends Component {
 }
 
 MarketingPreferences.defaultProps = {
-  isChecked: () => {},
+  getCheckboxValue: () => {},
   formValues: () => {},
   showErrorMessage: null,
 };
 MarketingPreferences.propTypes = {
-  validateFieldInput: propTypes.func.isRequired,
+  getFieldInputValidation: propTypes.func.isRequired,
   showErrorMessage: propTypes.bool,
-  isChecked: propTypes.func,
+  getCheckboxValue: propTypes.func,
   formValues: propTypes.func,
   itemData: propTypes.shape({
     itemData: propTypes.object,
