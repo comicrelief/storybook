@@ -34,12 +34,14 @@
         {
           "label":"yes",
           "value":"yes",
-          "name":"postPermission"
+          "name":"postPermission",
+          "hideFields": false
         },
         {
           "label":"no",
           "value":"no",
-          "name":"postPermission"
+          "name":"postPermission",
+          "hideFields": true
         }
       ],
       "field":[
@@ -104,12 +106,14 @@
         {
           "label":"yes",
           "value":"yes",
-          "name":"phonePermission"
+          "name":"phonePermission",
+          "hideFields": false
         },
         {
           "label":"no",
           "value":"no",
-          "name":"phonePermission"
+          "name":"phonePermission",
+          "hideFields": true
         }
       ],
       "field":[
@@ -130,12 +134,14 @@
         {
           "label":"yes",
           "value":"yes",
-          "name":"smsPermission"
+          "name":"smsPermission",
+          "hideFields": false
         },
         {
           "label":"no",
           "value":"no",
-          "name":"smsPermission"
+          "name":"smsPermission",
+          "hideFields": true
         }
       ],
       "field":[

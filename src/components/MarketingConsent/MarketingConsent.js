@@ -20,13 +20,11 @@ class MarketingPreferences extends Component {
     });
 
     this.state = {
-      isHidden: true,
-      isTicked: false,
       marketingPermissionType: null,
       checkedState: null,
+      isFieldsHidden: true,
       fields: {},
       validation,
-      formValues: {},
     };
   }
 
@@ -36,7 +34,6 @@ class MarketingPreferences extends Component {
    * @param name
    */
   setInputValidity(valid, name) {
-    console.log('set input validity');
     if ((this.state.validation[name].value === undefined || this.state.validation[name].value !== valid.value) ||
       (this.state.validation[name].message !== valid.message)) {
       this.setState({
@@ -60,29 +57,16 @@ class MarketingPreferences extends Component {
    * which reveals the appropriate previously hidden input field according
    * to their selection.
    */
-  handleCheckboxToggle(name, event) {
-    const item = this.props.itemData;
-    // console.log('showfields=false', event.target.getAttribute('data-show-fields'), event.target);
-    console.log('name:', name, 'event:', event.target.value, 'checked? ', event.target.checked);
-    if (event.target.checked) {
-      this.setState({
-        marketingPermissionType: name,
-        checkedState: this.state[name] = event.target.value,
-        isHidden: event.target.value !== 'yes',
-        isTicked: event.target.checked,
-      });
-    }
+  handleCheckboxToggle(element, event) {
+    const value = event.target.value;
 
+    this.setState(prevState => ({
+      marketingPermissionType: element.name,
+      checkedState: prevState.checkedState !== value ? value : null,
+      isFieldsHidden: element.hideFields,
+    }));
 
-    if (!event.target.checked) {
-      this.setState(prevState => ({
-        marketingPermissionType: name,
-        checkedState: this.state[name] = !prevState.checkedState,
-        isHidden: !prevState.isHidden,
-        isTicked: !prevState.isTicked,
-      }));
-    }
-    this.props.getCheckboxValue(item.text, event.target.value);
+    this.props.getCheckboxValue(element.name, value);
 
     this.pushValidityToParent();
   }
@@ -110,19 +94,18 @@ class MarketingPreferences extends Component {
                   className="form__field form__field--checkbox"
                   name={element.name}
                   value={element.value}
-                  onChange={e => this.handleCheckboxToggle(element.name, e)}
-                  checked={this.state[element.name] === element.value}
+                  onChange={e => this.handleCheckboxToggle(element, e)}
+                  checked={this.state.checkedState === element.value}
                   ariarole="checkbox"
                   aria-label={`field-label--${element.label}`}
-                  aria-checked={this.state.isTicked}
-                  // data-show-fields={element.showFields}
+                  aria-checked={this.state.checkedState === element.value}
                 />
                 <span />
               </div>
             ))
           }
         </div>
-        { !this.state.isHidden &&
+        { !this.state.isFieldsHidden &&
         <div className={bgStyle}>
           {
             item.field.map(element => (
