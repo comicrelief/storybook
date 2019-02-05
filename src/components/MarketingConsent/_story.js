@@ -36,7 +36,7 @@ function getFormFields() {
   return FormData.Questions.map((item) =>
     <MarketingConsent
       key={item.id}
-      getCheckboxValue={(text, event) => { console.log('checkbox:', text, 'checkboxValue: ', event);}}
+      getCheckboxState={(text, event) => { console.log('checkbox:', text, 'checkboxValue: ', event);}}
       getFieldInputValidation={(validation) => { console.log('getInputValidation: ', validation) }}
       itemData={item}
       // valueFromParent={fieldValidationFromParent}

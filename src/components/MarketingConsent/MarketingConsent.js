@@ -90,10 +90,8 @@ class MarketingPreferences extends Component {
     this.setState(prevState => ({
       marketingPermissionType: element.name,
       checkedState: prevState.checkedState !== value ? value : null,
-      isFieldsHidden: element.hideFields,
-    }));
-
-    this.props.getCheckboxValue(element.name, value);
+      isFieldsHidden: prevState.checkedState === value ? true : element.hideFields,
+    }), () => this.props.getCheckboxState(element.name, this.state.checkedState));
 
     if (element.hideFields === false) {
       this.pushValidityToParent();
@@ -168,14 +166,14 @@ class MarketingPreferences extends Component {
 }
 
 MarketingPreferences.defaultProps = {
-  getCheckboxValue: () => {},
+  getCheckboxState: () => {},
   valueFromParent: null,
   showErrorMessage: null,
 };
 MarketingPreferences.propTypes = {
   getFieldInputValidation: propTypes.func.isRequired,
   showErrorMessage: propTypes.bool,
-  getCheckboxValue: propTypes.func,
+  getCheckboxState: propTypes.func,
   valueFromParent: propTypes.object,
   itemData: propTypes.shape({
     itemData: propTypes.object,
