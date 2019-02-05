@@ -29,16 +29,30 @@ class MarketingPreferences extends Component {
   }
 
   /**
-   * Set input validity on change
-   * @param valid
-   * @param name
+   * update the state with values coming from the parent
    */
-  setInputValidity(valid, name) {
+  componentDidMount() {
+    this.setInputValue();
+  }
+
+  setInputValue() {
+    const validation = this.props.valueFromParent !== null ? this.props.valueFromParent : this.state.validation;
+    this.setState({
+      ...this.state,
+      validation,
+    });
+  }
+
+  /**
+   * Update state with value and validity from child and push field validity to parent
+   * @param name
+   * @param valid
+   */
+  setInputValidity(name, valid) {
     if ((this.state.validation[name].value === undefined || this.state.validation[name].value !== valid.value) ||
       (this.state.validation[name].message !== valid.message)) {
       this.setState({
         ...this.state,
-        fieldRefs: this.fieldRefs,
         validation: {
           ...this.state.validation,
           [name]: {
@@ -53,8 +67,21 @@ class MarketingPreferences extends Component {
   }
 
   /**
+   * return the value from the state. Needed to make the field mutable again.
+   * @param name
+   * @return {{}}
+   */
+  fieldValue(name) {
+    let value = this.state.validation;
+    if (value[name] !== undefined) {
+      value = value[name];
+    }
+    return value;
+  }
+
+  /**
    * The handler enables the user to uncheck and check the checkbox
-   * which reveals the appropriate previously hidden input field according
+   * which reveals the previously hidden input field according
    * to their selection.
    */
   handleCheckboxToggle(element, event) {
@@ -68,12 +95,15 @@ class MarketingPreferences extends Component {
 
     this.props.getCheckboxValue(element.name, value);
 
-    this.pushValidityToParent();
+    if (element.hideFields === false) {
+      this.pushValidityToParent();
+    }
   }
 
   pushValidityToParent() {
     this.props.getFieldInputValidation(this.state.validation);
   }
+
 
   render() {
     const item = this.props.itemData;
@@ -119,11 +149,13 @@ class MarketingPreferences extends Component {
                   label={element.label}
                   pattern={element.pattern}
                   helpText={element.helpText}
-                  isValid={(e, name, value) => {
-                    this.setInputValidity(e, name, this.props.formValues(name, value));
+                  isValid={(valid, name) => {
+                    this.setInputValidity(name, valid);
                   }}
                   emptyFieldErrorText={element.errorMessage}
                   showErrorMessage={this.props.showErrorMessage}
+                  fieldValue={this.props.valueFromParent && this.props.valueFromParent[element.name]}
+                  value={() => this.fieldValue(element.name)}
                 />
               </div>
             ))
@@ -137,14 +169,14 @@ class MarketingPreferences extends Component {
 
 MarketingPreferences.defaultProps = {
   getCheckboxValue: () => {},
-  formValues: () => {},
+  valueFromParent: null,
   showErrorMessage: null,
 };
 MarketingPreferences.propTypes = {
   getFieldInputValidation: propTypes.func.isRequired,
   showErrorMessage: propTypes.bool,
   getCheckboxValue: propTypes.func,
-  formValues: propTypes.func,
+  valueFromParent: propTypes.object,
   itemData: propTypes.shape({
     itemData: propTypes.object,
   }).isRequired,

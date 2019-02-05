@@ -16,7 +16,29 @@ storiesOf('MarketingConsent', module)
       return getFormFields();
   }));
 
+// const fieldValidationFromParent = {
+//   email: {
+//     valid: true,
+//     value: 'test@test.bla',
+//     message: '',
+//     showErrorMessage: false,
+//   },
+//   address1:
+//     {
+//       valid: true,
+//       value: 'test@test.bla',
+//       message: '',
+//       showErrorMessage: false,
+//     },
+// };
+
 function getFormFields() {
-    return FormData.Questions.map((item) =>
-      <MarketingConsent key={item.id} getCheckboxValue={(text, event) => { console.log('checkbox:', text, 'checkboxValue: ', event);}} getFieldInputValidation={(validation) => { console.log('getInputValidation: ', validation) }} itemData={item} /> );
+  return FormData.Questions.map((item) =>
+    <MarketingConsent
+      key={item.id}
+      getCheckboxValue={(text, event) => { console.log('checkbox:', text, 'checkboxValue: ', event);}}
+      getFieldInputValidation={(validation) => { console.log('getInputValidation: ', validation) }}
+      itemData={item}
+      // valueFromParent={fieldValidationFromParent}
+    /> );
 }
