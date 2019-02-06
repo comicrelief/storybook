@@ -13,11 +13,11 @@ class MarketingPreferences extends Component {
     const fieldValidation = this.emptyInputFields(items);
 
     this.state = {
-      marketingPermissionType: null,
-      isFieldsHidden: true,
+      checkboxName: checkbox,
       checkboxValidation: {
         [checkbox]: {
           checkedState: null,
+          isFieldsHidden: true,
           fieldValidation,
         },
       },
@@ -35,11 +35,15 @@ class MarketingPreferences extends Component {
    * If the parent has values already, then use it otherwise use the empty state.
    */
   setValues() {
-    const checkboxValidation = this.props.valueFromParent !== null ? this.props.valueFromParent : this.state.checkboxValidation;
+    const validation = this.props.valueFromParent !== null ? this.props.valueFromParent : this.state.checkboxValidation[this.state.checkboxName];
+    console.log('val from parent', this.state.checkboxName, validation);
+
     this.setState({
       ...this.state,
-      checkboxValidation,
-    });
+      checkboxValidation: {
+        [this.state.checkboxName]: validation,
+      },
+    }, () => console.log('state after setval', this.state));
   }
 
   /**
@@ -97,13 +101,14 @@ class MarketingPreferences extends Component {
     const fieldValidation = this.emptyInputFields(item);
     this.setState(prevState => ({
       marketingPermissionType: element.name,
-      checkedState: prevState.checkedState !== value ? value : null,
-      isFieldsHidden: prevState.checkedState === value ? true : element.hideFields,
+      // checkedState: prevState.checkedState !== value ? value : null,
+      // isFieldsHidden: prevState.checkedState === value ? true : element.hideFields,
       checkboxValidation: {
         ...this.state.checkboxValidation,
         [item.text]: {
           ...this.state.checkboxValidation[item.text],
-          checkedState: prevState.checkedState !== value ? value : null,
+          isFieldsHidden: prevState.checkboxValidation[item.text].checkedState === value ? true : element.hideFields,
+          checkedState: prevState.checkboxValidation[item.text].checkedState !== value ? value : null,
           fieldValidation,
         },
       },
@@ -164,7 +169,7 @@ class MarketingPreferences extends Component {
             ))
           }
         </div>
-        { !this.state.isFieldsHidden &&
+        { !this.state.checkboxValidation[checkbox].isFieldsHidden &&
         <div className={bgStyle}>
           {
             item.field.map(element => (
@@ -183,7 +188,8 @@ class MarketingPreferences extends Component {
                   }}
                   emptyFieldErrorText={element.errorMessage}
                   showErrorMessage={this.props.showErrorMessage}
-                  fieldValue={this.props.valueFromParent && this.props.valueFromParent[checkbox]}
+                  fieldValue={this.state.checkboxValidation[checkbox].fieldValidation[element.name]}
+                  // fieldValue={this.props.valueFromParent && this.props.valueFromParent[checkbox]}
                   value={() => this.fieldValue(checkbox, element.name)}
                 />
               </div>
