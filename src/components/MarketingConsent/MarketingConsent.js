@@ -7,39 +7,38 @@ class MarketingPreferences extends Component {
   constructor(props) {
     super(props);
 
-    // Create default validation items for the fields
     const items = props.itemData;
-    const validation = {};
-    items.field.forEach((item) => {
-      validation[item.name] = {
-        valid: '',
-        value: '',
-        message: '',
-        showErrorMessage: '',
-      };
-    });
+    const checkbox = items.text;
+    // set the initial validation for the input fields
+    const fieldValidation = this.emptyInputFields(items);
 
     this.state = {
       marketingPermissionType: null,
-      checkedState: null,
       isFieldsHidden: true,
-      fields: {},
-      validation,
+      checkboxValidation: {
+        [checkbox]: {
+          checkedState: null,
+          fieldValidation,
+        },
+      },
     };
   }
 
   /**
-   * update the state with values coming from the parent
+   * On mount call setValues
    */
   componentDidMount() {
-    this.setInputValue();
+    this.setValues();
   }
 
-  setInputValue() {
-    const validation = this.props.valueFromParent !== null ? this.props.valueFromParent : this.state.validation;
+  /**
+   * If the parent has values already, then use it otherwise use the empty state.
+   */
+  setValues() {
+    const checkboxValidation = this.props.valueFromParent !== null ? this.props.valueFromParent : this.state.checkboxValidation;
     this.setState({
       ...this.state,
-      validation,
+      checkboxValidation,
     });
   }
 
@@ -47,65 +46,97 @@ class MarketingPreferences extends Component {
    * Update state with value and validity from child and push field validity to parent
    * @param name
    * @param valid
+   * @param checkbox
    */
-  setInputValidity(name, valid) {
-    if ((this.state.validation[name].value === undefined || this.state.validation[name].value !== valid.value) ||
-      (this.state.validation[name].message !== valid.message)) {
+  setInputValidity(name, valid, checkbox) {
+    if ((this.state.checkboxValidation[checkbox].fieldValidation[name].value === undefined || this.state.checkboxValidation[checkbox].fieldValidation[name].value !== valid.value) ||
+      (this.state.checkboxValidation[checkbox].fieldValidation[name].message !== valid.message)) {
       this.setState({
         ...this.state,
-        validation: {
-          ...this.state.validation,
-          [name]: {
-            valid: valid.valid,
-            value: valid.value,
-            message: valid.message,
-            showErrorMessage: valid.showErrorMessage,
+        checkboxValidation: {
+          ...this.state.checkboxValidation,
+          [checkbox]: {
+            ...this.state.checkboxValidation[checkbox],
+            fieldValidation: {
+              ...this.state.checkboxValidation[checkbox].fieldValidation,
+              [name]: {
+                valid: valid.valid,
+                value: valid.value,
+                message: valid.message,
+                showErrorMessage: valid.showErrorMessage,
+              },
+            },
           },
         },
-      }, this.pushValidityToParent);
+      }, () => this.pushValidityToParent(this.state.checkboxValidation));
     }
   }
 
+
   /**
    * return the value from the state. Needed to make the field mutable again.
-   * @param name
+   * @param checkbox
+   * @param fieldName
    * @return {{}}
    */
-  fieldValue(name) {
-    let value = this.state.validation;
-    if (value[name] !== undefined) {
-      value = value[name];
+  fieldValue(checkbox, fieldName) {
+    let value = this.state.checkboxValidation[checkbox].fieldValidation;
+    if (value[fieldName] !== undefined) {
+      value = value[fieldName];
     }
     return value;
   }
 
   /**
    * The handler enables the user to uncheck and check the checkbox
-   * which reveals the previously hidden input field according
-   * to their selection.
+   * It reveals the previously hidden input field according to the selection.
+   * And resets the inputfield value.
    */
-  handleCheckboxToggle(element, event) {
+  handleCheckboxToggle(item, element, event) {
     const value = event.target.value;
-
+    const fieldValidation = this.emptyInputFields(item);
     this.setState(prevState => ({
       marketingPermissionType: element.name,
       checkedState: prevState.checkedState !== value ? value : null,
       isFieldsHidden: prevState.checkedState === value ? true : element.hideFields,
-    }), () => this.props.getCheckboxState(element.name, this.state.checkedState));
-
-    if (element.hideFields === false) {
-      this.pushValidityToParent();
-    }
+      checkboxValidation: {
+        ...this.state.checkboxValidation,
+        [item.text]: {
+          ...this.state.checkboxValidation[item.text],
+          checkedState: prevState.checkedState !== value ? value : null,
+          fieldValidation,
+        },
+      },
+    }), () => this.pushValidityToParent(this.state.checkboxValidation));
   }
 
-  pushValidityToParent() {
-    this.props.getFieldInputValidation(this.state.validation);
+  pushValidityToParent(checkboxValidation) {
+    this.props.getValidation(checkboxValidation);
+  }
+
+  /**
+   * set the field validation info (back) to empty strings.
+   * @param item
+   * @return {{}}
+   */
+  emptyInputFields(item) {
+    const fieldValidation = {};
+    item.field.forEach((field) => {
+      fieldValidation[field.name] = {
+        valid: '',
+        value: '',
+        message: '',
+        showErrorMessage: '',
+      };
+    });
+    return fieldValidation;
   }
 
 
   render() {
     const item = this.props.itemData;
     const bgStyle = 'form__field--background';
+    const checkbox = item.text;
     return (
       <div key={item.id} className="form__row form__field--wrapper form__field-wrapper--checkbox">
         <p className="form__fieldset--label" aria-label={`Can we contact you by ${item.text}`}>{item.text}</p>
@@ -122,11 +153,11 @@ class MarketingPreferences extends Component {
                   className="form__field form__field--checkbox"
                   name={element.name}
                   value={element.value}
-                  onChange={e => this.handleCheckboxToggle(element, e)}
-                  checked={this.state.checkedState === element.value}
+                  onChange={e => this.handleCheckboxToggle(item, element, e)}
+                  checked={this.state.checkboxValidation[checkbox].checkedState === element.value}
                   ariarole="checkbox"
                   aria-label={`field-label--${element.label}`}
-                  aria-checked={this.state.checkedState === element.value}
+                  aria-checked={this.state.checkboxValidation[checkbox].checkedState === element.value}
                 />
                 <span />
               </div>
@@ -148,12 +179,12 @@ class MarketingPreferences extends Component {
                   pattern={element.pattern}
                   helpText={element.helpText}
                   isValid={(valid, name) => {
-                    this.setInputValidity(name, valid);
+                    this.setInputValidity(name, valid, checkbox);
                   }}
                   emptyFieldErrorText={element.errorMessage}
                   showErrorMessage={this.props.showErrorMessage}
-                  fieldValue={this.props.valueFromParent && this.props.valueFromParent[element.name]}
-                  value={() => this.fieldValue(element.name)}
+                  fieldValue={this.props.valueFromParent && this.props.valueFromParent[checkbox]}
+                  value={() => this.fieldValue(checkbox, element.name)}
                 />
               </div>
             ))
@@ -166,14 +197,12 @@ class MarketingPreferences extends Component {
 }
 
 MarketingPreferences.defaultProps = {
-  getCheckboxState: () => {},
   valueFromParent: null,
   showErrorMessage: null,
 };
 MarketingPreferences.propTypes = {
-  getFieldInputValidation: propTypes.func.isRequired,
+  getValidation: propTypes.func.isRequired,
   showErrorMessage: propTypes.bool,
-  getCheckboxState: propTypes.func,
   valueFromParent: propTypes.object,
   itemData: propTypes.shape({
     itemData: propTypes.object,
