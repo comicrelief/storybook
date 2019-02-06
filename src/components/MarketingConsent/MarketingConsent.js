@@ -36,14 +36,12 @@ class MarketingPreferences extends Component {
    */
   setValues() {
     const validation = this.props.valueFromParent !== null ? this.props.valueFromParent : this.state.checkboxValidation[this.state.checkboxName];
-    console.log('val from parent', this.state.checkboxName, validation);
-
     this.setState({
       ...this.state,
       checkboxValidation: {
         [this.state.checkboxName]: validation,
       },
-    }, () => console.log('state after setval', this.state));
+    });
   }
 
   /**
