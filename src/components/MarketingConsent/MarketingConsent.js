@@ -76,7 +76,7 @@ class MarketingPreferences extends Component {
 
 
   /**
-   * return the value from the state. Needed to make the field mutable again.
+   * Return the value from the state. Needed to make the field mutable again.
    * @param checkbox
    * @param fieldName
    * @return {{}}
@@ -90,17 +90,14 @@ class MarketingPreferences extends Component {
   }
 
   /**
-   * The handler enables the user to uncheck and check the checkbox
+   * The handler enables the user to uncheck and check the checkbox.
    * It reveals the previously hidden input field according to the selection.
-   * And resets the inputfield value.
+   * Resets the inputfield value.
    */
   handleCheckboxToggle(item, element, event) {
     const value = event.target.value;
     const fieldValidation = this.emptyInputFields(item);
     this.setState(prevState => ({
-      marketingPermissionType: element.name,
-      // checkedState: prevState.checkedState !== value ? value : null,
-      // isFieldsHidden: prevState.checkedState === value ? true : element.hideFields,
       checkboxValidation: {
         ...this.state.checkboxValidation,
         [item.text]: {
@@ -118,7 +115,7 @@ class MarketingPreferences extends Component {
   }
 
   /**
-   * set the field validation info (back) to empty strings.
+   * Set the field validation info (back) to empty strings.
    * @param item
    * @return {{}}
    */
@@ -187,7 +184,6 @@ class MarketingPreferences extends Component {
                   emptyFieldErrorText={element.errorMessage}
                   showErrorMessage={this.props.showErrorMessage}
                   fieldValue={this.state.checkboxValidation[checkbox].fieldValidation[element.name]}
-                  // fieldValue={this.props.valueFromParent && this.props.valueFromParent[checkbox]}
                   value={() => this.fieldValue(checkbox, element.name)}
                 />
               </div>
