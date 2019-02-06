@@ -14,7 +14,7 @@ class MarketingConsent extends Component {
             key={item.id}
             getValidation={(validation) => { this.props.getValidation(validation); }}
             itemData={item}
-            valueFromParent={this.props.valueFromParent && this.props.valueFromParent[item.text] }
+            valueFromParent={this.props.valueFromParent && this.props.valueFromParent[item.text]}
           />)) }
         <p>You can update your communication preferences at any time at comicrelief.com/update-your-preferences. Your details will be kept safe, check out our
           <a

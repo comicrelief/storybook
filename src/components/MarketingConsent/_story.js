@@ -97,7 +97,7 @@ storiesOf('MarketingConsent', module)
         <MarketingConsent
           itemData={FormData}
           getValidation={(validation) => { console.log('getInputValidation: ', validation)}}
-          // valueFromParent={fieldValidationFromParent}
+          valueFromParent={fieldValidationFromParent}
         />
       );
   }));
