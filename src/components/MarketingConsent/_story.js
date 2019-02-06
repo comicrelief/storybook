@@ -1,20 +1,10 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import { withKnobs, text, boolean } from '@storybook/addon-knobs';
+import { withKnobs } from '@storybook/addon-knobs';
 import { withInfo } from '@storybook/addon-info';
 import MarketingConsent from './MarketingConsent';
 import FormData  from './FormData.json';
-
-
-
-storiesOf('MarketingConsent', module)
-  .addDecorator(withKnobs)
-  .add('Marketing consent',
-    withInfo('Required')(() => {
-
-      return getFormFields();
-  }));
 
 const fieldValidationFromParent = {
   email: {
@@ -97,12 +87,17 @@ const fieldValidationFromParent = {
   },
 };
 
-function getFormFields() {
-  return FormData.Questions.map((item) =>
-    <MarketingConsent
-      key={item.id}
-      getValidation={(validation) => { console.log('getInputValidation: ', validation) }}
-      itemData={item}
-      valueFromParent={fieldValidationFromParent[item.text]}
-    /> );
-}
+
+storiesOf('MarketingConsent', module)
+  .addDecorator(withKnobs)
+  .add('Marketing consent',
+    withInfo('Required')(() => {
+
+      return (
+        <MarketingConsent
+          itemData={FormData}
+          getValidation={(validation) => { console.log('getInputValidation: ', validation)}}
+          // valueFromParent={fieldValidationFromParent}
+        />
+      );
+  }));
