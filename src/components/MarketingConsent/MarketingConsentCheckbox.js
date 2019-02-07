@@ -18,6 +18,7 @@ class MarketingConsentCheckbox extends Component {
         [checkbox]: {
           checkedState: null,
           isFieldsHidden: true,
+          valid: true,
           fieldValidation,
         },
       },
@@ -41,7 +42,7 @@ class MarketingConsentCheckbox extends Component {
       checkboxValidation: {
         [this.state.checkboxName]: validation,
       },
-    });
+    }, () => this.pushValidityToParent(this.state.checkboxValidation));
   }
 
   /**
@@ -59,6 +60,7 @@ class MarketingConsentCheckbox extends Component {
           ...this.state.checkboxValidation,
           [checkbox]: {
             ...this.state.checkboxValidation[checkbox],
+            valid: valid.valid !== false,
             fieldValidation: {
               ...this.state.checkboxValidation[checkbox].fieldValidation,
               [name]: {
@@ -104,6 +106,7 @@ class MarketingConsentCheckbox extends Component {
           ...this.state.checkboxValidation[item.text],
           isFieldsHidden: prevState.checkboxValidation[item.text].checkedState === value ? true : element.hideFields,
           checkedState: prevState.checkboxValidation[item.text].checkedState !== value ? value : null,
+          valid: element.hideFields === true,
           fieldValidation,
         },
       },
