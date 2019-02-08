@@ -7,9 +7,10 @@ import MarketingConsent from './MarketingConsent';
 import FormData  from './FormData.json';
 
 const fieldValidationFromParent = {
-  email: {
+  emailConsent: {
     isFieldsHidden: false,
-    checkedState: 'yes',
+    value: 'yes',
+    valid: true,
     fieldValidation: {
       email: {
         valid: true,
@@ -19,9 +20,10 @@ const fieldValidationFromParent = {
       },
     },
   },
-  post: {
+  postConsent: {
     isFieldsHidden: false,
-    checkedState: 'yes',
+    value: 'yes',
+    valid: true,
     fieldValidation: {
       address1: {
         valid: true,
@@ -61,9 +63,10 @@ const fieldValidationFromParent = {
       },
     },
   },
-  phone: {
+  phoneConsent: {
     isFieldsHidden: false,
-    checkedState: 'yes',
+    value: 'yes',
+    valid: true,
     fieldValidation: {
       phone: {
         valid: true,
@@ -73,9 +76,10 @@ const fieldValidationFromParent = {
       },
     },
   },
-  SMS: {
+  SMSConsent: {
     isFieldsHidden: false,
-    checkedState: 'yes',
+    value: 'yes',
+    valid: true,
     fieldValidation: {
       mobile: {
         valid: true,
@@ -97,7 +101,7 @@ storiesOf('MarketingConsent', module)
         <MarketingConsent
           itemData={FormData}
           getValidation={(validation) => { console.log('getInputValidation: ', validation)}}
-          valueFromParent={fieldValidationFromParent}
+          // valueFromParent={fieldValidationFromParent}
         />
       );
   }));
