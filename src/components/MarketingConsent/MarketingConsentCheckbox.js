@@ -8,15 +8,15 @@ class MarketingConsentCheckbox extends Component {
     super(props);
 
     const items = props.itemData;
-    const checkbox = items.text;
+    const checkbox = items.id;
     // set the initial validation for the input fields
     const fieldValidation = this.emptyInputFields(items);
 
     this.state = {
-      checkboxName: checkbox,
+      checkboxId: checkbox,
       checkboxValidation: {
         [checkbox]: {
-          checkedState: null,
+          value: null,
           isFieldsHidden: true,
           valid: true,
           fieldValidation,
@@ -36,13 +36,13 @@ class MarketingConsentCheckbox extends Component {
    * If the parent has values already, then use it otherwise use the empty state.
    */
   setValues() {
-    const validation = this.props.valueFromParent !== null ? this.props.valueFromParent : this.state.checkboxValidation[this.state.checkboxName];
+    const validation = this.props.valueFromParent !== null ? this.props.valueFromParent : this.state.checkboxValidation[this.state.checkboxId];
     this.setState({
       ...this.state,
       checkboxValidation: {
-        [this.state.checkboxName]: validation,
+        [this.state.checkboxId]: validation,
       },
-    }, () => this.pushValidityToParent(this.state.checkboxValidation));
+    }, () => this.pushValidityToParent(this.state.checkboxId, this.state.checkboxValidation));
   }
 
   /**
@@ -72,7 +72,7 @@ class MarketingConsentCheckbox extends Component {
             },
           },
         },
-      }, () => this.pushValidityToParent(this.state.checkboxValidation));
+      }, () => this.pushValidityToParent(checkbox, this.state.checkboxValidation));
     }
   }
 
@@ -102,19 +102,19 @@ class MarketingConsentCheckbox extends Component {
     this.setState(prevState => ({
       checkboxValidation: {
         ...this.state.checkboxValidation,
-        [item.text]: {
-          ...this.state.checkboxValidation[item.text],
-          isFieldsHidden: prevState.checkboxValidation[item.text].checkedState === value ? true : element.hideFields,
-          checkedState: prevState.checkboxValidation[item.text].checkedState !== value ? value : null,
+        [item.id]: {
+          ...this.state.checkboxValidation[item.id],
+          isFieldsHidden: prevState.checkboxValidation[item.id].value === value ? true : element.hideFields,
+          value: prevState.checkboxValidation[item.id].value !== value ? value : null,
           valid: element.hideFields === true,
           fieldValidation,
         },
       },
-    }), () => this.pushValidityToParent(this.state.checkboxValidation));
+    }), () => this.pushValidityToParent(item.id, this.state.checkboxValidation));
   }
 
-  pushValidityToParent(checkboxValidation) {
-    this.props.getValidation(checkboxValidation);
+  pushValidityToParent(name, checkboxValidation) {
+    this.props.getValidation(name, checkboxValidation);
   }
 
   /**
@@ -139,7 +139,7 @@ class MarketingConsentCheckbox extends Component {
   render() {
     const item = this.props.itemData;
     const bgStyle = 'form__field--background';
-    const checkbox = item.text;
+    const checkbox = item.id;
     return (
       <div key={item.id} className="form__row form__field--wrapper form__field-wrapper--checkbox">
         <p className="form__fieldset--label" aria-label={`Can we contact you by ${item.text}`}>{item.text}</p>
@@ -157,10 +157,10 @@ class MarketingConsentCheckbox extends Component {
                   name={element.name}
                   value={element.value}
                   onChange={e => this.handleCheckboxToggle(item, element, e)}
-                  checked={this.state.checkboxValidation[checkbox].checkedState === element.value}
+                  checked={this.state.checkboxValidation[checkbox].value === element.value}
                   ariarole="checkbox"
                   aria-label={`field-label--${element.label}`}
-                  aria-checked={this.state.checkboxValidation[checkbox].checkedState === element.value}
+                  aria-checked={this.state.checkboxValidation[checkbox].value === element.value}
                 />
                 <span />
               </div>

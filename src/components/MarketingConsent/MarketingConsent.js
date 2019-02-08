@@ -3,6 +3,33 @@ import propTypes from 'prop-types';
 import MarketingConsentCheckbox from './MarketingConsentCheckbox';
 
 class MarketingConsent extends Component {
+  /**
+   * Send State containing new validation data to parent.
+   * @param prevProps (needed for arguments order)
+   * @param prevState
+   */
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState !== this.state) {
+      this.props.getValidation(this.state);
+    }
+  }
+
+  /**
+   * Add each Marketing consent question's valdiation data to the state.
+   * @param name
+   * @param validation
+   */
+  updateState(name, validation) {
+    this.setState({
+      ...this.state,
+      [name]: validation[name],
+    });
+  }
+
+  /**
+   * Render text and MarketingConsentCheckbox components.
+   * @return {XML}
+   */
   render() {
     const data = this.props.itemData;
     return (
@@ -12,9 +39,9 @@ class MarketingConsent extends Component {
         { data.Questions.map(item =>
           (<MarketingConsentCheckbox
             key={item.id}
-            getValidation={(validation) => { this.props.getValidation(validation); }}
+            getValidation={(name, validation) => { this.updateState(name, validation); }}
             itemData={item}
-            valueFromParent={this.props.valueFromParent && this.props.valueFromParent[item.text]}
+            valueFromParent={this.props.valueFromParent && this.props.valueFromParent[item.id]}
           />)) }
         <p>You can update your communication preferences at any time at comicrelief.com/update-your-preferences. Your details will be kept safe, check out our
           <a
