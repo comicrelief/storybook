@@ -106,7 +106,7 @@ class MarketingConsentCheckbox extends Component {
           ...this.state.checkboxValidation[item.id],
           isFieldsHidden: prevState.checkboxValidation[item.id].value === value ? true : element.hideFields,
           value: prevState.checkboxValidation[item.id].value !== value ? value : null,
-          valid: element.hideFields === true,
+          valid: prevState.checkboxValidation[item.id].value === value ? true : element.hideFields,
           fieldValidation,
         },
       },
