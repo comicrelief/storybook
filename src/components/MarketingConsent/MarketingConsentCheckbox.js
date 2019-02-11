@@ -146,7 +146,7 @@ class MarketingConsentCheckbox extends Component {
         <div id={`field-wrapper--${item.text}`} className="form__field--wrapper">
           {
             item.options.map(element => (
-              <div key={element.value} className="form__field--wrapper form__checkbox form__checkbox--inline">
+              <div key={element.value} className="form__field--wrapper form__checkbox form__checkbox--inline form__checkbox--inline-2-horizontal">
                 <label className="form__field-label required" htmlFor={`field-label--${element.label}`}>
                   {element.label}
                 </label>
@@ -171,7 +171,7 @@ class MarketingConsentCheckbox extends Component {
         <div className={bgStyle}>
           {
             item.field.map(element => (
-              <div key={element.id} className="form__field--wrapper">
+              <div key={element.id} className="form__field--wrapper form__field--sub-field-wrapper">
                 <InputField
                   type={element.type}
                   id={element.name}
