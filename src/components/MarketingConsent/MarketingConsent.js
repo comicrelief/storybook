@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import propTypes from 'prop-types';
 import MarketingConsentCheckbox from './MarketingConsentCheckbox';
+import './MarketingConsent.scss';
 
 class MarketingConsent extends Component {
   /**

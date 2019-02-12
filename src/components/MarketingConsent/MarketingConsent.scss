@@ -1,0 +1,40 @@
+/* Pattern Lab Base theme variables */
+@import "~@comicrelief/pattern-lab/sass/base/_variables";
+@import "~@comicrelief/pattern-lab/sass/base/_core";
+
+/* Pattern Lab Comic Relief theme variables */
+@import "~@comicrelief/pattern-lab/sass/themes/cr/2017/variables/typography";
+@import "~@comicrelief/pattern-lab/sass/themes/cr/2017/variables/colours";
+@import "~@comicrelief/pattern-lab/sass/themes/cr/2017/variables/mixins";
+
+/* Pattern Lab Base theme components */
+@import "~@comicrelief/pattern-lab/sass/base/components/links/links";
+
+@import "~@comicrelief/pattern-lab/sass/base/components/typography/typography";
+
+/* Pattern Lab Comic Relief theme components */
+@import "~@comicrelief/pattern-lab/sass/themes/cr/2017/components/typography/fonts";
+@import "~@comicrelief/pattern-lab/sass/themes/cr/2017/components/typography/typography";
+@import "~@comicrelief/pattern-lab/sass/themes/cr/2017/components/links/links";
+@import "~@comicrelief/pattern-lab/sass/themes/cr/2017/components/buttons/buttons";
+
+@import "~@comicrelief/pattern-lab/sass/base/components/form/_standard-form";
+
+@import "~@comicrelief/pattern-lab/sass/themes/donate/variables/_colours";
+
+.form__row--marketing-consent {
+  margin: 60px 0;
+  .form__field-wrapper--background {
+    padding: 22px 44px;
+    .form__checkbox--inline-2-horizontal {
+      label {
+        padding-top: 1em;
+      }
+      input[type="checkbox"] + span,
+      input[type="checkbox"] {
+        top: 18px;
+        left: 0;
+      }
+    }
+  }
+}
