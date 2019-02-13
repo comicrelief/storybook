@@ -23,6 +23,20 @@ class MarketingConsentCheckbox extends Component {
         },
       },
     };
+
+    const refs = [];
+    this.setRefs = (element) => {
+      if (element) {
+        if (element.inputRef) {
+          refs.push(element.inputRef);
+        }
+        if (element.selectRef) {
+          refs.push(element.selectRef);
+          this[element.props.id] = element.selectRef;
+        }
+        this.fieldRefs = refs;
+      }
+    };
   }
 
   /**
@@ -178,6 +192,7 @@ class MarketingConsentCheckbox extends Component {
             item.field.map(field => (
               <div key={field.id} className="form__field--wrapper form__field--sub-field-wrapper">
                 <InputField
+                  ref={this.setRefs}
                   type={field.type}
                   id={field.name}
                   name={field.name}

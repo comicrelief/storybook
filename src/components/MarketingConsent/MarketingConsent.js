@@ -4,6 +4,19 @@ import MarketingConsentCheckbox from './MarketingConsentCheckbox';
 import './MarketingConsent.scss';
 
 class MarketingConsent extends Component {
+  constructor() {
+    super();
+    const refs = [];
+    this.setRefs = (element) => {
+      if (element) {
+        if (element.fieldRefs) {
+          refs.push(element.fieldRefs);
+        }
+        this.fieldRefs = refs;
+      }
+    };
+  }
+
   /**
    * Send State containing new validation data to parent.
    * @param prevProps (needed for arguments order)
@@ -39,6 +52,7 @@ class MarketingConsent extends Component {
         <p>How would you like to hear from us?</p>
         { data.Questions.map(item =>
           (<MarketingConsentCheckbox
+            ref={this.fieldRefs}
             key={item.id}
             getValidation={(name, validation) => { this.updateState(name, validation); }}
             itemData={item}
