@@ -45,12 +45,21 @@ class MarketingConsent extends Component {
             valueFromParent={this.props.valueFromParent && this.props.valueFromParent[item.id]}
             showErrorMessages={this.props.showErrorMessages}
           />)) }
-        <p>You can update your communication preferences at any time at comicrelief.com/update-your-preferences. Your details will be kept safe, check out our&nbsp;
+        <p>You can update your communication preferences at any time at&nbsp;
+          <a
+            href="https://www.comicrelief.com/update-your-preferences."
+            target="blank"
+            rel="noopener noreferrer"
+            className="link inline"
+          >
+            comicrelief.com/update-your-preferences.
+            <span className="visuallyhidden">(opens in a new window)</span>
+          </a> Your details will be kept safe, check out our&nbsp;
           <a
             href="https://www.comicrelief.com/privacy-policy"
             target="blank"
             rel="noopener noreferrer"
-            className="link link--dark-purple"
+            className="link inline"
           >
             privacy policy
             <span className="visuallyhidden">(opens in a new window)</span>
