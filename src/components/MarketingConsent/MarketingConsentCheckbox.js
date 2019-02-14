@@ -12,20 +12,6 @@ class MarketingConsentCheckbox extends Component {
     // set the initial validation for the input fields if they exist
     const fieldValidation = item.field !== undefined ? this.emptyInputFields(item) : false;
 
-    const refs = [];
-    this.setRefs = (element) => {
-      if (element) {
-        if (element.inputRef) {
-          refs.push(element.inputRef);
-        }
-        if (element.selectRef) {
-          refs.push(element.selectRef);
-          this[element.props.id] = element.selectRef;
-        }
-        this.fieldRefs = refs;
-      }
-    };
-
     this.state = {
       checkboxId: checkbox,
       checkboxValidation: {
@@ -129,7 +115,7 @@ class MarketingConsentCheckbox extends Component {
           fieldValidation,
         },
       },
-    }), () => this.pushValidityToParent(item.id, this.state.checkboxValidation, this.fieldRefs));
+    }), () => this.pushValidityToParent(item.id, this.state.checkboxValidation));
   }
 
   pushValidityToParent(name, checkboxValidation) {
@@ -192,7 +178,6 @@ class MarketingConsentCheckbox extends Component {
             item.field.map(field => (
               <div key={field.id} className="form__field--wrapper form__field--sub-field-wrapper">
                 <InputField
-                  ref={this.setRefs}
                   type={field.type}
                   id={field.name}
                   name={field.name}
@@ -205,7 +190,7 @@ class MarketingConsentCheckbox extends Component {
                     this.setInputValidity(name, valid, checkbox);
                   }}
                   emptyFieldErrorText={field.errorMessage}
-                  showErrorMessage={this.props.showErrorMessage}
+                  showErrorMessage={this.props.showErrorMessages}
                   fieldValue={this.state.checkboxValidation[checkbox].fieldValidation[field.name]}
                   value={() => this.fieldValue(checkbox, field.name)}
                 />
@@ -221,10 +206,12 @@ class MarketingConsentCheckbox extends Component {
 
 MarketingConsentCheckbox.defaultProps = {
   valueFromParent: null,
+  showErrorMessages: false,
 };
 MarketingConsentCheckbox.propTypes = {
   getValidation: propTypes.func.isRequired,
   valueFromParent: propTypes.object,
+  showErrorMessages: propTypes.bool,
   itemData: propTypes.shape({
     itemData: propTypes.object,
   }).isRequired,

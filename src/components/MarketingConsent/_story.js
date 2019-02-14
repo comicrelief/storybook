@@ -100,7 +100,7 @@ storiesOf('MarketingConsent', module)
       return (
         <MarketingConsent
           itemData={FormData}
-          getValidation={(validation, fieldRefs) => { console.log('getInputValidation: ', validation, fieldRefs)}}
+          getValidation={(validation) => { console.log('getInputValidation: ', validation)}}
           // valueFromParent={fieldValidationFromParent}
         />
       );

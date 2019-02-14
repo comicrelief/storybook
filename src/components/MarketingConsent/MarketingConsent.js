@@ -4,21 +4,6 @@ import MarketingConsentCheckbox from './MarketingConsentCheckbox';
 import './MarketingConsent.scss';
 
 class MarketingConsent extends Component {
-  constructor() {
-    super();
-
-    this.fieldRefs = false;
-    const fieldRefs = {};
-    this.setRefs = (item, element) => {
-      if (element) {
-        if (element.fieldRefs) {
-          fieldRefs[item] = element.fieldRefs;
-        }
-      }
-      this.fieldRefs = fieldRefs;
-    };
-  }
-
   /**
    * Send State containing new validation data to parent.
    * @param prevProps (needed for arguments order)
@@ -26,7 +11,7 @@ class MarketingConsent extends Component {
    */
   componentDidUpdate(prevProps, prevState) {
     if (prevState !== this.state) {
-      this.props.getValidation(this.state, this.fieldRefs);
+      this.props.getValidation(this.state);
     }
   }
 
@@ -54,11 +39,11 @@ class MarketingConsent extends Component {
         <p>How would you like to hear from us?</p>
         { data.Questions.map(item =>
           (<MarketingConsentCheckbox
-            ref={element => this.setRefs(item.id, element)}
             key={item.id}
             getValidation={(name, validation) => { this.updateState(name, validation); }}
             itemData={item}
             valueFromParent={this.props.valueFromParent && this.props.valueFromParent[item.id]}
+            showErrorMessages={this.props.showErrorMessages}
           />)) }
         <p>You can update your communication preferences at any time at comicrelief.com/update-your-preferences. Your details will be kept safe, check out our&nbsp;
           <a
@@ -77,10 +62,12 @@ class MarketingConsent extends Component {
 
 MarketingConsent.defaultProps = {
   valueFromParent: null,
+  showErrorMessages: false,
 };
 MarketingConsent.propTypes = {
   getValidation: propTypes.func.isRequired,
   valueFromParent: propTypes.object,
+  showErrorMessages: propTypes.bool,
   itemData: propTypes.shape({
     itemData: propTypes.object,
   }).isRequired,
