@@ -12,18 +12,6 @@ class MarketingConsentCheckbox extends Component {
     // set the initial validation for the input fields if they exist
     const fieldValidation = item.field !== undefined ? this.emptyInputFields(item) : false;
 
-    this.state = {
-      checkboxId: checkbox,
-      checkboxValidation: {
-        [checkbox]: {
-          value: null,
-          isFieldsHidden: true,
-          valid: true,
-          fieldValidation,
-        },
-      },
-    };
-
     const refs = [];
     this.setRefs = (element) => {
       if (element) {
@@ -36,6 +24,18 @@ class MarketingConsentCheckbox extends Component {
         }
         this.fieldRefs = refs;
       }
+    };
+
+    this.state = {
+      checkboxId: checkbox,
+      checkboxValidation: {
+        [checkbox]: {
+          value: null,
+          isFieldsHidden: true,
+          valid: true,
+          fieldValidation,
+        },
+      },
     };
   }
 
@@ -129,7 +129,7 @@ class MarketingConsentCheckbox extends Component {
           fieldValidation,
         },
       },
-    }), () => this.pushValidityToParent(item.id, this.state.checkboxValidation));
+    }), () => this.pushValidityToParent(item.id, this.state.checkboxValidation, this.fieldRefs));
   }
 
   pushValidityToParent(name, checkboxValidation) {

@@ -6,14 +6,16 @@ import './MarketingConsent.scss';
 class MarketingConsent extends Component {
   constructor() {
     super();
-    const refs = [];
-    this.setRefs = (element) => {
+
+    this.fieldRefs = false;
+    const fieldRefs = {};
+    this.setRefs = (item, element) => {
       if (element) {
         if (element.fieldRefs) {
-          refs.push(element.fieldRefs);
+          fieldRefs[item] = element.fieldRefs;
         }
-        this.fieldRefs = refs;
       }
+      this.fieldRefs = fieldRefs;
     };
   }
 
@@ -24,12 +26,12 @@ class MarketingConsent extends Component {
    */
   componentDidUpdate(prevProps, prevState) {
     if (prevState !== this.state) {
-      this.props.getValidation(this.state);
+      this.props.getValidation(this.state, this.fieldRefs);
     }
   }
 
   /**
-   * Add each Marketing consent question's valdiation data to the state.
+   * Add each Marketing consent question's validation data to the state.
    * @param name
    * @param validation
    */
@@ -52,7 +54,7 @@ class MarketingConsent extends Component {
         <p>How would you like to hear from us?</p>
         { data.Questions.map(item =>
           (<MarketingConsentCheckbox
-            ref={this.fieldRefs}
+            ref={element => this.setRefs(item.id, element)}
             key={item.id}
             getValidation={(name, validation) => { this.updateState(name, validation); }}
             itemData={item}
