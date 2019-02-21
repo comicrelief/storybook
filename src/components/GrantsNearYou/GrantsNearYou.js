@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import propTypes from 'prop-types';
 import './GrantsNearYou.scss';
 import { Result } from './result';
 import Search from './search';
@@ -129,8 +129,8 @@ class GrantsNearYou extends Component {
 }
 
 GrantsNearYou.propTypes = {
-  postcodeAPI: PropTypes.string.isRequired,
-  searchURL: PropTypes.string.isRequired,
+  postcodeAPI: propTypes.string.isRequired,
+  searchURL: propTypes.string.isRequired,
 };
 
 export default GrantsNearYou;
