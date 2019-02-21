@@ -26,7 +26,7 @@ $colour-scorpion: #595959;
     font-size: 18px;
     border-bottom: 4px solid $colour-scorpion;
     font-family: $font-bold;
-    color: $colour-scorpion;
+    color: $colour-black;
     text-decoration: none;
 
     &:focus,
@@ -71,10 +71,6 @@ $colour-scorpion: #595959;
     height: auto;
     max-height: 0;
 
-    p {
-      color: $colour-scorpion;
-    }
-
     &.marketing-consent--content-close{
       a, .link {
         display: none; // hack to hide links from screen readers butnkeep animation
@@ -98,7 +94,7 @@ $colour-scorpion: #595959;
     /* Need to provide a hard value here for max-height to animate to;
      * supplied copy seems to be about 300px height on SM breakpoint,
      * have left a bit of wiggle room here for good measure */
-    max-height: 1100px;
+    max-height: 1200px;
   }
 
   .close-link:target ~ .marketing-consent--content {
