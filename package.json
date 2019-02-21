@@ -21,7 +21,6 @@
     "react-fontawesome": "1",
     "react-geolocated": "2",
     "react-markdown": "^3.4.1",
-    "react-scripts": "2.0.0",
     "react-svg": "2",
     "react-vis": "^1.9.1",
     "shortid": "^2.2.13",
@@ -82,6 +81,9 @@
     "style-loader": "0",
     "url-loader": "0",
     "webpack": "3"
+  },
+  "resolutions" : {
+    "**/mem": "4.0.0"
   },
   "repository": {
     "type": "git",

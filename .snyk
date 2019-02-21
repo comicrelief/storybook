@@ -32,6 +32,10 @@ ignore:
     - react-scripts > fsevents > node-pre-gyp > tar > chownr:
         reason: None given
         expires: '2018-12-27T17:25:32.887Z'
+  'npm:shelljs:20140723':
+    - '@storybook/react > @storybook/core > shelljs':
+        reason: No fix yet and it's the latest version.
+        expires: '2019-03-20T10:39:16.882Z'
 # patches apply the minimum changes required to fix a vulnerability
 patch:
   'npm:marked:20170112':

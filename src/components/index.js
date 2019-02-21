@@ -9,6 +9,8 @@ import GrantsInfographics from './GrantsInfographics/GrantsInfographics';
 import CookieConsentMessage from './CookieConsentMessage/CookieConsentMessage';
 import JustInTime from './JustInTime/JustInTime';
 import RadioButtons from './RadioButtons/RadioButtons';
+import MarketingConsent from './MarketingConsent/MarketingConsent';
+import MarketingConsentCheckbox from './MarketingConsent/MarketingConsentCheckbox';
 
 export {
   Footer,
@@ -22,4 +24,6 @@ export {
   CookieConsentMessage,
   JustInTime,
   RadioButtons,
+  MarketingConsent,
+  MarketingConsentCheckbox,
 };

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import propTypes from 'prop-types';
 
 /**
  * MenuLink class
@@ -25,8 +25,8 @@ class MenuLink extends Component {
 }
 
 MenuLink.propTypes = {
-  baseUrl: PropTypes.string.isRequired,
-  item: PropTypes.object.isRequired,
+  baseUrl: propTypes.string.isRequired,
+  item: propTypes.object.isRequired,
 };
 
 export default MenuLink;
