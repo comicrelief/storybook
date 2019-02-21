@@ -1,6 +1,11 @@
+@import "~@comicrelief/pattern-lab/sass/base/core/base-1-mixins";
+@import "~@comicrelief/pattern-lab/sass/base/variables/grid";
+@import "~@comicrelief/pattern-lab/sass/base/variables/colours";
+@import "~@comicrelief/pattern-lab/sass/base/variables/typography";
+/* Pattern Lab Comic Relief theme variables */
+@import "~@comicrelief/pattern-lab/sass/themes/cr/2017/variables/mixins";
+
 $colour-scorpion: #595959;
-$font-stack: helvetica, arial, sans-serif;
-$font-bold: "GT-Walsheim-Bold", $font-stack;
 
 .form__row--marketing-consent {
   .form__field-wrapper--background {
@@ -62,7 +67,7 @@ $font-bold: "GT-Walsheim-Bold", $font-stack;
     display: block;
     margin-top:15px;
     overflow: hidden;
-    transition: max-height 0.5s ease-in-out;
+    transition: max-height 1s ease-in-out;
     height: auto;
     max-height: 0;
 
@@ -78,7 +83,7 @@ $font-bold: "GT-Walsheim-Bold", $font-stack;
   }
 
   .close-link {
-    display:none;
+    display: inline
   }
 
   .show-link:target + .close-link {
@@ -93,7 +98,7 @@ $font-bold: "GT-Walsheim-Bold", $font-stack;
     /* Need to provide a hard value here for max-height to animate to;
      * supplied copy seems to be about 300px height on SM breakpoint,
      * have left a bit of wiggle room here for good measure */
-    max-height: 450px;
+    max-height: 1100px;
   }
 
   .close-link:target ~ .marketing-consent--content {
