@@ -1,3 +1,5 @@
+$colour-scorpion: #595959;
+
 .form__row--marketing-consent {
   .form__field-wrapper--background {
     padding: 22px 44px;
@@ -10,6 +12,91 @@
         top: 18px;
         left: 0;
       }
+    }
+  }
+  .toggle-link {
+    position: relative;
+    font-size: 18px;
+    border-bottom: 4px solid $colour-scorpion;
+    font-family: $font-bold;
+    color: $colour-scorpion;
+    text-decoration: none;
+
+    &:focus,
+    &:hover {
+      border-bottom: 4px solid $colour-scorpion;
+    }
+
+    &:after {
+      content:'\2303';
+      position:absolute;
+      font-family:Arial;
+      margin-left: 4px;
+      overflow: hidden;
+      line-height: 19px;
+      font-size: 25px;
+      color: inherit;
+      font-weight: bold;
+    }
+
+
+    &.show-link {
+      &:after {
+        transform: rotate(180deg);
+        bottom: 5px;
+      }
+    }
+
+
+    &.close-link {
+      &:after {
+        transform: rotate(0);
+        bottom: -4px;
+      }
+    }
+  }
+
+  .marketing-consent--content {
+    display: block;
+    margin-top:15px;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+    height: auto;
+    max-height: 0;
+
+    p {
+      color: $colour-scorpion;
+    }
+
+    &.marketing-consent--content-close{
+      a, .link {
+        display: none; // hack to hide links from screen readers butnkeep animation
+      }
+    }
+  }
+
+  .close-link {
+    display:none;
+  }
+
+  .show-link:target + .close-link {
+    display: inline;
+  }
+
+  .show-link:target {
+    display:none;
+  }
+  .show-link:target ~ .just-in-time--content,
+  .marketing-consent--content.marketing-consent--content-show {
+    /* Need to provide a hard value here for max-height to animate to;
+     * supplied copy seems to be about 300px height on SM breakpoint,
+     * have left a bit of wiggle room here for good measure */
+    max-height: 450px;
+  }
+
+  .close-link:target ~ .marketing-consent--content {
+    a {
+      display: none; // hack to hide links from screen readers but keep animation
     }
   }
 }
