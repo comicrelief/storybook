@@ -80,7 +80,7 @@ Commit messages are expected to be in this format:
 Minimally, only `type` and `subject` is required.
 
 #### Bugfix / patch
-When there are no breaking changes or no new features. When we are fixing bugs or styles.
+When there are no breaking changes or adding no new features. When we are fixing bugs or styles.
 ```
 fix: A bug fix
 ```
