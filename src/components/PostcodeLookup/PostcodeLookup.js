@@ -11,8 +11,8 @@ class PostcodeLookup extends Component {
   /**
    * AddressLookup constructor
    */
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       addressDropdownList: [],
       countryDropdownList: [],
@@ -22,7 +22,7 @@ class PostcodeLookup extends Component {
       isAddressButtonHidden: false,
       isAddressSelectHidden: true,
       isAddressFieldsHidden: true,
-      validation: {
+      validation: props.valuesFromParent !== null && typeof props.valuesFromParent !== 'undefined' ? props.valuesFromParent : {
         postcode: {
           valid: null,
           message: '',
