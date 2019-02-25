@@ -63,7 +63,7 @@ In some cases there is documentation for a specific component in a `README.md` i
 
 ### Semantic Release Process
 
-Git commit messages are used to automatically publish a new version of npm package. To achieve this, **every commit message** should have a **type** and a **message** in the format described below.
+Git commit messages are used to automatically publish a new version of npm package. To achieve this, **every commit message** should have a **type** and a **message** in the format that is described below.
 
 Travis CI will run a job automatically after PR is merged and analyze all commit messages since last npm release. Then semantic-release plugin will calculate new version according to this result.
 
@@ -80,7 +80,7 @@ Commit messages are expected to be in this format:
 Minimally, only `type` and `subject` is required.
 
 #### Bugfix / patch
-When there are no breaking changes or no new features. When we are fixing bugs or styles.
+When there are no breaking changes or adding no new features. When we are fixing bugs or styles.
 ```
 fix: A bug fix
 ```
