@@ -48,14 +48,14 @@ class MarketingConsent extends Component {
             />)) }
           <p>You can update your communication preferences at any time at&nbsp;
             <a
-              href="https://www.comicrelief.com/update-your-preferences."
+              href="https://www.comicrelief.com/update-your-preferences"
               target="blank"
               rel="noopener noreferrer"
               className="link inline"
             >
-            comicrelief.com/update-your-preferences.
+            comicrelief.com/update-your-preferences
               <span className="visuallyhidden">(opens in a new window)</span>
-            </a> Your details will be kept safe, check out our&nbsp;
+            </a>. Your details will be kept safe, check out our&nbsp;
             <a
               href="https://www.comicrelief.com/privacy-policy"
               target="blank"
