@@ -360,7 +360,7 @@ class PostcodeLookup extends Component {
       invalidErrorText: 'Please enter a valid postcode',
       emptyFieldErrorText: 'Please enter your postcode',
       extraClass: 'search-box',
-      autocomplete: isBrowser.name === 'chrome' ? 'false' : 'off',
+      autocomplete: isBrowser.name === 'chrome' ? 'new-postcode' : 'off',
     };
     const addressPattern = /^[A-Za-z0-9]+[ _.'/&\w-]*$/;
     const addressErrorMessage = 'This field only accepts alphanumeric characters and \' . - & _ /';
