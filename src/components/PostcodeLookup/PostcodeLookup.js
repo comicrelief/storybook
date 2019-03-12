@@ -104,7 +104,6 @@ class PostcodeLookup extends Component {
       state.isAddressFieldsHidden = false;
       state.isAddressButtonHidden = true;
     }
-
     this.setState(state);
   }
 
