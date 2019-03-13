@@ -355,7 +355,7 @@ class PostcodeLookup extends Component {
       type: 'text',
       placeholder: 'SE1 7TP',
       buttonText: 'FIND ADDRESS',
-      pattern: /^[A-Za-z0-9]+[ \-\\,./&\w]{1,15}$/,
+      pattern: /^[A-Za-z0-9]+[A-Za-z0-9 \-\\,.\\/&]{1,15}$/,
       // pattern: /^[A-Za-z0-9]+[A-Za-z0-9 \\,./&-]{1,15}$/,
       invalidErrorText: 'Please enter a valid postcode',
       emptyFieldErrorText: 'Please enter your postcode',
