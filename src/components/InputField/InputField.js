@@ -220,7 +220,7 @@ class InputField extends Component {
               name={this.props.name && this.props.name}
               className={`form__field form__field--${this.props.type} ${error}`}
               required={this.props.required}
-              autocomplete={this.props.autocomplete}
+              autoComplete={this.props.autoComplete}
               placeholder={this.props.placeholder && this.props.placeholder}
               min={this.props.min && this.props.min}
               max={this.props.max && this.props.max}
@@ -276,7 +276,7 @@ InputField.defaultProps = {
   value: null,
   pattern: '',
   required: false,
-  autocomplete: '',
+  autoComplete: '',
   placeholder: '',
   min: null,
   max: null,
@@ -301,7 +301,7 @@ InputField.propTypes = {
   name: propTypes.string.isRequired,
   label: propTypes.string.isRequired,
   required: propTypes.bool,
-  autocomplete: propTypes.string,
+  autoComplete: propTypes.string,
   value: propTypes.func,
   pattern: propTypes.oneOfType([
     propTypes.string,

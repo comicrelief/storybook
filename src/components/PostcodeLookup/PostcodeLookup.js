@@ -360,7 +360,7 @@ class PostcodeLookup extends Component {
       invalidErrorText: 'Please enter a valid postcode',
       emptyFieldErrorText: 'Please enter your postcode',
       extraClass: 'search-box',
-      autocomplete: isBrowser.name === 'chrome' ? 'new-postcode' : 'off',
+      autoComplete: isBrowser.name === 'chrome' ? 'new-postcode' : 'off',
     };
     const addressPattern = /^[A-Za-z0-9]+[ _.'/&\w-]*$/;
     const addressErrorMessage = 'This field only accepts alphanumeric characters and \' . - & _ /';
@@ -389,7 +389,7 @@ class PostcodeLookup extends Component {
           name={postCodeField.id}
           label={this.props.label}
           required
-          autocomplete={postCodeField.autocomplete}
+          autoComplete={postCodeField.autoComplete}
           placeholder={postCodeField.placeholder}
           pattern={postCodeField.pattern}
           extraClass={postCodeField.extraClass}
@@ -446,7 +446,7 @@ class PostcodeLookup extends Component {
                 name={item.id}
                 label={item.label}
                 required={item.required}
-                autocomplete={item.autocomplete}
+                autoComplete={item.autoComplete}
                 value={id => this.addressValue(id)}
                 pattern={item.pattern}
                 invalidErrorText={item.invalidErrorText}
