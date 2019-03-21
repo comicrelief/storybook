@@ -145,9 +145,11 @@ class MarketingConsentCheckbox extends Component {
     const item = this.props.itemData;
     const bgStyle = 'form__field--background';
     const checkbox = item.id;
+    const customMessage = typeof item.customMessage !== 'undefined' ? item.customMessage : '';
     return (
       <div key={item.id} className="form__field--wrapper form__field-wrapper--checkbox form__field-wrapper--background">
         <p className="form__fieldset--label" aria-label={`Can we contact you by ${item.text}`}>{item.text}</p>
+        <p>{customMessage}</p>
         <div id={`field-wrapper--${item.text}`} className="form__field--wrapper">
           {
             item.options.map(option => (

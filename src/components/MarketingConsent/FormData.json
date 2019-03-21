@@ -2,6 +2,7 @@
     {
       "id": "emailConsent",
       "text": "Email",
+      "customMessage": "This is a custom message",
       "options": [
         {
           "label": "Yes",
