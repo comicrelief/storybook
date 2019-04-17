@@ -60,6 +60,7 @@
     "babel-preset-stage-0": "6",
     "clean-webpack-plugin": "0",
     "commitizen": "2",
+    "css-loader": "^2.1.1",
     "cz-conventional-changelog": "2",
     "enzyme": "3",
     "enzyme-adapter-react-16": "1",
@@ -82,7 +83,7 @@
     "url-loader": "0",
     "webpack": "3"
   },
-  "resolutions" : {
+  "resolutions": {
     "**/mem": "4.0.0"
   },
   "repository": {
