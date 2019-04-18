@@ -83,7 +83,7 @@
     "url-loader": "1.0.1",
     "webpack": "3"
   },
-  "resolutions" : {
+  "resolutions": {
     "**/mem": "4.0.0"
   },
   "repository": {
