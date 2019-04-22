@@ -5,6 +5,7 @@
 
 # dependencies
 /node_modules
+/src/components/FileUp/node_modules
 package-lock.json
 
 # testing
@@ -14,6 +15,7 @@ package-lock.json
 /build
 
 # misc
+/.cache
 .DS_Store
 .env.local
 .env.development.local

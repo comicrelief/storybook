@@ -1,11 +1,11 @@
 // base webpack config file
-const path = require('path')
-const webpack = require('webpack')
-const CleanPlugin = require('clean-webpack-plugin')
+const path = require('path');
+const webpack = require('webpack');
+const CleanPlugin = require('clean-webpack-plugin');
 
 // project folder
-const rootFolder = path.resolve(__dirname, '.')
-const outputPath = path.resolve(rootFolder, 'build')
+const rootFolder = path.resolve(__dirname, '.');
+const outputPath = path.resolve(rootFolder, 'build');
 
 const configuration = {
   // resolve all relative paths from the project root folder
@@ -18,10 +18,10 @@ const configuration = {
   },
   module: {
     rules: [
-      {
+      /*{
         test: /\.json$/,
         loader: 'json-loader',
-      },
+      },*/
       {
         test: /\.js$/,
         exclude: /node_modules/,
@@ -83,19 +83,18 @@ const configuration = {
       _production_: true,
       _development_tools_: false, // enable/disable redux-devtools
     }),
-    new webpack.optimize.UglifyJsPlugin({
+    /* new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false,
       },
-    }),
+    }), */
     // clears the output folder
-    new CleanPlugin([path.relative(rootFolder, outputPath)],
-      { root: rootFolder }),
+    new CleanPlugin(),
   ],
 
   externals: {
     react: 'commonjs react', // use the React dependency of our parent project instead of using our own React
   },
-}
+};
 
-module.exports = configuration
+module.exports = configuration;

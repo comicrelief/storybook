@@ -2,3 +2,4 @@ node_modules/**
 .storybook/**
 public/**
 _story.js
+webpack.config.js
