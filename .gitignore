@@ -6,6 +6,7 @@
 # dependencies
 /node_modules
 /src/components/FileUp/node_modules
+/src/components/SocialLink/node_modules
 package-lock.json
 
 # testing
