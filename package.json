@@ -47,30 +47,6 @@
     "test": "./node_modules/.bin/jest --coverage",
     "test-update": "./node_modules/.bin/jest -u"
   },
-  "babel": {
-    "compact": true,
-    "presets": [
-      "env",
-      "react",
-      "stage-0",
-      "react-app"
-    ],
-    "plugins": [
-      "transform-es2015-destructuring",
-      "transform-object-rest-spread",
-      "transform-react-jsx",
-      [
-        "transform-runtime",
-        {
-          "polyfill": false,
-          "regenerator": true
-        }
-      ]
-    ]
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "6.25.0",
