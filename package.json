@@ -4,12 +4,12 @@
   "version": "0.0.0-see.readme.for.releases",
   "dependencies": {
     "@comicrelief/pattern-lab": "^7.59.8",
-    "@storybook/addons": "^3.0.0",
+    "@storybook/addon-actions": "^5.0.10",
     "@storybook/addon-info": "^5.0.10",
     "@storybook/addon-knobs": "^5.0.10",
-    "@storybook/addon-actions": "^5.0.10",
     "@storybook/addon-links": "^5.0.10",
     "@storybook/addon-storyshots": "^5.0.10",
+    "@storybook/addons": "^3.0.0",
     "@storybook/react": "^5.0.10",
     "axios": "0",
     "babel-polyfill": "^6.26.0",
@@ -72,11 +72,10 @@
     "extends": "react-app"
   },
   "devDependencies": {
-    "@babel/core": "^7.0.0",
     "babel-cli": "^6.26.0",
     "babel-core": "6.25.0",
     "babel-jest": "^24.7.1",
-    "babel-loader": "^7.1.4",
+    "babel-loader": "7",
     "babel-plugin-transform-es2015-destructuring": "^6.23.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-plugin-transform-react-jsx": "^6.24.1",
