@@ -136,7 +136,7 @@ class FileUp extends Component {
                 maxSize={this.props.maxSize}
                 multiple
                 accept={this.props.types}
-                onDrop={this.onDrop}
+                onDrop={() => this.onDrop}
               >
                 <p>
                   Drop image/s here <br />
