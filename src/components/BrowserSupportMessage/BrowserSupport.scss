@@ -5,16 +5,16 @@
 @import "~@comicrelief/pattern-lab/sass/base/core/base-1-mixins";
 
 /* Pattern Lab Comic Relief theme variables */
-@import "~@comicrelief/pattern-lab/sass/themes/cr/2017/variables/colours";
-@import "~@comicrelief/pattern-lab/sass/themes/cr/2017/variables/typography";
-@import "~@comicrelief/pattern-lab/sass/themes/cr/2017/variables/mixins";
+@import "~@comicrelief/pattern-lab/sass/themes/cr/2019/variables/colours";
+@import "~@comicrelief/pattern-lab/sass/themes/cr/2019/variables/typography";
+@import "~@comicrelief/pattern-lab/sass/themes/cr/2019/variables/mixins";
 /* Pattern Lab Comic Relief theme components */
-@import "~@comicrelief/pattern-lab/sass/themes/cr/2017/components/typography/fonts";
-@import "~@comicrelief/pattern-lab/sass/themes/cr/2017/components/typography/typography";
+@import "~@comicrelief/pattern-lab/sass/themes/cr/2019/components/typography/fonts";
+@import "~@comicrelief/pattern-lab/sass/themes/cr/2019/components/typography/typography";
 
 .browser-message {
   background: $colour-black;
-  font-family: $font-regular;
+  font-family: $anton;
   padding: 10px;
 
   p {
