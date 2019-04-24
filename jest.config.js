@@ -12,10 +12,10 @@ module.exports = {
   // browser: false,
 
   // The directory where Jest should store its cached dependency information
-  // cacheDirectory: "/tmp/jest_rt",
+  cacheDirectory: '.cache/jest',
 
   // Automatically clear mock calls and instances between every test
-  // clearMocks: true,
+  clearMocks: true,
 
   // Indicates whether the coverage information should be collected while executing the test
   // collectCoverage: false,
@@ -119,12 +119,13 @@ module.exports = {
 
   // The paths to modules that run some code to configure or set up the testing environment before each test
   setupFiles: [
+    'raf/polyfill',
     '<rootDir>/tests/mocks/shim.js',
     '<rootDir>/tests/mocks/enzyme.js',
   ],
 
   // The path to a module that runs some code to configure or set up the testing framework before each test
-  // setupTestFrameworkScriptFile: null,
+  setupTestFrameworkScriptFile: '<rootDir>/tests/setupTestFramework.js',
 
   // A list of paths to snapshot serializer modules Jest should use for snapshot testing
   // snapshotSerializers: [],
@@ -165,7 +166,9 @@ module.exports = {
   // timers: "real",
 
   // A map from regular expressions to paths to transformers
-  // transform: null,
+  transform: {
+    '^.+\\.jsx?$': '<rootDir>/tests/transform.js',
+  },
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
   // transformIgnorePatterns: [

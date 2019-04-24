@@ -1,21 +1,22 @@
 {
-  "compact": true,
   "presets": [
     "env",
     "react",
-    "stage-0",
-    "react-app"
+    "stage-0"
   ],
   "plugins": [
     "transform-es2015-destructuring",
     "transform-object-rest-spread",
     "transform-react-jsx",
-    [
-      "transform-runtime",
-      {
-        "polyfill": false,
-        "regenerator": true
-      }
-    ]
-  ]
+    ["transform-runtime", {
+      "polyfill": false,
+      "regenerator": true
+    }]
+  ],
+  "env": {
+    "test": {
+      "presets": [["@babel/preset-env", { "shippedProposals": true, "useBuiltIns": "usage" }]],
+      "plugins": ["babel-plugin-require-context-hook", "babel-plugin-dynamic-import-node"]
+    }
+  }
 }
