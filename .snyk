@@ -37,7 +37,7 @@ ignore:
         reason: No fix yet and it's the latest version.
         expires: '2019-12-30T10:39:16.882Z'
   'npm:braces:20180219':
-    - '@comicrelief/storybook > @storybook/addon-storyshots > jest-specific-snapshot > jest-snapshot > jest-message-util > micromatch > braces':
+    - '@storybook/addon-storyshots > jest-specific-snapshot > jest-snapshot > jest-message-util > micromatch > braces':
         reason: None given
         expires: '2019-12-30T10:39:16.882Z'
 # patches apply the minimum changes required to fix a vulnerability
