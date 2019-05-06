@@ -1,5 +1,5 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.13.1
+version: v1.13.3
 # ignores vulnerabilities until expiry date; change duration by modifying expiry date
 ignore:
   'npm:mime:20170907':
@@ -50,3 +50,6 @@ patch:
         patched: '2017-10-31T09:33:31.011Z'
     - '@storybook/react > markdown-loader > marked':
         patched: '2017-11-24T09:05:52.373Z'
+  SNYK-JS-AXIOS-174505:
+    - axios:
+        patched: '2019-05-06T02:16:53.366Z'
