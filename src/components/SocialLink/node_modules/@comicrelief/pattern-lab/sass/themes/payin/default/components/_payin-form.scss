@@ -1,0 +1,611 @@
+// ==========================================================================
+// Form section
+// ==========================================================================
+body.payin {
+  font-family: $body-font;
+}
+
+// keep sizing of container the same as promo header/general styling
+.form__step {
+  position: relative;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+// ==========================================================================
+// Form
+// =========================================================================
+
+// form fields, labels, buttons
+
+input[type="email"],
+input[type="number"],
+input[type="date"],
+input[type="search"],
+input[type="text"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+textarea {
+  border: 1px solid $item-grey;
+  @include placeholder($colour-dark-grey, 18px , $font-regular);
+}
+
+textarea {
+  border: 1px solid $item-grey;
+
+  @include breakpoint($screen-md) {
+    height: 150px;
+  }
+}
+
+select {
+  border: 1px solid #ddd;
+}
+
+.form__select-open {
+  background-position: 100% 0;
+}
+
+.form__radio {
+  position: relative;
+}
+
+.form__radio {
+  label {
+    width: 100%;
+    cursor: pointer;
+  }
+}
+
+
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  @extend .button;
+}
+
+label.required {
+  font-weight: bold;
+}
+
+.search-box {
+  #postcode_button {
+    @extend .btn;
+    display: block;
+    margin: 15px 0;
+    width: 100%;
+    height: 60px;
+    border-radius: none;
+    background-image: none;
+    background-color: $colour-black;
+    appearance: none; //iOS fix
+  }
+  div.form__field--error {
+    margin-top: 15px;
+  }
+  &.has-error {
+    #postcode_button {
+      margin-top: 45px;
+    }
+  }
+}
+
+button.payment-button {
+  @extend .btn;
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 60px;
+  background-color: $colour-white;
+  margin-bottom: 10px;
+  
+  &+.btn {
+    @include breakpoint($screen-md) {
+      margin-top: 30px;
+      margin-left: auto;
+      margin-bottom: 0;
+    }
+  }
+  // after element to place button images / apple styling in. (allows for falling back on text)
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width:100%;
+    height: 100%;
+  }
+}
+#comicrelief_payinbundle_payment_paypal:after {
+  background: transparent url($image-path + "paypal-logo.png") center / 100px no-repeat;
+}
+
+// Layout
+.form__row {
+  margin: 0 auto;
+  padding: 15px 0;
+  width: span(10);
+  background-color: transparent;
+
+  &:after {
+    @include clearfix;
+  }
+
+  @include breakpoint($screen-md) {
+    padding: 30px 0;
+  }
+  @include breakpoint($screen-lg) {
+    width: span(6);
+  }
+}
+.form__fieldset,
+.card-list {
+  float: none;
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+
+  @include breakpoint($screen-md) {
+    width: span(10);
+  }
+}
+
+.form__field--wrapper, {
+  margin-right: 0;
+  margin-left: 0;
+  margin-bottom: 3%;
+  width: 100%;
+}
+.search-box,
+.form__field--wrapper.form__field--address-detail {
+  margin: 0;
+  width: 100%;
+  max-width: 100%;
+}
+.form__address-detail-toggle {
+  padding-bottom: 30px;
+}
+
+.form__row--title {
+  padding: 20px 10px 10px;
+  text-align: center;
+  h4 {
+    font-family: $font-bold;
+    @include font-size($h4-font-size);
+  }
+}
+
+.audience,
+.form__field--establishmentId {
+  display: none;
+}
+.form__row--logos {
+  border-top: 4px solid #c7c7c7;
+  text-align: center;
+  img {
+    max-height: 60px;
+    margin-bottom: 15px;
+  }
+  p {
+    max-width: 80%;
+    margin: 0 auto;
+  }
+}
+
+// Sorry
+.form__row--sorry {
+  .form__fieldset {
+    float: none;
+    margin: 0px auto;
+  }
+  h1 {
+    text-align: center;
+  }
+}
+
+// Success & Failure
+#payin-step-four {
+  color: $colour-white;
+  text-align: center;
+
+  .form__fieldset {
+    @include span(12);
+  }
+  h3 {
+    font-family: $font-medium;
+  }
+}
+.form__row--user-generate-content {
+  @include breakpoint($screen-md) {
+    @include span(7);
+    float: none;
+    margin: 0px auto;
+  }
+  a {
+    color: $colour-white;
+  }
+  .form-terms {
+    position: relative;
+    top: -15px;
+    text-align: left;
+    clear: both;
+  }
+  .form__field--permission {
+    left: 0px;
+  }
+  .terms {
+    position: relative;
+    left: 50px;
+    top: -15px;
+  }
+  .form__nav {
+    padding: 0px;
+  }
+}
+.form__row--upsell {
+  clear: both;
+
+  .button {
+    line-height: 45px;
+  }
+}
+.form__row--failure {
+  background: $colour-dark-blue url(/images/banner/failure.jpg) center bottom no-repeat;
+  padding-bottom: 459px;
+}
+.form__field--permission,
+.form__field--whatyoudid {
+  .required:after {
+    content: "";
+  }
+}
+.form__field--whatyoudid {
+  .help-block {
+    left: 0px;
+    top: 170px;
+  }
+}
+.form__field--permission {
+  input[type=checkbox] {
+    top: 20px;
+    left: 0;
+  }
+}
+
+// Payment type
+#comicrelief_payinbundle_payment_paymentType {
+  @include clearfix;
+  .form__radio {
+    float: left;
+    width: 88px;
+    height: 80px;
+    display: block;
+    margin-bottom: 30px;
+  }
+
+  label {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    text-indent: -999px;
+    background-image: url($image-path + "payment_icon.jpg");
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0px;
+    left: 15px;
+    background-size: cover;
+  }
+  .payment--paypal_express {
+    width: 120px;
+  }
+  .payment--paypal_express label {
+    width: 80px;
+    left: 5px;
+    background-position: left center;
+  }
+  .payment--amex label {
+    width: 31px;
+    left: 27px;
+    background-position: -124px center;
+  }
+  .payment--jcb label {
+    width: 41px;
+    left: 22px;
+    background-position: -218px center;
+  }
+  .payment--mscd label {
+    width: 55px;
+    background-position: -309px center;
+  }
+  .payment--dmc label {
+    width: 54px;
+    background-position: -409px center;
+  }
+  .payment--maes label {
+    width: 56px;
+    background-position: -506px center;
+  }
+  .payment--visa label {
+    width: 54px;
+    background-position: -607px center;
+  }
+  .payment--visd label {
+    width: 56px;
+    background-position: -705px center;
+  }
+  .payment--vied label {
+    width: 65px;
+    background-position: -799px center;
+  }
+
+  input[type="radio"] {
+    position: absolute;
+    bottom: 10px;
+    left: 35px;
+  }
+
+  input[type="radio"]:checked {
+    background: $colour-dark-grey;
+    border: 1px solid $colour-dark-grey;
+  }
+}
+
+// Postcode lookup
+input[type="text"].form__field--postcode-lookup {
+  float: left;
+}
+.addressLookup {
+  border: 1px solid $item-grey;
+  // width: 300px;
+  max-height: 260px;
+  position: absolute;
+  background-color: #fff;
+  margin-top: -35px;
+  box-shadow: none;
+  box-sizing: border-box;
+  appearance: none;
+}
+
+.addressLookup .addresses {
+  position: relative;
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+.addressLookup label {
+  margin-bottom: 0;
+  button {
+    padding: 8px;
+    font-size: 14px;
+    border-top: 1px solid $item-grey;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    margin: 0;
+
+    &:focus, &:hover{
+      background-color: $colour-light-grey;
+      cursor: pointer;
+      color: $colour-red;
+      transition: 0.3s ease-in-out background-color;
+    };
+  }
+}
+
+.search-box {
+  .postcodeSearch{
+    float: none;
+  }
+  .search-box-button {
+    position: relative;
+    width: 100%;
+    background: none;
+    border: none;
+
+    &.loading:after {
+      @extend .btn;
+      position: absolute;
+      content:'';
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: $colour-white url($image-path + "loader.gif") center no-repeat;
+    }
+  }
+  #postcode_button {
+    @extend .btn;
+    display: block;
+    margin: 15px 0;
+    width: 100%;
+    height: 60px;
+    border-radius: 2px;
+    background-image: none;
+    background-color: $colour-white;
+    appearance: none; //iOS fix
+  }
+  div.form__field--error {
+    margin-top: 15px;
+  }
+  &.has-error {
+    #postcode_button {
+      margin-top: 45px;
+    }
+  }
+}
+
+// Validation for forms
+.help-block {
+  background: $colour-white url($image-path + "info-icon.png") left 2px no-repeat;
+  @include font-size($p-xsmall-font-size);
+  padding-left: 23px;
+  z-index: 2;
+  position: absolute;
+  left: 4px;
+  top: 95px;
+
+  &.form-error {
+    background:none;
+    font-weight: normal;
+    padding-left: 0px;
+  }
+}
+#comicrelief_payinbundle_payment_paymentType {
+  .help-block {
+    width: 290px;
+  }
+}
+.form__field--error,
+.form-error {
+  @include font-size($p-xsmall-font-size);
+}
+.validation__text {
+  margin: 5px 0 0;
+  padding: 0;
+  .fa {
+    margin-right: 5px;
+  }
+}
+.validation__warning {
+  font-family: $font-medium;
+  color: #f98026;
+}
+.validation__error {
+  font-family: $font-medium;;
+  color: #f04257;
+}
+.validation__success {
+  font-family: $font-medium;
+  color: #458B00;
+}
+.validation__error > a {
+  cursor: pointer;
+  text-decoration: underline;
+  color: #F0544A;
+}
+.validation__error > a:hover {
+  color: #F06B65;
+}
+
+.validation__wrapper {
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+// User generate content
+.form-user-content--copy {
+  display: none;
+}
+
+.form__row--giftaid {
+  text-align: center;
+
+  img {
+    max-height: 105px;
+  }
+
+  h1 {
+    background:url($image-path + "giftaid-mobile.jpg") no-repeat center;
+    background-size:contain;
+    width: 119px;
+    height:68px;
+    margin: 15px auto 20px;
+
+    @include breakpoint($screen-md) {
+      width: 298px;
+      height: 105px;
+    }
+  }
+
+  .form__field--wrapper.form__field--giftaid {
+    text-align: left;
+    background: #fff;
+    width: 100%;
+    padding: 0.5em 1em 1em 1em;
+    font-size: 1.5em;
+  }
+
+  .font--red {
+    color: $colour-red;
+  }
+}
+
+.form__field--address-list {
+  display: none;
+}
+
+// Custom radio buttons
+.form__radiobutton {
+
+  .select-label {
+    text-align: center;
+  }
+
+  label:not(.required){
+    &:after {
+      content: '';
+    }
+  }
+
+  .form__field {
+    display: inline-block;
+    font-family: $font-bold;
+    color: $colour-blue;
+    padding-top: 0;
+    line-height: 4.5;
+    text-align: center;
+  }
+
+  .form__radiobutton--row {
+    margin-bottom: 20px;
+    background-color:$colour-light-grey;
+    color: $colour-dark-purple;
+
+    span {
+      display: inline-block;
+      font-family: $body-font;
+      margin-left: 3%;
+      max-width: 65%;
+      vertical-align: middle;
+
+      @include breakpoint($screen-md) {
+        width: 65%;
+      }
+    }
+  }
+
+  .form__field {
+    text-align: left;
+  }
+
+  .form__radio {
+    position: absolute;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: 0;
+    width: 80px;
+    height: 84px;
+    opacity: 0;
+  }
+
+  .form__radio+label {
+    text-align: center;
+  }
+
+  .form__radio:checked+label{
+    background-color:#2BFDAC;
+  }
+
+  .form__radio:focus+label{
+    border: 2px solid $colour-light-grey;
+  }
+}
+
+.form__field--help-info {
+  display:block;
+  text-align: left;
+}
