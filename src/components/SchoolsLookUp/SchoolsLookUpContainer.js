@@ -26,7 +26,7 @@ class SchoolsLookUpContainer extends Component {
   render() {
     return (
       <SchoolsLookUp
-        {...this.state}
+        {...this.props}
         onChange={(identifier, event) => this.onChange(identifier, event)}
         establishmentIdIdentifier="establishmentIdValue"
         establishmentNameIdentifier="establishmentNameValue"

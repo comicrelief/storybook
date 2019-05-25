@@ -1,8 +1,7 @@
-/*
 import FileUp from './FileUp/FileUp';
 import Footer from './Footer/Footer';
-// import InputField from './InputField/InputField';
-// import CounterInput from './CounterInput/CounterInput';
+import InputField from './InputField/InputField';
+import CounterInput from './CounterInput/CounterInput';
 import SelectField from './SelectField/SelectField';
 import PostcodeLookup from './PostcodeLookup/PostcodeLookup';
 import SchoolsLookUp from './SchoolsLookUp/SchoolsLookUp';
@@ -16,8 +15,8 @@ import MarketingConsentCheckbox from './MarketingConsent/MarketingConsentCheckbo
 
 export {
   Footer,
-  // InputField,
-  // CounterInput,
+  InputField,
+  CounterInput,
   SelectField,
   PostcodeLookup,
   SchoolsLookUp,
@@ -30,4 +29,3 @@ export {
   MarketingConsent,
   MarketingConsentCheckbox,
 };
-*/
