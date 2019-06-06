@@ -4,7 +4,7 @@
   "version": "0.0.0-see.readme.for.releases",
   "dependencies": {
     "@comicrelief/pattern-lab": "*",
-    "@storybook/addon-info": "3",
+    "@storybook/addon-info": "5.1.1",
     "@storybook/addon-knobs": "3",
     "@storybook/react": "^3.0.0",
     "axios": "0",
