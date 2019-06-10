@@ -26,5 +26,4 @@ export {
   RadioButtons,
   MarketingConsent,
   MarketingConsentCheckbox,
-  FullHeightDoubleImageSingleCopy,
 };
