@@ -11,6 +11,7 @@ import JustInTime from './JustInTime/JustInTime';
 import RadioButtons from './RadioButtons/RadioButtons';
 import MarketingConsent from './MarketingConsent/MarketingConsent';
 import MarketingConsentCheckbox from './MarketingConsent/MarketingConsentCheckbox';
+import FullHeightDoubleImageSingleCopy from './fullHeightDoubleImageSingleCopy/fullHeightDoubleImageSingleCopy';
 
 export {
   Footer,
@@ -26,4 +27,5 @@ export {
   RadioButtons,
   MarketingConsent,
   MarketingConsentCheckbox,
+  FullHeightDoubleImageSingleCopy,
 };
