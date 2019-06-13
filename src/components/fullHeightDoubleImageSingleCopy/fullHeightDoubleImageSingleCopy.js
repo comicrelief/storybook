@@ -5,7 +5,7 @@ import './fullHeightDoubleImageSingleCopy.scss';
 
 export class FullHeightDoubleImageSingleCopy extends Component {
   render() {
-    const { title, copies, btnCopy, position } = this.props;
+    const { title, copies, btnCopy, position, btnTitle, btnLink, btnColour } = this.props;
     return (
       <section className={`paragraph--full-height-double-image-single-copy paragraph--full-height-double-image-single-copy--${position} bg--teal`}>
         <div className="fhdisc__image-wrapper">
@@ -27,18 +27,12 @@ export class FullHeightDoubleImageSingleCopy extends Component {
             <h1 className="text-align-center">
               <strong>{title}</strong>
             </h1>
-            { copies &&
-              copies.map((copy, i) => (
-                <p className="text-align-center" key={i}>
-                  {copy}
-                </p>
-              ))
-            }
+            <p className="text-align-center"> { copies } </p>
             <p className="text-align-center">
               <a
-                className="btn btn--white"
-                href="https://www.comicrelief.com/#newsletter"
-                title="find out more about Spectacular"
+                className={`btn ${btnColour}`}
+                href={btnLink}
+                title={btnTitle}
               >
                 {btnCopy}
               </a>
@@ -52,7 +46,7 @@ export class FullHeightDoubleImageSingleCopy extends Component {
 
 FullHeightDoubleImageSingleCopy.propTypes = {
   btnCopy: PropTypes.string.isRequired,
-  copies: PropTypes.array.isRequired,
+  copies: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
 };
 
