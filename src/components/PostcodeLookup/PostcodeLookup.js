@@ -11,8 +11,8 @@ class PostcodeLookup extends Component {
   /**
    * AddressLookup constructor
    */
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       addressDropdownList: [],
       countryDropdownList: [],
@@ -22,7 +22,7 @@ class PostcodeLookup extends Component {
       isAddressButtonHidden: false,
       isAddressSelectHidden: true,
       isAddressFieldsHidden: true,
-      validation: {
+      validation: props.valuesFromParent !== null && typeof props.valuesFromParent !== 'undefined' ? props.valuesFromParent : {
         postcode: {
           valid: null,
           message: '',
@@ -104,7 +104,6 @@ class PostcodeLookup extends Component {
       state.isAddressFieldsHidden = false;
       state.isAddressButtonHidden = true;
     }
-
     this.setState(state);
   }
 
@@ -350,17 +349,19 @@ class PostcodeLookup extends Component {
    * @return {*}
    */
   render() {
+    const isBrowser = browser();
     const postCodeField = {
       id: 'postcode',
       type: 'text',
       placeholder: 'SE1 7TP',
       buttonText: 'FIND ADDRESS',
-      pattern: /^[A-Za-z0-9/\-.\s]+$/,
+      pattern: /^[A-Za-z0-9][A-Za-z0-9 \-\\,.\\/&]{1,14}$/,
       invalidErrorText: 'Please enter a valid postcode',
       emptyFieldErrorText: 'Please enter your postcode',
       extraClass: 'search-box',
+      autoComplete: isBrowser.name === 'chrome' ? 'new-postcode' : 'off',
     };
-    const addressPattern = /^[A-Za-z0-9_.'/&\s-]+$/;
+    const addressPattern = /^[A-Za-z0-9]+[ _.'/&\w-]*$/;
     const addressErrorMessage = 'This field only accepts alphanumeric characters and \' . - & _ /';
     const addressOutputFields = [
       { id: 'address1', type: 'text', label: 'Address line 1', required: true, pattern: addressPattern, invalidErrorText: addressErrorMessage },
@@ -368,7 +369,6 @@ class PostcodeLookup extends Component {
       { id: 'address3', type: 'text', label: 'Address line 3', required: false, pattern: addressPattern, invalidErrorText: addressErrorMessage },
       { id: 'town', type: 'text', label: 'Town/City', required: true, pattern: addressPattern, invalidErrorText: addressErrorMessage },
     ];
-    const isBrowser = browser();
     const supportedAriaAttributes = isBrowser.name === 'firefox' && isBrowser.os.match('Windows') ?
       { 'aria-live': 'assertive', 'aria-relevant': 'additions removals' } : { 'aria-live': 'assertive', role: 'status' };
 
@@ -388,6 +388,7 @@ class PostcodeLookup extends Component {
           name={postCodeField.id}
           label={this.props.label}
           required
+          autoComplete={postCodeField.autoComplete}
           placeholder={postCodeField.placeholder}
           pattern={postCodeField.pattern}
           extraClass={postCodeField.extraClass}
@@ -444,6 +445,7 @@ class PostcodeLookup extends Component {
                 name={item.id}
                 label={item.label}
                 required={item.required}
+                autoComplete={item.autoComplete}
                 value={id => this.addressValue(id)}
                 pattern={item.pattern}
                 invalidErrorText={item.invalidErrorText}

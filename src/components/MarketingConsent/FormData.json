@@ -2,17 +2,18 @@
     {
       "id": "emailConsent",
       "text": "Email",
+      "customMessage": "",
       "options": [
         {
           "label": "Yes",
           "value": "yes",
-          "name": "emailPermission",
+          "name": "permissionEmail",
           "hideFields": false
         },
         {
           "label": "No",
           "value": "no",
-          "name": "emailPermission",
+          "name": "permissionEmail",
           "hideFields": true
         }
       ],
@@ -34,13 +35,13 @@
         {
           "label": "Yes",
           "value": "yes",
-          "name": "postPermission",
+          "name": "permissionPost",
           "hideFields": false
         },
         {
           "label": "No",
           "value": "no",
-          "name": "postPermission",
+          "name": "permissionPost",
           "hideFields": true
         }
       ],
@@ -106,13 +107,13 @@
         {
           "label": "Yes",
           "value": "yes",
-          "name": "phonePermission",
+          "name": "permissionPhone",
           "hideFields": false
         },
         {
           "label": "No",
           "value": "no",
-          "name": "phonePermission",
+          "name": "permissionPhone",
           "hideFields": true
         }
       ],
@@ -134,13 +135,13 @@
         {
           "label": "Yes",
           "value": "yes",
-          "name": "smsPermission",
+          "name": "permissionSMS",
           "hideFields": false
         },
         {
           "label": "No",
           "value": "no",
-          "name": "smsPermission",
+          "name": "permissionSMS",
           "hideFields": true
         }
       ],
