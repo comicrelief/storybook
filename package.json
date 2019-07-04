@@ -24,7 +24,7 @@
     "react-svg": "2",
     "react-vis": "^1.9.1",
     "shortid": "^2.2.13",
-    "snyk": "^1.161.1",
+    "snyk": "^1.189.0",
     "storybook-addon-specifications": "2",
     "url-join": "2"
   },
