@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
+import axios from 'axios';
 import './GrantsNearYou.scss';
 import { Result } from './result';
 import Search from './search';
@@ -42,7 +43,7 @@ class GrantsNearYou extends Component {
       searching: true,
     });
     const query = `${this.props.postcodeAPI}/postcodes/${searchTerm}`;
-    fetch(`${query}`)
+    axios.get(query)
       .then(r => r.json())
       .then((json) => {
         // Store the co-ordinates that PostcodeAPI returns in our state
@@ -52,7 +53,7 @@ class GrantsNearYou extends Component {
         });
 
         const query2 = searchTerm.length >= 1 ? `${this.props.searchURL}?latitude=${json.result.latitude}&longitude=${json.result.longitude}&range=${range}km` : this.props.searchURL;
-        return fetch(`${query2}`)
+        return axios.get(query2)
           .then(r => r.json())
           .then((json2) => {
             this.setState({
@@ -83,7 +84,7 @@ class GrantsNearYou extends Component {
 
     // Create query PostcodeAPI query to return nearest postcode to this geolocation
     const query = `${this.props.postcodeAPI}/postcodes?lon=${coordsIn.longitude}&lat=${coordsIn.latitude}`;
-    fetch(`${query}`)
+    axios.get(query)
       .then(r => r.json())
       .then((json) => {
         // Update to use the nearest postcode to this geolocation
@@ -129,8 +130,8 @@ class GrantsNearYou extends Component {
 }
 
 GrantsNearYou.propTypes = {
-  postcodeAPI: propTypes.string.isRequired,
-  searchURL: propTypes.string.isRequired,
+  postcodeAPI: PropTypes.string.isRequired,
+  searchURL: PropTypes.string.isRequired,
 };
 
 export default GrantsNearYou;

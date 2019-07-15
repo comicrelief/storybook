@@ -1,7 +1,6 @@
-/* eslint-disable max-len */
-/* eslint-env browser */
 import React, { Component } from 'react';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
+import axios from 'axios';
 import browser from 'browser-detect';
 import SelectField from '../SelectField/SelectField';
 import InputField from '../InputField/InputField';
@@ -9,7 +8,7 @@ import countries from './countries.json';
 
 class PostcodeLookup extends Component {
   /**
-   * AddressLookup constructor
+   * PostcodeLookup constructor
    */
   constructor(props) {
     super(props);
@@ -153,13 +152,11 @@ class PostcodeLookup extends Component {
   }
 
   /**
-   * Fetch addresses from lookup API and update state
+   * Get addresses from lookup API and update state
    * @return {Promise}
    */
   addressLookup() {
-    return fetch(this.props.plusURL + this.state.validation.postcode.value, {
-      method: 'get',
-    })
+    return axios.get(this.props.plusURL + this.state.validation.postcode.value)
       .then((response) => {
         if (response.status !== 200) {
           throw Error();
@@ -482,12 +479,12 @@ PostcodeLookup.defaultProps = {
   plusURL: 'https://lookups.sls.comicrelief.com/postcode/lookup?query=',
 };
 PostcodeLookup.propTypes = {
-  valuesFromParent: propTypes.object,
-  isAddressValid: propTypes.func,
-  label: propTypes.string,
-  showErrorMessages: propTypes.bool,
-  forceManualInput: propTypes.bool,
-  plusURL: propTypes.string,
+  valuesFromParent: PropTypes.object,
+  isAddressValid: PropTypes.func,
+  label: PropTypes.string,
+  showErrorMessages: PropTypes.bool,
+  forceManualInput: PropTypes.bool,
+  plusURL: PropTypes.string,
 };
 
 export default PostcodeLookup;

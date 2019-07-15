@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import propTypes from 'prop-types';
-
+import PropTypes from 'prop-types';
+import axios from 'axios';
 import MenuLink from './MenuLink/MenuLink';
 import './menu.scss';
 
@@ -46,7 +46,7 @@ class Menu extends Component {
    */
   async getJson(source, type) {
     return new Promise((resolve) => {
-      fetch(`${source}/entity/menu/${type}/tree?_format=json`)
+      axios.get(`${source}/entity/menu/${type}/tree?_format=json`)
         .then((data) => {
           return data.json();
         })
@@ -82,8 +82,8 @@ class Menu extends Component {
 }
 
 Menu.propTypes = {
-  campaign: propTypes.string.isRequired,
-  type: propTypes.string.isRequired,
+  campaign: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
 };
 
 export default Menu;

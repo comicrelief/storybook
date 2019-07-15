@@ -8,7 +8,7 @@ class SchoolsLookUpContainer extends Component {
    */
   constructor(props) {
     super(props);
-    this.state = props;
+    this.state = {...props};
   }
 
   /**
