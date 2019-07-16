@@ -20,17 +20,17 @@ describe('Stories', () => {
   });
 
   test('Footer > Comic Relief', () => {
-    cy.loadStory('Footer', 'Comic Relief')
+    cy.loadStory('Footer', 'Comic Relief', 5000)
       .matchImageSnapshot();
   });
 
   test('Footer > Sport Relief', () => {
-    cy.loadStory('Footer', 'Sport Relief')
+    cy.loadStory('Footer', 'Sport Relief', 5000)
       .matchImageSnapshot();
   });
 
   test('Footer > Red Nose Day', () => {
-    cy.loadStory('Footer', 'Red Nose Day')
+    cy.loadStory('Footer', 'Red Nose Day', 5000)
       .matchImageSnapshot();
   });
 
