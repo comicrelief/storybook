@@ -15,7 +15,16 @@
 
 // Import commands.js using ES2015 syntax:
 import './iframeCommand';
+import './loadStoryCommand';
 import './commands';
+import { addMatchImageSnapshotCommand } from 'cypress-image-snapshot/command';
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
+
+addMatchImageSnapshotCommand({
+  failureThreshold: 0.00,
+  failureThresholdType: 'percent',
+  customDiffConfig: { threshold: 0.0 },
+  capture: 'fullPage',
+});

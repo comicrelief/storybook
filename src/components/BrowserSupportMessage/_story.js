@@ -8,7 +8,7 @@ storiesOf('Browser Support message', module)
   .add('BrowserSupportMessage ',
     withInfo('Browser Support message')(() => {
       return (
-        <div data-test-id="container">
+        <div>
             <p>Browser support message for IE9</p>    
             <BrowserSupportMessage />
         </div>
