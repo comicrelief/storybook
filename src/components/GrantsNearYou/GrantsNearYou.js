@@ -42,23 +42,29 @@ class GrantsNearYou extends Component {
     this.setState({
       searching: true,
     });
+    if (!searchTerm) {
+      return;
+    }
     const query = `${this.props.postcodeAPI}/postcodes/${searchTerm}`;
     axios.get(query)
-      .then(r => r.json())
+      .then(({ data }) => data)
       .then((json) => {
         // Store the co-ordinates that PostcodeAPI returns in our state
         this.setState({
           longitude: (json && json.result && json.result.longitude) || null,
           latitude: (json && json.result && json.result.latitude) || null,
         });
-
-        const query2 = searchTerm.length >= 1 ? `${this.props.searchURL}?latitude=${json.result.latitude}&longitude=${json.result.longitude}&range=${range}km` : this.props.searchURL;
-        return axios.get(query2)
-          .then(r => r.json())
-          .then((json2) => {
+        const { searchURL, searchKey } = this.props;
+        if (!searchURL || !searchKey) {
+          return;
+        }
+        const processedSearchUrl = searchTerm.length >= 1 ? `${searchURL}?latitude=${json.result.latitude}&longitude=${json.result.longitude}&range=${range}km` : this.props.searchURL;
+        return axios({ url: processedSearchUrl, headers: { 'x-internal-access-key': searchKey } })
+          .then(({ data }) => data)
+          .then((grantsResponse) => {
             this.setState({
-              pagination: (json2 && json2.data && json2.data.pagination) || [],
-              results: (json2 && json2.data && json2.data.grants) || [],
+              pagination: (grantsResponse && grantsResponse.data && grantsResponse.data.pagination) || [],
+              results: (grantsResponse && grantsResponse.data && grantsResponse.data.grants) || [],
               searching: false,
             });
           });
@@ -85,7 +91,7 @@ class GrantsNearYou extends Component {
     // Create query PostcodeAPI query to return nearest postcode to this geolocation
     const query = `${this.props.postcodeAPI}/postcodes?lon=${coordsIn.longitude}&lat=${coordsIn.latitude}`;
     axios.get(query)
-      .then(r => r.json())
+      .then(({ data }) => data)
       .then((json) => {
         // Update to use the nearest postcode to this geolocation
         this.searchRef.geoPostcode(json.result[0].postcode);

@@ -45,18 +45,9 @@ class Menu extends Component {
    * @return {Promise<any>}
    */
   async getJson(source, type) {
-    return new Promise((resolve) => {
-      axios.get(`${source}/entity/menu/${type}/tree?_format=json`)
-        .then((data) => {
-          return data.json();
-        })
-        .then((data) => {
-          resolve(data);
-        })
-        .catch(() => {
-          resolve([]);
-        });
-    });
+    return axios.get(`${source}/entity/menu/${type}/tree?_format=json`)
+      .then(({ data }) => data)
+      .catch(() => []);
   }
 
   /**

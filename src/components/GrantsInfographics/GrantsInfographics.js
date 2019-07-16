@@ -21,12 +21,16 @@ class GrantsInfograpics extends Component {
   }
 
   componentDidMount() {
-    axios.get(this.props.grantsAPI)
-      .then((response) => {
-        if (!response.ok) {
+    const { grantsAPI, grantsAPIKey } = this.props;
+    if (!grantsAPI || !grantsAPIKey) {
+      return;
+    }
+    axios({ url: grantsAPI, headers: { 'x-internal-access-key': grantsAPIKey } })
+      .then(({ data }) => {
+        if (data.message !== 'Success') {
           throw new Error('something went wrong');
         }
-        return response.json();
+        return data;
       })
       .then((response) => {
         const grantData = response.data.facets;
