@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SchoolsLookup Storyshots SchoolsLookUp EDCO selected school 1`] = `
+exports[`Stories Storyshots SchoolsLookUp EDCO selected school 1`] = `
 <div
   className="SchoolsLookUp"
 >
@@ -57,7 +57,7 @@ exports[`SchoolsLookup Storyshots SchoolsLookUp EDCO selected school 1`] = `
 </div>
 `;
 
-exports[`SchoolsLookup Storyshots SchoolsLookUp manual fields errors 1`] = `
+exports[`Stories Storyshots SchoolsLookUp manual fields errors 1`] = `
 <div
   className="SchoolsLookUp"
 >
@@ -97,7 +97,6 @@ exports[`SchoolsLookup Storyshots SchoolsLookUp manual fields errors 1`] = `
           }
         >
           <div
-            className={undefined}
             style={
               Object {
                 "display": "inline-block",
@@ -117,9 +116,7 @@ exports[`SchoolsLookup Storyshots SchoolsLookUp manual fields errors 1`] = `
               autoComplete="off"
               className="rbt-input-main"
               disabled={false}
-              id={undefined}
               multiple={false}
-              name={undefined}
               onBlur={[Function]}
               onChange={[Function]}
               onFocus={[Function]}
@@ -172,7 +169,6 @@ exports[`SchoolsLookup Storyshots SchoolsLookUp manual fields errors 1`] = `
             </div>
           </div>
           <div
-            className={undefined}
             style={
               Object {
                 "bottom": 0,
@@ -192,7 +188,6 @@ exports[`SchoolsLookup Storyshots SchoolsLookUp manual fields errors 1`] = `
             />
             <input
               className="rbt-input-hint"
-              id={undefined}
               style={
                 Object {
                   "backgroundColor": "transparent",
@@ -411,7 +406,7 @@ exports[`SchoolsLookup Storyshots SchoolsLookUp manual fields errors 1`] = `
 </div>
 `;
 
-exports[`SchoolsLookup Storyshots SchoolsLookUp manually entered school 1`] = `
+exports[`Stories Storyshots SchoolsLookUp manually entered school 1`] = `
 <div
   className="SchoolsLookUp"
 >
@@ -451,7 +446,6 @@ exports[`SchoolsLookup Storyshots SchoolsLookUp manually entered school 1`] = `
           }
         >
           <div
-            className={undefined}
             style={
               Object {
                 "display": "inline-block",
@@ -471,9 +465,7 @@ exports[`SchoolsLookup Storyshots SchoolsLookUp manually entered school 1`] = `
               autoComplete="off"
               className="rbt-input-main"
               disabled={false}
-              id={undefined}
               multiple={false}
-              name={undefined}
               onBlur={[Function]}
               onChange={[Function]}
               onFocus={[Function]}
@@ -526,7 +518,6 @@ exports[`SchoolsLookup Storyshots SchoolsLookUp manually entered school 1`] = `
             </div>
           </div>
           <div
-            className={undefined}
             style={
               Object {
                 "bottom": 0,
@@ -546,7 +537,6 @@ exports[`SchoolsLookup Storyshots SchoolsLookUp manually entered school 1`] = `
             />
             <input
               className="rbt-input-hint"
-              id={undefined}
               style={
                 Object {
                   "backgroundColor": "transparent",
@@ -723,7 +713,7 @@ exports[`SchoolsLookup Storyshots SchoolsLookUp manually entered school 1`] = `
 </div>
 `;
 
-exports[`SchoolsLookup Storyshots SchoolsLookUp nothing is selected 1`] = `
+exports[`Stories Storyshots SchoolsLookUp nothing is selected 1`] = `
 <div
   className="SchoolsLookUp"
 >
@@ -763,7 +753,6 @@ exports[`SchoolsLookup Storyshots SchoolsLookUp nothing is selected 1`] = `
           }
         >
           <div
-            className={undefined}
             style={
               Object {
                 "display": "inline-block",
@@ -783,9 +772,7 @@ exports[`SchoolsLookup Storyshots SchoolsLookUp nothing is selected 1`] = `
               autoComplete="off"
               className="rbt-input-main"
               disabled={false}
-              id={undefined}
               multiple={false}
-              name={undefined}
               onBlur={[Function]}
               onChange={[Function]}
               onFocus={[Function]}
@@ -838,7 +825,6 @@ exports[`SchoolsLookup Storyshots SchoolsLookUp nothing is selected 1`] = `
             </div>
           </div>
           <div
-            className={undefined}
             style={
               Object {
                 "bottom": 0,
@@ -858,7 +844,6 @@ exports[`SchoolsLookup Storyshots SchoolsLookUp nothing is selected 1`] = `
             />
             <input
               className="rbt-input-hint"
-              id={undefined}
               style={
                 Object {
                   "backgroundColor": "transparent",
