@@ -33,3 +33,4 @@ storybook-static
 
 /cypress/videos
 /cypress/screenshots
+/cypress/**/__diff_output__

@@ -1,3 +1,4 @@
 {
-  "baseUrl": "http://localhost:9009"
+  "baseUrl": "http://localhost:9009",
+  "chromeWebSecurity": false
 }
