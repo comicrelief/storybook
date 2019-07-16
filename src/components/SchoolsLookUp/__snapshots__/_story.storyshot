@@ -1,891 +1,907 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Stories Storyshots SchoolsLookUp EDCO selected school 1`] = `
+exports[`Stories Storyshots Schools Lookup EDCO selected school 1`] = `
 <div
-  className="SchoolsLookUp"
+  data-test-id="container"
 >
-  <p
-    className="schoolsLookUp-title"
+  <div
+    className="SchoolsLookUp"
   >
-    <label
-      htmlFor="schoolsLookUp"
+    <p
+      className="schoolsLookUp-title"
     >
-      Enter the name or postcode of your school or nursery
-    </label>
-  </p>
-  <div>
+      <label
+        htmlFor="schoolsLookUp"
+      >
+        Enter the name or postcode of your school or nursery
+      </label>
+    </p>
+    <div>
+      <div
+        className="schoolDetails"
+      >
+        <div
+          className=""
+        >
+          <p>
+            School xyz
+          </p>
+        </div>
+        <div
+          className=""
+        >
+          <p>
+            dummy address line 1
+          </p>
+        </div>
+        <div
+          className=""
+        >
+          <p>
+            dummy town
+          </p>
+        </div>
+        <div
+          className=""
+        >
+          <p>
+            dummy postcode
+          </p>
+        </div>
+      </div>
+      <button
+        className="SchoolsLookUp-link"
+        name="edit"
+        onClick={[Function]}
+      >
+        Edit
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Stories Storyshots Schools Lookup manual fields errors 1`] = `
+<div
+  data-test-id="container"
+>
+  <div
+    className="SchoolsLookUp"
+  >
+    <p
+      className="schoolsLookUp-title"
+    >
+      <label
+        htmlFor="schoolsLookUp"
+      >
+        Enter the name or postcode of your school or nursery
+      </label>
+    </p>
     <div
-      className="schoolDetails"
+      className="schoolsLookUp-search"
     >
       <div
-        className=""
+        className="rbt open form-control input-lg form-control-lg schoolsLookUpForm"
+        disabled={false}
+        onClick={[Function]}
+        onFocus={[Function]}
+        style={
+          Object {
+            "position": "relative",
+          }
+        }
+        tabIndex={-1}
       >
-        <p>
-          School xyz
-        </p>
+        <div
+          className="rbt-input"
+        >
+          <div
+            style={
+              Object {
+                "display": "inline-block",
+                "position": "relative",
+              }
+            }
+          >
+            <div
+              style={
+                Object {
+                  "display": "inline-block",
+                  "position": "relative",
+                  "zIndex": 1,
+                }
+              }
+            >
+              <style
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "input#undefined::-ms-clear {display: none;}",
+                  }
+                }
+              />
+              <input
+                autoComplete="off"
+                className="rbt-input-main"
+                disabled={false}
+                multiple={false}
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                placeholder="Type to start search"
+                style={
+                  Object {
+                    "backgroundColor": "transparent",
+                    "border": 0,
+                    "boxShadow": "none",
+                    "boxSizing": "content-box",
+                    "cursor": "inherit",
+                    "outline": "none",
+                    "padding": 0,
+                    "width": "2px",
+                  }
+                }
+                type="text"
+                value=""
+              />
+              <div
+                style={
+                  Object {
+                    "height": 0,
+                    "left": 0,
+                    "overflow": "scroll",
+                    "position": "absolute",
+                    "top": 0,
+                    "visibility": "hidden",
+                    "whiteSpace": "pre",
+                  }
+                }
+              >
+                
+              </div>
+              <div
+                style={
+                  Object {
+                    "height": 0,
+                    "left": 0,
+                    "overflow": "scroll",
+                    "position": "absolute",
+                    "top": 0,
+                    "visibility": "hidden",
+                    "whiteSpace": "pre",
+                  }
+                }
+              >
+                Type to start search
+              </div>
+            </div>
+            <div
+              style={
+                Object {
+                  "bottom": 0,
+                  "display": "block",
+                  "position": "absolute",
+                  "top": 0,
+                  "zIndex": 0,
+                }
+              }
+            >
+              <style
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "input#undefined::-ms-clear {display: none;}",
+                  }
+                }
+              />
+              <input
+                className="rbt-input-hint"
+                style={
+                  Object {
+                    "backgroundColor": "transparent",
+                    "border": 0,
+                    "boxShadow": "none",
+                    "boxSizing": "content-box",
+                    "color": "rgba(0, 0, 0, 0.35)",
+                    "cursor": "inherit",
+                    "outline": "none",
+                    "padding": 0,
+                    "width": "2px",
+                  }
+                }
+                tabIndex={-1}
+                value=""
+              />
+              <div
+                style={
+                  Object {
+                    "height": 0,
+                    "left": 0,
+                    "overflow": "scroll",
+                    "position": "absolute",
+                    "top": 0,
+                    "visibility": "hidden",
+                    "whiteSpace": "pre",
+                  }
+                }
+              >
+                
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+    </div>
+    <div
+      className="SchoolsLookUp-maunal"
+    >
+      <p>
+        Or enter details manually
+      </p>
       <div
-        className=""
+        className="schoolDetails"
       >
-        <p>
-          dummy address line 1
-        </p>
+        <div
+          className="validation__wrapper"
+        >
+          <div>
+            <label
+              className="required"
+              htmlFor="establishmentNameValue"
+            >
+              Establishment name
+            </label>
+            <input
+              id="establishmentNameValue"
+              name="establishmentNameValue"
+              onBlur={[Function]}
+              onChange={[Function]}
+              required={true}
+              type="text"
+              value=""
+            />
+            <div
+              className="validation__message"
+            >
+              <span>
+                establishmentName error message
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          className="validation__wrapper"
+        >
+          <div>
+            <label
+              className="required"
+              htmlFor="address1Value"
+            >
+              Address line 1
+            </label>
+            <input
+              id="address1Value"
+              name="address1Value"
+              onBlur={[Function]}
+              onChange={[Function]}
+              required={true}
+              type="text"
+              value=""
+            />
+            <div
+              className="validation__message"
+            >
+              <span>
+                address1 error message
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          className="validation__wrapper"
+        >
+          <div>
+            <label
+              className=""
+              htmlFor="address2Value"
+            >
+              Address line 2
+            </label>
+            <input
+              id="address2Value"
+              name="address2Value"
+              onBlur={[Function]}
+              onChange={[Function]}
+              required={false}
+              type="text"
+              value=""
+            />
+            <div
+              className="validation__message"
+            >
+              <span>
+                address2 error message
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          className="validation__wrapper"
+        >
+          <div>
+            <label
+              className=""
+              htmlFor="address3Value"
+            >
+              Address line 3
+            </label>
+            <input
+              id="address3Value"
+              name="address3Value"
+              onBlur={[Function]}
+              onChange={[Function]}
+              required={false}
+              type="text"
+              value=""
+            />
+            <div
+              className="validation__message"
+            >
+              <span>
+                address3 error message
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          className="validation__wrapper"
+        >
+          <div>
+            <label
+              className="required"
+              htmlFor="townValue"
+            >
+              Town
+            </label>
+            <input
+              id="townValue"
+              name="townValue"
+              onBlur={[Function]}
+              onChange={[Function]}
+              required={true}
+              type="text"
+              value=""
+            />
+            <div
+              className="validation__message"
+            >
+              <span>
+                town error message
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          className="validation__wrapper"
+        >
+          <div>
+            <label
+              className="required"
+              htmlFor="postcodeValue"
+            >
+              Postcode
+            </label>
+            <input
+              id="postcodeValue"
+              name="postcodeValue"
+              onBlur={[Function]}
+              onChange={[Function]}
+              required={true}
+              type="text"
+              value=""
+            />
+            <div
+              className="validation__message"
+            >
+              <span>
+                postcode error message
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
-      <div
-        className=""
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Stories Storyshots Schools Lookup manually entered school 1`] = `
+<div
+  data-test-id="container"
+>
+  <div
+    className="SchoolsLookUp"
+  >
+    <p
+      className="schoolsLookUp-title"
+    >
+      <label
+        htmlFor="schoolsLookUp"
       >
-        <p>
-          dummy town
-        </p>
+        Enter the name or postcode of your school or nursery
+      </label>
+    </p>
+    <div
+      className="schoolsLookUp-search"
+    >
+      <div
+        className="rbt open form-control input-lg form-control-lg schoolsLookUpForm"
+        disabled={false}
+        onClick={[Function]}
+        onFocus={[Function]}
+        style={
+          Object {
+            "position": "relative",
+          }
+        }
+        tabIndex={-1}
+      >
+        <div
+          className="rbt-input"
+        >
+          <div
+            style={
+              Object {
+                "display": "inline-block",
+                "position": "relative",
+              }
+            }
+          >
+            <div
+              style={
+                Object {
+                  "display": "inline-block",
+                  "position": "relative",
+                  "zIndex": 1,
+                }
+              }
+            >
+              <style
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "input#undefined::-ms-clear {display: none;}",
+                  }
+                }
+              />
+              <input
+                autoComplete="off"
+                className="rbt-input-main"
+                disabled={false}
+                multiple={false}
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                placeholder="Type to start search"
+                style={
+                  Object {
+                    "backgroundColor": "transparent",
+                    "border": 0,
+                    "boxShadow": "none",
+                    "boxSizing": "content-box",
+                    "cursor": "inherit",
+                    "outline": "none",
+                    "padding": 0,
+                    "width": "2px",
+                  }
+                }
+                type="text"
+                value=""
+              />
+              <div
+                style={
+                  Object {
+                    "height": 0,
+                    "left": 0,
+                    "overflow": "scroll",
+                    "position": "absolute",
+                    "top": 0,
+                    "visibility": "hidden",
+                    "whiteSpace": "pre",
+                  }
+                }
+              >
+                
+              </div>
+              <div
+                style={
+                  Object {
+                    "height": 0,
+                    "left": 0,
+                    "overflow": "scroll",
+                    "position": "absolute",
+                    "top": 0,
+                    "visibility": "hidden",
+                    "whiteSpace": "pre",
+                  }
+                }
+              >
+                Type to start search
+              </div>
+            </div>
+            <div
+              style={
+                Object {
+                  "bottom": 0,
+                  "display": "block",
+                  "position": "absolute",
+                  "top": 0,
+                  "zIndex": 0,
+                }
+              }
+            >
+              <style
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "input#undefined::-ms-clear {display: none;}",
+                  }
+                }
+              />
+              <input
+                className="rbt-input-hint"
+                style={
+                  Object {
+                    "backgroundColor": "transparent",
+                    "border": 0,
+                    "boxShadow": "none",
+                    "boxSizing": "content-box",
+                    "color": "rgba(0, 0, 0, 0.35)",
+                    "cursor": "inherit",
+                    "outline": "none",
+                    "padding": 0,
+                    "width": "2px",
+                  }
+                }
+                tabIndex={-1}
+                value=""
+              />
+              <div
+                style={
+                  Object {
+                    "height": 0,
+                    "left": 0,
+                    "overflow": "scroll",
+                    "position": "absolute",
+                    "top": 0,
+                    "visibility": "hidden",
+                    "whiteSpace": "pre",
+                  }
+                }
+              >
+                
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+    </div>
+    <div
+      className="SchoolsLookUp-maunal"
+    >
+      <p>
+        Or enter details manually
+      </p>
       <div
-        className=""
+        className="schoolDetails"
       >
-        <p>
-          dummy postcode
-        </p>
+        <div
+          className=""
+        >
+          <div>
+            <label
+              className="required"
+              htmlFor="establishmentNameValue"
+            >
+              Establishment name
+            </label>
+            <input
+              id="establishmentNameValue"
+              name="establishmentNameValue"
+              onBlur={[Function]}
+              onChange={[Function]}
+              required={true}
+              type="text"
+              value="School xyz"
+            />
+          </div>
+        </div>
+        <div
+          className=""
+        >
+          <div>
+            <label
+              className="required"
+              htmlFor="address1Value"
+            >
+              Address line 1
+            </label>
+            <input
+              id="address1Value"
+              name="address1Value"
+              onBlur={[Function]}
+              onChange={[Function]}
+              required={true}
+              type="text"
+              value="dummy address line 1"
+            />
+          </div>
+        </div>
+        <div
+          className=""
+        >
+          <div>
+            <label
+              className=""
+              htmlFor="address2Value"
+            >
+              Address line 2
+            </label>
+            <input
+              id="address2Value"
+              name="address2Value"
+              onBlur={[Function]}
+              onChange={[Function]}
+              required={false}
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+        <div
+          className=""
+        >
+          <div>
+            <label
+              className=""
+              htmlFor="address3Value"
+            >
+              Address line 3
+            </label>
+            <input
+              id="address3Value"
+              name="address3Value"
+              onBlur={[Function]}
+              onChange={[Function]}
+              required={false}
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+        <div
+          className=""
+        >
+          <div>
+            <label
+              className="required"
+              htmlFor="townValue"
+            >
+              Town
+            </label>
+            <input
+              id="townValue"
+              name="townValue"
+              onBlur={[Function]}
+              onChange={[Function]}
+              required={true}
+              type="text"
+              value="dummy town"
+            />
+          </div>
+        </div>
+        <div
+          className=""
+        >
+          <div>
+            <label
+              className="required"
+              htmlFor="postcodeValue"
+            >
+              Postcode
+            </label>
+            <input
+              id="postcodeValue"
+              name="postcodeValue"
+              onBlur={[Function]}
+              onChange={[Function]}
+              required={true}
+              type="text"
+              value="dummy postcode"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Stories Storyshots Schools Lookup nothing is selected 1`] = `
+<div
+  data-test-id="container"
+>
+  <div
+    className="SchoolsLookUp"
+  >
+    <p
+      className="schoolsLookUp-title"
+    >
+      <label
+        htmlFor="schoolsLookUp"
+      >
+        Enter the name or postcode of your school or nursery
+      </label>
+    </p>
+    <div
+      className="schoolsLookUp-search"
+    >
+      <div
+        className="rbt open form-control input-lg form-control-lg schoolsLookUpForm"
+        disabled={false}
+        onClick={[Function]}
+        onFocus={[Function]}
+        style={
+          Object {
+            "position": "relative",
+          }
+        }
+        tabIndex={-1}
+      >
+        <div
+          className="rbt-input"
+        >
+          <div
+            style={
+              Object {
+                "display": "inline-block",
+                "position": "relative",
+              }
+            }
+          >
+            <div
+              style={
+                Object {
+                  "display": "inline-block",
+                  "position": "relative",
+                  "zIndex": 1,
+                }
+              }
+            >
+              <style
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "input#undefined::-ms-clear {display: none;}",
+                  }
+                }
+              />
+              <input
+                autoComplete="off"
+                className="rbt-input-main"
+                disabled={false}
+                multiple={false}
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                placeholder="Type to start search"
+                style={
+                  Object {
+                    "backgroundColor": "transparent",
+                    "border": 0,
+                    "boxShadow": "none",
+                    "boxSizing": "content-box",
+                    "cursor": "inherit",
+                    "outline": "none",
+                    "padding": 0,
+                    "width": "2px",
+                  }
+                }
+                type="text"
+                value=""
+              />
+              <div
+                style={
+                  Object {
+                    "height": 0,
+                    "left": 0,
+                    "overflow": "scroll",
+                    "position": "absolute",
+                    "top": 0,
+                    "visibility": "hidden",
+                    "whiteSpace": "pre",
+                  }
+                }
+              >
+                
+              </div>
+              <div
+                style={
+                  Object {
+                    "height": 0,
+                    "left": 0,
+                    "overflow": "scroll",
+                    "position": "absolute",
+                    "top": 0,
+                    "visibility": "hidden",
+                    "whiteSpace": "pre",
+                  }
+                }
+              >
+                Type to start search
+              </div>
+            </div>
+            <div
+              style={
+                Object {
+                  "bottom": 0,
+                  "display": "block",
+                  "position": "absolute",
+                  "top": 0,
+                  "zIndex": 0,
+                }
+              }
+            >
+              <style
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "input#undefined::-ms-clear {display: none;}",
+                  }
+                }
+              />
+              <input
+                className="rbt-input-hint"
+                style={
+                  Object {
+                    "backgroundColor": "transparent",
+                    "border": 0,
+                    "boxShadow": "none",
+                    "boxSizing": "content-box",
+                    "color": "rgba(0, 0, 0, 0.35)",
+                    "cursor": "inherit",
+                    "outline": "none",
+                    "padding": 0,
+                    "width": "2px",
+                  }
+                }
+                tabIndex={-1}
+                value=""
+              />
+              <div
+                style={
+                  Object {
+                    "height": 0,
+                    "left": 0,
+                    "overflow": "scroll",
+                    "position": "absolute",
+                    "top": 0,
+                    "visibility": "hidden",
+                    "whiteSpace": "pre",
+                  }
+                }
+              >
+                
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <button
       className="SchoolsLookUp-link"
-      name="edit"
+      name="enterManually"
       onClick={[Function]}
     >
-      Edit
+      Or enter details manually
     </button>
   </div>
-</div>
-`;
-
-exports[`Stories Storyshots SchoolsLookUp manual fields errors 1`] = `
-<div
-  className="SchoolsLookUp"
->
-  <p
-    className="schoolsLookUp-title"
-  >
-    <label
-      htmlFor="schoolsLookUp"
-    >
-      Enter the name or postcode of your school or nursery
-    </label>
-  </p>
-  <div
-    className="schoolsLookUp-search"
-  >
-    <div
-      className="rbt open form-control input-lg form-control-lg schoolsLookUpForm"
-      disabled={false}
-      onClick={[Function]}
-      onFocus={[Function]}
-      style={
-        Object {
-          "position": "relative",
-        }
-      }
-      tabIndex={-1}
-    >
-      <div
-        className="rbt-input"
-      >
-        <div
-          style={
-            Object {
-              "display": "inline-block",
-              "position": "relative",
-            }
-          }
-        >
-          <div
-            style={
-              Object {
-                "display": "inline-block",
-                "position": "relative",
-                "zIndex": 1,
-              }
-            }
-          >
-            <style
-              dangerouslySetInnerHTML={
-                Object {
-                  "__html": "input#undefined::-ms-clear {display: none;}",
-                }
-              }
-            />
-            <input
-              autoComplete="off"
-              className="rbt-input-main"
-              disabled={false}
-              multiple={false}
-              onBlur={[Function]}
-              onChange={[Function]}
-              onFocus={[Function]}
-              onKeyDown={[Function]}
-              placeholder="Type to start search"
-              style={
-                Object {
-                  "backgroundColor": "transparent",
-                  "border": 0,
-                  "boxShadow": "none",
-                  "boxSizing": "content-box",
-                  "cursor": "inherit",
-                  "outline": "none",
-                  "padding": 0,
-                  "width": "2px",
-                }
-              }
-              type="text"
-              value=""
-            />
-            <div
-              style={
-                Object {
-                  "height": 0,
-                  "left": 0,
-                  "overflow": "scroll",
-                  "position": "absolute",
-                  "top": 0,
-                  "visibility": "hidden",
-                  "whiteSpace": "pre",
-                }
-              }
-            >
-              
-            </div>
-            <div
-              style={
-                Object {
-                  "height": 0,
-                  "left": 0,
-                  "overflow": "scroll",
-                  "position": "absolute",
-                  "top": 0,
-                  "visibility": "hidden",
-                  "whiteSpace": "pre",
-                }
-              }
-            >
-              Type to start search
-            </div>
-          </div>
-          <div
-            style={
-              Object {
-                "bottom": 0,
-                "display": "block",
-                "position": "absolute",
-                "top": 0,
-                "zIndex": 0,
-              }
-            }
-          >
-            <style
-              dangerouslySetInnerHTML={
-                Object {
-                  "__html": "input#undefined::-ms-clear {display: none;}",
-                }
-              }
-            />
-            <input
-              className="rbt-input-hint"
-              style={
-                Object {
-                  "backgroundColor": "transparent",
-                  "border": 0,
-                  "boxShadow": "none",
-                  "boxSizing": "content-box",
-                  "color": "rgba(0, 0, 0, 0.35)",
-                  "cursor": "inherit",
-                  "outline": "none",
-                  "padding": 0,
-                  "width": "2px",
-                }
-              }
-              tabIndex={-1}
-              value=""
-            />
-            <div
-              style={
-                Object {
-                  "height": 0,
-                  "left": 0,
-                  "overflow": "scroll",
-                  "position": "absolute",
-                  "top": 0,
-                  "visibility": "hidden",
-                  "whiteSpace": "pre",
-                }
-              }
-            >
-              
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    className="SchoolsLookUp-maunal"
-  >
-    <p>
-      Or enter details manually
-    </p>
-    <div
-      className="schoolDetails"
-    >
-      <div
-        className="validation__wrapper"
-      >
-        <div>
-          <label
-            className="required"
-            htmlFor="establishmentNameValue"
-          >
-            Establishment name
-          </label>
-          <input
-            id="establishmentNameValue"
-            name="establishmentNameValue"
-            onBlur={[Function]}
-            onChange={[Function]}
-            required={true}
-            type="text"
-            value=""
-          />
-          <div
-            className="validation__message"
-          >
-            <span>
-              establishmentName error message
-            </span>
-          </div>
-        </div>
-      </div>
-      <div
-        className="validation__wrapper"
-      >
-        <div>
-          <label
-            className="required"
-            htmlFor="address1Value"
-          >
-            Address line 1
-          </label>
-          <input
-            id="address1Value"
-            name="address1Value"
-            onBlur={[Function]}
-            onChange={[Function]}
-            required={true}
-            type="text"
-            value=""
-          />
-          <div
-            className="validation__message"
-          >
-            <span>
-              address1 error message
-            </span>
-          </div>
-        </div>
-      </div>
-      <div
-        className="validation__wrapper"
-      >
-        <div>
-          <label
-            className=""
-            htmlFor="address2Value"
-          >
-            Address line 2
-          </label>
-          <input
-            id="address2Value"
-            name="address2Value"
-            onBlur={[Function]}
-            onChange={[Function]}
-            required={false}
-            type="text"
-            value=""
-          />
-          <div
-            className="validation__message"
-          >
-            <span>
-              address2 error message
-            </span>
-          </div>
-        </div>
-      </div>
-      <div
-        className="validation__wrapper"
-      >
-        <div>
-          <label
-            className=""
-            htmlFor="address3Value"
-          >
-            Address line 3
-          </label>
-          <input
-            id="address3Value"
-            name="address3Value"
-            onBlur={[Function]}
-            onChange={[Function]}
-            required={false}
-            type="text"
-            value=""
-          />
-          <div
-            className="validation__message"
-          >
-            <span>
-              address3 error message
-            </span>
-          </div>
-        </div>
-      </div>
-      <div
-        className="validation__wrapper"
-      >
-        <div>
-          <label
-            className="required"
-            htmlFor="townValue"
-          >
-            Town
-          </label>
-          <input
-            id="townValue"
-            name="townValue"
-            onBlur={[Function]}
-            onChange={[Function]}
-            required={true}
-            type="text"
-            value=""
-          />
-          <div
-            className="validation__message"
-          >
-            <span>
-              town error message
-            </span>
-          </div>
-        </div>
-      </div>
-      <div
-        className="validation__wrapper"
-      >
-        <div>
-          <label
-            className="required"
-            htmlFor="postcodeValue"
-          >
-            Postcode
-          </label>
-          <input
-            id="postcodeValue"
-            name="postcodeValue"
-            onBlur={[Function]}
-            onChange={[Function]}
-            required={true}
-            type="text"
-            value=""
-          />
-          <div
-            className="validation__message"
-          >
-            <span>
-              postcode error message
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Stories Storyshots SchoolsLookUp manually entered school 1`] = `
-<div
-  className="SchoolsLookUp"
->
-  <p
-    className="schoolsLookUp-title"
-  >
-    <label
-      htmlFor="schoolsLookUp"
-    >
-      Enter the name or postcode of your school or nursery
-    </label>
-  </p>
-  <div
-    className="schoolsLookUp-search"
-  >
-    <div
-      className="rbt open form-control input-lg form-control-lg schoolsLookUpForm"
-      disabled={false}
-      onClick={[Function]}
-      onFocus={[Function]}
-      style={
-        Object {
-          "position": "relative",
-        }
-      }
-      tabIndex={-1}
-    >
-      <div
-        className="rbt-input"
-      >
-        <div
-          style={
-            Object {
-              "display": "inline-block",
-              "position": "relative",
-            }
-          }
-        >
-          <div
-            style={
-              Object {
-                "display": "inline-block",
-                "position": "relative",
-                "zIndex": 1,
-              }
-            }
-          >
-            <style
-              dangerouslySetInnerHTML={
-                Object {
-                  "__html": "input#undefined::-ms-clear {display: none;}",
-                }
-              }
-            />
-            <input
-              autoComplete="off"
-              className="rbt-input-main"
-              disabled={false}
-              multiple={false}
-              onBlur={[Function]}
-              onChange={[Function]}
-              onFocus={[Function]}
-              onKeyDown={[Function]}
-              placeholder="Type to start search"
-              style={
-                Object {
-                  "backgroundColor": "transparent",
-                  "border": 0,
-                  "boxShadow": "none",
-                  "boxSizing": "content-box",
-                  "cursor": "inherit",
-                  "outline": "none",
-                  "padding": 0,
-                  "width": "2px",
-                }
-              }
-              type="text"
-              value=""
-            />
-            <div
-              style={
-                Object {
-                  "height": 0,
-                  "left": 0,
-                  "overflow": "scroll",
-                  "position": "absolute",
-                  "top": 0,
-                  "visibility": "hidden",
-                  "whiteSpace": "pre",
-                }
-              }
-            >
-              
-            </div>
-            <div
-              style={
-                Object {
-                  "height": 0,
-                  "left": 0,
-                  "overflow": "scroll",
-                  "position": "absolute",
-                  "top": 0,
-                  "visibility": "hidden",
-                  "whiteSpace": "pre",
-                }
-              }
-            >
-              Type to start search
-            </div>
-          </div>
-          <div
-            style={
-              Object {
-                "bottom": 0,
-                "display": "block",
-                "position": "absolute",
-                "top": 0,
-                "zIndex": 0,
-              }
-            }
-          >
-            <style
-              dangerouslySetInnerHTML={
-                Object {
-                  "__html": "input#undefined::-ms-clear {display: none;}",
-                }
-              }
-            />
-            <input
-              className="rbt-input-hint"
-              style={
-                Object {
-                  "backgroundColor": "transparent",
-                  "border": 0,
-                  "boxShadow": "none",
-                  "boxSizing": "content-box",
-                  "color": "rgba(0, 0, 0, 0.35)",
-                  "cursor": "inherit",
-                  "outline": "none",
-                  "padding": 0,
-                  "width": "2px",
-                }
-              }
-              tabIndex={-1}
-              value=""
-            />
-            <div
-              style={
-                Object {
-                  "height": 0,
-                  "left": 0,
-                  "overflow": "scroll",
-                  "position": "absolute",
-                  "top": 0,
-                  "visibility": "hidden",
-                  "whiteSpace": "pre",
-                }
-              }
-            >
-              
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    className="SchoolsLookUp-maunal"
-  >
-    <p>
-      Or enter details manually
-    </p>
-    <div
-      className="schoolDetails"
-    >
-      <div
-        className=""
-      >
-        <div>
-          <label
-            className="required"
-            htmlFor="establishmentNameValue"
-          >
-            Establishment name
-          </label>
-          <input
-            id="establishmentNameValue"
-            name="establishmentNameValue"
-            onBlur={[Function]}
-            onChange={[Function]}
-            required={true}
-            type="text"
-            value="School xyz"
-          />
-        </div>
-      </div>
-      <div
-        className=""
-      >
-        <div>
-          <label
-            className="required"
-            htmlFor="address1Value"
-          >
-            Address line 1
-          </label>
-          <input
-            id="address1Value"
-            name="address1Value"
-            onBlur={[Function]}
-            onChange={[Function]}
-            required={true}
-            type="text"
-            value="dummy address line 1"
-          />
-        </div>
-      </div>
-      <div
-        className=""
-      >
-        <div>
-          <label
-            className=""
-            htmlFor="address2Value"
-          >
-            Address line 2
-          </label>
-          <input
-            id="address2Value"
-            name="address2Value"
-            onBlur={[Function]}
-            onChange={[Function]}
-            required={false}
-            type="text"
-            value=""
-          />
-        </div>
-      </div>
-      <div
-        className=""
-      >
-        <div>
-          <label
-            className=""
-            htmlFor="address3Value"
-          >
-            Address line 3
-          </label>
-          <input
-            id="address3Value"
-            name="address3Value"
-            onBlur={[Function]}
-            onChange={[Function]}
-            required={false}
-            type="text"
-            value=""
-          />
-        </div>
-      </div>
-      <div
-        className=""
-      >
-        <div>
-          <label
-            className="required"
-            htmlFor="townValue"
-          >
-            Town
-          </label>
-          <input
-            id="townValue"
-            name="townValue"
-            onBlur={[Function]}
-            onChange={[Function]}
-            required={true}
-            type="text"
-            value="dummy town"
-          />
-        </div>
-      </div>
-      <div
-        className=""
-      >
-        <div>
-          <label
-            className="required"
-            htmlFor="postcodeValue"
-          >
-            Postcode
-          </label>
-          <input
-            id="postcodeValue"
-            name="postcodeValue"
-            onBlur={[Function]}
-            onChange={[Function]}
-            required={true}
-            type="text"
-            value="dummy postcode"
-          />
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Stories Storyshots SchoolsLookUp nothing is selected 1`] = `
-<div
-  className="SchoolsLookUp"
->
-  <p
-    className="schoolsLookUp-title"
-  >
-    <label
-      htmlFor="schoolsLookUp"
-    >
-      Enter the name or postcode of your school or nursery
-    </label>
-  </p>
-  <div
-    className="schoolsLookUp-search"
-  >
-    <div
-      className="rbt open form-control input-lg form-control-lg schoolsLookUpForm"
-      disabled={false}
-      onClick={[Function]}
-      onFocus={[Function]}
-      style={
-        Object {
-          "position": "relative",
-        }
-      }
-      tabIndex={-1}
-    >
-      <div
-        className="rbt-input"
-      >
-        <div
-          style={
-            Object {
-              "display": "inline-block",
-              "position": "relative",
-            }
-          }
-        >
-          <div
-            style={
-              Object {
-                "display": "inline-block",
-                "position": "relative",
-                "zIndex": 1,
-              }
-            }
-          >
-            <style
-              dangerouslySetInnerHTML={
-                Object {
-                  "__html": "input#undefined::-ms-clear {display: none;}",
-                }
-              }
-            />
-            <input
-              autoComplete="off"
-              className="rbt-input-main"
-              disabled={false}
-              multiple={false}
-              onBlur={[Function]}
-              onChange={[Function]}
-              onFocus={[Function]}
-              onKeyDown={[Function]}
-              placeholder="Type to start search"
-              style={
-                Object {
-                  "backgroundColor": "transparent",
-                  "border": 0,
-                  "boxShadow": "none",
-                  "boxSizing": "content-box",
-                  "cursor": "inherit",
-                  "outline": "none",
-                  "padding": 0,
-                  "width": "2px",
-                }
-              }
-              type="text"
-              value=""
-            />
-            <div
-              style={
-                Object {
-                  "height": 0,
-                  "left": 0,
-                  "overflow": "scroll",
-                  "position": "absolute",
-                  "top": 0,
-                  "visibility": "hidden",
-                  "whiteSpace": "pre",
-                }
-              }
-            >
-              
-            </div>
-            <div
-              style={
-                Object {
-                  "height": 0,
-                  "left": 0,
-                  "overflow": "scroll",
-                  "position": "absolute",
-                  "top": 0,
-                  "visibility": "hidden",
-                  "whiteSpace": "pre",
-                }
-              }
-            >
-              Type to start search
-            </div>
-          </div>
-          <div
-            style={
-              Object {
-                "bottom": 0,
-                "display": "block",
-                "position": "absolute",
-                "top": 0,
-                "zIndex": 0,
-              }
-            }
-          >
-            <style
-              dangerouslySetInnerHTML={
-                Object {
-                  "__html": "input#undefined::-ms-clear {display: none;}",
-                }
-              }
-            />
-            <input
-              className="rbt-input-hint"
-              style={
-                Object {
-                  "backgroundColor": "transparent",
-                  "border": 0,
-                  "boxShadow": "none",
-                  "boxSizing": "content-box",
-                  "color": "rgba(0, 0, 0, 0.35)",
-                  "cursor": "inherit",
-                  "outline": "none",
-                  "padding": 0,
-                  "width": "2px",
-                }
-              }
-              tabIndex={-1}
-              value=""
-            />
-            <div
-              style={
-                Object {
-                  "height": 0,
-                  "left": 0,
-                  "overflow": "scroll",
-                  "position": "absolute",
-                  "top": 0,
-                  "visibility": "hidden",
-                  "whiteSpace": "pre",
-                }
-              }
-            >
-              
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <button
-    className="SchoolsLookUp-link"
-    name="enterManually"
-    onClick={[Function]}
-  >
-    Or enter details manually
-  </button>
 </div>
 `;

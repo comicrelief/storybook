@@ -1,363 +1,328 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Stories Storyshots Radio buttons Radio buttons 1`] = `
-<div>
-  <div
-    style={
-      Object {
-        "position": "relative",
-        "zIndex": 0,
+exports[`Stories Storyshots Radio Buttons RadioButtons 1`] = `
+<div
+  data-test-id="container"
+>
+  <div>
+    <div
+      style={
+        Object {
+          "position": "relative",
+          "zIndex": 0,
+        }
       }
-    }
-  >
-    <div>
-      <fieldset
-        className="form__fieldset form__field--wrapper form__field-wrapper--radio   "
-        id="radioButtons1"
-        onBlur={[Function]}
-      >
-        <legend
-          className="form__fieldset--label"
+    >
+      <div>
+        <fieldset
+          className="form__fieldset form__field--wrapper form__field-wrapper--radio   "
+          id="radioButtons1"
+          onBlur={[Function]}
         >
-          Radio Buttons: required
-        </legend>
-        <div
-          className="form__field--wrapper form__radio form__radio--inline"
-        >
-          <label
-            className="form__field-label"
-            htmlFor="radio--1"
+          <legend
+            className="form__fieldset--label"
           >
-            Option 1
-          </label>
-          <input
-            id="radio--1"
-            name="radioButtons1"
-            onClick={[Function]}
-            type="radio"
-            value="opt1"
-          />
-          <span>
-             
-          </span>
-        </div>
-        <div
-          className="form__field--wrapper form__radio form__radio--inline"
-        >
-          <label
-            className="form__field-label"
-            htmlFor="radio--2"
-          >
-            Option 2
-          </label>
-          <input
-            id="radio--2"
-            name="radioButtons1"
-            onClick={[Function]}
-            type="radio"
-            value="opt2"
-          />
-          <span>
-             
-          </span>
-        </div>
-        <div
-          className="form__field--wrapper form__radio form__radio--inline"
-        >
-          <label
-            className="form__field-label"
-            htmlFor="radio--3"
-          >
-            Option 3
-          </label>
-          <input
-            id="radio--3"
-            name="radioButtons1"
-            onClick={[Function]}
-            type="radio"
-            value="opt3"
-          />
-          <span>
-             
-          </span>
-        </div>
-      </fieldset>
-      <fieldset
-        className="form__fieldset form__field--wrapper form__field-wrapper--radio   "
-        id="radioButtons2"
-        onBlur={[Function]}
-      >
-        <legend
-          className="form__fieldset--label"
-        >
-          Radio Buttons: not required
-        </legend>
-        <div
-          className="form__field--wrapper form__radio form__radio--inline"
-        >
-          <label
-            className="form__field-label"
-            htmlFor="radio--4"
-          >
-            Option 4
-          </label>
-          <input
-            id="radio--4"
-            name="radioButtons2"
-            onClick={[Function]}
-            type="radio"
-            value="opt4"
-          />
-          <span>
-             
-          </span>
-        </div>
-        <div
-          className="form__field--wrapper form__radio form__radio--inline"
-        >
-          <label
-            className="form__field-label"
-            htmlFor="radio--5"
-          >
-            Option 5
-          </label>
-          <input
-            id="radio--5"
-            name="radioButtons2"
-            onClick={[Function]}
-            type="radio"
-            value="opt5"
-          />
-          <span>
-             
-          </span>
-        </div>
-        <div
-          className="form__field--wrapper form__radio form__radio--inline"
-        >
-          <label
-            className="form__field-label"
-            htmlFor="radio--6"
-          >
-            Option 6
-          </label>
-          <input
-            id="radio--6"
-            name="radioButtons2"
-            onClick={[Function]}
-            type="radio"
-            value="opt6"
-          />
-          <span>
-             
-          </span>
-        </div>
-      </fieldset>
-      <fieldset
-        className="form__fieldset form__field--wrapper form__field-wrapper--radio   "
-        id="radioButtons3"
-        onBlur={[Function]}
-      >
-        <legend
-          className="form__fieldset--label"
-        >
-          Radio Buttons: required, preselected
-        </legend>
-        <div
-          className="form__field--wrapper form__radio form__radio--inline"
-        >
-          <label
-            className="form__field-label"
-            htmlFor="radio--7"
-          >
-            Option 7
-          </label>
-          <input
-            id="radio--7"
-            name="radioButtons3"
-            onClick={[Function]}
-            type="radio"
-            value="opt7"
-          />
-          <span>
-             
-          </span>
-        </div>
-        <div
-          className="form__field--wrapper form__radio form__radio--inline"
-        >
-          <label
-            className="form__field-label"
-            htmlFor="radio--8"
-          >
-            Option 8
-          </label>
-          <input
-            defaultChecked={true}
-            id="radio--8"
-            name="radioButtons3"
-            onClick={[Function]}
-            type="radio"
-            value="opt8"
-          />
-          <span>
-             
-          </span>
-        </div>
-        <div
-          className="form__field--wrapper form__radio form__radio--inline"
-        >
-          <label
-            className="form__field-label"
-            htmlFor="radio--9"
-          >
-            Option 9
-          </label>
-          <input
-            id="radio--9"
-            name="radioButtons3"
-            onClick={[Function]}
-            type="radio"
-            value="opt9"
-          />
-          <span>
-             
-          </span>
-        </div>
-      </fieldset>
-      <fieldset
-        className="form__fieldset form__field--wrapper form__field-wrapper--radio   "
-        id="radioButtons4"
-        onBlur={[Function]}
-      >
-        <legend
-          className="form__fieldset--label"
-        >
-          Radio Buttons: not required, preselected
-        </legend>
-        <div
-          className="form__field--wrapper form__radio form__radio--inline"
-        >
-          <label
-            className="form__field-label"
-            htmlFor="radio--10"
-          >
-            Option 10
-          </label>
-          <input
-            id="radio--10"
-            name="radioButtons4"
-            onClick={[Function]}
-            type="radio"
-            value="opt10"
-          />
-          <span>
-             
-          </span>
-        </div>
-        <div
-          className="form__field--wrapper form__radio form__radio--inline"
-        >
-          <label
-            className="form__field-label"
-            htmlFor="radio--11"
-          >
-            Option 11
-          </label>
-          <input
-            defaultChecked={true}
-            id="radio--11"
-            name="radioButtons4"
-            onClick={[Function]}
-            type="radio"
-            value="opt11"
-          />
-          <span>
-             
-          </span>
+            Radio Buttons: required
+          </legend>
           <div
-            className="form__fieldset form__field--wrapper form__field-additional-text"
+            className="form__field--wrapper form__radio form__radio--inline"
           >
-            <p>
-              Here's some additional text with a 
-              <a
-                className="link inline additional-text__link"
-                href="http://example.com"
-                rel="nofollow noopener noreferrer"
-                target="_blank"
-              >
-                link
-                <span
-                  className="visuallyhidden"
-                >
-                  (opens in a new window)
-                </span>
-              </a>
-              , and some lorem ipsum: Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Nulla porttitor accumsan tincidunt. Pellentesque in ipsum id orci porta dapibus.
-            </p>
+            <label
+              className="form__field-label"
+              htmlFor="radio--1"
+            >
+              Option 1
+            </label>
+            <input
+              id="radio--1"
+              name="radioButtons1"
+              onClick={[Function]}
+              type="radio"
+              value="opt1"
+            />
+            <span>
+               
+            </span>
           </div>
-        </div>
-        <div
-          className="form__field--wrapper form__radio form__radio--inline"
-        >
-          <label
-            className="form__field-label"
-            htmlFor="radio--12"
+          <div
+            className="form__field--wrapper form__radio form__radio--inline"
           >
-            Option 12
-          </label>
-          <input
-            id="radio--12"
-            name="radioButtons4"
-            onClick={[Function]}
-            type="radio"
-            value="opt12"
-          />
-          <span>
-             
-          </span>
-        </div>
-      </fieldset>
+            <label
+              className="form__field-label"
+              htmlFor="radio--2"
+            >
+              Option 2
+            </label>
+            <input
+              id="radio--2"
+              name="radioButtons1"
+              onClick={[Function]}
+              type="radio"
+              value="opt2"
+            />
+            <span>
+               
+            </span>
+          </div>
+          <div
+            className="form__field--wrapper form__radio form__radio--inline"
+          >
+            <label
+              className="form__field-label"
+              htmlFor="radio--3"
+            >
+              Option 3
+            </label>
+            <input
+              id="radio--3"
+              name="radioButtons1"
+              onClick={[Function]}
+              type="radio"
+              value="opt3"
+            />
+            <span>
+               
+            </span>
+          </div>
+        </fieldset>
+        <fieldset
+          className="form__fieldset form__field--wrapper form__field-wrapper--radio   "
+          id="radioButtons2"
+          onBlur={[Function]}
+        >
+          <legend
+            className="form__fieldset--label"
+          >
+            Radio Buttons: not required
+          </legend>
+          <div
+            className="form__field--wrapper form__radio form__radio--inline"
+          >
+            <label
+              className="form__field-label"
+              htmlFor="radio--4"
+            >
+              Option 4
+            </label>
+            <input
+              id="radio--4"
+              name="radioButtons2"
+              onClick={[Function]}
+              type="radio"
+              value="opt4"
+            />
+            <span>
+               
+            </span>
+          </div>
+          <div
+            className="form__field--wrapper form__radio form__radio--inline"
+          >
+            <label
+              className="form__field-label"
+              htmlFor="radio--5"
+            >
+              Option 5
+            </label>
+            <input
+              id="radio--5"
+              name="radioButtons2"
+              onClick={[Function]}
+              type="radio"
+              value="opt5"
+            />
+            <span>
+               
+            </span>
+          </div>
+          <div
+            className="form__field--wrapper form__radio form__radio--inline"
+          >
+            <label
+              className="form__field-label"
+              htmlFor="radio--6"
+            >
+              Option 6
+            </label>
+            <input
+              id="radio--6"
+              name="radioButtons2"
+              onClick={[Function]}
+              type="radio"
+              value="opt6"
+            />
+            <span>
+               
+            </span>
+          </div>
+        </fieldset>
+        <fieldset
+          className="form__fieldset form__field--wrapper form__field-wrapper--radio   "
+          id="radioButtons3"
+          onBlur={[Function]}
+        >
+          <legend
+            className="form__fieldset--label"
+          >
+            Radio Buttons: required, preselected
+          </legend>
+          <div
+            className="form__field--wrapper form__radio form__radio--inline"
+          >
+            <label
+              className="form__field-label"
+              htmlFor="radio--7"
+            >
+              Option 7
+            </label>
+            <input
+              id="radio--7"
+              name="radioButtons3"
+              onClick={[Function]}
+              type="radio"
+              value="opt7"
+            />
+            <span>
+               
+            </span>
+          </div>
+          <div
+            className="form__field--wrapper form__radio form__radio--inline"
+          >
+            <label
+              className="form__field-label"
+              htmlFor="radio--8"
+            >
+              Option 8
+            </label>
+            <input
+              defaultChecked={true}
+              id="radio--8"
+              name="radioButtons3"
+              onClick={[Function]}
+              type="radio"
+              value="opt8"
+            />
+            <span>
+               
+            </span>
+          </div>
+          <div
+            className="form__field--wrapper form__radio form__radio--inline"
+          >
+            <label
+              className="form__field-label"
+              htmlFor="radio--9"
+            >
+              Option 9
+            </label>
+            <input
+              id="radio--9"
+              name="radioButtons3"
+              onClick={[Function]}
+              type="radio"
+              value="opt9"
+            />
+            <span>
+               
+            </span>
+          </div>
+        </fieldset>
+        <fieldset
+          className="form__fieldset form__field--wrapper form__field-wrapper--radio   "
+          id="radioButtons4"
+          onBlur={[Function]}
+        >
+          <legend
+            className="form__fieldset--label"
+          >
+            Radio Buttons: not required, preselected
+          </legend>
+          <div
+            className="form__field--wrapper form__radio form__radio--inline"
+          >
+            <label
+              className="form__field-label"
+              htmlFor="radio--10"
+            >
+              Option 10
+            </label>
+            <input
+              id="radio--10"
+              name="radioButtons4"
+              onClick={[Function]}
+              type="radio"
+              value="opt10"
+            />
+            <span>
+               
+            </span>
+          </div>
+          <div
+            className="form__field--wrapper form__radio form__radio--inline"
+          >
+            <label
+              className="form__field-label"
+              htmlFor="radio--11"
+            >
+              Option 11
+            </label>
+            <input
+              defaultChecked={true}
+              id="radio--11"
+              name="radioButtons4"
+              onClick={[Function]}
+              type="radio"
+              value="opt11"
+            />
+            <span>
+               
+            </span>
+            <div
+              className="form__fieldset form__field--wrapper form__field-additional-text"
+            >
+              <p>
+                Here's some additional text with a 
+                <a
+                  className="link inline additional-text__link"
+                  href="http://example.com"
+                  rel="nofollow noopener noreferrer"
+                  target="_blank"
+                >
+                  link
+                  <span
+                    className="visuallyhidden"
+                  >
+                    (opens in a new window)
+                  </span>
+                </a>
+                , and some lorem ipsum: Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Nulla porttitor accumsan tincidunt. Pellentesque in ipsum id orci porta dapibus.
+              </p>
+            </div>
+          </div>
+          <div
+            className="form__field--wrapper form__radio form__radio--inline"
+          >
+            <label
+              className="form__field-label"
+              htmlFor="radio--12"
+            >
+              Option 12
+            </label>
+            <input
+              id="radio--12"
+              name="radioButtons4"
+              onClick={[Function]}
+              type="radio"
+              value="opt12"
+            />
+            <span>
+               
+            </span>
+          </div>
+        </fieldset>
+      </div>
     </div>
-  </div>
-  <button
-    onClick={[Function]}
-    style={
-      Object {
-        "background": "#28c",
-        "border": "none",
-        "borderRadius": "0 0 0 5px",
-        "color": "#fff",
-        "cursor": "pointer",
-        "display": "block",
-        "fontFamily": "sans-serif",
-        "fontSize": "12px",
-        "padding": "5px 15px",
-        "position": "fixed",
-        "right": 0,
-        "top": 0,
-      }
-    }
-    type="button"
-  >
-    Show Info
-  </button>
-  <div
-    style={
-      Object {
-        "background": "white",
-        "bottom": 0,
-        "display": "none",
-        "left": 0,
-        "overflow": "auto",
-        "padding": "0 40px",
-        "position": "fixed",
-        "right": 0,
-        "top": 0,
-        "zIndex": 99999,
-      }
-    }
-  >
     <button
       onClick={[Function]}
       style={
@@ -378,1677 +343,144 @@ exports[`Stories Storyshots Radio buttons Radio buttons 1`] = `
       }
       type="button"
     >
-      ×
+      Show Info
     </button>
-    <div>
-      <div
+    <div
+      style={
+        Object {
+          "background": "white",
+          "bottom": 0,
+          "display": "none",
+          "left": 0,
+          "overflow": "auto",
+          "padding": "0 40px",
+          "position": "fixed",
+          "right": 0,
+          "top": 0,
+          "zIndex": 99999,
+        }
+      }
+    >
+      <button
+        onClick={[Function]}
         style={
           Object {
-            "WebkitFontSmoothing": "antialiased",
-            "backgroundColor": "#fff",
-            "border": "1px solid #eee",
-            "borderRadius": "2px",
-            "boxShadow": "0px 2px 3px rgba(0, 0, 0, 0.05)",
-            "color": "#444",
-            "fontFamily": "-apple-system, \\".SFNSText-Regular\\", \\"San Francisco\\", BlinkMacSystemFont, \\"Segoe UI\\", \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", \\"Lucida Grande\\", \\"Arial\\", sans-serif",
-            "fontSize": "15px",
-            "fontWeight": 300,
-            "lineHeight": 1.45,
-            "marginBottom": "20px",
-            "marginTop": "20px",
-            "padding": "20px 40px 40px",
+            "background": "#28c",
+            "border": "none",
+            "borderRadius": "0 0 0 5px",
+            "color": "#fff",
+            "cursor": "pointer",
+            "display": "block",
+            "fontFamily": "sans-serif",
+            "fontSize": "12px",
+            "padding": "5px 15px",
+            "position": "fixed",
+            "right": 0,
+            "top": 0,
           }
         }
+        type="button"
       >
+        ×
+      </button>
+      <div>
         <div
           style={
             Object {
-              "borderBottom": "1px solid #eee",
-              "marginBottom": 10,
-              "paddingTop": 10,
-            }
-          }
-        >
-          <h1
-            style={
-              Object {
-                "fontSize": "35px",
-                "margin": 0,
-                "padding": 0,
-              }
-            }
-          >
-            Radio buttons
-          </h1>
-          <h2
-            style={
-              Object {
-                "fontSize": "22px",
-                "fontWeight": 400,
-                "margin": "0 0 10px 0",
-                "padding": 0,
-              }
-            }
-          >
-            Radio buttons
-          </h2>
-        </div>
-        <div
-          style={
-            Object {
-              "marginBottom": 0,
+              "WebkitFontSmoothing": "antialiased",
+              "backgroundColor": "#fff",
+              "border": "1px solid #eee",
+              "borderRadius": "2px",
+              "boxShadow": "0px 2px 3px rgba(0, 0, 0, 0.05)",
+              "color": "#444",
+              "fontFamily": "-apple-system, \\".SFNSText-Regular\\", \\"San Francisco\\", BlinkMacSystemFont, \\"Segoe UI\\", \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", \\"Lucida Grande\\", \\"Arial\\", sans-serif",
+              "fontSize": "15px",
+              "fontWeight": 300,
+              "lineHeight": 1.45,
+              "marginBottom": "20px",
+              "marginTop": "20px",
+              "padding": "20px 40px 40px",
             }
           }
         >
           <div
             style={
               Object {
-                "WebkitFontSmoothing": "antialiased",
-                "color": "#444",
-                "fontFamily": "-apple-system, \\".SFNSText-Regular\\", \\"San Francisco\\", BlinkMacSystemFont, \\"Segoe UI\\", \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", \\"Lucida Grande\\", \\"Arial\\", sans-serif",
-                "fontSize": "15px",
+                "borderBottom": "1px solid #eee",
+                "marginBottom": 10,
+                "paddingTop": 10,
               }
             }
           >
-            Required
-          </div>
-        </div>
-        <div>
-          <h1
-            style={
-              Object {
-                "borderBottom": "1px solid #EEE",
-                "fontSize": "25px",
-                "margin": "20px 0 0 0",
-                "padding": "0 0 5px 0",
-              }
-            }
-          >
-            Story Source
-          </h1>
-          <pre
-            className="css-4akams"
-          >
-            <div>
-              <div>
-                <div
-                  style={
-                    Object {
-                      "paddingLeft": 18,
-                      "paddingRight": 3,
-                    }
-                  }
-                >
-                  <span
-                    style={
-                      Object {
-                        "color": "#777",
-                      }
-                    }
-                  >
-                    &lt;
-                    div
-                  </span>
-                  <span />
-                  <span
-                    style={
-                      Object {
-                        "color": "#777",
-                      }
-                    }
-                  >
-                    &gt;
-                  </span>
-                </div>
-                <div
-                  style={
-                    Object {
-                      "paddingLeft": 33,
-                      "paddingRight": 3,
-                    }
-                  }
-                >
-                  <span
-                    style={
-                      Object {
-                        "color": "#777",
-                      }
-                    }
-                  >
-                    &lt;
-                    RadioButtons
-                  </span>
-                  <span>
-                    <span>
-                      <span>
-                        <br />
-                          
-                      </span>
-                      <span
-                        style={Object {}}
-                      >
-                        id
-                      </span>
-                      <span>
-                        =
-                        <span
-                          style={Object {}}
-                        >
-                          "
-                          <span
-                            style={
-                              Object {
-                                "color": "#22a",
-                                "wordBreak": "break-word",
-                              }
-                            }
-                          >
-                            radioButtons1
-                          </span>
-                          "
-                        </span>
-                      </span>
-                    </span>
-                    <span>
-                      <span>
-                        <br />
-                          
-                      </span>
-                      <span
-                        style={Object {}}
-                      >
-                        label
-                      </span>
-                      <span>
-                        =
-                        <span
-                          style={Object {}}
-                        >
-                          "
-                          <span
-                            style={
-                              Object {
-                                "color": "#22a",
-                                "wordBreak": "break-word",
-                              }
-                            }
-                          >
-                            Radio Buttons: required
-                          </span>
-                          "
-                        </span>
-                      </span>
-                    </span>
-                    <span>
-                      <span>
-                        <br />
-                          
-                      </span>
-                      <span
-                        style={Object {}}
-                      >
-                        required
-                      </span>
-                    </span>
-                    <span>
-                      <span>
-                        <br />
-                          
-                      </span>
-                      <span
-                        style={Object {}}
-                      >
-                        options
-                      </span>
-                      <span>
-                        =
-                        <span
-                          style={Object {}}
-                        >
-                          {
-                          <span
-                            style={
-                              Object {
-                                "color": "#666",
-                              }
-                            }
-                          >
-                            [
-                            <span>
-                              <span
-                                style={
-                                  Object {
-                                    "color": "#666",
-                                  }
-                                }
-                              >
-                                {
-                                <span>
-                                  <span
-                                    style={
-                                      Object {
-                                        "color": "#666",
-                                      }
-                                    }
-                                  >
-                                    label
-                                  </span>
-                                </span>
-                                : 
-                                <span
-                                  style={
-                                    Object {
-                                      "color": "#22a",
-                                      "wordBreak": "break-word",
-                                    }
-                                  }
-                                >
-                                  'Option 1'
-                                </span>
-                                ,
-                                <span>
-                                  <span
-                                    style={
-                                      Object {
-                                        "color": "#666",
-                                      }
-                                    }
-                                  >
-                                    value
-                                  </span>
-                                </span>
-                                : 
-                                <span
-                                  style={
-                                    Object {
-                                      "color": "#22a",
-                                      "wordBreak": "break-word",
-                                    }
-                                  }
-                                >
-                                  'opt1'
-                                </span>
-                                }
-                              </span>
-                            </span>
-                            ,
-                            <span>
-                              <span
-                                style={
-                                  Object {
-                                    "color": "#666",
-                                  }
-                                }
-                              >
-                                {
-                                <span>
-                                  <span
-                                    style={
-                                      Object {
-                                        "color": "#666",
-                                      }
-                                    }
-                                  >
-                                    label
-                                  </span>
-                                </span>
-                                : 
-                                <span
-                                  style={
-                                    Object {
-                                      "color": "#22a",
-                                      "wordBreak": "break-word",
-                                    }
-                                  }
-                                >
-                                  'Option 2'
-                                </span>
-                                ,
-                                <span>
-                                  <span
-                                    style={
-                                      Object {
-                                        "color": "#666",
-                                      }
-                                    }
-                                  >
-                                    value
-                                  </span>
-                                </span>
-                                : 
-                                <span
-                                  style={
-                                    Object {
-                                      "color": "#22a",
-                                      "wordBreak": "break-word",
-                                    }
-                                  }
-                                >
-                                  'opt2'
-                                </span>
-                                }
-                              </span>
-                            </span>
-                            ,
-                            <span>
-                              <span
-                                style={
-                                  Object {
-                                    "color": "#666",
-                                  }
-                                }
-                              >
-                                {
-                                <span>
-                                  <span
-                                    style={
-                                      Object {
-                                        "color": "#666",
-                                      }
-                                    }
-                                  >
-                                    label
-                                  </span>
-                                </span>
-                                : 
-                                <span
-                                  style={
-                                    Object {
-                                      "color": "#22a",
-                                      "wordBreak": "break-word",
-                                    }
-                                  }
-                                >
-                                  'Option 3'
-                                </span>
-                                ,
-                                <span>
-                                  <span
-                                    style={
-                                      Object {
-                                        "color": "#666",
-                                      }
-                                    }
-                                  >
-                                    value
-                                  </span>
-                                </span>
-                                : 
-                                <span
-                                  style={
-                                    Object {
-                                      "color": "#22a",
-                                      "wordBreak": "break-word",
-                                    }
-                                  }
-                                >
-                                  'opt3'
-                                </span>
-                                }
-                              </span>
-                            </span>
-                            ]
-                          </span>
-                          }
-                        </span>
-                      </span>
-                      <br />
-                    </span>
-                  </span>
-                  <span
-                    style={
-                      Object {
-                        "color": "#777",
-                      }
-                    }
-                  >
-                    /&gt;
-                  </span>
-                </div>
-                <div
-                  style={
-                    Object {
-                      "paddingLeft": 33,
-                      "paddingRight": 3,
-                    }
-                  }
-                >
-                  <span
-                    style={
-                      Object {
-                        "color": "#777",
-                      }
-                    }
-                  >
-                    &lt;
-                    RadioButtons
-                  </span>
-                  <span>
-                    <span>
-                      <span>
-                        <br />
-                          
-                      </span>
-                      <span
-                        style={Object {}}
-                      >
-                        id
-                      </span>
-                      <span>
-                        =
-                        <span
-                          style={Object {}}
-                        >
-                          "
-                          <span
-                            style={
-                              Object {
-                                "color": "#22a",
-                                "wordBreak": "break-word",
-                              }
-                            }
-                          >
-                            radioButtons2
-                          </span>
-                          "
-                        </span>
-                      </span>
-                    </span>
-                    <span>
-                      <span>
-                        <br />
-                          
-                      </span>
-                      <span
-                        style={Object {}}
-                      >
-                        label
-                      </span>
-                      <span>
-                        =
-                        <span
-                          style={Object {}}
-                        >
-                          "
-                          <span
-                            style={
-                              Object {
-                                "color": "#22a",
-                                "wordBreak": "break-word",
-                              }
-                            }
-                          >
-                            Radio Buttons: not required
-                          </span>
-                          "
-                        </span>
-                      </span>
-                    </span>
-                    <span>
-                      <span>
-                        <br />
-                          
-                      </span>
-                      <span
-                        style={Object {}}
-                      >
-                        required
-                      </span>
-                      <span>
-                        =
-                        <span
-                          style={Object {}}
-                        >
-                          {
-                          <span
-                            style={
-                              Object {
-                                "color": "#a11",
-                              }
-                            }
-                          >
-                            false
-                          </span>
-                          }
-                        </span>
-                      </span>
-                    </span>
-                    <span>
-                      <span>
-                        <br />
-                          
-                      </span>
-                      <span
-                        style={Object {}}
-                      >
-                        options
-                      </span>
-                      <span>
-                        =
-                        <span
-                          style={Object {}}
-                        >
-                          {
-                          <span
-                            style={
-                              Object {
-                                "color": "#666",
-                              }
-                            }
-                          >
-                            [
-                            <span>
-                              <span
-                                style={
-                                  Object {
-                                    "color": "#666",
-                                  }
-                                }
-                              >
-                                {
-                                <span>
-                                  <span
-                                    style={
-                                      Object {
-                                        "color": "#666",
-                                      }
-                                    }
-                                  >
-                                    label
-                                  </span>
-                                </span>
-                                : 
-                                <span
-                                  style={
-                                    Object {
-                                      "color": "#22a",
-                                      "wordBreak": "break-word",
-                                    }
-                                  }
-                                >
-                                  'Option 4'
-                                </span>
-                                ,
-                                <span>
-                                  <span
-                                    style={
-                                      Object {
-                                        "color": "#666",
-                                      }
-                                    }
-                                  >
-                                    value
-                                  </span>
-                                </span>
-                                : 
-                                <span
-                                  style={
-                                    Object {
-                                      "color": "#22a",
-                                      "wordBreak": "break-word",
-                                    }
-                                  }
-                                >
-                                  'opt4'
-                                </span>
-                                }
-                              </span>
-                            </span>
-                            ,
-                            <span>
-                              <span
-                                style={
-                                  Object {
-                                    "color": "#666",
-                                  }
-                                }
-                              >
-                                {
-                                <span>
-                                  <span
-                                    style={
-                                      Object {
-                                        "color": "#666",
-                                      }
-                                    }
-                                  >
-                                    label
-                                  </span>
-                                </span>
-                                : 
-                                <span
-                                  style={
-                                    Object {
-                                      "color": "#22a",
-                                      "wordBreak": "break-word",
-                                    }
-                                  }
-                                >
-                                  'Option 5'
-                                </span>
-                                ,
-                                <span>
-                                  <span
-                                    style={
-                                      Object {
-                                        "color": "#666",
-                                      }
-                                    }
-                                  >
-                                    value
-                                  </span>
-                                </span>
-                                : 
-                                <span
-                                  style={
-                                    Object {
-                                      "color": "#22a",
-                                      "wordBreak": "break-word",
-                                    }
-                                  }
-                                >
-                                  'opt5'
-                                </span>
-                                }
-                              </span>
-                            </span>
-                            ,
-                            <span>
-                              <span
-                                style={
-                                  Object {
-                                    "color": "#666",
-                                  }
-                                }
-                              >
-                                {
-                                <span>
-                                  <span
-                                    style={
-                                      Object {
-                                        "color": "#666",
-                                      }
-                                    }
-                                  >
-                                    label
-                                  </span>
-                                </span>
-                                : 
-                                <span
-                                  style={
-                                    Object {
-                                      "color": "#22a",
-                                      "wordBreak": "break-word",
-                                    }
-                                  }
-                                >
-                                  'Option 6'
-                                </span>
-                                ,
-                                <span>
-                                  <span
-                                    style={
-                                      Object {
-                                        "color": "#666",
-                                      }
-                                    }
-                                  >
-                                    value
-                                  </span>
-                                </span>
-                                : 
-                                <span
-                                  style={
-                                    Object {
-                                      "color": "#22a",
-                                      "wordBreak": "break-word",
-                                    }
-                                  }
-                                >
-                                  'opt6'
-                                </span>
-                                }
-                              </span>
-                            </span>
-                            ]
-                          </span>
-                          }
-                        </span>
-                      </span>
-                      <br />
-                    </span>
-                  </span>
-                  <span
-                    style={
-                      Object {
-                        "color": "#777",
-                      }
-                    }
-                  >
-                    /&gt;
-                  </span>
-                </div>
-                <div
-                  style={
-                    Object {
-                      "paddingLeft": 33,
-                      "paddingRight": 3,
-                    }
-                  }
-                >
-                  <span
-                    style={
-                      Object {
-                        "color": "#777",
-                      }
-                    }
-                  >
-                    &lt;
-                    RadioButtons
-                  </span>
-                  <span>
-                    <span>
-                      <span>
-                        <br />
-                          
-                      </span>
-                      <span
-                        style={Object {}}
-                      >
-                        id
-                      </span>
-                      <span>
-                        =
-                        <span
-                          style={Object {}}
-                        >
-                          "
-                          <span
-                            style={
-                              Object {
-                                "color": "#22a",
-                                "wordBreak": "break-word",
-                              }
-                            }
-                          >
-                            radioButtons3
-                          </span>
-                          "
-                        </span>
-                      </span>
-                    </span>
-                    <span>
-                      <span>
-                        <br />
-                          
-                      </span>
-                      <span
-                        style={Object {}}
-                      >
-                        label
-                      </span>
-                      <span>
-                        =
-                        <span
-                          style={Object {}}
-                        >
-                          "
-                          <span
-                            style={
-                              Object {
-                                "color": "#22a",
-                                "wordBreak": "break-word",
-                              }
-                            }
-                          >
-                            Radio Buttons: required, preselected
-                          </span>
-                          "
-                        </span>
-                      </span>
-                    </span>
-                    <span>
-                      <span>
-                        <br />
-                          
-                      </span>
-                      <span
-                        style={Object {}}
-                      >
-                        required
-                      </span>
-                    </span>
-                    <span>
-                      <span>
-                        <br />
-                          
-                      </span>
-                      <span
-                        style={Object {}}
-                      >
-                        options
-                      </span>
-                      <span>
-                        =
-                        <span
-                          style={Object {}}
-                        >
-                          {
-                          <span
-                            style={
-                              Object {
-                                "color": "#666",
-                              }
-                            }
-                          >
-                            [
-                            <span>
-                              <span
-                                style={
-                                  Object {
-                                    "color": "#666",
-                                  }
-                                }
-                              >
-                                {
-                                <span>
-                                  <span
-                                    style={
-                                      Object {
-                                        "color": "#666",
-                                      }
-                                    }
-                                  >
-                                    label
-                                  </span>
-                                </span>
-                                : 
-                                <span
-                                  style={
-                                    Object {
-                                      "color": "#22a",
-                                      "wordBreak": "break-word",
-                                    }
-                                  }
-                                >
-                                  'Option 7'
-                                </span>
-                                ,
-                                <span>
-                                  <span
-                                    style={
-                                      Object {
-                                        "color": "#666",
-                                      }
-                                    }
-                                  >
-                                    value
-                                  </span>
-                                </span>
-                                : 
-                                <span
-                                  style={
-                                    Object {
-                                      "color": "#22a",
-                                      "wordBreak": "break-word",
-                                    }
-                                  }
-                                >
-                                  'opt7'
-                                </span>
-                                }
-                              </span>
-                            </span>
-                            ,
-                            <span>
-                              <span
-                                style={
-                                  Object {
-                                    "color": "#666",
-                                  }
-                                }
-                              >
-                                {
-                                <span>
-                                  <span
-                                    style={
-                                      Object {
-                                        "color": "#666",
-                                      }
-                                    }
-                                  >
-                                    label
-                                  </span>
-                                </span>
-                                : 
-                                <span
-                                  style={
-                                    Object {
-                                      "color": "#22a",
-                                      "wordBreak": "break-word",
-                                    }
-                                  }
-                                >
-                                  'Option 8'
-                                </span>
-                                ,
-                                <span>
-                                  <span
-                                    style={
-                                      Object {
-                                        "color": "#666",
-                                      }
-                                    }
-                                  >
-                                    value
-                                  </span>
-                                </span>
-                                : 
-                                <span
-                                  style={
-                                    Object {
-                                      "color": "#22a",
-                                      "wordBreak": "break-word",
-                                    }
-                                  }
-                                >
-                                  'opt8'
-                                </span>
-                                ,
-                                <span>
-                                  <span
-                                    style={
-                                      Object {
-                                        "color": "#666",
-                                      }
-                                    }
-                                  >
-                                    selected
-                                  </span>
-                                </span>
-                                : 
-                                <span
-                                  style={
-                                    Object {
-                                      "color": "#a11",
-                                    }
-                                  }
-                                >
-                                  true
-                                </span>
-                                }
-                              </span>
-                            </span>
-                            ,
-                            <span>
-                              <span
-                                style={
-                                  Object {
-                                    "color": "#666",
-                                  }
-                                }
-                              >
-                                {
-                                <span>
-                                  <span
-                                    style={
-                                      Object {
-                                        "color": "#666",
-                                      }
-                                    }
-                                  >
-                                    label
-                                  </span>
-                                </span>
-                                : 
-                                <span
-                                  style={
-                                    Object {
-                                      "color": "#22a",
-                                      "wordBreak": "break-word",
-                                    }
-                                  }
-                                >
-                                  'Option 9'
-                                </span>
-                                ,
-                                <span>
-                                  <span
-                                    style={
-                                      Object {
-                                        "color": "#666",
-                                      }
-                                    }
-                                  >
-                                    value
-                                  </span>
-                                </span>
-                                : 
-                                <span
-                                  style={
-                                    Object {
-                                      "color": "#22a",
-                                      "wordBreak": "break-word",
-                                    }
-                                  }
-                                >
-                                  'opt9'
-                                </span>
-                                }
-                              </span>
-                            </span>
-                            ]
-                          </span>
-                          }
-                        </span>
-                      </span>
-                      <br />
-                    </span>
-                  </span>
-                  <span
-                    style={
-                      Object {
-                        "color": "#777",
-                      }
-                    }
-                  >
-                    /&gt;
-                  </span>
-                </div>
-                <div
-                  style={
-                    Object {
-                      "paddingLeft": 33,
-                      "paddingRight": 3,
-                    }
-                  }
-                >
-                  <span
-                    style={
-                      Object {
-                        "color": "#777",
-                      }
-                    }
-                  >
-                    &lt;
-                    RadioButtons
-                  </span>
-                  <span>
-                    <span>
-                      <span>
-                        <br />
-                          
-                      </span>
-                      <span
-                        style={Object {}}
-                      >
-                        id
-                      </span>
-                      <span>
-                        =
-                        <span
-                          style={Object {}}
-                        >
-                          "
-                          <span
-                            style={
-                              Object {
-                                "color": "#22a",
-                                "wordBreak": "break-word",
-                              }
-                            }
-                          >
-                            radioButtons4
-                          </span>
-                          "
-                        </span>
-                      </span>
-                    </span>
-                    <span>
-                      <span>
-                        <br />
-                          
-                      </span>
-                      <span
-                        style={Object {}}
-                      >
-                        label
-                      </span>
-                      <span>
-                        =
-                        <span
-                          style={Object {}}
-                        >
-                          "
-                          <span
-                            style={
-                              Object {
-                                "color": "#22a",
-                                "wordBreak": "break-word",
-                              }
-                            }
-                          >
-                            Radio Buttons: not required, preselected
-                          </span>
-                          "
-                        </span>
-                      </span>
-                    </span>
-                    <span>
-                      <span>
-                        <br />
-                          
-                      </span>
-                      <span
-                        style={Object {}}
-                      >
-                        required
-                      </span>
-                      <span>
-                        =
-                        <span
-                          style={Object {}}
-                        >
-                          {
-                          <span
-                            style={
-                              Object {
-                                "color": "#a11",
-                              }
-                            }
-                          >
-                            false
-                          </span>
-                          }
-                        </span>
-                      </span>
-                    </span>
-                    <span>
-                      <span>
-                        <br />
-                          
-                      </span>
-                      <span
-                        style={Object {}}
-                      >
-                        options
-                      </span>
-                      <span>
-                        =
-                        <span
-                          style={Object {}}
-                        >
-                          {
-                          <span
-                            style={
-                              Object {
-                                "color": "#666",
-                              }
-                            }
-                          >
-                            [
-                            <span>
-                              <span
-                                style={
-                                  Object {
-                                    "color": "#666",
-                                  }
-                                }
-                              >
-                                {
-                                <span>
-                                  <span
-                                    style={
-                                      Object {
-                                        "color": "#666",
-                                      }
-                                    }
-                                  >
-                                    label
-                                  </span>
-                                </span>
-                                : 
-                                <span
-                                  style={
-                                    Object {
-                                      "color": "#22a",
-                                      "wordBreak": "break-word",
-                                    }
-                                  }
-                                >
-                                  'Option 10'
-                                </span>
-                                ,
-                                <span>
-                                  <span
-                                    style={
-                                      Object {
-                                        "color": "#666",
-                                      }
-                                    }
-                                  >
-                                    value
-                                  </span>
-                                </span>
-                                : 
-                                <span
-                                  style={
-                                    Object {
-                                      "color": "#22a",
-                                      "wordBreak": "break-word",
-                                    }
-                                  }
-                                >
-                                  'opt10'
-                                </span>
-                                }
-                              </span>
-                            </span>
-                            ,
-                            <span>
-                              <span
-                                style={
-                                  Object {
-                                    "color": "#666",
-                                  }
-                                }
-                              >
-                                {
-                                <span>
-                                  <span>
-                                    <br />
-                                        
-                                      
-                                  </span>
-                                  <span
-                                    style={
-                                      Object {
-                                        "color": "#666",
-                                      }
-                                    }
-                                  >
-                                    label
-                                  </span>
-                                </span>
-                                : 
-                                <span
-                                  style={
-                                    Object {
-                                      "color": "#22a",
-                                      "wordBreak": "break-word",
-                                    }
-                                  }
-                                >
-                                  'Option 11'
-                                </span>
-                                ,
-                                <span>
-                                  <span>
-                                    <br />
-                                        
-                                      
-                                  </span>
-                                  <span
-                                    style={
-                                      Object {
-                                        "color": "#666",
-                                      }
-                                    }
-                                  >
-                                    value
-                                  </span>
-                                </span>
-                                : 
-                                <span
-                                  style={
-                                    Object {
-                                      "color": "#22a",
-                                      "wordBreak": "break-word",
-                                    }
-                                  }
-                                >
-                                  'opt11'
-                                </span>
-                                ,
-                                <span>
-                                  <span>
-                                    <br />
-                                        
-                                      
-                                  </span>
-                                  <span
-                                    style={
-                                      Object {
-                                        "color": "#666",
-                                      }
-                                    }
-                                  >
-                                    selected
-                                  </span>
-                                </span>
-                                : 
-                                <span
-                                  style={
-                                    Object {
-                                      "color": "#a11",
-                                    }
-                                  }
-                                >
-                                  true
-                                </span>
-                                ,
-                                <span>
-                                  <span>
-                                    <br />
-                                        
-                                      
-                                  </span>
-                                  …
-                                </span>
-                                <span>
-                                  <br />
-                                      
-                                </span>
-                                }
-                              </span>
-                            </span>
-                            ,
-                            <span>
-                              <span
-                                style={
-                                  Object {
-                                    "color": "#666",
-                                  }
-                                }
-                              >
-                                {
-                                <span>
-                                  <span
-                                    style={
-                                      Object {
-                                        "color": "#666",
-                                      }
-                                    }
-                                  >
-                                    label
-                                  </span>
-                                </span>
-                                : 
-                                <span
-                                  style={
-                                    Object {
-                                      "color": "#22a",
-                                      "wordBreak": "break-word",
-                                    }
-                                  }
-                                >
-                                  'Option 12'
-                                </span>
-                                ,
-                                <span>
-                                  <span
-                                    style={
-                                      Object {
-                                        "color": "#666",
-                                      }
-                                    }
-                                  >
-                                    value
-                                  </span>
-                                </span>
-                                : 
-                                <span
-                                  style={
-                                    Object {
-                                      "color": "#22a",
-                                      "wordBreak": "break-word",
-                                    }
-                                  }
-                                >
-                                  'opt12'
-                                </span>
-                                }
-                              </span>
-                            </span>
-                            ]
-                          </span>
-                          }
-                        </span>
-                      </span>
-                      <br />
-                    </span>
-                  </span>
-                  <span
-                    style={
-                      Object {
-                        "color": "#777",
-                      }
-                    }
-                  >
-                    /&gt;
-                  </span>
-                </div>
-                <div
-                  style={
-                    Object {
-                      "paddingLeft": 18,
-                      "paddingRight": 3,
-                    }
-                  }
-                >
-                  <span
-                    style={
-                      Object {
-                        "color": "#777",
-                      }
-                    }
-                  >
-                    &lt;/
-                    div
-                    &gt;
-                  </span>
-                </div>
-              </div>
-            </div>
-            <button
-              className="css-py33tc"
-              onClick={[Function]}
-            >
-              <div
-                className="css-kv47nt"
-              >
-                <div
-                  style={
-                    Object {
-                      "marginBottom": 6,
-                    }
-                  }
-                >
-                  Copied!
-                </div>
-                <div>
-                  Copy
-                </div>
-              </div>
-            </button>
-          </pre>
-        </div>
-        <div>
-          <h1
-            style={
-              Object {
-                "borderBottom": "1px solid #EEE",
-                "fontSize": "25px",
-                "margin": "20px 0 0 0",
-                "padding": "0 0 5px 0",
-              }
-            }
-          >
-            Prop Types
-          </h1>
-          <div>
-            <h2
+            <h1
               style={
                 Object {
-                  "margin": "20px 0 0 0",
+                  "fontSize": "35px",
+                  "margin": 0,
+                  "padding": 0,
                 }
               }
             >
-              "
-              RadioButtons
-              " Component
-            </h2>
-            <table
-              className="css-1ytzlk7"
+              Radio Buttons
+            </h1>
+            <h2
+              style={
+                Object {
+                  "fontSize": "22px",
+                  "fontWeight": 400,
+                  "margin": "0 0 10px 0",
+                  "padding": 0,
+                }
+              }
             >
-              <thead>
-                <tr>
-                  <th
-                    className="css-d52hbj"
-                  >
-                    property
-                  </th>
-                  <th
-                    className="css-d52hbj"
-                  >
-                    propType
-                  </th>
-                  <th
-                    className="css-d52hbj"
-                  >
-                    required
-                  </th>
-                  <th
-                    className="css-d52hbj"
-                  >
-                    default
-                  </th>
-                  <th
-                    className="css-d52hbj"
-                  >
-                    description
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td
-                    className="css-1ygfcef"
-                  >
-                    id
-                  </td>
-                  <td
-                    className="css-1ygfcef"
-                  >
-                    <span />
-                  </td>
-                  <td
-                    className="css-d52hbj"
-                  >
-                    yes
-                  </td>
-                  <td
-                    className="css-d52hbj"
-                  >
-                    -
-                  </td>
-                  <td
-                    className="css-d52hbj"
-                  />
-                </tr>
-                <tr>
-                  <td
-                    className="css-1ygfcef"
-                  >
-                    label
-                  </td>
-                  <td
-                    className="css-1ygfcef"
-                  >
-                    <span />
-                  </td>
-                  <td
-                    className="css-d52hbj"
-                  >
-                    yes
-                  </td>
-                  <td
-                    className="css-d52hbj"
-                  >
-                    -
-                  </td>
-                  <td
-                    className="css-d52hbj"
-                  />
-                </tr>
-                <tr>
-                  <td
-                    className="css-1ygfcef"
-                  >
-                    required
-                  </td>
-                  <td
-                    className="css-1ygfcef"
-                  >
-                    <span />
-                  </td>
-                  <td
-                    className="css-d52hbj"
-                  >
-                    yes
-                  </td>
-                  <td
-                    className="css-d52hbj"
-                  >
-                    -
-                  </td>
-                  <td
-                    className="css-d52hbj"
-                  />
-                </tr>
-                <tr>
-                  <td
-                    className="css-1ygfcef"
-                  >
-                    options
-                  </td>
-                  <td
-                    className="css-1ygfcef"
-                  >
-                    <span />
-                  </td>
-                  <td
-                    className="css-d52hbj"
-                  >
-                    yes
-                  </td>
-                  <td
-                    className="css-d52hbj"
-                  >
-                    -
-                  </td>
-                  <td
-                    className="css-d52hbj"
-                  />
-                </tr>
-                <tr>
-                  <td
-                    className="css-1ygfcef"
-                  >
-                    value
-                  </td>
-                  <td
-                    className="css-1ygfcef"
-                  >
-                    <span />
-                  </td>
-                  <td
-                    className="css-d52hbj"
-                  >
-                    -
-                  </td>
-                  <td
-                    className="css-d52hbj"
+              RadioButtons
+            </h2>
+          </div>
+          <div
+            style={
+              Object {
+                "marginBottom": 0,
+              }
+            }
+          >
+            <div
+              style={
+                Object {
+                  "WebkitFontSmoothing": "antialiased",
+                  "color": "#444",
+                  "fontFamily": "-apple-system, \\".SFNSText-Regular\\", \\"San Francisco\\", BlinkMacSystemFont, \\"Segoe UI\\", \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", \\"Lucida Grande\\", \\"Arial\\", sans-serif",
+                  "fontSize": "15px",
+                }
+              }
+            >
+              Required
+            </div>
+          </div>
+          <div>
+            <h1
+              style={
+                Object {
+                  "borderBottom": "1px solid #EEE",
+                  "fontSize": "25px",
+                  "margin": "20px 0 0 0",
+                  "padding": "0 0 5px 0",
+                }
+              }
+            >
+              Story Source
+            </h1>
+            <pre
+              className="css-4akams"
+            >
+              <div>
+                <div>
+                  <div
+                    style={
+                      Object {
+                        "paddingLeft": 18,
+                        "paddingRight": 3,
+                      }
+                    }
                   >
                     <span
                       style={
@@ -2057,65 +489,27 @@ exports[`Stories Storyshots Radio buttons Radio buttons 1`] = `
                         }
                       }
                     >
-                      null
+                      &lt;
+                      div
                     </span>
-                  </td>
-                  <td
-                    className="css-d52hbj"
-                  />
-                </tr>
-                <tr>
-                  <td
-                    className="css-1ygfcef"
-                  >
-                    extraClass
-                  </td>
-                  <td
-                    className="css-1ygfcef"
-                  >
                     <span />
-                  </td>
-                  <td
-                    className="css-d52hbj"
-                  >
-                    -
-                  </td>
-                  <td
-                    className="css-d52hbj"
-                  >
                     <span
                       style={
                         Object {
-                          "color": "#22a",
-                          "wordBreak": "break-word",
+                          "color": "#777",
                         }
                       }
                     >
-                      
+                      &gt;
                     </span>
-                  </td>
-                  <td
-                    className="css-d52hbj"
-                  />
-                </tr>
-                <tr>
-                  <td
-                    className="css-1ygfcef"
-                  >
-                    isValid
-                  </td>
-                  <td
-                    className="css-1ygfcef"
-                  >
-                    <span />
-                  </td>
-                  <td
-                    className="css-d52hbj"
-                  >
-                    -
-                  </td>
-                  <td
-                    className="css-d52hbj"
+                  </div>
+                  <div
+                    style={
+                      Object {
+                        "paddingLeft": 33,
+                        "paddingRight": 3,
+                      }
+                    }
                   >
                     <span
                       style={
@@ -2124,48 +518,1658 @@ exports[`Stories Storyshots Radio buttons Radio buttons 1`] = `
                         }
                       }
                     >
-                      null
+                      &lt;
+                      RadioButtons
                     </span>
-                  </td>
-                  <td
-                    className="css-d52hbj"
-                  />
-                </tr>
-                <tr>
-                  <td
-                    className="css-1ygfcef"
-                  >
-                    showErrorMessage
-                  </td>
-                  <td
-                    className="css-1ygfcef"
-                  >
-                    <span />
-                  </td>
-                  <td
-                    className="css-d52hbj"
-                  >
-                    -
-                  </td>
-                  <td
-                    className="css-d52hbj"
+                    <span>
+                      <span>
+                        <span>
+                          <br />
+                            
+                        </span>
+                        <span
+                          style={Object {}}
+                        >
+                          id
+                        </span>
+                        <span>
+                          =
+                          <span
+                            style={Object {}}
+                          >
+                            "
+                            <span
+                              style={
+                                Object {
+                                  "color": "#22a",
+                                  "wordBreak": "break-word",
+                                }
+                              }
+                            >
+                              radioButtons1
+                            </span>
+                            "
+                          </span>
+                        </span>
+                      </span>
+                      <span>
+                        <span>
+                          <br />
+                            
+                        </span>
+                        <span
+                          style={Object {}}
+                        >
+                          label
+                        </span>
+                        <span>
+                          =
+                          <span
+                            style={Object {}}
+                          >
+                            "
+                            <span
+                              style={
+                                Object {
+                                  "color": "#22a",
+                                  "wordBreak": "break-word",
+                                }
+                              }
+                            >
+                              Radio Buttons: required
+                            </span>
+                            "
+                          </span>
+                        </span>
+                      </span>
+                      <span>
+                        <span>
+                          <br />
+                            
+                        </span>
+                        <span
+                          style={Object {}}
+                        >
+                          required
+                        </span>
+                      </span>
+                      <span>
+                        <span>
+                          <br />
+                            
+                        </span>
+                        <span
+                          style={Object {}}
+                        >
+                          options
+                        </span>
+                        <span>
+                          =
+                          <span
+                            style={Object {}}
+                          >
+                            {
+                            <span
+                              style={
+                                Object {
+                                  "color": "#666",
+                                }
+                              }
+                            >
+                              [
+                              <span>
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#666",
+                                    }
+                                  }
+                                >
+                                  {
+                                  <span>
+                                    <span
+                                      style={
+                                        Object {
+                                          "color": "#666",
+                                        }
+                                      }
+                                    >
+                                      label
+                                    </span>
+                                  </span>
+                                  : 
+                                  <span
+                                    style={
+                                      Object {
+                                        "color": "#22a",
+                                        "wordBreak": "break-word",
+                                      }
+                                    }
+                                  >
+                                    'Option 1'
+                                  </span>
+                                  ,
+                                  <span>
+                                    <span
+                                      style={
+                                        Object {
+                                          "color": "#666",
+                                        }
+                                      }
+                                    >
+                                      value
+                                    </span>
+                                  </span>
+                                  : 
+                                  <span
+                                    style={
+                                      Object {
+                                        "color": "#22a",
+                                        "wordBreak": "break-word",
+                                      }
+                                    }
+                                  >
+                                    'opt1'
+                                  </span>
+                                  }
+                                </span>
+                              </span>
+                              ,
+                              <span>
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#666",
+                                    }
+                                  }
+                                >
+                                  {
+                                  <span>
+                                    <span
+                                      style={
+                                        Object {
+                                          "color": "#666",
+                                        }
+                                      }
+                                    >
+                                      label
+                                    </span>
+                                  </span>
+                                  : 
+                                  <span
+                                    style={
+                                      Object {
+                                        "color": "#22a",
+                                        "wordBreak": "break-word",
+                                      }
+                                    }
+                                  >
+                                    'Option 2'
+                                  </span>
+                                  ,
+                                  <span>
+                                    <span
+                                      style={
+                                        Object {
+                                          "color": "#666",
+                                        }
+                                      }
+                                    >
+                                      value
+                                    </span>
+                                  </span>
+                                  : 
+                                  <span
+                                    style={
+                                      Object {
+                                        "color": "#22a",
+                                        "wordBreak": "break-word",
+                                      }
+                                    }
+                                  >
+                                    'opt2'
+                                  </span>
+                                  }
+                                </span>
+                              </span>
+                              ,
+                              <span>
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#666",
+                                    }
+                                  }
+                                >
+                                  {
+                                  <span>
+                                    <span
+                                      style={
+                                        Object {
+                                          "color": "#666",
+                                        }
+                                      }
+                                    >
+                                      label
+                                    </span>
+                                  </span>
+                                  : 
+                                  <span
+                                    style={
+                                      Object {
+                                        "color": "#22a",
+                                        "wordBreak": "break-word",
+                                      }
+                                    }
+                                  >
+                                    'Option 3'
+                                  </span>
+                                  ,
+                                  <span>
+                                    <span
+                                      style={
+                                        Object {
+                                          "color": "#666",
+                                        }
+                                      }
+                                    >
+                                      value
+                                    </span>
+                                  </span>
+                                  : 
+                                  <span
+                                    style={
+                                      Object {
+                                        "color": "#22a",
+                                        "wordBreak": "break-word",
+                                      }
+                                    }
+                                  >
+                                    'opt3'
+                                  </span>
+                                  }
+                                </span>
+                              </span>
+                              ]
+                            </span>
+                            }
+                          </span>
+                        </span>
+                        <br />
+                      </span>
+                    </span>
+                    <span
+                      style={
+                        Object {
+                          "color": "#777",
+                        }
+                      }
+                    >
+                      /&gt;
+                    </span>
+                  </div>
+                  <div
+                    style={
+                      Object {
+                        "paddingLeft": 33,
+                        "paddingRight": 3,
+                      }
+                    }
                   >
                     <span
                       style={
                         Object {
-                          "color": "#a11",
+                          "color": "#777",
                         }
                       }
                     >
-                      false
+                      &lt;
+                      RadioButtons
                     </span>
-                  </td>
-                  <td
-                    className="css-d52hbj"
-                  />
-                </tr>
-              </tbody>
-            </table>
+                    <span>
+                      <span>
+                        <span>
+                          <br />
+                            
+                        </span>
+                        <span
+                          style={Object {}}
+                        >
+                          id
+                        </span>
+                        <span>
+                          =
+                          <span
+                            style={Object {}}
+                          >
+                            "
+                            <span
+                              style={
+                                Object {
+                                  "color": "#22a",
+                                  "wordBreak": "break-word",
+                                }
+                              }
+                            >
+                              radioButtons2
+                            </span>
+                            "
+                          </span>
+                        </span>
+                      </span>
+                      <span>
+                        <span>
+                          <br />
+                            
+                        </span>
+                        <span
+                          style={Object {}}
+                        >
+                          label
+                        </span>
+                        <span>
+                          =
+                          <span
+                            style={Object {}}
+                          >
+                            "
+                            <span
+                              style={
+                                Object {
+                                  "color": "#22a",
+                                  "wordBreak": "break-word",
+                                }
+                              }
+                            >
+                              Radio Buttons: not required
+                            </span>
+                            "
+                          </span>
+                        </span>
+                      </span>
+                      <span>
+                        <span>
+                          <br />
+                            
+                        </span>
+                        <span
+                          style={Object {}}
+                        >
+                          required
+                        </span>
+                        <span>
+                          =
+                          <span
+                            style={Object {}}
+                          >
+                            {
+                            <span
+                              style={
+                                Object {
+                                  "color": "#a11",
+                                }
+                              }
+                            >
+                              false
+                            </span>
+                            }
+                          </span>
+                        </span>
+                      </span>
+                      <span>
+                        <span>
+                          <br />
+                            
+                        </span>
+                        <span
+                          style={Object {}}
+                        >
+                          options
+                        </span>
+                        <span>
+                          =
+                          <span
+                            style={Object {}}
+                          >
+                            {
+                            <span
+                              style={
+                                Object {
+                                  "color": "#666",
+                                }
+                              }
+                            >
+                              [
+                              <span>
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#666",
+                                    }
+                                  }
+                                >
+                                  {
+                                  <span>
+                                    <span
+                                      style={
+                                        Object {
+                                          "color": "#666",
+                                        }
+                                      }
+                                    >
+                                      label
+                                    </span>
+                                  </span>
+                                  : 
+                                  <span
+                                    style={
+                                      Object {
+                                        "color": "#22a",
+                                        "wordBreak": "break-word",
+                                      }
+                                    }
+                                  >
+                                    'Option 4'
+                                  </span>
+                                  ,
+                                  <span>
+                                    <span
+                                      style={
+                                        Object {
+                                          "color": "#666",
+                                        }
+                                      }
+                                    >
+                                      value
+                                    </span>
+                                  </span>
+                                  : 
+                                  <span
+                                    style={
+                                      Object {
+                                        "color": "#22a",
+                                        "wordBreak": "break-word",
+                                      }
+                                    }
+                                  >
+                                    'opt4'
+                                  </span>
+                                  }
+                                </span>
+                              </span>
+                              ,
+                              <span>
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#666",
+                                    }
+                                  }
+                                >
+                                  {
+                                  <span>
+                                    <span
+                                      style={
+                                        Object {
+                                          "color": "#666",
+                                        }
+                                      }
+                                    >
+                                      label
+                                    </span>
+                                  </span>
+                                  : 
+                                  <span
+                                    style={
+                                      Object {
+                                        "color": "#22a",
+                                        "wordBreak": "break-word",
+                                      }
+                                    }
+                                  >
+                                    'Option 5'
+                                  </span>
+                                  ,
+                                  <span>
+                                    <span
+                                      style={
+                                        Object {
+                                          "color": "#666",
+                                        }
+                                      }
+                                    >
+                                      value
+                                    </span>
+                                  </span>
+                                  : 
+                                  <span
+                                    style={
+                                      Object {
+                                        "color": "#22a",
+                                        "wordBreak": "break-word",
+                                      }
+                                    }
+                                  >
+                                    'opt5'
+                                  </span>
+                                  }
+                                </span>
+                              </span>
+                              ,
+                              <span>
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#666",
+                                    }
+                                  }
+                                >
+                                  {
+                                  <span>
+                                    <span
+                                      style={
+                                        Object {
+                                          "color": "#666",
+                                        }
+                                      }
+                                    >
+                                      label
+                                    </span>
+                                  </span>
+                                  : 
+                                  <span
+                                    style={
+                                      Object {
+                                        "color": "#22a",
+                                        "wordBreak": "break-word",
+                                      }
+                                    }
+                                  >
+                                    'Option 6'
+                                  </span>
+                                  ,
+                                  <span>
+                                    <span
+                                      style={
+                                        Object {
+                                          "color": "#666",
+                                        }
+                                      }
+                                    >
+                                      value
+                                    </span>
+                                  </span>
+                                  : 
+                                  <span
+                                    style={
+                                      Object {
+                                        "color": "#22a",
+                                        "wordBreak": "break-word",
+                                      }
+                                    }
+                                  >
+                                    'opt6'
+                                  </span>
+                                  }
+                                </span>
+                              </span>
+                              ]
+                            </span>
+                            }
+                          </span>
+                        </span>
+                        <br />
+                      </span>
+                    </span>
+                    <span
+                      style={
+                        Object {
+                          "color": "#777",
+                        }
+                      }
+                    >
+                      /&gt;
+                    </span>
+                  </div>
+                  <div
+                    style={
+                      Object {
+                        "paddingLeft": 33,
+                        "paddingRight": 3,
+                      }
+                    }
+                  >
+                    <span
+                      style={
+                        Object {
+                          "color": "#777",
+                        }
+                      }
+                    >
+                      &lt;
+                      RadioButtons
+                    </span>
+                    <span>
+                      <span>
+                        <span>
+                          <br />
+                            
+                        </span>
+                        <span
+                          style={Object {}}
+                        >
+                          id
+                        </span>
+                        <span>
+                          =
+                          <span
+                            style={Object {}}
+                          >
+                            "
+                            <span
+                              style={
+                                Object {
+                                  "color": "#22a",
+                                  "wordBreak": "break-word",
+                                }
+                              }
+                            >
+                              radioButtons3
+                            </span>
+                            "
+                          </span>
+                        </span>
+                      </span>
+                      <span>
+                        <span>
+                          <br />
+                            
+                        </span>
+                        <span
+                          style={Object {}}
+                        >
+                          label
+                        </span>
+                        <span>
+                          =
+                          <span
+                            style={Object {}}
+                          >
+                            "
+                            <span
+                              style={
+                                Object {
+                                  "color": "#22a",
+                                  "wordBreak": "break-word",
+                                }
+                              }
+                            >
+                              Radio Buttons: required, preselected
+                            </span>
+                            "
+                          </span>
+                        </span>
+                      </span>
+                      <span>
+                        <span>
+                          <br />
+                            
+                        </span>
+                        <span
+                          style={Object {}}
+                        >
+                          required
+                        </span>
+                      </span>
+                      <span>
+                        <span>
+                          <br />
+                            
+                        </span>
+                        <span
+                          style={Object {}}
+                        >
+                          options
+                        </span>
+                        <span>
+                          =
+                          <span
+                            style={Object {}}
+                          >
+                            {
+                            <span
+                              style={
+                                Object {
+                                  "color": "#666",
+                                }
+                              }
+                            >
+                              [
+                              <span>
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#666",
+                                    }
+                                  }
+                                >
+                                  {
+                                  <span>
+                                    <span
+                                      style={
+                                        Object {
+                                          "color": "#666",
+                                        }
+                                      }
+                                    >
+                                      label
+                                    </span>
+                                  </span>
+                                  : 
+                                  <span
+                                    style={
+                                      Object {
+                                        "color": "#22a",
+                                        "wordBreak": "break-word",
+                                      }
+                                    }
+                                  >
+                                    'Option 7'
+                                  </span>
+                                  ,
+                                  <span>
+                                    <span
+                                      style={
+                                        Object {
+                                          "color": "#666",
+                                        }
+                                      }
+                                    >
+                                      value
+                                    </span>
+                                  </span>
+                                  : 
+                                  <span
+                                    style={
+                                      Object {
+                                        "color": "#22a",
+                                        "wordBreak": "break-word",
+                                      }
+                                    }
+                                  >
+                                    'opt7'
+                                  </span>
+                                  }
+                                </span>
+                              </span>
+                              ,
+                              <span>
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#666",
+                                    }
+                                  }
+                                >
+                                  {
+                                  <span>
+                                    <span
+                                      style={
+                                        Object {
+                                          "color": "#666",
+                                        }
+                                      }
+                                    >
+                                      label
+                                    </span>
+                                  </span>
+                                  : 
+                                  <span
+                                    style={
+                                      Object {
+                                        "color": "#22a",
+                                        "wordBreak": "break-word",
+                                      }
+                                    }
+                                  >
+                                    'Option 8'
+                                  </span>
+                                  ,
+                                  <span>
+                                    <span
+                                      style={
+                                        Object {
+                                          "color": "#666",
+                                        }
+                                      }
+                                    >
+                                      value
+                                    </span>
+                                  </span>
+                                  : 
+                                  <span
+                                    style={
+                                      Object {
+                                        "color": "#22a",
+                                        "wordBreak": "break-word",
+                                      }
+                                    }
+                                  >
+                                    'opt8'
+                                  </span>
+                                  ,
+                                  <span>
+                                    <span
+                                      style={
+                                        Object {
+                                          "color": "#666",
+                                        }
+                                      }
+                                    >
+                                      selected
+                                    </span>
+                                  </span>
+                                  : 
+                                  <span
+                                    style={
+                                      Object {
+                                        "color": "#a11",
+                                      }
+                                    }
+                                  >
+                                    true
+                                  </span>
+                                  }
+                                </span>
+                              </span>
+                              ,
+                              <span>
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#666",
+                                    }
+                                  }
+                                >
+                                  {
+                                  <span>
+                                    <span
+                                      style={
+                                        Object {
+                                          "color": "#666",
+                                        }
+                                      }
+                                    >
+                                      label
+                                    </span>
+                                  </span>
+                                  : 
+                                  <span
+                                    style={
+                                      Object {
+                                        "color": "#22a",
+                                        "wordBreak": "break-word",
+                                      }
+                                    }
+                                  >
+                                    'Option 9'
+                                  </span>
+                                  ,
+                                  <span>
+                                    <span
+                                      style={
+                                        Object {
+                                          "color": "#666",
+                                        }
+                                      }
+                                    >
+                                      value
+                                    </span>
+                                  </span>
+                                  : 
+                                  <span
+                                    style={
+                                      Object {
+                                        "color": "#22a",
+                                        "wordBreak": "break-word",
+                                      }
+                                    }
+                                  >
+                                    'opt9'
+                                  </span>
+                                  }
+                                </span>
+                              </span>
+                              ]
+                            </span>
+                            }
+                          </span>
+                        </span>
+                        <br />
+                      </span>
+                    </span>
+                    <span
+                      style={
+                        Object {
+                          "color": "#777",
+                        }
+                      }
+                    >
+                      /&gt;
+                    </span>
+                  </div>
+                  <div
+                    style={
+                      Object {
+                        "paddingLeft": 33,
+                        "paddingRight": 3,
+                      }
+                    }
+                  >
+                    <span
+                      style={
+                        Object {
+                          "color": "#777",
+                        }
+                      }
+                    >
+                      &lt;
+                      RadioButtons
+                    </span>
+                    <span>
+                      <span>
+                        <span>
+                          <br />
+                            
+                        </span>
+                        <span
+                          style={Object {}}
+                        >
+                          id
+                        </span>
+                        <span>
+                          =
+                          <span
+                            style={Object {}}
+                          >
+                            "
+                            <span
+                              style={
+                                Object {
+                                  "color": "#22a",
+                                  "wordBreak": "break-word",
+                                }
+                              }
+                            >
+                              radioButtons4
+                            </span>
+                            "
+                          </span>
+                        </span>
+                      </span>
+                      <span>
+                        <span>
+                          <br />
+                            
+                        </span>
+                        <span
+                          style={Object {}}
+                        >
+                          label
+                        </span>
+                        <span>
+                          =
+                          <span
+                            style={Object {}}
+                          >
+                            "
+                            <span
+                              style={
+                                Object {
+                                  "color": "#22a",
+                                  "wordBreak": "break-word",
+                                }
+                              }
+                            >
+                              Radio Buttons: not required, preselected
+                            </span>
+                            "
+                          </span>
+                        </span>
+                      </span>
+                      <span>
+                        <span>
+                          <br />
+                            
+                        </span>
+                        <span
+                          style={Object {}}
+                        >
+                          required
+                        </span>
+                        <span>
+                          =
+                          <span
+                            style={Object {}}
+                          >
+                            {
+                            <span
+                              style={
+                                Object {
+                                  "color": "#a11",
+                                }
+                              }
+                            >
+                              false
+                            </span>
+                            }
+                          </span>
+                        </span>
+                      </span>
+                      <span>
+                        <span>
+                          <br />
+                            
+                        </span>
+                        <span
+                          style={Object {}}
+                        >
+                          options
+                        </span>
+                        <span>
+                          =
+                          <span
+                            style={Object {}}
+                          >
+                            {
+                            <span
+                              style={
+                                Object {
+                                  "color": "#666",
+                                }
+                              }
+                            >
+                              [
+                              <span>
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#666",
+                                    }
+                                  }
+                                >
+                                  {
+                                  <span>
+                                    <span
+                                      style={
+                                        Object {
+                                          "color": "#666",
+                                        }
+                                      }
+                                    >
+                                      label
+                                    </span>
+                                  </span>
+                                  : 
+                                  <span
+                                    style={
+                                      Object {
+                                        "color": "#22a",
+                                        "wordBreak": "break-word",
+                                      }
+                                    }
+                                  >
+                                    'Option 10'
+                                  </span>
+                                  ,
+                                  <span>
+                                    <span
+                                      style={
+                                        Object {
+                                          "color": "#666",
+                                        }
+                                      }
+                                    >
+                                      value
+                                    </span>
+                                  </span>
+                                  : 
+                                  <span
+                                    style={
+                                      Object {
+                                        "color": "#22a",
+                                        "wordBreak": "break-word",
+                                      }
+                                    }
+                                  >
+                                    'opt10'
+                                  </span>
+                                  }
+                                </span>
+                              </span>
+                              ,
+                              <span>
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#666",
+                                    }
+                                  }
+                                >
+                                  {
+                                  <span>
+                                    <span>
+                                      <br />
+                                          
+                                        
+                                    </span>
+                                    <span
+                                      style={
+                                        Object {
+                                          "color": "#666",
+                                        }
+                                      }
+                                    >
+                                      label
+                                    </span>
+                                  </span>
+                                  : 
+                                  <span
+                                    style={
+                                      Object {
+                                        "color": "#22a",
+                                        "wordBreak": "break-word",
+                                      }
+                                    }
+                                  >
+                                    'Option 11'
+                                  </span>
+                                  ,
+                                  <span>
+                                    <span>
+                                      <br />
+                                          
+                                        
+                                    </span>
+                                    <span
+                                      style={
+                                        Object {
+                                          "color": "#666",
+                                        }
+                                      }
+                                    >
+                                      value
+                                    </span>
+                                  </span>
+                                  : 
+                                  <span
+                                    style={
+                                      Object {
+                                        "color": "#22a",
+                                        "wordBreak": "break-word",
+                                      }
+                                    }
+                                  >
+                                    'opt11'
+                                  </span>
+                                  ,
+                                  <span>
+                                    <span>
+                                      <br />
+                                          
+                                        
+                                    </span>
+                                    <span
+                                      style={
+                                        Object {
+                                          "color": "#666",
+                                        }
+                                      }
+                                    >
+                                      selected
+                                    </span>
+                                  </span>
+                                  : 
+                                  <span
+                                    style={
+                                      Object {
+                                        "color": "#a11",
+                                      }
+                                    }
+                                  >
+                                    true
+                                  </span>
+                                  ,
+                                  <span>
+                                    <span>
+                                      <br />
+                                          
+                                        
+                                    </span>
+                                    …
+                                  </span>
+                                  <span>
+                                    <br />
+                                        
+                                  </span>
+                                  }
+                                </span>
+                              </span>
+                              ,
+                              <span>
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#666",
+                                    }
+                                  }
+                                >
+                                  {
+                                  <span>
+                                    <span
+                                      style={
+                                        Object {
+                                          "color": "#666",
+                                        }
+                                      }
+                                    >
+                                      label
+                                    </span>
+                                  </span>
+                                  : 
+                                  <span
+                                    style={
+                                      Object {
+                                        "color": "#22a",
+                                        "wordBreak": "break-word",
+                                      }
+                                    }
+                                  >
+                                    'Option 12'
+                                  </span>
+                                  ,
+                                  <span>
+                                    <span
+                                      style={
+                                        Object {
+                                          "color": "#666",
+                                        }
+                                      }
+                                    >
+                                      value
+                                    </span>
+                                  </span>
+                                  : 
+                                  <span
+                                    style={
+                                      Object {
+                                        "color": "#22a",
+                                        "wordBreak": "break-word",
+                                      }
+                                    }
+                                  >
+                                    'opt12'
+                                  </span>
+                                  }
+                                </span>
+                              </span>
+                              ]
+                            </span>
+                            }
+                          </span>
+                        </span>
+                        <br />
+                      </span>
+                    </span>
+                    <span
+                      style={
+                        Object {
+                          "color": "#777",
+                        }
+                      }
+                    >
+                      /&gt;
+                    </span>
+                  </div>
+                  <div
+                    style={
+                      Object {
+                        "paddingLeft": 18,
+                        "paddingRight": 3,
+                      }
+                    }
+                  >
+                    <span
+                      style={
+                        Object {
+                          "color": "#777",
+                        }
+                      }
+                    >
+                      &lt;/
+                      div
+                      &gt;
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <button
+                className="css-py33tc"
+                onClick={[Function]}
+              >
+                <div
+                  className="css-kv47nt"
+                >
+                  <div
+                    style={
+                      Object {
+                        "marginBottom": 6,
+                      }
+                    }
+                  >
+                    Copied!
+                  </div>
+                  <div>
+                    Copy
+                  </div>
+                </div>
+              </button>
+            </pre>
+          </div>
+          <div>
+            <h1
+              style={
+                Object {
+                  "borderBottom": "1px solid #EEE",
+                  "fontSize": "25px",
+                  "margin": "20px 0 0 0",
+                  "padding": "0 0 5px 0",
+                }
+              }
+            >
+              Prop Types
+            </h1>
+            <div>
+              <h2
+                style={
+                  Object {
+                    "margin": "20px 0 0 0",
+                  }
+                }
+              >
+                "
+                RadioButtons
+                " Component
+              </h2>
+              <table
+                className="css-1ytzlk7"
+              >
+                <thead>
+                  <tr>
+                    <th
+                      className="css-d52hbj"
+                    >
+                      property
+                    </th>
+                    <th
+                      className="css-d52hbj"
+                    >
+                      propType
+                    </th>
+                    <th
+                      className="css-d52hbj"
+                    >
+                      required
+                    </th>
+                    <th
+                      className="css-d52hbj"
+                    >
+                      default
+                    </th>
+                    <th
+                      className="css-d52hbj"
+                    >
+                      description
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td
+                      className="css-1ygfcef"
+                    >
+                      id
+                    </td>
+                    <td
+                      className="css-1ygfcef"
+                    >
+                      <span />
+                    </td>
+                    <td
+                      className="css-d52hbj"
+                    >
+                      yes
+                    </td>
+                    <td
+                      className="css-d52hbj"
+                    >
+                      -
+                    </td>
+                    <td
+                      className="css-d52hbj"
+                    />
+                  </tr>
+                  <tr>
+                    <td
+                      className="css-1ygfcef"
+                    >
+                      label
+                    </td>
+                    <td
+                      className="css-1ygfcef"
+                    >
+                      <span />
+                    </td>
+                    <td
+                      className="css-d52hbj"
+                    >
+                      yes
+                    </td>
+                    <td
+                      className="css-d52hbj"
+                    >
+                      -
+                    </td>
+                    <td
+                      className="css-d52hbj"
+                    />
+                  </tr>
+                  <tr>
+                    <td
+                      className="css-1ygfcef"
+                    >
+                      required
+                    </td>
+                    <td
+                      className="css-1ygfcef"
+                    >
+                      <span />
+                    </td>
+                    <td
+                      className="css-d52hbj"
+                    >
+                      yes
+                    </td>
+                    <td
+                      className="css-d52hbj"
+                    >
+                      -
+                    </td>
+                    <td
+                      className="css-d52hbj"
+                    />
+                  </tr>
+                  <tr>
+                    <td
+                      className="css-1ygfcef"
+                    >
+                      options
+                    </td>
+                    <td
+                      className="css-1ygfcef"
+                    >
+                      <span />
+                    </td>
+                    <td
+                      className="css-d52hbj"
+                    >
+                      yes
+                    </td>
+                    <td
+                      className="css-d52hbj"
+                    >
+                      -
+                    </td>
+                    <td
+                      className="css-d52hbj"
+                    />
+                  </tr>
+                  <tr>
+                    <td
+                      className="css-1ygfcef"
+                    >
+                      value
+                    </td>
+                    <td
+                      className="css-1ygfcef"
+                    >
+                      <span />
+                    </td>
+                    <td
+                      className="css-d52hbj"
+                    >
+                      -
+                    </td>
+                    <td
+                      className="css-d52hbj"
+                    >
+                      <span
+                        style={
+                          Object {
+                            "color": "#777",
+                          }
+                        }
+                      >
+                        null
+                      </span>
+                    </td>
+                    <td
+                      className="css-d52hbj"
+                    />
+                  </tr>
+                  <tr>
+                    <td
+                      className="css-1ygfcef"
+                    >
+                      extraClass
+                    </td>
+                    <td
+                      className="css-1ygfcef"
+                    >
+                      <span />
+                    </td>
+                    <td
+                      className="css-d52hbj"
+                    >
+                      -
+                    </td>
+                    <td
+                      className="css-d52hbj"
+                    >
+                      <span
+                        style={
+                          Object {
+                            "color": "#22a",
+                            "wordBreak": "break-word",
+                          }
+                        }
+                      >
+                        
+                      </span>
+                    </td>
+                    <td
+                      className="css-d52hbj"
+                    />
+                  </tr>
+                  <tr>
+                    <td
+                      className="css-1ygfcef"
+                    >
+                      isValid
+                    </td>
+                    <td
+                      className="css-1ygfcef"
+                    >
+                      <span />
+                    </td>
+                    <td
+                      className="css-d52hbj"
+                    >
+                      -
+                    </td>
+                    <td
+                      className="css-d52hbj"
+                    >
+                      <span
+                        style={
+                          Object {
+                            "color": "#777",
+                          }
+                        }
+                      >
+                        null
+                      </span>
+                    </td>
+                    <td
+                      className="css-d52hbj"
+                    />
+                  </tr>
+                  <tr>
+                    <td
+                      className="css-1ygfcef"
+                    >
+                      showErrorMessage
+                    </td>
+                    <td
+                      className="css-1ygfcef"
+                    >
+                      <span />
+                    </td>
+                    <td
+                      className="css-d52hbj"
+                    >
+                      -
+                    </td>
+                    <td
+                      className="css-d52hbj"
+                    >
+                      <span
+                        style={
+                          Object {
+                            "color": "#a11",
+                          }
+                        }
+                      >
+                        false
+                      </span>
+                    </td>
+                    <td
+                      className="css-d52hbj"
+                    />
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>
