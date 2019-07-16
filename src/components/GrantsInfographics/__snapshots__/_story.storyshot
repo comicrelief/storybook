@@ -284,36 +284,7 @@ exports[`Stories Storyshots Grants Infographics data visualisation 1`] = `
                     &lt;
                     GrantsInfograpics
                   </span>
-                  <span>
-                    <span>
-                       
-                      <span
-                        style={Object {}}
-                      >
-                        grantsAPI
-                      </span>
-                      <span>
-                        =
-                        <span
-                          style={Object {}}
-                        >
-                          "
-                          <span
-                            style={
-                              Object {
-                                "color": "#22a",
-                                "wordBreak": "break-word",
-                              }
-                            }
-                          >
-                            https://1kfs7evxca.execute-api.eu-west-1.amazonaws…
-                          </span>
-                          "
-                        </span>
-                      </span>
-                       
-                    </span>
-                  </span>
+                  <span />
                   <span
                     style={
                       Object {
