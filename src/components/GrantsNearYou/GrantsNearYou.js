@@ -56,7 +56,7 @@ class GrantsNearYou extends Component {
         });
         const { searchURL, searchKey } = this.props;
         if (!searchURL || !searchKey) {
-          return;
+          return null;
         }
         const processedSearchUrl = searchTerm.length >= 1 ? `${searchURL}?latitude=${json.result.latitude}&longitude=${json.result.longitude}&range=${range}km` : this.props.searchURL;
         return axios({ url: processedSearchUrl, headers: { 'x-internal-access-key': searchKey } })
