@@ -39,12 +39,12 @@ class GrantsNearYou extends Component {
    * @private
    */
   search(searchTerm, range) {
-    this.setState({
-      searching: true,
-    });
     if (!searchTerm) {
       return;
     }
+    this.setState({
+      searching: true,
+    });
     const query = `${this.props.postcodeAPI}/postcodes/${searchTerm}`;
     axios.get(query)
       .then(({ data }) => data)
