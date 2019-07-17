@@ -76,16 +76,6 @@ exports[`Stories Storyshots Grants Near You GrantsNearYou 1`] = `
             </button>
           </form>
         </div>
-        <div
-          className="geo-info"
-        >
-          <p>
-            Finding nearby projects...
-          </p>
-          <span
-            className="geo-info--spinner"
-          />
-        </div>
       </div>
     </div>
     <button

@@ -32,6 +32,7 @@ exports[`Stories Storyshots Checkbox Field CheckboxField 1`] = `
             <input
               checked={null}
               className="form__field form__field--checkbox "
+              data-test-id="input"
               id="field-input--checkedfield"
               name="checkedfield"
               onChange={[Function]}
