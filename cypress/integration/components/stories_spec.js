@@ -1,130 +1,131 @@
 describe('Stories', () => {
-  test('Browser Support message > BrowserSupportMessage', () => {
-    cy.loadStory('Browser Support message', 'BrowserSupportMessage')
+  it('Browser Support message > BrowserSupportMessage', () => {
+    // wait a bit on first load
+    cy.loadStory('Browser Support message', 'BrowserSupportMessage', 4000)
       .matchImageSnapshot();
   });
 
-  test('Checkbox Field > CheckboxField', () => {
+  it('Checkbox Field > CheckboxField', () => {
     cy.loadStory('Checkbox Field', 'CheckboxField')
       .matchImageSnapshot();
   });
 
-  test('Cookie Consent Message > CookieConsentMessage', () => {
+  it('Cookie Consent Message > CookieConsentMessage', () => {
     cy.loadStory('Cookie Consent Message', 'CookieConsentMessage')
       .matchImageSnapshot();
   });
 
-  test('File Upload > File upload', () => {
+  it('File Upload > File upload', () => {
     cy.loadStory('File Upload', 'File upload')
       .matchImageSnapshot();
   });
 
-  test('Footer > Comic Relief', () => {
-    cy.loadStory('Footer', 'Comic Relief', 5000)
+  it('Footer > Comic Relief', () => {
+    cy.loadStory('Footer', 'Comic Relief', 3000)
       .matchImageSnapshot();
   });
 
-  test('Footer > Sport Relief', () => {
-    cy.loadStory('Footer', 'Sport Relief', 5000)
+  it('Footer > Sport Relief', () => {
+    cy.loadStory('Footer', 'Sport Relief', 3000)
       .matchImageSnapshot();
   });
 
-  test('Footer > Red Nose Day', () => {
-    cy.loadStory('Footer', 'Red Nose Day', 5000)
+  it('Footer > Red Nose Day', () => {
+    cy.loadStory('Footer', 'Red Nose Day', 3000)
       .matchImageSnapshot();
   });
 
-  test('Grants Infographics > data visualisation', () => {
+  it('Grants Infographics > data visualisation', () => {
     cy.loadStory('Grants Infographics', 'data visualisation')
       .matchImageSnapshot();
   });
 
-  test('Grants Near You > GrantsNearYou', () => {
+  it('Grants Near You > GrantsNearYou', () => {
     cy.loadStory('Grants Near You', 'GrantsNearYou')
       .matchImageSnapshot();
   });
 
-  test('Input Field > Text Field', () => {
+  it('Input Field > Text Field', () => {
     cy.loadStory('Input Field', 'Text Field')
       .matchImageSnapshot();
   });
 
-  test('Input Field > Number Field', () => {
+  it('Input Field > Number Field', () => {
     cy.loadStory('Input Field', 'Number Field')
       .matchImageSnapshot();
   });
 
-  test('Input Field > Checkbox', () => {
+  it('Input Field > Checkbox', () => {
     cy.loadStory('Input Field', 'Checkbox')
       .matchImageSnapshot();
   });
 
-  test('Input Field > Email Field', () => {
+  it('Input Field > Email Field', () => {
     cy.loadStory('Input Field', 'Email Field')
       .matchImageSnapshot();
   });
 
-  test('Input Field > Telephone Field', () => {
+  it('Input Field > Telephone Field', () => {
     cy.loadStory('Input Field', 'Telephone Field')
       .matchImageSnapshot();
   });
 
-  test('Input Field > Optional text Field with only required props', () => {
+  it('Input Field > Optional text Field with only required props', () => {
     cy.loadStory('Input Field', 'Optional text Field with only required props')
       .matchImageSnapshot();
   });
 
-  test('Input Field > Text Field with inline button', () => {
+  it('Input Field > Text Field with inline button', () => {
     cy.loadStory('Input Field', 'Text Field with inline button')
       .matchImageSnapshot();
   });
 
-  test('Input Field > Number Field with all props possible', () => {
+  it('Input Field > Number Field with all props possible', () => {
     cy.loadStory('Input Field', 'Number Field with all props possible')
       .matchImageSnapshot();
   });
 
-  test('Just In Time Message > JustInTime', () => {
+  it('Just In Time Message > JustInTime', () => {
     cy.loadStory('Just In Time Message', 'JustInTime')
       .matchImageSnapshot();
   });
 
-  test('Marketing Consent > MarketingConsent', () => {
+  it('Marketing Consent > MarketingConsent', () => {
     cy.loadStory('Marketing Consent', 'MarketingConsent')
       .matchImageSnapshot();
   });
 
-  test('Postcode Lookup > PostcodeLookup', () => {
+  it('Postcode Lookup > PostcodeLookup', () => {
     cy.loadStory('Postcode Lookup', 'PostcodeLookup')
       .matchImageSnapshot();
   });
 
-  test('Radio Buttons > RadioButtons', () => {
+  it('Radio Buttons > RadioButtons', () => {
     cy.loadStory('Radio Buttons', 'RadioButtons')
       .matchImageSnapshot();
   });
 
-  test('Schools Lookup > nothing is selected', () => {
-    cy.loadStory('Schools Lookup', 'nothing is selected')
+  it('Schools Lookup > nothing is selected', () => {
+    cy.loadStory('Schools Lookup', 'nothing is selected', 1000, 'SchoolsLookUp')
       .matchImageSnapshot();
   });
 
-  test('Schools Lookup > manual fields errors', () => {
-    cy.loadStory('Schools Lookup', 'manual fields errors')
+  it('Schools Lookup > manual fields errors', () => {
+    cy.loadStory('Schools Lookup', 'manual fields errors', 1000, 'SchoolsLookUp')
       .matchImageSnapshot();
   });
 
-  test('Schools Lookup > manually entered school', () => {
-    cy.loadStory('Schools Lookup', 'manually entered school')
+  it('Schools Lookup > manually entered school', () => {
+    cy.loadStory('Schools Lookup', 'manually entered school', 1000, 'SchoolsLookUp')
       .matchImageSnapshot();
   });
 
-  test('Schools Lookup > EDCO selected school', () => {
-    cy.loadStory('Schools Lookup', 'EDCO selected school')
+  it('Schools Lookup > EDCO selected school', () => {
+    cy.loadStory('Schools Lookup', 'EDCO selected school', 1000, 'SchoolsLookUp')
       .matchImageSnapshot();
   });
 
-  test('Select Field > SelectField', () => {
+  it('Select Field > SelectField', () => {
     cy.loadStory('Select Field', 'SelectField')
       .matchImageSnapshot();
   });
