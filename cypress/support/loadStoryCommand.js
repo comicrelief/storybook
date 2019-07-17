@@ -1,4 +1,4 @@
-Cypress.Commands.add("loadStory", (kind, story, wait = 1000, dataTestId = 'container') => (
+Cypress.Commands.add("loadStory", (kind, story, wait = 2000, dataTestId = 'container') => (
   cy.visit(`?selectedKind=${kind}&selectedStory=${story}&full=1`)
       .wait(wait)
       .get('#storybook-preview-iframe')
