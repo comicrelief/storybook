@@ -18,4 +18,13 @@ describe('Schools Lookup', () => {
     cy.loadStory('Schools Lookup', 'EDCO selected school', 1000, 'SchoolsLookUp')
       .matchImageSnapshot();
   });
+
+  it('should load results', () => {
+    cy.loadStory('Schools Lookup', 'nothing is selected', 1000, 'SchoolsLookUp')
+      .findByCustomId('school_lookup_input')
+      .type('SE1')
+      .wait(5000)
+      .parents('[data-test-id=SchoolsLookUp]')
+      .matchImageSnapshot();
+  });
 });

@@ -14,10 +14,11 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
+import { addMatchImageSnapshotCommand } from 'cypress-image-snapshot/command';
+import './commands';
 import './iframeCommand';
 import './loadStoryCommand';
-import './commands';
-import { addMatchImageSnapshotCommand } from 'cypress-image-snapshot/command';
+import './customSelectorsCommand';
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
