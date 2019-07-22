@@ -50,6 +50,7 @@ export const Result = ({ result }) => (
             <div className="single-msg__copy">
 
               <div className="single-msg__title">
+                { /* eslint-disable react/no-danger */ }
                 <h3><strong dangerouslySetInnerHTML={{ __html: convertUnicode(result.name) }} /> <small>({result.issue})</small></h3>
               </div>
 

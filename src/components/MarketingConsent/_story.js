@@ -92,9 +92,9 @@ const fieldValidationFromParent = {
 };
 
 
-storiesOf('MarketingConsent', module)
+storiesOf('Marketing Consent', module)
   .addDecorator(withKnobs)
-  .add('Marketing consent',
+  .add('MarketingConsent',
     withInfo('Required')(() => {
 
       return (

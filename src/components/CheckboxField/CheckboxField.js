@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import browser from 'browser-detect';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 class CheckboxField extends Component {
   render() {
@@ -47,6 +47,7 @@ class CheckboxField extends Component {
               className={`form__field form__field--${type} `}
               type={type}
               id={`field-input--${id}`}
+              data-test-id="input"
               name={name}
               required={required}
               onChange={handleCheckboxChange}
@@ -95,19 +96,19 @@ CheckboxField.defaultProps = {
 };
 
 CheckboxField.propTypes = {
-  id: propTypes.string.isRequired,
-  type: propTypes.string.isRequired,
-  name: propTypes.string.isRequired,
-  label: propTypes.string.isRequired,
-  value: propTypes.number,
-  required: propTypes.bool,
-  helpText: propTypes.string,
-  showErrorMessage: propTypes.bool,
-  errorMessage: propTypes.string,
-  setBackgroundColor: propTypes.bool,
-  additionalText: propTypes.string,
-  checked: propTypes.bool,
-  handleCheckboxChange: propTypes.func,
+  id: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  value: PropTypes.number,
+  required: PropTypes.bool,
+  helpText: PropTypes.string,
+  showErrorMessage: PropTypes.bool,
+  errorMessage: PropTypes.string,
+  setBackgroundColor: PropTypes.bool,
+  additionalText: PropTypes.string,
+  checked: PropTypes.bool,
+  handleCheckboxChange: PropTypes.func,
 };
 
 export default CheckboxField;

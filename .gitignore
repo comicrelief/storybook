@@ -30,3 +30,7 @@ yarn-error.log*
 
 storybook-static
 .eslintcache
+
+/cypress/videos
+/cypress/screenshots
+/cypress/**/__diff_output__
