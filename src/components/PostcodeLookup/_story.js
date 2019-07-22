@@ -6,9 +6,9 @@ import { withInfo } from '@storybook/addon-info';
 import PostcodeLookup from './PostcodeLookup';
 
 
-storiesOf('PostcodeLookup', module)
+storiesOf('Postcode Lookup', module)
   .addDecorator(withKnobs)
-  .add('Postcode lookup',
+  .add('PostcodeLookup',
     withInfo('Required')(() => {
       const label = text('label', 'Postal address');
       const disableManualInput = boolean('forceManualInput', false);

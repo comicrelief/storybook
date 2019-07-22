@@ -1,7 +1,7 @@
-import initStoryshots, { snapshotWithOptions } from '@storybook/addon-storyshots';
+import initStoryshots, { multiSnapshotWithOptions } from '@storybook/addon-storyshots';
 import { mockRandomForEach } from 'jest-mock-random';
 
-describe('SchoolsLookup', () => {
+describe('Stories', () => {
   // Math.random() is used to generate a prop value
   // Here we mock Math.random(), to make sure return is the same everytime we run the test
   // That way, existing snapshots wil always match render result
@@ -13,6 +13,7 @@ describe('SchoolsLookup', () => {
     switch (el.type) {
       case 'input':
       case 'div':
+      case 'select':
         return document.createElement(el.type);
 
       default:
@@ -20,9 +21,8 @@ describe('SchoolsLookup', () => {
     }
   };
 
-  // test SchoolsLookUp layout at it's lifecycle different states
+  // test all stories
   initStoryshots({
-    storyKindRegex: /^SchoolsLookUp$/,
-    test: snapshotWithOptions({ createNodeMock }),
+    test: multiSnapshotWithOptions({ createNodeMock }),
   });
 });

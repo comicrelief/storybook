@@ -25,7 +25,6 @@
     "react-vis": "^1.9.1",
     "shortid": "^2.2.13",
     "snyk": "^1.189.0",
-    "storybook-addon-specifications": "2",
     "url-join": "2"
   },
   "main": "build/index.js",
@@ -39,9 +38,13 @@
     "semantic-release": "semantic-release",
     "storybook": "start-storybook -p 9009 -s public",
     "snyk-protect": "snyk protect",
-    "prepublish": "npm run snyk-protect; ./node_modules/.bin/snyk protect; yarn build",
+    "prepublish": "yarn snyk-protect; yarn build",
     "test": "./node_modules/.bin/jest --coverage",
-    "test-update": "./node_modules/.bin/jest -u"
+    "test-update": "./node_modules/.bin/jest -u",
+    "cy:run": "cypress run",
+    "cy:run-update": "cypress run --env updateSnapshots=true",
+    "cy:open": "cypress open",
+    "feature-test": "run-p --race storybook cy:run"
   },
   "devDependencies": {
     "@storybook/addon-actions": "3",
@@ -61,6 +64,8 @@
     "clean-webpack-plugin": "0",
     "commitizen": "2",
     "css-loader": "^1.0.0",
+    "cypress": "^3.4.0",
+    "cypress-image-snapshot": "^3.1.1",
     "cz-conventional-changelog": "2",
     "enzyme": "3",
     "enzyme-adapter-react-16": "1",
@@ -73,6 +78,7 @@
     "jest": "21",
     "jest-mock-random": "1",
     "node-sass": "4",
+    "npm-run-all": "^4.1.5",
     "postcss-loader": "2",
     "randomcolor": "^0.5.3",
     "resolve-url-loader": "2",

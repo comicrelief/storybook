@@ -15,7 +15,7 @@ const optionsArray = [
 
 storiesOf('Select Field', module)
   .addDecorator(withKnobs)
-  .add('Select Field',
+  .add('SelectField',
     withInfo('Required')(() => {
       const id = text('id', 'selectField');
       const name = text('name', 'selectfield');

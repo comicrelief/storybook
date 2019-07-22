@@ -366,7 +366,7 @@ class SchoolsLookUp extends Component {
     const orEnterManuallyCopy = 'Or enter details manually';
 
     return (
-      <div className="SchoolsLookUp">
+      <div data-test-id="SchoolsLookUp" className="SchoolsLookUp">
         <p className="schoolsLookUp-title">
           <label htmlFor="schoolsLookUp">{'Enter the name or postcode of your school or nursery'}</label>
         </p>

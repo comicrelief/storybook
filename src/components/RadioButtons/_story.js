@@ -50,9 +50,9 @@ const label2 = text('label', 'Radio Buttons: not required');
 const label3 = text('label', 'Radio Buttons: required, preselected');
 const label4 = text('label', 'Radio Buttons: not required, preselected');
 
-storiesOf('Radio buttons', module)
+storiesOf('Radio Buttons', module)
   .addDecorator(withKnobs)
-  .add('Radio buttons',
+  .add('RadioButtons',
     withInfo('Required')(() => {
       return (
         <div>

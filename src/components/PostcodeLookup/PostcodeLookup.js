@@ -161,7 +161,7 @@ class PostcodeLookup extends Component {
         if (response.status !== 200) {
           throw Error();
         }
-        return response.json();
+        return response.data;
       })
       .then((response) => {
         if (response.addresses !== null && response.addresses.length >= 1) {
