@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import MarketingConsentCheckbox from './MarketingConsentCheckbox';
 import './MarketingConsent.scss';
 
@@ -76,11 +76,11 @@ MarketingConsent.defaultProps = {
   showErrorMessages: false,
 };
 MarketingConsent.propTypes = {
-  getValidation: propTypes.func.isRequired,
-  valueFromParent: propTypes.object,
-  showErrorMessages: propTypes.bool,
-  itemData: propTypes.shape({
-    itemData: propTypes.object,
+  getValidation: PropTypes.func.isRequired,
+  valueFromParent: PropTypes.object,
+  showErrorMessages: PropTypes.bool,
+  itemData: PropTypes.shape({
+    itemData: PropTypes.object,
   }).isRequired,
 };
 

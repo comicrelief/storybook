@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import RandomColor from 'randomcolor';
+import axios from 'axios';
 import Chart from './Chart';
 import Bar from './Bar';
 import './scss/index.scss';
@@ -20,12 +21,16 @@ class GrantsInfograpics extends Component {
   }
 
   componentDidMount() {
-    fetch(this.props.grantsAPI)
-      .then((response) => {
-        if (!response.ok) {
+    const { grantsAPI, grantsAPIKey } = this.props;
+    if (!grantsAPI || !grantsAPIKey) {
+      return;
+    }
+    axios({ url: grantsAPI, headers: { 'x-internal-access-key': grantsAPIKey } })
+      .then(({ data }) => {
+        if (data.message !== 'Success') {
           throw new Error('something went wrong');
         }
-        return response.json();
+        return data;
       })
       .then((response) => {
         const grantData = response.data.facets;
@@ -107,7 +112,7 @@ class GrantsInfograpics extends Component {
           <Bar barData={barData} />
         </div>
         <div className="grid chart-1">
-          <Chart chartData={chartData1} />
+          <Chart chartData={chartData1} innerRadius="80" />
           <p>Percentage of active projects</p>
         </div>
         <div className="grid chart-2">

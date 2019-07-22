@@ -1,6 +1,6 @@
 /* eslint-env browser */
 import React, { Component } from 'react';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import browser from 'browser-detect';
 
 
@@ -116,7 +116,7 @@ class SelectField extends Component {
    * @param e
    */
   validateField(e) {
-    const value = e !== undefined ? e.target.value : this.selectRef.value;
+    const value = e ? e.target.value : this.selectRef.value;
     if (this.props.required === true && value === '') {
       this.setState({
         valid: false,
@@ -200,22 +200,22 @@ SelectField.defaultProps = {
 };
 
 SelectField.propTypes = {
-  id: propTypes.string.isRequired,
-  name: propTypes.string.isRequired,
-  label: propTypes.string.isRequired,
-  required: propTypes.bool.isRequired,
-  options: propTypes.arrayOf(propTypes.shape({
-    label: propTypes.string.isRequired,
-    value: propTypes.oneOfType([
-      propTypes.string,
-      propTypes.object]),
-    selected: propTypes.bool,
-    disabled: propTypes.bool,
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  required: PropTypes.bool.isRequired,
+  options: PropTypes.arrayOf(PropTypes.shape({
+    label: PropTypes.string.isRequired,
+    value: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.object]),
+    selected: PropTypes.bool,
+    disabled: PropTypes.bool,
   }).isRequired).isRequired,
-  value: propTypes.func,
-  extraClass: propTypes.string,
-  isValid: propTypes.func,
-  showErrorMessage: propTypes.bool,
+  value: PropTypes.func,
+  extraClass: PropTypes.string,
+  isValid: PropTypes.func,
+  showErrorMessage: PropTypes.bool,
 };
 
 export default SelectField;

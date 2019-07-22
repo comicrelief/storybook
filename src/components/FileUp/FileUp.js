@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import Dropzone from 'react-dropzone';
 import './styles.scss';
 import PdfImage from './Images/pdficon.png';
@@ -34,7 +34,6 @@ class FileUp extends Component {
   onDrop(files, rejected) {
     const max = this.props.maxFiles;
     const filesCombined = [...this.state.files, ...files];
-    console.log(rejected.length);
     if (filesCombined.length > max) {
       this.setState({
         error: `You can only upload max ${max} files.`,
@@ -156,10 +155,10 @@ class FileUp extends Component {
 }
 
 FileUp.propTypes = {
-  maxFiles: propTypes.number.isRequired,
-  maxSize: propTypes.number.isRequired,
-  onChange: propTypes.func.isRequired,
-  types: propTypes.arrayOf(propTypes.string).isRequired,
+  maxFiles: PropTypes.number.isRequired,
+  maxSize: PropTypes.number.isRequired,
+  onChange: PropTypes.func.isRequired,
+  types: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export { default as S3FileUploadService } from './src/service/S3FileUploadService';

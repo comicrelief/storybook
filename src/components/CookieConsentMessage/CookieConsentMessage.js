@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import CookieConsent from 'react-cookie-consent';
 import './CookieConsent.scss';
 
@@ -61,7 +61,7 @@ CookieConsentMessage.defaultProps = {
 };
 
 CookieConsentMessage.propTypes = {
-  domainName: propTypes.string,
+  domainName: PropTypes.string,
 };
 
 export default CookieConsentMessage;
