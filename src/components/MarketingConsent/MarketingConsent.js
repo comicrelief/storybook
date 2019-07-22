@@ -29,7 +29,7 @@ class MarketingConsent extends Component {
 
   /**
    * Render text and MarketingConsentCheckbox components.
-   * @return {XML}
+   * @return {*}
    */
   render() {
     const data = this.props.itemData;

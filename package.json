@@ -4,9 +4,9 @@
   "version": "0.0.0-see.readme.for.releases",
   "dependencies": {
     "@comicrelief/pattern-lab": "*",
-    "@storybook/addon-info": "3",
+    "@storybook/addon-info": "5.1.1",
     "@storybook/addon-knobs": "3",
-    "@storybook/react": "4.0.0",
+    "@storybook/react": "^4.0.0",
     "axios": "0",
     "babel-polyfill": "^6.26.0",
     "browser-detect": "^0.2.28",
@@ -24,7 +24,7 @@
     "react-svg": "2",
     "react-vis": "^1.9.1",
     "shortid": "^2.2.13",
-    "snyk": "^1.52.0",
+    "snyk": "^1.189.0",
     "storybook-addon-specifications": "2",
     "url-join": "2"
   },
@@ -38,8 +38,8 @@
     "eslint-fix": "yarn eslint --fix",
     "semantic-release": "semantic-release",
     "storybook": "start-storybook -p 9009 -s public",
-    "snyk-protect": "./node_modules/.bin/snyk protect",
-    "prepublish": "./node_modules/.bin/snyk protect; yarn build",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect; ./node_modules/.bin/snyk protect; yarn build",
     "test": "./node_modules/.bin/jest --coverage",
     "test-update": "./node_modules/.bin/jest -u"
   },
@@ -60,6 +60,7 @@
     "babel-preset-stage-0": "6",
     "clean-webpack-plugin": "0",
     "commitizen": "2",
+    "css-loader": "^1.0.0",
     "cz-conventional-changelog": "2",
     "enzyme": "3",
     "enzyme-adapter-react-16": "1",
@@ -68,7 +69,7 @@
     "eslint-plugin-import": "2",
     "eslint-plugin-jsx-a11y": "5",
     "eslint-plugin-react": "7",
-    "file-loader": "0",
+    "file-loader": "1.1.11",
     "jest": "21",
     "jest-mock-random": "1",
     "node-sass": "4",
@@ -78,11 +79,11 @@
     "sass-loader": "6",
     "semantic-release": "15",
     "sinon": "5",
-    "style-loader": "0",
-    "url-loader": "0",
+    "style-loader": "^0.20.3",
+    "url-loader": "1.0.1",
     "webpack": "3"
   },
-  "resolutions" : {
+  "resolutions": {
     "**/mem": "4.0.0"
   },
   "repository": {
