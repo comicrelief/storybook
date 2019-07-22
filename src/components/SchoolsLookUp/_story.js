@@ -18,7 +18,7 @@ let address1Value = '';
 let townValue = '';
 let postcodeValue = '';
 
-storiesOf('SchoolsLookUp', module)
+storiesOf('Schools Lookup', module)
   .addDecorator(withKnobs)
   .add('nothing is selected',
     () => {

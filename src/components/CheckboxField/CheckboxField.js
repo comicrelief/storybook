@@ -47,6 +47,7 @@ class CheckboxField extends Component {
               className={`form__field form__field--${type} `}
               type={type}
               id={`field-input--${id}`}
+              data-test-id="input"
               name={name}
               required={required}
               onChange={handleCheckboxChange}
