@@ -41,9 +41,9 @@
     "prepublish": "yarn snyk-protect; yarn build",
     "test": "./node_modules/.bin/jest --coverage",
     "test-update": "./node_modules/.bin/jest -u",
-    "cy:run": "cypress run --browser chrome",
-    "cy:run-update": "cypress run --env updateSnapshots=true --browser chrome",
-    "cy:open": "cypress open --browser chrome",
+    "cy:run": "cypress run",
+    "cy:run-update": "cypress run --env updateSnapshots=true",
+    "cy:open": "cypress open",
     "feature-test": "run-p --race storybook cy:run"
   },
   "devDependencies": {
