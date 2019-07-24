@@ -1,4 +1,5 @@
 {
   "baseUrl": "http://localhost:9009",
-  "chromeWebSecurity": false
+  "chromeWebSecurity": false,
+  "numTestsKeptInMemory": 1
 }
