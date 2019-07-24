@@ -1,5 +1,7 @@
 {
   "baseUrl": "http://localhost:9009",
   "chromeWebSecurity": false,
-  "numTestsKeptInMemory": 1
+  "numTestsKeptInMemory": 1,
+  "viewportHeight": 660,
+  "viewportWidth":1000
 }
