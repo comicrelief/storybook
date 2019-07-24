@@ -44,7 +44,7 @@
     "cy:run": "cypress run",
     "cy:run-update": "cypress run --env updateSnapshots=true",
     "cy:open": "cypress open",
-    "feature-test": "run-p --race storybook cy:run"
+    "feature-test": "run-p storybook cy:run"
   },
   "devDependencies": {
     "@storybook/addon-actions": "3",
