@@ -41,8 +41,8 @@
     "prepublish": "yarn snyk-protect; yarn build",
     "test": "./node_modules/.bin/jest --coverage",
     "test-update": "./node_modules/.bin/jest -u",
-    "cy:run": "cypress run --env viewportHeight=720 viewportWidth=1280",
-    "cy:run-update": "cypress run --env updateSnapshots=true viewportHeight=720 viewportWidth=1280",
+    "cy:run": "cypress run --env viewportHeight=400 viewportWidth=1280 --browser electron",
+    "cy:run-update": "cypress run --env updateSnapshots=true viewportHeight=400 viewportWidth=1280 --browser electron",
     "cy:open": "cypress open",
     "feature-test": "run-p storybook cy:run"
   },
