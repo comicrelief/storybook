@@ -1,0 +1,8 @@
+version: '2'
+
+services:
+  cypress:
+    image: cypress/base:10.16.0
+    working_dir: /e2e
+    volumes:
+      - ./:/e2e
