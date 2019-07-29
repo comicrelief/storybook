@@ -24,7 +24,7 @@ import './customSelectorsCommand';
 // require('./commands')
 
 addMatchImageSnapshotCommand({
-  failureThreshold: 0.00,
+  failureThreshold: 0.1,
   failureThresholdType: 'percent',
   customDiffConfig: { threshold: 0.0 },
   capture: 'fullPage',
