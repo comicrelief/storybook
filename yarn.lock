@@ -3380,6 +3380,10 @@ cypress-image-snapshot@^3.1.1:
     pkg-dir "^3.0.0"
     term-img "^4.0.0"
 
+cypress-plugin-retries@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/cypress-plugin-retries/-/cypress-plugin-retries-1.2.2.tgz#7235371ca575ad9e16f883169e7f1588379f80f2"
+
 cypress@^3.4.0:
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/cypress/-/cypress-3.4.0.tgz#8053ee107eb6309f26abd57e882d05578bdc3391"

@@ -3,5 +3,6 @@
   "chromeWebSecurity": false,
   "numTestsKeptInMemory": 1,
   "viewportHeight": 400,
-  "viewportWidth":1280
+  "viewportWidth":1280,
+  "CYPRESS_RETRIES":5
 }
