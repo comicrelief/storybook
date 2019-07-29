@@ -38,3 +38,6 @@ jobs:
 
       - store_artifacts:
           path: cypress/screenshots
+
+      - store_artifacts:
+          path: cypress/snapshots
