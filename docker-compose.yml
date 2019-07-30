@@ -6,4 +6,4 @@ services:
     working_dir: /e2e
     volumes:
       - ./:/e2e
-    command: bash -c "node_modules/.bin/cypress install && yarn feature-test --env updateSnapshots=true"
+    command: bash -c "node_modules/.bin/cypress install && yarn storybook-in-parallel 'cy:run --env updateSnapshots=true'"
