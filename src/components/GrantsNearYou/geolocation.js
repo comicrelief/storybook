@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import propTypes from 'prop-types';
 import { geolocated } from 'react-geolocated';
 
 class Geolocation extends React.Component {
@@ -33,9 +33,9 @@ class Geolocation extends React.Component {
   }
 }
 
-/* Define proptypes */
+/* Define propTypes */
 Geolocation.propTypes = {
-  handleLocation: PropTypes.func.isRequired,
+  handleLocation: propTypes.func.isRequired,
 };
 
 export default geolocated({

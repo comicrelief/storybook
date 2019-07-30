@@ -1,6 +1,6 @@
 /* eslint-env browser */
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import propTypes from 'prop-types';
 import browser from 'browser-detect';
 import fieldValidation from './validation';
 
@@ -296,33 +296,33 @@ InputField.defaultProps = {
 };
 
 InputField.propTypes = {
-  id: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired,
-  required: PropTypes.bool,
-  autoComplete: PropTypes.string,
-  value: PropTypes.func,
-  pattern: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.instanceOf(RegExp),
+  id: propTypes.string.isRequired,
+  type: propTypes.string.isRequired,
+  name: propTypes.string.isRequired,
+  label: propTypes.string.isRequired,
+  required: propTypes.bool,
+  autoComplete: propTypes.string,
+  value: propTypes.func,
+  pattern: propTypes.oneOfType([
+    propTypes.string,
+    propTypes.instanceOf(RegExp),
   ]),
-  placeholder: PropTypes.string,
-  min: PropTypes.number,
-  max: PropTypes.number,
-  inlineButton: PropTypes.bool,
-  buttonValue: PropTypes.string,
-  buttonClick: PropTypes.func,
-  defaultChecked: PropTypes.bool,
-  extraClass: PropTypes.string,
-  helpText: PropTypes.string,
-  emptyFieldErrorText: PropTypes.string,
-  invalidErrorText: PropTypes.string,
-  isValid: PropTypes.func,
-  showErrorMessage: PropTypes.bool,
-  setBackgroundColor: PropTypes.bool,
-  additionalText: PropTypes.string,
-  fieldValue: PropTypes.object,
+  placeholder: propTypes.string,
+  min: propTypes.number,
+  max: propTypes.number,
+  inlineButton: propTypes.bool,
+  buttonValue: propTypes.string,
+  buttonClick: propTypes.func,
+  defaultChecked: propTypes.bool,
+  extraClass: propTypes.string,
+  helpText: propTypes.string,
+  emptyFieldErrorText: propTypes.string,
+  invalidErrorText: propTypes.string,
+  isValid: propTypes.func,
+  showErrorMessage: propTypes.bool,
+  setBackgroundColor: propTypes.bool,
+  additionalText: propTypes.string,
+  fieldValue: propTypes.object,
 };
 
 export default InputField;

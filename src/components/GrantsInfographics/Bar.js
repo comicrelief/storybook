@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import propTypes from 'prop-types';
 import { XYPlot, XAxis, YAxis, VerticalGridLines, HorizontalGridLines, VerticalBarSeries } from 'react-vis';
 
 const Bar = ({
@@ -24,7 +24,7 @@ const Bar = ({
 };
 
 Bar.propTypes = {
-  barData: PropTypes.array.isRequired,
+  barData: propTypes.array.isRequired,
 };
 
 export default Bar;
