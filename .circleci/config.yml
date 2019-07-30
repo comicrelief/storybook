@@ -29,12 +29,12 @@ jobs:
             - /root/.cache/Cypress
 
       # run tests!
-      - run:
-          name: Run feature tests
-          command: yarn feature-test
+          # - run:
+            # name: Run feature tests
+            # command: yarn feature-test
 
-      - store_artifacts:
-          path: cypress/videos
+          # - store_artifacts:
+            # path: cypress/videos
 
-      - store_artifacts:
-          path: cypress/screenshots
+          # - store_artifacts:
+            # path: cypress/screenshots

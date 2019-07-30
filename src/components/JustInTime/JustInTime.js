@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import propTypes from 'prop-types';
 import './JustInTime.scss';
 
 
@@ -48,7 +48,7 @@ class JustInTime extends Component {
 }
 
 JustInTime.propTypes = {
-  linkText: PropTypes.string.isRequired,
+  linkText: propTypes.string.isRequired,
 };
 
 export default JustInTime;
