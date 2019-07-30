@@ -7,7 +7,7 @@ jobs:
   build:
     docker:
       # See https://github.com/cypress-io/cypress-docker-images
-      - image: cypress/base:8
+      - image: cypress/base:10.16.0
         environment:
           TERM: xterm
 
@@ -29,12 +29,15 @@ jobs:
             - /root/.cache/Cypress
 
       # run tests!
-          # - run:
-            # name: Run feature tests
-            # command: yarn feature-test
+      - run:
+          name: Run feature tests
+          command: yarn feature-test
 
-          # - store_artifacts:
-            # path: cypress/videos
+      - store_artifacts:
+          path: cypress/videos
 
-          # - store_artifacts:
-            # path: cypress/screenshots
+      - store_artifacts:
+          path: cypress/screenshots
+
+      - store_artifacts:
+          path: cypress/snapshots
