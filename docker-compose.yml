@@ -1,4 +1,4 @@
-version: '2'
+version: '3'
 
 services:
   cypress:
@@ -6,3 +6,4 @@ services:
     working_dir: /e2e
     volumes:
       - ./:/e2e
+    command: bash -c "node_modules/.bin/cypress install && yarn feature-test --env updateSnapshots=true"
