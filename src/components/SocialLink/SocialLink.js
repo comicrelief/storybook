@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import propTypes from 'prop-types';
 import ReactSVG from 'react-svg';
 import SvgSprite from '@comicrelief/pattern-lab/sass/base/components/svg/spritesheet.svg';
 /* svg with gradient background */
@@ -63,7 +63,7 @@ class SocialLink extends Component {
 }
 
 SocialLink.propTypes = {
-  campaign: PropTypes.string.isRequired,
+  campaign: propTypes.string.isRequired,
 };
 
 export default SocialLink;

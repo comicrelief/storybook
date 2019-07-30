@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import propTypes from 'prop-types';
 import Dropzone from 'react-dropzone';
 import './styles.scss';
 import PdfImage from './Images/pdficon.png';
@@ -155,10 +155,10 @@ class FileUp extends Component {
 }
 
 FileUp.propTypes = {
-  maxFiles: PropTypes.number.isRequired,
-  maxSize: PropTypes.number.isRequired,
-  onChange: PropTypes.func.isRequired,
-  types: PropTypes.arrayOf(PropTypes.string).isRequired,
+  maxFiles: propTypes.number.isRequired,
+  maxSize: propTypes.number.isRequired,
+  onChange: propTypes.func.isRequired,
+  types: propTypes.arrayOf(propTypes.string).isRequired,
 };
 
 export { default as S3FileUploadService } from './src/service/S3FileUploadService';

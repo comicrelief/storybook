@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import propTypes from 'prop-types';
 import Menu from '../Menu/Menu';
 import SocialLink from '../SocialLink/SocialLink';
 import './footer.scss';
@@ -49,7 +49,7 @@ class Footer extends Component {
 }
 
 Footer.propTypes = {
-  campaign: PropTypes.string.isRequired,
+  campaign: propTypes.string.isRequired,
 };
 
 export default Footer;
