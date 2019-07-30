@@ -39,7 +39,7 @@
     "storybook": "start-storybook -p 9009 -s public",
     "storybook-in-parallel": "run-p --race 'storybook --quiet' ",
     "snyk-protect": "snyk protect",
-    "prepublishOnly": "yarn snyk-protect; yarn build",
+    "prepublish": "yarn snyk-protect; yarn build",
     "test": "./node_modules/.bin/jest --coverage",
     "test-update": "./node_modules/.bin/jest -u",
     "cy:run": "./node_modules/.bin/cypress run",

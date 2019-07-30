@@ -28,4 +28,5 @@ addMatchImageSnapshotCommand({
   failureThresholdType: 'percent',
   customDiffConfig: { threshold: 0.0 },
   capture: 'fullPage',
+  scale: true,
 });
