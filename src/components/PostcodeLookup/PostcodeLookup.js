@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import propTypes from 'prop-types';
 import axios from 'axios';
 import browser from 'browser-detect';
 import SelectField from '../SelectField/SelectField';
@@ -479,12 +479,12 @@ PostcodeLookup.defaultProps = {
   plusURL: 'https://lookups.sls.comicrelief.com/postcode/lookup?query=',
 };
 PostcodeLookup.propTypes = {
-  valuesFromParent: PropTypes.object,
-  isAddressValid: PropTypes.func,
-  label: PropTypes.string,
-  showErrorMessages: PropTypes.bool,
-  forceManualInput: PropTypes.bool,
-  plusURL: PropTypes.string,
+  valuesFromParent: propTypes.object,
+  isAddressValid: propTypes.func,
+  label: propTypes.string,
+  showErrorMessages: propTypes.bool,
+  forceManualInput: propTypes.bool,
+  plusURL: propTypes.string,
 };
 
 export default PostcodeLookup;

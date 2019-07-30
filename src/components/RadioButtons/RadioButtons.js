@@ -1,6 +1,6 @@
 /* eslint-env browser */
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import propTypes from 'prop-types';
 import browser from 'browser-detect';
 import './RadioButtons.scss';
 
@@ -240,20 +240,20 @@ RadioButtons.defaultProps = {
 };
 
 RadioButtons.propTypes = {
-  id: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired,
-  required: PropTypes.bool.isRequired,
-  options: PropTypes.arrayOf(PropTypes.shape({
-    label: PropTypes.string.isRequired,
-    value: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.number]),
-    selected: PropTypes.bool,
+  id: propTypes.string.isRequired,
+  label: propTypes.string.isRequired,
+  required: propTypes.bool.isRequired,
+  options: propTypes.arrayOf(propTypes.shape({
+    label: propTypes.string.isRequired,
+    value: propTypes.oneOfType([
+      propTypes.string,
+      propTypes.number]),
+    selected: propTypes.bool,
   }).isRequired).isRequired,
-  value: PropTypes.func,
-  extraClass: PropTypes.string,
-  isValid: PropTypes.func,
-  showErrorMessage: PropTypes.bool,
+  value: propTypes.func,
+  extraClass: propTypes.string,
+  isValid: propTypes.func,
+  showErrorMessage: propTypes.bool,
 };
 
 export default RadioButtons;
