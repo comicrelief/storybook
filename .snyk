@@ -36,6 +36,1625 @@ ignore:
     - '@storybook/react > @storybook/core > shelljs':
         reason: No fix yet and it's the latest version.
         expires: '2019-03-20T10:39:16.882Z'
+  SNYK-JS-LODASH-450202:
+    - '@storybook/addon-info > @storybook/addons > @storybook/api > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.904Z'
+    - '@storybook/addon-info > @storybook/theming > @emotion/styled > babel-plugin-emotion > @babel/helper-module-imports > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.904Z'
+    - '@storybook/addon-info > @storybook/components > @storybook/theming > @emotion/styled > babel-plugin-emotion > @babel/helper-module-imports > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.904Z'
+    - '@storybook/addon-info > @storybook/theming > @emotion/core > @emotion/css > babel-plugin-emotion > @babel/helper-module-imports > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.904Z'
+    - '@storybook/addon-info > @storybook/components > @storybook/theming > @emotion/core > @emotion/css > babel-plugin-emotion > @babel/helper-module-imports > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.904Z'
+    - '@storybook/addon-info > @storybook/addons > @storybook/api > @storybook/theming > @emotion/styled > babel-plugin-emotion > @babel/helper-module-imports > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.904Z'
+    - '@storybook/addon-info > @storybook/addons > @storybook/api > @storybook/theming > @emotion/core > @emotion/css > babel-plugin-emotion > @babel/helper-module-imports > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.904Z'
+    - '@storybook/react > babel-preset-react-app > @babel/plugin-proposal-class-properties > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.904Z'
+    - '@storybook/react > @svgr/webpack > @babel/core > @babel/traverse > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.904Z'
+    - '@storybook/react > babel-preset-react-app > @babel/core > @babel/traverse > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.904Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-transform-block-scoping > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.904Z'
+    - '@storybook/react > @babel/plugin-transform-react-constant-elements > @babel/helper-annotate-as-pure > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.904Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-transform-block-scoping > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.904Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-transform-block-scoping > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.904Z'
+    - '@storybook/react > babel-preset-react-app > @babel/plugin-transform-classes > @babel/helper-define-map > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.904Z'
+    - '@storybook/react > @storybook/core > @storybook/addons > @storybook/components > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.904Z'
+    - '@storybook/react > @storybook/core > @storybook/ui > @storybook/components > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.904Z'
+    - '@storybook/react > @svgr/webpack > @babel/core > @babel/generator > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.905Z'
+    - '@storybook/react > babel-preset-react-app > @babel/core > @babel/generator > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.905Z'
+    - '@storybook/react > @svgr/webpack > @svgr/plugin-jsx > @babel/core > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.905Z'
+    - '@storybook/react > @svgr/webpack > @svgr/core > @svgr/plugin-jsx > @babel/core > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.905Z'
+    - '@storybook/react > @svgr/webpack > @babel/core > @babel/traverse > @babel/generator > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.905Z'
+    - '@storybook/react > babel-preset-react-app > @babel/core > @babel/traverse > @babel/generator > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.905Z'
+    - '@storybook/react > @svgr/webpack > @svgr/plugin-jsx > @babel/core > @babel/generator > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.905Z'
+    - '@storybook/react > babel-preset-react-app > @babel/plugin-transform-react-constant-elements > @babel/helper-annotate-as-pure > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.905Z'
+    - '@storybook/react > babel-preset-react-app > @babel/plugin-transform-classes > @babel/helper-annotate-as-pure > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.905Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/helper-module-imports > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.905Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/helper-module-imports > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.905Z'
+    - '@storybook/react > babel-preset-react-app > @babel/plugin-transform-classes > @babel/helper-optimise-call-expression > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.905Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-transform-modules-umd > @babel/helper-module-transforms > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.905Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-transform-modules-umd > @babel/helper-module-transforms > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.905Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-transform-modules-umd > @babel/helper-module-transforms > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.905Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-transform-modules-commonjs > @babel/helper-module-transforms > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.905Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-transform-modules-commonjs > @babel/helper-module-transforms > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.905Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-transform-modules-commonjs > @babel/helper-module-transforms > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.905Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-transform-modules-amd > @babel/helper-module-transforms > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.905Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-transform-modules-amd > @babel/helper-module-transforms > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.905Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-transform-modules-amd > @babel/helper-module-transforms > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.905Z'
+    - '@storybook/react > babel-preset-react-app > @babel/plugin-proposal-class-properties > @babel/helper-optimise-call-expression > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.905Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-transform-classes > @babel/helper-define-map > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.905Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-transform-classes > @babel/helper-define-map > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.905Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-transform-classes > @babel/helper-define-map > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.905Z'
+    - '@storybook/react > babel-preset-react-app > @babel/plugin-proposal-class-properties > @babel/helper-member-expression-to-functions > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.905Z'
+    - '@storybook/react > babel-preset-react-app > @babel/plugin-proposal-class-properties > @babel/helper-replace-supers > @babel/traverse > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.906Z'
+    - '@storybook/react > @svgr/webpack > @babel/plugin-transform-react-constant-elements > @babel/helper-annotate-as-pure > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.906Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-transform-unicode-regex > @babel/helper-regex > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.906Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-transform-unicode-regex > @babel/helper-regex > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.906Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-transform-unicode-regex > @babel/helper-regex > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.906Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-transform-sticky-regex > @babel/helper-regex > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.906Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-transform-sticky-regex > @babel/helper-regex > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.906Z'
+    - '@storybook/react > babel-preset-react-app > @babel/plugin-transform-classes > @babel/helper-function-name > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.906Z'
+    - '@storybook/react > babel-preset-react-app > @babel/plugin-proposal-class-properties > @babel/helper-function-name > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.906Z'
+    - '@storybook/react > babel-preset-react-app > @babel/plugin-proposal-decorators > @babel/helper-replace-supers > @babel/traverse > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.907Z'
+    - '@storybook/react > babel-preset-react-app > @babel/plugin-transform-classes > @babel/helper-replace-supers > @babel/traverse > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.907Z'
+    - '@storybook/react > @babel/preset-react > @babel/plugin-transform-react-jsx > @babel/helper-builder-react-jsx > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.907Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-transform-sticky-regex > @babel/helper-regex > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.907Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-transform-dotall-regex > @babel/helper-regex > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.907Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-transform-dotall-regex > @babel/helper-regex > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.907Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-transform-dotall-regex > @babel/helper-regex > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.907Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-proposal-unicode-property-regex > @babel/helper-regex > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.907Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-proposal-unicode-property-regex > @babel/helper-regex > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.907Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-proposal-unicode-property-regex > @babel/helper-regex > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.907Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/helper-module-imports > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.907Z'
+    - '@storybook/react > babel-preset-react-app > @babel/plugin-transform-runtime > @babel/helper-module-imports > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.907Z'
+    - '@storybook/react > @svgr/webpack > @svgr/plugin-jsx > @babel/core > @babel/traverse > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.907Z'
+    - '@storybook/react > @svgr/webpack > @babel/core > @babel/helpers > @babel/traverse > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.907Z'
+    - '@storybook/react > babel-preset-react-app > @babel/core > @babel/helpers > @babel/traverse > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.907Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-transform-classes > @babel/helper-optimise-call-expression > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.907Z'
+    - '@storybook/react > @svgr/webpack > @svgr/core > @svgr/plugin-jsx > @babel/core > @babel/traverse > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.907Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-transform-parameters > @babel/helper-call-delegate > @babel/traverse > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.907Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-transform-parameters > @babel/helper-call-delegate > @babel/traverse > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.907Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-transform-parameters > @babel/helper-call-delegate > @babel/traverse > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.907Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/traverse > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.907Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/traverse > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.907Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/traverse > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.907Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/traverse > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.907Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/traverse > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.907Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/traverse > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.907Z'
+    - '@storybook/react > @svgr/webpack > @babel/core > @babel/traverse > @babel/helper-function-name > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.907Z'
+    - '@storybook/react > babel-preset-react-app > @babel/core > @babel/traverse > @babel/helper-function-name > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.907Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-transform-parameters > @babel/helper-get-function-arity > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.907Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-transform-parameters > @babel/helper-get-function-arity > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.907Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-transform-parameters > @babel/helper-get-function-arity > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.907Z'
+    - '@storybook/react > babel-preset-react-app > @babel/plugin-transform-classes > @babel/helper-define-map > @babel/helper-function-name > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.908Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-transform-classes > @babel/helper-function-name > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.908Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-transform-classes > @babel/helper-function-name > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.908Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-transform-classes > @babel/helper-function-name > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.908Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-transform-function-name > @babel/helper-function-name > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.908Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-transform-function-name > @babel/helper-function-name > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.908Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-transform-function-name > @babel/helper-function-name > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.908Z'
+    - '@storybook/react > babel-preset-react-app > @babel/plugin-transform-classes > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.908Z'
+    - '@storybook/react > babel-preset-react-app > @babel/plugin-proposal-class-properties > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.908Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-transform-classes > @babel/helper-annotate-as-pure > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.908Z'
+    - '@storybook/react > babel-preset-react-app > @babel/plugin-proposal-class-properties > @babel/helper-replace-supers > @babel/helper-member-expression-to-functions > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.908Z'
+    - '@storybook/react > babel-preset-react-app > @babel/plugin-proposal-decorators > @babel/helper-replace-supers > @babel/helper-member-expression-to-functions > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.908Z'
+    - '@storybook/react > babel-preset-react-app > @babel/plugin-transform-classes > @babel/helper-replace-supers > @babel/helper-member-expression-to-functions > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.908Z'
+    - '@storybook/react > @storybook/core > @babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-member-expression-to-functions > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.908Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-transform-classes > @babel/helper-annotate-as-pure > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.908Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-transform-object-super > @babel/helper-replace-supers > @babel/traverse > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.908Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-transform-object-super > @babel/helper-replace-supers > @babel/traverse > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.908Z'
+    - '@storybook/react > babel-preset-react-app > @babel/plugin-proposal-class-properties > @babel/helper-replace-supers > @babel/helper-optimise-call-expression > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.908Z'
+    - '@storybook/react > babel-preset-react-app > @babel/plugin-proposal-decorators > @babel/helper-replace-supers > @babel/helper-optimise-call-expression > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.908Z'
+    - '@storybook/react > babel-preset-react-app > @babel/plugin-transform-classes > @babel/helper-replace-supers > @babel/helper-optimise-call-expression > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.908Z'
+    - '@storybook/react > @storybook/core > @babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-optimise-call-expression > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.908Z'
+    - '@storybook/react > @svgr/webpack > @svgr/plugin-jsx > @babel/core > @babel/helpers > @babel/traverse > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.908Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-transform-classes > @babel/helper-optimise-call-expression > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.908Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-transform-classes > @babel/helper-optimise-call-expression > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.908Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-transform-classes > @babel/helper-annotate-as-pure > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.908Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-transform-template-literals > @babel/helper-annotate-as-pure > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.908Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.908Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.908Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.908Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.908Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.909Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.909Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-transform-exponentiation-operator > @babel/helper-builder-binary-assignment-operator-visitor > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.909Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-transform-exponentiation-operator > @babel/helper-builder-binary-assignment-operator-visitor > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.909Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-transform-exponentiation-operator > @babel/helper-builder-binary-assignment-operator-visitor > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.909Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-transform-modules-commonjs > @babel/helper-simple-access > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.909Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-transform-modules-commonjs > @babel/helper-simple-access > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.909Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-transform-modules-commonjs > @babel/helper-simple-access > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.909Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-transform-template-literals > @babel/helper-annotate-as-pure > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.909Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-transform-template-literals > @babel/helper-annotate-as-pure > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.909Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-module-imports > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.909Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-module-imports > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.909Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-transform-object-super > @babel/helper-replace-supers > @babel/traverse > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.909Z'
+    - '@storybook/react > babel-preset-react-app > @babel/plugin-proposal-class-properties > @babel/helper-replace-supers > @babel/traverse > @babel/generator > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.909Z'
+    - '@storybook/react > babel-preset-react-app > @babel/plugin-proposal-decorators > @babel/helper-replace-supers > @babel/traverse > @babel/generator > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.909Z'
+    - '@storybook/react > babel-preset-react-app > @babel/plugin-transform-classes > @babel/helper-replace-supers > @babel/traverse > @babel/generator > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.909Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-transform-classes > @babel/helper-replace-supers > @babel/traverse > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.909Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-transform-classes > @babel/helper-replace-supers > @babel/traverse > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.909Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-transform-classes > @babel/helper-replace-supers > @babel/traverse > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.909Z'
+    - '@storybook/react > @storybook/core > @babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/traverse > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.909Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-module-imports > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.909Z'
+    - '@storybook/react > @storybook/core > @storybook/ui > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.909Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-react > @babel/plugin-transform-react-jsx > @babel/helper-builder-react-jsx > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.909Z'
+    - '@storybook/react > @svgr/webpack > @svgr/core > @svgr/plugin-jsx > @babel/core > @babel/generator > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.909Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-react > @babel/plugin-transform-react-jsx > @babel/helper-builder-react-jsx > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.909Z'
+    - '@storybook/react > @svgr/webpack > @babel/core > @babel/helpers > @babel/traverse > @babel/generator > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.909Z'
+    - '@storybook/react > babel-preset-react-app > @babel/core > @babel/helpers > @babel/traverse > @babel/generator > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.909Z'
+    - '@storybook/react > @svgr/webpack > @svgr/plugin-jsx > @babel/core > @babel/traverse > @babel/generator > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.909Z'
+    - '@storybook/react > @storybook/core > @babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-function-name > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.909Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-transform-classes > @babel/helper-replace-supers > @babel/helper-member-expression-to-functions > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.909Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-transform-classes > @babel/helper-replace-supers > @babel/helper-member-expression-to-functions > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.910Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-transform-classes > @babel/helper-replace-supers > @babel/helper-member-expression-to-functions > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.910Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-transform-object-super > @babel/helper-replace-supers > @babel/helper-member-expression-to-functions > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.910Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-transform-object-super > @babel/helper-replace-supers > @babel/helper-member-expression-to-functions > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.910Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-transform-object-super > @babel/helper-replace-supers > @babel/helper-member-expression-to-functions > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.910Z'
+    - '@storybook/react > babel-preset-react-app > @babel/plugin-transform-classes > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.910Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/helper-annotate-as-pure > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.910Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/helper-annotate-as-pure > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.910Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/helper-annotate-as-pure > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.910Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-typescript > @babel/plugin-transform-typescript > @babel/helper-create-class-features-plugin > @babel/helper-member-expression-to-functions > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.911Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/helper-annotate-as-pure > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.911Z'
+    - '@storybook/react > @storybook/core > @babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/helper-optimise-call-expression > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.911Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/helper-annotate-as-pure > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.911Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-transform-classes > @babel/helper-replace-supers > @babel/helper-optimise-call-expression > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.911Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-transform-classes > @babel/helper-replace-supers > @babel/helper-optimise-call-expression > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.911Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-transform-classes > @babel/helper-replace-supers > @babel/helper-optimise-call-expression > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.911Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-transform-object-super > @babel/helper-replace-supers > @babel/helper-optimise-call-expression > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.911Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/helper-annotate-as-pure > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.911Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-transform-object-super > @babel/helper-replace-supers > @babel/helper-optimise-call-expression > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.911Z'
+    - '@storybook/react > @svgr/webpack > @svgr/core > @svgr/plugin-jsx > @babel/core > @babel/helpers > @babel/traverse > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.911Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-transform-modules-commonjs > @babel/helper-module-transforms > @babel/helper-module-imports > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.911Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-transform-modules-commonjs > @babel/helper-module-transforms > @babel/helper-module-imports > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.911Z'
+    - '@storybook/react > babel-preset-react-app > @babel/plugin-transform-classes > @babel/helper-define-map > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.911Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-typescript > @babel/plugin-transform-typescript > @babel/helper-create-class-features-plugin > @babel/helper-optimise-call-expression > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.911Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-transform-exponentiation-operator > @babel/helper-builder-binary-assignment-operator-visitor > @babel/helper-explode-assignable-expression > @babel/traverse > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.911Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-transform-exponentiation-operator > @babel/helper-builder-binary-assignment-operator-visitor > @babel/helper-explode-assignable-expression > @babel/traverse > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.911Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-transform-exponentiation-operator > @babel/helper-builder-binary-assignment-operator-visitor > @babel/helper-explode-assignable-expression > @babel/traverse > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.911Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-transform-classes > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.911Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-transform-classes > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.911Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.911Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.911Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.911Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.911Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.911Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.911Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-transform-classes > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.911Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-transform-function-name > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.912Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-transform-function-name > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.912Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-transform-function-name > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.912Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/traverse > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.912Z'
+    - '@storybook/react > @svgr/webpack > @babel/core > @babel/helpers > @babel/traverse > @babel/helper-function-name > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.912Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-transform-exponentiation-operator > @babel/helper-builder-binary-assignment-operator-visitor > @babel/helper-explode-assignable-expression > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.912Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-transform-exponentiation-operator > @babel/helper-builder-binary-assignment-operator-visitor > @babel/helper-explode-assignable-expression > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.912Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-transform-exponentiation-operator > @babel/helper-builder-binary-assignment-operator-visitor > @babel/helper-explode-assignable-expression > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.912Z'
+    - '@storybook/react > babel-preset-react-app > @babel/core > @babel/helpers > @babel/traverse > @babel/helper-function-name > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.912Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/traverse > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.912Z'
+    - '@storybook/react > @svgr/webpack > @svgr/plugin-jsx > @babel/core > @babel/traverse > @babel/helper-function-name > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.912Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-transform-modules-amd > @babel/helper-module-transforms > @babel/helper-simple-access > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.912Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-transform-modules-amd > @babel/helper-module-transforms > @babel/helper-simple-access > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.912Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-transform-modules-amd > @babel/helper-module-transforms > @babel/helper-simple-access > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.912Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-transform-modules-commonjs > @babel/helper-module-transforms > @babel/helper-simple-access > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.912Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-transform-modules-commonjs > @babel/helper-module-transforms > @babel/helper-simple-access > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.912Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-transform-modules-commonjs > @babel/helper-module-transforms > @babel/helper-simple-access > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.912Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-transform-modules-umd > @babel/helper-module-transforms > @babel/helper-simple-access > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.912Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-transform-modules-umd > @babel/helper-module-transforms > @babel/helper-simple-access > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.912Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-transform-modules-umd > @babel/helper-module-transforms > @babel/helper-simple-access > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.912Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-transform-modules-commonjs > @babel/helper-module-transforms > @babel/helper-module-imports > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.912Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-transform-modules-umd > @babel/helper-module-transforms > @babel/helper-module-imports > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.912Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-transform-modules-umd > @babel/helper-module-transforms > @babel/helper-module-imports > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.912Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-typescript > @babel/plugin-transform-typescript > @babel/helper-create-class-features-plugin > @babel/helper-function-name > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.912Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/traverse > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.912Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/traverse > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.912Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/traverse > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.912Z'
+    - '@storybook/react > @storybook/core > @babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/traverse > @babel/generator > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.913Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/traverse > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.913Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-transform-classes > @babel/helper-replace-supers > @babel/traverse > @babel/generator > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.913Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-transform-classes > @babel/helper-replace-supers > @babel/traverse > @babel/generator > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.913Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-transform-classes > @babel/helper-replace-supers > @babel/traverse > @babel/generator > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.913Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-transform-object-super > @babel/helper-replace-supers > @babel/traverse > @babel/generator > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.913Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-transform-object-super > @babel/helper-replace-supers > @babel/traverse > @babel/generator > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.913Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-transform-object-super > @babel/helper-replace-supers > @babel/traverse > @babel/generator > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.913Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-transform-modules-umd > @babel/helper-module-transforms > @babel/helper-module-imports > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.913Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-transform-object-super > @babel/helper-replace-supers > @babel/helper-optimise-call-expression > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.913Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-transform-classes > @babel/helper-define-map > @babel/helper-function-name > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.913Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-transform-classes > @babel/helper-define-map > @babel/helper-function-name > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.913Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-transform-classes > @babel/helper-define-map > @babel/helper-function-name > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.913Z'
+    - '@storybook/react > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.913Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-typescript > @babel/plugin-transform-typescript > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/traverse > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.913Z'
+    - '@storybook/react > babel-preset-react-app > @babel/core > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.913Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-transform-modules-amd > @babel/helper-module-transforms > @babel/helper-module-imports > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.913Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/traverse > @babel/generator > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.913Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/traverse > @babel/generator > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.913Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/traverse > @babel/generator > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.913Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/traverse > @babel/generator > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.913Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/traverse > @babel/generator > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.913Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/traverse > @babel/generator > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.913Z'
+    - '@storybook/react > @svgr/webpack > @babel/core > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.913Z'
+    - '@storybook/react > babel-preset-react-app > @babel/core > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.913Z'
+    - '@storybook/react > @storybook/core > @babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.913Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-transform-parameters > @babel/helper-call-delegate > @babel/traverse > @babel/generator > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.913Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-transform-parameters > @babel/helper-call-delegate > @babel/traverse > @babel/generator > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.913Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-transform-parameters > @babel/helper-call-delegate > @babel/traverse > @babel/generator > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.913Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-transform-modules-amd > @babel/helper-module-transforms > @babel/helper-module-imports > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.914Z'
+    - '@storybook/react > @svgr/webpack > @svgr/plugin-jsx > @babel/core > @babel/helpers > @babel/traverse > @babel/generator > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.914Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-transform-modules-amd > @babel/helper-module-transforms > @babel/helper-module-imports > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.914Z'
+    - '@storybook/react > babel-preset-react-app > @babel/plugin-proposal-class-properties > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.914Z'
+    - '@storybook/react > @svgr/webpack > @svgr/core > @svgr/plugin-jsx > @babel/core > @babel/traverse > @babel/generator > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.914Z'
+    - '@storybook/react > @storybook/core > @babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/helper-member-expression-to-functions > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.914Z'
+    - '@storybook/react > babel-preset-react-app > @babel/plugin-proposal-decorators > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.914Z'
+    - '@storybook/react > @storybook/core > @babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.914Z'
+    - '@storybook/react > @svgr/webpack > @svgr/core > @svgr/plugin-jsx > @babel/core > @babel/helpers > @babel/traverse > @babel/generator > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.914Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-transform-exponentiation-operator > @babel/helper-builder-binary-assignment-operator-visitor > @babel/helper-explode-assignable-expression > @babel/traverse > @babel/generator > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.914Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-transform-exponentiation-operator > @babel/helper-builder-binary-assignment-operator-visitor > @babel/helper-explode-assignable-expression > @babel/traverse > @babel/generator > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.914Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/traverse > @babel/generator > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.914Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/traverse > @babel/generator > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.914Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/traverse > @babel/generator > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.914Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/traverse > @babel/generator > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.914Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/traverse > @babel/generator > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.915Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/traverse > @babel/generator > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.915Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-typescript > @babel/plugin-transform-typescript > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/traverse > @babel/generator > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.915Z'
+    - '@storybook/react > @svgr/webpack > @babel/core > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.915Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-typescript > @babel/plugin-transform-typescript > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/helper-optimise-call-expression > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.915Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-typescript > @babel/plugin-transform-typescript > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/helper-member-expression-to-functions > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.915Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/helper-function-name > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.915Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/helper-function-name > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.915Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/helper-function-name > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.915Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/helper-function-name > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.915Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/helper-function-name > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.915Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/helper-function-name > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.915Z'
+    - '@storybook/react > @svgr/webpack > @svgr/core > @svgr/plugin-jsx > @babel/core > @babel/traverse > @babel/helper-function-name > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.915Z'
+    - '@storybook/react > @svgr/webpack > @svgr/plugin-jsx > @babel/core > @babel/helpers > @babel/traverse > @babel/helper-function-name > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.915Z'
+    - '@storybook/react > babel-preset-react-app > @babel/core > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.915Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-transform-parameters > @babel/helper-call-delegate > @babel/traverse > @babel/helper-function-name > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.915Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-transform-parameters > @babel/helper-call-delegate > @babel/traverse > @babel/helper-function-name > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.915Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-transform-parameters > @babel/helper-call-delegate > @babel/traverse > @babel/helper-function-name > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.915Z'
+    - '@storybook/react > @storybook/core > css-loader > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.915Z'
+    - '@storybook/react > babel-preset-react-app > @babel/plugin-proposal-decorators > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.915Z'
+    - '@storybook/react > babel-preset-react-app > @babel/plugin-transform-classes > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.915Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/traverse > @babel/helper-function-name > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.915Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/traverse > @babel/helper-function-name > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.915Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/traverse > @babel/helper-function-name > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.915Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/traverse > @babel/helper-function-name > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.915Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/traverse > @babel/helper-function-name > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.915Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/traverse > @babel/helper-function-name > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.915Z'
+    - '@storybook/react > @svgr/webpack > @babel/core > @babel/helpers > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.915Z'
+    - '@storybook/react > babel-preset-react-app > @babel/core > @babel/helpers > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.915Z'
+    - '@storybook/react > @svgr/webpack > @svgr/plugin-jsx > @babel/core > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.915Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-typescript > @babel/plugin-transform-typescript > @babel/helper-create-class-features-plugin > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.916Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-transform-classes > @babel/helper-define-map > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.916Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-transform-classes > @babel/helper-define-map > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.916Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-transform-object-super > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.916Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-transform-object-super > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.916Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-transform-object-super > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.916Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-transform-classes > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.916Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-transform-classes > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.916Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-transform-classes > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.916Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-transform-classes > @babel/helper-define-map > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.916Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-transform-exponentiation-operator > @babel/helper-builder-binary-assignment-operator-visitor > @babel/helper-explode-assignable-expression > @babel/traverse > @babel/generator > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.916Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.916Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-typescript > @babel/plugin-transform-typescript > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.916Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/traverse > @babel/helper-function-name > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.916Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.916Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.916Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.916Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.916Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.916Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.916Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/traverse > @babel/helper-function-name > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.916Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/traverse > @babel/helper-function-name > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.916Z'
+    - '@storybook/react > @svgr/webpack > @svgr/core > @svgr/plugin-jsx > @babel/core > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.916Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/traverse > @babel/helper-function-name > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.916Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/traverse > @babel/helper-function-name > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.916Z'
+    - '@storybook/react > @svgr/webpack > @svgr/plugin-jsx > @babel/core > @babel/helpers > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.916Z'
+    - '@storybook/react > @svgr/webpack > @svgr/core > @svgr/plugin-jsx > @babel/core > @babel/helpers > @babel/traverse > @babel/helper-function-name > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.916Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-transform-parameters > @babel/helper-call-delegate > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.917Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-transform-parameters > @babel/helper-call-delegate > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.917Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-transform-parameters > @babel/helper-call-delegate > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.917Z'
+    - '@storybook/react > @storybook/core > @babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.917Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-transform-classes > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.917Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-transform-classes > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.917Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.917Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/traverse > @babel/helper-function-name > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.917Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.917Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.917Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.917Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.917Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-transform-classes > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.917Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-transform-object-super > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.917Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-transform-object-super > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.917Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-transform-object-super > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.917Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-transform-exponentiation-operator > @babel/helper-builder-binary-assignment-operator-visitor > @babel/helper-explode-assignable-expression > @babel/traverse > @babel/helper-function-name > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.917Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-transform-exponentiation-operator > @babel/helper-builder-binary-assignment-operator-visitor > @babel/helper-explode-assignable-expression > @babel/traverse > @babel/helper-function-name > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.917Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-transform-exponentiation-operator > @babel/helper-builder-binary-assignment-operator-visitor > @babel/helper-explode-assignable-expression > @babel/traverse > @babel/helper-function-name > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.917Z'
+    - '@storybook/react > @storybook/core > react-dev-utils > inquirer > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.917Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.917Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.918Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.918Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.918Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.918Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.918Z'
+    - '@storybook/react > @svgr/webpack > @babel/preset-env > @babel/plugin-transform-exponentiation-operator > @babel/helper-builder-binary-assignment-operator-visitor > @babel/helper-explode-assignable-expression > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.918Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-typescript > @babel/plugin-transform-typescript > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.918Z'
+    - '@storybook/react > babel-preset-react-app > @babel/preset-env > @babel/plugin-transform-exponentiation-operator > @babel/helper-builder-binary-assignment-operator-visitor > @babel/helper-explode-assignable-expression > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.918Z'
+    - '@storybook/react > @svgr/webpack > @svgr/core > @svgr/plugin-jsx > @babel/core > @babel/helpers > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.918Z'
+    - '@storybook/react > @storybook/core > @babel/preset-env > @babel/plugin-transform-exponentiation-operator > @babel/helper-builder-binary-assignment-operator-visitor > @babel/helper-explode-assignable-expression > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        reason: None given
+        expires: '2019-08-29T13:24:12.918Z'
+  SNYK-JS-SETVALUE-450213:
+    - '@storybook/react > @storybook/core > webpack > watchpack > chokidar > readdirp > micromatch > extglob > expand-brackets > snapdragon > base > cache-base > union-value > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.918Z'
+    - '@storybook/react > @storybook/core > webpack > watchpack > chokidar > anymatch > micromatch > extglob > snapdragon > base > cache-base > union-value > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.918Z'
+    - '@storybook/react > @storybook/core > webpack > watchpack > chokidar > anymatch > micromatch > nanomatch > snapdragon > base > cache-base > union-value > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.918Z'
+    - '@storybook/react > @storybook/core > webpack > watchpack > chokidar > readdirp > micromatch > nanomatch > snapdragon > base > cache-base > union-value > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.918Z'
+    - '@storybook/react > @storybook/core > react-dev-utils > globby > fast-glob > micromatch > extglob > expand-brackets > snapdragon > base > cache-base > union-value > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.918Z'
+    - '@storybook/react > webpack > watchpack > chokidar > anymatch > micromatch > extglob > expand-brackets > snapdragon > base > cache-base > union-value > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.918Z'
+    - '@storybook/react > @storybook/core > webpack > watchpack > chokidar > anymatch > micromatch > braces > snapdragon > base > cache-base > union-value > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.918Z'
+    - '@storybook/react > @storybook/core > webpack > watchpack > chokidar > readdirp > micromatch > extglob > snapdragon > base > cache-base > union-value > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.918Z'
+    - '@storybook/react > @storybook/core > webpack > watchpack > chokidar > readdirp > micromatch > braces > snapdragon > base > cache-base > union-value > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.918Z'
+    - '@storybook/react > webpack > watchpack > chokidar > readdirp > micromatch > extglob > expand-brackets > snapdragon > base > cache-base > union-value > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.918Z'
+    - '@storybook/react > webpack > watchpack > chokidar > readdirp > micromatch > braces > snapdragon > base > cache-base > union-value > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.919Z'
+    - '@storybook/react > @storybook/core > react-dev-utils > globby > fast-glob > micromatch > extglob > snapdragon > base > cache-base > union-value > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.919Z'
+    - '@storybook/react > @storybook/core > webpack > watchpack > chokidar > anymatch > micromatch > snapdragon > base > cache-base > union-value > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.919Z'
+    - '@storybook/react > webpack > watchpack > chokidar > readdirp > micromatch > nanomatch > snapdragon > base > cache-base > union-value > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.919Z'
+    - '@storybook/react > @storybook/core > webpack > watchpack > chokidar > readdirp > micromatch > snapdragon > base > cache-base > union-value > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.919Z'
+    - '@storybook/react > @storybook/core > react-dev-utils > globby > fast-glob > micromatch > braces > snapdragon > base > cache-base > union-value > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.919Z'
+    - '@storybook/react > webpack > watchpack > chokidar > anymatch > micromatch > nanomatch > snapdragon > base > cache-base > union-value > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.919Z'
+    - '@storybook/react > react-dev-utils > globby > fast-glob > micromatch > extglob > expand-brackets > snapdragon > base > cache-base > union-value > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.919Z'
+    - '@storybook/react > webpack > watchpack > chokidar > anymatch > micromatch > extglob > snapdragon > base > cache-base > union-value > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.919Z'
+    - '@storybook/react > @storybook/core > react-dev-utils > globby > fast-glob > micromatch > nanomatch > snapdragon > base > cache-base > union-value > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.919Z'
+    - '@storybook/react > webpack > watchpack > chokidar > anymatch > micromatch > braces > snapdragon > base > cache-base > union-value > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.919Z'
+    - '@storybook/react > webpack > watchpack > chokidar > readdirp > micromatch > extglob > snapdragon > base > cache-base > union-value > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.920Z'
+    - '@storybook/react > @storybook/core > webpack > micromatch > extglob > expand-brackets > snapdragon > base > cache-base > union-value > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.920Z'
+    - '@storybook/react > @storybook/core > webpack > watchpack > chokidar > braces > snapdragon > base > cache-base > union-value > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.920Z'
+    - '@storybook/react > @storybook/core > react-dev-utils > globby > fast-glob > micromatch > snapdragon > base > cache-base > union-value > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.921Z'
+    - '@storybook/react > react-dev-utils > globby > fast-glob > micromatch > nanomatch > snapdragon > base > cache-base > union-value > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.921Z'
+    - '@storybook/react > react-dev-utils > globby > fast-glob > micromatch > extglob > snapdragon > base > cache-base > union-value > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.921Z'
+    - '@storybook/react > webpack > watchpack > chokidar > readdirp > micromatch > snapdragon > base > cache-base > union-value > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.921Z'
+    - '@storybook/react > react-dev-utils > globby > fast-glob > micromatch > braces > snapdragon > base > cache-base > union-value > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.921Z'
+    - '@storybook/react > webpack > watchpack > chokidar > anymatch > micromatch > snapdragon > base > cache-base > union-value > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.921Z'
+    - '@storybook/react > @storybook/core > webpack > micromatch > extglob > snapdragon > base > cache-base > union-value > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.921Z'
+    - '@storybook/react > @storybook/core > webpack > micromatch > nanomatch > snapdragon > base > cache-base > union-value > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.921Z'
+    - '@storybook/react > webpack > micromatch > snapdragon > base > cache-base > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.921Z'
+    - '@storybook/react > webpack > micromatch > extglob > expand-brackets > snapdragon > base > cache-base > union-value > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.921Z'
+    - '@storybook/react > webpack > watchpack > chokidar > braces > snapdragon > base > cache-base > union-value > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.921Z'
+    - '@storybook/react > @storybook/core > webpack > micromatch > braces > snapdragon > base > cache-base > union-value > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.921Z'
+    - '@storybook/react > react-dev-utils > globby > fast-glob > micromatch > snapdragon > base > cache-base > union-value > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.921Z'
+    - '@storybook/react > webpack > micromatch > braces > snapdragon > base > cache-base > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.922Z'
+    - '@storybook/react > @storybook/core > webpack > micromatch > snapdragon > base > cache-base > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.922Z'
+    - '@storybook/react > webpack > micromatch > extglob > snapdragon > base > cache-base > union-value > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.922Z'
+    - '@storybook/react > webpack > micromatch > nanomatch > snapdragon > base > cache-base > union-value > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.922Z'
+    - '@storybook/react > webpack > micromatch > nanomatch > snapdragon > base > cache-base > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.922Z'
+    - '@storybook/react > webpack > micromatch > extglob > snapdragon > base > cache-base > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.922Z'
+    - '@storybook/react > react-dev-utils > globby > fast-glob > micromatch > snapdragon > base > cache-base > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.922Z'
+    - '@storybook/react > @storybook/core > webpack > micromatch > braces > snapdragon > base > cache-base > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.922Z'
+    - '@storybook/react > webpack > watchpack > chokidar > braces > snapdragon > base > cache-base > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.922Z'
+    - '@storybook/react > webpack > micromatch > extglob > expand-brackets > snapdragon > base > cache-base > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.922Z'
+    - '@storybook/react > @storybook/core > webpack > micromatch > snapdragon > base > cache-base > union-value > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.922Z'
+    - '@storybook/react > @storybook/core > webpack > micromatch > nanomatch > snapdragon > base > cache-base > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.922Z'
+    - '@storybook/react > webpack > micromatch > braces > snapdragon > base > cache-base > union-value > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.922Z'
+    - '@storybook/react > @storybook/core > webpack > micromatch > extglob > snapdragon > base > cache-base > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.922Z'
+    - '@storybook/react > webpack > micromatch > snapdragon > base > cache-base > union-value > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.922Z'
+    - '@storybook/react > webpack > watchpack > chokidar > anymatch > micromatch > snapdragon > base > cache-base > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.922Z'
+    - '@storybook/react > @storybook/core > webpack > watchpack > chokidar > anymatch > micromatch > extglob > expand-brackets > snapdragon > base > cache-base > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.922Z'
+    - '@storybook/react > react-dev-utils > globby > fast-glob > micromatch > braces > snapdragon > base > cache-base > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.922Z'
+    - '@storybook/react > webpack > watchpack > chokidar > readdirp > micromatch > snapdragon > base > cache-base > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.922Z'
+    - '@storybook/react > react-dev-utils > globby > fast-glob > micromatch > extglob > snapdragon > base > cache-base > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.922Z'
+    - '@storybook/react > @storybook/core > webpack > watchpack > chokidar > readdirp > micromatch > extglob > expand-brackets > snapdragon > base > cache-base > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.922Z'
+    - '@storybook/react > @storybook/core > webpack > watchpack > chokidar > anymatch > micromatch > extglob > snapdragon > base > cache-base > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.922Z'
+    - '@storybook/react > react-dev-utils > globby > fast-glob > micromatch > nanomatch > snapdragon > base > cache-base > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.922Z'
+    - '@storybook/react > @storybook/core > webpack > watchpack > chokidar > anymatch > micromatch > nanomatch > snapdragon > base > cache-base > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.922Z'
+    - '@storybook/react > @storybook/core > react-dev-utils > globby > fast-glob > micromatch > snapdragon > base > cache-base > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.922Z'
+    - '@storybook/react > @storybook/core > webpack > watchpack > chokidar > braces > snapdragon > base > cache-base > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.923Z'
+    - '@storybook/react > @storybook/core > webpack > micromatch > extglob > expand-brackets > snapdragon > base > cache-base > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.923Z'
+    - '@storybook/react > @storybook/core > webpack > watchpack > chokidar > readdirp > micromatch > nanomatch > snapdragon > base > cache-base > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.923Z'
+    - '@storybook/react > webpack > watchpack > chokidar > readdirp > micromatch > extglob > snapdragon > base > cache-base > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.923Z'
+    - '@storybook/react > webpack > watchpack > chokidar > anymatch > micromatch > braces > snapdragon > base > cache-base > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.923Z'
+    - '@storybook/react > @storybook/core > react-dev-utils > globby > fast-glob > micromatch > nanomatch > snapdragon > base > cache-base > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.923Z'
+    - '@storybook/react > webpack > watchpack > chokidar > anymatch > micromatch > extglob > snapdragon > base > cache-base > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.923Z'
+    - '@storybook/react > react-dev-utils > globby > fast-glob > micromatch > extglob > expand-brackets > snapdragon > base > cache-base > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.923Z'
+    - '@storybook/react > @storybook/core > react-dev-utils > globby > fast-glob > micromatch > extglob > expand-brackets > snapdragon > base > cache-base > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.923Z'
+    - '@storybook/react > webpack > watchpack > chokidar > anymatch > micromatch > nanomatch > snapdragon > base > cache-base > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.923Z'
+    - '@storybook/react > @storybook/core > react-dev-utils > globby > fast-glob > micromatch > braces > snapdragon > base > cache-base > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.923Z'
+    - '@storybook/react > @storybook/core > webpack > watchpack > chokidar > readdirp > micromatch > snapdragon > base > cache-base > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.923Z'
+    - '@storybook/react > webpack > watchpack > chokidar > readdirp > micromatch > nanomatch > snapdragon > base > cache-base > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.923Z'
+    - '@storybook/react > @storybook/core > webpack > watchpack > chokidar > anymatch > micromatch > snapdragon > base > cache-base > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.923Z'
+    - '@storybook/react > @storybook/core > react-dev-utils > globby > fast-glob > micromatch > extglob > snapdragon > base > cache-base > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.923Z'
+    - '@storybook/react > webpack > watchpack > chokidar > anymatch > micromatch > extglob > expand-brackets > snapdragon > base > cache-base > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.923Z'
+    - '@storybook/react > webpack > watchpack > chokidar > readdirp > micromatch > braces > snapdragon > base > cache-base > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.923Z'
+    - '@storybook/react > webpack > watchpack > chokidar > readdirp > micromatch > extglob > expand-brackets > snapdragon > base > cache-base > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.923Z'
+    - '@storybook/react > @storybook/core > webpack > watchpack > chokidar > readdirp > micromatch > braces > snapdragon > base > cache-base > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.923Z'
+    - '@storybook/react > @storybook/core > webpack > watchpack > chokidar > readdirp > micromatch > extglob > snapdragon > base > cache-base > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.923Z'
+    - '@storybook/react > @storybook/core > webpack > watchpack > chokidar > anymatch > micromatch > braces > snapdragon > base > cache-base > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.923Z'
+    - '@storybook/react > @storybook/core > webpack > watchpack > chokidar > anymatch > micromatch > extglob > expand-brackets > snapdragon > base > cache-base > union-value > set-value':
+        reason: None given
+        expires: '2019-08-29T13:24:12.923Z'
+    - expand-brackets > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-08-29T13:24:12.923Z'
+    - expand-brackets > snapdragon > base > cache-base > set-value:
+        reason: None given
+        expires: '2019-08-29T13:24:12.923Z'
+    - extglob > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-08-29T13:24:12.924Z'
+    - extglob > expand-brackets > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-08-29T13:24:12.924Z'
+    - extglob > expand-brackets > snapdragon > base > cache-base > set-value:
+        reason: None given
+        expires: '2019-08-29T13:24:12.924Z'
+    - extglob > snapdragon > base > cache-base > set-value:
+        reason: None given
+        expires: '2019-08-29T13:24:12.924Z'
+    - micromatch > braces > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-08-29T13:24:12.924Z'
+    - micromatch > extglob > snapdragon > base > cache-base > set-value:
+        reason: None given
+        expires: '2019-08-29T13:24:12.924Z'
+    - micromatch > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-08-29T13:24:12.924Z'
+    - micromatch > braces > snapdragon > base > cache-base > set-value:
+        reason: None given
+        expires: '2019-08-29T13:24:12.924Z'
+    - micromatch > nanomatch > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-08-29T13:24:12.924Z'
+    - micromatch > extglob > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-08-29T13:24:12.924Z'
+    - micromatch > snapdragon > base > cache-base > set-value:
+        reason: None given
+        expires: '2019-08-29T13:24:12.924Z'
+    - micromatch > extglob > expand-brackets > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-08-29T13:24:12.924Z'
+    - micromatch > extglob > expand-brackets > snapdragon > base > cache-base > set-value:
+        reason: None given
+        expires: '2019-08-29T13:24:12.924Z'
+    - micromatch > nanomatch > snapdragon > base > cache-base > set-value:
+        reason: None given
+        expires: '2019-08-29T13:24:12.924Z'
+    - webpack > watchpack > chokidar > braces > snapdragon > base > cache-base > set-value:
+        reason: None given
+        expires: '2019-08-29T13:24:12.924Z'
+    - webpack > micromatch > nanomatch > snapdragon > base > cache-base > set-value:
+        reason: None given
+        expires: '2019-08-29T13:24:12.924Z'
+    - webpack > micromatch > extglob > snapdragon > base > cache-base > set-value:
+        reason: None given
+        expires: '2019-08-29T13:24:12.924Z'
+    - webpack > watchpack > chokidar > readdirp > micromatch > extglob > snapdragon > base > cache-base > set-value:
+        reason: None given
+        expires: '2019-08-29T13:24:12.924Z'
+    - webpack > micromatch > braces > snapdragon > base > cache-base > set-value:
+        reason: None given
+        expires: '2019-08-29T13:24:12.924Z'
+    - webpack > watchpack > chokidar > readdirp > micromatch > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-08-29T13:24:12.924Z'
+    - webpack > watchpack > chokidar > anymatch > micromatch > nanomatch > snapdragon > base > cache-base > set-value:
+        reason: None given
+        expires: '2019-08-29T13:24:12.924Z'
+    - webpack > watchpack > chokidar > anymatch > micromatch > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-08-29T13:24:12.924Z'
+    - webpack > micromatch > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-08-29T13:24:12.924Z'
+    - webpack > watchpack > chokidar > readdirp > micromatch > braces > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-08-29T13:24:12.924Z'
+    - webpack > watchpack > chokidar > readdirp > micromatch > nanomatch > snapdragon > base > cache-base > set-value:
+        reason: None given
+        expires: '2019-08-29T13:24:12.924Z'
+    - webpack > watchpack > chokidar > anymatch > micromatch > extglob > expand-brackets > snapdragon > base > cache-base > set-value:
+        reason: None given
+        expires: '2019-08-29T13:24:12.924Z'
+    - webpack > micromatch > snapdragon > base > cache-base > set-value:
+        reason: None given
+        expires: '2019-08-29T13:24:12.925Z'
+    - webpack > watchpack > chokidar > anymatch > micromatch > braces > snapdragon > base > cache-base > set-value:
+        reason: None given
+        expires: '2019-08-29T13:24:12.925Z'
+    - webpack > watchpack > chokidar > readdirp > micromatch > extglob > expand-brackets > snapdragon > base > cache-base > set-value:
+        reason: None given
+        expires: '2019-08-29T13:24:12.925Z'
+    - webpack > watchpack > chokidar > readdirp > micromatch > nanomatch > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-08-29T13:24:12.925Z'
+    - webpack > watchpack > chokidar > anymatch > micromatch > nanomatch > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-08-29T13:24:12.925Z'
+    - webpack > watchpack > chokidar > readdirp > micromatch > braces > snapdragon > base > cache-base > set-value:
+        reason: None given
+        expires: '2019-08-29T13:24:12.925Z'
+    - webpack > watchpack > chokidar > readdirp > micromatch > extglob > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-08-29T13:24:12.925Z'
+    - webpack > micromatch > braces > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-08-29T13:24:12.925Z'
+    - webpack > watchpack > chokidar > anymatch > micromatch > extglob > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-08-29T13:24:12.925Z'
+    - webpack > watchpack > chokidar > anymatch > micromatch > extglob > expand-brackets > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-08-29T13:24:12.925Z'
+    - webpack > watchpack > chokidar > readdirp > micromatch > extglob > expand-brackets > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-08-29T13:24:12.926Z'
+    - webpack > watchpack > chokidar > anymatch > micromatch > extglob > snapdragon > base > cache-base > set-value:
+        reason: None given
+        expires: '2019-08-29T13:24:12.926Z'
+    - webpack > micromatch > extglob > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-08-29T13:24:12.926Z'
+    - webpack > micromatch > nanomatch > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-08-29T13:24:12.926Z'
+    - webpack > watchpack > chokidar > anymatch > micromatch > snapdragon > base > cache-base > set-value:
+        reason: None given
+        expires: '2019-08-29T13:24:12.926Z'
+    - webpack > watchpack > chokidar > readdirp > micromatch > snapdragon > base > cache-base > set-value:
+        reason: None given
+        expires: '2019-08-29T13:24:12.926Z'
+    - webpack > watchpack > chokidar > braces > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-08-29T13:24:12.926Z'
+    - webpack > micromatch > extglob > expand-brackets > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-08-29T13:24:12.926Z'
+    - webpack > micromatch > extglob > expand-brackets > snapdragon > base > cache-base > set-value:
+        reason: None given
+        expires: '2019-08-29T13:24:12.926Z'
+    - webpack > watchpack > chokidar > anymatch > micromatch > braces > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-08-29T13:24:12.926Z'
+  SNYK-JS-MIXINDEEP-450212:
+    - '@storybook/react > webpack > micromatch > snapdragon > base > mixin-deep':
+        reason: None given
+        expires: '2019-08-29T13:24:12.918Z'
+    - '@storybook/react > webpack > micromatch > braces > snapdragon > base > mixin-deep':
+        reason: None given
+        expires: '2019-08-29T13:24:12.919Z'
+    - '@storybook/react > @storybook/core > webpack > micromatch > snapdragon > base > mixin-deep':
+        reason: None given
+        expires: '2019-08-29T13:24:12.919Z'
+    - '@storybook/react > webpack > micromatch > nanomatch > snapdragon > base > mixin-deep':
+        reason: None given
+        expires: '2019-08-29T13:24:12.919Z'
+    - '@storybook/react > webpack > micromatch > extglob > snapdragon > base > mixin-deep':
+        reason: None given
+        expires: '2019-08-29T13:24:12.919Z'
+    - '@storybook/react > react-dev-utils > globby > fast-glob > micromatch > snapdragon > base > mixin-deep':
+        reason: None given
+        expires: '2019-08-29T13:24:12.919Z'
+    - '@storybook/react > @storybook/core > webpack > micromatch > braces > snapdragon > base > mixin-deep':
+        reason: None given
+        expires: '2019-08-29T13:24:12.919Z'
+    - '@storybook/react > webpack > watchpack > chokidar > braces > snapdragon > base > mixin-deep':
+        reason: None given
+        expires: '2019-08-29T13:24:12.919Z'
+    - '@storybook/react > webpack > micromatch > extglob > expand-brackets > snapdragon > base > mixin-deep':
+        reason: None given
+        expires: '2019-08-29T13:24:12.919Z'
+    - '@storybook/react > @storybook/core > webpack > micromatch > nanomatch > snapdragon > base > mixin-deep':
+        reason: None given
+        expires: '2019-08-29T13:24:12.919Z'
+    - '@storybook/react > @storybook/core > webpack > micromatch > extglob > snapdragon > base > mixin-deep':
+        reason: None given
+        expires: '2019-08-29T13:24:12.919Z'
+    - '@storybook/react > webpack > watchpack > chokidar > anymatch > micromatch > snapdragon > base > mixin-deep':
+        reason: None given
+        expires: '2019-08-29T13:24:12.919Z'
+    - '@storybook/react > react-dev-utils > globby > fast-glob > micromatch > braces > snapdragon > base > mixin-deep':
+        reason: None given
+        expires: '2019-08-29T13:24:12.919Z'
+    - '@storybook/react > webpack > watchpack > chokidar > readdirp > micromatch > snapdragon > base > mixin-deep':
+        reason: None given
+        expires: '2019-08-29T13:24:12.919Z'
+    - '@storybook/react > react-dev-utils > globby > fast-glob > micromatch > extglob > snapdragon > base > mixin-deep':
+        reason: None given
+        expires: '2019-08-29T13:24:12.919Z'
+    - '@storybook/react > react-dev-utils > globby > fast-glob > micromatch > nanomatch > snapdragon > base > mixin-deep':
+        reason: None given
+        expires: '2019-08-29T13:24:12.919Z'
+    - '@storybook/react > @storybook/core > react-dev-utils > globby > fast-glob > micromatch > snapdragon > base > mixin-deep':
+        reason: None given
+        expires: '2019-08-29T13:24:12.919Z'
+    - '@storybook/react > @storybook/core > webpack > watchpack > chokidar > braces > snapdragon > base > mixin-deep':
+        reason: None given
+        expires: '2019-08-29T13:24:12.919Z'
+    - '@storybook/react > @storybook/core > webpack > micromatch > extglob > expand-brackets > snapdragon > base > mixin-deep':
+        reason: None given
+        expires: '2019-08-29T13:24:12.920Z'
+    - '@storybook/react > webpack > watchpack > chokidar > readdirp > micromatch > extglob > snapdragon > base > mixin-deep':
+        reason: None given
+        expires: '2019-08-29T13:24:12.920Z'
+    - '@storybook/react > webpack > watchpack > chokidar > anymatch > micromatch > braces > snapdragon > base > mixin-deep':
+        reason: None given
+        expires: '2019-08-29T13:24:12.920Z'
+    - '@storybook/react > @storybook/core > react-dev-utils > globby > fast-glob > micromatch > nanomatch > snapdragon > base > mixin-deep':
+        reason: None given
+        expires: '2019-08-29T13:24:12.920Z'
+    - '@storybook/react > webpack > watchpack > chokidar > anymatch > micromatch > extglob > snapdragon > base > mixin-deep':
+        reason: None given
+        expires: '2019-08-29T13:24:12.920Z'
+    - '@storybook/react > react-dev-utils > globby > fast-glob > micromatch > extglob > expand-brackets > snapdragon > base > mixin-deep':
+        reason: None given
+        expires: '2019-08-29T13:24:12.920Z'
+    - '@storybook/react > webpack > watchpack > chokidar > anymatch > micromatch > nanomatch > snapdragon > base > mixin-deep':
+        reason: None given
+        expires: '2019-08-29T13:24:12.920Z'
+    - '@storybook/react > @storybook/core > react-dev-utils > globby > fast-glob > micromatch > braces > snapdragon > base > mixin-deep':
+        reason: None given
+        expires: '2019-08-29T13:24:12.920Z'
+    - '@storybook/react > @storybook/core > webpack > watchpack > chokidar > readdirp > micromatch > snapdragon > base > mixin-deep':
+        reason: None given
+        expires: '2019-08-29T13:24:12.920Z'
+    - '@storybook/react > webpack > watchpack > chokidar > readdirp > micromatch > nanomatch > snapdragon > base > mixin-deep':
+        reason: None given
+        expires: '2019-08-29T13:24:12.920Z'
+    - '@storybook/react > @storybook/core > webpack > watchpack > chokidar > anymatch > micromatch > snapdragon > base > mixin-deep':
+        reason: None given
+        expires: '2019-08-29T13:24:12.920Z'
+    - '@storybook/react > @storybook/core > react-dev-utils > globby > fast-glob > micromatch > extglob > snapdragon > base > mixin-deep':
+        reason: None given
+        expires: '2019-08-29T13:24:12.920Z'
+    - '@storybook/react > webpack > watchpack > chokidar > readdirp > micromatch > braces > snapdragon > base > mixin-deep':
+        reason: None given
+        expires: '2019-08-29T13:24:12.920Z'
+    - '@storybook/react > webpack > watchpack > chokidar > readdirp > micromatch > extglob > expand-brackets > snapdragon > base > mixin-deep':
+        reason: None given
+        expires: '2019-08-29T13:24:12.920Z'
+    - '@storybook/react > @storybook/core > webpack > watchpack > chokidar > readdirp > micromatch > braces > snapdragon > base > mixin-deep':
+        reason: None given
+        expires: '2019-08-29T13:24:12.920Z'
+    - '@storybook/react > @storybook/core > webpack > watchpack > chokidar > readdirp > micromatch > extglob > snapdragon > base > mixin-deep':
+        reason: None given
+        expires: '2019-08-29T13:24:12.920Z'
+    - '@storybook/react > @storybook/core > webpack > watchpack > chokidar > anymatch > micromatch > braces > snapdragon > base > mixin-deep':
+        reason: None given
+        expires: '2019-08-29T13:24:12.920Z'
+    - '@storybook/react > webpack > watchpack > chokidar > anymatch > micromatch > extglob > expand-brackets > snapdragon > base > mixin-deep':
+        reason: None given
+        expires: '2019-08-29T13:24:12.920Z'
+    - '@storybook/react > @storybook/core > react-dev-utils > globby > fast-glob > micromatch > extglob > expand-brackets > snapdragon > base > mixin-deep':
+        reason: None given
+        expires: '2019-08-29T13:24:12.920Z'
+    - '@storybook/react > @storybook/core > webpack > watchpack > chokidar > readdirp > micromatch > nanomatch > snapdragon > base > mixin-deep':
+        reason: None given
+        expires: '2019-08-29T13:24:12.920Z'
+    - '@storybook/react > @storybook/core > webpack > watchpack > chokidar > anymatch > micromatch > nanomatch > snapdragon > base > mixin-deep':
+        reason: None given
+        expires: '2019-08-29T13:24:12.920Z'
+    - '@storybook/react > @storybook/core > webpack > watchpack > chokidar > anymatch > micromatch > extglob > snapdragon > base > mixin-deep':
+        reason: None given
+        expires: '2019-08-29T13:24:12.920Z'
+    - '@storybook/react > @storybook/core > webpack > watchpack > chokidar > readdirp > micromatch > extglob > expand-brackets > snapdragon > base > mixin-deep':
+        reason: None given
+        expires: '2019-08-29T13:24:12.921Z'
+    - '@storybook/react > @storybook/core > webpack > watchpack > chokidar > anymatch > micromatch > extglob > expand-brackets > snapdragon > base > mixin-deep':
+        reason: None given
+        expires: '2019-08-29T13:24:12.921Z'
+    - expand-brackets > snapdragon > base > mixin-deep:
+        reason: None given
+        expires: '2019-08-29T13:24:12.923Z'
+    - extglob > expand-brackets > snapdragon > base > mixin-deep:
+        reason: None given
+        expires: '2019-08-29T13:24:12.924Z'
+    - extglob > snapdragon > base > mixin-deep:
+        reason: None given
+        expires: '2019-08-29T13:24:12.924Z'
+    - micromatch > extglob > expand-brackets > snapdragon > base > mixin-deep:
+        reason: None given
+        expires: '2019-08-29T13:24:12.924Z'
+    - micromatch > snapdragon > base > mixin-deep:
+        reason: None given
+        expires: '2019-08-29T13:24:12.924Z'
+    - micromatch > extglob > snapdragon > base > mixin-deep:
+        reason: None given
+        expires: '2019-08-29T13:24:12.924Z'
+    - micromatch > nanomatch > snapdragon > base > mixin-deep:
+        reason: None given
+        expires: '2019-08-29T13:24:12.924Z'
+    - micromatch > braces > snapdragon > base > mixin-deep:
+        reason: None given
+        expires: '2019-08-29T13:24:12.924Z'
+    - webpack > watchpack > chokidar > readdirp > micromatch > extglob > expand-brackets > snapdragon > base > mixin-deep:
+        reason: None given
+        expires: '2019-08-29T13:24:12.925Z'
+    - webpack > watchpack > chokidar > anymatch > micromatch > extglob > expand-brackets > snapdragon > base > mixin-deep:
+        reason: None given
+        expires: '2019-08-29T13:24:12.925Z'
+    - webpack > watchpack > chokidar > anymatch > micromatch > extglob > snapdragon > base > mixin-deep:
+        reason: None given
+        expires: '2019-08-29T13:24:12.925Z'
+    - webpack > watchpack > chokidar > readdirp > micromatch > extglob > snapdragon > base > mixin-deep:
+        reason: None given
+        expires: '2019-08-29T13:24:12.925Z'
+    - webpack > watchpack > chokidar > anymatch > micromatch > nanomatch > snapdragon > base > mixin-deep:
+        reason: None given
+        expires: '2019-08-29T13:24:12.925Z'
+    - webpack > watchpack > chokidar > readdirp > micromatch > nanomatch > snapdragon > base > mixin-deep:
+        reason: None given
+        expires: '2019-08-29T13:24:12.925Z'
+    - webpack > watchpack > chokidar > anymatch > micromatch > braces > snapdragon > base > mixin-deep:
+        reason: None given
+        expires: '2019-08-29T13:24:12.925Z'
+    - webpack > watchpack > chokidar > readdirp > micromatch > braces > snapdragon > base > mixin-deep:
+        reason: None given
+        expires: '2019-08-29T13:24:12.926Z'
+    - webpack > watchpack > chokidar > anymatch > micromatch > snapdragon > base > mixin-deep:
+        reason: None given
+        expires: '2019-08-29T13:24:12.926Z'
+    - webpack > watchpack > chokidar > readdirp > micromatch > snapdragon > base > mixin-deep:
+        reason: None given
+        expires: '2019-08-29T13:24:12.926Z'
+    - webpack > micromatch > extglob > expand-brackets > snapdragon > base > mixin-deep:
+        reason: None given
+        expires: '2019-08-29T13:24:12.926Z'
+    - webpack > watchpack > chokidar > braces > snapdragon > base > mixin-deep:
+        reason: None given
+        expires: '2019-08-29T13:24:12.926Z'
+    - webpack > micromatch > nanomatch > snapdragon > base > mixin-deep:
+        reason: None given
+        expires: '2019-08-29T13:24:12.926Z'
+    - webpack > micromatch > extglob > snapdragon > base > mixin-deep:
+        reason: None given
+        expires: '2019-08-29T13:24:12.926Z'
+    - webpack > micromatch > braces > snapdragon > base > mixin-deep:
+        reason: None given
+        expires: '2019-08-29T13:24:12.926Z'
+    - webpack > micromatch > snapdragon > base > mixin-deep:
+        reason: None given
+        expires: '2019-08-29T13:24:12.926Z'
+  SNYK-JS-MARKED-451341:
+    - '@storybook/addon-info > marksy > marked':
+        reason: None given
+        expires: '2019-08-29T13:24:12.926Z'
+  SNYK-JS-TAR-174125:
+    - libcipm > npm-lifecycle > node-gyp > tar:
+        reason: None given
+        expires: '2019-08-29T13:24:12.926Z'
 # patches apply the minimum changes required to fix a vulnerability
 patch:
   'npm:marked:20170112':
@@ -56,6 +1675,8 @@ patch:
   SNYK-JS-LODASH-450202:
     - '@storybook/react > babel-preset-stage-0 > babel-preset-stage-1 > babel-preset-stage-2 > babel-plugin-transform-decorators > babel-types > lodash':
         patched: '2019-07-04T02:16:25.852Z'
+      '@storybook/react > @storybook/core > html-webpack-plugin > lodash':
+        patched: '2019-07-30T13:20:21.841Z'
     - snyk > lodash:
         patched: '2019-07-04T02:16:25.852Z'
     - snyk > snyk-nuget-plugin > lodash:
