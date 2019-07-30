@@ -4,7 +4,7 @@
   "private": true,
   "main": "./GrantsInfographics.js",
   "dependencies": {
-    "axios": "0",
+    "axios": ">=0.18.1",
     "prop-types": "15",
     "react": "^16.2.0",
     "react-vis": "^1.9.1",
