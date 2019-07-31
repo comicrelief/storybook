@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  cypress:
+    image: cypress/base:10.16.0
+    working_dir: /e2e
+    volumes:
+      - ./:/e2e
+    command: bash -c "node_modules/.bin/cypress install && yarn storybook-in-parallel 'cy:run --env updateSnapshots=true'"
