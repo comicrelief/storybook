@@ -4,7 +4,6 @@
   "version": "0.0.0-see.readme.for.releases",
   "dependencies": {
     "@comicrelief/pattern-lab": "*",
-    "@storybook/react": "^4.0.0",
     "axios": "0",
     "babel-polyfill": "^6.26.0",
     "browser-detect": "^0.2.28",
@@ -46,11 +45,15 @@
     "feature-test-update": "docker-compose up cypress"
   },
   "devDependencies": {
+    "@storybook/addon-a11y": "3",
     "@storybook/addon-actions": "3",
     "@storybook/addon-links": "3",
     "@storybook/addon-info": "3",
     "@storybook/addon-knobs": "3",
+    "@storybook/addon-options": "3",
     "@storybook/addon-storyshots": "3",
+    "@storybook/addons": "3",
+    "@storybook/react": "3",
     "babel-cli": "6",
     "babel-core": "6",
     "babel-jest": "23",
