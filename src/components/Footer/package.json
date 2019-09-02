@@ -9,6 +9,8 @@
   },
   "devDependencies": {
     "@storybook/addon-info": "^3.4.8",
-    "@storybook/addon-knobs": "^3.4.8"
+    "@storybook/addon-knobs": "^3.4.8",
+    "react-svg": "^2.1.22",
+    "@comicrelief/pattern-lab": "^7.4.1"
   }
 }
