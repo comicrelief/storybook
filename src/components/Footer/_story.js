@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import { withKnobs, text } from '@storybook/addon-knobs';
+import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 import { withInfo } from '@storybook/addon-info';
 import Footer from './Footer';
 
@@ -12,7 +12,9 @@ storiesOf('Footer', module)
       const copy = text('Copy', 'copyright 2017');
       const source = 'https://www.comicrelief.com';
       const campaign = 'comicrelief';
-      return (<Footer copy={copy} source={source} campaign={campaign} />);
+      const noSocial = boolean('noSocial', false);
+      const noLinks = boolean('noLinks', false);
+      return (<Footer copy={copy} source={source} campaign={campaign} noSocial={noSocial} noLinks={noLinks} />);
     }),
   )
   .add('Sport Relief',
@@ -20,7 +22,9 @@ storiesOf('Footer', module)
       const copy = text('Copy', 'copyright 2018');
       const source = 'https://www.sportrelief.com';
       const campaign = 'sportrelief';
-      return (<Footer copy={copy} source={source} campaign={campaign} />);
+      const noSocial = boolean('noSocial', false);
+      const noLinks = boolean('noLinks', false);
+      return (<Footer copy={copy} source={source} campaign={campaign} noSocial={noSocial} noLinks={noLinks}  />);
     }),
   )
   .add('Red Nose Day',
@@ -28,6 +32,8 @@ storiesOf('Footer', module)
       const copy = text('Copy', 'copyright 2018');
       const source = 'https://www.comicrelief.com'; // fallback to comicrelief.com
       const campaign = 'rednoseday';
-      return (<Footer copy={copy} source={source} campaign={campaign} />);
+      const noSocial = boolean('noSocial', false);
+      const noLinks = boolean('noLinks', false);
+      return (<Footer copy={copy} source={source} campaign={campaign} noSocial={noSocial} noLinks={noLinks}  />);
     }),
   );

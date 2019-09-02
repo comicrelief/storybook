@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import propTypes from 'prop-types';
+import SvgSprite from '@comicrelief/pattern-lab/sass/base/components/svg/spritesheet.svg';
+import ReactSVG from 'react-svg';
+
 import Menu from '../Menu/Menu';
 import SocialLink from '../SocialLink/SocialLink';
+
 import './footer.scss';
 
 const styles = {
@@ -29,14 +33,20 @@ class Footer extends Component {
   render() {
     return (
       <footer style={styles} role="contentinfo">
-        <SocialLink campaign={this.props.campaign} />
-        <div className="region region-footer cr-footer">
-          <Menu type="footer" campaign={this.props.campaign} />
-        </div>
+        { this.props.noSocial === false && <SocialLink campaign={this.props.campaign} /> }
+        { this.props.noLinks === false &&
+          <div className="region region-footer cr-footer">
+            <Menu type="footer" campaign={this.props.campaign} />
+          </div>
+        }
         <div className="footer__copyright">
           <p style={styles.p}>{this.copy}</p>
         </div>
         <div className="footer__branding">
+          <ReactSVG
+            path={SvgSprite}
+            className="visually-hidden"
+          />
           <a title="Comic Relief" href="https://www.comicrelief.com/" rel="home noopener noreferrer" target="_blank" >
             <svg className="icon">
               <use xlinkHref="#crlogo2018" />
@@ -50,6 +60,11 @@ class Footer extends Component {
 
 Footer.propTypes = {
   campaign: propTypes.string.isRequired,
+};
+
+Footer.defaultProps = {
+  noLinks: false,
+  noSocial: false,
 };
 
 export default Footer;
