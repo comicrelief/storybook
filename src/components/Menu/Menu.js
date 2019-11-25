@@ -69,8 +69,6 @@ class Menu extends Component {
   render() {
     const { type } = this.props;
 
-    console.log(this.state.menuItems);
-
     if (this.state.menuItems.length >= 1) {
       return (
         <nav className="menu--footer">
