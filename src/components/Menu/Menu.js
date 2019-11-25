@@ -57,7 +57,7 @@ class Menu extends Component {
    * @return {Promise<any>}
    */
   async getComicReliefJson() {
-    return axios.get('https://content-staging.sls.comicrelief.com/footer')
+    return axios.get('https://content.sls.comicrelief.com/footer')
       .then(({ data }) => data.data)
       .catch(() => []);
   }
