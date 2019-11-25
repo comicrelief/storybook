@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import propTypes from 'prop-types';
 import axios from 'axios';
-import MenuLink from './MenuLink/MenuLink';
 import './menu.scss';
 
 /**
@@ -24,17 +23,20 @@ class Menu extends Component {
   async componentWillMount() {
     const { campaign, type } = this.props;
     if (typeof campaign !== 'undefined' && typeof type !== 'undefined') {
-      switch (campaign) {
-        case 'sportrelief':
-          this.source = 'https://www.sportrelief.com';
-          break;
-        default:
-          this.source = 'https://www.comicrelief.com';
-      }
 
-      this.setState({
-        menuItems: await this.getJson(this.source, type),
-      });
+      if (campaign === 'sportrelief') {
+        this.source = 'https://www.sportrelief.com';
+
+        this.setState({
+          menuItems: await this.getSportReliefJson(this.source, type),
+        });
+      } else {
+        this.source = 'https://www.comicrelief.com';
+
+        this.setState({
+          menuItems: await this.getComicReliefJson(),
+        });
+      }
     }
   }
 
@@ -44,9 +46,19 @@ class Menu extends Component {
    * @param type
    * @return {Promise<any>}
    */
-  async getJson(source, type) {
+  async getSportReliefJson(source, type) {
     return axios.get(`${source}/entity/menu/${type}/tree?_format=json`)
       .then(({ data }) => data)
+      .catch(() => []);
+  }
+
+  /**
+   * Get json feed from sites
+   * @return {Promise<any>}
+   */
+  async getComicReliefJson() {
+    return axios.get('https://content-staging.sls.comicrelief.com/footer')
+      .then(({ data }) => data.data)
       .catch(() => []);
   }
 
@@ -57,12 +69,31 @@ class Menu extends Component {
   render() {
     const { type } = this.props;
 
+    console.log(this.state.menuItems);
+
     if (this.state.menuItems.length >= 1) {
-      const source = this.source;
       return (
         <nav className="menu--footer">
           <ul className="menu" id={`${type}-menu`}>
-            {this.state.menuItems.map(item => <MenuLink baseUrl={source} item={item} key={item.link.title} />)}
+            {this.state.menuItems.map((item) => {
+              if (this.props.campaign === 'sportrelief') {
+                return (
+                  <li className="menu-item">
+                    {(item.link.url.indexOf('http') !== -1) ?
+                      <a href={item.link.url} rel="noopener noreferrer" target="_blank">{item.link.title}</a> :
+                      <a href={this.props.baseUrl + item.link.url}>{item.link.title}</a>}
+                  </li>
+                );
+              }
+
+              return (
+                <li className="menu-item">
+                  {(item.url.indexOf('http') !== -1) ?
+                    <a href={item.url} rel="noopener noreferrer" target="_blank">{item.title}</a> :
+                    <a href={item.url}>{item.title}</a>}
+                </li>
+              );
+            })}
           </ul>
         </nav>
       );

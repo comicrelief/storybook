@@ -1,5 +1,6 @@
 import FileUp from './FileUp/FileUp';
 import Footer from './Footer/Footer';
+import ContentfulFooter from './ContentfulFooter/ContentfulFooter';
 import InputField from './InputField/InputField';
 import SelectField from './SelectField/SelectField';
 import PostcodeLookup from './PostcodeLookup/PostcodeLookup';
@@ -14,6 +15,7 @@ import MarketingConsentCheckbox from './MarketingConsent/MarketingConsentCheckbo
 
 export {
   Footer,
+  ContentfulFooter,
   InputField,
   SelectField,
   PostcodeLookup,
