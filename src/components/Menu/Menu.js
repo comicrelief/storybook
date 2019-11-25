@@ -23,7 +23,6 @@ class Menu extends Component {
   async componentWillMount() {
     const { campaign, type } = this.props;
     if (typeof campaign !== 'undefined' && typeof type !== 'undefined') {
-
       if (campaign === 'sportrelief') {
         this.source = 'https://www.sportrelief.com';
 
