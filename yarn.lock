@@ -34,9 +34,9 @@
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
 
-"@comicrelief/pattern-lab@*":
-  version "7.60.2"
-  resolved "https://registry.yarnpkg.com/@comicrelief/pattern-lab/-/pattern-lab-7.60.2.tgz#4761ecddaaac5c6421c335ba45353493583b384d"
+"@comicrelief/pattern-lab@git://github.com/comicrelief/pattern-lab.git#936_donate_theme_updates":
+  version "0.0.0-see.readme.for.releases"
+  resolved "git://github.com/comicrelief/pattern-lab.git#f1a2a74f1b9dcbf4cb39514996aca7536f2d8a20"
   dependencies:
     event-stream "3.3.4"
     grunt-contrib-copy "^1.0.0"
