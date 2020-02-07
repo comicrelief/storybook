@@ -351,7 +351,7 @@ class PostcodeLookup extends Component {
       id: 'postcode',
       type: 'text',
       placeholder: 'SE1 7TP',
-      buttonText: 'FIND ADDRESS',
+      buttonText: this.props.buttonText,
       pattern: /^[A-Za-z0-9][A-Za-z0-9 \-\\,.\\/&]{1,14}$/,
       invalidErrorText: 'Please enter a valid postcode',
       emptyFieldErrorText: 'Please enter your postcode',
@@ -477,6 +477,7 @@ PostcodeLookup.defaultProps = {
   valuesFromParent: null,
   forceManualInput: false,
   plusURL: 'https://lookups.sls.comicrelief.com/postcode/lookup?query=',
+  buttonText: 'FIND ADDRESS',
 };
 PostcodeLookup.propTypes = {
   valuesFromParent: propTypes.object,
@@ -485,6 +486,7 @@ PostcodeLookup.propTypes = {
   showErrorMessages: propTypes.bool,
   forceManualInput: propTypes.bool,
   plusURL: propTypes.string,
+  buttonText: propTypes.string,
 };
 
 export default PostcodeLookup;
