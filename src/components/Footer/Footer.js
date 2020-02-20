@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import propTypes from 'prop-types';
 import SvgSprite from '@comicrelief/pattern-lab/sass/base/components/svg/spritesheet.svg';
 import ReactSVG from 'react-svg';
