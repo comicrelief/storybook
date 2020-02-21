@@ -7,7 +7,7 @@
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-svg": "^2.1.22",
-    "@comicrelief/pattern-lab": "^7.63.0"
+    "@comicrelief/pattern-lab": "7.63.0"
   },
   "devDependencies": {
     "@storybook/addon-info": "^3.4.8",
