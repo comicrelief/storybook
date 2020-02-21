@@ -326,7 +326,7 @@ exports[`Stories Storyshots Footer Comic Relief 1`] = `
                               }
                             }
                           >
-                            copyright 2017
+                            Comic Relief is the trading name of Charity Projec…
                           </span>
                           "
                         </span>
@@ -696,7 +696,7 @@ exports[`Stories Storyshots Footer Red Nose Day 1`] = `
           className="footer__copyright"
         >
           <p>
-            Comic Relief is the trading name of Charity Projects, a registered charity in England and Wales (326568) and Scotland (SC039730), which is a company limited by guarantee registered in England and Wales (01806414). Registered address: 1st Floor, 89 Albert Embankment London, SE1 7TP.
+            copyright 2018
           </p>
         </div>
         <div
@@ -1282,7 +1282,7 @@ exports[`Stories Storyshots Footer Sport Relief 1`] = `
           className="footer__copyright"
         >
           <p>
-            Comic Relief is the trading name of Charity Projects, a registered charity in England and Wales (326568) and Scotland (SC039730), which is a company limited by guarantee registered in England and Wales (01806414). Registered address: 1st Floor, 89 Albert Embankment London, SE1 7TP.
+            Sport Relief is an initiative of Comic Relief registered charity 326568 (England/Wales); SC039730 (Scotland)
           </p>
         </div>
         <div
@@ -1498,7 +1498,7 @@ exports[`Stories Storyshots Footer Sport Relief 1`] = `
                               }
                             }
                           >
-                            copyright 2018
+                            Sport Relief is an initiative of Comic Relief regi…
                           </span>
                           "
                         </span>
