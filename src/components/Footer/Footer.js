@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import propTypes from 'prop-types';
 import SvgSprite from '@comicrelief/pattern-lab/sass/base/components/svg/spritesheet.svg';
 import ReactSVG from 'react-svg';
@@ -18,45 +18,32 @@ const styles = {
   },
 };
 
-class Footer extends Component {
-  /**
-   * Footer constructor.
-   */
-  constructor() {
-    super();
-    this.copy = 'Comic Relief is the trading name of Charity Projects, a registered charity in England and Wales (326568) and Scotland (SC039730), which is a company limited by guarantee registered in England and Wales (01806414). Registered address: Hanover House, 14 Hanover Square, London, W1S 1HP.';
-  }
-  /**
-   * Render footer component.
-   * @return {XML}
-   */
-  render() {
-    return (
-      <footer style={styles} role="contentinfo">
-        { this.props.noSocial === false && <SocialLink campaign={this.props.campaign} /> }
-        { this.props.noLinks === false &&
-          <div className="region region-footer cr-footer">
-            <Menu type="footer" campaign={this.props.campaign} />
-          </div>
-        }
-        <div className="footer__copyright">
-          <p style={styles.p}>{this.copy}</p>
-        </div>
-        <div className="footer__branding">
-          <ReactSVG
-            path={SvgSprite}
-            className="visually-hidden"
-          />
-          <a title="Comic Relief" href="https://www.comicrelief.com/" rel="home noopener noreferrer" target="_blank" >
-            <svg className="icon">
-              <use xlinkHref="#crlogo2018" />
-            </svg>
-          </a>
-        </div>
-      </footer>
-    );
-  }
-}
+const Footer = ({ noSocial, noLinks, campaign, copy }) => {
+  return (
+    <footer style={styles} role="contentinfo">
+      { noSocial === false && <SocialLink campaign={campaign} /> }
+      { noLinks === false &&
+      <div className="region region-footer cr-footer">
+        <Menu type="footer" campaign={campaign} />
+      </div>
+      }
+      <div className="footer__copyright">
+        <p style={styles.p}>{copy}</p>
+      </div>
+      <div className="footer__branding">
+        <ReactSVG
+          path={SvgSprite}
+          className="visually-hidden"
+        />
+        <a title="Comic Relief" href="https://www.comicrelief.com/" rel="home noopener noreferrer" target="_blank" >
+          <svg className="icon">
+            <use xlinkHref="#crlogo2018" />
+          </svg>
+        </a>
+      </div>
+    </footer>
+  );
+};
 
 Footer.propTypes = {
   campaign: propTypes.string.isRequired,
