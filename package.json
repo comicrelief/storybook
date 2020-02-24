@@ -24,7 +24,7 @@
     "react-svg": "2",
     "react-vis": "^1.9.1",
     "shortid": "^2.2.13",
-    "snyk": "^1.234.0",
+    "snyk": "^1.296.1",
     "url-join": "2"
   },
   "main": "build/index.js",
@@ -39,7 +39,7 @@
     "storybook": "start-storybook -p 9009 -s public",
     "storybook-in-parallel": "run-p --race 'storybook --quiet' ",
     "snyk-protect": "snyk protect",
-    "prepublish": "npm run snyk-protect && yarn snyk-protect; yarn build",
+    "prepublish": "yarn run snyk-protect && yarn snyk-protect; yarn build",
     "test": "./node_modules/.bin/jest --coverage",
     "test-update": "./node_modules/.bin/jest -u",
     "cy:run": "./node_modules/.bin/cypress run",

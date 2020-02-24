@@ -1,5 +1,5 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.13.5
+version: v1.14.1
 # ignores vulnerabilities until expiry date; change duration by modifying expiry date
 ignore:
   'npm:mime:20170907':
@@ -508,6 +508,12 @@ patch:
         patched: '2019-07-04T02:16:25.852Z'
     - '@storybook/react > babel-preset-stage-0 > babel-preset-stage-1 > babel-preset-stage-2 > babel-preset-stage-3 > babel-plugin-transform-async-to-generator > babel-helper-remap-async-to-generator > babel-helper-function-name > babel-template > babel-traverse > babel-types > lodash':
         patched: '2019-07-04T02:16:25.852Z'
+    - snyk > snyk-nuget-plugin > dotnet-deps-parser > lodash:
+        patched: '2020-02-24T11:35:47.465Z'
+    - snyk > @snyk/snyk-cocoapods-plugin > @snyk/dep-graph > graphlib > lodash:
+        patched: '2020-02-24T11:35:47.465Z'
+    - snyk > @snyk/snyk-cocoapods-plugin > @snyk/cocoapods-lockfile-parser > @snyk/dep-graph > graphlib > lodash:
+        patched: '2020-02-24T11:35:47.465Z'
   SNYK-JS-HTTPSPROXYAGENT-469131:
     - snyk > proxy-agent > https-proxy-agent:
         patched: '2019-10-09T21:11:37.626Z'
