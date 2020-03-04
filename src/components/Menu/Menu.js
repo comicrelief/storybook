@@ -65,20 +65,22 @@ class Menu extends Component {
    * render
    * @return {XML}
    */
-  render() {
-    const { type } = this.props;
 
-    if (this.state.menuItems.length >= 1) {
+  render() {
+    const { type, campaign, baseUrl } = this.props;
+    const { menuItems } = this.state;
+
+    if (menuItems.length >= 1) {
       return (
         <nav className="menu--footer">
           <ul className="menu" id={`${type}-menu`}>
-            {this.state.menuItems.map((item) => {
-              if (this.props.campaign === 'sportrelief') {
+            {menuItems.map((item) => {
+              if (campaign === 'sportrelief') {
                 return (
                   <li className="menu-item">
                     {(item.link.url.indexOf('http') !== -1) ?
                       <a href={item.link.url} rel="noopener noreferrer" target="_blank">{item.link.title}</a> :
-                      <a href={this.props.baseUrl + item.link.url}>{item.link.title}</a>}
+                      <a href={baseUrl + item.link.url}>{item.link.title}</a>}
                   </li>
                 );
               }
@@ -95,8 +97,20 @@ class Menu extends Component {
         </nav>
       );
     }
-
-    return <div />;
+    return (
+      <nav className="menu--footer">
+        <ul className="menu" id={`${type}-menu`}>
+          <div>
+            <li className="menu-item">
+              <a href={campaign === 'sportrelief' ? 'https://lite.sportrelief.com/terms-of-use' : 'https://lite.comicrelief.com/legal/'} rel="noopener noreferrer" target="_blank">Legal</a>
+            </li>
+            <li className="menu-item">
+              <a href={campaign === 'sportrelief' ? 'https://lite.sportrelief.com/privacy-notice' : 'https://lite.comicrelief.com/legal/privacy-notice'} rel="noopener noreferrer" target="_blank">Privacy policy</a>
+            </li>
+          </div>
+        </ul>
+      </nav>
+    );
   }
 }
 
@@ -106,3 +120,4 @@ Menu.propTypes = {
 };
 
 export default Menu;
+
