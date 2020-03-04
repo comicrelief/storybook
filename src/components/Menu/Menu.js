@@ -75,21 +75,24 @@ class Menu extends Component {
         <nav className="menu--footer">
           <ul className="menu" id={`${type}-menu`}>
             {menuItems.map((item) => {
+              const url = item.link ? item.link.url : item.url;
+              const title = item.link ? item.link.title : item.title;
+
               if (campaign === 'sportrelief') {
                 return (
-                  <li className="menu-item" key={`${type}-menu-${item.link.title}`}>
-                    {(item.link.url.indexOf('http') !== -1) ?
-                      <a href={item.link.url} rel="noopener noreferrer" target="_blank">{item.link.title}</a> :
-                      <a href={baseUrl + item.link.url}>{item.link.title}</a>}
+                  <li className="menu-item" key={`${type}-menu-${title}`}>
+                    {(url.indexOf('http') !== -1) ?
+                      <a href={url} rel="noopener noreferrer" target="_blank">{title}</a> :
+                      <a href={baseUrl + url}>{title}</a>}
                   </li>
                 );
               }
 
               return (
-                <li className="menu-item" key={`${type}-menu-${item.link.title}`}>
-                  {(item.url.indexOf('http') !== -1) ?
-                    <a href={item.url} rel="noopener noreferrer" target="_blank">{item.title}</a> :
-                    <a href={item.url}>{item.title}</a>}
+                <li className="menu-item" key={`${type}-menu-${title}`}>
+                  {(url.indexOf('http') !== -1) ?
+                    <a href={url} rel="noopener noreferrer" target="_blank">{title}</a> :
+                    <a href={url}>{title}</a>}
                 </li>
               );
             })}
