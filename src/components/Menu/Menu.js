@@ -77,7 +77,7 @@ class Menu extends Component {
             {menuItems.map((item) => {
               if (campaign === 'sportrelief') {
                 return (
-                  <li className="menu-item">
+                  <li className="menu-item" key={`${type}-menu-${item.link.title}`}>
                     {(item.link.url.indexOf('http') !== -1) ?
                       <a href={item.link.url} rel="noopener noreferrer" target="_blank">{item.link.title}</a> :
                       <a href={baseUrl + item.link.url}>{item.link.title}</a>}
@@ -86,7 +86,7 @@ class Menu extends Component {
               }
 
               return (
-                <li className="menu-item">
+                <li className="menu-item" key={`${type}-menu-${item.link.title}`}>
                   {(item.url.indexOf('http') !== -1) ?
                     <a href={item.url} rel="noopener noreferrer" target="_blank">{item.title}</a> :
                     <a href={item.url}>{item.title}</a>}
