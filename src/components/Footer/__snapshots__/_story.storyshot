@@ -104,7 +104,39 @@ exports[`Stories Storyshots Footer Comic Relief 1`] = `
         <div
           className="region region-footer cr-footer"
         >
-          <div />
+          <nav
+            className="menu--footer"
+          >
+            <ul
+              className="menu"
+              id="footer-menu"
+            >
+              <div>
+                <li
+                  className="menu-item"
+                >
+                  <a
+                    href="https://lite.comicrelief.com/legal/"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    Legal
+                  </a>
+                </li>
+                <li
+                  className="menu-item"
+                >
+                  <a
+                    href="https://lite.comicrelief.com/legal/privacy-notice"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    Privacy policy
+                  </a>
+                </li>
+              </div>
+            </ul>
+          </nav>
         </div>
         <div
           className="footer__copyright"
@@ -690,7 +722,39 @@ exports[`Stories Storyshots Footer Red Nose Day 1`] = `
         <div
           className="region region-footer cr-footer"
         >
-          <div />
+          <nav
+            className="menu--footer"
+          >
+            <ul
+              className="menu"
+              id="footer-menu"
+            >
+              <div>
+                <li
+                  className="menu-item"
+                >
+                  <a
+                    href="https://lite.comicrelief.com/legal/"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    Legal
+                  </a>
+                </li>
+                <li
+                  className="menu-item"
+                >
+                  <a
+                    href="https://lite.comicrelief.com/legal/privacy-notice"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    Privacy policy
+                  </a>
+                </li>
+              </div>
+            </ul>
+          </nav>
         </div>
         <div
           className="footer__copyright"
@@ -1276,7 +1340,39 @@ exports[`Stories Storyshots Footer Sport Relief 1`] = `
         <div
           className="region region-footer cr-footer"
         >
-          <div />
+          <nav
+            className="menu--footer"
+          >
+            <ul
+              className="menu"
+              id="footer-menu"
+            >
+              <div>
+                <li
+                  className="menu-item"
+                >
+                  <a
+                    href="https://lite.sportrelief.com/terms-of-use"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    Legal
+                  </a>
+                </li>
+                <li
+                  className="menu-item"
+                >
+                  <a
+                    href="https://lite.sportrelief.com/privacy-notice"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    Privacy policy
+                  </a>
+                </li>
+              </div>
+            </ul>
+          </nav>
         </div>
         <div
           className="footer__copyright"
