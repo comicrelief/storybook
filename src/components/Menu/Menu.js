@@ -22,20 +22,24 @@ class Menu extends Component {
    */
   async componentWillMount() {
     const { campaign, type } = this.props;
-    if (typeof campaign !== 'undefined' && typeof type !== 'undefined') {
-      if (campaign === 'sportrelief') {
-        this.source = 'https://www.sportrelief.com';
+    try {
+      if (typeof campaign !== 'undefined' && typeof type !== 'undefined') {
+        if (campaign === 'sportrelief') {
+          this.source = 'https://www.sportrelief.com';
 
-        this.setState({
-          menuItems: await this.getSportReliefJson(this.source, type),
-        });
-      } else {
-        this.source = 'https://www.comicrelief.com';
+          this.setState({
+            menuItems: await this.getSportReliefJson(this.source, type),
+          });
+        } else {
+          this.source = 'https://www.comicrelief.com';
 
-        this.setState({
-          menuItems: await this.getComicReliefJson(),
-        });
+          this.setState({
+            menuItems: await this.getComicReliefJson(),
+          });
+        }
       }
+    } catch (error) {
+      console.log('error');
     }
   }
 
@@ -66,8 +70,13 @@ class Menu extends Component {
    * @return {XML}
    */
 
+  /**
+   * if Drupapal is down
+   * render fallback links (props)
+   */
+
   render() {
-    const { type, campaign, baseUrl } = this.props;
+    const { type, campaign, baseUrl, fallbackLinks } = this.props;
     const { menuItems } = this.state;
 
     if (menuItems.length >= 1) {
@@ -100,17 +109,17 @@ class Menu extends Component {
         </nav>
       );
     }
+
     return (
       <nav className="menu--footer">
         <ul className="menu" id={`${type}-menu`}>
-          <div>
-            <li className="menu-item">
-              <a href={campaign === 'sportrelief' ? 'https://lite.sportrelief.com/terms-of-use' : 'https://lite.comicrelief.com/legal/'} rel="noopener noreferrer" target="_blank">Legal</a>
-            </li>
-            <li className="menu-item">
-              <a href={campaign === 'sportrelief' ? 'https://lite.sportrelief.com/privacy-notice' : 'https://lite.comicrelief.com/legal/privacy-notice'} rel="noopener noreferrer" target="_blank">Privacy policy</a>
-            </li>
-          </div>
+          {fallbackLinks.map((item) => {
+            return (
+              <li className="menu-item" key={item.title}>
+                <a href={item.url}>{item.title}</a>
+              </li>);
+          },
+          )}
         </ul>
       </nav>
     );
@@ -120,7 +129,11 @@ class Menu extends Component {
 Menu.propTypes = {
   campaign: propTypes.string.isRequired,
   type: propTypes.string.isRequired,
+  fallbackLinks: propTypes.array,
+};
+
+Menu.defaultProps = {
+  fallbackLinks: [],
 };
 
 export default Menu;
-
