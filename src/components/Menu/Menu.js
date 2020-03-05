@@ -129,7 +129,10 @@ class Menu extends Component {
 Menu.propTypes = {
   campaign: propTypes.string.isRequired,
   type: propTypes.string.isRequired,
-  fallbackMenu: propTypes.array,
+  fallbackMenu: propTypes.arrayOf(propTypes.shape({
+    url: propTypes.string.isRequired,
+    title: propTypes.string.isRequired,
+  })).isRequired,
 };
 
 Menu.defaultProps = {

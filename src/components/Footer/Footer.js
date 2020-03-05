@@ -47,7 +47,10 @@ const Footer = ({ noSocial, noLinks, campaign, copy, fallbackMenu }) => {
 
 Footer.propTypes = {
   campaign: propTypes.string.isRequired,
-  fallbackMenu: propTypes.array,
+  fallbackMenu: propTypes.arrayOf(propTypes.shape({
+    url: propTypes.string.isRequired,
+    title: propTypes.string.isRequired,
+  })).isRequired,
 };
 
 Footer.defaultProps = {
