@@ -72,11 +72,11 @@ class Menu extends Component {
 
   /**
    * if Drupapal is down
-   * render fallback links (props)
+   * render fallback menu (props)
    */
 
   render() {
-    const { type, campaign, baseUrl, fallbackLinks } = this.props;
+    const { type, campaign, baseUrl, fallbackMenu } = this.props;
     const { menuItems } = this.state;
 
     if (menuItems.length >= 1) {
@@ -113,7 +113,7 @@ class Menu extends Component {
     return (
       <nav className="menu--footer">
         <ul className="menu" id={`${type}-menu`}>
-          {fallbackLinks.map((item) => {
+          {fallbackMenu.map((item) => {
             return (
               <li className="menu-item" key={item.title}>
                 <a href={item.url}>{item.title}</a>
@@ -129,11 +129,11 @@ class Menu extends Component {
 Menu.propTypes = {
   campaign: propTypes.string.isRequired,
   type: propTypes.string.isRequired,
-  fallbackLinks: propTypes.array,
+  fallbackMenu: propTypes.array,
 };
 
 Menu.defaultProps = {
-  fallbackLinks: [],
+  fallbackMenu: [],
 };
 
 export default Menu;
