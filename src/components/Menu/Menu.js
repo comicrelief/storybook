@@ -34,7 +34,7 @@ class Menu extends Component {
           this.source = 'https://content.sls.comicrelief.com/footer';
 
           this.setState({
-            menuItems: await this.getComicReliefJson(source),
+            menuItems: await this.getComicReliefJson(this.source),
           });
         }
       }
