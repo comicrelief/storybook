@@ -31,7 +31,7 @@ class Menu extends Component {
             menuItems: await this.getSportReliefJson(this.source, type),
           });
         } else {
-          this.source = 'https://www.comicrelief.com';
+          this.source = 'https://content.sls.comicrelief.com/footer';
 
           this.setState({
             menuItems: await this.getComicReliefJson(),
@@ -59,8 +59,8 @@ class Menu extends Component {
    * Get json feed from sites
    * @return {Promise<any>}
    */
-  async getComicReliefJson() {
-    return axios.get('https://content.sls.comicrelief.com/footer')
+  async getComicReliefJson(source) {
+    return axios.get(source)
       .then(({ data }) => data.data)
       .catch(() => []);
   }
@@ -71,7 +71,7 @@ class Menu extends Component {
    */
 
   /**
-   * if Drupapal is down
+   * if Drupal is down
    * render fallback menu (props)
    */
 
