@@ -135,8 +135,4 @@ Menu.propTypes = {
   })).isRequired,
 };
 
-Menu.defaultProps = {
-  fallbackMenu: [],
-};
-
 export default Menu;

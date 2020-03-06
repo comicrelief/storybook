@@ -54,6 +54,7 @@ storiesOf('Footer', module)
       const campaign = 'rednoseday';
       const noSocial = boolean('noSocial', false);
       const noLinks = boolean('noLinks', false);
-      return (<Footer copy={copy} source={source} campaign={campaign} noSocial={noSocial} noLinks={noLinks}  />);
+      const fallbackMenu = [];
+      return (<Footer copy={copy} source={source} campaign={campaign} noSocial={noSocial} noLinks={noLinks} fallbackMenu={fallbackMenu} />);
     }),
   );

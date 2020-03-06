@@ -704,16 +704,7 @@ exports[`Stories Storyshots Footer Comic Relief 1`] = `
                     <td
                       className="css-d52hbj"
                     >
-                      <span
-                        style={
-                          Object {
-                            "color": "#666",
-                          }
-                        }
-                      >
-                        [
-                        ]
-                      </span>
+                      -
                     </td>
                     <td
                       className="css-d52hbj"
@@ -1113,7 +1104,10 @@ exports[`Stories Storyshots Footer Red Nose Day 1`] = `
                   </span>
                   <span>
                     <span>
-                       
+                      <span>
+                        <br />
+                          
+                      </span>
                       <span
                         style={Object {}}
                       >
@@ -1140,7 +1134,10 @@ exports[`Stories Storyshots Footer Red Nose Day 1`] = `
                       </span>
                     </span>
                     <span>
-                       
+                      <span>
+                        <br />
+                          
+                      </span>
                       <span
                         style={Object {}}
                       >
@@ -1167,7 +1164,10 @@ exports[`Stories Storyshots Footer Red Nose Day 1`] = `
                       </span>
                     </span>
                     <span>
-                       
+                      <span>
+                        <br />
+                          
+                      </span>
                       <span
                         style={Object {}}
                       >
@@ -1192,7 +1192,37 @@ exports[`Stories Storyshots Footer Red Nose Day 1`] = `
                           "
                         </span>
                       </span>
-                       
+                    </span>
+                    <span>
+                      <span>
+                        <br />
+                          
+                      </span>
+                      <span
+                        style={Object {}}
+                      >
+                        fallbackMenu
+                      </span>
+                      <span>
+                        =
+                        <span
+                          style={Object {}}
+                        >
+                          {
+                          <span
+                            style={
+                              Object {
+                                "color": "#666",
+                              }
+                            }
+                          >
+                            [
+                            ]
+                          </span>
+                          }
+                        </span>
+                      </span>
+                      <br />
                     </span>
                   </span>
                   <span
@@ -1331,16 +1361,7 @@ exports[`Stories Storyshots Footer Red Nose Day 1`] = `
                     <td
                       className="css-d52hbj"
                     >
-                      <span
-                        style={
-                          Object {
-                            "color": "#666",
-                          }
-                        }
-                      >
-                        [
-                        ]
-                      </span>
+                      -
                     </td>
                     <td
                       className="css-d52hbj"
@@ -2131,16 +2152,7 @@ exports[`Stories Storyshots Footer Sport Relief 1`] = `
                     <td
                       className="css-d52hbj"
                     >
-                      <span
-                        style={
-                          Object {
-                            "color": "#666",
-                          }
-                        }
-                      >
-                        [
-                        ]
-                      </span>
+                      -
                     </td>
                     <td
                       className="css-d52hbj"

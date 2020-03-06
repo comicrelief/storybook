@@ -56,7 +56,6 @@ Footer.propTypes = {
 Footer.defaultProps = {
   noLinks: false,
   noSocial: false,
-  fallbackMenu: [],
 };
 
 export default Footer;
