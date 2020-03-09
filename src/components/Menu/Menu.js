@@ -114,9 +114,11 @@ class Menu extends Component {
       <nav className="menu--footer">
         <ul className="menu" id={`${type}-menu`}>
           {fallbackMenu.map((item) => {
+            const url = item.url;
+            const title = item.title;
             return (
-              <li className="menu-item" key={item.title}>
-                <a href={item.url}>{item.title}</a>
+              <li className="menu-item" key={title}>
+                <a href={url}>{title}</a>
               </li>);
           },
           )}
