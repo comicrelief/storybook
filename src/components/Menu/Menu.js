@@ -118,7 +118,9 @@ class Menu extends Component {
             const title = item.title;
             return (
               <li className="menu-item" key={title}>
-                <a href={url}>{title}</a>
+                {(url.indexOf('http') !== -1) ?
+                  <a href={url} rel="noopener noreferrer" target="_blank">{title}</a> :
+                  <a href={url}>{title}</a>}
               </li>);
           },
           )}
