@@ -116,6 +116,8 @@ exports[`Stories Storyshots Footer Comic Relief 1`] = `
               >
                 <a
                   href="https://lite.comicrelief.com/legal/privacy-notice"
+                  rel="noopener noreferrer"
+                  target="_blank"
                 >
                   Legal
                 </a>
@@ -125,6 +127,8 @@ exports[`Stories Storyshots Footer Comic Relief 1`] = `
               >
                 <a
                   href="https://lite.comicrelief.com/legal/"
+                  rel="noopener noreferrer"
+                  target="_blank"
                 >
                   Privacy notice
                 </a>
@@ -1564,6 +1568,8 @@ exports[`Stories Storyshots Footer Sport Relief 1`] = `
               >
                 <a
                   href="https://lite.sportrelief.com/terms-of-use"
+                  rel="noopener noreferrer"
+                  target="_blank"
                 >
                   Legal
                 </a>
@@ -1573,6 +1579,8 @@ exports[`Stories Storyshots Footer Sport Relief 1`] = `
               >
                 <a
                   href="https://lite.sportrelief.com/privacy-notice"
+                  rel="noopener noreferrer"
+                  target="_blank"
                 >
                   Privacy notice
                 </a>
