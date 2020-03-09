@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import { withKnobs, text, boolean } from '@storybook/addon-knobs';
+import { withKnobs, text, boolean, object } from '@storybook/addon-knobs';
 import { withInfo } from '@storybook/addon-info';
 import Footer from './Footer';
 
@@ -12,9 +12,19 @@ storiesOf('Footer', module)
       const copy = text('Copy', 'Comic Relief is the trading name of Charity Projects, a registered charity in England and Wales (326568) and Scotland (SC039730), which is a company limited by guarantee registered in England and Wales (01806414). Registered address: 1st Floor, 89 Albert Embankment London, SE1 7TP.');
       const source = 'https://www.comicrelief.com';
       const campaign = 'comicrelief';
+      const fallbackMenu = object('fallbackMenu', [
+        {
+          url: 'https://lite.comicrelief.com/legal/privacy-notice',
+          title: 'Legal'
+        },
+        {
+          url: 'https://lite.comicrelief.com/legal/',
+          title: 'Privacy notice'
+        }
+      ]);
       const noSocial = boolean('noSocial', false);
       const noLinks = boolean('noLinks', false);
-      return (<Footer copy={copy} source={source} campaign={campaign} noSocial={noSocial} noLinks={noLinks} />);
+      return (<Footer copy={copy} source={source} campaign={campaign} noSocial={noSocial} noLinks={noLinks} fallbackMenu={fallbackMenu} />);
     }),
   )
   .add('Sport Relief',
@@ -23,8 +33,18 @@ storiesOf('Footer', module)
       const source = 'https://www.sportrelief.com';
       const campaign = 'sportrelief';
       const noSocial = boolean('noSocial', false);
+      const fallbackMenu = object('fallbackMenu',[
+        {
+          url: 'https://lite.sportrelief.com/terms-of-use',
+          title: 'Legal'
+        },
+        {
+          url: 'https://lite.sportrelief.com/privacy-notice',
+          title: 'Privacy notice'
+        }
+      ]);
       const noLinks = boolean('noLinks', false);
-      return (<Footer copy={copy} source={source} campaign={campaign} noSocial={noSocial} noLinks={noLinks}  />);
+      return (<Footer copy={copy} source={source} campaign={campaign} noSocial={noSocial} noLinks={noLinks} fallbackMenu={fallbackMenu} />);
     }),
   )
   .add('Red Nose Day',
@@ -34,6 +54,7 @@ storiesOf('Footer', module)
       const campaign = 'rednoseday';
       const noSocial = boolean('noSocial', false);
       const noLinks = boolean('noLinks', false);
-      return (<Footer copy={copy} source={source} campaign={campaign} noSocial={noSocial} noLinks={noLinks}  />);
+      const fallbackMenu = [];
+      return (<Footer copy={copy} source={source} campaign={campaign} noSocial={noSocial} noLinks={noLinks} fallbackMenu={fallbackMenu} />);
     }),
   );

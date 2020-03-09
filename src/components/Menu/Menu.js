@@ -22,20 +22,24 @@ class Menu extends Component {
    */
   async componentWillMount() {
     const { campaign, type } = this.props;
-    if (typeof campaign !== 'undefined' && typeof type !== 'undefined') {
-      if (campaign === 'sportrelief') {
-        this.source = 'https://www.sportrelief.com';
+    try {
+      if (typeof campaign !== 'undefined' && typeof type !== 'undefined') {
+        if (campaign === 'sportrelief') {
+          this.source = 'https://www.sportrelief.com';
 
-        this.setState({
-          menuItems: await this.getSportReliefJson(this.source, type),
-        });
-      } else {
-        this.source = 'https://www.comicrelief.com';
+          this.setState({
+            menuItems: await this.getSportReliefJson(this.source, type),
+          });
+        } else {
+          this.source = 'https://content.sls.comicrelief.com/footer';
 
-        this.setState({
-          menuItems: await this.getComicReliefJson(),
-        });
+          this.setState({
+            menuItems: await this.getComicReliefJson(this.source),
+          });
+        }
       }
+    } catch (error) {
+      console.log('error');
     }
   }
 
@@ -55,8 +59,8 @@ class Menu extends Component {
    * Get json feed from sites
    * @return {Promise<any>}
    */
-  async getComicReliefJson() {
-    return axios.get('https://content.sls.comicrelief.com/footer')
+  async getComicReliefJson(source) {
+    return axios.get(source)
       .then(({ data }) => data.data)
       .catch(() => []);
   }
@@ -65,29 +69,39 @@ class Menu extends Component {
    * render
    * @return {XML}
    */
-  render() {
-    const { type } = this.props;
 
-    if (this.state.menuItems.length >= 1) {
+  /**
+   * if Drupal is down
+   * render fallback menu (props)
+   */
+
+  render() {
+    const { type, campaign, baseUrl, fallbackMenu } = this.props;
+    const { menuItems } = this.state;
+
+    if (menuItems.length >= 1) {
       return (
         <nav className="menu--footer">
           <ul className="menu" id={`${type}-menu`}>
-            {this.state.menuItems.map((item) => {
-              if (this.props.campaign === 'sportrelief') {
+            {menuItems.map((item) => {
+              const url = item.link ? item.link.url : item.url;
+              const title = item.link ? item.link.title : item.title;
+
+              if (campaign === 'sportrelief') {
                 return (
-                  <li className="menu-item">
-                    {(item.link.url.indexOf('http') !== -1) ?
-                      <a href={item.link.url} rel="noopener noreferrer" target="_blank">{item.link.title}</a> :
-                      <a href={this.props.baseUrl + item.link.url}>{item.link.title}</a>}
+                  <li className="menu-item" key={`${type}-menu-${title}`}>
+                    {(url.indexOf('http') !== -1) ?
+                      <a href={url} rel="noopener noreferrer" target="_blank">{title}</a> :
+                      <a href={baseUrl + url}>{title}</a>}
                   </li>
                 );
               }
 
               return (
-                <li className="menu-item">
-                  {(item.url.indexOf('http') !== -1) ?
-                    <a href={item.url} rel="noopener noreferrer" target="_blank">{item.title}</a> :
-                    <a href={item.url}>{item.title}</a>}
+                <li className="menu-item" key={`${type}-menu-${title}`}>
+                  {(url.indexOf('http') !== -1) ?
+                    <a href={url} rel="noopener noreferrer" target="_blank">{title}</a> :
+                    <a href={url}>{title}</a>}
                 </li>
               );
             })}
@@ -96,13 +110,29 @@ class Menu extends Component {
       );
     }
 
-    return <div />;
+    return (
+      <nav className="menu--footer">
+        <ul className="menu" id={`${type}-menu`}>
+          {fallbackMenu.map((item) => {
+            return (
+              <li className="menu-item" key={item.title}>
+                <a href={item.url}>{item.title}</a>
+              </li>);
+          },
+          )}
+        </ul>
+      </nav>
+    );
   }
 }
 
 Menu.propTypes = {
   campaign: propTypes.string.isRequired,
   type: propTypes.string.isRequired,
+  fallbackMenu: propTypes.arrayOf(propTypes.shape({
+    url: propTypes.string.isRequired,
+    title: propTypes.string.isRequired,
+  })).isRequired,
 };
 
 export default Menu;

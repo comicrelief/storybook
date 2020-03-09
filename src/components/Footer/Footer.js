@@ -18,13 +18,13 @@ const styles = {
   },
 };
 
-const Footer = ({ noSocial, noLinks, campaign, copy }) => {
+const Footer = ({ noSocial, noLinks, campaign, copy, fallbackMenu }) => {
   return (
     <footer style={styles} role="contentinfo">
       { noSocial === false && <SocialLink campaign={campaign} /> }
       { noLinks === false &&
       <div className="region region-footer cr-footer">
-        <Menu type="footer" campaign={campaign} />
+        <Menu type="footer" campaign={campaign} fallbackMenu={fallbackMenu} />
       </div>
       }
       <div className="footer__copyright">
@@ -47,6 +47,10 @@ const Footer = ({ noSocial, noLinks, campaign, copy }) => {
 
 Footer.propTypes = {
   campaign: propTypes.string.isRequired,
+  fallbackMenu: propTypes.arrayOf(propTypes.shape({
+    url: propTypes.string.isRequired,
+    title: propTypes.string.isRequired,
+  })).isRequired,
 };
 
 Footer.defaultProps = {

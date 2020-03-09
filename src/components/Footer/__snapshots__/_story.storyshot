@@ -104,7 +104,33 @@ exports[`Stories Storyshots Footer Comic Relief 1`] = `
         <div
           className="region region-footer cr-footer"
         >
-          <div />
+          <nav
+            className="menu--footer"
+          >
+            <ul
+              className="menu"
+              id="footer-menu"
+            >
+              <li
+                className="menu-item"
+              >
+                <a
+                  href="https://lite.comicrelief.com/legal/privacy-notice"
+                >
+                  Legal
+                </a>
+              </li>
+              <li
+                className="menu-item"
+              >
+                <a
+                  href="https://lite.comicrelief.com/legal/"
+                >
+                  Privacy notice
+                </a>
+              </li>
+            </ul>
+          </nav>
         </div>
         <div
           className="footer__copyright"
@@ -306,7 +332,10 @@ exports[`Stories Storyshots Footer Comic Relief 1`] = `
                   </span>
                   <span>
                     <span>
-                       
+                      <span>
+                        <br />
+                          
+                      </span>
                       <span
                         style={Object {}}
                       >
@@ -333,7 +362,10 @@ exports[`Stories Storyshots Footer Comic Relief 1`] = `
                       </span>
                     </span>
                     <span>
-                       
+                      <span>
+                        <br />
+                          
+                      </span>
                       <span
                         style={Object {}}
                       >
@@ -360,7 +392,10 @@ exports[`Stories Storyshots Footer Comic Relief 1`] = `
                       </span>
                     </span>
                     <span>
-                       
+                      <span>
+                        <br />
+                          
+                      </span>
                       <span
                         style={Object {}}
                       >
@@ -385,7 +420,152 @@ exports[`Stories Storyshots Footer Comic Relief 1`] = `
                           "
                         </span>
                       </span>
-                       
+                    </span>
+                    <span>
+                      <span>
+                        <br />
+                          
+                      </span>
+                      <span
+                        style={Object {}}
+                      >
+                        fallbackMenu
+                      </span>
+                      <span>
+                        =
+                        <span
+                          style={Object {}}
+                        >
+                          {
+                          <span
+                            style={
+                              Object {
+                                "color": "#666",
+                              }
+                            }
+                          >
+                            [
+                            <span>
+                              <span
+                                style={
+                                  Object {
+                                    "color": "#666",
+                                  }
+                                }
+                              >
+                                {
+                                <span>
+                                  <span
+                                    style={
+                                      Object {
+                                        "color": "#666",
+                                      }
+                                    }
+                                  >
+                                    url
+                                  </span>
+                                </span>
+                                : 
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#22a",
+                                      "wordBreak": "break-word",
+                                    }
+                                  }
+                                >
+                                  'https://lite.comicrelief.com/legal/privacy-notice'
+                                </span>
+                                ,
+                                <span>
+                                  <span
+                                    style={
+                                      Object {
+                                        "color": "#666",
+                                      }
+                                    }
+                                  >
+                                    title
+                                  </span>
+                                </span>
+                                : 
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#22a",
+                                      "wordBreak": "break-word",
+                                    }
+                                  }
+                                >
+                                  'Legal'
+                                </span>
+                                }
+                              </span>
+                            </span>
+                            ,
+                            <span>
+                              <span
+                                style={
+                                  Object {
+                                    "color": "#666",
+                                  }
+                                }
+                              >
+                                {
+                                <span>
+                                  <span
+                                    style={
+                                      Object {
+                                        "color": "#666",
+                                      }
+                                    }
+                                  >
+                                    url
+                                  </span>
+                                </span>
+                                : 
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#22a",
+                                      "wordBreak": "break-word",
+                                    }
+                                  }
+                                >
+                                  'https://lite.comicrelief.com/legal/'
+                                </span>
+                                ,
+                                <span>
+                                  <span
+                                    style={
+                                      Object {
+                                        "color": "#666",
+                                      }
+                                    }
+                                  >
+                                    title
+                                  </span>
+                                </span>
+                                : 
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#22a",
+                                      "wordBreak": "break-word",
+                                    }
+                                  }
+                                >
+                                  'Privacy notice'
+                                </span>
+                                }
+                              </span>
+                            </span>
+                            ]
+                          </span>
+                          }
+                        </span>
+                      </span>
+                      <br />
                     </span>
                   </span>
                   <span
@@ -485,6 +665,31 @@ exports[`Stories Storyshots Footer Comic Relief 1`] = `
                       className="css-1ygfcef"
                     >
                       campaign
+                    </td>
+                    <td
+                      className="css-1ygfcef"
+                    >
+                      <span />
+                    </td>
+                    <td
+                      className="css-d52hbj"
+                    >
+                      yes
+                    </td>
+                    <td
+                      className="css-d52hbj"
+                    >
+                      -
+                    </td>
+                    <td
+                      className="css-d52hbj"
+                    />
+                  </tr>
+                  <tr>
+                    <td
+                      className="css-1ygfcef"
+                    >
+                      fallbackMenu
                     </td>
                     <td
                       className="css-1ygfcef"
@@ -690,7 +895,14 @@ exports[`Stories Storyshots Footer Red Nose Day 1`] = `
         <div
           className="region region-footer cr-footer"
         >
-          <div />
+          <nav
+            className="menu--footer"
+          >
+            <ul
+              className="menu"
+              id="footer-menu"
+            />
+          </nav>
         </div>
         <div
           className="footer__copyright"
@@ -892,7 +1104,10 @@ exports[`Stories Storyshots Footer Red Nose Day 1`] = `
                   </span>
                   <span>
                     <span>
-                       
+                      <span>
+                        <br />
+                          
+                      </span>
                       <span
                         style={Object {}}
                       >
@@ -919,7 +1134,10 @@ exports[`Stories Storyshots Footer Red Nose Day 1`] = `
                       </span>
                     </span>
                     <span>
-                       
+                      <span>
+                        <br />
+                          
+                      </span>
                       <span
                         style={Object {}}
                       >
@@ -946,7 +1164,10 @@ exports[`Stories Storyshots Footer Red Nose Day 1`] = `
                       </span>
                     </span>
                     <span>
-                       
+                      <span>
+                        <br />
+                          
+                      </span>
                       <span
                         style={Object {}}
                       >
@@ -971,7 +1192,37 @@ exports[`Stories Storyshots Footer Red Nose Day 1`] = `
                           "
                         </span>
                       </span>
-                       
+                    </span>
+                    <span>
+                      <span>
+                        <br />
+                          
+                      </span>
+                      <span
+                        style={Object {}}
+                      >
+                        fallbackMenu
+                      </span>
+                      <span>
+                        =
+                        <span
+                          style={Object {}}
+                        >
+                          {
+                          <span
+                            style={
+                              Object {
+                                "color": "#666",
+                              }
+                            }
+                          >
+                            [
+                            ]
+                          </span>
+                          }
+                        </span>
+                      </span>
+                      <br />
                     </span>
                   </span>
                   <span
@@ -1071,6 +1322,31 @@ exports[`Stories Storyshots Footer Red Nose Day 1`] = `
                       className="css-1ygfcef"
                     >
                       campaign
+                    </td>
+                    <td
+                      className="css-1ygfcef"
+                    >
+                      <span />
+                    </td>
+                    <td
+                      className="css-d52hbj"
+                    >
+                      yes
+                    </td>
+                    <td
+                      className="css-d52hbj"
+                    >
+                      -
+                    </td>
+                    <td
+                      className="css-d52hbj"
+                    />
+                  </tr>
+                  <tr>
+                    <td
+                      className="css-1ygfcef"
+                    >
+                      fallbackMenu
                     </td>
                     <td
                       className="css-1ygfcef"
@@ -1276,7 +1552,33 @@ exports[`Stories Storyshots Footer Sport Relief 1`] = `
         <div
           className="region region-footer cr-footer"
         >
-          <div />
+          <nav
+            className="menu--footer"
+          >
+            <ul
+              className="menu"
+              id="footer-menu"
+            >
+              <li
+                className="menu-item"
+              >
+                <a
+                  href="https://lite.sportrelief.com/terms-of-use"
+                >
+                  Legal
+                </a>
+              </li>
+              <li
+                className="menu-item"
+              >
+                <a
+                  href="https://lite.sportrelief.com/privacy-notice"
+                >
+                  Privacy notice
+                </a>
+              </li>
+            </ul>
+          </nav>
         </div>
         <div
           className="footer__copyright"
@@ -1478,7 +1780,10 @@ exports[`Stories Storyshots Footer Sport Relief 1`] = `
                   </span>
                   <span>
                     <span>
-                       
+                      <span>
+                        <br />
+                          
+                      </span>
                       <span
                         style={Object {}}
                       >
@@ -1505,7 +1810,10 @@ exports[`Stories Storyshots Footer Sport Relief 1`] = `
                       </span>
                     </span>
                     <span>
-                       
+                      <span>
+                        <br />
+                          
+                      </span>
                       <span
                         style={Object {}}
                       >
@@ -1532,7 +1840,10 @@ exports[`Stories Storyshots Footer Sport Relief 1`] = `
                       </span>
                     </span>
                     <span>
-                       
+                      <span>
+                        <br />
+                          
+                      </span>
                       <span
                         style={Object {}}
                       >
@@ -1557,7 +1868,152 @@ exports[`Stories Storyshots Footer Sport Relief 1`] = `
                           "
                         </span>
                       </span>
-                       
+                    </span>
+                    <span>
+                      <span>
+                        <br />
+                          
+                      </span>
+                      <span
+                        style={Object {}}
+                      >
+                        fallbackMenu
+                      </span>
+                      <span>
+                        =
+                        <span
+                          style={Object {}}
+                        >
+                          {
+                          <span
+                            style={
+                              Object {
+                                "color": "#666",
+                              }
+                            }
+                          >
+                            [
+                            <span>
+                              <span
+                                style={
+                                  Object {
+                                    "color": "#666",
+                                  }
+                                }
+                              >
+                                {
+                                <span>
+                                  <span
+                                    style={
+                                      Object {
+                                        "color": "#666",
+                                      }
+                                    }
+                                  >
+                                    url
+                                  </span>
+                                </span>
+                                : 
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#22a",
+                                      "wordBreak": "break-word",
+                                    }
+                                  }
+                                >
+                                  'https://lite.sportrelief.com/terms-of-use'
+                                </span>
+                                ,
+                                <span>
+                                  <span
+                                    style={
+                                      Object {
+                                        "color": "#666",
+                                      }
+                                    }
+                                  >
+                                    title
+                                  </span>
+                                </span>
+                                : 
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#22a",
+                                      "wordBreak": "break-word",
+                                    }
+                                  }
+                                >
+                                  'Legal'
+                                </span>
+                                }
+                              </span>
+                            </span>
+                            ,
+                            <span>
+                              <span
+                                style={
+                                  Object {
+                                    "color": "#666",
+                                  }
+                                }
+                              >
+                                {
+                                <span>
+                                  <span
+                                    style={
+                                      Object {
+                                        "color": "#666",
+                                      }
+                                    }
+                                  >
+                                    url
+                                  </span>
+                                </span>
+                                : 
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#22a",
+                                      "wordBreak": "break-word",
+                                    }
+                                  }
+                                >
+                                  'https://lite.sportrelief.com/privacy-notice'
+                                </span>
+                                ,
+                                <span>
+                                  <span
+                                    style={
+                                      Object {
+                                        "color": "#666",
+                                      }
+                                    }
+                                  >
+                                    title
+                                  </span>
+                                </span>
+                                : 
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#22a",
+                                      "wordBreak": "break-word",
+                                    }
+                                  }
+                                >
+                                  'Privacy notice'
+                                </span>
+                                }
+                              </span>
+                            </span>
+                            ]
+                          </span>
+                          }
+                        </span>
+                      </span>
+                      <br />
                     </span>
                   </span>
                   <span
@@ -1657,6 +2113,31 @@ exports[`Stories Storyshots Footer Sport Relief 1`] = `
                       className="css-1ygfcef"
                     >
                       campaign
+                    </td>
+                    <td
+                      className="css-1ygfcef"
+                    >
+                      <span />
+                    </td>
+                    <td
+                      className="css-d52hbj"
+                    >
+                      yes
+                    </td>
+                    <td
+                      className="css-d52hbj"
+                    >
+                      -
+                    </td>
+                    <td
+                      className="css-d52hbj"
+                    />
+                  </tr>
+                  <tr>
+                    <td
+                      className="css-1ygfcef"
+                    >
+                      fallbackMenu
                     </td>
                     <td
                       className="css-1ygfcef"
