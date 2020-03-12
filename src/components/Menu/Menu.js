@@ -92,7 +92,7 @@ class Menu extends Component {
                   <li className="menu-item" key={`${type}-menu-${title}`}>
                     {(url.indexOf('http') !== -1) ?
                       <a href={url} rel="noopener noreferrer" target="_blank">{title}</a> :
-                      <a href={baseUrl + url}>{title}</a>}
+                      <a href={url === ('/partners') ? 'https://www.sportrelief.com/partners' : baseUrl + url}>{title}</a>}
                   </li>
                 );
               }
