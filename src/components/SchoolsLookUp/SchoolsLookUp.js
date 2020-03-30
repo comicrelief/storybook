@@ -360,7 +360,7 @@ class SchoolsLookUp extends Component {
     const {
       establishmentNameValue, address1Value, address2Value, address3Value, townValue, postcodeValue,
       establishmentNameIdentifier, address1Identifier, address2Identifier, address3Identifier,
-      townIdentifier, postcodeIdentifier, min, selectedEstablishment, disabled,
+      townIdentifier, postcodeIdentifier, min, selectedEstablishment, disabled, placeholder,
     } = this.props;
     const { lookup, options, isSearching, query } = this.state;
     const orEnterManuallyCopy = 'Or enter details manually';
@@ -399,7 +399,7 @@ class SchoolsLookUp extends Component {
               onInputChange={this.handleInputChange}
               className="schoolsLookUpForm"
               labelKey={option => `${option.id !== 0 ? `${option.name} ${option.post_code}` : ''}`}
-              placeholder="Type to start search"
+              placeholder={placeholder}
               renderMenu={this.renderMenu}
               options={options}
               useCache={false}
@@ -479,6 +479,7 @@ SchoolsLookUp.defaultProps = {
   postcodeRequired: true,
   disabled: false,
   validateField: () => {},
+  placeholder: 'Type to start search',
 };
 
 SchoolsLookUp.propTypes = {
@@ -495,6 +496,7 @@ SchoolsLookUp.propTypes = {
   address3Value: propTypes.string,
   townValue: propTypes.string.isRequired,
   postcodeValue: propTypes.string.isRequired,
+  placeholder: propTypes.string.isRequired,
   selectedEstablishmentIdentifier: propTypes.string,
   selectedEstablishment: propTypes.object,
   establishmentIdIdentifier: propTypes.string,
