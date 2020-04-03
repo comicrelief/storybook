@@ -76,10 +76,10 @@ class Menu extends Component {
    */
 
   render() {
-    const { type, campaign, baseUrl, fallbackMenu, noEndpoint } = this.props;
+    const { type, campaign, baseUrl, fallbackMenu, forceFallback } = this.props;
     const { menuItems } = this.state;
 
-    if (menuItems.length >= 1 && !noEndpoint) {
+    if (menuItems.length >= 1 && !forceFallback) {
       return (
         <nav className="menu--footer">
           <ul className="menu" id={`${type}-menu`}>

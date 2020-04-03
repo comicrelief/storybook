@@ -578,7 +578,7 @@ exports[`Stories Storyshots Footer Comic Relief 1`] = `
                       <span
                         style={Object {}}
                       >
-                        noEndpoint
+                        forceFallback
                       </span>
                       <span>
                         =
@@ -817,7 +817,7 @@ exports[`Stories Storyshots Footer Comic Relief 1`] = `
                     <td
                       className="css-1ygfcef"
                     >
-                      noEndpoint
+                      forceFallback
                     </td>
                     <td
                       className="css-1ygfcef"
@@ -1509,7 +1509,7 @@ exports[`Stories Storyshots Footer Red Nose Day 1`] = `
                     <td
                       className="css-1ygfcef"
                     >
-                      noEndpoint
+                      forceFallback
                     </td>
                     <td
                       className="css-1ygfcef"
@@ -2129,7 +2129,7 @@ exports[`Stories Storyshots Footer Sport Relief 1`] = `
                       <span
                         style={Object {}}
                       >
-                        noEndpoint
+                        forceFallback
                       </span>
                       <span>
                         =
@@ -2368,7 +2368,7 @@ exports[`Stories Storyshots Footer Sport Relief 1`] = `
                     <td
                       className="css-1ygfcef"
                     >
-                      noEndpoint
+                      forceFallback
                     </td>
                     <td
                       className="css-1ygfcef"
