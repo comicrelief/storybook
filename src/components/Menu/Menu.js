@@ -76,10 +76,10 @@ class Menu extends Component {
    */
 
   render() {
-    const { type, campaign, baseUrl, fallbackMenu } = this.props;
+    const { type, campaign, baseUrl, fallbackMenu, forceFallback } = this.props;
     const { menuItems } = this.state;
 
-    if (menuItems.length >= 1) {
+    if (menuItems.length >= 1 && !forceFallback) {
       return (
         <nav className="menu--footer">
           <ul className="menu" id={`${type}-menu`}>
@@ -92,7 +92,7 @@ class Menu extends Component {
                   <li className="menu-item" key={`${type}-menu-${title}`}>
                     {(url.indexOf('http') !== -1) ?
                       <a href={url} rel="noopener noreferrer" target="_blank">{title}</a> :
-                      <a href={baseUrl + url}>{title}</a>}
+                      <a href={url === ('/partners') ? 'https://www.sportrelief.com/partners' : baseUrl + url} rel={url === ('/partners') && 'noopener noreferrer'}>{title}</a>}
                   </li>
                 );
               }
