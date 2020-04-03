@@ -569,35 +569,6 @@ exports[`Stories Storyshots Footer Comic Relief 1`] = `
                           }
                         </span>
                       </span>
-                    </span>
-                    <span>
-                      <span>
-                        <br />
-                          
-                      </span>
-                      <span
-                        style={Object {}}
-                      >
-                        forceFallback
-                      </span>
-                      <span>
-                        =
-                        <span
-                          style={Object {}}
-                        >
-                          {
-                          <span
-                            style={
-                              Object {
-                                "color": "#a11",
-                              }
-                            }
-                          >
-                            false
-                          </span>
-                          }
-                        </span>
-                      </span>
                       <br />
                     </span>
                   </span>
@@ -841,7 +812,7 @@ exports[`Stories Storyshots Footer Comic Relief 1`] = `
                           }
                         }
                       >
-                        true
+                        false
                       </span>
                     </td>
                     <td
@@ -1533,7 +1504,7 @@ exports[`Stories Storyshots Footer Red Nose Day 1`] = `
                           }
                         }
                       >
-                        true
+                        false
                       </span>
                     </td>
                     <td
@@ -2120,35 +2091,6 @@ exports[`Stories Storyshots Footer Sport Relief 1`] = `
                           }
                         </span>
                       </span>
-                    </span>
-                    <span>
-                      <span>
-                        <br />
-                          
-                      </span>
-                      <span
-                        style={Object {}}
-                      >
-                        forceFallback
-                      </span>
-                      <span>
-                        =
-                        <span
-                          style={Object {}}
-                        >
-                          {
-                          <span
-                            style={
-                              Object {
-                                "color": "#a11",
-                              }
-                            }
-                          >
-                            false
-                          </span>
-                          }
-                        </span>
-                      </span>
                       <br />
                     </span>
                   </span>
@@ -2392,7 +2334,7 @@ exports[`Stories Storyshots Footer Sport Relief 1`] = `
                           }
                         }
                       >
-                        true
+                        false
                       </span>
                     </td>
                     <td
