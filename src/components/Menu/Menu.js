@@ -75,6 +75,10 @@ class Menu extends Component {
    * render fallback menu (props)
    */
 
+  /**
+   * forceFallback to force fall back menu link
+   */
+
   render() {
     const { type, campaign, baseUrl, fallbackMenu, forceFallback } = this.props;
     const { menuItems } = this.state;
