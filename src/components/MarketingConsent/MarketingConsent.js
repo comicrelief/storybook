@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import propTypes from 'prop-types';
-import dompurify from 'dompurify';
+import DOMPurify from 'dompurify';
 
 import MarketingConsentCheckbox from './MarketingConsentCheckbox';
 import './MarketingConsent.scss';
 
-
-const sanitizer = dompurify.sanitize;
+DOMPurify.setConfig({ ADD_ATTR: ['target'] });
 
 class MarketingConsent extends Component {
   /**
@@ -43,7 +42,7 @@ class MarketingConsent extends Component {
         <div className="form__fieldset">
 
           {/* eslint-disable-next-line react/no-danger */}
-          <div dangerouslySetInnerHTML={{ __html: sanitizer(this.props.copy1) }} style={{ marginBottom: '15px' }} />
+          <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(this.props.copy1) }} style={{ marginBottom: '15px' }} />
 
           {data.Questions.map(item =>
             (<MarketingConsentCheckbox
@@ -57,7 +56,8 @@ class MarketingConsent extends Component {
           )
           }
           {/* eslint-disable-next-line react/no-danger */}
-          <div dangerouslySetInnerHTML={{ __html: sanitizer(this.props.copy2) }} />
+          <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(this.props.copy2) }} />
+
 
         </div>
       </div>
@@ -72,7 +72,7 @@ MarketingConsent.defaultProps = {
   copy2: `<p>You can update your communication preferences at any time at&nbsp;
             <a
               href="https://www.comicrelief.com/update-your-preferences"
-              target="blank"
+              target="_blank"
               rel="noopener noreferrer"
               class="link inline"
             >
@@ -81,7 +81,7 @@ MarketingConsent.defaultProps = {
             </a>. Your details will be kept safe, check out our&nbsp;
             <a
               href="https://www.comicrelief.com/privacy-policy"
-              target="blank"
+              target="_blank"
               rel="noopener noreferrer"
               class="link inline"
             >

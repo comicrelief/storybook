@@ -291,11 +291,11 @@ exports[`Stories Storyshots Marketing Consent MarketingConsent 1`] = `
             dangerouslySetInnerHTML={
               Object {
                 "__html": "<p>You can update your communication preferences at any time at&nbsp;
-            <a class=\\"link inline\\" rel=\\"noopener noreferrer\\" href=\\"https://www.comicrelief.com/update-your-preferences\\">
+            <a class=\\"link inline\\" rel=\\"noopener noreferrer\\" target=\\"_blank\\" href=\\"https://www.comicrelief.com/update-your-preferences\\">
             comicrelief.com/update-your-preferences
               <span class=\\"visuallyhidden\\">(opens in a new window)</span>
             </a>. Your details will be kept safe, check out our&nbsp;
-            <a class=\\"link inline\\" rel=\\"noopener noreferrer\\" href=\\"https://www.comicrelief.com/privacy-policy\\">
+            <a class=\\"link inline\\" rel=\\"noopener noreferrer\\" target=\\"_blank\\" href=\\"https://www.comicrelief.com/privacy-policy\\">
             privacy policy
               <span class=\\"visuallyhidden\\">(opens in a new window)</span>
             </a> for more details.</p>",
