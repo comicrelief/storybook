@@ -6,6 +6,7 @@ import MarketingConsentCheckbox from './MarketingConsentCheckbox';
 import './MarketingConsent.scss';
 
 DOMPurify.setConfig({ ADD_ATTR: ['target'] });
+const sanitizer = dompurify.sanitize;
 
 class MarketingConsent extends Component {
   /**
@@ -42,7 +43,7 @@ class MarketingConsent extends Component {
         <div className="form__fieldset">
 
           {/* eslint-disable-next-line react/no-danger */}
-          <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(this.props.copy1) }} style={{ marginBottom: '15px' }} />
+          <div dangerouslySetInnerHTML={{ __html: sanitizer(this.props.copy1) }} style={{ marginBottom: '15px' }} />
 
           {data.Questions.map(item =>
             (<MarketingConsentCheckbox
@@ -56,7 +57,7 @@ class MarketingConsent extends Component {
           )
           }
           {/* eslint-disable-next-line react/no-danger */}
-          <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(this.props.copy2) }} />
+          <div dangerouslySetInnerHTML={{ __html: sanitizer(this.props.copy2) }} />
 
 
         </div>
