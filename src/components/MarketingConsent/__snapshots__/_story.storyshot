@@ -19,12 +19,13 @@ exports[`Stories Storyshots Marketing Consent MarketingConsent 1`] = `
         <div
           className="form__fieldset"
         >
-          <p>
-            Hear more about the project Comic Relief funds and other ways you can support our work including fundraising, campaigns and products.
-          </p>
-          <p>
-            How would you like to hear from us?
-          </p>
+          <div
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<p>Hear more about the project Comic Relief funds and other ways you can support our work including fundraising, campaigns and products.</p><p>How would you like to hear from us?</p>",
+              }
+            }
+          />
           <div
             className="form__field--wrapper form__field-wrapper--checkbox form__field-wrapper--background"
           >
@@ -281,37 +282,21 @@ exports[`Stories Storyshots Marketing Consent MarketingConsent 1`] = `
               </div>
             </div>
           </div>
-          <p>
-            You can update your communication preferences at any time at 
-            <a
-              className="link inline"
-              href="https://www.comicrelief.com/update-your-preferences"
-              rel="noopener noreferrer"
-              target="blank"
-            >
-              comicrelief.com/update-your-preferences
-              <span
-                className="visuallyhidden"
-              >
-                (opens in a new window)
-              </span>
-            </a>
-            . Your details will be kept safe, check out our 
-            <a
-              className="link inline"
-              href="https://www.comicrelief.com/privacy-policy"
-              rel="noopener noreferrer"
-              target="blank"
-            >
-              privacy policy
-              <span
-                className="visuallyhidden"
-              >
-                (opens in a new window)
-              </span>
-            </a>
-             for more details.
-          </p>
+          <div
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<p>You can update your communication preferences at any time at&nbsp;
+            <a class=\\"link inline\\" rel=\\"noopener noreferrer\\" href=\\"https://www.comicrelief.com/update-your-preferences\\">
+            comicrelief.com/update-your-preferences
+              <span class=\\"visuallyhidden\\">(opens in a new window)</span>
+            </a>. Your details will be kept safe, check out our&nbsp;
+            <a class=\\"link inline\\" rel=\\"noopener noreferrer\\" href=\\"https://www.comicrelief.com/privacy-policy\\">
+            privacy policy
+              <span class=\\"visuallyhidden\\">(opens in a new window)</span>
+            </a> for more details.</p>",
+              }
+            }
+          />
         </div>
       </div>
     </div>
@@ -1441,6 +1426,74 @@ exports[`Stories Storyshots Marketing Consent MarketingConsent 1`] = `
                   </tr>
                 </thead>
                 <tbody>
+                  <tr>
+                    <td
+                      className="css-1ygfcef"
+                    >
+                      copy1
+                    </td>
+                    <td
+                      className="css-1ygfcef"
+                    >
+                      <span />
+                    </td>
+                    <td
+                      className="css-d52hbj"
+                    >
+                      -
+                    </td>
+                    <td
+                      className="css-d52hbj"
+                    >
+                      <span
+                        style={
+                          Object {
+                            "color": "#22a",
+                            "wordBreak": "break-word",
+                          }
+                        }
+                      >
+                        &lt;p&gt;Hear more about the project Comic Relief funds …
+                      </span>
+                    </td>
+                    <td
+                      className="css-d52hbj"
+                    />
+                  </tr>
+                  <tr>
+                    <td
+                      className="css-1ygfcef"
+                    >
+                      copy2
+                    </td>
+                    <td
+                      className="css-1ygfcef"
+                    >
+                      <span />
+                    </td>
+                    <td
+                      className="css-d52hbj"
+                    >
+                      -
+                    </td>
+                    <td
+                      className="css-d52hbj"
+                    >
+                      <span
+                        style={
+                          Object {
+                            "color": "#22a",
+                            "wordBreak": "break-word",
+                          }
+                        }
+                      >
+                        &lt;p&gt;You can update your communication preferences a…
+                      </span>
+                    </td>
+                    <td
+                      className="css-d52hbj"
+                    />
+                  </tr>
                   <tr>
                     <td
                       className="css-1ygfcef"
