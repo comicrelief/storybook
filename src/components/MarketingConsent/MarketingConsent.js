@@ -41,7 +41,7 @@ class MarketingConsent extends Component {
       <div className={'form__row form__row--marketing-consent'} >
         <div className="form__fieldset">
 
-        <div dangerouslySetInnerHTML={{__html: sanitizer(this.props.copy1)}} />
+        <div dangerouslySetInnerHTML={{__html: sanitizer(this.props.copy1)}} style={{marginBottom: '15px'}} />
 
           { data.Questions.map(item =>
             (<MarketingConsentCheckbox key={item.id}
