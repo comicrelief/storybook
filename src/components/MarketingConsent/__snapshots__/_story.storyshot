@@ -25,6 +25,11 @@ exports[`Stories Storyshots Marketing Consent MarketingConsent 1`] = `
                 "__html": "<p>Hear more about the project Comic Relief funds and other ways you can support our work including fundraising, campaigns and products.</p><p>How would you like to hear from us?</p>",
               }
             }
+            style={
+              Object {
+                "marginBottom": "15px",
+              }
+            }
           />
           <div
             className="form__field--wrapper form__field-wrapper--checkbox form__field-wrapper--background"
