@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import propTypes from 'prop-types';
+import dompurify from 'dompurify';
+
 import MarketingConsentCheckbox from './MarketingConsentCheckbox';
 import './MarketingConsent.scss';
 
-import dompurify from 'dompurify';
 
 const sanitizer = dompurify.sanitize;
 
@@ -41,18 +42,22 @@ class MarketingConsent extends Component {
       <div className={'form__row form__row--marketing-consent'} >
         <div className="form__fieldset">
 
-        <div dangerouslySetInnerHTML={{__html: sanitizer(this.props.copy1)}} style={{marginBottom: '15px'}} />
+          {/* eslint-disable-next-line react/no-danger */}
+          <div dangerouslySetInnerHTML={{ __html: sanitizer(this.props.copy1) }} style={{ marginBottom: '15px' }} />
 
-          { data.Questions.map(item =>
-            (<MarketingConsentCheckbox key={item.id}
+          {data.Questions.map(item =>
+            (<MarketingConsentCheckbox
+              key={item.id}
               getValidation={(name, validation) => { this.updateState(name, validation); }}
-              itemData={item} valueFromParent={this.props.valueFromParent && this.props.valueFromParent[item.id]}
-              showErrorMessages={this.props.showErrorMessages} />
-              )
-            )
+              itemData={item}
+              valueFromParent={this.props.valueFromParent && this.props.valueFromParent[item.id]}
+              showErrorMessages={this.props.showErrorMessages}
+            />
+            ),
+          )
           }
-
-        <div dangerouslySetInnerHTML={{__html: sanitizer(this.props.copy2)}} />
+          {/* eslint-disable-next-line react/no-danger */}
+          <div dangerouslySetInnerHTML={{ __html: sanitizer(this.props.copy2) }} />
 
         </div>
       </div>
@@ -63,7 +68,7 @@ class MarketingConsent extends Component {
 MarketingConsent.defaultProps = {
   valueFromParent: null,
   showErrorMessages: false,
-  copy1: `<p>Hear more about the project Comic Relief funds and other ways you can support our work including fundraising, campaigns and products.</p><p>How would you like to hear from us?</p>`,
+  copy1: '<p>Hear more about the project Comic Relief funds and other ways you can support our work including fundraising, campaigns and products.</p><p>How would you like to hear from us?</p>',
   copy2: `<p>You can update your communication preferences at any time at&nbsp;
             <a
               href="https://www.comicrelief.com/update-your-preferences"
