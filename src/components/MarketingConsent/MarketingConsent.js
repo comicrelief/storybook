@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import propTypes from 'prop-types';
+import dompurify from 'dompurify';
+
 import MarketingConsentCheckbox from './MarketingConsentCheckbox';
 import './MarketingConsent.scss';
+
+
+const sanitizer = dompurify.sanitize;
 
 class MarketingConsent extends Component {
   /**
@@ -36,35 +41,24 @@ class MarketingConsent extends Component {
     return (
       <div className={'form__row form__row--marketing-consent'} >
         <div className="form__fieldset">
-          <p>Hear more about the project Comic Relief funds and other ways you can support our work including fundraising, campaigns and products.</p>
-          <p>How would you like to hear from us?</p>
-          { data.Questions.map(item =>
+
+          {/* eslint-disable-next-line react/no-danger */}
+          <div dangerouslySetInnerHTML={{ __html: sanitizer(this.props.copy1) }} style={{ marginBottom: '15px' }} />
+
+          {data.Questions.map(item =>
             (<MarketingConsentCheckbox
               key={item.id}
               getValidation={(name, validation) => { this.updateState(name, validation); }}
               itemData={item}
               valueFromParent={this.props.valueFromParent && this.props.valueFromParent[item.id]}
               showErrorMessages={this.props.showErrorMessages}
-            />)) }
-          <p>You can update your communication preferences at any time at&nbsp;
-            <a
-              href="https://www.comicrelief.com/update-your-preferences"
-              target="blank"
-              rel="noopener noreferrer"
-              className="link inline"
-            >
-            comicrelief.com/update-your-preferences
-              <span className="visuallyhidden">(opens in a new window)</span>
-            </a>. Your details will be kept safe, check out our&nbsp;
-            <a
-              href="https://www.comicrelief.com/privacy-policy"
-              target="blank"
-              rel="noopener noreferrer"
-              className="link inline"
-            >
-            privacy policy
-              <span className="visuallyhidden">(opens in a new window)</span>
-            </a> for more details.</p>
+            />
+            ),
+          )
+          }
+          {/* eslint-disable-next-line react/no-danger */}
+          <div dangerouslySetInnerHTML={{ __html: sanitizer(this.props.copy2) }} />
+
         </div>
       </div>
     );
@@ -74,8 +68,30 @@ class MarketingConsent extends Component {
 MarketingConsent.defaultProps = {
   valueFromParent: null,
   showErrorMessages: false,
+  copy1: '<p>Hear more about the project Comic Relief funds and other ways you can support our work including fundraising, campaigns and products.</p><p>How would you like to hear from us?</p>',
+  copy2: `<p>You can update your communication preferences at any time at&nbsp;
+            <a
+              href="https://www.comicrelief.com/update-your-preferences"
+              target="blank"
+              rel="noopener noreferrer"
+              class="link inline"
+            >
+            comicrelief.com/update-your-preferences
+              <span class="visuallyhidden">(opens in a new window)</span>
+            </a>. Your details will be kept safe, check out our&nbsp;
+            <a
+              href="https://www.comicrelief.com/privacy-policy"
+              target="blank"
+              rel="noopener noreferrer"
+              class="link inline"
+            >
+            privacy policy
+              <span class="visuallyhidden">(opens in a new window)</span>
+            </a> for more details.</p>`,
 };
 MarketingConsent.propTypes = {
+  copy1: propTypes.string,
+  copy2: propTypes.string,
   getValidation: propTypes.func.isRequired,
   valueFromParent: propTypes.object,
   showErrorMessages: propTypes.bool,
