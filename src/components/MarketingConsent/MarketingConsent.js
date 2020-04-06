@@ -6,7 +6,7 @@ import MarketingConsentCheckbox from './MarketingConsentCheckbox';
 import './MarketingConsent.scss';
 
 DOMPurify.setConfig({ ADD_ATTR: ['target'] });
-const sanitizer = dompurify.sanitize;
+const sanitizer = DOMPurify.sanitize;
 
 class MarketingConsent extends Component {
   /**
