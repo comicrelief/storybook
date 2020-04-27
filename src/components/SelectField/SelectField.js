@@ -199,7 +199,7 @@ SelectField.defaultProps = {
   isValid: () => {},
   showErrorMessage: false,
   value: null,
-  defaultValue: null
+  defaultValue: null,
 };
 
 SelectField.propTypes = {
