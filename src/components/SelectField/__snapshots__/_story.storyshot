@@ -939,7 +939,15 @@ exports[`Stories Storyshots Select Field SelectField 1`] = `
                     <td
                       className="css-d52hbj"
                     >
-                      -
+                      <span
+                        style={
+                          Object {
+                            "color": "#777",
+                          }
+                        }
+                      >
+                        null
+                      </span>
                     </td>
                     <td
                       className="css-d52hbj"
