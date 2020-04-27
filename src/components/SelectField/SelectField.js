@@ -74,6 +74,8 @@ class SelectField extends Component {
     let selected = this.props.options.find(item => item.selected === true);
     if (selected !== undefined) {
       selected = selected.value;
+    } else if (this.props.defaultValue !== null) {
+      selected = this.props.defaultValue;
     }
     return selected;
   }
@@ -197,6 +199,7 @@ SelectField.defaultProps = {
   isValid: () => {},
   showErrorMessage: false,
   value: null,
+  defaultValue: null,
 };
 
 SelectField.propTypes = {
@@ -216,6 +219,7 @@ SelectField.propTypes = {
   extraClass: propTypes.string,
   isValid: propTypes.func,
   showErrorMessage: propTypes.bool,
+  defaultValue: propTypes.string,
 };
 
 export default SelectField;
