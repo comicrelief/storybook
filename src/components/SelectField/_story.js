@@ -6,7 +6,9 @@ import { withInfo } from '@storybook/addon-info';
 import SelectField from './SelectField';
 
 const optionsArray = [
-  { label: 'Please select', selected: true},
+  { label: 'Please select',
+    //selected: true
+  },
   { label: 'item 1', value: 'itemone' },
   { label: '----------', disabled: true },
   { label: 'item 2', value: 'itemtwo' },
@@ -21,6 +23,8 @@ storiesOf('Select Field', module)
       const name = text('name', 'selectfield');
       const label = text('label', 'Select field');
       const required = boolean('required', true);
-      return (<SelectField id={id} name={name} label={label} required={required} options={optionsArray} />);
+      const defaultValue = text('default value', 'itemthree');
+
+      return (<SelectField id={id} name={name} label={label} required={required} options={optionsArray} defaultValue={defaultValue}/>);
     }),
   );

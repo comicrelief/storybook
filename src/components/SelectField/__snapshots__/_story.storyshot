@@ -26,6 +26,7 @@ exports[`Stories Storyshots Select Field SelectField 1`] = `
         </label>
         <select
           aria-describedby="field-label--selectField field-error--selectField"
+          defaultValue="itemthree"
           id="field-select--selectField"
           name="selectfield"
           onBlur={[Function]}
@@ -390,28 +391,6 @@ exports[`Stories Storyshots Select Field SelectField 1`] = `
                                 >
                                   'Please select'
                                 </span>
-                                ,
-                                <span>
-                                  <span
-                                    style={
-                                      Object {
-                                        "color": "#666",
-                                      }
-                                    }
-                                  >
-                                    selected
-                                  </span>
-                                </span>
-                                : 
-                                <span
-                                  style={
-                                    Object {
-                                      "color": "#a11",
-                                    }
-                                  }
-                                >
-                                  true
-                                </span>
                                 }
                               </span>
                             </span>
@@ -556,6 +535,36 @@ exports[`Stories Storyshots Select Field SelectField 1`] = `
                             ]
                           </span>
                           }
+                        </span>
+                      </span>
+                    </span>
+                    <span>
+                      <span>
+                        <br />
+                          
+                      </span>
+                      <span
+                        style={Object {}}
+                      >
+                        defaultValue
+                      </span>
+                      <span>
+                        =
+                        <span
+                          style={Object {}}
+                        >
+                          "
+                          <span
+                            style={
+                              Object {
+                                "color": "#22a",
+                                "wordBreak": "break-word",
+                              }
+                            }
+                          >
+                            itemthree
+                          </span>
+                          "
                         </span>
                       </span>
                       <br />
@@ -906,6 +915,31 @@ exports[`Stories Storyshots Select Field SelectField 1`] = `
                       >
                         false
                       </span>
+                    </td>
+                    <td
+                      className="css-d52hbj"
+                    />
+                  </tr>
+                  <tr>
+                    <td
+                      className="css-1ygfcef"
+                    >
+                      defaultValue
+                    </td>
+                    <td
+                      className="css-1ygfcef"
+                    >
+                      <span />
+                    </td>
+                    <td
+                      className="css-d52hbj"
+                    >
+                      -
+                    </td>
+                    <td
+                      className="css-d52hbj"
+                    >
+                      -
                     </td>
                     <td
                       className="css-d52hbj"
