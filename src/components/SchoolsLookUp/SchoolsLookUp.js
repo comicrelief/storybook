@@ -392,7 +392,7 @@ class SchoolsLookUp extends Component {
             <AsyncTypeahead
               type="text"
               minLength={min}
-              bsSize="large"
+              size="large"
               emptyLabel=""
               onSearch={this.handleSearch}
               onChange={this.handleChange}
@@ -406,6 +406,7 @@ class SchoolsLookUp extends Component {
               disabled={disabled}
               filterBy={() => true}
               isLoading={isSearching}
+              id={this.props.id + "--typeahead-list"}
             />
             {isSearching ?
               <Icon name="spinner" spin />:
@@ -526,6 +527,7 @@ SchoolsLookUp.propTypes = {
   postcodeErrorMessage: propTypes.string,
   validateField: propTypes.func,
   disabled: propTypes.bool,
+  id: propTypes.string.isRequired,
 };
 
 export default SchoolsLookUp;
