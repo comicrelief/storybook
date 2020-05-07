@@ -1,3 +1,4 @@
+/* eslint-disable react/no-danger */
 import React, { Component } from 'react';
 import propTypes from 'prop-types';
 import DOMPurify from 'dompurify';
@@ -42,8 +43,9 @@ class MarketingConsent extends Component {
       <div className={'form__row form__row--marketing-consent'} >
         <div className="form__fieldset">
 
-          {/* eslint-disable-next-line react/no-danger */}
-          <div dangerouslySetInnerHTML={{ __html: sanitizer(this.props.copy1) }} style={{ marginBottom: '15px' }} />
+          {this.props.copy1 !== null &&
+            <div dangerouslySetInnerHTML={{ __html: sanitizer(this.props.copy1) }} style={{ marginBottom: '15px' }} />
+          }
 
           {data.Questions.map(item =>
             (<MarketingConsentCheckbox
@@ -52,13 +54,11 @@ class MarketingConsent extends Component {
               itemData={item}
               valueFromParent={this.props.valueFromParent && this.props.valueFromParent[item.id]}
               showErrorMessages={this.props.showErrorMessages}
-            />
-            ),
-          )
+            />))
           }
-          {/* eslint-disable-next-line react/no-danger */}
-          <div dangerouslySetInnerHTML={{ __html: sanitizer(this.props.copy2) }} />
-
+          {this.props.copy2 !== null &&
+            <div dangerouslySetInnerHTML={{ __html: sanitizer(this.props.copy2) }} />
+          }
 
         </div>
       </div>
