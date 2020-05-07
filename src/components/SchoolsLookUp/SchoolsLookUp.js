@@ -406,7 +406,7 @@ class SchoolsLookUp extends Component {
               disabled={disabled}
               filterBy={() => true}
               isLoading={isSearching}
-              id={this.props.id + "--typeahead-list"}
+              id={`${this.props.id}--typeahead-list`}
             />
             {isSearching ?
               <Icon name="spinner" spin />:
