@@ -1,7 +1,6 @@
 const defaultValidationPatterns = {
   tel: /^[0-9 ]{11,}$/,
   number: /^[0-9]+$/,
-  // eslint-disable-next-line no-useless-escape
   email: /[a-z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])/i,
   text: /^[\sA-Za-z0-9_.'&-]+$/,
 };
