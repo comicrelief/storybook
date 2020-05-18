@@ -83,153 +83,62 @@ exports[`Stories Storyshots Schools Lookup manual fields errors 1`] = `
       className="schoolsLookUp-search"
     >
       <div
-        className="rbt open form-control input-lg form-control-lg schoolsLookUpForm"
-        disabled={false}
-        onClick={[Function]}
-        onFocus={[Function]}
+        className="rbt schoolsLookUpForm"
         style={
           Object {
+            "outline": "none",
             "position": "relative",
           }
         }
         tabIndex={-1}
       >
         <div
-          className="rbt-input"
+          style={
+            Object {
+              "display": "flex",
+              "flex": 1,
+              "height": "100%",
+              "position": "relative",
+            }
+          }
         >
-          <div
+          <input
+            aria-autocomplete="both"
+            aria-expanded={false}
+            aria-haspopup="listbox"
+            autoComplete="off"
+            className="rbt-input-main form-control rbt-input input-lg form-control-lg"
+            disabled={false}
+            onBlur={[Function]}
+            onChange={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            placeholder="Type to start search"
+            role="combobox"
+            type="text"
+            value=""
+          />
+          <input
+            aria-hidden={true}
+            className="rbt-input-hint"
+            readOnly={true}
             style={
               Object {
-                "display": "inline-block",
-                "position": "relative",
+                "backgroundColor": "transparent",
+                "borderColor": "transparent",
+                "boxShadow": "none",
+                "color": "rgba(0, 0, 0, 0.35)",
+                "left": 0,
+                "pointerEvents": "none",
+                "position": "absolute",
+                "top": 0,
+                "width": "100%",
               }
             }
-          >
-            <div
-              style={
-                Object {
-                  "display": "inline-block",
-                  "position": "relative",
-                  "zIndex": 1,
-                }
-              }
-            >
-              <style
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "input#undefined::-ms-clear {display: none;}",
-                  }
-                }
-              />
-              <input
-                autoComplete="off"
-                className="rbt-input-main"
-                disabled={false}
-                multiple={false}
-                onBlur={[Function]}
-                onChange={[Function]}
-                onFocus={[Function]}
-                onKeyDown={[Function]}
-                placeholder="Type to start search"
-                style={
-                  Object {
-                    "backgroundColor": "transparent",
-                    "border": 0,
-                    "boxShadow": "none",
-                    "boxSizing": "content-box",
-                    "cursor": "inherit",
-                    "outline": "none",
-                    "padding": 0,
-                    "width": "2px",
-                  }
-                }
-                type="text"
-                value=""
-              />
-              <div
-                style={
-                  Object {
-                    "height": 0,
-                    "left": 0,
-                    "overflow": "scroll",
-                    "position": "absolute",
-                    "top": 0,
-                    "visibility": "hidden",
-                    "whiteSpace": "pre",
-                  }
-                }
-              >
-                
-              </div>
-              <div
-                style={
-                  Object {
-                    "height": 0,
-                    "left": 0,
-                    "overflow": "scroll",
-                    "position": "absolute",
-                    "top": 0,
-                    "visibility": "hidden",
-                    "whiteSpace": "pre",
-                  }
-                }
-              >
-                Type to start search
-              </div>
-            </div>
-            <div
-              style={
-                Object {
-                  "bottom": 0,
-                  "display": "block",
-                  "position": "absolute",
-                  "top": 0,
-                  "zIndex": 0,
-                }
-              }
-            >
-              <style
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "input#undefined::-ms-clear {display: none;}",
-                  }
-                }
-              />
-              <input
-                className="rbt-input-hint"
-                style={
-                  Object {
-                    "backgroundColor": "transparent",
-                    "border": 0,
-                    "boxShadow": "none",
-                    "boxSizing": "content-box",
-                    "color": "rgba(0, 0, 0, 0.35)",
-                    "cursor": "inherit",
-                    "outline": "none",
-                    "padding": 0,
-                    "width": "2px",
-                  }
-                }
-                tabIndex={-1}
-                value=""
-              />
-              <div
-                style={
-                  Object {
-                    "height": 0,
-                    "left": 0,
-                    "overflow": "scroll",
-                    "position": "absolute",
-                    "top": 0,
-                    "visibility": "hidden",
-                    "whiteSpace": "pre",
-                  }
-                }
-              >
-                
-              </div>
-            </div>
-          </div>
+            tabIndex={-1}
+            value=""
+          />
         </div>
       </div>
     </div>
@@ -437,153 +346,62 @@ exports[`Stories Storyshots Schools Lookup manually entered school 1`] = `
       className="schoolsLookUp-search"
     >
       <div
-        className="rbt open form-control input-lg form-control-lg schoolsLookUpForm"
-        disabled={false}
-        onClick={[Function]}
-        onFocus={[Function]}
+        className="rbt schoolsLookUpForm"
         style={
           Object {
+            "outline": "none",
             "position": "relative",
           }
         }
         tabIndex={-1}
       >
         <div
-          className="rbt-input"
+          style={
+            Object {
+              "display": "flex",
+              "flex": 1,
+              "height": "100%",
+              "position": "relative",
+            }
+          }
         >
-          <div
+          <input
+            aria-autocomplete="both"
+            aria-expanded={false}
+            aria-haspopup="listbox"
+            autoComplete="off"
+            className="rbt-input-main form-control rbt-input input-lg form-control-lg"
+            disabled={false}
+            onBlur={[Function]}
+            onChange={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            placeholder="Type to start search"
+            role="combobox"
+            type="text"
+            value=""
+          />
+          <input
+            aria-hidden={true}
+            className="rbt-input-hint"
+            readOnly={true}
             style={
               Object {
-                "display": "inline-block",
-                "position": "relative",
+                "backgroundColor": "transparent",
+                "borderColor": "transparent",
+                "boxShadow": "none",
+                "color": "rgba(0, 0, 0, 0.35)",
+                "left": 0,
+                "pointerEvents": "none",
+                "position": "absolute",
+                "top": 0,
+                "width": "100%",
               }
             }
-          >
-            <div
-              style={
-                Object {
-                  "display": "inline-block",
-                  "position": "relative",
-                  "zIndex": 1,
-                }
-              }
-            >
-              <style
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "input#undefined::-ms-clear {display: none;}",
-                  }
-                }
-              />
-              <input
-                autoComplete="off"
-                className="rbt-input-main"
-                disabled={false}
-                multiple={false}
-                onBlur={[Function]}
-                onChange={[Function]}
-                onFocus={[Function]}
-                onKeyDown={[Function]}
-                placeholder="Type to start search"
-                style={
-                  Object {
-                    "backgroundColor": "transparent",
-                    "border": 0,
-                    "boxShadow": "none",
-                    "boxSizing": "content-box",
-                    "cursor": "inherit",
-                    "outline": "none",
-                    "padding": 0,
-                    "width": "2px",
-                  }
-                }
-                type="text"
-                value=""
-              />
-              <div
-                style={
-                  Object {
-                    "height": 0,
-                    "left": 0,
-                    "overflow": "scroll",
-                    "position": "absolute",
-                    "top": 0,
-                    "visibility": "hidden",
-                    "whiteSpace": "pre",
-                  }
-                }
-              >
-                
-              </div>
-              <div
-                style={
-                  Object {
-                    "height": 0,
-                    "left": 0,
-                    "overflow": "scroll",
-                    "position": "absolute",
-                    "top": 0,
-                    "visibility": "hidden",
-                    "whiteSpace": "pre",
-                  }
-                }
-              >
-                Type to start search
-              </div>
-            </div>
-            <div
-              style={
-                Object {
-                  "bottom": 0,
-                  "display": "block",
-                  "position": "absolute",
-                  "top": 0,
-                  "zIndex": 0,
-                }
-              }
-            >
-              <style
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "input#undefined::-ms-clear {display: none;}",
-                  }
-                }
-              />
-              <input
-                className="rbt-input-hint"
-                style={
-                  Object {
-                    "backgroundColor": "transparent",
-                    "border": 0,
-                    "boxShadow": "none",
-                    "boxSizing": "content-box",
-                    "color": "rgba(0, 0, 0, 0.35)",
-                    "cursor": "inherit",
-                    "outline": "none",
-                    "padding": 0,
-                    "width": "2px",
-                  }
-                }
-                tabIndex={-1}
-                value=""
-              />
-              <div
-                style={
-                  Object {
-                    "height": 0,
-                    "left": 0,
-                    "overflow": "scroll",
-                    "position": "absolute",
-                    "top": 0,
-                    "visibility": "hidden",
-                    "whiteSpace": "pre",
-                  }
-                }
-              >
-                
-              </div>
-            </div>
-          </div>
+            tabIndex={-1}
+            value=""
+          />
         </div>
       </div>
     </div>
@@ -749,153 +567,62 @@ exports[`Stories Storyshots Schools Lookup nothing is selected 1`] = `
       className="schoolsLookUp-search"
     >
       <div
-        className="rbt open form-control input-lg form-control-lg schoolsLookUpForm"
-        disabled={false}
-        onClick={[Function]}
-        onFocus={[Function]}
+        className="rbt schoolsLookUpForm"
         style={
           Object {
+            "outline": "none",
             "position": "relative",
           }
         }
         tabIndex={-1}
       >
         <div
-          className="rbt-input"
+          style={
+            Object {
+              "display": "flex",
+              "flex": 1,
+              "height": "100%",
+              "position": "relative",
+            }
+          }
         >
-          <div
+          <input
+            aria-autocomplete="both"
+            aria-expanded={false}
+            aria-haspopup="listbox"
+            autoComplete="off"
+            className="rbt-input-main form-control rbt-input input-lg form-control-lg"
+            disabled={false}
+            onBlur={[Function]}
+            onChange={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            placeholder="Type to start search"
+            role="combobox"
+            type="text"
+            value=""
+          />
+          <input
+            aria-hidden={true}
+            className="rbt-input-hint"
+            readOnly={true}
             style={
               Object {
-                "display": "inline-block",
-                "position": "relative",
+                "backgroundColor": "transparent",
+                "borderColor": "transparent",
+                "boxShadow": "none",
+                "color": "rgba(0, 0, 0, 0.35)",
+                "left": 0,
+                "pointerEvents": "none",
+                "position": "absolute",
+                "top": 0,
+                "width": "100%",
               }
             }
-          >
-            <div
-              style={
-                Object {
-                  "display": "inline-block",
-                  "position": "relative",
-                  "zIndex": 1,
-                }
-              }
-            >
-              <style
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "input#undefined::-ms-clear {display: none;}",
-                  }
-                }
-              />
-              <input
-                autoComplete="off"
-                className="rbt-input-main"
-                disabled={false}
-                multiple={false}
-                onBlur={[Function]}
-                onChange={[Function]}
-                onFocus={[Function]}
-                onKeyDown={[Function]}
-                placeholder="Type to start search"
-                style={
-                  Object {
-                    "backgroundColor": "transparent",
-                    "border": 0,
-                    "boxShadow": "none",
-                    "boxSizing": "content-box",
-                    "cursor": "inherit",
-                    "outline": "none",
-                    "padding": 0,
-                    "width": "2px",
-                  }
-                }
-                type="text"
-                value=""
-              />
-              <div
-                style={
-                  Object {
-                    "height": 0,
-                    "left": 0,
-                    "overflow": "scroll",
-                    "position": "absolute",
-                    "top": 0,
-                    "visibility": "hidden",
-                    "whiteSpace": "pre",
-                  }
-                }
-              >
-                
-              </div>
-              <div
-                style={
-                  Object {
-                    "height": 0,
-                    "left": 0,
-                    "overflow": "scroll",
-                    "position": "absolute",
-                    "top": 0,
-                    "visibility": "hidden",
-                    "whiteSpace": "pre",
-                  }
-                }
-              >
-                Type to start search
-              </div>
-            </div>
-            <div
-              style={
-                Object {
-                  "bottom": 0,
-                  "display": "block",
-                  "position": "absolute",
-                  "top": 0,
-                  "zIndex": 0,
-                }
-              }
-            >
-              <style
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "input#undefined::-ms-clear {display: none;}",
-                  }
-                }
-              />
-              <input
-                className="rbt-input-hint"
-                style={
-                  Object {
-                    "backgroundColor": "transparent",
-                    "border": 0,
-                    "boxShadow": "none",
-                    "boxSizing": "content-box",
-                    "color": "rgba(0, 0, 0, 0.35)",
-                    "cursor": "inherit",
-                    "outline": "none",
-                    "padding": 0,
-                    "width": "2px",
-                  }
-                }
-                tabIndex={-1}
-                value=""
-              />
-              <div
-                style={
-                  Object {
-                    "height": 0,
-                    "left": 0,
-                    "overflow": "scroll",
-                    "position": "absolute",
-                    "top": 0,
-                    "visibility": "hidden",
-                    "whiteSpace": "pre",
-                  }
-                }
-              >
-                
-              </div>
-            </div>
-          </div>
+            tabIndex={-1}
+            value=""
+          />
         </div>
       </div>
     </div>

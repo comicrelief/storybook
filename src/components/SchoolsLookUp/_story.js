@@ -17,6 +17,8 @@ let establishmentNameValue = '';
 let address1Value = '';
 let townValue = '';
 let postcodeValue = '';
+const id = 'schools-lookup';
+
 
 storiesOf('Schools Lookup', module)
   .addDecorator(withKnobs)
@@ -36,6 +38,7 @@ storiesOf('Schools Lookup', module)
         address3Value={address3Value}
         townValue={townValue}
         postcodeValue={postcodeValue}
+        id={id}
       />);
     },
   )
@@ -61,6 +64,7 @@ storiesOf('Schools Lookup', module)
         address3ErrorMessage="address3 error message"
         townErrorMessage="town error message"
         postcodeErrorMessage="postcode error message"
+        id={id}
       />);
     },
   )
@@ -85,6 +89,8 @@ storiesOf('Schools Lookup', module)
         address3Value={address3Value}
         townValue={townValue}
         postcodeValue={postcodeValue}
+        id={id}
+
       />);
     },
   )
@@ -117,6 +123,7 @@ storiesOf('Schools Lookup', module)
         address3Value={address3Value}
         townValue={townValue}
         postcodeValue={postcodeValue}
+        id={id}
       />);
     },
   );
