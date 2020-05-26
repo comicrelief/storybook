@@ -360,13 +360,13 @@ class SchoolsLookUp extends Component {
     const {
       establishmentNameValue, address1Value, address2Value, address3Value, townValue, postcodeValue,
       establishmentNameIdentifier, address1Identifier, address2Identifier, address3Identifier,
-      townIdentifier, postcodeIdentifier, min, selectedEstablishment, disabled, placeholder,
+      townIdentifier, postcodeIdentifier, min, selectedEstablishment, disabled, placeholder, extraClasses,
     } = this.props;
     const { lookup, options, isSearching, query } = this.state;
     const orEnterManuallyCopy = 'Or enter details manually';
 
     return (
-      <div data-test-id="SchoolsLookUp" className="SchoolsLookUp">
+      <div data-test-id="SchoolsLookUp" className={`SchoolsLookUp ${extraClasses}`}>
         <p className="schoolsLookUp-title">
           <label htmlFor="schoolsLookUp">{'Enter the name or postcode of your school or nursery'}</label>
         </p>
@@ -480,6 +480,7 @@ SchoolsLookUp.defaultProps = {
   disabled: false,
   validateField: () => {},
   placeholder: 'Type to start search',
+  extraClasses: '',
 };
 
 SchoolsLookUp.propTypes = {
@@ -526,6 +527,7 @@ SchoolsLookUp.propTypes = {
   postcodeErrorMessage: propTypes.string,
   validateField: propTypes.func,
   disabled: propTypes.bool,
+  extraClasses: propTypes.string.isRequired,
 };
 
 export default SchoolsLookUp;
