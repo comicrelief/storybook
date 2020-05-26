@@ -5,7 +5,7 @@ exports[`Stories Storyshots Schools Lookup EDCO selected school 1`] = `
   data-test-id="container"
 >
   <div
-    className="SchoolsLookUp"
+    className="SchoolsLookUp "
     data-test-id="SchoolsLookUp"
   >
     <p
@@ -67,7 +67,7 @@ exports[`Stories Storyshots Schools Lookup manual fields errors 1`] = `
   data-test-id="container"
 >
   <div
-    className="SchoolsLookUp"
+    className="SchoolsLookUp "
     data-test-id="SchoolsLookUp"
   >
     <p
@@ -421,7 +421,7 @@ exports[`Stories Storyshots Schools Lookup manually entered school 1`] = `
   data-test-id="container"
 >
   <div
-    className="SchoolsLookUp"
+    className="SchoolsLookUp "
     data-test-id="SchoolsLookUp"
   >
     <p
@@ -733,7 +733,7 @@ exports[`Stories Storyshots Schools Lookup nothing is selected 1`] = `
   data-test-id="container"
 >
   <div
-    className="SchoolsLookUp"
+    className="SchoolsLookUp "
     data-test-id="SchoolsLookUp"
   >
     <p
