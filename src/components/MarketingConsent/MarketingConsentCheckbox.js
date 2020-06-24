@@ -146,8 +146,9 @@ class MarketingConsentCheckbox extends Component {
     const bgStyle = 'form__field--background';
     const checkbox = item.id;
     const customMessage = typeof item.customMessage !== 'undefined' ? item.customMessage : null;
+    
     return (
-      <div key={item.id} className="form__field--wrapper form__field-wrapper--checkbox form__field-wrapper--background">
+      <div key={item.id} className={`form__field--wrapper form__field-wrapper--checkbox form__field-wrapper--background form__field-wrapper--${item.text}`}>
         <p className="form__fieldset--label" aria-label={`Can we contact you by ${item.text}`}>{item.text}</p>
         { customMessage && <p>{customMessage}</p> }
         <div id={`field-wrapper--${item.text}`} className="form__field--wrapper">

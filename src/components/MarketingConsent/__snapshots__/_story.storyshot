@@ -32,7 +32,7 @@ exports[`Stories Storyshots Marketing Consent MarketingConsent 1`] = `
             }
           />
           <div
-            className="form__field--wrapper form__field-wrapper--checkbox form__field-wrapper--background"
+            className="form__field--wrapper form__field-wrapper--checkbox form__field-wrapper--background form__field-wrapper--Email"
           >
             <p
               aria-label="Can we contact you by Email"
@@ -94,7 +94,7 @@ exports[`Stories Storyshots Marketing Consent MarketingConsent 1`] = `
             </div>
           </div>
           <div
-            className="form__field--wrapper form__field-wrapper--checkbox form__field-wrapper--background"
+            className="form__field--wrapper form__field-wrapper--checkbox form__field-wrapper--background form__field-wrapper--Post"
           >
             <p
               aria-label="Can we contact you by Post"
@@ -155,7 +155,7 @@ exports[`Stories Storyshots Marketing Consent MarketingConsent 1`] = `
             </div>
           </div>
           <div
-            className="form__field--wrapper form__field-wrapper--checkbox form__field-wrapper--background"
+            className="form__field--wrapper form__field-wrapper--checkbox form__field-wrapper--background form__field-wrapper--Phone"
           >
             <p
               aria-label="Can we contact you by Phone"
@@ -216,7 +216,7 @@ exports[`Stories Storyshots Marketing Consent MarketingConsent 1`] = `
             </div>
           </div>
           <div
-            className="form__field--wrapper form__field-wrapper--checkbox form__field-wrapper--background"
+            className="form__field--wrapper form__field-wrapper--checkbox form__field-wrapper--background form__field-wrapper--SMS"
           >
             <p
               aria-label="Can we contact you by SMS"
