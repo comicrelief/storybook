@@ -143,8 +143,8 @@ class MarketingConsentCheckbox extends Component {
 
   render() {
     const item = this.props.itemData;
-    const bgStyle = 'form__field--background';
     const checkbox = item.id;
+    const bgStyle = 'form__field--background';
     const customMessage = typeof item.customMessage !== 'undefined' ? item.customMessage : null;
 
     return (
