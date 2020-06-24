@@ -40,9 +40,7 @@ exports[`Stories Storyshots Marketing Consent MarketingConsent 1`] = `
             >
               Email
             </p>
-            <p>
-              
-            </p>
+            
             <div
               className="form__field--wrapper"
               id="field-wrapper--Email"
@@ -103,9 +101,6 @@ exports[`Stories Storyshots Marketing Consent MarketingConsent 1`] = `
               className="form__fieldset--label"
             >
               Post
-            </p>
-            <p>
-              
             </p>
             <div
               className="form__field--wrapper"
@@ -168,9 +163,6 @@ exports[`Stories Storyshots Marketing Consent MarketingConsent 1`] = `
             >
               Phone
             </p>
-            <p>
-              
-            </p>
             <div
               className="form__field--wrapper"
               id="field-wrapper--Phone"
@@ -231,9 +223,6 @@ exports[`Stories Storyshots Marketing Consent MarketingConsent 1`] = `
               className="form__fieldset--label"
             >
               SMS
-            </p>
-            <p>
-              
             </p>
             <div
               className="form__field--wrapper"
