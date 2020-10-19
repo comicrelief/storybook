@@ -259,9 +259,7 @@ class SchoolsLookUp extends Component {
     } = this.props;
 
     return (
-
       <div className="schoolDetails">
-
         {this.renderSingleInput(
           establishmentNameLabelText,
           establishmentNameIdentifier,
