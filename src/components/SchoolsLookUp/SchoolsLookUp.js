@@ -95,8 +95,10 @@ class SchoolsLookUp extends Component {
         const options = response.data.data.schools;
         this.setState({ query, options, isSearching: false, lookupFetchError: false });
       }).catch(err => {
-        console.error('Fetch error:', err);
-        this.setState({ query, isSearching: false, lookupFetchError: true, lookup: SHOW_MANUAL_LOOKUP });
+        // For now, ensure this is not a validation etc. error
+        if (err.message === "Network Error" && err.response === undefined) {
+          this.setState({ query, isSearching: false, lookupFetchError: true, lookup: SHOW_MANUAL_LOOKUP });
+        }
       });
   }
 
@@ -371,7 +373,7 @@ class SchoolsLookUp extends Component {
     const orEnterManuallyCopy = 'Or enter details manually';
 
     const haslookupFetchError = this.state.lookupFetchError;
-    const lookupFetchErrorMsg = "Sorry, there appears to be a problem. Please enter the school\'s details manually.";
+    const lookupFetchErrorMsg = "Sorry, there appears to be a problem. Please enter the school\'s details manually:";
     
     return (
       <div data-test-id="SchoolsLookUp" className={`SchoolsLookUp ${extraClasses}`}>
@@ -418,10 +420,13 @@ class SchoolsLookUp extends Component {
               filterBy={() => true}
               isLoading={isSearching}
             />
-            {isSearching ?
-              <Icon name="spinner" spin />:
-              null
+            {isSearching &&
+              <div>
+                <Icon name="spinner" spin />
+                <span>Loading...</span>
+              </div>
             }
+
             {!haslookupFetchError &&!isSearching && query.length > min && options.length === 0 ?
               <p className="font--red">
                 {"Sorry, we can't find this. If the school or postcode you entered is correct then please add the address manually below."}
