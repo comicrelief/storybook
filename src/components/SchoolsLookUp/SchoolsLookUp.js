@@ -31,6 +31,7 @@ class SchoolsLookUp extends Component {
       isSearching: false,
       isDefaultOptionHighlighted: true,
       lookup,
+      lookupFetchError: false,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -92,7 +93,12 @@ class SchoolsLookUp extends Component {
     axios.get(this.props.data + query)
       .then((response) => {
         const options = response.data.data.schools;
-        this.setState({ query, options, isSearching: false });
+        this.setState({ query, options, isSearching: false, lookupFetchError: false });
+      }).catch(err => {
+        // For now, ensure this is not a validation etc. error
+        if (err.message === "Network Error" && err.response === undefined) {
+          this.setState({ query, isSearching: false, lookupFetchError: true, lookup: SHOW_MANUAL_LOOKUP });
+        }
       });
   }
 
@@ -309,6 +315,7 @@ class SchoolsLookUp extends Component {
           postcodeRequired,
           readOnly,
         )}
+
       </div>
     );
   }
@@ -365,12 +372,16 @@ class SchoolsLookUp extends Component {
     const { lookup, options, isSearching, query } = this.state;
     const orEnterManuallyCopy = 'Or enter details manually';
 
+    const haslookupFetchError = this.state.lookupFetchError;
+    const lookupFetchErrorMsg = "Sorry, there appears to be a problem. Please enter the school\'s details manually:";
+    
     return (
       <div data-test-id="SchoolsLookUp" className={`SchoolsLookUp ${extraClasses}`}>
-        <p className="schoolsLookUp-title">
+        {!haslookupFetchError && <p className="schoolsLookUp-title">
           <label htmlFor="schoolsLookUp">{'Enter the name or postcode of your school or nursery'}</label>
-        </p>
-        {lookup === HIDE_LOOKUP ?
+        </p>}
+
+        {(!haslookupFetchError && lookup === HIDE_LOOKUP) &&
           <div>
             {this.renderEstablishmentDetails(
               {
@@ -386,7 +397,9 @@ class SchoolsLookUp extends Component {
             <button name="edit" className="SchoolsLookUp-link" onClick={this.handleLookup.bind(this, SHOW_MANUAL_LOOKUP)}>
               Edit
             </button>
-          </div>:
+          </div>}
+
+        {(!haslookupFetchError && lookup !== HIDE_LOOKUP) &&
           <div className="schoolsLookUp-search">
             {/* Disable caching as it ignores a lot of results */}
             <AsyncTypeahead
@@ -407,11 +420,14 @@ class SchoolsLookUp extends Component {
               filterBy={() => true}
               isLoading={isSearching}
             />
-            {isSearching ?
-              <Icon name="spinner" spin />:
-              null
+            {isSearching &&
+              <div>
+                <Icon name="spinner" spin />
+                <span>Loading...</span>
+              </div>
             }
-            {!isSearching && query.length > min && options.length === 0 ?
+
+            {!haslookupFetchError &&!isSearching && query.length > min && options.length === 0 ?
               <p className="font--red">
                 {"Sorry, we can't find this. If the school or postcode you entered is correct then please add the address manually below."}
               </p>:
@@ -419,15 +435,24 @@ class SchoolsLookUp extends Component {
             }
           </div>
         }
-        {lookup === SHOW_EDCO_LOOKUP ?
+        {!haslookupFetchError && lookup === SHOW_EDCO_LOOKUP ?
           <button name="enterManually" className="SchoolsLookUp-link" onClick={this.handleLookup.bind(this, SHOW_MANUAL_LOOKUP)}>
             {orEnterManuallyCopy}
           </button>:
           null
         }
+
+        {haslookupFetchError &&
+          <div className="validation__message">
+            <span>
+            {lookupFetchErrorMsg}
+            </span>
+          </div>
+        }
+
         {lookup === SHOW_MANUAL_LOOKUP ?
           <div className="SchoolsLookUp-maunal">
-            <p>{orEnterManuallyCopy}</p>
+            {!haslookupFetchError && <p>{orEnterManuallyCopy}</p>}
             {this.renderEstablishmentDetails(
               {
                 [establishmentNameIdentifier]: establishmentNameValue,
