@@ -94,9 +94,9 @@ class SchoolsLookUp extends Component {
       .then((response) => {
         const options = response.data.data.schools;
         this.setState({ query, options, isSearching: false, lookupFetchError: false });
-      }).catch(err => {
+      }).catch((err) => {
         // For now, ensure this is not a validation etc. error
-        if (err.message === "Network Error" && err.response === undefined) {
+        if (err.message === 'Network Error' && err.response === undefined) {
           this.setState({ query, isSearching: false, lookupFetchError: true, lookup: SHOW_MANUAL_LOOKUP });
         }
       });
@@ -374,7 +374,7 @@ class SchoolsLookUp extends Component {
 
     const haslookupFetchError = this.state.lookupFetchError;
     const lookupFetchErrorMsg = "Sorry, there appears to be a problem. Please enter the school\'s details manually:";
-    
+
     return (
       <div data-test-id="SchoolsLookUp" className={`SchoolsLookUp ${extraClasses}`}>
         {!haslookupFetchError && <p className="schoolsLookUp-title">
@@ -445,7 +445,7 @@ class SchoolsLookUp extends Component {
         {haslookupFetchError &&
           <div className="validation__message">
             <span>
-            {lookupFetchErrorMsg}
+              {lookupFetchErrorMsg}
             </span>
           </div>
         }
