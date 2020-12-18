@@ -3958,8 +3958,8 @@ domhandler@^2.3.0:
     domelementtype "1"
 
 dompurify@^2.0.8:
-  version "2.0.8"
-  resolved "https://registry.yarnpkg.com/dompurify/-/dompurify-2.0.8.tgz#6ef89d2d227d041af139c7b01d9f67ed59c2eb3c"
+  version "2.0.17"
+  resolved "https://registry.yarnpkg.com/dompurify/-/dompurify-2.0.17.tgz#505ffa126a580603df4007e034bdc9b6b738668e"
 
 domutils@1.5.1:
   version "1.5.1"
