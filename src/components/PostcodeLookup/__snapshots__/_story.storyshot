@@ -71,7 +71,7 @@ exports[`Stories Storyshots Postcode Lookup PostcodeLookup 1`] = `
           <a
             aria-describedby="field-error--addressDetails"
             className="link"
-            href="/"
+            href="#"
             onClick={[Function]}
             role="button"
           >
