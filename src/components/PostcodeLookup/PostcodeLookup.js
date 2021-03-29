@@ -419,7 +419,7 @@ class PostcodeLookup extends Component {
         }
         {this.state.isAddressButtonHidden === false &&
           <div className="form__field--wrapper">
-            <a href="/" role="button" className="link" onClick={e => this.showAddressFields(e)} aria-describedby="field-error--addressDetails">Or enter your address manually</a>
+            <a href="#" role="button" className="link" onClick={e => this.showAddressFields(e)} aria-describedby="field-error--addressDetails">Or enter your address manually</a>
           </div>
         }
         <div
