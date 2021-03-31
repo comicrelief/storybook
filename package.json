@@ -10,7 +10,7 @@
     "axios": ">=0.18.1",
     "babel-polyfill": "^6.26.0",
     "browser-detect": "^0.2.28",
-    "dompurify": "^2.0.8",
+    "dompurify": "^2.2.2",
     "prop-types": "15",
     "radium": "0",
     "react": "^16.4.2",
