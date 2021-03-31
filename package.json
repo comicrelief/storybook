@@ -6,7 +6,7 @@
     "@comicrelief/pattern-lab": "*",
     "@storybook/addon-info": "3",
     "@storybook/addon-knobs": "3",
-    "@storybook/react": "^3.0.0",
+    "@storybook/react": "^6.2.0",
     "axios": ">=0.18.1",
     "babel-polyfill": "^6.26.0",
     "browser-detect": "^0.2.28",
@@ -25,7 +25,7 @@
     "react-svg": "2",
     "react-vis": "^1.9.1",
     "shortid": "^2.2.13",
-    "snyk": "^1.234.0",
+    "snyk": "^1.518.0",
     "url-join": "2"
   },
   "main": "build/index.js",
