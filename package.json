@@ -6,7 +6,7 @@
     "@comicrelief/pattern-lab": "*",
     "@storybook/addon-info": "3",
     "@storybook/addon-knobs": "3",
-    "@storybook/react": "^3.0.0",
+    "@storybook/react": "^4.0.0",
     "axios": ">=0.18.1",
     "babel-polyfill": "^6.26.0",
     "browser-detect": "^0.2.28",
