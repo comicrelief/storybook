@@ -2,6 +2,7 @@
   .form__field-wrapper--background {
     padding: 22px 44px;
     .form__checkbox--inline-2-horizontal {
+    vertical-align: top;
       label {
         padding-top: 1em;
       }
@@ -14,5 +15,10 @@
   }
   .link.inline {
     display: inline;
+  }
+
+  .form__field--extra-info {
+    width: 100%;
+    font-weight: bold;
   }
 }

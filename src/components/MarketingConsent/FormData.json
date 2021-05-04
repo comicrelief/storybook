@@ -15,7 +15,8 @@
           "label": "No",
           "value": "no",
           "name": "permissionEmail",
-          "hideFields": true
+          "hideFields": false,
+          "extraInfo" : "Please provide an email so we can remove it from our database, otherwise untick this option."
         }
       ],
       "field": [
@@ -44,7 +45,8 @@
           "label": "No",
           "value": "no",
           "name": "permissionPost",
-          "hideFields": true
+          "hideFields": false,
+          "extraInfo" : "Please provide an address so we can remove it from our database, otherwise untick this option."
         }
       ],
       "field": [
@@ -117,7 +119,9 @@
           "label": "No",
           "value": "no",
           "name": "permissionPhone",
-          "hideFields": true
+          "hideFields": false,
+          "extraInfo" : "Please provide a phone number so we can remove it from our database, otherwise untick this option."
+
         }
       ],
       "field": [
@@ -146,7 +150,8 @@
           "label": "No",
           "value": "no",
           "name": "permissionSMS",
-          "hideFields": true
+          "hideFields": false,
+          "extraInfo" : "Please provide a mobile number so we can remove it from our database, otherwise untick this option."
         }
       ],
       "field": [
