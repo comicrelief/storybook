@@ -140,18 +140,16 @@ class MarketingConsentCheckbox extends Component {
     return fieldValidation;
   }
 
-
   render() {
     const item = this.props.itemData;
     const checkbox = item.id;
     const bgStyle = 'form__field--background';
     const customMessage = typeof item.customMessage !== 'undefined' ? item.customMessage : null;
-
     return (
-      <div key={item.id} className={`form__field--wrapper form__field-wrapper--checkbox form__field-wrapper--background form__field-wrapper--${item.text}`}>
-        <p className="form__fieldset--label" aria-label={`Can we contact you by ${item.text}`}>{item.text}</p>
+      <div key={item.id} className={`form__field--wrapper form__field-wrapper--checkbox form__field-wrapper--background form__field-wrapper--${item.name}`}>
+        <p className="form__fieldset--label" aria-label={`Can we contact you by ${item.name}`}>{item.text}</p>
         { customMessage && <p>{customMessage}</p> }
-        <div id={`field-wrapper--${item.text}`} className="form__field--wrapper">
+        <div id={`field-wrapper--${item.name}`} className="form__field--wrapper">
           {
             item.options.map(option => (
               <div key={option.value} className="form__field--wrapper form__checkbox form__checkbox--inline form__checkbox--inline-2-horizontal">
@@ -219,5 +217,6 @@ MarketingConsentCheckbox.propTypes = {
     itemData: propTypes.object,
   }).isRequired,
 };
+
 
 export default MarketingConsentCheckbox;
