@@ -140,7 +140,6 @@ class MarketingConsentCheckbox extends Component {
     return fieldValidation;
   }
 
-
   render() {
     const item = this.props.itemData;
     const checkbox = item.id;
