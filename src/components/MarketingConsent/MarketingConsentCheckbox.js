@@ -20,6 +20,7 @@ class MarketingConsentCheckbox extends Component {
           isFieldsHidden: true,
           valid: true,
           fieldValidation,
+          extraInfo: null,
         },
       },
     };
@@ -103,6 +104,9 @@ class MarketingConsentCheckbox extends Component {
     const fieldValidation = this.state.checkboxValidation[item.id].fieldValidation === false ? false : this.emptyInputFields(item);
     // if item has fields the options should tell you whether to show or hide the fields
     const hideFields = fieldValidation === false ? true : option.hideFields;
+
+    const extraInfo = option.extraInfo || null;
+
     this.setState(prevState => ({
       checkboxValidation: {
         ...this.state.checkboxValidation,
@@ -113,6 +117,8 @@ class MarketingConsentCheckbox extends Component {
           valid: prevState.checkboxValidation[item.id].value === value ? true : hideFields,
           value: prevState.checkboxValidation[item.id].value !== value ? value : null,
           fieldValidation,
+          extraInfo,
+
         },
       },
     }), () => this.pushValidityToParent(item.id, this.state.checkboxValidation));
@@ -156,6 +162,7 @@ class MarketingConsentCheckbox extends Component {
                 <label className="form__field-label required" htmlFor={`field-label--${option.label}`}>
                   {option.label}
                 </label>
+
                 <input
                   type="checkbox"
                   id={`field-label--${option.label}`}
@@ -173,6 +180,13 @@ class MarketingConsentCheckbox extends Component {
             ))
           }
         </div>
+
+        { (this.state.checkboxValidation[checkbox].extraInfo && !this.state.checkboxValidation[checkbox].isFieldsHidden && item.field) &&
+        <p className="form__field--extra-info">
+          {this.state.checkboxValidation[checkbox].extraInfo
+          }</p>
+        }
+
         { (!this.state.checkboxValidation[checkbox].isFieldsHidden && item.field) &&
         <div className={bgStyle}>
           {
