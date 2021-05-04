@@ -45,8 +45,7 @@
           "label": "No",
           "value": "no",
           "name": "permissionPost",
-          "hideFields": false,
-          "extraInfo" : "Please provide an address so we can remove it from our database, otherwise untick this option."
+          "hideFields": true
         }
       ],
       "field": [
