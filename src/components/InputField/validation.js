@@ -1,9 +1,12 @@
+import * as yup from 'yup';
+
 const defaultValidationPatterns = {
   tel: /^[0-9 ]{11,}$/,
   number: /^[0-9]+$/,
   email: /[a-z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])/i,
   text: /^[\sA-Za-z0-9_.'&-]+$/,
 };
+
 
 function isEmpty(value, required, type) {
   let empty;
@@ -15,11 +18,35 @@ function isEmpty(value, required, type) {
   return empty;
 }
 
-function isValidInput(type, props, value) {
+
+function runYupValidation(type, value) {
+  let schema;
+  let isValid;
+
+  if (type === 'email') {
+    schema = yup.object().shape({
+      email: yup.string().email(),
+    });
+
+    // Check validity
+    schema.isValid({
+      email: value,
+    }).then((valid) => {
+      console.log('THEN test:', valid);
+      isValid = valid;
+      return isValid;
+    });
+  }
+}
+
+
+async function isValidInput(type, props, value) {
   let valid;
   // use pattern override if it's defined, otherwise use default pattern above
   const patternOverride = typeof props.pattern === 'string' && props.pattern !== '' ? new RegExp(props.pattern) : props.pattern;
   const pattern = patternOverride || defaultValidationPatterns[type];
+
+  const useYupValidation = props.yupValidation;
 
   if (type === 'number') {
     // Number fields need to not only pass the regex test,
@@ -45,11 +72,21 @@ function isValidInput(type, props, value) {
     }
   } else {
     // Other input fields just have to pass the regex test
+
+    if (useYupValidation) {
+      try {
+        const x = runYupValidation(type, value);
+        console.log('TRY', x);
+      } catch (err) {
+        console.log('REJECT', err);
+      }
+    }
     valid = pattern.test(value);
   }
 
   return valid;
 }
+
 
 function getMessage(input, props, type, value) {
   // Input can be empty or invalid.

@@ -4,6 +4,22 @@ import propTypes from 'prop-types';
 import browser from 'browser-detect';
 import fieldValidation from './validation';
 
+// import * as yup from 'yup';
+
+// const schema = yup.object().shape({
+//   name: yup.string().required(),
+//   email: yup.string().email(),
+// });
+
+// // check validity
+// schema.isValid({
+//   name: 'jimmy',
+//   email: 'hello@something.com',
+// }).then((valid) => {
+//   console.log('isValid?', valid);
+// });
+
+
 /**
  * InputField class
  * Requires a shape containing required and optional items defining the type of input field.
@@ -135,6 +151,7 @@ class InputField extends Component {
       pattern: this.props.pattern,
       emptyError: this.props.emptyFieldErrorText,
       invalidError: this.props.invalidErrorText,
+      yupValidation: this.props.yupValidation,
     };
     let validation = this.state;
     // helper function will return an updated validation object
@@ -293,6 +310,7 @@ InputField.defaultProps = {
   setBackgroundColor: null,
   additionalText: null,
   fieldValue: null,
+  yupValidation: false,
 };
 
 InputField.propTypes = {
@@ -323,6 +341,7 @@ InputField.propTypes = {
   setBackgroundColor: propTypes.bool,
   additionalText: propTypes.string,
   fieldValue: propTypes.object,
+  yupValidation: propTypes.bool,
 };
 
 export default InputField;

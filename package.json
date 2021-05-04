@@ -26,7 +26,8 @@
     "react-vis": "^1.9.1",
     "shortid": "^2.2.13",
     "snyk": "^1.234.0",
-    "url-join": "2"
+    "url-join": "2",
+    "yup": "^0.32.9"
   },
   "main": "build/index.js",
   "scripts": {

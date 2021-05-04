@@ -14,6 +14,10 @@ let defaultChecked = false;
 let min = null;
 let additionalText = null;
 
+let testObj = {
+  hello: 'goodlebye',
+}
+
 storiesOf('Input Field', module)
   .addDecorator(withKnobs)
   .add('Text Field',
@@ -55,7 +59,7 @@ storiesOf('Input Field', module)
       name = text('name', 'email');
       label = text('label', 'Email field');
       required = boolean('required', true);
-      return (<InputField id={id} type={type} name={name} label={label} required={required} />);
+      return (<InputField id={id} type={type} name={name} label={label} required={required} yupValidation={true} />);
     }),
   )
   .add('Telephone Field',
