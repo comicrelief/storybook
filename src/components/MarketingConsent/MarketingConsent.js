@@ -39,6 +39,7 @@ class MarketingConsent extends Component {
    */
   render() {
     const data = this.props.itemData;
+
     return (
       <div className={'form__row form__row--marketing-consent'} >
         <div className="form__fieldset">

@@ -1,7 +1,8 @@
 {"Questions": [
     {
       "id": "emailConsent",
-      "text": "Email",
+      "text": "Email me",
+      "name": "Email",
       "customMessage": "",
       "options": [
         {
@@ -30,7 +31,8 @@
     },
     {
       "id": "postConsent",
-      "text": "Post",
+      "text": "Send me post",
+      "name": "Post",
       "options": [
         {
           "label": "Yes",
@@ -102,7 +104,8 @@
     },
     {
       "id": "phoneConsent",
-      "text": "Phone",
+      "text": "Phone me",
+      "name": "Phone",
       "options": [
         {
           "label": "Yes",
@@ -130,7 +133,8 @@
     },
     {
       "id": "SMSConsent",
-      "text": "SMS",
+      "text": "Text me",
+      "name": "Text",
       "options": [
         {
           "label": "Yes",
