@@ -9,14 +9,14 @@
           "label": "Yes",
           "value": "yes",
           "name": "permissionEmail",
-          "hideFields": false
+          "hideFields": true
         },
         {
           "label": "No",
           "value": "no",
           "name": "permissionEmail",
-          "hideFields": false,
-          "extraInfo" : "Please provide an email so we can remove it from our database, otherwise untick this option."
+          "hideFields": true,
+          "extraInfo" : "This will remove your provided email address from any previous email opt-in from our database."
         }
       ],
       "field": [
