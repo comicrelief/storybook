@@ -181,11 +181,13 @@ class MarketingConsentCheckbox extends Component {
           }
         </div>
 
-        { (this.state.checkboxValidation[checkbox].extraInfo && !this.state.checkboxValidation[checkbox].isFieldsHidden && item.field) &&
-        <p className="form__field--extra-info">
-          {this.state.checkboxValidation[checkbox].extraInfo
-          }</p>
-        }
+        {
+          item.options.map(option => (
+            (this.state.checkboxValidation[checkbox].extraInfo && this.state.checkboxValidation[checkbox].value === option.value) &&
+            <p className="form__field--extra-info">
+              {this.state.checkboxValidation[checkbox].extraInfo
+              }</p>
+          ))}
 
         { (!this.state.checkboxValidation[checkbox].isFieldsHidden && item.field) &&
         <div className={bgStyle}>
