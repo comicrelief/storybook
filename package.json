@@ -27,7 +27,8 @@
     "shortid": "^2.2.13",
     "snyk": "^1.234.0",
     "url-join": "2",
-    "yup": "^0.32.9"
+    "yup": "^0.32.9",
+    "yup-phone": "^1.2.19"
   },
   "main": "build/index.js",
   "scripts": {

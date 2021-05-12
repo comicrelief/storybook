@@ -4,22 +4,6 @@ import propTypes from 'prop-types';
 import browser from 'browser-detect';
 import fieldValidation from './validation';
 
-// import * as yup from 'yup';
-
-// const schema = yup.object().shape({
-//   name: yup.string().required(),
-//   email: yup.string().email(),
-// });
-
-// // check validity
-// schema.isValid({
-//   name: 'jimmy',
-//   email: 'hello@something.com',
-// }).then((valid) => {
-//   console.log('isValid?', valid);
-// });
-
-
 /**
  * InputField class
  * Requires a shape containing required and optional items defining the type of input field.
@@ -140,7 +124,7 @@ class InputField extends Component {
    * Calls helper function to validate the input field
    * Sets the the state for the validation and validation message
    */
-  validateField(field) {
+  async validateField(field) {
     const props = {
       field: field,
       type: this.props.type,
@@ -155,7 +139,7 @@ class InputField extends Component {
     };
     let validation = this.state;
     // helper function will return an updated validation object
-    validation = fieldValidation(props, validation);
+    validation = await fieldValidation(props, validation);
     this.setState({
       value: validation.value,
       message: validation.message,
