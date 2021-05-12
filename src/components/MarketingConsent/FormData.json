@@ -1,20 +1,22 @@
 {"Questions": [
     {
       "id": "emailConsent",
-      "text": "Email",
+      "text": "Email me",
+      "name": "Email",
       "customMessage": "",
       "options": [
         {
           "label": "Yes",
           "value": "yes",
           "name": "permissionEmail",
-          "hideFields": false
+          "hideFields": true
         },
         {
           "label": "No",
           "value": "no",
           "name": "permissionEmail",
-          "hideFields": true
+          "hideFields": true,
+          "extraInfo" : "This will remove your provided email address from any previous email opt-in from our database."
         }
       ],
       "field": [
@@ -30,7 +32,8 @@
     },
     {
       "id": "postConsent",
-      "text": "Post",
+      "text": "Send me post",
+      "name": "Post",
       "options": [
         {
           "label": "Yes",
@@ -102,7 +105,8 @@
     },
     {
       "id": "phoneConsent",
-      "text": "Phone",
+      "text": "Phone me",
+      "name": "Phone",
       "options": [
         {
           "label": "Yes",
@@ -114,7 +118,9 @@
           "label": "No",
           "value": "no",
           "name": "permissionPhone",
-          "hideFields": true
+          "hideFields": false,
+          "extraInfo" : "Please provide a phone number so we can remove it from our database, otherwise untick this option."
+
         }
       ],
       "field": [
@@ -130,7 +136,8 @@
     },
     {
       "id": "SMSConsent",
-      "text": "SMS",
+      "text": "Text me",
+      "name": "Text",
       "options": [
         {
           "label": "Yes",
@@ -142,7 +149,8 @@
           "label": "No",
           "value": "no",
           "name": "permissionSMS",
-          "hideFields": true
+          "hideFields": false,
+          "extraInfo" : "Please provide a mobile number so we can remove it from our database, otherwise untick this option."
         }
       ],
       "field": [

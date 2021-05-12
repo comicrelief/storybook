@@ -20,6 +20,7 @@ class MarketingConsentCheckbox extends Component {
           isFieldsHidden: true,
           valid: true,
           fieldValidation,
+          extraInfo: null,
         },
       },
     };
@@ -103,6 +104,9 @@ class MarketingConsentCheckbox extends Component {
     const fieldValidation = this.state.checkboxValidation[item.id].fieldValidation === false ? false : this.emptyInputFields(item);
     // if item has fields the options should tell you whether to show or hide the fields
     const hideFields = fieldValidation === false ? true : option.hideFields;
+
+    const extraInfo = option.extraInfo || null;
+
     this.setState(prevState => ({
       checkboxValidation: {
         ...this.state.checkboxValidation,
@@ -113,6 +117,8 @@ class MarketingConsentCheckbox extends Component {
           valid: prevState.checkboxValidation[item.id].value === value ? true : hideFields,
           value: prevState.checkboxValidation[item.id].value !== value ? value : null,
           fieldValidation,
+          extraInfo,
+
         },
       },
     }), () => this.pushValidityToParent(item.id, this.state.checkboxValidation));
@@ -140,24 +146,23 @@ class MarketingConsentCheckbox extends Component {
     return fieldValidation;
   }
 
-
   render() {
     const item = this.props.itemData;
     const checkbox = item.id;
     const bgStyle = 'form__field--background';
     const customMessage = typeof item.customMessage !== 'undefined' ? item.customMessage : null;
-
     return (
-      <div key={item.id} className={`form__field--wrapper form__field-wrapper--checkbox form__field-wrapper--background form__field-wrapper--${item.text}`}>
-        <p className="form__fieldset--label" aria-label={`Can we contact you by ${item.text}`}>{item.text}</p>
+      <div key={item.id} className={`form__field--wrapper form__field-wrapper--checkbox form__field-wrapper--background form__field-wrapper--${item.name}`}>
+        <p className="form__fieldset--label" aria-label={`Can we contact you by ${item.name}`}>{item.text}</p>
         { customMessage && <p>{customMessage}</p> }
-        <div id={`field-wrapper--${item.text}`} className="form__field--wrapper">
+        <div id={`field-wrapper--${item.name}`} className="form__field--wrapper">
           {
             item.options.map(option => (
               <div key={option.value} className="form__field--wrapper form__checkbox form__checkbox--inline form__checkbox--inline-2-horizontal">
                 <label className="form__field-label required" htmlFor={`field-label--${option.label}`}>
                   {option.label}
                 </label>
+
                 <input
                   type="checkbox"
                   id={`field-label--${option.label}`}
@@ -175,6 +180,15 @@ class MarketingConsentCheckbox extends Component {
             ))
           }
         </div>
+
+        {
+          item.options.map(option => (
+            (this.state.checkboxValidation[checkbox].extraInfo && this.state.checkboxValidation[checkbox].value === option.value) &&
+            <p className="form__field--extra-info">
+              {this.state.checkboxValidation[checkbox].extraInfo
+              }</p>
+          ))}
+
         { (!this.state.checkboxValidation[checkbox].isFieldsHidden && item.field) &&
         <div className={bgStyle}>
           {
