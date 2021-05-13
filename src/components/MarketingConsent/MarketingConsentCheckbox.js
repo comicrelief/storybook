@@ -138,14 +138,14 @@ class MarketingConsentCheckbox extends Component {
    * @param item
    * @return {{}}
    */
-  emptyInputFields(item, currentValidation = null, unChecked = true) {
+  emptyInputFields(item, currentValidation = null, clearFields = true) {
     const fieldValidation = {};
     item.field.forEach((field) => {
       fieldValidation[field.name] = {
         valid: '',
         message: '',
         showErrorMessage: '',
-        value: currentValidation && !unChecked ? currentValidation[field.name].value : '',
+        value: currentValidation && !clearFields ? currentValidation[field.name].value : '',
       };
     });
     return fieldValidation;
