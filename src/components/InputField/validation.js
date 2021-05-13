@@ -21,16 +21,19 @@ function isEmpty(value, required, type) {
 
 
 async function runYupValidation(type, value) {
-  let schema;
+  let fieldObj;
 
   if (type === 'email') {
-    schema = yup.object().shape({ email: yup.string().email() });
-    return schema.isValid({ email: value });
+    fieldObj = { thisField: yup.string().email() };
   } else if (type === 'tel') {
-    schema = yup.object().shape({ tel: yup.string().phone() });
-    return schema.isValid({ tel: value });
+    fieldObj = { thisField: yup.string().phone() };
+  } else {
+    fieldObj = { thisField: yup.string() }; // Fallback, just in case
   }
-  return false;
+
+  return yup.object().shape(fieldObj).isValid(
+    { thisField: value },
+  );
 }
 
 async function isValidInput(type, props, fieldVal) {
