@@ -31,8 +31,7 @@ async function runYupValidation(type, value) {
     fieldObj = { thisField: yup.string() }; // Fallback, just in case
   }
 
-  return yup.object().shape(fieldObj).isValid(
-    { thisField: value },
+  return yup.object().shape(fieldObj).isValid({ thisField: value },
   );
 }
 

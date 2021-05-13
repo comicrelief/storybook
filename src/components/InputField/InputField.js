@@ -153,9 +153,9 @@ class InputField extends Component {
    * Calls validateField method.
    * Handles the callback isValid state to parent component.
    */
-  handleInputValidation(e) {
+  async handleInputValidation(e) {
     const field = (e !== undefined && e !== null) ? e.target : this.inputRef;
-    const validation = this.validateField(field);
+    const validation = await this.validateField(field);
 
     if (typeof this.props.isValid === 'function') {
       this.props.isValid(validation, this.props.name, validation.value);

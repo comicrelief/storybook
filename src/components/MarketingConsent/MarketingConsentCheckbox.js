@@ -100,8 +100,10 @@ class MarketingConsentCheckbox extends Component {
    */
   handleCheckboxToggle(item, option, event) {
     const value = event.target.value;
-    // if item has fields empty them again.
-    const fieldValidation = this.state.checkboxValidation[item.id].fieldValidation === false ? false : this.emptyInputFields(item);
+    // if item has fields, empty them again.
+    const currentValidation = this.state.checkboxValidation[item.id].fieldValidation;
+    const fieldValidation = currentValidation === false ? false : this.emptyInputFields(item, currentValidation);
+
     // if item has fields the options should tell you whether to show or hide the fields
     const hideFields = fieldValidation === false ? true : option.hideFields;
 
@@ -118,7 +120,6 @@ class MarketingConsentCheckbox extends Component {
           value: prevState.checkboxValidation[item.id].value !== value ? value : null,
           fieldValidation,
           extraInfo,
-
         },
       },
     }), () => this.pushValidityToParent(item.id, this.state.checkboxValidation));
@@ -133,14 +134,15 @@ class MarketingConsentCheckbox extends Component {
    * @param item
    * @return {{}}
    */
-  emptyInputFields(item) {
+  emptyInputFields(item, currentValidation = null) {
     const fieldValidation = {};
+
     item.field.forEach((field) => {
       fieldValidation[field.name] = {
         valid: '',
-        value: '',
         message: '',
         showErrorMessage: '',
+        value: currentValidation ? currentValidation[field.name].value : '',
       };
     });
     return fieldValidation;
