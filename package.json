@@ -27,6 +27,7 @@
     "react-vis": "^1.9.1",
     "shortid": "^2.2.13",
     "snyk": "^1.234.0",
+    "uglify-js": "git+https://github.com/mishoo/UglifyJS2.git#harmony",
     "url-join": "2",
     "yup": "^0.32.9",
     "yup-phone": "^1.2.19"
@@ -91,6 +92,7 @@
     "semantic-release": "15",
     "sinon": "5",
     "style-loader": "^0.20.3",
+    "uglifyjs-webpack-plugin": "^1.0.0-beta.3",
     "url-loader": "1.0.1",
     "webpack": "3"
   },

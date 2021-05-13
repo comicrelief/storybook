@@ -4,7 +4,8 @@
   	"env", 
   	"react", 
   	"stage-0",
-    "es2015"
+    "es2015",
+    "stage-3"
   ],
   "plugins": [
     "transform-es2015-destructuring",
