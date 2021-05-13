@@ -33,19 +33,16 @@ async function runYupValidation(type, value) {
   return false;
 }
 
-
 async function isValidInput(type, props, fieldVal) {
   let valid;
   // use pattern override if it's defined, otherwise use default pattern above
   const patternOverride = typeof props.pattern === 'string' && props.pattern !== '' ? new RegExp(props.pattern) : props.pattern;
   const pattern = patternOverride || defaultValidationPatterns[type];
 
-  const useYupValidation = props.yupValidation;
-
-  if (useYupValidation) {
+  if (props.yupValidation) {
+    // check value, based on type, against Yup validation
     valid = await runYupValidation(type, fieldVal);
   } else if (type === 'number') {
-    console.log('A should not run');
     // Number fields need to not only pass the regex test,
     // but also pass min and max values allowed if they're set.
     const min = props.min;
@@ -68,12 +65,9 @@ async function isValidInput(type, props, fieldVal) {
       valid = false;
     }
   } else {
-    console.log('B should not run');
-
     // Other input fields just have to pass the regex test
     valid = pattern.test(fieldVal);
   }
-
   return valid;
 }
 
