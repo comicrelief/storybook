@@ -124,7 +124,7 @@ class InputField extends Component {
    * Calls helper function to validate the input field
    * Sets the the state for the validation and validation message
    */
-  validateField(field) {
+  async validateField(field) {
     const props = {
       field: field,
       type: this.props.type,
@@ -135,10 +135,11 @@ class InputField extends Component {
       pattern: this.props.pattern,
       emptyError: this.props.emptyFieldErrorText,
       invalidError: this.props.invalidErrorText,
+      yupValidation: this.props.yupValidation,
     };
     let validation = this.state;
     // helper function will return an updated validation object
-    validation = fieldValidation(props, validation);
+    validation = await fieldValidation(props, validation);
     this.setState({
       value: validation.value,
       message: validation.message,
@@ -293,6 +294,7 @@ InputField.defaultProps = {
   setBackgroundColor: null,
   additionalText: null,
   fieldValue: null,
+  yupValidation: false,
 };
 
 InputField.propTypes = {
@@ -323,6 +325,7 @@ InputField.propTypes = {
   setBackgroundColor: propTypes.bool,
   additionalText: propTypes.string,
   fieldValue: propTypes.object,
+  yupValidation: propTypes.bool,
 };
 
 export default InputField;
