@@ -189,7 +189,7 @@ class MarketingConsentCheckbox extends Component {
         {
           item.options.map(option => (
             (this.state.checkboxValidation[checkbox].extraInfo && this.state.checkboxValidation[checkbox].value === option.value) &&
-            <p className="form__field--extra-info">
+            <p className="form__field--extra-info" key={`${item.id}--extra-info`}>
               {this.state.checkboxValidation[checkbox].extraInfo
               }</p>
           ))}
