@@ -26,7 +26,7 @@ async function runYupValidation(type, value) {
   if (type === 'email') {
     fieldObj = { thisField: yup.string().email() };
   } else if (type === 'tel') {
-    fieldObj = { thisField: yup.string().phone() };
+    fieldObj = { thisField: yup.string().phone('GB', true) };
   } else {
     fieldObj = { thisField: yup.string() }; // Fallback, just in case
   }
