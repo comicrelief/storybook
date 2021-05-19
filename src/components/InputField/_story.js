@@ -48,16 +48,26 @@ storiesOf('Input Field', module)
       return (<InputField id={id} type={type} name={name} label={label} required={required} defaultChecked={defaultChecked} />);
     }),
   )
-  .add('Email Field',
+  .add('Email Field With Yup',
     withInfo('Email field')(() => {
       id = text('id', 'email');
       type = text('type', 'email');
       name = text('name', 'email');
-      label = text('label', 'Email field');
+      label = text('label', 'Email field with Yup validation');
       required = boolean('required', true);
-      return (<InputField id={id} type={type} name={name} label={label} required={required} />);
+      return (<InputField id={id} type={type} name={name} label={label} required={required} yupValidation={true} />);
     }),
   )
+  .add('Email Field',
+  withInfo('Email field')(() => {
+    id = text('id', 'email');
+    type = text('type', 'email');
+    name = text('name', 'email');
+    label = text('label', 'Email field');
+    required = boolean('required', true);
+    return (<InputField id={id} type={type} name={name} label={label} required={required} />);
+  }),
+)
   .add('Telephone Field',
     withInfo('Telephone field')(() => {
       id = text('id', 'telephone');
@@ -68,6 +78,18 @@ storiesOf('Input Field', module)
       return (<InputField id={id} type={type} name={name} label={label} required={required} />);
     }),
   )
+
+  .add('Telephone Field with Yup',
+  withInfo('Telephone field')(() => {
+    id = text('id', 'telephone');
+    type = text('type', 'tel');
+    name = text('name', 'telephone');
+    label = text('label', 'Telephone field with Yup validation');
+    required = boolean('required', true);
+    return (<InputField id={id} type={type} name={name} label={label} required={required} yupValidation={true} />);
+  }),
+)
+
   .add('Optional text Field with only required props',
     withInfo('Text field with all ')(() => {
       id= text('id', 'optional-text-required-options');

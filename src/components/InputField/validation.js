@@ -1,9 +1,13 @@
+import * as yup from 'yup';
+import 'yup-phone';
+
 const defaultValidationPatterns = {
   tel: /^[0-9 ]{11,}$/,
   number: /^[0-9]+$/,
   email: /[a-z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])/i,
   text: /^[\sA-Za-z0-9_.'&-]+$/,
 };
+
 
 function isEmpty(value, required, type) {
   let empty;
@@ -15,24 +19,43 @@ function isEmpty(value, required, type) {
   return empty;
 }
 
-function isValidInput(type, props, value) {
+
+async function runYupValidation(type, value) {
+  let fieldObj;
+
+  if (type === 'email') {
+    fieldObj = { thisField: yup.string().email() };
+  } else if (type === 'tel') {
+    fieldObj = { thisField: yup.string().matches(/^[+]{0,1}[0-9\s]*$/).phone('GB', true) };
+  } else {
+    fieldObj = { thisField: yup.string() }; // Fallback, just in case
+  }
+
+  return yup.object().shape(fieldObj).isValid({ thisField: value },
+  );
+}
+
+async function isValidInput(type, props, fieldVal) {
   let valid;
   // use pattern override if it's defined, otherwise use default pattern above
   const patternOverride = typeof props.pattern === 'string' && props.pattern !== '' ? new RegExp(props.pattern) : props.pattern;
   const pattern = patternOverride || defaultValidationPatterns[type];
 
-  if (type === 'number') {
+  if (props.yupValidation) {
+    // check value, based on type, against Yup validation
+    valid = await runYupValidation(type, fieldVal);
+  } else if (type === 'number') {
     // Number fields need to not only pass the regex test,
     // but also pass min and max values allowed if they're set.
     const min = props.min;
     const max = props.max;
-    const valueIsNumber = pattern.test(value);
+    const valueIsNumber = pattern.test(fieldVal);
     if (valueIsNumber === true) {
       // Value passes regex test.
       // Check if min or max or both exist and value passes accordingly
-      if ((!min && max && value <= max) ||
-        (min && !max && value >= min) ||
-        (min && max && (value >= min && value <= max))) {
+      if ((!min && max && fieldVal <= max) ||
+        (min && !max && fieldVal >= min) ||
+        (min && max && (fieldVal >= min && fieldVal <= max))) {
         // value is within the min/max boundaries
         valid = true;
       } else {
@@ -45,11 +68,11 @@ function isValidInput(type, props, value) {
     }
   } else {
     // Other input fields just have to pass the regex test
-    valid = pattern.test(value);
+    valid = pattern.test(fieldVal);
   }
-
   return valid;
 }
+
 
 function getMessage(input, props, type, value) {
   // Input can be empty or invalid.
@@ -95,7 +118,7 @@ function getMessage(input, props, type, value) {
  * Validate input fields
  * returns validation object containing whether the field is valid and an error message
  */
-export default function fieldValidation(props, validation) {
+export default async function fieldValidation(props, validation) {
   const updatedValidation = validation;
   const type = props.type;
   const value = type === 'checkbox' ? props.field.checked : props.field.value;
@@ -106,7 +129,7 @@ export default function fieldValidation(props, validation) {
     updatedValidation.message = getMessage('empty', props);
     updatedValidation.showErrorMessage = true;
   } else if (emptyField === false) {
-    const validInput = isValidInput(type, props, value);
+    const validInput = await isValidInput(type, props, value);
     updatedValidation.valid = validInput !== false;
     updatedValidation.message = validInput === false ? getMessage('invalid', props, type, value) : '';
     updatedValidation.showErrorMessage = validInput !== true;

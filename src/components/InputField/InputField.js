@@ -124,7 +124,7 @@ class InputField extends Component {
    * Calls helper function to validate the input field
    * Sets the the state for the validation and validation message
    */
-  validateField(field) {
+  async validateField(field) {
     const props = {
       field: field,
       type: this.props.type,
@@ -135,10 +135,11 @@ class InputField extends Component {
       pattern: this.props.pattern,
       emptyError: this.props.emptyFieldErrorText,
       invalidError: this.props.invalidErrorText,
+      yupValidation: this.props.yupValidation,
     };
     let validation = this.state;
     // helper function will return an updated validation object
-    validation = fieldValidation(props, validation);
+    validation = await fieldValidation(props, validation);
     this.setState({
       value: validation.value,
       message: validation.message,
@@ -152,9 +153,9 @@ class InputField extends Component {
    * Calls validateField method.
    * Handles the callback isValid state to parent component.
    */
-  handleInputValidation(e) {
+  async handleInputValidation(e) {
     const field = (e !== undefined && e !== null) ? e.target : this.inputRef;
-    const validation = this.validateField(field);
+    const validation = await this.validateField(field);
 
     if (typeof this.props.isValid === 'function') {
       this.props.isValid(validation, this.props.name, validation.value);
@@ -230,7 +231,7 @@ class InputField extends Component {
               onBlur={e => this.handleInputValidation(e)}
               onChange={e => this.handleInputValidation(e)}
               ref={this.setRef}
-              value={this.state.value}
+              defaultValue={this.state.value}
             />
             {this.props.inlineButton === true &&
             <div className="form__btn">
@@ -293,6 +294,7 @@ InputField.defaultProps = {
   setBackgroundColor: null,
   additionalText: null,
   fieldValue: null,
+  yupValidation: false,
 };
 
 InputField.propTypes = {
@@ -323,6 +325,7 @@ InputField.propTypes = {
   setBackgroundColor: propTypes.bool,
   additionalText: propTypes.string,
   fieldValue: propTypes.object,
+  yupValidation: propTypes.bool,
 };
 
 export default InputField;

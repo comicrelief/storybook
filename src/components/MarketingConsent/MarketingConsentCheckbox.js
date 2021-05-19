@@ -100,28 +100,33 @@ class MarketingConsentCheckbox extends Component {
    */
   handleCheckboxToggle(item, option, event) {
     const value = event.target.value;
-    // if item has fields empty them again.
-    const fieldValidation = this.state.checkboxValidation[item.id].fieldValidation === false ? false : this.emptyInputFields(item);
+    const currentCheckboxState = this.state.checkboxValidation;
+
+    // if item has fields, empty them again.
+    const currentValidation = currentCheckboxState[item.id].fieldValidation;
+    const unChecked = currentCheckboxState[item.id].value === value;
+    // Pass in the 'unchecked' flag to determine whether to clear the field value, or use the existing value
+    const fieldValidation = currentValidation === false ? false : this.emptyInputFields(item, currentValidation, unChecked);
+
     // if item has fields the options should tell you whether to show or hide the fields
     const hideFields = fieldValidation === false ? true : option.hideFields;
 
     const extraInfo = option.extraInfo || null;
 
-    this.setState(prevState => ({
+    this.setState({
       checkboxValidation: {
-        ...this.state.checkboxValidation,
+        ...currentCheckboxState,
         [item.id]: {
-          ...this.state.checkboxValidation[item.id],
+          ...currentCheckboxState[item.id],
           // check if value is the same to deal with unchecking the checkbox: toggles fields and validation.
-          isFieldsHidden: prevState.checkboxValidation[item.id].value === value ? true : hideFields,
-          valid: prevState.checkboxValidation[item.id].value === value ? true : hideFields,
-          value: prevState.checkboxValidation[item.id].value !== value ? value : null,
+          isFieldsHidden: unChecked ? true : hideFields,
+          valid: unChecked ? true : hideFields,
+          value: !unChecked ? value : null,
           fieldValidation,
           extraInfo,
-
         },
       },
-    }), () => this.pushValidityToParent(item.id, this.state.checkboxValidation));
+    }, () => this.pushValidityToParent(item.id, this.state.checkboxValidation));
   }
 
   pushValidityToParent(name, checkboxValidation) {
@@ -133,14 +138,14 @@ class MarketingConsentCheckbox extends Component {
    * @param item
    * @return {{}}
    */
-  emptyInputFields(item) {
+  emptyInputFields(item, currentValidation = null, clearFields = true) {
     const fieldValidation = {};
     item.field.forEach((field) => {
       fieldValidation[field.name] = {
         valid: '',
-        value: '',
         message: '',
         showErrorMessage: '',
+        value: currentValidation && !clearFields ? currentValidation[field.name].value : '',
       };
     });
     return fieldValidation;
@@ -184,7 +189,7 @@ class MarketingConsentCheckbox extends Component {
         {
           item.options.map(option => (
             (this.state.checkboxValidation[checkbox].extraInfo && this.state.checkboxValidation[checkbox].value === option.value) &&
-            <p className="form__field--extra-info">
+            <p className="form__field--extra-info" key={`${item.id}--extra-info`}>
               {this.state.checkboxValidation[checkbox].extraInfo
               }</p>
           ))}
@@ -210,6 +215,8 @@ class MarketingConsentCheckbox extends Component {
                   showErrorMessage={this.props.showErrorMessages}
                   fieldValue={this.state.checkboxValidation[checkbox].fieldValidation[field.name]}
                   value={() => this.fieldValue(checkbox, field.name)}
+                  // Only use our improved Yup-based validation for the problematic fields
+                  yupValidation={field.type === 'email' || field.type === 'tel'}
                 />
               </div>
             ))
