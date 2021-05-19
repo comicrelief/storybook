@@ -26,7 +26,7 @@ async function runYupValidation(type, value) {
   if (type === 'email') {
     fieldObj = { thisField: yup.string().email() };
   } else if (type === 'tel') {
-    fieldObj = { thisField: yup.string().matches(/^[+][0-9\s]*$/).phone('GB', true) };
+    fieldObj = { thisField: yup.string().matches(/^[+]{0,1}[0-9\s]*$/).phone('GB', true) };
   } else {
     fieldObj = { thisField: yup.string() }; // Fallback, just in case
   }
