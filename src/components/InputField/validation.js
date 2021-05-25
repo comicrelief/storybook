@@ -8,7 +8,6 @@ const defaultValidationPatterns = {
   text: /^[\sA-Za-z0-9_.'&-]+$/,
 };
 
-
 function isEmpty(value, required, type) {
   let empty;
   if (required === true && (!value || value === false)) {
@@ -18,7 +17,6 @@ function isEmpty(value, required, type) {
   }
   return empty;
 }
-
 
 async function runYupValidation(type, value) {
   let fieldObj;
@@ -40,6 +38,11 @@ async function isValidInput(type, props, fieldVal) {
   // use pattern override if it's defined, otherwise use default pattern above
   const patternOverride = typeof props.pattern === 'string' && props.pattern !== '' ? new RegExp(props.pattern) : props.pattern;
   const pattern = patternOverride || defaultValidationPatterns[type];
+
+  // Before doing any internal validation, first check for any provided override value
+  if (props.isValidOverride !== null) {
+    return props.isValidOverride;
+  }
 
   if (props.yupValidation) {
     // check value, based on type, against Yup validation
@@ -73,12 +76,12 @@ async function isValidInput(type, props, fieldVal) {
   return valid;
 }
 
-
 function getMessage(input, props, type, value) {
   // Input can be empty or invalid.
   // Use error message override if available otherwise use default empty/invalid message
   let message = input === 'empty' ? props.emptyError : props.invalidError;
-  if (!message) {
+
+  if (!message && props.isValidOverride === null) {
     // Default error messages are based on the type of input field
     // and whether the input is empty or invalid
     const fieldName = props.label.toLowerCase();
@@ -110,6 +113,8 @@ function getMessage(input, props, type, value) {
         message = input === 'empty' ? `Please fill in your ${fieldName}` : 'This field only accepts alphanumeric characters and \' . - & _ ';
         break;
     }
+  } else if (props.isValidOverride !== null && props.invalidError) {
+    message = props.invalidError;
   }
   return message;
 }
@@ -124,7 +129,13 @@ export default async function fieldValidation(props, validation) {
   const value = type === 'checkbox' ? props.field.checked : props.field.value;
   const emptyField = isEmpty(value, props.required, type);
   updatedValidation.value = value;
-  if (emptyField === true) {
+
+  if (props.isValidOverride !== null) {
+    // Set the validity of this field with the value provided
+    updatedValidation.valid = props.isValidOverride;
+    updatedValidation.message = props.invalidError;
+    updatedValidation.showErrorMessage = props.invalidErrorText !== '';
+  } else if (emptyField === true) {
     updatedValidation.valid = false;
     updatedValidation.message = getMessage('empty', props);
     updatedValidation.showErrorMessage = true;
@@ -140,4 +151,3 @@ export default async function fieldValidation(props, validation) {
   }
   return validation;
 }
-

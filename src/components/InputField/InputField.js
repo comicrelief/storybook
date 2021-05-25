@@ -68,11 +68,20 @@ class InputField extends Component {
       (nextProps.invalidErrorText !== this.state.invalidErrorText
         || nextProps.showErrorMessage !== this.state.showErrorMessage)) {
       const stateObject = nextProps.fieldValue !== null ? nextProps.fieldValue : this.state;
+      const isOverridden = nextProps.isValidOverride !== null;
+      let message = nextProps.invalidErrorText !== this.props.invalidErrorText ? nextProps.invalidErrorText : stateObject.message;
+      let showError = nextProps.showErrorMessage;
+
+      if (isOverridden) {
+        message = nextProps.invalidErrorText;
+        showError = message !== '';
+        this.handleInputValidation();
+      }
 
       this.setState({
         ...stateObject,
-        message: nextProps.invalidErrorText !== this.props.invalidErrorText ? nextProps.invalidErrorText : stateObject.message,
-        showErrorMessage: nextProps.showErrorMessage,
+        message: message,
+        showErrorMessage: showError,
       });
     }
   }
@@ -136,6 +145,7 @@ class InputField extends Component {
       emptyError: this.props.emptyFieldErrorText,
       invalidError: this.props.invalidErrorText,
       yupValidation: this.props.yupValidation,
+      isValidOverride: this.props.isValidOverride,
     };
     let validation = this.state;
     // helper function will return an updated validation object
@@ -295,6 +305,7 @@ InputField.defaultProps = {
   additionalText: null,
   fieldValue: null,
   yupValidation: false,
+  isValidOverride: null,
 };
 
 InputField.propTypes = {
@@ -326,6 +337,7 @@ InputField.propTypes = {
   additionalText: propTypes.string,
   fieldValue: propTypes.object,
   yupValidation: propTypes.bool,
+  isValidOverride: propTypes.bool,
 };
 
 export default InputField;
