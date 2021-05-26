@@ -13,9 +13,24 @@ let required = false;
 let defaultChecked = false;
 let min = null;
 let additionalText = null;
+let isValidOverride = true;
+let errorMessageOverride = null;
 
 storiesOf('Input Field', module)
   .addDecorator(withKnobs)
+  .add('Text Field with validation override',
+  withInfo('Text input')(() => {
+    id = text('id', 'textfield');
+    type = text('type', 'text');
+    name = text('name', 'textfield');
+    label = text('label', 'Text field with validation override');
+    required = boolean('required', true);
+    isValidOverride = boolean('isValidOverride value', false);
+    errorMessageOverride = text('errorMessageOverride', 'An error messaged passed by external validation');
+    return (<InputField id={id} type={type} name={name} label={label} required={required} isValidOverride={isValidOverride} invalidErrorText={errorMessageOverride}
+      />);
+  }),
+  )
   .add('Text Field',
     withInfo('Text input')(() => {
       id = text('id', 'textfield');
