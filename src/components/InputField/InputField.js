@@ -69,12 +69,10 @@ class InputField extends Component {
         || nextProps.showErrorMessage !== this.state.showErrorMessage)) {
       const stateObject = nextProps.fieldValue !== null ? nextProps.fieldValue : this.state;
       const isOverridden = nextProps.isValidOverride !== null;
-      let message = nextProps.invalidErrorText !== this.props.invalidErrorText ? nextProps.invalidErrorText : stateObject.message;
-      let showError = nextProps.showErrorMessage;
+      const message = nextProps.invalidErrorText !== this.props.invalidErrorText ? nextProps.invalidErrorText : stateObject.message;
+      const showError = nextProps.showErrorMessage;
 
       if (isOverridden) {
-        message = nextProps.invalidErrorText;
-        showError = message !== '';
         this.handleInputValidation();
       }
 
@@ -90,7 +88,7 @@ class InputField extends Component {
    * If value from parent and value is different send state to parent.
    * Validate field if parent wants to show error messages
    */
-  componentDidUpdate() {
+  componentDidUpdate(prevProps) {
     if (this.props.type !== 'checkbox' && typeof this.props.isValid === 'function') {
       this.props.isValid(this.state, this.props.name, this.state.value);
     }
@@ -100,6 +98,11 @@ class InputField extends Component {
     // keeping this to not break certain environments
     if (this.props.showErrorMessage === true && this.state.message === '' && this.state.valid === null) {
       this.validateField(null, this.inputRef);
+    }
+
+    // Force a revalidate and rerender
+    if (this.props.isValidOverride !== prevProps.isValidOverride) {
+      this.handleInputValidation();
     }
   }
 
