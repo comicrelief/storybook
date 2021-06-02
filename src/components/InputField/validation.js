@@ -24,7 +24,7 @@ async function runYupValidation(type, value) {
   if (type === 'email') {
     fieldObj = { thisField: yup.string().email() };
   } else if (type === 'tel') {
-    fieldObj = { thisField: yup.string().matches(/^[+]{0,1}[0-9\s]*$/).phone('GB', true) };
+    fieldObj = { thisField: yup.string().phone('GB', true).matches(/^[+]{0,1}[0-9]*$/) };
   } else {
     fieldObj = { thisField: yup.string() }; // Fallback, just in case
   }
@@ -102,6 +102,8 @@ function getMessage(input, props, type, value) {
         break;
       }
       case 'tel':
+        message = input === 'empty' ? `Please fill in your ${fieldName}` : `Please fill in a valid ${fieldName}, with no spaces`;
+        break;
       case 'email':
         message = input === 'empty' ? `Please fill in your ${fieldName}` : `Please fill in a valid ${fieldName}`;
         break;
