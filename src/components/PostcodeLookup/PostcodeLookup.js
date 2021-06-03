@@ -57,6 +57,7 @@ class PostcodeLookup extends Component {
     this.setAddressDetailRef = (element) => {
       this.addressDetailRef = element;
     };
+    this.reRenderKey = '';
     const refs = [];
     this.setRefs = (element) => {
       if (element) {
@@ -300,6 +301,8 @@ class PostcodeLookup extends Component {
         if (this.country !== undefined) {
           this.country.selectedIndex = 0;
         }
+        // Allows us to force re-render of the InputFields using defautlValue
+        this.reRenderKey = Math.random();
       }
     }
   }
@@ -449,6 +452,7 @@ class PostcodeLookup extends Component {
                 showErrorMessage={this.state.showErrorMessages}
                 fieldValue={this.props.valuesFromParent}
                 isValid={(valid, name) => { this.setValidity(name, valid); }}
+                reRenderKey={this.reRenderKey}
               />
             ))
             }

@@ -212,7 +212,7 @@ class InputField extends Component {
     const disableClass = hasError ? 'button-inactive' : '';
 
     return (
-      <div id={`field-wrapper--${this.props.id}`}>
+      <div id={`field-wrapper--${this.props.id}`} key={this.props.reRenderKey}>
         <div className={`form__fieldset form__field--wrapper form__field-wrapper--${this.props.type} ${errorClassName} ${showBackgroundClassName} ${extraClassName} ${hasErrorClass}`}>
           <label
             id={`field-label--${this.props.id}`}
@@ -309,6 +309,7 @@ InputField.defaultProps = {
   fieldValue: null,
   yupValidation: false,
   isValidOverride: null,
+  reRenderKey: '',
 };
 
 InputField.propTypes = {
@@ -341,6 +342,7 @@ InputField.propTypes = {
   fieldValue: propTypes.object,
   yupValidation: propTypes.bool,
   isValidOverride: propTypes.bool,
+  reRenderKey: propTypes.string,
 };
 
 export default InputField;
