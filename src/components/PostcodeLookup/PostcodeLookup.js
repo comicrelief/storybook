@@ -57,7 +57,7 @@ class PostcodeLookup extends Component {
     this.setAddressDetailRef = (element) => {
       this.addressDetailRef = element;
     };
-    this.reRenderKey = '';
+    this.reRenderKey = 0;
     const refs = [];
     this.setRefs = (element) => {
       if (element) {
