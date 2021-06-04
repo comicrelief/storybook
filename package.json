@@ -89,7 +89,7 @@
     "randomcolor": "^0.5.3",
     "resolve-url-loader": "2",
     "sass-loader": "6",
-    "semantic-release": "15",
+    "semantic-release": "17",
     "sinon": "5",
     "style-loader": "^0.20.3",
     "uglifyjs-webpack-plugin": "^1.0.0-beta.3",
