@@ -164,20 +164,20 @@ class MarketingConsentCheckbox extends Component {
           {
             item.options.map(option => (
               <div key={option.value} className="form__field--wrapper form__checkbox form__checkbox--inline form__checkbox--inline-2-horizontal">
-                <label className="form__field-label required" htmlFor={`field-label--${option.label}`}>
+                <label className="form__field-label required" htmlFor={`field-label--${option.label}--${item.name}`}>
                   {option.label}
                 </label>
 
                 <input
                   type="checkbox"
-                  id={`field-label--${option.label}`}
+                  id={`field-label--${option.label}--${item.name}`}
                   className="form__field form__field--checkbox"
                   name={option.name}
                   value={option.value}
                   onChange={e => this.handleCheckboxToggle(item, option, e)}
                   checked={this.state.checkboxValidation[checkbox].value === option.value}
                   ariarole="checkbox"
-                  aria-label={`field-label--${option.label}`}
+                  aria-label={`field-label--${option.label}--${item.name}`}
                   aria-checked={this.state.checkboxValidation[checkbox].value === option.value}
                 />
                 <span />

@@ -309,7 +309,7 @@ InputField.defaultProps = {
   fieldValue: null,
   yupValidation: false,
   isValidOverride: null,
-  reRenderKey: '',
+  reRenderKey: 0,
 };
 
 InputField.propTypes = {
@@ -342,7 +342,7 @@ InputField.propTypes = {
   fieldValue: propTypes.object,
   yupValidation: propTypes.bool,
   isValidOverride: propTypes.bool,
-  reRenderKey: propTypes.string,
+  reRenderKey: propTypes.number,
 };
 
 export default InputField;
