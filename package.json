@@ -6,7 +6,7 @@
     "@comicrelief/pattern-lab": "*",
     "@storybook/addon-info": "3",
     "@storybook/addon-knobs": "3",
-    "@storybook/react": "^3.0.0",
+    "@storybook/react": "^4.0.0",
     "axios": ">=0.18.1",
     "babel-polyfill": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
@@ -27,7 +27,7 @@
     "react-vis": "^1.9.1",
     "shortid": "^2.2.13",
     "snyk": "^1.234.0",
-    "uglify-js": "git+https://github.com/mishoo/UglifyJS2.git#harmony",
+    "uglify-js": "3.14.3",
     "url-join": "2",
     "yup": "^0.32.9",
     "yup-phone": "^1.2.19"
