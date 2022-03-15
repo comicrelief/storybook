@@ -367,7 +367,7 @@ class SchoolsLookUp extends Component {
     const {
       establishmentNameValue, address1Value, address2Value, address3Value, townValue, postcodeValue,
       establishmentNameIdentifier, address1Identifier, address2Identifier, address3Identifier,
-      townIdentifier, postcodeIdentifier, min, selectedEstablishment, disabled, placeholder, extraClasses,
+      townIdentifier, postcodeIdentifier, min, selectedEstablishment, disabled, placeholder, extraClasses, titleCopy,
     } = this.props;
     const { lookup, options, isSearching, query } = this.state;
     const orEnterManuallyCopy = 'Or enter details manually';
@@ -378,7 +378,7 @@ class SchoolsLookUp extends Component {
     return (
       <div data-test-id="SchoolsLookUp" className={`SchoolsLookUp ${extraClasses}`}>
         {!haslookupFetchError && <p className="schoolsLookUp-title">
-          <label htmlFor="schoolsLookUp">{'Enter the name or postcode of your school or nursery'}</label>
+          <label htmlFor="schoolsLookUp">{titleCopy}</label>
         </p>}
 
         {(!haslookupFetchError && lookup === HIDE_LOOKUP) &&
@@ -506,6 +506,7 @@ SchoolsLookUp.defaultProps = {
   validateField: () => {},
   placeholder: 'Type to start search',
   extraClasses: '',
+  titleCopy: 'Enter the name or postcode of your school or nurseryy',
 };
 
 SchoolsLookUp.propTypes = {
@@ -553,6 +554,7 @@ SchoolsLookUp.propTypes = {
   validateField: propTypes.func,
   disabled: propTypes.bool,
   extraClasses: propTypes.string.isRequired,
+  titleCopy: propTypes.string,
 };
 
 export default SchoolsLookUp;
