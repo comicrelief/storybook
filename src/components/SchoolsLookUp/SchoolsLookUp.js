@@ -506,7 +506,7 @@ SchoolsLookUp.defaultProps = {
   validateField: () => {},
   placeholder: 'Type to start search',
   extraClasses: '',
-  titleCopy: 'Enter the name or postcode of your school or nurseryy',
+  titleCopy: 'Enter the name or postcode of your school or nursery',
 };
 
 SchoolsLookUp.propTypes = {
