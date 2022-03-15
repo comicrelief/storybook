@@ -113,3 +113,8 @@ This will start an interactive process to build commit message. Simply answer al
 press `Enter` to skip.
  
  - Repeat and follow rest of the GitHub workflow
+
+ ### Release contingency
+ Currently, the semantic build release method is broken so, with very limited resource to
+ maintain this legacy code, we're reverting to updating the version number in `package.json`
+ and running `npm publish`.
