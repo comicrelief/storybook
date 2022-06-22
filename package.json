@@ -27,7 +27,7 @@
     "react-svg": "2",
     "react-vis": "^1.9.1",
     "shortid": "^2.2.13",
-    "snyk": "^1.234.0",
+    "snyk": "^1.685.0",
     "uglify-js": "git+https://github.com/mishoo/UglifyJS2.git#harmony",
     "url-join": "2",
     "yup": "^0.32.9",
