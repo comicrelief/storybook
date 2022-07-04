@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
 import { withInfo } from '@storybook/addon-info';
 import MarketingConsent from './MarketingConsent';
-import FormData  from './FormData.json';
+import FormData  from './FormData';
 
 const fieldValidationFromParent = {
   emailConsent: {
