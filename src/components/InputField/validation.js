@@ -85,6 +85,11 @@ function getMessage(input, props, type, value) {
     // Default error messages are based on the type of input field
     // and whether the input is empty or invalid
     const fieldName = props.label.toLowerCase();
+
+    // Having to handle this edgecase
+    const isPostcode = fieldName.includes('postcode');
+    const thisTextErrorMsg = isPostcode ? 'Please enter a valid postcode' : 'This field only accepts alphanumeric characters and \' . - & _ ';
+
     switch (type) {
       case 'number': {
         // Number field's error message contains min and max value messages if they're set
@@ -112,7 +117,7 @@ function getMessage(input, props, type, value) {
         break;
       case 'text':
       default:
-        message = input === 'empty' ? `Please fill in your ${fieldName}` : 'This field only accepts alphanumeric characters and \' . - & _ ';
+        message = input === 'empty' ? `Please fill in your ${fieldName}` : thisTextErrorMsg;
         break;
     }
   } else if (props.isValidOverride !== null && props.invalidError) {
