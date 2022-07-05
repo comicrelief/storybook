@@ -355,7 +355,7 @@ class PostcodeLookup extends Component {
       type: 'text',
       placeholder: this.props.placeholder,
       buttonText: this.props.buttonText,
-      pattern: '^([A-Za-z][A-Ha-hJ-Yj-y]?[0-9][A-Za-z0-9]? ?[0-9][A-Za-z]{2}|[Gg][Ii][Rr] ?0[Aa]{2})$',
+      pattern: '^[a-zA-Z]{1,2}\\d[a-zA-Z\\d]?\\s*\\d[a-zA-Z]{2}$',
       invalidErrorText: 'Please enter a valid postcode',
       emptyFieldErrorText: 'Please enter your postcode',
       extraClass: 'search-box',
