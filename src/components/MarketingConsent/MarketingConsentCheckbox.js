@@ -198,9 +198,12 @@ class MarketingConsentCheckbox extends Component {
         <div className={bgStyle}>
           {
             item.field.map(field => (
+              <div key={field.id} className="form__field--wrapper form__field--sub-field-wrapper">
 
-              false?
-                <div key={field.id} className="form__field--wrapper form__field--sub-field-wrapper">
+                {field.id === 'country' ?
+
+                  <div>test</div> :
+
                   <InputField
                     type={field.type}
                     id={field.name}
@@ -220,9 +223,8 @@ class MarketingConsentCheckbox extends Component {
                     // Only use our improved Yup-based validation for the problematic fields
                     yupValidation={field.type === 'email' || field.type === 'tel'}
                   />
-                </div> :
-                <div>test</div>
-
+                }
+              </div>
             ))
           }
         </div>
