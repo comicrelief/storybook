@@ -198,27 +198,31 @@ class MarketingConsentCheckbox extends Component {
         <div className={bgStyle}>
           {
             item.field.map(field => (
-              <div key={field.id} className="form__field--wrapper form__field--sub-field-wrapper">
-                <InputField
-                  type={field.type}
-                  id={field.name}
-                  name={field.name}
-                  required={field.required}
-                  placeholder={field.placeholder}
-                  label={field.label}
-                  pattern={field.pattern}
-                  helpText={field.helpText}
-                  isValid={(valid, name) => {
-                    this.setInputValidity(name, valid, checkbox);
-                  }}
-                  emptyFieldErrorText={field.errorMessage}
-                  showErrorMessage={this.props.showErrorMessages}
-                  fieldValue={this.state.checkboxValidation[checkbox].fieldValidation[field.name]}
-                  value={() => this.fieldValue(checkbox, field.name)}
-                  // Only use our improved Yup-based validation for the problematic fields
-                  yupValidation={field.type === 'email' || field.type === 'tel'}
-                />
-              </div>
+
+              false?
+                <div key={field.id} className="form__field--wrapper form__field--sub-field-wrapper">
+                  <InputField
+                    type={field.type}
+                    id={field.name}
+                    name={field.name}
+                    required={field.required}
+                    placeholder={field.placeholder}
+                    label={field.label}
+                    pattern={field.pattern}
+                    helpText={field.helpText}
+                    isValid={(valid, name) => {
+                      this.setInputValidity(name, valid, checkbox);
+                    }}
+                    emptyFieldErrorText={field.errorMessage}
+                    showErrorMessage={this.props.showErrorMessages}
+                    fieldValue={this.state.checkboxValidation[checkbox].fieldValidation[field.name]}
+                    value={() => this.fieldValue(checkbox, field.name)}
+                    // Only use our improved Yup-based validation for the problematic fields
+                    yupValidation={field.type === 'email' || field.type === 'tel'}
+                  />
+                </div> :
+                <div>test</div>
+
             ))
           }
         </div>
