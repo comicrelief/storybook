@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { ALL_COUNTRIES } from '@comicrelief/country-lists';
 import propTypes from 'prop-types';
 import InputField from '../InputField/InputField';
+import SelectField from '../SelectField/SelectField';
 
 
 class MarketingConsentCheckbox extends Component {
@@ -202,7 +204,18 @@ class MarketingConsentCheckbox extends Component {
 
                 {field.id === 'country' ?
 
-                  <div>test</div> :
+                  <SelectField
+                    id="country"
+                    name="Country"
+                    label="Country"
+                    required
+                    // options={[
+                    //   { label: 'Please select', selected: true },
+                    //   { label: 'item 1', value: 'itemone' },
+                    //   { label: '----------', disabled: true },
+                    // ]}
+                    options={ALL_COUNTRIES.getLegacySelectItems()}
+                  /> :
 
                   <InputField
                     type={field.type}

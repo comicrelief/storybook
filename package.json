@@ -3,6 +3,7 @@
   "description": "React components to build the Comic Relief front-end experience",
   "version": "1.28.1",
   "dependencies": {
+    "@comicrelief/country-lists": "^1.0.0",
     "@comicrelief/pattern-lab": "*",
     "@storybook/addon-info": "3",
     "@storybook/addon-knobs": "3",

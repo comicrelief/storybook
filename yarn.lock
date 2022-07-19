@@ -1040,6 +1040,13 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
+"@comicrelief/country-lists@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@comicrelief/country-lists/-/country-lists-1.0.0.tgz#266e197e0a6f77bdc3662fd2f2724362b67cda13"
+  integrity sha512-whyx8iIhqZ0qCTKEiG9A3WLKe1kroFEAnGp0SrLOAr31tzujnHWlYwK36x5s6gWHKwXEmJI/n+7N3PEBXkUrig==
+  dependencies:
+    country-list "^2.2.0"
+
 "@comicrelief/pattern-lab@*":
   version "7.67.0"
   resolved "https://registry.yarnpkg.com/@comicrelief/pattern-lab/-/pattern-lab-7.67.0.tgz#8e93b8c825bbd1a4ce0fa8e5dd3e223e9049b96d"
@@ -6028,6 +6035,11 @@ cosmiconfig@^7, cosmiconfig@^7.0.0:
     parse-json "^5.0.0"
     path-type "^4.0.0"
     yaml "^1.10.0"
+
+country-list@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/country-list/-/country-list-2.2.0.tgz#e248338cafb97b2d86cf0784a25dceb4d52054d1"
+  integrity sha512-AS21pllCp72LmUztqXPVKXK3TRyap1XlohGLqN04cXH2rFB9vo7SnH5sMnqltZPnu9ie/x1se3UuCZJbGXErfw==
 
 create-ecdh@^4.0.0:
   version "4.0.4"
