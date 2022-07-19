@@ -96,6 +96,14 @@ export default {
           required: true,
           pattern: '^[a-zA-Z]{1,2}\\d[a-zA-Z\\d]?\\s*\\d[a-zA-Z]{2}$',
         },
+        {
+          id: 'country',
+          type: 'text',
+          name: 'country',
+          label: 'Country',
+          placeholder: 'United Kingdom',
+          required: true,
+        },
       ],
     },
     {
