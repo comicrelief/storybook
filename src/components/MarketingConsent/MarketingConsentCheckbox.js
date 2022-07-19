@@ -154,6 +154,9 @@ class MarketingConsentCheckbox extends Component {
   }
 
   render() {
+    const labelTest = { label: 'Please select', selected: true };
+    const countryData = ALL_COUNTRIES.getLegacySelectItems();
+    const countryDataWithLabel = countryData.push(labelTest)
     const item = this.props.itemData;
     const checkbox = item.id;
     const bgStyle = 'form__field--background';
@@ -214,7 +217,7 @@ class MarketingConsentCheckbox extends Component {
                     //   { label: 'item 1', value: 'itemone' },
                     //   { label: '----------', disabled: true },
                     // ]}
-                    options={ALL_COUNTRIES.getLegacySelectItems()}
+                    options={countryDataWithLabel}
                   /> :
 
                   <InputField
