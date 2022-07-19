@@ -154,6 +154,12 @@ class MarketingConsentCheckbox extends Component {
   }
 
   render() {
+    const countryDataWithLabel = [];
+    const selectLabel = { label: 'Please select', selected: true };
+    const countryData = ALL_COUNTRIES.getLegacySelectItems();
+    countryDataWithLabel.push(selectLabel);
+    countryDataWithLabel.push(countryData);
+
     const item = this.props.itemData;
     const checkbox = item.id;
     const bgStyle = 'form__field--background';
@@ -201,24 +207,14 @@ class MarketingConsentCheckbox extends Component {
           {
             item.field.map(field => (
               <div key={field.id} className="form__field--wrapper form__field--sub-field-wrapper">
-
                 {field.id === 'country' ?
-
                   <SelectField
-                    type={field.type}
-                    placeholder={field.placeholder}
                     id={field.name}
                     name={field.name}
                     label={field.label}
                     required={field.required}
-                    // options={[
-                    //   { label: 'Please select', selected: true },
-                    //   { label: 'item 1', value: 'itemone' },
-                    //   { label: '----------', disabled: true },
-                    // ]}
-                    options={ALL_COUNTRIES.getLegacySelectItems()}
+                    options={countryDataWithLabel}
                   /> :
-
                   <InputField
                     type={field.type}
                     id={field.name}
