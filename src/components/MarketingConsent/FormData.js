@@ -98,7 +98,7 @@ export default {
         },
         {
           id: 'country',
-          type: 'text',
+          type: 'select',
           name: 'country',
           label: 'Country',
           placeholder: 'United Kingdom',

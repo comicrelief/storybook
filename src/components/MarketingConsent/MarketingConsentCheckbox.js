@@ -207,7 +207,6 @@ class MarketingConsentCheckbox extends Component {
                   <SelectField
                     type={field.type}
                     placeholder={field.placeholder}
-
                     id={field.name}
                     name={field.name}
                     label={field.label}
