@@ -154,6 +154,7 @@ class MarketingConsentCheckbox extends Component {
   }
 
   render() {
+    // Adding a Label to the imported country list package
     const countryDataWithLabel = [];
     const selectLabel = { label: 'Please select', selected: true };
     const countryData = ALL_COUNTRIES.getLegacySelectItems();
