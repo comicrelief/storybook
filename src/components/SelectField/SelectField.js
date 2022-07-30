@@ -160,7 +160,7 @@ class SelectField extends Component {
         <label
           id={`field-label--${this.props.id}`}
           htmlFor={`field-select--${this.props.id}`}
-          className={`form__field-label ${this.props.required ? ' required' : ''}`}
+          className={`form__field-label${this.props.required ? ' required' : ''} ${this.state.valid === false ? 'error' : ''}`}
         >
           {this.props.label}
           {!this.props.required &&
