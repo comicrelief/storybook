@@ -175,6 +175,8 @@ class SelectField extends Component {
           onBlur={this.onChangeHandler}
           onChange={this.onChangeHandler}
           ref={this.setRef}
+          style={{ border: '2px solid red' }}
+          // className={`${this.state.valid === false ? 'error' : ''}`}
         >
           { this.createOptions() }
         </select>
