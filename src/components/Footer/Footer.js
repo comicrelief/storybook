@@ -18,7 +18,7 @@ const styles = {
   },
 };
 
-const Footer = ({ noSocial, noLinks, campaign, copy, fallbackMenu, forceFallback }) => {
+const Footer = ({ noSocial, noLinks, campaign, copy, fallbackMenu, forceFallback, additionalMarkup }) => {
   return (
     <footer style={styles} role="contentinfo">
       { noSocial === false && <SocialLink campaign={campaign} /> }
@@ -27,9 +27,16 @@ const Footer = ({ noSocial, noLinks, campaign, copy, fallbackMenu, forceFallback
         <Menu type="footer" campaign={campaign} fallbackMenu={fallbackMenu} forceFallback={forceFallback} />
       </div>
       }
+
+      { /* eslint-disable react/no-danger */ }
+      { additionalMarkup && (
+        <div className="footer__additional_markup" dangerouslySetInnerHTML={{ __html: additionalMarkup }} />
+      ) }
+
       <div className="footer__copyright">
         <p style={styles.p}>{copy}</p>
       </div>
+
       <div className="footer__branding">
         <ReactSVG
           path={SvgSprite}
@@ -51,12 +58,14 @@ Footer.propTypes = {
     url: propTypes.string.isRequired,
     title: propTypes.string.isRequired,
   })).isRequired,
+  additionalMarkup: propTypes.string,
 };
 
 Footer.defaultProps = {
   noLinks: false,
   noSocial: false,
   forceFallback: false,
+  additionalMarkup: null,
 };
 
 export default Footer;
