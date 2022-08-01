@@ -27,14 +27,15 @@ const Footer = ({ noSocial, noLinks, campaign, copy, fallbackMenu, forceFallback
         <Menu type="footer" campaign={campaign} fallbackMenu={fallbackMenu} forceFallback={forceFallback} />
       </div>
       }
-      <div className="footer__copyright">
-        <p style={styles.p}>{copy}</p>
-      </div>
 
       { /* eslint-disable react/no-danger */ }
       { additionalMarkup && (
         <div className="footer__additional_markup" dangerouslySetInnerHTML={{ __html: additionalMarkup }} />
       ) }
+
+      <div className="footer__copyright">
+        <p style={styles.p}>{copy}</p>
+      </div>
 
       <div className="footer__branding">
         <ReactSVG
