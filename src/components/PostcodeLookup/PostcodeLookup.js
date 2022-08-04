@@ -355,7 +355,7 @@ class PostcodeLookup extends Component {
       type: 'text',
       placeholder: this.props.placeholder,
       buttonText: this.props.buttonText,
-      pattern: '^[a-zA-Z]{1,2}\\d[a-zA-Z\\d]?\\s*\\d[a-zA-Z]{2}$',
+      pattern: '^(?!\s*$).+', // Temporarily to allow non-UK postcodes on Donate for CWG
       invalidErrorText: 'Please enter a valid postcode',
       emptyFieldErrorText: 'Please enter your postcode',
       extraClass: 'search-box',
@@ -481,7 +481,7 @@ PostcodeLookup.defaultProps = {
   valuesFromParent: null,
   forceManualInput: false,
   plusURL: 'https://lookups.sls.comicrelief.com/postcode/lookup?query=',
-  buttonText: 'FIND ADDRESS',
+  buttonText: 'FIND UK ADDRESS',
   placeholder: 'SE1 7TP',
 };
 PostcodeLookup.propTypes = {
