@@ -15,6 +15,7 @@ storiesOf('Footer', module)
       const forceFallback = boolean('forceFallback', false);
       const noSocial = boolean('noSocial', false);
       const noLinks = boolean('noLinks', false);
+      const additionalMarkup = '<p style="color: white; text-align: center; margin: 15px auto;">Some unstyled addtional markup</p>'
       const fallbackMenu = object('fallbackMenu', [
         {
           url: 'https://lite.comicrelief.com/legal/privacy-notice',
@@ -25,7 +26,7 @@ storiesOf('Footer', module)
           title: 'Privacy notice'
         }
       ]);
-      return (<Footer copy={copy} source={source} campaign={campaign} noSocial={noSocial} noLinks={noLinks} fallbackMenu={fallbackMenu} forceFallback={forceFallback} />);
+      return (<Footer copy={copy} source={source} campaign={campaign} noSocial={noSocial} noLinks={noLinks} fallbackMenu={fallbackMenu} forceFallback={forceFallback} additionalMarkup={additionalMarkup}/>);
     }),
   )
   .add('Sport Relief',

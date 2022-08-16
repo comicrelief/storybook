@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import propTypes from 'prop-types';
 import browser from 'browser-detect';
-
+import './SelectField.scss';
 
 class SelectField extends Component {
   constructor(props) {
@@ -180,6 +180,10 @@ class SelectField extends Component {
         >
           { this.createOptions() }
         </select>
+        {/* Gives us some markup to "re-add" the icon removed by the
+        strongarmed native browser styles when using autocomplete */}
+        <span className="autocomplete-icon" />
+
         { (this.state.valid === false && this.state.showErrorMessage === true && this.state.message !== '') &&
         <div
           id={`field-error--${this.props.id}`}

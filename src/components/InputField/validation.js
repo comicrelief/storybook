@@ -107,7 +107,8 @@ function getMessage(input, props, type, value) {
         break;
       }
       case 'tel':
-        message = input === 'empty' ? `Please fill in your ${fieldName}` : `Please fill in a valid ${fieldName}, with no spaces`;
+        // Make the fact that this is for UK only clearer, as Donate is currently accepting worldwide payments
+        message = input === 'empty' ? `Please fill in your ${fieldName}` : `Please fill in a valid UK ${fieldName}, with no spaces`;
         break;
       case 'email':
         message = input === 'empty' ? `Please fill in your ${fieldName}` : `Please fill in a valid ${fieldName}`;
