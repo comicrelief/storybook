@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import PropTypes from 'prop-types';
+import propTypes from 'prop-types';
 import Icon from 'react-fontawesome';
 import { AsyncTypeahead, Menu, MenuItem } from 'react-bootstrap-typeahead';
 import './SchoolsLookUp.scss';
