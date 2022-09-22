@@ -1,6 +1,5 @@
 /* eslint-env browser */
 import React, { Component } from 'react';
-
 import propTypes from 'prop-types';
 import browser from 'browser-detect';
 import './SelectField.scss';
