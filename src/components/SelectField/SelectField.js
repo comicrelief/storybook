@@ -30,7 +30,7 @@ class SelectField extends Component {
    * (will trigger an update through the validateField function)
    */
   componentDidMount() {
-    this.validateField();
+    // this.validateField();
   }
 
   /**
@@ -175,8 +175,7 @@ class SelectField extends Component {
           onBlur={this.onChangeHandler}
           onChange={this.onChangeHandler}
           ref={this.setRef}
-          style={{ border: '2px solid red' }}
-          // className={`${this.state.valid === false ? 'error' : ''}`}
+          className={`${this.state.valid === false ? 'error error-border' : ''}`}
         >
           { this.createOptions() }
         </select>
