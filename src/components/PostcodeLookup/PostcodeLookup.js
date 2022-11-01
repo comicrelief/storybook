@@ -171,8 +171,13 @@ class PostcodeLookup extends Component {
           });
           this.createAddressDropdownList(response.addresses);
         } else {
+          // As to not 100% override this response, let's just customise the error for this specific case:
+          const validationMsg = response.message.includes('Search string is not a valid postcode:')
+            ? 'Please enter a valid UK postcode to find your address'
+            : response.message;
           this.setState({
-            postcodeValidationMessage: response.message,
+            postcodeValidationMessage: validationMsg
+            ,
           });
         }
       })
