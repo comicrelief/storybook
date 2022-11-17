@@ -1510,6 +1510,11 @@
   version "0.7.1"
   resolved "https://registry.yarnpkg.com/@sinonjs/text-encoding/-/text-encoding-0.7.1.tgz#8da5c6530915653f3a1f38fd5f101d8c3f8079c5"
 
+"@snyk/protect@^1.1060.0":
+  version "1.1060.0"
+  resolved "https://registry.yarnpkg.com/@snyk/protect/-/protect-1.1060.0.tgz#09d1012162f8370419e4de23d187b0fb18b265a0"
+  integrity sha512-s3MPuxinUSmxk8mIFSzNLlicvGe3/cj3bguRYO2EWN1GBB6bOJ86+OX4bcIecyqoo4J17mUwxYj/s+v+oy+7Hw==
+
 "@storybook/addon-actions@3":
   version "3.4.12"
   resolved "https://registry.yarnpkg.com/@storybook/addon-actions/-/addon-actions-3.4.12.tgz#ff6cbaf563c3cb5d648d6a35f66cfa50ced49bf4"
