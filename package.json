@@ -1,7 +1,7 @@
 {
   "name": "@comicrelief/storybook",
   "description": "React components to build the Comic Relief front-end experience",
-  "version": "1.30.3",
+  "version": "1.30.4",
   "dependencies": {
     "@comicrelief/pattern-lab": "*",
     "@storybook/addon-info": "3",
