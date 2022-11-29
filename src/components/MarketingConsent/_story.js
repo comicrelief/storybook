@@ -55,12 +55,6 @@ const fieldValidationFromParent = {
         message: '',
         showErrorMessage: false,
       },
-      country: {
-        valid: true,
-        value: 'GB',
-        message: '',
-        showErrorMessage: false,
-      },
     },
   },
   phoneConsent: {

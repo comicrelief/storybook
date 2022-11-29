@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { ALL_COUNTRIES } from '@comicrelief/country-lists';
 import propTypes from 'prop-types';
 import InputField from '../InputField/InputField';
+import SelectField from '../SelectField/SelectField';
 
 
 class MarketingConsentCheckbox extends Component {
@@ -152,6 +154,12 @@ class MarketingConsentCheckbox extends Component {
   }
 
   render() {
+    // Adding a Label to the imported country list package
+    const errorClass = this.state.showErrorMessage === true ? 'form__field-error-wrapper' : '';
+    const selectLabel = { label: 'Please select', selected: true };
+    const countryDataWithLabel = ALL_COUNTRIES.getLegacySelectItems();
+    countryDataWithLabel.unshift(selectLabel);
+
     const item = this.props.itemData;
     const checkbox = item.id;
     const bgStyle = 'form__field--background';
@@ -199,25 +207,34 @@ class MarketingConsentCheckbox extends Component {
           {
             item.field.map(field => (
               <div key={field.id} className="form__field--wrapper form__field--sub-field-wrapper">
-                <InputField
-                  type={field.type}
-                  id={field.name}
-                  name={field.name}
-                  required={field.required}
-                  placeholder={field.placeholder}
-                  label={field.label}
-                  pattern={field.pattern}
-                  helpText={field.helpText}
-                  isValid={(valid, name) => {
-                    this.setInputValidity(name, valid, checkbox);
-                  }}
-                  emptyFieldErrorText={field.errorMessage}
-                  showErrorMessage={this.props.showErrorMessages}
-                  fieldValue={this.state.checkboxValidation[checkbox].fieldValidation[field.name]}
-                  value={() => this.fieldValue(checkbox, field.name)}
-                  // Only use our improved Yup-based validation for the problematic fields
-                  yupValidation={field.type === 'email' || field.type === 'tel'}
-                />
+                {field.id === 'country' ?
+                  <SelectField
+                    id={field.name}
+                    name={field.name}
+                    label={field.label}
+                    required={field.required}
+                    options={countryDataWithLabel}
+                  /> :
+                  <InputField
+                    type={field.type}
+                    id={field.name}
+                    name={field.name}
+                    required={field.required}
+                    placeholder={field.placeholder}
+                    label={field.label}
+                    pattern={field.pattern}
+                    helpText={field.helpText}
+                    isValid={(valid, name) => {
+                      this.setInputValidity(name, valid, checkbox);
+                    }}
+                    emptyFieldErrorText={field.errorMessage}
+                    showErrorMessage={this.props.showErrorMessages}
+                    fieldValue={this.state.checkboxValidation[checkbox].fieldValidation[field.name]}
+                    value={() => this.fieldValue(checkbox, field.name)}
+                    // Only use our improved Yup-based validation for the problematic fields
+                    yupValidation={field.type === 'email' || field.type === 'tel'}
+                  />
+                }
               </div>
             ))
           }
