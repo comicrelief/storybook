@@ -47,17 +47,20 @@ class MarketingConsent extends Component {
             <div dangerouslySetInnerHTML={{ __html: sanitizer(this.props.copy1) }} style={{ marginBottom: '15px' }} />
           }
 
-          {data.Questions.map(item =>
-            (<MarketingConsentCheckbox
-              key={item.id}
-              getValidation={(name, validation) => { this.updateState(name, validation); }}
-              itemData={item}
-              valueFromParent={this.props.valueFromParent && this.props.valueFromParent[item.id]}
-              showErrorMessages={this.props.showErrorMessages}
-            />))
-          }
+          <div className="marketing-consent--checkboxes">
+            {data.Questions.map(item =>
+              (<MarketingConsentCheckbox
+                key={item.id}
+                getValidation={(name, validation) => { this.updateState(name, validation); }}
+                itemData={item}
+                valueFromParent={this.props.valueFromParent && this.props.valueFromParent[item.id]}
+                showErrorMessages={this.props.showErrorMessages}
+              />))
+            }
+          </div>
+
           {this.props.copy2 !== null &&
-            <div dangerouslySetInnerHTML={{ __html: sanitizer(this.props.copy2) }} />
+            <div className="marketing-section-copy--privacy" dangerouslySetInnerHTML={{ __html: sanitizer(this.props.copy2) }} />
           }
 
         </div>
