@@ -8,10 +8,11 @@ export default {
       customMessage: '',
       options: [
         {
-          label: 'Yes',
+          label: 'Email',
           value: 'yes',
           name: 'permissionEmail',
           hideFields: false,
+          extraInfo: 'Please confirm the email address we will use to <b>email</b> you:',
         },
       ],
       field: [
@@ -31,10 +32,11 @@ export default {
       name: 'Post',
       options: [
         {
-          label: 'Yes',
+          label: 'Post',
           value: 'yes',
           name: 'permissionPost',
           hideFields: false,
+          extraInfo: 'Please confirm the address we will use to <b>post</b> to you:',
         },
       ],
       field: [
@@ -99,10 +101,11 @@ export default {
       name: 'Phone',
       options: [
         {
-          label: 'Yes',
+          label: 'Phone',
           value: 'yes',
           name: 'permissionPhone',
           hideFields: false,
+          extraInfo: 'Please confirm the telephone number we will use to <b>phone</b> you on:',
         },
       ],
       field: [
@@ -122,10 +125,12 @@ export default {
       name: 'Text',
       options: [
         {
-          label: 'Yes',
+          label: 'Text',
           value: 'yes',
           name: 'permissionSMS',
           hideFields: false,
+          extraInfo: 'Please confirm the mobile number we will use to <b>text</b> you on:',
+
         },
       ],
       field: [

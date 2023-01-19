@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import propTypes from 'prop-types';
+import DOMPurify from 'dompurify';
 import InputField from '../InputField/InputField';
 
+const sanitizer = DOMPurify.sanitize;
 
 class MarketingConsentCheckbox extends Component {
   constructor(props) {
@@ -189,9 +191,12 @@ class MarketingConsentCheckbox extends Component {
         {
           item.options.map(option => (
             (this.state.checkboxValidation[checkbox].extraInfo && this.state.checkboxValidation[checkbox].value === option.value) &&
-            <p className="form__field--extra-info" key={`${item.id}--extra-info`}>
-              {this.state.checkboxValidation[checkbox].extraInfo
-              }</p>
+            <p
+              className="form__field--extra-info"
+              key={`${item.id}--extra-info`}
+              dangerouslySetInnerHTML={{ __html: sanitizer(this.state.checkboxValidation[checkbox].extraInfo) }}
+            />
+
           ))}
 
         { (!this.state.checkboxValidation[checkbox].isFieldsHidden && item.field) &&
