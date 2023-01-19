@@ -69,26 +69,26 @@ class MarketingConsent extends Component {
 MarketingConsent.defaultProps = {
   valueFromParent: null,
   showErrorMessages: false,
-  copy1: '<p>Hear more about the project Comic Relief funds and other ways you can support our work including fundraising, campaigns and products.</p><p>How would you like to hear from us?</p>',
-  copy2: `<p>You can update your communication preferences at any time at&nbsp;
-            <a
-              href="https://www.comicrelief.com/update-your-preferences"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="link inline"
-            >
-            comicrelief.com/update-your-preferences
-              <span class="visuallyhidden">(opens in a new window)</span>
-            </a>. Your details will be kept safe, check out our&nbsp;
-            <a
-              href="https://www.comicrelief.com/privacy-policy"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="link inline"
-            >
-            privacy policy
-              <span class="visuallyhidden">(opens in a new window)</span>
-            </a> for more details.</p>`,
+  copy1: `<p>We&#39d like to send you updates on the work we&#39re funding and how your support makes a difference in the UK and around the world.</p>
+  <p>Please tick the relevant boxes below if you would like to hear from us.</p>`,
+  copy2: `<p>Update your preferences at any time by visiting our
+
+  <a href="https://www.comicrelief.com/update-your-preferences" 
+  title="Preferences centre"
+  target="_blank"
+  rel="noopener noreferrer"
+  class="link inline"
+  ">preferences centre</a>. 
+
+  Your details will be kept safe, see our
+  <a href="https://www.comicrelief.com/privacy-policy" 
+  title="Privacy policy"
+  target="_blank"
+  rel="noopener noreferrer"
+  class="link inline"
+  >privacy policy</a> 
+  
+  for more information.</p>`,
 };
 MarketingConsent.propTypes = {
   copy1: propTypes.string,
