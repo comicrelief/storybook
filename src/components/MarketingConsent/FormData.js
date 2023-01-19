@@ -13,13 +13,6 @@ export default {
           name: 'permissionEmail',
           hideFields: false,
         },
-        {
-          label: 'No',
-          value: 'no',
-          name: 'permissionEmail',
-          hideFields: false,
-          extraInfo: 'This will remove your provided email address from any previous email opt-in from our database.',
-        },
       ],
       field: [
         {
@@ -40,12 +33,6 @@ export default {
         {
           label: 'Yes',
           value: 'yes',
-          name: 'permissionPost',
-          hideFields: false,
-        },
-        {
-          label: 'No',
-          value: 'no',
           name: 'permissionPost',
           hideFields: false,
         },
@@ -117,14 +104,6 @@ export default {
           name: 'permissionPhone',
           hideFields: false,
         },
-        {
-          label: 'No',
-          value: 'no',
-          name: 'permissionPhone',
-          hideFields: false,
-          extraInfo: 'Please provide a phone number so we can remove it from our database, otherwise untick this option.',
-
-        },
       ],
       field: [
         {
@@ -147,13 +126,6 @@ export default {
           value: 'yes',
           name: 'permissionSMS',
           hideFields: false,
-        },
-        {
-          label: 'No',
-          value: 'no',
-          name: 'permissionSMS',
-          hideFields: false,
-          extraInfo: 'Please provide a mobile number so we can remove it from our database, otherwise untick this option.',
         },
       ],
       field: [
