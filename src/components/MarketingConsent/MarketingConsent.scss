@@ -19,11 +19,10 @@
 
   .form__field--extra-info {
     width: 100%;
-    font-weight: bold;
   }
 }
 
-// 2023 reskin
+/* 2023 reskin */
 .hidden {
   position: absolute;
   clip: rect(0, 0, 0, 0);
@@ -38,6 +37,10 @@
 .form__row.form__row--marketing-consent {
   background-color: #fff;
   padding: 10px; // REMOVE THIS LATER
+
+  .form__field--wrapper {
+    margin-bottom: 10px;
+  }
 
   .marketing-section-copy--privacy {
     p {
@@ -67,7 +70,7 @@
       background: inherit;
       width: 100%;
       margin: 0;
-      padding: 0;
+      padding: 10px;
 
       .form__checkbox.form__checkbox--inline.form__checkbox--inline-2-horizontal {
         width: auto;
@@ -78,7 +81,7 @@
       }
 
       @media (min-width: 768px) {
-        width: 25%;
+        width: 50%;
       }
     }
 
@@ -89,6 +92,9 @@
       margin-left: 45px;
       padding-top: 0;
       text-transform: unset;
+      height: 30px;
+      line-height: 30px;
+      margin-bottom: 0;
     }
 
     p.form__fieldset--label {
@@ -102,9 +108,7 @@
 
     .form__field--sub-field-wrapper {
       .form__field-label {
-
-        margin-left: 0;
-        margin-bottom: 5px;
+        margin: 0;
 
         // Hide labels for the 
         // single input options

@@ -44,7 +44,7 @@ class MarketingConsent extends Component {
         <div className="form__fieldset">
 
           {this.props.copy1 !== null &&
-            <div dangerouslySetInnerHTML={{ __html: sanitizer(this.props.copy1) }} style={{ marginBottom: '15px' }} />
+            <div dangerouslySetInnerHTML={{ __html: sanitizer(this.props.copy1) }} />
           }
 
           <div className="marketing-consent--checkboxes">
