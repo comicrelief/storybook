@@ -12,6 +12,7 @@ class PostcodeLookup extends Component {
    */
   constructor(props) {
     super(props);
+    this.timeoutDuration = 5000;
     this.state = {
       addressDropdownList: [],
       countryDropdownList: [],
@@ -157,7 +158,12 @@ class PostcodeLookup extends Component {
    * @return {Promise}
    */
   addressLookup() {
-    return axios.get(this.props.plusURL + this.state.validation.postcode.value)
+    const source = axios.CancelToken.source();
+
+    setTimeout(() => {
+      source.cancel();
+    }, this.timeoutDuration);
+    return axios.get(this.props.plusURL + this.state.validation.postcode.value, { cancelToken: source.token })
       .then((response) => {
         if (response.status !== 200) {
           throw Error();
