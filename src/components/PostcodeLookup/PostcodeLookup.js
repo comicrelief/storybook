@@ -158,11 +158,15 @@ class PostcodeLookup extends Component {
    * @return {Promise}
    */
   addressLookup() {
+    // To allow us to cancel the GET...
     const source = axios.CancelToken.source();
 
+    // ... after the specified duration (falling back to manual
+    // entry), to prevent users hanging around without any feedback
     setTimeout(() => {
       source.cancel();
     }, this.timeoutDuration);
+
     return axios.get(this.props.plusURL + this.state.validation.postcode.value, { cancelToken: source.token })
       .then((response) => {
         if (response.status !== 200) {
