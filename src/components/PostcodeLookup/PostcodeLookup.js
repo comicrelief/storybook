@@ -163,7 +163,7 @@ class PostcodeLookup extends Component {
 
     // ... after the specified duration (falling back to manual
     // entry), to prevent users hanging around without any feedback
-    setTimeout(() => {
+    const thisTimer = setTimeout(() => {
       source.cancel();
     }, this.timeoutDuration);
 
@@ -172,6 +172,8 @@ class PostcodeLookup extends Component {
         if (response.status !== 200) {
           throw Error();
         }
+        // Clear up the timer on success
+        clearTimeout(thisTimer);
         return response.data;
       })
       .then((response) => {

@@ -25,6 +25,7 @@ class SchoolsLookUp extends Component {
     } else {
       lookup = SHOW_EDCO_LOOKUP;
     }
+    this.timeoutDuration = 5000;
     this.state = {
       options: [],
       query: '',
@@ -32,6 +33,7 @@ class SchoolsLookUp extends Component {
       isDefaultOptionHighlighted: true,
       lookup,
       lookupFetchError: false,
+      timedOut: false,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -86,17 +88,30 @@ class SchoolsLookUp extends Component {
    * @param {string} query
    */
   handleSearch(query) {
-    if (!query) {
-      return;
-    }
+    if (!query) return;
+
+    // To allow us to cancel the GET...
+    const source = axios.CancelToken.source();
+
+    // ... after the specified duration (falling back to manual
+    // entry), to prevent users hanging around without any feedback
+    const thisTimer = setTimeout(() => {
+      source.cancel();
+      this.setState({ timedOut: true });
+    }, this.timeoutDuration);
+
     this.setState({ isSearching: true });
-    axios.get(this.props.data + query)
+
+    axios.get(this.props.data + query, { cancelToken: source.token })
       .then((response) => {
         const options = response.data.data.schools;
         this.setState({ query, options, isSearching: false, lookupFetchError: false });
+        // Clear up the timer on success
+        clearTimeout(thisTimer);
       }).catch((err) => {
+        console.log('err??', err, this.state.timedOut);
         // For now, ensure this is not a validation etc. error
-        if (err.message === 'Network Error' && err.response === undefined) {
+        if ((err.message === 'Network Error' || this.state.timedOut) && err.response === undefined) {
           this.setState({ query, isSearching: false, lookupFetchError: true, lookup: SHOW_MANUAL_LOOKUP });
         }
       });
