@@ -111,7 +111,6 @@ class SchoolsLookUp extends Component {
         // Clear up the timer on success
         clearTimeout(thisTimer);
       }).catch((err) => {
-        console.log('err??', err, this.state.timedOut);
         // For now, ensure this is not a validation etc. error
         if ((err.message === 'Network Error' || this.state.timedOut) && err.response === undefined) {
           this.setState({ query, isSearching: false, lookupFetchError: true, lookup: SHOW_MANUAL_LOOKUP });
