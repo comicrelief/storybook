@@ -12,7 +12,7 @@ class PostcodeLookup extends Component {
    */
   constructor(props) {
     super(props);
-    this.timeoutDuration = 5000;
+    this.timeoutDuration = 10000;
     this.state = {
       addressDropdownList: [],
       countryDropdownList: [],

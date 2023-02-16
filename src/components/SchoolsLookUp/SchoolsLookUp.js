@@ -25,7 +25,7 @@ class SchoolsLookUp extends Component {
     } else {
       lookup = SHOW_EDCO_LOOKUP;
     }
-    this.timeoutDuration = 5000;
+    this.timeoutDuration = 10000;
     this.state = {
       options: [],
       query: '',
