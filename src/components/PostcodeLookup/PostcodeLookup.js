@@ -12,6 +12,7 @@ class PostcodeLookup extends Component {
    */
   constructor(props) {
     super(props);
+    this.timeoutDuration = 10000;
     this.state = {
       addressDropdownList: [],
       countryDropdownList: [],
@@ -157,11 +158,22 @@ class PostcodeLookup extends Component {
    * @return {Promise}
    */
   addressLookup() {
-    return axios.get(this.props.plusURL + this.state.validation.postcode.value)
+    // To allow us to cancel the GET...
+    const source = axios.CancelToken.source();
+
+    // ... after the specified duration (falling back to manual
+    // entry), to prevent users hanging around without any feedback
+    const thisTimer = setTimeout(() => {
+      source.cancel();
+    }, this.timeoutDuration);
+
+    return axios.get(this.props.plusURL + this.state.validation.postcode.value, { cancelToken: source.token })
       .then((response) => {
         if (response.status !== 200) {
           throw Error();
         }
+        // Clear up the timer on success
+        clearTimeout(thisTimer);
         return response.data;
       })
       .then((response) => {
