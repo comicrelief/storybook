@@ -97,7 +97,9 @@ class SchoolsLookUp extends Component {
     // entry), to prevent users hanging around without any feedback
     const thisTimer = setTimeout(() => {
       source.cancel();
-      this.setState({ timedOut: true });
+      this.setState({
+        timedOut: true,
+      });
     }, this.timeoutDuration);
 
     this.setState({ isSearching: true });
