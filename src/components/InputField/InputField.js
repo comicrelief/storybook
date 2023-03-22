@@ -245,6 +245,7 @@ class InputField extends Component {
               onChange={e => this.handleInputValidation(e)}
               ref={this.setRef}
               defaultValue={this.state.value}
+              value={this.state.value}
             />
             {this.props.inlineButton === true &&
             <div className="form__btn">
