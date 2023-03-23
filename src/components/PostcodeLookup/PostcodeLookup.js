@@ -373,7 +373,7 @@ class PostcodeLookup extends Component {
       placeholder: this.props.placeholder,
       buttonText: this.props.buttonText,
       pattern: this.props.postcodePattern,
-      invalidErrorText: 'Please enter a valid postcode',
+      invalidErrorText: this.props.invalidErrorText,
       emptyFieldErrorText: 'Please enter your postcode',
       extraClass: 'search-box',
       autoComplete: isBrowser.name === 'chrome' ? 'new-postcode' : 'off',
@@ -501,6 +501,7 @@ PostcodeLookup.defaultProps = {
   buttonText: 'FIND UK ADDRESS',
   placeholder: 'SE1 7TP',
   postcodePattern: '^(?!\s*$).+', // Temporarily to allow non-UK postcodes on Donate for CWG
+  invalidErrorText: 'Please enter a valid postcode',
 };
 
 PostcodeLookup.propTypes = {
@@ -513,6 +514,7 @@ PostcodeLookup.propTypes = {
   buttonText: propTypes.string,
   placeholder: propTypes.string,
   postcodePattern: propTypes.string,
+  invalidErrorText: propTypes.string,
 };
 
 export default PostcodeLookup;
