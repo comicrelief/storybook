@@ -244,7 +244,6 @@ class InputField extends Component {
               onBlur={e => this.handleInputValidation(e)}
               onChange={e => this.handleInputValidation(e)}
               ref={this.setRef}
-              defaultValue={this.state.value}
               value={this.state.value}
             />
             {this.props.inlineButton === true &&
