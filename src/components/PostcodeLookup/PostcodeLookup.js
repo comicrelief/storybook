@@ -16,7 +16,7 @@ class PostcodeLookup extends Component {
     this.timeoutDuration = 10000;
     this.defaultCountry = 'GB';
     this.state = {
-      // Updated when the country field is updated, initially set using the postcodeValidation
+      // Initially set using the postcodeValidation prop (be it default or overridden)
       currentPostcodeValidation: props.postcodeValidation[this.defaultCountry],
       postcodeTest: false,
       addressDropdownList: [],
