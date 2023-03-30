@@ -5,6 +5,7 @@ import browser from 'browser-detect';
 import SelectField from '../SelectField/SelectField';
 import InputField from '../InputField/InputField';
 import countries from './countries.json';
+import postcodePatterns from './postcodePatterns';
 
 class PostcodeLookup extends Component {
   /**
@@ -13,7 +14,9 @@ class PostcodeLookup extends Component {
   constructor(props) {
     super(props);
     this.timeoutDuration = 10000;
+    this.defaultCountry = 'GB';
     this.state = {
+      currentPostcodePattern: postcodePatterns(this.defaultCountry),
       addressDropdownList: [],
       countryDropdownList: [],
       postcodeValidationMessage: false,
@@ -119,22 +122,28 @@ class PostcodeLookup extends Component {
 
   /**
    * Update state with value and validity from child
-   * @param name
-   * @param valid
+   * @param fieldName
+   * @param fieldValidityObj
    */
-  setValidity(name, valid) {
-    if ((this.state.validation[name].value === undefined || this.state.validation[name].value !== valid.value) ||
-      (this.state.validation[name].message !== valid.message)) {
+  setValidity(fieldName, fieldValidityObj) {
+    if ((this.state.validation[fieldName].value === undefined || this.state.validation[fieldName].value !== fieldValidityObj.value) ||
+      (this.state.validation[fieldName].message !== fieldValidityObj.message)) {
+
       this.setState({
         ...this.state,
         fieldRefs: this.fieldRefs,
+        // Only update the regex state when necessary
+        ...(fieldName === 'country' && {
+          // Use country value as object key
+          currentPostcodePattern: postcodePatterns(fieldValidityObj.value),
+        }),
         validation: {
           ...this.state.validation,
-          [name]: {
-            valid: valid.valid,
-            value: valid.value,
-            message: valid.message,
-            showErrorMessage: valid.showErrorMessage,
+          [fieldName]: {
+            valid: fieldValidityObj.valid,
+            value: fieldValidityObj.value,
+            message: fieldValidityObj.message,
+            showErrorMessage: fieldValidityObj.showErrorMessage,
           },
         },
       });
@@ -225,7 +234,7 @@ class PostcodeLookup extends Component {
    * Updates state with new country object.
    */
   createCountryDropdownList() {
-    let value = 'GB';
+    let value = this.defaultCountry;
     let dropDownList = [];
     if (this.props.valuesFromParent !== null) {
       const isGBSelected = this.props.valuesFromParent.country.value === '' || this.props.valuesFromParent.country.value === 'GB';
@@ -372,11 +381,12 @@ class PostcodeLookup extends Component {
       type: 'text',
       placeholder: this.props.placeholder,
       buttonText: this.props.buttonText,
-      pattern: this.props.postcodePattern,
+      pattern: this.state.currentPostcodePattern,
       invalidErrorText: this.props.invalidErrorText,
       emptyFieldErrorText: 'Please enter your postcode',
       extraClass: 'search-box',
       autoComplete: isBrowser.name === 'chrome' ? 'new-postcode' : 'off',
+      key: this.state.currentPostcodePattern,
     };
     const addressPattern = /^[A-Za-z0-9]+[ _.'/&\w-]*$/;
     const addressErrorMessage = 'This field only accepts alphanumeric characters and \' . - & _ /';
@@ -500,7 +510,6 @@ PostcodeLookup.defaultProps = {
   plusURL: 'https://lookups.sls.comicrelief.com/postcode/lookup?query=',
   buttonText: 'FIND UK ADDRESS',
   placeholder: 'SE1 7TP',
-  postcodePattern: '^(?!\s*$).+', // Temporarily to allow non-UK postcodes on Donate for CWG
   invalidErrorText: 'Please enter a valid postcode',
 };
 
@@ -513,7 +522,6 @@ PostcodeLookup.propTypes = {
   plusURL: propTypes.string,
   buttonText: propTypes.string,
   placeholder: propTypes.string,
-  postcodePattern: propTypes.string,
   invalidErrorText: propTypes.string,
 };
 
