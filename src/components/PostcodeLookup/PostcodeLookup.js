@@ -5,7 +5,7 @@ import browser from 'browser-detect';
 import SelectField from '../SelectField/SelectField';
 import InputField from '../InputField/InputField';
 import countries from './countries.json';
-import postcodePatterns from './postcodePatterns';
+import { defaultPostcodeValidation, fallbackPostcodeValidation } from './postcodePatterns';
 
 class PostcodeLookup extends Component {
   /**
@@ -16,7 +16,9 @@ class PostcodeLookup extends Component {
     this.timeoutDuration = 10000;
     this.defaultCountry = 'GB';
     this.state = {
-      currentPostcodePattern: postcodePatterns(this.defaultCountry),
+      // Updated when the country field is updated, initially set using the postcodeValidation
+      currentPostcodeValidation: props.postcodeValidation[this.defaultCountry],
+      postcodeTest: false,
       addressDropdownList: [],
       countryDropdownList: [],
       postcodeValidationMessage: false,
@@ -128,14 +130,16 @@ class PostcodeLookup extends Component {
   setValidity(fieldName, fieldValidityObj) {
     if ((this.state.validation[fieldName].value === undefined || this.state.validation[fieldName].value !== fieldValidityObj.value) ||
       (this.state.validation[fieldName].message !== fieldValidityObj.message)) {
+      // Only revalidate the postcode when the country has changed value
+      const revalidatePostcode = fieldName === 'country' && fieldValidityObj !== this.state.validation.country.value;
 
       this.setState({
         ...this.state,
         fieldRefs: this.fieldRefs,
         // Only update the regex state when necessary
-        ...(fieldName === 'country' && {
-          // Use country value as object key
-          currentPostcodePattern: postcodePatterns(fieldValidityObj.value),
+        ...(revalidatePostcode && {
+          // If there's no specific regex pattern for this country code, use the fallback pattern
+          currentPostcodeValidation: this.props.postcodeValidation[fieldValidityObj.value] || fallbackPostcodeValidation,
         }),
         validation: {
           ...this.state.validation,
@@ -147,6 +151,11 @@ class PostcodeLookup extends Component {
           },
         },
       });
+
+      // Force a revalidation of the postcode if the country (and therefore the regex) has changed
+      if (revalidatePostcode) {
+        this.revalidatePostcode();
+      }
     }
   }
 
@@ -161,6 +170,28 @@ class PostcodeLookup extends Component {
       isAddressFieldsHidden: this.state.isAddressFieldsHidden === true && validation.address1.value === '' && this.props.forceManualInput === false,
     });
   }
+
+  /**
+  * Crummy workaround to trigger a revalidation
+  */
+  revalidatePostcode() {
+    // Store the current postcode to re-add
+    const postcodeField = document.getElementById('field-input--postcode');
+    const currentPostcodeValue = postcodeField.value;
+    const blurEvent = new Event('blur', { bubbles: true });
+
+    // Temporarily reset the postcode field and programmatically
+    // trigger a blur event to make the validation take notice
+    postcodeField.value = '';
+    postcodeField.dispatchEvent(blurEvent);
+
+    setTimeout(() => {
+      // Immediately re-add the value and trigger another blur event
+      postcodeField.value = currentPostcodeValue;
+      postcodeField.dispatchEvent(blurEvent);
+    }, 1);
+  }
+
 
   /**
    * Get addresses from lookup API and update state
@@ -381,12 +412,12 @@ class PostcodeLookup extends Component {
       type: 'text',
       placeholder: this.props.placeholder,
       buttonText: this.props.buttonText,
-      pattern: this.state.currentPostcodePattern,
-      invalidErrorText: this.props.invalidErrorText,
+      pattern: this.state.currentPostcodeValidation.pattern,
+      // As the error msg will depend on exactly what the regex is asking for, it comes via the associated pattern object
+      invalidErrorText: this.state.currentPostcodeValidation.errorMsg,
       emptyFieldErrorText: 'Please enter your postcode',
       extraClass: 'search-box',
       autoComplete: isBrowser.name === 'chrome' ? 'new-postcode' : 'off',
-      key: this.state.currentPostcodePattern,
     };
     const addressPattern = /^[A-Za-z0-9]+[ _.'/&\w-]*$/;
     const addressErrorMessage = 'This field only accepts alphanumeric characters and \' . - & _ /';
@@ -510,7 +541,8 @@ PostcodeLookup.defaultProps = {
   plusURL: 'https://lookups.sls.comicrelief.com/postcode/lookup?query=',
   buttonText: 'FIND UK ADDRESS',
   placeholder: 'SE1 7TP',
-  invalidErrorText: 'Please enter a valid postcode',
+  // Use these as default
+  postcodeValidation: defaultPostcodeValidation,
 };
 
 PostcodeLookup.propTypes = {
@@ -522,7 +554,8 @@ PostcodeLookup.propTypes = {
   plusURL: propTypes.string,
   buttonText: propTypes.string,
   placeholder: propTypes.string,
-  invalidErrorText: propTypes.string,
+  // An optional prop to allow contexts to override them
+  postcodeValidation: propTypes.object,
 };
 
 export default PostcodeLookup;
