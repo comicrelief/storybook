@@ -5,6 +5,7 @@ import browser from 'browser-detect';
 import SelectField from '../SelectField/SelectField';
 import InputField from '../InputField/InputField';
 import countries from './countries.json';
+import { defaultPostcodeValidation, fallbackPostcodeValidation } from './postcodeValidations';
 
 class PostcodeLookup extends Component {
   /**
@@ -13,7 +14,11 @@ class PostcodeLookup extends Component {
   constructor(props) {
     super(props);
     this.timeoutDuration = 10000;
+    this.defaultCountry = 'GB';
     this.state = {
+      // Initially set using the postcodeValidation prop (be it default or overridden)
+      currentPostcodeValidation: props.postcodeValidation[this.defaultCountry],
+      postcodeTest: false,
       addressDropdownList: [],
       countryDropdownList: [],
       postcodeValidationMessage: false,
@@ -119,25 +124,38 @@ class PostcodeLookup extends Component {
 
   /**
    * Update state with value and validity from child
-   * @param name
-   * @param valid
+   * @param fieldName
+   * @param fieldValidityObj
    */
-  setValidity(name, valid) {
-    if ((this.state.validation[name].value === undefined || this.state.validation[name].value !== valid.value) ||
-      (this.state.validation[name].message !== valid.message)) {
+  setValidity(fieldName, fieldValidityObj) {
+    if ((this.state.validation[fieldName].value === undefined || this.state.validation[fieldName].value !== fieldValidityObj.value) ||
+      (this.state.validation[fieldName].message !== fieldValidityObj.message)) {
+      // Only revalidate the postcode when the country has changed value
+      const revalidatePostcode = fieldName === 'country' && fieldValidityObj !== this.state.validation.country.value;
+
       this.setState({
         ...this.state,
         fieldRefs: this.fieldRefs,
+        // Only update the regex state when necessary
+        ...(revalidatePostcode && {
+          // If there's no specific regex pattern for this country code, use the fallback pattern
+          currentPostcodeValidation: this.props.postcodeValidation[fieldValidityObj.value] || fallbackPostcodeValidation,
+        }),
         validation: {
           ...this.state.validation,
-          [name]: {
-            valid: valid.valid,
-            value: valid.value,
-            message: valid.message,
-            showErrorMessage: valid.showErrorMessage,
+          [fieldName]: {
+            valid: fieldValidityObj.valid,
+            value: fieldValidityObj.value,
+            message: fieldValidityObj.message,
+            showErrorMessage: fieldValidityObj.showErrorMessage,
           },
         },
       });
+
+      // Force a revalidation of the postcode if the country (and therefore the regex) has changed
+      if (revalidatePostcode) {
+        this.revalidatePostcode();
+      }
     }
   }
 
@@ -152,6 +170,28 @@ class PostcodeLookup extends Component {
       isAddressFieldsHidden: this.state.isAddressFieldsHidden === true && validation.address1.value === '' && this.props.forceManualInput === false,
     });
   }
+
+  /**
+  * Crummy workaround to trigger a revalidation
+  */
+  revalidatePostcode() {
+    // Store the current postcode to re-add
+    const postcodeField = document.getElementById('field-input--postcode');
+    const currentPostcodeValue = postcodeField.value;
+    const blurEvent = new Event('blur', { bubbles: true });
+
+    // Temporarily reset the postcode field and programmatically
+    // trigger a blur event to make the validation take notice
+    postcodeField.value = '';
+    postcodeField.dispatchEvent(blurEvent);
+
+    setTimeout(() => {
+      // Immediately re-add the value and trigger another blur event
+      postcodeField.value = currentPostcodeValue;
+      postcodeField.dispatchEvent(blurEvent);
+    }, 1);
+  }
+
 
   /**
    * Get addresses from lookup API and update state
@@ -225,7 +265,7 @@ class PostcodeLookup extends Component {
    * Updates state with new country object.
    */
   createCountryDropdownList() {
-    let value = 'GB';
+    let value = this.defaultCountry;
     let dropDownList = [];
     if (this.props.valuesFromParent !== null) {
       const isGBSelected = this.props.valuesFromParent.country.value === '' || this.props.valuesFromParent.country.value === 'GB';
@@ -372,8 +412,9 @@ class PostcodeLookup extends Component {
       type: 'text',
       placeholder: this.props.placeholder,
       buttonText: this.props.buttonText,
-      pattern: this.props.postcodePattern,
-      invalidErrorText: this.props.invalidErrorText,
+      pattern: this.state.currentPostcodeValidation.pattern,
+      // As the error msg will depend on exactly what the regex is asking for, it comes via the associated validation object
+      invalidErrorText: this.state.currentPostcodeValidation.errorMsg,
       emptyFieldErrorText: 'Please enter your postcode',
       extraClass: 'search-box',
       autoComplete: isBrowser.name === 'chrome' ? 'new-postcode' : 'off',
@@ -500,8 +541,7 @@ PostcodeLookup.defaultProps = {
   plusURL: 'https://lookups.sls.comicrelief.com/postcode/lookup?query=',
   buttonText: 'FIND UK ADDRESS',
   placeholder: 'SE1 7TP',
-  postcodePattern: '^(?!\s*$).+', // Temporarily to allow non-UK postcodes on Donate for CWG
-  invalidErrorText: 'Please enter a valid postcode',
+  postcodeValidation: defaultPostcodeValidation,
 };
 
 PostcodeLookup.propTypes = {
@@ -513,8 +553,9 @@ PostcodeLookup.propTypes = {
   plusURL: propTypes.string,
   buttonText: propTypes.string,
   placeholder: propTypes.string,
-  postcodePattern: propTypes.string,
-  invalidErrorText: propTypes.string,
+  // An optional prop to allow contexts to override them;
+  // see postcodeValidations.js for reference
+  postcodeValidation: propTypes.object,
 };
 
 export default PostcodeLookup;
