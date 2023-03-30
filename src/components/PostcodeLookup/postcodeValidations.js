@@ -1,3 +1,4 @@
+// Passed to the PCLU component as default prop value
 const defaultPostcodeValidation = {
   GB: {
     pattern: '(GIR 0AA)|((([A-Z][0-9][0-9]?)|(([A-Z][A-HJ-Y][0-9][0-9]?)|(([A-Z][0-9][A-Z])|([A-Z][A-HJ-Y][0-9]?[A-Z])))) [0-9][A-Z]{2})',

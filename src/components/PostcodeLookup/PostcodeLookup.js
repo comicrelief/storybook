@@ -5,7 +5,7 @@ import browser from 'browser-detect';
 import SelectField from '../SelectField/SelectField';
 import InputField from '../InputField/InputField';
 import countries from './countries.json';
-import { defaultPostcodeValidation, fallbackPostcodeValidation } from './postcodePatterns';
+import { defaultPostcodeValidation, fallbackPostcodeValidation } from './postcodeValidations';
 
 class PostcodeLookup extends Component {
   /**
@@ -413,7 +413,7 @@ class PostcodeLookup extends Component {
       placeholder: this.props.placeholder,
       buttonText: this.props.buttonText,
       pattern: this.state.currentPostcodeValidation.pattern,
-      // As the error msg will depend on exactly what the regex is asking for, it comes via the associated pattern object
+      // As the error msg will depend on exactly what the regex is asking for, it comes via the associated validation object
       invalidErrorText: this.state.currentPostcodeValidation.errorMsg,
       emptyFieldErrorText: 'Please enter your postcode',
       extraClass: 'search-box',
@@ -541,7 +541,6 @@ PostcodeLookup.defaultProps = {
   plusURL: 'https://lookups.sls.comicrelief.com/postcode/lookup?query=',
   buttonText: 'FIND UK ADDRESS',
   placeholder: 'SE1 7TP',
-  // Use these as default
   postcodeValidation: defaultPostcodeValidation,
 };
 
@@ -554,7 +553,8 @@ PostcodeLookup.propTypes = {
   plusURL: propTypes.string,
   buttonText: propTypes.string,
   placeholder: propTypes.string,
-  // An optional prop to allow contexts to override them
+  // An optional prop to allow contexts to override them;
+  // see postcodeValidations.js for reference
   postcodeValidation: propTypes.object,
 };
 
