@@ -1034,9 +1034,10 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@comicrelief/pattern-lab@*":
-  version "7.67.0"
-  resolved "https://registry.yarnpkg.com/@comicrelief/pattern-lab/-/pattern-lab-7.67.0.tgz#8e93b8c825bbd1a4ce0fa8e5dd3e223e9049b96d"
+"@comicrelief/pattern-lab@7.67.1":
+  version "7.67.1"
+  resolved "https://registry.yarnpkg.com/@comicrelief/pattern-lab/-/pattern-lab-7.67.1.tgz#14a59f1edbba360b1cb5dabb31f4eee34c3c9a9b"
+  integrity sha512-2eEyQ2HeuPfwunHBESd0L9F+CCpQZ9EmdCGL8vJk5N1udvoE/rsB2CBdoOZLx6AfSvjrmjmRtoMALpSlO0jt/w==
   dependencies:
     event-stream "3.3.4"
     grunt-contrib-copy "^1.0.0"
