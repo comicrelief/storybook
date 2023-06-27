@@ -1,0 +1,74 @@
+/* placeholder for generic icon stuff (icons in footer and sharing icons will be the same in future)*/
+%social-icons {
+  li {
+    display: inline-block;
+    margin: 0 gutter();
+    a {
+      display: inherit;
+      width: 50px;
+      height: 50px;
+      .icon {
+        display: inherit;
+        width: inherit;
+        height: inherit;
+      }
+    }
+  }
+}
+
+.social-links-label {
+  text-align: right;
+  font-family: $body-font;
+  @include span(6);
+  transform: translateY(50%);
+}
+ul.social-links {
+  text-align: left;
+  @extend %social-icons;
+  @include span(6);
+  li {
+    a,
+    .icon {
+      width: 40px;
+      height: 40px;
+    }
+  }
+}
+
+/* Footer social icons */
+.footer__social-links {
+  @extend %social-icons;
+  ul {
+    text-align: center;
+    padding: 0px;
+  }
+  li {
+    margin: 0 gutter();
+  }
+  .icon {
+    transition: fill 0.3s ease;
+
+    fill: white;
+    &:hover {
+      fill: #c8c8c8;
+    }
+  }
+  html.no-svg & {
+    background: no-repeat center center;
+    &.icon__fb {
+      background-image: url($image-path + "facebook.png");
+    }
+    &.icon__twitter {
+      background-image: url($image-path + "twitter.png");
+    }
+    &.icon__googleplus {
+      background-image: url($image-path + "gplus.png");
+    }
+    &.icon__youtube {
+      background-image: url($image-path + "youtube.png");
+    }
+    &.icon__instagram {
+      background-image: url($image-path + "instagram.png");
+    }
+  }
+}

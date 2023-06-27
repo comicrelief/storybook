@@ -1,0 +1,42 @@
+.form__checkbox {
+    input[type="checkbox"]+span {
+      border: 1px solid $colour-grey;
+    }
+
+    input[type="checkbox"]:checked+span {
+      background: url($image-path + "checkbox-tick-new.png") center/50% no-repeat;
+    }
+
+    input[type="checkbox"]+span,
+    input[type="checkbox"]:checked+span {
+      background-color: $colour-white;
+    }
+
+    input[type="checkbox"]:focus+span {
+      border-color: $colour-black;
+    }
+  
+    &.form__checkbox-text-only {
+      label.form__checkbox {
+        left: 0px;
+        text-decoration: underline;
+  
+        &:before {
+          display: none;
+        }
+      }
+       input[type=checkbox] {
+        position: absolute;
+        top: 15px;
+        opacity: 0;
+        width: 100%;
+        height: 50px;
+        cursor: pointer;
+      }
+    }
+}
+
+label:not(.required, .form__checkbox):after {
+    content: " (Optional)";
+}
+

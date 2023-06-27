@@ -1,0 +1,43 @@
+.partners {
+	@include container;
+	color: $colour-deep-violet;
+  padding: 25px 20px;
+
+	@include breakpoint($screen-md) {
+    text-align: center;
+  }
+
+	.donate__partners {
+		font-family: $body-font;
+		display: flex;
+		justify-content: center;
+
+		.donate__partners-fr {
+			@include span(9);
+			width: 185px;
+		}
+
+		.donate__partners-digicert {
+			@include span(3);
+			width: 85px;
+		}
+
+		img {
+			max-width: 100%;
+			display: block;
+		}
+	}
+
+	.donate__partners-copy {
+		color: $colour--black;
+		margin-top: 25px;
+		p, 
+		.hyperlink {
+			color: inherit;
+		}
+	}
+
+	.hyperlink {
+		color: $colour--black;	
+	}
+}

@@ -1,0 +1,272 @@
+// Money buy block
+.form__row--moneybuy-block {
+  p {
+    @extend p;
+    color: $colour--white;
+  }
+
+  p,
+  .number-input-label {
+    color:  $colour--white;
+  }
+
+  .form__fieldset {
+    @include clearfix;
+    position: relative;
+
+    &.form__amount-submit {
+      margin-top: 45px;
+      text-align: center;
+
+      #comicrelief_payinbundle_payment_amount_submit {
+        width: 100%;
+
+        @include breakpoint($screen-lg) {
+          width: auto;
+        }
+      }
+    }
+
+    // Shift button down to make room for error
+    &.form__field-error-wrapper {
+      & + .form__fieldset.form__amount-submit.submit-btn-wrapper {
+        margin-top: 65px;
+
+        @include breakpoint($screen-md){
+          margin-top: 70px;
+        }
+
+        @include breakpoint($screen-lg){
+          margin-top: 70px;
+        }
+      }
+    }
+
+    // Adjust button to show larger alert message
+    &.payin-alert {
+      & + .form__fieldset.form__amount-submit.submit-btn-wrapper {
+        margin-top: 85px;
+        @include breakpoint($screen-md){
+          margin-top: 90px;
+        }
+      }
+    }
+    
+    // Move second error msg under first
+    &.payin-alert.form__field-error-wrapper {
+      .form__field-error-container--amount + .form__field-error-container--payin-alert {
+        margin-top: 40px;
+      }
+      // Move submit button accordingly
+      & + .form__fieldset.form__amount-submit.submit-btn-wrapper {
+        margin-top: 125px;
+        @include breakpoint($screen-md){
+          margin-top: 130px;
+        }
+      }
+    }
+  }
+
+  .form__field-error-container--amount,
+  .form__field-error-container--payin-alert {
+    position: absolute;
+    top: 60px;
+    width: 100%;
+    left: 0;
+  }
+
+  .form__togglebtn-amount {
+    .select-amount-btn {
+      position: relative;
+      margin: 0 0 20px 0;
+      padding: 10px 0;
+      height: auto;
+      min-height: 84px;
+      background-color: $colour--btn-light;
+      color: $colour--black;
+      font-family: $body-font;
+      line-height: 22px;
+      text-transform: none;
+      text-align: left;
+      text-shadow: none;
+      letter-spacing: normal;
+      background-clip: inherit;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+      transition: box-shadow 0.2s ease-in-out;
+      @include border-radius(8px);
+      @include colour-transition();
+
+      &.selected,
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: $colour--btn-selected;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+        color: $colour--white;
+        border: none;
+        // outline: none; // should we be doing this?
+
+        .select-amount,
+        .select-amount--context {
+          color: $colour-white;
+        }
+      }
+
+      &:hover,
+      &:focus {
+        background-color: $colour--btn-hover;
+      }
+
+      &:active {
+        background-color: $colour--btn-on-click;
+      }
+
+      // Override colour for selected buttons to 'remove' focus and hover colour
+      &.selected {
+        &:hover,
+        &:focus,
+        &:active {
+          background-color: $colour--btn-selected;
+        }
+      }
+
+      span {
+        color: inherit;
+      }
+
+      .select-amount {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        width: 80px;
+        font-family: $font-bold;
+        text-align: center;
+        width: 125px;
+
+        .amount-text {
+          position: relative;
+          top: calc(50% - 0.5em);
+          font-size: 30px;
+
+          &-value {
+            font-size: 35px;
+            top: calc(50% - 0.5em + 3px);
+          }
+        }
+      }
+
+      .select-amount--context {
+        display: block;
+        margin-left: 100px;
+        margin-right: 5px;
+        max-width: 65%;
+        line-height: 1.3;
+        margin-left: 125px;
+      }
+    }
+  }
+
+  .currency-input-label {
+    position: absolute;
+    left: 50%;
+    top: 14px;
+    line-height: 21px;
+    color: $colour--black;
+    font-size: 18px;
+    font-family: $body-font;
+    margin-left: 15px;
+    margin-top: 1px;
+    z-index: 9;
+    @include breakpoint($screen-lg) {
+      left: 30%;
+    }
+  }
+
+  div.form__field--amount {
+    width: 50%;
+    margin: 0;
+    float: left;
+    
+    @include breakpoint($screen-lg) {
+      width: 70%;
+    }
+    
+    .form__field--amount {
+      width: 100%;
+      @include placeholder($colour--placeholder, 18px, $body-font, 22px, 700, 20px, 24px);
+      font-size: 18px;
+      padding-left: 28px;
+      float: left;
+      border-color: $colour-white;
+      @include border-radius(0 8px 8px 0);
+      position: relative;
+
+      @include breakpoint($screen-lg) {
+        margin-right: 0px;
+      }
+    }
+
+    &.form__field--wrapper {
+      margin-bottom: 0;
+
+      @include breakpoint($screen-lg) {
+        //width: 260px;
+      }
+    }
+
+    .error-container {
+      position: relative;
+      top: 25px;
+
+      .help-block.form-error {
+        position: absolute;
+        top: 25px;
+      }
+    }
+  }
+
+  div.form__field--currency {
+    width: 50%;
+    margin: 0;
+    float: left;
+
+    @include breakpoint($screen-lg) {
+      width: 30%;
+    }
+  
+    .form__field--currency {
+      float: left;
+      width: 100%;
+      background-color: $colour-white;
+      border-color: $colour-white;
+      border-left: none;
+      font-size: 18px;
+      line-height: 24px;
+      padding: 12px 50px 12px 10px;
+      background-position: calc(100% - 22px) 15px;
+      @include border-radius(8px);
+    }
+
+    #comicrelief_payinbundle_payment_currency {
+      @include breakpoint($screen-lg) {
+        margin: 0;
+      }
+    }
+  }
+
+  .form__field--currency,
+  .form__field--amount {
+    label {
+      @extend .visually-hidden;
+    }
+  }
+}
+
+// Payin-specific
+section.payin #field-error--amount {
+  .form-error {
+    margin-top: 80px;
+  }
+}

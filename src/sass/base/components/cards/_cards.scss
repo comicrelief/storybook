@@ -1,0 +1,55 @@
+.cards {
+  width: 100%;
+  padding: 30px 0;
+  @include breakpoint($screen-md) {
+    padding: 60px 0;
+  }
+  &.cards--four-grid {
+    .cards__wrapper {
+      justify-content: flex-start;
+    }
+  }
+  &.cards--three-grid {
+    .cards__wrapper {
+      justify-content: flex-start;
+      .card {
+        @include breakpoint($screen-md-max) {
+          @include span(4);
+        }
+      }
+    }
+    &-centre {
+      .cards__wrapper {
+        .card {
+          @include breakpoint($screen-md-max) {
+            @include span(4);
+          }
+        }
+      }
+    }
+  }
+  // New for Membership page
+  &.cards--two-grid {
+    .cards__wrapper {
+      .card {
+        @include breakpoint($screen-md-max) {
+          @include span(6);
+        }
+      }
+    }
+  }
+}
+.cards__wrapper {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.card {
+  @include breakpoint($screen-md) {
+    @include span(6);
+  }
+  @include breakpoint($screen-md-max) {
+    @include span(3);
+  }
+}

@@ -1,0 +1,116 @@
+
+.cookie-consent.cc_container {
+  display: flex;
+  position: relative;
+  padding: 10px;
+  text-align: center;
+  background: $colour-black;
+  justify-content: space-between;
+  @include breakpoint($screen-lg) {
+    padding: 15px 20px 15px;
+  }
+  .btn,
+  p,
+  a { 
+    color: $colour-white;
+    font-family: $body-font;
+  }
+  p {
+    margin-top: 15px;
+  }
+  .cc_message {
+    margin: 0 auto;
+    width: calc(100% - 50px);
+    font-size: 14px;
+    line-height: 16px;
+    text-align: left;
+    @include breakpoint($screen-md) {
+      width: auto;
+      margin-top: 15px;
+      font-size: 18px;
+      line-height: 20px;
+    }
+  }
+
+  .btn {
+    margin: 0;
+    padding: 12px 20px;
+    width: 40px;
+    height: 44px;
+    text-indent: -9999px;
+    background-image: url( $image-path + "cross-close.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    // no hover because touchscreen and lack of svg mask support, but override default hover colours on buttons 
+    &:hover {
+      background-color: transparent;
+    }
+    
+    @include breakpoint($screen-lg) {
+      min-width: 128px;
+      text-indent: 0;
+      color: $colour-black;
+      background-image: none;
+      background-color: $colour-white;
+      border: 2px solid $colour-white;
+      &:hover {
+        color: $colour-white;
+        background-color: transparent;
+      }
+    }
+  }
+
+  /*  Required a modifier class so we're not affecting the simpler 
+  *   CC banner (w/different markup) currently used in Donate etc. */
+  &.cc_banner--drupal {
+    display: block;
+    padding: 20px;
+
+    .cc_more_info {
+      font-size: inherit;
+      line-height: inherit;
+    }
+
+    .cc_message {
+      margin: 0 0 10px;
+      width: 100%;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      font-size: 14px;
+      line-height: 20px;
+
+      @include breakpoint($screen-md){
+        font-size: 14px;
+        line-height: 20px;
+        width: 75%;
+        margin: 0 auto 15px;
+      }
+
+      .btn:first-child:not(:only-child) {
+        @extend .btn;
+        @extend .btn--white;
+        background-image: none;
+        height: auto;
+        text-indent: 0;
+        margin-top: 0;
+        margin-bottom: 10px !important;
+        padding: 8px 20px !important;
+        width: 100%;
+        color: $colour-black;
+
+        &:hover {
+          color: $colour-white;
+        }
+        
+        @include breakpoint($screen-md) {
+          width: auto;
+          margin-right: 8px !important;
+          margin-bottom: 0 !important;
+        }
+      }
+    }
+  }
+}

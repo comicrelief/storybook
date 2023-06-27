@@ -118,3 +118,4 @@ press `Enter` to skip.
  Currently, the semantic build release method is broken so, with very limited resource to
  maintain this legacy code, we're reverting to updating the version number in `package.json`
  and running `npm publish`.
+

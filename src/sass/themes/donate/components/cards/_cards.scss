@@ -1,0 +1,72 @@
+.cards {
+  padding: 40px 0 30px;
+  .cards__wrapper {
+    @include container;
+
+    .cards__item {
+      width: 100%;
+      margin:0 5% 28px;
+
+      @include breakpoint($screen-md) {
+        margin:0 1.25% 28px;
+        width: 30%;
+      }
+    }
+
+    .cards__image {
+      img {
+        display: block;
+        max-width: 100%;
+      }
+    }
+
+    .cards__content-wrapper {
+      position: relative;
+      padding: 30px 0 0;
+      text-align: left;
+
+      h3 {
+        color: $colour-dark-purple;
+      }
+
+      a {
+        color: $colour-dark-purple;
+      }
+    }
+  }
+
+  .cards-header {
+    margin-bottom: 30px;
+
+    @include breakpoint($screen-md) {
+      width: 100%;
+    }
+  }
+
+  // Extends the cards unit to allow background images for success pages
+  &.cards--three-grid-unit {
+    .cards__image {
+      background-size: 100%;
+      background-repeat: no-repeat;
+      width: 100%;
+      padding-top: 75%;
+      overflow: hidden;
+  
+      &.cards__item--kevin-story {
+        background-image: url($image-path + "kevin-card.jpg");
+      }
+      &.cards__item--aziza-story{
+        background-image: url($image-path + "aziza-card.jpg");
+      }
+      &.cards__item--georgia-story{
+        background-image: url($image-path + "georgia-card.jpg");
+      }
+    }
+  }
+}
+
+.form__row--upsell {
+    text-align: center;
+    padding-bottom: 30px;
+}
+

@@ -1,0 +1,482 @@
+/**
+ * Lightcase - jQuery Plugin
+ * The smart and flexible Lightbox Plugin.
+ *
+ * @author    Cornel Boppart <cornel@bopp-art.com>
+ * @copyright Author
+ *
+ * @version   2.3.4 (29/12/2015)
+ */
+/**
+ * Lightcase settings
+ *
+ * Note: Override default settings for your project without touching this source code by simply
+ * defining those variables within a SASS map called '$lightcase-custom'.
+ *
+ * // Example usage
+ * $lightcase-custom: (
+ *   'breakpoint': 768px
+ * );
+ */
+[class*="lightcase-icon-"]:before {
+  display: inline-block;
+  width: 1em;
+  text-align: center;
+  text-decoration: inherit;
+  text-transform: none;
+  font-weight: normal;
+  font-style: normal;
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+
+  speak: none;
+  /* Uncomment for 3D effect */
+}
+
+#lightcase-loading {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  position: relative;
+}
+#lightcase-loading {
+  font-size: 6px;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  position: fixed;
+  text-indent: -9999em;
+  -webkit-animation: load5 1.1s infinite ease;
+  animation: load5 1.1s infinite ease;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  z-index: 2001;
+  top: 50%;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+@-webkit-keyframes load5 {
+  0%,
+  100% {
+    box-shadow: 0em -2.6em 0em 0em #cbcbcb, 1.8em -1.8em 0 0em rgba(203,203,203, 0.2), 2.5em 0em 0 0em rgba(203,203,203, 0.2), 1.75em 1.75em 0 0em rgba(203,203,203, 0.2), 0em 2.5em 0 0em rgba(203,203,203, 0.2), -1.8em 1.8em 0 0em rgba(203,203,203, 0.2), -2.6em 0em 0 0em rgba(203,203,203, 0.5), -1.8em -1.8em 0 0em rgba(203,203,203, 0.7);
+  }
+  12.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(203,203,203, 0.7), 1.8em -1.8em 0 0em #cbcbcb, 2.5em 0em 0 0em rgba(203,203,203, 0.2), 1.75em 1.75em 0 0em rgba(203,203,203, 0.2), 0em 2.5em 0 0em rgba(203,203,203, 0.2), -1.8em 1.8em 0 0em rgba(203,203,203, 0.2), -2.6em 0em 0 0em rgba(203,203,203, 0.2), -1.8em -1.8em 0 0em rgba(203,203,203, 0.5);
+  }
+  25% {
+    box-shadow: 0em -2.6em 0em 0em rgba(203,203,203, 0.5), 1.8em -1.8em 0 0em rgba(203,203,203, 0.7), 2.5em 0em 0 0em #cbcbcb, 1.75em 1.75em 0 0em rgba(203,203,203, 0.2), 0em 2.5em 0 0em rgba(203,203,203, 0.2), -1.8em 1.8em 0 0em rgba(203,203,203, 0.2), -2.6em 0em 0 0em rgba(203,203,203, 0.2), -1.8em -1.8em 0 0em rgba(203,203,203, 0.2);
+  }
+  37.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(203,203,203, 0.2), 1.8em -1.8em 0 0em rgba(203,203,203, 0.5), 2.5em 0em 0 0em rgba(203,203,203, 0.7), 1.75em 1.75em 0 0em #cbcbcb, 0em 2.5em 0 0em rgba(203,203,203, 0.2), -1.8em 1.8em 0 0em rgba(203,203,203, 0.2), -2.6em 0em 0 0em rgba(203,203,203, 0.2), -1.8em -1.8em 0 0em rgba(203,203,203, 0.2);
+  }
+  50% {
+    box-shadow: 0em -2.6em 0em 0em rgba(203,203,203, 0.2), 1.8em -1.8em 0 0em rgba(203,203,203, 0.2), 2.5em 0em 0 0em rgba(203,203,203, 0.5), 1.75em 1.75em 0 0em rgba(203,203,203, 0.7), 0em 2.5em 0 0em #cbcbcb, -1.8em 1.8em 0 0em rgba(203,203,203, 0.2), -2.6em 0em 0 0em rgba(203,203,203, 0.2), -1.8em -1.8em 0 0em rgba(203,203,203, 0.2);
+  }
+  62.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(203,203,203, 0.2), 1.8em -1.8em 0 0em rgba(203,203,203, 0.2), 2.5em 0em 0 0em rgba(203,203,203, 0.2), 1.75em 1.75em 0 0em rgba(203,203,203, 0.5), 0em 2.5em 0 0em rgba(203,203,203, 0.7), -1.8em 1.8em 0 0em #cbcbcb, -2.6em 0em 0 0em rgba(203,203,203, 0.2), -1.8em -1.8em 0 0em rgba(203,203,203, 0.2);
+  }
+  75% {
+    box-shadow: 0em -2.6em 0em 0em rgba(203,203,203, 0.2), 1.8em -1.8em 0 0em rgba(203,203,203, 0.2), 2.5em 0em 0 0em rgba(203,203,203, 0.2), 1.75em 1.75em 0 0em rgba(203,203,203, 0.2), 0em 2.5em 0 0em rgba(203,203,203, 0.5), -1.8em 1.8em 0 0em rgba(203,203,203, 0.7), -2.6em 0em 0 0em #cbcbcb, -1.8em -1.8em 0 0em rgba(203,203,203, 0.2);
+  }
+  87.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(203,203,203, 0.2), 1.8em -1.8em 0 0em rgba(203,203,203, 0.2), 2.5em 0em 0 0em rgba(203,203,203, 0.2), 1.75em 1.75em 0 0em rgba(203,203,203, 0.2), 0em 2.5em 0 0em rgba(203,203,203, 0.2), -1.8em 1.8em 0 0em rgba(203,203,203, 0.5), -2.6em 0em 0 0em rgba(203,203,203, 0.7), -1.8em -1.8em 0 0em #cbcbcb;
+  }
+}
+@keyframes load5 {
+  0%,
+  100% {
+    box-shadow: 0em -2.6em 0em 0em #cbcbcb, 1.8em -1.8em 0 0em rgba(203,203,203, 0.2), 2.5em 0em 0 0em rgba(203,203,203, 0.2), 1.75em 1.75em 0 0em rgba(203,203,203, 0.2), 0em 2.5em 0 0em rgba(203,203,203, 0.2), -1.8em 1.8em 0 0em rgba(203,203,203, 0.2), -2.6em 0em 0 0em rgba(203,203,203, 0.5), -1.8em -1.8em 0 0em rgba(203,203,203, 0.7);
+  }
+  12.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(203,203,203, 0.7), 1.8em -1.8em 0 0em #cbcbcb, 2.5em 0em 0 0em rgba(203,203,203, 0.2), 1.75em 1.75em 0 0em rgba(203,203,203, 0.2), 0em 2.5em 0 0em rgba(203,203,203, 0.2), -1.8em 1.8em 0 0em rgba(203,203,203, 0.2), -2.6em 0em 0 0em rgba(203,203,203, 0.2), -1.8em -1.8em 0 0em rgba(203,203,203, 0.5);
+  }
+  25% {
+    box-shadow: 0em -2.6em 0em 0em rgba(203,203,203, 0.5), 1.8em -1.8em 0 0em rgba(203,203,203, 0.7), 2.5em 0em 0 0em #cbcbcb, 1.75em 1.75em 0 0em rgba(203,203,203, 0.2), 0em 2.5em 0 0em rgba(203,203,203, 0.2), -1.8em 1.8em 0 0em rgba(203,203,203, 0.2), -2.6em 0em 0 0em rgba(203,203,203, 0.2), -1.8em -1.8em 0 0em rgba(203,203,203, 0.2);
+  }
+  37.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(203,203,203, 0.2), 1.8em -1.8em 0 0em rgba(203,203,203, 0.5), 2.5em 0em 0 0em rgba(203,203,203, 0.7), 1.75em 1.75em 0 0em #cbcbcb, 0em 2.5em 0 0em rgba(203,203,203, 0.2), -1.8em 1.8em 0 0em rgba(203,203,203, 0.2), -2.6em 0em 0 0em rgba(203,203,203, 0.2), -1.8em -1.8em 0 0em rgba(203,203,203, 0.2);
+  }
+  50% {
+    box-shadow: 0em -2.6em 0em 0em rgba(203,203,203, 0.2), 1.8em -1.8em 0 0em rgba(203,203,203, 0.2), 2.5em 0em 0 0em rgba(203,203,203, 0.5), 1.75em 1.75em 0 0em rgba(203,203,203, 0.7), 0em 2.5em 0 0em #cbcbcb, -1.8em 1.8em 0 0em rgba(203,203,203, 0.2), -2.6em 0em 0 0em rgba(203,203,203, 0.2), -1.8em -1.8em 0 0em rgba(203,203,203, 0.2);
+  }
+  62.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(203,203,203, 0.2), 1.8em -1.8em 0 0em rgba(203,203,203, 0.2), 2.5em 0em 0 0em rgba(203,203,203, 0.2), 1.75em 1.75em 0 0em rgba(203,203,203, 0.5), 0em 2.5em 0 0em rgba(203,203,203, 0.7), -1.8em 1.8em 0 0em #cbcbcb, -2.6em 0em 0 0em rgba(203,203,203, 0.2), -1.8em -1.8em 0 0em rgba(203,203,203, 0.2);
+  }
+  75% {
+    box-shadow: 0em -2.6em 0em 0em rgba(203,203,203, 0.2), 1.8em -1.8em 0 0em rgba(203,203,203, 0.2), 2.5em 0em 0 0em rgba(203,203,203, 0.2), 1.75em 1.75em 0 0em rgba(203,203,203, 0.2), 0em 2.5em 0 0em rgba(203,203,203, 0.5), -1.8em 1.8em 0 0em rgba(203,203,203, 0.7), -2.6em 0em 0 0em #cbcbcb, -1.8em -1.8em 0 0em rgba(203,203,203, 0.2);
+  }
+  87.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(203,203,203, 0.2), 1.8em -1.8em 0 0em rgba(203,203,203, 0.2), 2.5em 0em 0 0em rgba(203,203,203, 0.2), 1.75em 1.75em 0 0em rgba(203,203,203, 0.2), 0em 2.5em 0 0em rgba(203,203,203, 0.2), -1.8em 1.8em 0 0em rgba(203,203,203, 0.5), -2.6em 0em 0 0em rgba(203,203,203, 0.7), -1.8em -1.8em 0 0em #cbcbcb;
+  }
+}
+
+/* Codes */
+.lightcase-icon-play:before {
+  content: "\e800";
+}
+
+.lightcase-icon-pause:before {
+  content: "\e801";
+}
+
+.lightcase-icon-close {
+  // temporary, being forced by script, will be refactored
+  opacity: 0.6 !important;
+  &:hover,
+  &:focus,
+  &:active {
+    // temporary, being forced by script, will be refactored
+    opacity: 1 !important;
+  }
+  &:before,
+  &:after {
+    position: absolute;
+    top: 20px;
+    display: block;
+    width: 100%;
+    content: "";
+  }
+  &:before {
+    border-bottom: 4px solid $colour-white;
+    transform: rotate(45deg);
+  }
+  &:after {
+    border-top: 4px solid $colour-white;
+    transform: rotate(-45deg);
+  }
+  span {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.lightcase-icon-prev:before {
+  content: "\e803";
+}
+
+.lightcase-icon-next:before {
+  content: "\e804";
+}
+
+.lightcase-icon-spin:before {
+  content: "";
+}
+
+#lightcase-case {
+  position: fixed;
+  z-index: 2002;
+  top: 40%;
+  left: 50%;
+  display: none;
+  color: $colour-white;
+  p {
+    color: $colour-white;
+  }
+}
+@media screen and (max-width: 640px) {
+  #lightcase-case:not([data-lc-type=image]):not([data-lc-type=video]):not([data-lc-type=flash]):not([data-lc-type=error]) {
+    left: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    background: none !important;
+  }
+}
+
+@media screen and (min-width: 641px) {
+  #lightcase-case:not([data-lc-type=error]) #lightcase-content {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    background-color: #fff;
+    -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+       -moz-box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+
+         -o-box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    -webkit-backface-visibility: hidden;
+  }
+}
+@media screen and (min-width: 641px) {
+  #lightcase-case[data-lc-type=image] #lightcase-content,
+  #lightcase-case[data-lc-type=video] #lightcase-content {
+    background-color: #333;
+  }
+}
+#lightcase-case:not([data-lc-type=image]):not([data-lc-type=video]):not([data-lc-type=flash]):not([data-lc-type=error]) #lightcase-content {
+  -webkit-box-shadow: none;
+     -moz-box-shadow: none;
+          box-shadow: none;
+
+       -o-box-shadow: none;
+}
+@media screen and (max-width: 640px) {
+  #lightcase-case:not([data-lc-type=image]):not([data-lc-type=video]):not([data-lc-type=flash]):not([data-lc-type=error]) #lightcase-content {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    width: auto !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    background: none !important;
+  }
+}
+#lightcase-case:not([data-lc-type=image]):not([data-lc-type=video]):not([data-lc-type=flash]):not([data-lc-type=error]) #lightcase-content .lightcase-contentInner {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+
+       -o-box-sizing: border-box;
+}
+@media screen and (max-width: 640px) {
+  #lightcase-case:not([data-lc-type=image]):not([data-lc-type=video]):not([data-lc-type=flash]):not([data-lc-type=error]) #lightcase-content .lightcase-contentInner {
+    padding: 15px;
+  }
+  #lightcase-case:not([data-lc-type=image]):not([data-lc-type=video]):not([data-lc-type=flash]):not([data-lc-type=error]) #lightcase-content .lightcase-contentInner,
+  #lightcase-case:not([data-lc-type=image]):not([data-lc-type=video]):not([data-lc-type=flash]):not([data-lc-type=error]) #lightcase-content .lightcase-contentInner > * {
+    width: 100% !important;
+    max-width: none !important;
+    height: 270px !important;
+  }
+  #lightcase-case:not([data-lc-type=image]):not([data-lc-type=video]):not([data-lc-type=flash]):not([data-lc-type=error]) #lightcase-content .lightcase-contentInner > *:not(iframe) {
+    height: auto !important;
+    max-height: none !important;
+  }
+}
+@media screen and (max-width: 640px) {
+  .lightcase-isMobileDevice #lightcase-case[data-lc-type=iframe] #lightcase-content .lightcase-contentInner {
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+@media screen and (max-width: 640px) and (min-width: 641px) {
+  [data-lc-type=image] #lightcase-content .lightcase-contentInner,
+  [data-lc-type=video] #lightcase-content .lightcase-contentInner {
+    line-height: 0.75;
+  }
+}
+
+.lightcase-isMobileDevice #lightcase-case[data-lc-type=iframe] #lightcase-content .lightcase-contentInner .lightcase-inlineWrap {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+@media screen and (max-width: 640px) {
+  #lightcase-case:not([data-lc-type=image]):not([data-lc-type=video]):not([data-lc-type=flash]):not([data-lc-type=error]) #lightcase-content .lightcase-contentInner .lightcase-inlineWrap {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    width: auto !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    background: none !important;
+  }
+}
+@media screen and (min-width: 641px) {
+  #lightcase-case:not([data-lc-type=error]) #lightcase-content .lightcase-contentInner .lightcase-inlineWrap {
+    overflow: auto;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+    padding: 30px;
+
+         -o-box-sizing: border-box;
+  }
+}
+
+#lightcase-case p.lightcase-error {
+  overflow: hidden;
+  margin: 0;
+  text-align: center;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+@media screen and (max-width: 640px) {
+  #lightcase-case p.lightcase-error {
+    padding: 30px 0;
+  }
+}
+@media screen and (min-width: 641px) {
+  #lightcase-case p.lightcase-error {
+    padding: 0;
+  }
+}
+
+.lightcase-isMobileDevice .lightcase-open body {
+  overflow: hidden;
+  max-width: 100%;
+  max-height: 100%;
+}
+@media screen and (max-width: 640px) {
+  .lightcase-open body {
+    padding: 55px 0 70px 0;
+  }
+}
+
+#lightcase-info {
+  position: absolute;
+  width: 100%;
+  @media screen and (max-width: 640px) {
+    padding: 20px;
+  }
+}
+#lightcase-info #lightcase-title,
+#lightcase-info #lightcase-caption {
+  margin: 0;
+  margin-top: 10px;
+  padding: 0;
+  text-overflow: ellipsis;
+  color: $colour-white;
+  text-shadow: none;
+  font-weight: normal;
+  line-height: 1.5;
+  .link,
+  a {
+    color: $colour-white;
+  }
+}
+@media screen and (max-width: 640px) {
+  .lightcase-fullScreenMode #lightcase-info {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  #lightcase-case:not([data-lc-type=image]):not([data-lc-type=video]):not([data-lc-type=flash]):not([data-lc-type=error]) #lightcase-info {
+    position: static;
+  }
+}
+
+#lightcase-nav a[class*="lightcase-icon-"] {
+  position: fixed;
+  z-index: 9999;
+  width: 1.123em;
+  height: auto;
+  cursor: pointer;
+  text-align: center;
+  outline: none;
+  font-size: 38px;
+  line-height: 1;
+}
+#lightcase-nav a[class*="lightcase-icon-"],
+#lightcase-nav a[class*="lightcase-icon-"]:focus {
+  -webkit-transition: color, opacity, ease-in-out 0.25s;
+     -moz-transition: color, opacity, ease-in-out 0.25s;
+       -o-transition: color, opacity, ease-in-out 0.25s;
+          transition: color, opacity, ease-in-out 0.25s;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.6);
+
+  -webkit-tap-highlight-color: transparent;
+}
+#lightcase-nav a[class*="lightcase-icon-"] > span {
+  display: inline-block;
+  text-indent: -9999px;
+}
+#lightcase-nav a[class*="lightcase-icon-"]:hover {
+  color: white;
+}
+.lightcase-isMobileDevice #lightcase-nav a[class*="lightcase-icon-"]:hover {
+  color: #aaa;
+}
+#lightcase-nav a[class*="lightcase-icon-"].lightcase-icon-prev {
+  left: 15px;
+}
+#lightcase-nav a[class*="lightcase-icon-"].lightcase-icon-next {
+  right: 15px;
+}
+#lightcase-nav a[class*="lightcase-icon-"].lightcase-icon-pause,
+#lightcase-nav a[class*="lightcase-icon-"].lightcase-icon-play {
+  left: 50%;
+  margin-left: -0.5em;
+}
+@media screen and (min-width: 641px) {
+  #lightcase-nav a[class*="lightcase-icon-"].lightcase-icon-pause,
+  #lightcase-nav a[class*="lightcase-icon-"].lightcase-icon-play {
+    opacity: 0;
+  }
+}
+#lightcase-nav a[class*="lightcase-icon-"].lightcase-icon-close {
+  top: 20px;
+  right: 20px;
+  bottom: auto;
+  margin: 0;
+  opacity: 0;
+  outline: none;
+}
+@media screen and (max-width: 640px) {
+  #lightcase-nav a[class*="lightcase-icon-"].lightcase-icon-close {
+    position: absolute;
+    top: 4px;
+    right: 14px;
+  }
+}
+@media screen and (min-width: 641px) {
+  #lightcase-nav a[class*="lightcase-icon-"].lightcase-icon-close {
+    position: fixed;
+  }
+}
+@media screen and (max-width: 640px) {
+  #lightcase-nav a[class*="lightcase-icon-"] {
+    bottom: 15px;
+    font-size: 24px;
+  }
+}
+@media screen and (min-width: 641px) {
+  #lightcase-nav a[class*="lightcase-icon-"] {
+    bottom: 50%;
+    margin-bottom: -0.5em;
+  }
+  #lightcase-nav a[class*="lightcase-icon-"]:hover,
+  #lightcase-case:hover ~ #lightcase-nav a[class*="lightcase-icon-"] {
+    opacity: 1;
+  }
+}
+
+#lightcase-overlay {
+  position: fixed;
+  z-index: 2000;
+  top: 0;
+  left: 0;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: $colour-black;
+}
+@media screen and (max-width: 640px) {
+  #lightcase-overlay {
+    opacity: 1 !important;
+  }
+}
+
+#lightcase-case {
+  top: 8%;
+  right: 0;
+  left: 0;
+  margin: auto!important;
+}
+.lightcase-contentInner {
+  @media screen and (min-width: 640px) {
+    height: 420px!important;
+  }
+}
+.lightcase-icon-close {
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  z-index: 9999;
+  display: block;
+  width: 40px;
+  height: 40px;
+  span {
+    display: block;
+    text-indent: -9999px;
+  }
+}
+

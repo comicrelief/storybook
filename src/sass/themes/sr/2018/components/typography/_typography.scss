@@ -1,0 +1,161 @@
+h1 {
+  color: $colour-SR20-deep-violet;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+
+  &.font--large{
+     @include font-size($h1-large-font-size);
+  }
+}
+
+h1,
+h2,
+h3 {
+  font-family: $font-black--sr18;
+  color: $colour-SR20-deep-violet;
+
+}
+
+h4,
+h5 {
+  color: $colour-SR20-deep-violet;
+  font-family: $font-bold--sr18;
+}
+
+h2 {
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+
+h3,
+h3.alternate {
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+
+h5 {
+  @include font-size($h5-font-size);
+  margin-bottom: 15px;
+}
+
+i.font--family-black {
+  font-family: $font-black--sr18;
+}
+.font--family-black {
+  font-family: $font-black--sr18;
+}
+i.font--family-bold {
+  font-family: $font-bold--sr18;
+}
+.font--family-bold {
+  font-family: $font-bold--sr18;
+}
+i.font--family-regular {
+  font-family: $font-regular--sr18;
+}
+.font--family-regular {
+  font-family: $font-regular--sr18;
+
+}
+strong {
+  font-family: $font-bold--sr18;
+  color: $colour-dark-blue-lighter;
+}
+
+p {
+  color: $colour-SR20-deep-violet;
+  font-family: $font-regular--sr18;
+
+  &.font--xxlarge {
+    margin-bottom: 20px;
+    @include font-size($p-xxlarge-font-size);
+  }
+  &.font--xxsmall {
+    @include font-size($p-xxsmall-font-size);
+  }
+}
+span,
+ul,
+ol {
+  color: $colour-SR20-deep-violet;
+}
+
+// colour classes
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+span,
+strong,
+ul,
+ol,
+li {
+  &.font {
+    &--black {
+      color: $colour-black;
+    }
+    &--dark-blue {
+      color: $colour-dark-blue;
+    }
+    &--dark-blue-lighter {
+      color: $colour-dark-blue-lighter;
+    }
+    &--ruby {
+      color: $colour-ruby;
+    }
+    &--white-smoke {
+      color: $colour-white-smoke;
+    }
+    &--white {
+      color: $colour-white;
+    }
+    &--SR19-white {
+      color: $colour-SR19-white;
+    }
+    &--SR19-black {
+      color: $colour-SR19-black;
+    }
+    &--SR19-light-blue {
+      color: $colour-SR19-light-blue;
+    }
+    &--SR19-dark-blue {
+      color: $colour-SR19-dark-blue;
+    }
+    &--SR19-coral {
+      color: $colour-SR19-coral;
+    }
+    &--SR19-red {
+      color: $colour-SR19-red;
+    }
+    /* SR20 */
+    &--SR20-deep-violet {
+      color: $colour-SR20-deep-violet;
+    }
+    &--SR20-red {
+      color: $colour-SR20-red;
+    } 
+    &--SR20-dark-blue {
+      color: $colour-SR20-dark-blue;
+    }
+    &--SR20-white {
+      color: $colour-SR20-white;
+    }
+    &--SR20-yellow {
+      color: $colour-SR20-yellow;
+    }
+    &--SR20-green {
+      color: $colour-SR20-green;
+    }
+    &--SR20-cyan-blue {
+      color: $colour-SR20-cyan-blue;
+    }
+    &--SR20-light-grey {
+      color: $colour-SR20-light-grey;
+    }
+    &--SR20-purple {
+      color: $colour-SR20-purple;
+    }
+  }
+}

@@ -1,0 +1,14 @@
+<section class="paragraph">
+  <h2>Max 3 items</h2>
+  <div class="feature-articles-block">
+    {% for i in 0..2 %}
+      {% include directory ~ '../news-teaser/news-teaser.twig' %}
+    {% endfor %}
+  </div>
+  <h2>Teasers always keep same 4 columns width</h2>
+  <div class="feature-articles-block">
+    {% for i in 0..1 %}
+      {% include directory ~ '../news-teaser/news-teaser.twig' %}
+    {% endfor %}
+  </div>
+</section>

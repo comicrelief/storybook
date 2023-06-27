@@ -1,11 +1,11 @@
-@import "~@comicrelief/pattern-lab/sass/base/core/base-1-mixins";
-@import "~@comicrelief/pattern-lab/sass/base/variables/grid";
-@import "~@comicrelief/pattern-lab/sass/base/variables/colours";
-@import "~@comicrelief/pattern-lab/sass/base/variables/typography";
+@import "../../sass/base/core/base-1-mixins";
+@import "../../sass/base/variables/grid";
+@import "../../sass/base/variables/colours";
+@import "../../sass/base/variables/typography";
 /* Pattern Lab Comic Relief theme variables */
-@import "~@comicrelief/pattern-lab/sass/themes/cr/2019/variables/mixins";
+@import "../../sass/themes/cr/2019/variables/mixins";
 
-@import "~@comicrelief/pattern-lab/sass/base/components/just-in-time-block/_just-in-time";
+@import "../../sass/base/components/just-in-time-block/_just-in-time";
 
 /* override base styles */
 .form__row--just-in-time-block {

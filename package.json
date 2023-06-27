@@ -3,7 +3,6 @@
   "description": "React components to build the Comic Relief front-end experience",
   "version": "1.34.2",
   "dependencies": {
-    "@comicrelief/pattern-lab": "7.67.1",
     "@snyk/protect": "^1.1060.0",
     "@storybook/addon-info": "3",
     "@storybook/addon-knobs": "3",
@@ -29,6 +28,7 @@
     "react-vis": "^1.9.1",
     "shortid": "^2.2.13",
     "snyk": "^1.996.0",
+    "susy": "^2.2.12",
     "uglify-js": "git+https://github.com/mishoo/UglifyJS2.git#harmony",
     "url-join": "2",
     "yup": "^0.32.9",

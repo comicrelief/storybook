@@ -1,0 +1,43 @@
+
+.cr-body {
+  ul,
+  ol {
+    font-family: $font-regular--sr18;
+    font-weight: 500;
+    @include font-size($p-font-size);
+    li {
+      font-size: inherit;
+      color: inherit;
+      &:before {
+      color: inherit;
+      }
+    }
+  }
+  // font size classes 
+  ul,
+  ol,
+  li {
+    &.font--xxlarge {
+      margin-bottom: 20px;
+      @include font-size($p-xxlarge-font-size);
+    }
+    &.font--xlarge {
+      margin-bottom: 20px;
+      @include font-size($p-xlarge-font-size);
+    }
+    &.font--large {
+      @include font-size($p-large-font-size);
+    }
+    &.font--small {
+      @include font-size($p-small-font-size);
+    }
+    &.font--xsmall {
+      @include font-size($p-xsmall-font-size);
+    }
+    &.font--xxsmall {
+      @include font-size($p-xxsmall-font-size);
+    }
+  }
+}
+
+

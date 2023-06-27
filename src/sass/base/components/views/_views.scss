@@ -1,0 +1,11 @@
+// views layout
+
+.view-content {
+  .views-row {
+    @include span(12);
+    margin-bottom: calc(2 * #{gutter()});
+    @include breakpoint($screen-md) {
+      @include span(4);
+    }
+  }
+}

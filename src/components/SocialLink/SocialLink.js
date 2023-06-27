@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import propTypes from 'prop-types';
 import ReactSVG from 'react-svg';
-import SvgSprite from '@comicrelief/pattern-lab/sass/base/components/svg/spritesheet.svg';
+import SvgSprite from '../SVG/spritesheet.svg';
 /* svg with gradient background */
-import SvgInsta from '@comicrelief/pattern-lab/sass/base/components/svg/instagram.svg';
+import SvgInsta from '../SVG/instagram.svg';
 
 /**
  * SocialLink class

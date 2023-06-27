@@ -1,0 +1,39 @@
+
+footer[role=contentinfo] {
+  padding: 50px 5px 185px;
+  background: $colour-black;
+  @include clearfix;
+  @include breakpoint($screen-md) {
+    padding: 50px 5px 140px;
+  }
+  @include breakpoint($screen-lg) {
+    padding-top: 100px;
+    padding-bottom: 120px;
+  }
+  .footer__copyright p {
+    text-align: center;
+    color: $colour-white;
+    font-size: 12px;
+    line-height: 15px;
+  }
+  .footer__branding {
+    text-align: center;
+    margin-top:25px;
+    a {
+      display: inline-block;
+      width: 70px;
+      height: 70px;
+      .icon {
+        width: inherit;
+        height: inherit;
+      }
+      html.no-svg & {
+        // background-image: url($image-path + "cr_footer_logo.png");
+      }
+    }
+  }
+  .footer__follow {
+    text-align: center;
+    color: $colour-white;
+  }
+}

@@ -1,0 +1,62 @@
+// ==========================================================================
+// Core 
+// ==========================================================================
+
+@import "../../base/_core";
+
+@import "../../base/variables/_grid.scss";
+
+@import "../../base/variables/_theme.scss";
+
+@import "../../base/variables/_colours.scss";
+
+// Sub theme var overrides
+@import "../../themes/cr/2017/variables/_colours.scss"; // CR
+@import "core/variables/_colours.scss"; // Frost
+
+@import "../../base/variables/_typography.scss";
+
+// Sub theme var overrides
+@import "../../themes/cr/2017/components/typography/_fonts.scss"; // CR
+@import "core/variables/_typography.scss"; // Frost
+
+@import "../../base/variables/_lists.scss";
+
+@import "core/_frost-variables";
+
+// ==========================================================================
+// Components
+// ==========================================================================
+
+@import "../../base/components/buttons/buttons";
+@import "../../base/components/background-colours/background-colours";
+@import "../../base/components/footer/footer";
+@import "../../base/components/form/form";
+@import "../../base/components/fundraising-target/fundraising-target";
+@import "../../base/components/links/links";
+@import "../../base/components/list/list";
+@import "../../base/components/navigation/_footer-nav";
+@import "../../base/components/progress-indicator/progress-indicator";
+@import "../../base/components/schools-look-up/_schools-look-up";
+@import "../../base/components/social/social";
+@import "../../base/components/typography/typography";
+@import "../../base/components/just-in-time-block/_just-in-time";
+
+// ==========================================================================
+// Components sub theme overrides
+// ==========================================================================
+
+@import "core/components/_layout",
+				"core/components/_header",
+				"core/components/_footer",
+				"core/components/_form",
+				"core/components/_cookie-consent",
+				"core/components/_buttons",
+				"core/components/_modal",
+				"core/components/_gpLink",
+				"core/components/_background-images",
+				"core/components/_campaign-images",
+				"core/components/_font-awesome",
+				"core/components/_schools-look-up";
+@import "core/_frost-components";
+
