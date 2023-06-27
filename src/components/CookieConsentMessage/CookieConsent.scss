@@ -1,24 +1,24 @@
 $image-path: "images/";
 /* Pattern Lab Base theme variables */
-@import "~@comicrelief/pattern-lab/sass/base/variables/grid";
-@import "~@comicrelief/pattern-lab/sass/base/variables/colours";
-@import "~@comicrelief/pattern-lab/sass/base/variables/lists";
-@import "~@comicrelief/pattern-lab/sass/base/core/base-breakpoints";
-@import "~@comicrelief/pattern-lab/sass/base/core/base-1-mixins";
-@import "~@comicrelief/pattern-lab/sass/base/variables/typography";
+@import "../../sass/base/variables/grid";
+@import "../../sass/base/variables/colours";
+@import "../../sass/base/variables/lists";
+@import "../../sass/base/core/base-breakpoints";
+@import "../../sass/base/core/base-1-mixins";
+@import "../../sass/base/variables/typography";
 
 /* Pattern Lab Comic Relief theme variables */
-@import "~@comicrelief/pattern-lab/sass/themes/cr/2019/variables/colours";
-@import "~@comicrelief/pattern-lab/sass/themes/cr/2019/variables/typography";
-@import "~@comicrelief/pattern-lab/sass/themes/cr/2019/variables/mixins";
+@import "../../sass/themes/cr/2019/variables/colours";
+@import "../../sass/themes/cr/2019/variables/typography";
+@import "../../sass/themes/cr/2019/variables/mixins";
 
 /* Pattern Lab Comic Relief theme components */
-@import "~@comicrelief/pattern-lab/sass/themes/cr/2019/components/typography/fonts";
-@import "~@comicrelief/pattern-lab/sass/themes/cr/2019/components/typography/typography";
+@import "../../sass/themes/cr/2019/components/typography/fonts";
+@import "../../sass/themes/cr/2019/components/typography/typography";
 
 /* Pattern Lab Base theme components */
-@import "~@comicrelief/pattern-lab/sass/base/components/cookie-consent/_cookie-consent";
-@import "~@comicrelief/pattern-lab/sass/base/components/buttons/_buttons";
+@import "../../sass/base/components/cookie-consent/_cookie-consent";
+@import "../../sass/base/components/buttons/_buttons";
 
 .cookie-consent.cc_container {
   position: relative ! important; // fixed position to relative not fixed

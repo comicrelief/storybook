@@ -1,0 +1,41 @@
+header[role=banner] {
+
+  &.header {
+    min-height: 50px;
+    padding: 9px 0;
+    border-width: 2px;
+  
+    @include breakpoint($screen-md) {
+      height: 109px;
+      padding: 14px 0;
+    }
+
+    .header__inner-wrapper {
+      cursor: auto;
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
+
+.block-branding {
+
+  .site-logo {
+    float: none;
+    min-width: auto;
+    height: auto;
+    width: 50px;
+    margin:0 auto;
+    z-index: auto;
+    overflow: visible;
+
+    @include breakpoint($screen-md) {
+      width: 80px;
+    }
+
+    img {
+      max-width:100%;
+      display: block;
+    }
+  }
+}

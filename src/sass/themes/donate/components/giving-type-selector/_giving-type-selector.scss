@@ -1,0 +1,120 @@
+#giving_type_selector {
+  margin: 2em 0;
+ .form__field--wrapper {
+   position: relative;
+   margin-bottom: 0;
+   display: inline-block;
+   width: 50%;
+   cursor: pointer;
+   z-index: 3;
+
+   &.selected {
+    z-index:4;
+  }
+
+   &:hover {
+    + .label {
+      background-color: $colour--btn-hover;
+      color: $colour--white;
+    }
+   }
+
+   &:after {
+     @include clearfix();
+   }
+
+   input {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     opacity: 0;
+     cursor: pointer;
+
+      + label {
+        background-color: $colour--btn-light;
+        box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 16px;
+        color: $colour--black;
+        
+        span {
+          color: inherit;
+          @include breakpoint($screen-md) {
+            display: block;
+          }
+          @include breakpoint($screen-lg) {
+            display: inline;
+          }
+        }
+      }
+
+      &.selected,
+      &:checked {
+        & + label {
+          color: $colour--white;
+        }
+      }
+      
+      &:hover,
+      &:focus {
+          & + label { 
+            background-color: $colour--btn-hover;
+            color: $colour--white;
+          }
+        };
+
+        &:active {
+          & + label {
+            box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 16px;
+          }
+        }
+      
+      &:checked {
+        &,
+        &:focus,
+        &:hover,
+        &:active {
+          & + label {
+            background-color: $colour--btn-selected;
+            box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 16px;
+          }
+        }
+      }
+   }
+
+   label {
+    font-size: 16px;
+    text-transform: inherit;
+     margin: 0;
+     padding: 14px 0;
+     width: 100%;
+     height: 100%;
+     line-height: 18px;
+     font-weight: 700;
+     text-align: center;
+     cursor: pointer;
+
+     @include breakpoint($screen-sm) {
+       span:before {
+         content: "\A";
+         white-space: pre;
+       }
+     }
+
+     @include breakpoint($screen-md) {
+       span:before {
+         display: none;
+       }
+     }
+   }
+   
+   input:focus + label {
+     // IE, FF etc.
+     outline: 1px dotted black;
+     // Chrome etc.
+     outline: -webkit-focus-ring-color auto 5px;
+     outline-offset: 0px;
+
+   }
+ }
+}

@@ -1,0 +1,55 @@
+// ==========================================================================
+// Cookie consent
+// ==========================================================================
+
+.cookie-consent {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  background: $colour-black;
+  z-index: 10;
+  
+  @include breakpoint($screen-lg) {
+    display: block;
+    padding: 15px 20px 15px;
+  }
+
+  p,
+  a {
+    color: $colour-white;
+    font-family: $body-font;
+    @include font-size($p-small-font-size);
+  }
+  p {
+    margin-top: 15px;
+  }
+  .cc_message {
+    display: inline-block;
+    margin-top: 0;
+    width: calc(100% - 50px);
+    text-align: left;
+    
+    @include breakpoint($screen-md) {
+      width: auto;
+      margin-top: 15px;
+    }
+    span {
+      margin: 0px 5px;
+    }
+  }
+
+  .cc_more_info {
+    @extend .link;
+    @extend .link--smoke-grey;
+    color: $colour-white;
+    @include font-size($p-small-font-size);
+  }
+
+  .cc_button {
+    @extend .btn;
+    @extend .btn--white-ghost;
+    width: auto !important;
+  }
+}

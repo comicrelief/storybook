@@ -1,16 +1,16 @@
 /* Pattern Lab Base theme variables */
-@import "~@comicrelief/pattern-lab/sass/base/variables/grid";
-@import "~@comicrelief/pattern-lab/sass/base/variables/colours";
-@import "~@comicrelief/pattern-lab/sass/base/core/base-breakpoints";
-@import "~@comicrelief/pattern-lab/sass/base/core/base-1-mixins";
+@import "../../sass/base/variables/grid";
+@import "../../sass/base/variables/colours";
+@import "../../sass/base/core/base-breakpoints";
+@import "../../sass/base/core/base-1-mixins";
 
 /* Pattern Lab Comic Relief theme variables */
-@import "~@comicrelief/pattern-lab/sass/themes/cr/2019/variables/colours";
-@import "~@comicrelief/pattern-lab/sass/themes/cr/2019/variables/typography";
-@import "~@comicrelief/pattern-lab/sass/themes/cr/2019/variables/mixins";
+@import "../../sass/themes/cr/2019/variables/colours";
+@import "../../sass/themes/cr/2019/variables/typography";
+@import "../../sass/themes/cr/2019/variables/mixins";
 /* Pattern Lab Comic Relief theme components */
-@import "~@comicrelief/pattern-lab/sass/themes/cr/2019/components/typography/fonts";
-@import "~@comicrelief/pattern-lab/sass/themes/cr/2019/components/typography/typography";
+@import "../../sass/themes/cr/2019/components/typography/fonts";
+@import "../../sass/themes/cr/2019/components/typography/typography";
 
 .browser-message {
   background: $colour-black;

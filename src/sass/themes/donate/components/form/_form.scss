@@ -1,0 +1,287 @@
+// Form Layout
+.form__step {
+	position: relative;
+	margin: 0 auto;
+}
+
+// Layout
+.form__row {
+	margin: 0 auto;
+	padding: 15px 0;
+	background-color: transparent;
+
+	&:after {
+		@include clearfix;
+	}
+
+	&.form__row--your--address {
+		.form__field--postcode {
+			display: flex;
+			flex-direction: column;
+
+			.form__field--text {
+				width: 100%;
+			}
+
+			.form__btn {
+				width: 100%;
+			}
+		}
+	}
+}
+
+.form__fieldset,
+.card-list {
+	float: none;
+	margin: 0 auto;
+	padding: 0;
+	width: 100%;
+}
+
+.form__fieldset {
+	h1 {
+		text-transform: inherit;
+		color: $colour--white;
+	}
+}
+
+.form__field--wrapper {
+	margin-bottom: 3%;
+	width: 100%;
+}
+
+// cr-donate specific form styling overrides
+form,
+form a,
+input {
+	font-family: $body-font;
+	color: $colour--white;
+	@include font-size($field-font-size);
+	font-weight: 500;
+}
+
+form a {
+	color: $colour--white;
+}
+
+input[type="email"],
+input[type="number"],
+input[type="text"],
+input[type="tel"],
+select,
+textarea {
+	border: 1px solid $colour--field-border;
+	@include placeholder($colour--placeholder, 18px, $body-font, 22px, 700, 20px, 24px);
+}
+
+
+// hide and show when js is enabled
+.js-enabled {
+	.form__row--section,
+	#giftaid-text-percentage {
+		display: none;
+		&.show {
+			display: block;
+		}
+	}
+}
+// when js is not enabled the (functioning) form fields should be visible
+.no-js {
+	.form__next,
+	.form__back,
+	#giftaid-text-calculated,
+	#comicrelief_payinbundle_payment_paypal,
+	.search-box-button,
+	.form__subcopy--bfpo,
+	.form__address-detail-toggle,
+	#address-detail {
+		display: none;
+	}
+	.giftaid-text--percentage {
+		display: block;
+	}
+}
+
+// Remove large space between billing address row and keep in touch row
+.form__row--your-detail,
+.form__row--billing-detail {
+	padding-bottom: 0;
+}
+.form__row--payment-buttons,
+.form__row--billing-detail,
+.form__row--keep-touch {
+	padding-top: 0;
+}
+
+// Back button
+.form__back {
+	display: block;
+	text-indent: -9999px;
+
+	&:before {
+		content: "";
+		position: absolute;
+		top: -6px;
+		left: 0;
+		width: 0.5em;
+		height: 0.5em;
+		background: transparent url($image-path + "CR__Arrow_L--white.svg") 0 0/30px 30px no-repeat;
+	  width: 30px;
+	  height: 30px;
+	}
+
+	@include breakpoint($screen-md){
+		text-indent: 0;
+		position: relative;
+		margin-bottom: 30px;
+		padding-left: 45px;
+		font-weight: bold;
+		text-align: left;
+		cursor: pointer;
+	}
+}
+
+// text styling
+h2,
+h3 {
+	margin: 15px 0 30px;
+	font-family: $font-bold;
+}
+h1,
+h2 {
+	@include font-size($h3-font-size);
+}
+.form__row--giftaid p {
+	text-align: center;
+	@include font-size($field-font-size);
+	font-weight: 500;
+}
+.form__subcopy--bfpo {
+	font-size: 16px;
+}
+
+// buttons
+button,
+button.payment-button {
+	@extend .btn;
+	@extend .btn--fixed-width;
+}
+
+button.payment-button {
+	border-radius: 5px;
+	height: 55px;
+	padding: 18px 30px;
+}
+
+// Apple Pay button only shows when supported
+#comicrelief_payinbundle_payment_apple_pay {
+	display: none;
+	// fallback if apple pay styling doesn't come through
+	// making sure this doesn't stick out if apple styling does come through
+	height: 55px;
+	@extend button.cta;
+	// apple pay styling
+	&:after {
+		margin-top: -1px;
+		height: 55px;
+		-webkit-appearance: -apple-pay-button;
+		-apple-pay-button-style: white;
+	}
+}
+// PayPal fallback styling
+#comicrelief_payinbundle_payment_paypal:after {
+	border-radius: 30px;
+	background-color: $colour-grey;
+	background-image: url($image-path+"paypal.svg");
+}
+
+.form__row--giftaid {
+	.giftaid-title {
+    width: 220px;
+    margin: 15px auto;
+		height: 105px;
+		background: url($image-path+"gift_aid_logo--white.png") no-repeat center;
+		background-size: contain;
+
+		@include breakpoint($screen-lg) {
+    	margin: 15px auto 15px;
+		}
+	}
+}
+
+label, legend, .form__field-label {
+	@include font-size($field-label-font-size);
+	margin-bottom: 10px;
+	font-weight: 700;
+}
+
+#field-label--giftaid {
+	font-weight: 500;
+}
+
+.form__field-additional-text {
+	font-family: $montserrat;
+	@include font-size($form-error-font-size);
+	font-weight: 500;
+	
+	a {
+		font-family: inherit;
+		font-size: inherit;
+		line-height: inherit;
+		font-weight: inherit;
+		border-bottom: 1px solid $colour--white;
+	}
+}
+
+.form-error {
+	padding: 6px;
+  width: 100%;
+	background-color: $colour--error-msg-bg;
+	@include border-radius(8px);
+	@include font-size($form-error-font-size);
+  font-weight: 500;
+  
+  &:before {
+ 		width: 16px;
+    height: 16px;
+  }
+}
+
+#field-wrapper--accountHolder {
+	.form__field-wrapper--checkbox {
+		min-height: 45px;
+	}
+	.form__field.form__field--checkbox {
+		height: 40px;
+    width: 40px;
+		top: 0;
+		left: 0;
+		
+		& + span {
+			top: 0;
+			left: 0;
+		}
+		
+		@include breakpoint($screen-md) {
+			top: 3px;
+			& + span {
+				top: 3px;
+			}
+		}
+	}
+	#field-label--accountHolder {
+		padding-left: 5px;
+		
+		@include breakpoint($screen-md) {
+			padding-left: 10px;
+		}
+	}
+}
+
+#address-detail {
+	.form__fieldset.form__field--wrapper {
+		label.form__field-label span {
+			font-weight: 500 !important;
+		} 
+	}    
+}

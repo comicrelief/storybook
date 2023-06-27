@@ -13,13 +13,13 @@ $screen-md-only: $screen-md $screen-md-max;
 $screen-lg: 1024px;
 $screen-lg-min: $screen-lg;
 
-@import "~@comicrelief/pattern-lab/sass/base/core/_base-breakpoints.scss";
-@import "~@comicrelief/pattern-lab/sass/base/core/_base-1-mixins.scss";
-@import "~@comicrelief/pattern-lab/sass/base/variables/_colours.scss";
-@import "~@comicrelief/pattern-lab/sass/base/variables/_grid.scss";
-@import "~@comicrelief/pattern-lab/sass/base/variables/_theme.scss";
-@import "~@comicrelief/pattern-lab/sass/base/variables/_typography.scss";
+@import "../../sass/base/core/_base-breakpoints.scss";
+@import "../../sass/base/core/_base-1-mixins.scss";
+@import "../../sass/base/variables/_colours.scss";
+@import "../../sass/base/variables/_grid.scss";
+@import "../../sass/base/variables/_theme.scss";
+@import "../../sass/base/variables/_typography.scss";
 
-@import "~@comicrelief/pattern-lab/sass/base/components/footer/_footer.scss";
-@import "~@comicrelief/pattern-lab/sass/base/components/navigation/_footer-nav.scss";
-@import "~@comicrelief/pattern-lab/sass/base/components/social/_social.scss";
+@import "../../sass/base/components/footer/_footer.scss";
+@import "../../sass/base/components/navigation/_footer-nav.scss";
+@import "../../sass/base/components/social/_social.scss";
