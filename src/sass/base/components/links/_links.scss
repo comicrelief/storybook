@@ -1,0 +1,42 @@
+
+/*  
+ * Link styles,
+ * Copied from SR16 theme
+ */
+
+.link {
+  text-decoration: none;
+  word-break: break-word;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  color: inherit;
+  border-bottom: 4px solid $colour-red;
+  font-family: $font-bold;
+  font-size: 18px;
+  line-height: 30px;
+  transition-property: border, color;
+  transition-duration: 180ms;
+  &:hover,
+  &:active,
+  &:focus {
+    border-bottom: 4px solid $colour-black;
+  }
+  &.inline {
+    display: inline-block;
+    margin: 0;
+    cursor: pointer;
+    color: inherit;
+    border-width: 2px;
+    font-size: inherit;
+    line-height: 22px;
+    &:hover,
+    &:active,
+    &:focus {
+      border-width: 2px;
+    }
+  }
+}
+
+@for $link from 1 to (length($linkList)+1) {
+  @include link-variation(nth($linkList, $link));
+}

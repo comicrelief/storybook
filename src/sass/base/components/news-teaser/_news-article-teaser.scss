@@ -1,0 +1,132 @@
+.article-teaser {
+	background-color: $colour-white;
+	height: 100%;
+	.article-teaser__link {
+		display: block;
+		height: 100%;
+		text-decoration: none;
+	}
+	.article-teaser__video {
+		position:relative;
+		img { 
+			width: 100%;
+		}
+	}
+	//play-icon. Instead of using a mask, colour is given in svg itself to support all browsers.
+	.article-teaser__video a::after {
+		position: absolute;
+		width: 100%;
+		height: 50px;
+		top: calc(50% - 25px);
+		content: "";
+		background: url($image-path + "play-icon.svg") center no-repeat;
+	}
+	.article-teaser__content-wrapper {
+		padding: calc(4 * #{gutter()});
+		background-color: $colour-white;
+		.article-teaser__date {
+			text-transform: uppercase;
+			font-family: $font-black;
+			color: $colour-black;
+		}
+		h2 {
+			margin-top: calc(4 * #{gutter()});
+			font-family: $font-regular;
+			@include font-size($p-xlarge-font-size);
+			text-align: left;
+			color: $colour-black;
+			margin-bottom: 0;
+		}
+	}
+	@include breakpoint($screen-md) {
+		.article-teaser__image, 
+		.article-teaser__video {
+			@include span(5);
+			margin: 0px;
+		}
+		.article-teaser__content-wrapper {
+			@include span(7);
+			margin: 0px;
+			padding: 0px;
+			background-color: $colour-white; 
+			.article-teaser__content {
+				position: absolute;
+				padding: calc(4 * #{gutter()});
+				top: 50%;
+				transform: translateY(-50%);
+			}
+		}
+	}
+	@include breakpoint($screen-lg) {
+		.article-teaser__image, 
+		.article-teaser__video {
+			width:100%;
+		}
+		.article-teaser__content-wrapper {
+			position: relative;
+			width: 100%;
+			padding: calc(4 * #{gutter()});
+			.article-teaser__content {
+				position: relative;
+				top: 0;
+				transform: translateY(0);
+			}
+		}
+	}
+}
+.article-teaser__image, 
+.article-teaser__video {
+	img {
+		display: block;
+		width: 100%;
+		height: auto;
+	}
+}
+// Press release teaser
+.news-landing__item--press-release {
+	.article-teaser {
+		.article-teaser__content-wrapper {
+			padding: 30px 30px 30px 100px;
+			width: 100%;
+			position: relative;
+			&:before {
+				background: url($image-path + "press-logos.png") no-repeat 0 0;
+				background-size: 70px;
+				content: " ";
+				display: block;
+				width: 70px;
+				height: 70px;
+				position: absolute;
+				left: 10px;
+				top: 50%;
+				transform: translateY(-50%);
+			}
+		}
+		&--comicrelief {
+			.article-teaser__content-wrapper {
+				&:before {
+					background-position: 0 -77px;
+				}
+			}
+		}
+		&--sportrelief {
+			.article-teaser__content-wrapper {
+				&:before {
+					background-position: 0 -157px;
+				}
+			}
+		}
+		.article-teaser__image {
+			display: none;
+		}
+		.article-teaser__content {
+			position: relative;
+			padding: 0;
+			top: 0;
+			transform: translateY(0);
+			h2 {
+				margin: 0;
+			}
+		}
+	}
+}

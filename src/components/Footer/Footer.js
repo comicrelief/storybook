@@ -1,8 +1,7 @@
 import React from 'react';
 import propTypes from 'prop-types';
-import SvgSprite from '@comicrelief/pattern-lab/sass/base/components/svg/spritesheet.svg';
 import ReactSVG from 'react-svg';
-
+import SvgSprite from '../SVG/spritesheet.svg';
 import Menu from '../Menu/Menu';
 import SocialLink from '../SocialLink/SocialLink';
 

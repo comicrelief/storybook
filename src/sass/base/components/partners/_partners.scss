@@ -1,0 +1,62 @@
+
+/* Override global styles */
+.page-node-type-partner {
+  .bottom-region {
+    max-width: none;
+    margin: 0;
+  }
+  .cr-article {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    background-color: inherit;
+    .cr-article__header {
+      overflow: hidden;
+      width: 100%;
+      padding: 57px 0;
+      background-color: $colour-red;
+      .cr-article__title {
+        margin: 0;
+        text-align: center;
+        @include span(10);
+        @include push(1);
+        @include breakpoint($screen-md) {
+          @include span(8);
+          @include push(2);
+        }
+        @include breakpoint($screen-lg) {
+          @include span(6);
+          @include push(3);
+        }
+        span {
+          color: $colour-white !important;
+          @extend h1;
+        }
+      }
+    }
+    .cr-article__inner-wrapper {
+      @include container;
+      @include clearfix;
+    }
+    .cr-article__body {
+      margin: 60px auto;
+      padding: 0;
+      @include span(10);
+      @include push(1);
+      @include breakpoint($screen-md) {
+        @include span(8);
+        @include push(2);
+      }
+      @include breakpoint($screen-lg) {
+        @include span(6);
+        @include push(3);
+      }
+      img {
+        width: 100%;
+        height: auto;
+        margin: 0;
+      }
+    }
+  }
+}
+

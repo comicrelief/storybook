@@ -1,0 +1,73 @@
+
+/* Style for grid demo only */
+.pl-grid {
+	@include container;
+	background: rgba(128, 128, 128, 0.2);
+	pre {
+		font-weight: bold;
+		margin: 0;
+		padding: 10px 10px 0;
+		background: white;
+	}
+}
+.pl-item {
+	height: 100px;
+}
+.pl--red {
+	background-color: red;
+}
+.pl--yellow {
+	background-color: #ffee00;
+}
+.pl-example {
+	background-color: #0071ea;
+	overflow: hidden;
+}
+.pl-copy {
+	padding: 20px;
+}
+.pl-one-col {
+	.pl-item {
+		@include span(12);
+	}
+}
+.pl-twelve-cols {
+	.pl-item {
+		@include span(1);
+	}
+}
+.pl-six-by-six-normal {
+	.pl-item:first-child {
+		@include span(6);
+	}
+	.pl-item:last-child {
+		@include span(6);
+	}
+}
+.pl-six-by-six {
+	.pl-item {
+		@include span(6 no-gutters wide);
+	}
+}
+.pl-eight-by-four {
+	.pl-item:first-child {
+		@include span(8 no-gutters);
+	}
+	.pl-item:last-child {
+		@include span(4 no-gutters wider);
+	}
+}
+.pl-breakpoints {
+	.pl-item {
+		// Mobile-first
+		@include span(12);
+
+		@include breakpoint($screen-md) {
+		 	@include span(6);
+		}
+		
+		@include breakpoint($screen-lg) {
+			@include span(3);
+		}
+	}
+}

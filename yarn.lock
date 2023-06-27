@@ -6277,6 +6277,7 @@ duplexer3@^0.1.4:
 duplexer@^0.1.1, duplexer@~0.1.1:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/duplexer/-/duplexer-0.1.2.tgz#3abe43aef3835f8ae077d136ddce0f276b0400e6"
+  integrity sha512-jtD6YG370ZCIi/9GTaJKQxWTZD045+4R4hTk/x1UyoqadyJ9x9CgSi1RlVDQF8U2sxLLSnFkCaMihqljHIWgMg==
 
 duplexify@^3.4.2, duplexify@^3.6.0:
   version "3.7.1"
@@ -6882,6 +6883,7 @@ event-emitter@~0.3.5:
 event-stream@3.3.4:
   version "3.3.4"
   resolved "https://registry.yarnpkg.com/event-stream/-/event-stream-3.3.4.tgz#4ab4c9a0f5a54db9338b4c34d86bfce8f4b35571"
+  integrity sha512-QHpkERcGsR0T7Qm3HNJSyXKEEj8AHNxkY3PK8TS2KJvQ7NiSHe3DDpwVKKtoYprL/AreyzFBeIkBIWChAqn60g==
   dependencies:
     duplexer "~0.1.1"
     from "~0"
@@ -7317,6 +7319,7 @@ file-loader@^4.2.0:
 file-sync-cmp@^0.1.0:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/file-sync-cmp/-/file-sync-cmp-0.1.1.tgz#a5e7a8ffbfa493b43b923bbd4ca89a53b63b612b"
+  integrity sha512-0k45oWBokCqh2MOexeYKpyqmGKG+8mQ2Wd8iawx+uWd/weWJQAZ6SoPybagdCI4xFisag8iAR77WPm4h3pTfxA==
 
 file-system-cache@^1.0.5:
   version "1.0.5"
@@ -7601,6 +7604,7 @@ from2@^2.1.0, from2@^2.3.0:
 from@~0:
   version "0.1.7"
   resolved "https://registry.yarnpkg.com/from/-/from-0.1.7.tgz#83c60afc58b9c56997007ed1a768b3ab303a44fe"
+  integrity sha512-twe20eF1OxVxp/ML/kq2p1uc6KvFK/+vs8WjEbeKmV2He22MKm7YF2ANIt+EOqhJ5L3K/SuuPhk0hWQDjOM23g==
 
 fs-extra@5.0.0:
   version "5.0.0"
@@ -8067,6 +8071,7 @@ growly@^1.3.0:
 grunt-contrib-copy@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/grunt-contrib-copy/-/grunt-contrib-copy-1.0.0.tgz#7060c6581e904b8ab0d00f076e0a8f6e3e7c3573"
+  integrity sha512-gFRFUB0ZbLcjKb67Magz1yOHGBkyU6uL29hiEW1tdQ9gQt72NuMKIy/kS6dsCbV0cZ0maNCb0s6y+uT1FKU7jA==
   dependencies:
     chalk "^1.1.1"
     file-sync-cmp "^0.1.0"
@@ -10634,6 +10639,7 @@ map-or-similar@^1.5.0:
 map-stream@~0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/map-stream/-/map-stream-0.1.0.tgz#e56aa94c4c8055a16404a0674b78f215f7c8e194"
+  integrity sha512-CkYQrPYZfWnu/DAmVCpTSX/xHpKZ80eKh2lAkyA6AJTef6bW+6JpbQZN5rofum7da+SyN1bi5ctTm+lTfcCW3g==
 
 map-visit@^1.0.0:
   version "1.0.0"
@@ -12281,6 +12287,7 @@ path-type@^4.0.0:
 pause-stream@0.0.11:
   version "0.0.11"
   resolved "https://registry.yarnpkg.com/pause-stream/-/pause-stream-0.0.11.tgz#fe5a34b0cbce12b5aa6a2b403ee2e73b602f1445"
+  integrity sha512-e3FBlXLmN/D1S+zHzanP4E/4Z60oFAa3O051qt1pxa7DEJWKAyil6upYVXCWadEnuoqa4Pkc9oUx9zsxYeRv8A==
   dependencies:
     through "~2.3"
 
@@ -14629,6 +14636,7 @@ split2@~1.0.0:
 split@0.3:
   version "0.3.3"
   resolved "https://registry.yarnpkg.com/split/-/split-0.3.3.tgz#cd0eea5e63a211dfff7eb0f091c4133e2d0dd28f"
+  integrity sha512-wD2AeVmxXRBoX44wAycgjVpMhvbwdI2aZjCkvfNcH1YqHQvJVa1duWc73OyVGJUc05fhFaTZeQ/PYsrmyH0JVA==
   dependencies:
     through "2"
 
@@ -14641,6 +14649,7 @@ split@^1.0.0:
 sprintf-js@^1.0.3:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/sprintf-js/-/sprintf-js-1.1.2.tgz#da1765262bf8c0f571749f2ad6c26300207ae673"
+  integrity sha512-VE0SOVEHCk7Qc8ulkWw3ntAzXuqf7S2lvwQaDLRnUeIEaKNQJzV6BwmLKhOqT61aGhfUMrXeaBk+oDGCzvhcug==
 
 sprintf-js@~1.0.2:
   version "1.0.3"
@@ -14738,6 +14747,7 @@ stream-combiner2@~1.1.1:
 stream-combiner@~0.0.4:
   version "0.0.4"
   resolved "https://registry.yarnpkg.com/stream-combiner/-/stream-combiner-0.0.4.tgz#4d5e433c185261dde623ca3f44c586bcf5c4ad14"
+  integrity sha512-rT00SPnTVyRsaSz5zgSPma/aHSOic5U1prhYdRy5HS2kTZviFpmDgzilbtsJsxiroqACmayynDN/9VzIbX5DOw==
   dependencies:
     duplexer "~0.1.1"
 
@@ -15018,6 +15028,7 @@ supports-preserve-symlinks-flag@^1.0.0:
 susy@^2.2.12:
   version "2.2.14"
   resolved "https://registry.yarnpkg.com/susy/-/susy-2.2.14.tgz#4551690ff063dd2049197dd8885bae5341a969f8"
+  integrity sha512-4I7Cb4Cjw2TF6ZEMxT8W9/Ap35Kn/r6y3LIO+NzaMRBxfbmT+w2KvbrANG/JCqJjlPgqvwLfLF9vmndSMGZuLg==
 
 svg-injector@^1.1.3:
   version "1.1.3"
@@ -15248,6 +15259,7 @@ through2@^4.0.0:
 through@2, "through@>=2.2.7 <3", through@^2.3.6, through@^2.3.8, through@~2.3, through@~2.3.1:
   version "2.3.8"
   resolved "https://registry.yarnpkg.com/through/-/through-2.3.8.tgz#0dd4c9ffaabc357960b1b724115d7e0e86a2e1f5"
+  integrity sha512-w89qg7PI8wAdvX60bMDP+bFoD5Dvhm9oLheFp5O4a2QF0cSBGsBX4qZmadPMvVqlLJBBci+WqGGOAPvcDeNSVg==
 
 timed-out@^4.0.0:
   version "4.0.1"
@@ -15590,6 +15602,7 @@ unbox-primitive@^1.0.0, unbox-primitive@^1.0.1:
 underscore.string@3.3.5:
   version "3.3.5"
   resolved "https://registry.yarnpkg.com/underscore.string/-/underscore.string-3.3.5.tgz#fc2ad255b8bd309e239cbc5816fd23a9b7ea4023"
+  integrity sha512-g+dpmgn+XBneLmXXo+sGlW5xQEt4ErkS3mgeN2GFbremYeMBSJKr9Wf2KJplQVaiPY/f7FN6atosWYNm9ovrYg==
   dependencies:
     sprintf-js "^1.0.3"
     util-deprecate "^1.0.2"
