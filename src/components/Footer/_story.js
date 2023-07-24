@@ -9,7 +9,7 @@ storiesOf('Footer', module)
   .addDecorator(withKnobs)
   .add('Comic Relief',
     withInfo('comicrelief.com footer')(() => {
-      const copy = text('Copy', 'Comic Relief is the trading name of Charity Projects, a registered charity in England and Wales (326568) and Scotland (SC039730), which is a company limited by guarantee registered in England and Wales (01806414). Registered address: 1st Floor, 89 Albert Embankment London, SE1 7TP.');
+      const copy = text('Copy', 'Comic Relief is the trading name of Charity Projects, a registered charity in England and Wales (326568) and Scotland (SC039730), which is a company limited by guarantee registered in England and Wales (01806414). Registered address: 6th Floor, The White Chapel Building, 10 Whitechapel High Street, London, E1 8QS.');
       const source = 'https://www.comicrelief.com';
       const campaign = 'comicrelief';
       const forceFallback = boolean('forceFallback', false);
