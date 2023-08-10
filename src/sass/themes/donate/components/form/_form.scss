@@ -179,7 +179,7 @@ button.payment-button {
 	// fallback if apple pay styling doesn't come through
 	// making sure this doesn't stick out if apple styling does come through
 	height: 55px;
-	@extend button.cta;
+  @extend button, .cta;
 	// apple pay styling
 	&:after {
 		margin-top: -1px;
@@ -223,7 +223,7 @@ label, legend, .form__field-label {
 	font-family: $montserrat;
 	@include font-size($form-error-font-size);
 	font-weight: 500;
-	
+
 	a {
 		font-family: inherit;
 		font-size: inherit;
@@ -240,7 +240,7 @@ label, legend, .form__field-label {
 	@include border-radius(8px);
 	@include font-size($form-error-font-size);
   font-weight: 500;
-  
+
   &:before {
  		width: 16px;
     height: 16px;
@@ -256,12 +256,12 @@ label, legend, .form__field-label {
     width: 40px;
 		top: 0;
 		left: 0;
-		
+
 		& + span {
 			top: 0;
 			left: 0;
 		}
-		
+
 		@include breakpoint($screen-md) {
 			top: 3px;
 			& + span {
@@ -271,7 +271,7 @@ label, legend, .form__field-label {
 	}
 	#field-label--accountHolder {
 		padding-left: 5px;
-		
+
 		@include breakpoint($screen-md) {
 			padding-left: 10px;
 		}
@@ -282,6 +282,6 @@ label, legend, .form__field-label {
 	.form__fieldset.form__field--wrapper {
 		label.form__field-label span {
 			font-weight: 500 !important;
-		} 
-	}    
+		}
+	}
 }
