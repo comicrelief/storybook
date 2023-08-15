@@ -72,7 +72,7 @@ main .paragraph--full-height-single-image-single-copy {
 			// Address
 			#postcode_button {
 				height: 50px;
-				@extend button.cta-2;
+				@extend .cta-1 !optional;
 				margin: 30px 0 0 !important;
 				display: block;
 				font-size: 16px;
@@ -82,7 +82,7 @@ main .paragraph--full-height-single-image-single-copy {
 			.form__field-wrapper--checkbox input[type='checkbox'] {
 				top: 26px;
     		left: 10px;
-				
+
 				& + span {
 					@include border-radius(4px);
 					width: 40px;
@@ -224,7 +224,7 @@ main .paragraph--full-height-single-image-single-copy {
 	}
 }
 
-// Target 'manual address' link 
+// Target 'manual address' link
 #field-wrapper--postcode + .form__field--wrapper {
 	margin: 0 auto 10px;
 
