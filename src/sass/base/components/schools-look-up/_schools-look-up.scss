@@ -36,7 +36,7 @@
 }
 .schoolsLookUpForm {
   max-width: 100%;
-  @extend input[type="text"];
+  @extend input, [type="text"];
 
   .rbt-input {
     position: absolute;
@@ -44,11 +44,11 @@
     left: 0;
     width: 100%;
     padding: 0px 13px;
-    
+
     input,
     div {
       width: 100%;
-      max-width: 100%; 
+      max-width: 100%;
     }
   }
   .rbt-menu {
