@@ -179,7 +179,7 @@ button.payment-button {
 	// fallback if apple pay styling doesn't come through
 	// making sure this doesn't stick out if apple styling does come through
 	height: 55px;
-  @extend button, .cta;
+	@extend button, .cta;
 	// apple pay styling
 	&:after {
 		margin-top: -1px;
