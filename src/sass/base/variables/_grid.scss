@@ -40,10 +40,10 @@ $column: 70px;
 $columns: 12;
 
 /* Changing Susy default global settings */
-$susy: (  
+$susy: (
   columns: $columns,
   container: $max-width,
-  gutters: $gutter/$column,
+  gutters: calc($gutter / $column),
   global-box-sizing: border-box,
   gutter-position: split,
   output: float,
