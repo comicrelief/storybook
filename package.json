@@ -28,7 +28,7 @@
     "react-vis": "^1.9.1",
     "shortid": "^2.2.13",
     "snyk": "^1.996.0",
-    "susy": "^2.2.12",
+    "susy": "^3.0.8",
     "uglify-js": "git+https://github.com/mishoo/UglifyJS2.git#harmony",
     "url-join": "2",
     "yup": "^0.32.9",

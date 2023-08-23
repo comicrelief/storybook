@@ -15173,10 +15173,10 @@ supports-preserve-symlinks-flag@^1.0.0:
   resolved "https://registry.yarnpkg.com/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz#6eda4bd344a3c94aea376d4cc31bc77311039e09"
   integrity sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==
 
-susy@^2.2.12:
-  version "2.2.14"
-  resolved "https://registry.yarnpkg.com/susy/-/susy-2.2.14.tgz#4551690ff063dd2049197dd8885bae5341a969f8"
-  integrity sha512-4I7Cb4Cjw2TF6ZEMxT8W9/Ap35Kn/r6y3LIO+NzaMRBxfbmT+w2KvbrANG/JCqJjlPgqvwLfLF9vmndSMGZuLg==
+susy@^3.0.8:
+  version "3.0.8"
+  resolved "https://registry.yarnpkg.com/susy/-/susy-3.0.8.tgz#f7c911c75f36602989cd591613e50b9c98072f28"
+  integrity sha512-3qrpHke6Ng3Q9aRIhxs+yD65ykFuLbzV22WRN+PdrCl7e1QHewuCtAyP1JShZHGeY7ZARt+iVFcMR8Lw/i1KMA==
 
 svg-injector@^1.1.3:
   version "1.1.3"
