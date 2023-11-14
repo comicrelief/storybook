@@ -1,8 +1,8 @@
 // Passed to the PCLU component as default prop value
 const defaultPostcodeValidation = {
   GB: {
-    pattern: '(GIR 0AA)|((([A-Z][0-9][0-9]?)|(([A-Z][A-HJ-Y][0-9][0-9]?)|(([A-Z][0-9][A-Z])|([A-Z][A-HJ-Y][0-9]?[A-Z])))) [0-9][A-Z]{2})',
-    errorMsg: 'Please enter a valid UK postcode, using a space and capital letters',
+    pattern: '(GIR 0AA)|((([A-Za-z][0-9][0-9]?)|(([A-Za-z][A-Ha-hJ-Yj-y][0-9][0-9]?)|(([A-Za-z][0-9][A-Za-z])|([A-Za-z][A-Ha-hJ-Yj-y][0-9]?[A-Za-z])))) [0-9][A-Za-z]{2})',
+    errorMsg: 'Please enter a valid UK postcode, using a space',
   },
 };
 
