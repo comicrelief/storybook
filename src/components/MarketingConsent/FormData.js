@@ -83,7 +83,7 @@ export default {
           label: 'Postcode',
           placeholder: 'SE1 7TP',
           required: true,
-          pattern: '^[a-zA-Z]{1,2}\\\\d[a-zA-Z\\\\d]?\\\\s*\\\\d[a-zA-Z]{2}$',
+          pattern: '^[a-zA-Z]{1,2}\\d[a-zA-Z\\d]?\\s*\\d[a-zA-Z]{2}$',
         },
         {
           id: 'country',
