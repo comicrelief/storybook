@@ -222,8 +222,8 @@ class MarketingConsentCheckbox extends Component {
                   showErrorMessage={this.props.showErrorMessages}
                   fieldValue={this.state.checkboxValidation[checkbox].fieldValidation[field.name]}
                   value={() => this.fieldValue(checkbox, field.name)}
-                  // Only use our improved Yup-based validation for email
-                  yupValidation={field.type === 'email'}
+                  // Only use our improved Yup-based validation for the problematic fields
+                  yupValidation={field.type === 'email' || field.type === 'tel'}
                 />
               </div>
             ))
