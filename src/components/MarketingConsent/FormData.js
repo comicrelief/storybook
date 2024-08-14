@@ -30,6 +30,7 @@ export default {
       id: 'postConsent',
       text: 'Send me post',
       name: 'Post',
+      additionalFieldGroupInfo: '',
       options: [
         {
           label: 'Post',
