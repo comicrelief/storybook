@@ -38,6 +38,7 @@ export default {
           name: 'permissionPost',
           hideFields: false,
           extraInfo: 'Please confirm the address we will use to <b>post</b> to you:',
+          disabled: false,
         },
       ],
       field: [
