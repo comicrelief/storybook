@@ -159,10 +159,14 @@ class MarketingConsentCheckbox extends Component {
     const bgStyle = 'form__field--background';
     const customMessage = typeof item.customMessage !== 'undefined' ? item.customMessage : null;
     const subFieldShowing = !(this.state.checkboxValidation[checkbox].isFieldsHidden);
+    const additionalFieldGroupInfo = typeof item.additionalFieldGroupInfo !== 'undefined' ? item.additionalFieldGroupInfo : null;
 
     return (
       <div key={item.id} className={`form__field--wrapper form__field-wrapper--checkbox form__field-wrapper--background form__field-wrapper--${item.name} ${(subFieldShowing ? 'showing' : '')}`}>
         <p className="form__fieldset--label" aria-label={`Can we contact you by ${item.name}?`}>{item.text}</p>
+
+        { additionalFieldGroupInfo && <p className="form__fieldset--additional-info">{additionalFieldGroupInfo}</p> }
+
         { customMessage && <p>{customMessage}</p> }
         <div id={`field-wrapper--${item.name}`} className="form__field--wrapper" >
           {
