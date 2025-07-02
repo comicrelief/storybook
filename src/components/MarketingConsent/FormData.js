@@ -30,6 +30,7 @@ export default {
       id: 'postConsent',
       text: 'Send me post',
       name: 'Post',
+      additionalFieldGroupInfo: '',
       options: [
         {
           label: 'Post',
@@ -37,6 +38,7 @@ export default {
           name: 'permissionPost',
           hideFields: false,
           extraInfo: 'Please confirm the address we will use to <b>post</b> to you:',
+          disabled: false,
         },
       ],
       field: [
@@ -116,6 +118,8 @@ export default {
           label: 'Phone number',
           placeholder: null,
           required: true,
+          // For reference for the future usage, but also because I had to do some weird formatting with the escape characters, don't wanna lose it!
+          // pattern: '^(((((\\+44)|(0044))\\s?\\d{4}|\\(?0\\d{4}\\)?)\\s?\\d{3}\\s?\\d{3})|((((\\+44)|(0044))\\s?\\d{3}|\\(?0\\d{3}\\)?)\\s?\\d{3}\\s?\\d{4})|((((\\+44)|(0044))\\s?\\d{2}|\\(?0\\d{2}\\)?)\\s?\\d{4}\\s?\\d{4}))(\\s?\\\\#(\\d{4}|\\d{3}))?$',
         },
       ],
     },
@@ -141,6 +145,7 @@ export default {
           label: 'Mobile number',
           placeholder: null,
           required: true,
+          // pattern: '^(((((\\+44)|(0044))\\s?\\d{4}|\\(?0\\d{4}\\)?)\\s?\\d{3}\\s?\\d{3})|((((\\+44)|(0044))\\s?\\d{3}|\\(?0\\d{3}\\)?)\\s?\\d{3}\\s?\\d{4})|((((\\+44)|(0044))\\s?\\d{2}|\\(?0\\d{2}\\)?)\\s?\\d{4}\\s?\\d{4}))(\\s?\\\\#(\\d{4}|\\d{3}))?$',
         },
       ],
     },
