@@ -422,7 +422,8 @@ class PostcodeLookup extends Component {
       extraClass: 'search-box',
       autoComplete: isChrome ? 'new-postcode' : 'off',
     };
-    const addressPattern = /^[A-Za-z0-9]+[ _.'/&\w-]*$/;
+    const addressPattern = /^[A-Za-z0-9]+[ _.'\/&\w\-]*$/;
+
     const addressErrorMessage = 'This field only accepts alphanumeric characters and \' . - & _ /';
     const addressOutputFields = [
       { id: 'address1', type: 'text', label: 'Address line 1', required: true, pattern: addressPattern, invalidErrorText: addressErrorMessage, autoComplete: isChrome ? 'new-address-1' : 'off' },
