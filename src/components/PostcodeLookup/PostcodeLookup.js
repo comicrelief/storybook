@@ -407,6 +407,9 @@ class PostcodeLookup extends Component {
    */
   render() {
     const isBrowser = browser();
+
+    const isChrome = isBrowser.name === 'chrome';
+
     const postCodeField = {
       id: 'postcode',
       type: 'text',
@@ -417,15 +420,15 @@ class PostcodeLookup extends Component {
       invalidErrorText: this.state.currentPostcodeValidation.errorMsg,
       emptyFieldErrorText: 'Please enter your postcode',
       extraClass: 'search-box',
-      autoComplete: isBrowser.name === 'chrome' ? 'new-postcode' : 'off',
+      autoComplete: isChrome ? 'new-postcode' : 'off',
     };
     const addressPattern = /^[A-Za-z0-9]+[ _.'/&\w-]*$/;
     const addressErrorMessage = 'This field only accepts alphanumeric characters and \' . - & _ /';
     const addressOutputFields = [
-      { id: 'address1', type: 'text', label: 'Address line 1', required: true, pattern: addressPattern, invalidErrorText: addressErrorMessage },
-      { id: 'address2', type: 'text', label: 'Address line 2', required: false, pattern: addressPattern, invalidErrorText: addressErrorMessage },
-      { id: 'address3', type: 'text', label: 'Address line 3', required: false, pattern: addressPattern, invalidErrorText: addressErrorMessage },
-      { id: 'town', type: 'text', label: 'Town/City', required: true, pattern: addressPattern, invalidErrorText: addressErrorMessage },
+      { id: 'address1', type: 'text', label: 'Address line 1', required: true, pattern: addressPattern, invalidErrorText: addressErrorMessage, autoComplete: isChrome ? 'new-address-1' : 'off' },
+      { id: 'address2', type: 'text', label: 'Address line 2', required: false, pattern: addressPattern, invalidErrorText: addressErrorMessage, autoComplete: isChrome ? 'new-address-2' : 'off' },
+      { id: 'address3', type: 'text', label: 'Address line 3', required: false, pattern: addressPattern, invalidErrorText: addressErrorMessage, autoComplete: isChrome ? 'new-address-3' : 'off' },
+      { id: 'town', type: 'text', label: 'Town/City', required: true, pattern: addressPattern, invalidErrorText: addressErrorMessage, autoComplete: isChrome ? 'new-town' : 'off' },
     ];
     const supportedAriaAttributes = isBrowser.name === 'firefox' && isBrowser.os.match('Windows') ?
       { 'aria-live': 'assertive', 'aria-relevant': 'additions removals' } : { 'aria-live': 'assertive', role: 'status' };
