@@ -5,7 +5,7 @@
   "dependencies": {
     "@snyk/protect": "^1.1060.0",
     "@storybook/addon-info": "3",
-    "@storybook/addon-knobs": "3",
+    "@storybook/addon-knobs": "7.0.0",
     "@storybook/react": "5.3.13",
     "axios": ">=0.18.1",
     "babel-polyfill": "^6.26.0",
